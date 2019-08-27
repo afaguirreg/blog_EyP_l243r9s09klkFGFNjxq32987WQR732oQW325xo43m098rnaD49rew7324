@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+<style type="text/css">
+<!--
+p.MsoNormal {
+margin-top:0cm;
+margin-right:0cm;
+margin-bottom:10.0pt;
+margin-left:0cm;
+line-height:115%;
+font-size:11.0pt;
+font-family:"Calibri","sans-serif";
+}
+-->
+</style>
+<style type="text/css">
+<!--
+table.MsoNormalTable {
+font-size:10.0pt;
+font-family:"Calibri","sans-serif";
+}
+-->
+</style>
+<script type="text/javascript">
+	document.oncontextmenu = function(){return false;}
+    function disabletext(e){
+    return false
+    }
+    function reEnable(){
+    return true
+    }
+    document.onselectstart=new Function ("return false")
+    if (window.sidebar){
+    document.onmousedown=disabletext
+    document.onclick=reEnable
+    }
+</script>
+<style type="text/css">
+<!--
+p.MsoListParagraph {
+margin-top:0cm;
+margin-right:0cm;
+margin-bottom:10.0pt;
+margin-left:36.0pt;
+line-height:115%;
+font-size:11.0pt;
+font-family:"Calibri","sans-serif";
+}
+-->
+</style>
+</head>
+
+<body>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;line-height:normal;background:white;"><strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Circuitos RLC en Corriente Alterna</span></strong></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;line-height:normal;background:white;">&nbsp;</p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="line-height:115%; font-size:12.0pt; ">Los receptores en corriente alterna (c.a.) se pueden comportar de 3  formas diferentes.</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><strong><span style="font-size:12.0pt; ">Receptores  Resistivos puros</span></strong><span style="font-size:12.0pt; ">. Solo tienen resistencia pura. Se llaman  receptores R.</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><strong><span style="font-size:12.0pt; ">Receptores  Inductivos puros</span></strong><span style="font-size:12.0pt; ">. Solo tienen un componente inductivo puro  (bobina). Se llaman L.</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><strong><span style="font-size:12.0pt; ">Receptores  Capacitivos puros</span></strong><span style="font-size:12.0pt; ">. Solo tienen un componente capacitivo  (condensadores). Se llaman C.</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">En realidad no hay ningún receptor R, L o C puro, ya que por ejemplo  un motor eléctrico tiene un bobinado con componente L, pero también esta  bobina, por ser un cable, tiene una parte resistiva, por lo tanto será un  receptor RL o incluso si tiene una parte capacitiva será receptor RLC.</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">Consideraciones Previas</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">Lo primero que hay que tener en cuenta es que en c.a. las ondas de las  tensiones y las intensidades son ondas senoidales y están desfasadas, es decir  cuando empieza la onda de la tensión, la onda de la intensidad empieza más  tarde (excepto en los resistivos).</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal" align="center" style="margin-bottom:.0001pt;text-align:center;"><span style="font-size:12.0pt; "><img width="463" height="347" src="img/Circuitos RLC_clip_image002.jpg" alt="desfase alterna"></span><span style="font-size:12.0pt; "> </span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">En la gráfica de arriba la onda de la tensión está adelantada 30º  respecto a la onda de la intensidad. Esto es lo que hace a los circuitos en  alterna diferentes a los de corriente continua (c.c.).</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">Es por esto que las tensiones, intensidades, etc. deben de tratarse  como vectores, en lugar de números enteros.</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">Este ángulo de desfase se llama ρ (fi) y el cos(ρ) se conoce como  factor de potencia.</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">Las potencias en alterna son 3 diferentes.</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">Potencia Activa Pa = V x I cos(ρ) ; esta es la única que da trabajo  útil, la realmente transformada. Se mide en Vatios (w). Es la tensión eficaz  por la intensidad eficaz por el coseno del ángulo que forman.</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">Potencia Reactiva S = V x I sen() esta es la potencia no aprovechada,  cuanto menor sea mejor. Se  mide en  voltio amperios reactivos (VAR)</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">Potencia Aparente Q = V x I ; se mide en voltio amperios (VA).</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">CIRCUITOS R</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">Solo están compuesto con elementos resistivos puros. En este caso la V  y la I (tensión e intensidad) están en fase, por lo que se tratan igual que en  corriente continua. Esto en c.a. solo pasa en circuitos puramente resistivos.</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal" align="center" style="margin-bottom:.0001pt;text-align:center;"><span style="font-size:12.0pt; "><img width="667" height="584" src="img/Circuitos RLC_clip_image003.jpg" alt="circuitos R"></span><span style="font-size:12.0pt; "> </span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">En receptores resitivos puros la impedancia es R.</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">   La potencia será P = V x I. (  el cos 0º = 1), solo hay potencia activa y se llama igualmente P.</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">CIRCUITOS L</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">Son los circuitos que solo tienen componente inductivo (bobinas  puras). En este caso la V y la I están desfasadas 90º positivos. En estos  circuitos en lugar de R tenemos Xl, impedancia inductiva. L será la inductancia  y se mide en henrios, al multiplicarla por w (frecuencia angular) nos dará la  impedancia inductiva . La Xl es algo así como la resistencia de la parte  inductiva.</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal" align="center" style="margin-bottom:.0001pt;text-align:center;"><span style="font-size:12.0pt; "><img width="660" height="773" src="img/Circuitos RLC_clip_image004.jpg" alt="circuitos L"></span><span style="font-size:12.0pt; "> </span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">El valor de la tensión en cualquier momento sería:</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">   v = Vo x sen wt  ; donde Vo es el valor inicial de la tensión,  w frecuencia angular y t el tiempo.</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">   Igualmente la intensidad:</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">   i = Io x seno (wt - 90º)  Recuerda que la I está retrasada 90º.</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; "> Los valores eficaces son I =  V/wL e I V/Xl siendo Xl = w x L.</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">CIRCUITOS C </span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">   Este tipo de circuitos son  los que solo tienen componentes capacitivos (condensadores puros). En este caso  la V y la I están desfasadas 90º negativos (la V está retrasada en lugar de  adelantada con respecto a la I).</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal" align="center" style="margin-bottom:.0001pt;text-align:center;"><span style="font-size:12.0pt; "><img width="680" height="767" src="img/Circuitos RLC_clip_image006.jpg" alt="circuitos C"></span><span style="font-size:12.0pt; "> </span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">El valor de la tensión en cualquier momento sería:</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">   v = Vo x sen wt  ; donde Vo es el valor inicial de la tensión,  w frecuencia angular y t el tiempo.</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">   Igualmente la intensidad:</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">   i = Io x seno (wt + 90º),  recuerda que la I está adelantada 90º.</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">   Los valores eficaces son I =  V/Xc e I V/Xc siendo Xc = 1/wC.</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal" align="center" style="margin-bottom:.0001pt;text-align:center;"><span style="font-size:12.0pt; "><img width="517" height="743" src="img/Circuitos RLC_clip_image008.jpg"></span></p>
+<p class="MsoNormal" align="center" style="margin-bottom:.0001pt;text-align:center;"><span style="font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal" align="center" style="margin-bottom:.0001pt;text-align:center;"><span style="font-size:12.0pt; "><img width="636" height="399" src="img/Circuitos RLC_clip_image010.jpg"></span><span style="font-size:12.0pt; "> </span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><span style="font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal"><span style="font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;line-height:normal;background:white;">&nbsp;</p>
+</body>
+</html>

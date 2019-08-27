@@ -1,0 +1,1077 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin t�tulo</title>
+<style type="text/css">
+<!--
+p.MsoNormal {
+margin-top:0cm;
+margin-right:0cm;
+margin-bottom:10.0pt;
+margin-left:0cm;
+line-height:115%;
+font-size:11.0pt;
+font-family:"Calibri","sans-serif";
+}
+-->
+</style>
+<style type="text/css">
+<!--
+table.MsoNormalTable {
+font-size:10.0pt;
+font-family:"Calibri","sans-serif";
+}
+-->
+</style>
+<script type="text/javascript">
+	document.oncontextmenu = function(){return false;}
+    function disabletext(e){
+    return false
+    }
+    function reEnable(){
+    return true
+    }
+    document.onselectstart=new Function ("return false")
+    if (window.sidebar){
+    document.onmousedown=disabletext
+    document.onclick=reEnable
+    }
+</script>
+<style type="text/css">
+<!--
+p.MsoListParagraph {
+margin-top:0cm;
+margin-right:0cm;
+margin-bottom:10.0pt;
+margin-left:36.0pt;
+line-height:115%;
+font-size:11.0pt;
+font-family:"Calibri","sans-serif";
+}
+div.MsoNormal {margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+li.MsoNormal {margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:10.0pt;
+	margin-left:0cm;
+	line-height:115%;
+	font-size:11.0pt;
+	font-family:"Calibri","sans-serif";}
+-->
+</style>
+</head>
+
+<body>
+<figure>
+  <figcaption></figcaption>
+</figure>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Reglas
+  básicas para diseño de tarjetas de circuito impreso (PCB)</span></b></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></b></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><a name=intro></a><span style='font-size:12.0pt;line-height:115%;
+font-family:"Arial","sans-serif"'>En el mercado existen muchos paquetes de
+  propósito específico para el dibujo de circuitos electrónicos y el diseño de
+  circuitos impresos (OrCAD, Tango, Eagle, SmArtwork, Circuit Maker, entre
+  otros). Los programas se limitan a trabajar con comandos de operación, muchas
+  veces sin tomar en cuenta consideraciones y reglas de dibujo o diseño de tipo
+  práctico. Existen reglas universales y son independientes del software
+  utilizado ya que la diferencia entre un paquete y otro radica en los comandos
+  utilizados, o en las instrucciones, en la facilidad de uso, y, sobre todo, en
+  las capacidades y utilidades que ofrecen unos y otros.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Por
+  ejemplo: una aplicación puede ofrecer la posibilidad de una línea entre pads de
+  un circuito integrado mientras que otro puede ofrecer dos o tres líneas; un
+  programa puede ofrecer sólo el diseño sobre dos capas mientras que otro puede
+  ofrecer tres o más capas, y así sucesivamente.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Ahora
+  bien, es importante resaltar que aunque, hoy en día, tenemos la fortuna de
+  contar con herramientas informáticas tipo CAD para el dibujo y el diseño,
+  anteriormente había que abordar estos procesos con otras herramientas que
+  muchos todavía utilizan.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Por
+  ejemplo, el dibujo se hacía por los métodos tradicionales de los dibujantes y
+  diseñadores: con lápiz o rapidógrafo y a mano alzada con <a
+href="http://www.monografias.com/trabajos6/dige/dige.shtml#evo"><span
+style='color:windowtext;text-decoration:none'>escala</span></a>, regla o
+  escuadra. Los circuitos impresos se hacían con <a
+href="http://www.monografias.com/trabajos13/histarte/histarte.shtml#ORIGEN"><span
+style='color:windowtext;text-decoration:none'>dibujos</span></a> hechos a mano
+  o con herramientas de dibujo o con cinta adhesiva especial para circuitos
+  impresos, y luego se procedía a entregar el <a
+href="http://www.monografias.com/Arte_y_Cultura/index.shtml"><span
+style='color:windowtext;text-decoration:none'>arte</span></a> al fabricante de
+  impresos o uno mismo podía realizar el impreso utilizando las <a
+href="http://www.monografias.com/trabajos10/tarin/tarin.shtml"><span
+style='color:windowtext;text-decoration:none'>tarjetas</span></a> con
+  revestimiento de <a
+href="http://www.monografias.com/trabajos13/tramat/tramat.shtml#COBRE"><span
+style='color:windowtext;text-decoration:none'>cobre</span></a> y <a
+href="http://www.monografias.com/trabajos14/soluciones/soluciones.shtml"><span
+style='color:windowtext;text-decoration:none'>soluciones</span></a> químicas.
+  Posteriormente apareció el <a
+href="http://www.monografias.com/trabajos12/autocad/autocad.shtml"><span
+style='color:windowtext;text-decoration:none'>AUTOCAD</span></a>, el cual
+  también permite hacer dibujos esquemáticos y diseños de impresos pero de una
+  manera menos eficiente por tratarse de un programa no concebido para esta
+  aplicación.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>La
+  desventaja de los métodos <a
+href="http://www.monografias.com/trabajos6/maca/maca.shtml"><span
+style='color:windowtext;text-decoration:none'>manuales</span></a> de
+  fabricación de impresos radica en que la presentación no es tan profesional y
+  es más complicado el montaje por carecer de guías de ensamblaje y porque las
+  perforaciones de los pads u orificios hay que hacerlas manualmente con
+  taladro,  y además, no se tiene la posibilidad de agujeros metalizados cuando
+  se va a trabajar con dos o más capas.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><a name=normas></a><b><span style='font-size:12.0pt;line-height:115%;
+font-family:"Arial","sans-serif"'>Reglas básicas para dibujo de planos
+  electrónicos</span></b></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></b></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>1.</span></b><span
+style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'> Por
+  razones de <a
+href="http://www.monografias.com/trabajos36/estetica/estetica.shtml"><span
+style='color:windowtext;text-decoration:none'>estética</span></a>, <a
+href="http://www.monografias.com/trabajos11/travent/travent.shtml"><span
+style='color:windowtext;text-decoration:none'>distribución</span></a> de
+  espacio y facilidad para interconectar los dispositivos, se recomienda trazar
+  sólo líneas horizontales y verticales.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>2. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Evitar,
+  hasta donde sea posible, hacer líneas oblicuas.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>3. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>En
+  el caso de que en diferentes partes de un plano haya que hacer líneas oblicuas,
+  todas deben tener el mismo ángulo de inclinación. </span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>4. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Si
+  en los cruces de 2 líneas hay contacto eléctrico (nodo) se debe colocar un
+  punto indicándolo, así: </span></p>
+<p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+text-align:center'><i><span style='font-size:12.0pt;line-height:115%;
+font-family:"Arial","sans-serif"'><img border=0 width=142 height=124
+src="Reglas%20básicas%20para%20diseño%20de%20circuitos%20impresos_archivos/image001.png"></span></i></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>5. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Si
+  en el cruce no hay contacto eléctrico se debe dibujar así: </span></p>
+<p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+text-align:center'><i><span style='font-size:12.0pt;line-height:115%;
+font-family:"Arial","sans-serif"'><img border=0 width=475 height=160
+src="Reglas%20básicas%20para%20diseño%20de%20circuitos%20impresos_archivos/image002.png"></span></i></p>
+<p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+text-align:center'><span style='font-size:12.0pt;line-height:115%;font-family:
+"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>6. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Cuando
+  haya demasiados puntos comunes a <a
+href="http://www.monografias.com/trabajos15/origen-tierra/origen-tierra.shtml"><span
+style='color:windowtext;text-decoration:none'>la tierra</span></a> del circuito
+  se debe evitar el uso de muchas líneas de conexión, utilizando en su lugar el
+  símbolo de <a
+href="http://www.monografias.com/trabajos11/tierreco/tierreco.shtml"><span
+style='color:windowtext;text-decoration:none'>tierra</span></a> para cada
+  línea, así:</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+text-align:center'><i><span style='font-size:12.0pt;line-height:115%;
+font-family:"Arial","sans-serif"'><img border=0 width=382 height=103
+src="Reglas%20básicas%20para%20diseño%20de%20circuitos%20impresos_archivos/image003.png"></span></i></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>7. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Hasta
+  donde sea posible, aunque no es estrictamente necesario, es deseable que haya
+  cierta correspondencia espacial en la ubicación de los elementos en el plano
+  respecto al dibujo pictórico o al dispositivo físico real. </span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>8. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>No
+  olvidar la convención de los <a
+href="http://www.monografias.com/trabajos36/signos-simbolos/signos-simbolos.shtml"><span
+style='color:windowtext;text-decoration:none'>símbolos</span></a> literales
+  para componentes de circuitos, así: </span></p>
+<p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+text-align:center'><i><span style='font-size:12.0pt;line-height:115%;
+font-family:"Arial","sans-serif"'><img border=0 width=443 height=72
+src="Reglas%20básicas%20para%20diseño%20de%20circuitos%20impresos_archivos/image004.png"></span></i></p>
+<p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+text-align:center'>&nbsp;</p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>9. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Cuando
+  en un plano hay dos o más componentes del mismo tipo se deben utilizar índices
+  ó subíndices así: </span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>R1,
+  R2, R3, C1, C2, C3, L1, L2, Q1, Q2 ...</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>10. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Si
+  el plano no es muy complejo se pueden colocar los símbolos literales, sus
+  subíndices y sus <a
+href="http://www.monografias.com/trabajos14/nuevmicro/nuevmicro.shtml"><span
+style='color:windowtext;text-decoration:none'>valores</span></a> al pie del
+  respectivo símbolo normalizado del elemento. Ejemplo:</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+text-align:center'><i><span style='font-size:12.0pt;line-height:115%;
+font-family:"Arial","sans-serif"'><img border=0 width=225 height=75
+src="Reglas%20básicas%20para%20diseño%20de%20circuitos%20impresos_archivos/image005.png"></span></i></p>
+<p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+text-align:center'><i><span style='font-size:12.0pt;line-height:115%;
+font-family:"Arial","sans-serif"'>&nbsp;</span></i></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>11. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Si
+  el plano es muy complejo, es preferible hacer una tabla o cuadro aparte con los
+  valores de los componentes.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+text-align:center'><i><span style='font-size:12.0pt;line-height:115%;
+font-family:"Arial","sans-serif"'><img border=0 width=208 height=108
+src="Reglas%20básicas%20para%20diseño%20de%20circuitos%20impresos_archivos/image006.png"></span></i></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>12. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>En
+  los <a href="http://www.monografias.com/trabajos12/diflu/diflu.shtml"><span
+style='color:windowtext;text-decoration:none'>diagramas</span></a> de bloques,
+  las líneas con sus flechas deben ubicarse en la mitad de los costados de los
+  rectángulos.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>13. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>En
+  los diagramas de bloques sólo se escribe la <a
+href="http://www.monografias.com/trabajos7/mafu/mafu.shtml"><span
+style='color:windowtext;text-decoration:none'>función</span></a> o el tipo de
+  bloque funcional del circuito eléctrico de donde proviene; no se dibujan allí
+  los símbolos de los componentes, a menos que sean relevantes por sí mismos.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>14. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>En
+  las conexiones en T es preferible poner el punto o nodo de conexión. Ejemplo:</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+text-align:center'><i><span style='font-size:12.0pt;line-height:115%;
+font-family:"Arial","sans-serif"'><img border=0 width=379 height=170
+src="Reglas%20básicas%20para%20diseño%20de%20circuitos%20impresos_archivos/image007.png"></span></i></p>
+<p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+text-align:center'><span style='font-size:12.0pt;line-height:115%;font-family:
+"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><a name=normasined></a><b><span style='font-size:12.0pt;line-height:
+115%;font-family:"Arial","sans-serif"'>Reglas básicas para diseño de circuitos
+  impresos</span></b></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></b></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>1. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Hacer
+  un diseño previo en papel milimetrado, a escala natural (1:1) antes de sentarse
+  a trabajar con el programa de <a
+href="http://www.monografias.com/trabajos15/computadoras/computadoras.shtml"><span
+style='color:windowtext;text-decoration:none'>computador</span></a>. Este <a
+href="http://www.monografias.com/trabajos13/mapro/mapro.shtml"><span
+style='color:windowtext;text-decoration:none'>procedimiento</span></a>, a la
+  larga, ahorra <a
+href="http://www.monografias.com/trabajos901/evolucion-historica-concepciones-tiempo/evolucion-historica-concepciones-tiempo.shtml"><span
+style='color:windowtext;text-decoration:none'>tiempo</span></a>, minimiza
+  errores y permite optimizar el diseño desde el principio.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>2. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Por
+  lo regular, en los dispositivos portátiles (alimentados con <a
+href="http://www.monografias.com/trabajos11/pila/pila.shtml"><span
+style='color:windowtext;text-decoration:none'>pilas</span></a>) habrá más
+  restricciones de espacio en el diseño, por ello debe buscarse hacer un impreso
+  lo más pequeño posible, y utilizar, de ser necesario, más de una capa.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>3. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>En
+  dispositivos con restricciones de espacio y con alta <a
+href="http://www.monografias.com/trabajos5/estat/estat.shtml"><span
+style='color:windowtext;text-decoration:none'>densidad</span></a> de líneas y/o
+  gran complejidad del circuito, se debe utilizar doble faz y &quot;thrugh-hole&quot;
+  (hueco ó agujero pasante metalizado). Si el orificio no es metalizado, ello
+  obligaría a utilizar &quot;puentes&quot; con alambre, lo cual dificultaría el
+  montaje y sería una causa potencial de errores en el funcionamiento.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>4. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Aunque
+  en algunos casos el espacio no sea una restricción hay que optimizar el tamaño
+  del impreso ya que el costo de las tarjetas depende del el área, es decir por
+  cm<sup>2</sup>.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>5. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>En
+  los dispositivos portátiles deben hacerse diseños &quot;ergonómicos&quot;, es
+  decir, los dispositivos deben ubicarse de tal manera que permitan una buena
+  operación o funcionalidad por parte del usuario y, posteriormente, no causen
+  traumas al proceso de <a
+href="http://www.monografias.com/trabajos15/mantenimiento-industrial/mantenimiento-industrial.shtml"><span
+style='color:windowtext;text-decoration:none'>mantenimiento</span></a>.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>6. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Hasta
+  donde sea posible, aunque no es estrictamente necesario, es deseable que haya
+  cierta correspondencia espacial en la ubicación de los elementos en el plano
+  respecto al dibujo pictórico o al dispositivo físico real. Indiscutiblemente,
+  esto facilita el montaje, el mantenimiento y la estética. Por esta misma razón
+  no es recomendable utilizar la utilidad de la AUTORUTA que ofrecen algunos
+  programas ya que ella no garantiza un control ni sobre la estética ni sobre la
+  correspondencia espacial.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>7. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>La
+  ubicación de los elementos debe hacerse teniendo en cuenta, además de la <a
+href="http://www.monografias.com/trabajos7/ergo/ergo.shtml"><span
+style='color:windowtext;text-decoration:none'>ergonomía</span></a>, lo
+  siguiente:</span></p>
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:36.0pt;margin-bottom:.0001pt;text-align:justify;text-indent:-18.0pt'><span
+style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Si
+  todos los dispositivos van en el impreso y de allí van directamente enclavados
+  al chasis.</span></p>
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:36.0pt;margin-bottom:.0001pt;text-align:justify;text-indent:-18.0pt'><span
+style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Si
+  algunos van en el impreso y otros en el chasis y estos últimos se conectan al
+  impreso mediante conectores y/o cables.</span></p>
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:36.0pt;margin-bottom:.0001pt;text-align:justify'><span
+style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>8. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Hay
+  que buscar que el diseño lleve cierta &quot;estética&quot;, buscando que haya
+  una buena ubicación y elegancia en el trazado de las líneas.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>9. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Los
+  tres tipos de líneas de un circuito deben tener en cuenta la siguiente
+  convención en el impreso:</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Línea
+  de interconexión de dispositivos o conducción de señales o datos: línea delgada</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Línea
+  de alimentación de voltaje Vcc: Línea gruesa </span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Línea
+  de tierra: Línea más gruesa</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>10. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Para
+  evitar interferencias electromagnéticas por inducción de ruidos en el circuito
+  y para &quot;apantallarlo&quot; frente a señales espúreas (aleatorias) de <a
+href="http://www.monografias.com/trabajos/contamacus/contamacus.shtml"><span
+style='color:windowtext;text-decoration:none'>ruido</span></a> de radio frecuencia
+  (RF), se debe rellenar todo espacio disponible con líneas o trazos de tierra.
+  Ejemplo: </span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+text-align:center'><i><span style='font-size:12.0pt;line-height:115%;
+font-family:"Arial","sans-serif"'><img border=0 width=548 height=134
+src="Reglas%20básicas%20para%20diseño%20de%20circuitos%20impresos_archivos/image008.png"></span></i></p>
+<p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+text-align:center'><span style='font-size:12.0pt;line-height:115%;font-family:
+"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>11. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Si
+  lo prefiere, por estética, trate de hacer enmallados más &quot;rellenos&quot;
+  (sombreados) en la tierra del impreso, así:</span></p>
+<p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+text-align:center'><i><span style='font-size:12.0pt;line-height:115%;
+font-family:"Arial","sans-serif"'><img border=0 width=182 height=87
+src="Reglas%20básicas%20para%20diseño%20de%20circuitos%20impresos_archivos/image009.png"></span></i></p>
+<p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+text-align:center'><span style='font-size:12.0pt;line-height:115%;font-family:
+"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>12. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Para
+  circuitos de aplicaciones en RF tratar, de ser posible y si el programa lo
+  permite, redondear las esquinas de los trazos evitando así vórtices de
+  oscilación. Además se debe procurar no levantar la capa de cobre accidentalmente
+  cuando se está manipulando la tarjeta al rozar el extremo agudo de un trazo.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>13. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>En
+  aplicaciones de telecomunicaciones con señales de muy alta frecuencia (UHF o microondas)
+  es necesario tener en cuenta la aparición de parámetros distribuídos (que se
+  estudian en la teoría de las líneas de transmisión). Esto significa que con una
+  línea conductora de cobre se puede simular un condensador o una bobina,
+  teniendo en cuenta las dimensiones de la línea, la separación entre líneas, el
+  grosor de la tarjeta, la permitividad relativa del material dieléctrico, etc.
+  Algunos de los materiales que se utilizan son: baquelita, Arseniuro de galio
+  (GaAs), Alúmina, Quarzo, fibra de vidrio de teflón, fibra de vidrio epoxy, cerámica,
+  entre otros. Usualmente este tipo de tarjetas llevan una cara completa de cobre
+  y los componentes van montados superficialmente sobre la otra. Este tipo de
+  tarjetas se conocen como LINEAS DE TRANSMISION POR MICROCINTA y la técnica de
+  diseño puede estudiarse en los manuales de <a
+href="http://www.monografias.com/trabajos11/trans/trans.shtml"><span
+style='color:windowtext;text-decoration:none'>transistores</span></a> y
+  amplificadores de UHF o microondas.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>14. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Una
+  excelente <a href="http://www.monografias.com/trabajos11/henrym/henrym.shtml"><span
+style='color:windowtext;text-decoration:none'>estrategia</span></a> para evitar
+  los <a
+href="http://www.monografias.com/trabajos15/calidad-serv/calidad-serv.shtml#PLANT"><span
+style='color:windowtext;text-decoration:none'>problemas</span></a> de
+  funcionamiento de los circuitos integrados en las tarjetas electrónicas,
+  ocasionados por la inducción de ruidos de RF (a través de la línea de
+  alimentación o por el aire), es la utilización de filtros a la entrada de
+  alimentación (Vcc) del chip. Una manera práctica y eficiente de hacerlo es
+  poniendo <a
+href="http://www.monografias.com/trabajos/compelectropas/compelectropas.shtml"><span
+style='color:windowtext;text-decoration:none'>condensadores</span></a> de
+  tántalo (o tantalio) de 0.1 microfaradios lo más cerca posible del pin o
+  patilla de Vcc del Circuito Integrado. No olvide que los condensadores de
+  tántalo son electrolíticos y por consiguiente debe tenerse en cuenta la
+  polaridad.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>15. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Sobre
+  el tipo de material a utilizar como dieléctrico, el valor de la constante de
+  permitividad relativa no influye sobre el funcionamiento del circuito siempre y
+  cuando se opere en bajas frecuencias. En altas frecuencias, es necesario hacer
+  consideraciones de microcinta como se planteó antes. En Colombia, los
+  materiales más utilizados, comúnmente, son la fibra de vidrio y la baquelita,
+  siendo más económica esta última pero la primera ofrece una mejor presentación
+  estética.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>16. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Siempre
+  se deben tener muy en cuenta las dimensiones físicas reales de los
+  dispositivos, las de los pines de conexión al impreso para la separación entre
+  los huecos u orificios donde van los pads, la del encapsulado del dispositivo
+  para que no se &quot;monte&quot;, choque o impida la ubicación de otro
+  dispositivo.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Los
+  dispositivos que generen calor en su funcionamiento también deben ser
+  considerados en la parte de diseño previo, para no alterar el normal
+  funcionamiento de los elementos alrededor.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><a name=comoobten></a><b><span style='font-size:12.0pt;line-height:
+115%;font-family:"Arial","sans-serif"'>¿Cómo obtener las dimensiones físicas de
+  los dispositivos?</span></b></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></b></p>
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:36.0pt;margin-bottom:.0001pt;text-align:justify;text-indent:-18.0pt'><span
+style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Midiendo
+  el dispositivo físico real con una regla, una escala o una escuadra.</span></p>
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:36.0pt;margin-bottom:.0001pt;text-align:justify;text-indent:-18.0pt'><span
+style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Colocando
+  el dispositivo sobre una board universal. Colocando el dispositivo sobre papel
+  milimetrado.</span></p>
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:36.0pt;margin-bottom:.0001pt;text-align:justify;text-indent:-18.0pt'><span
+style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Consultando
+  en los manuales de componentes originales, o en los de reemplazo (ej: E.C.G.)</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>No
+  olvidar que las dimensiones en los manuales internacionales algunas veces
+  aparecen con el sistema inglés de pulgadas y en fracciones (1/8, ¼, 1/16,
+  etc.). Cuando las dimensiones están en pulgadas es conveniente convertirlas a
+  centímetros y milímetros. Lo usual es expresarlas en milímetros.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>También
+  se debe tener en cuenta si el dispositivo lleva disipadores de calor ya que
+  estos ocupan más espacio.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Ejemplo:</span></p>
+<p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+text-align:center'><i><span style='font-size:12.0pt;line-height:115%;
+font-family:"Arial","sans-serif"'><img border=0 width=339 height=149
+src="Reglas%20básicas%20para%20diseño%20de%20circuitos%20impresos_archivos/image010.png"></span></i></p>
+<p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+text-align:center'><span style='font-size:12.0pt;line-height:115%;font-family:
+"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>En
+  ocasiones es ideal que los componentes que requieren disipación de calor (diodos,
+  reguladores) vayan con el disipador directamente sobre el chasis del equipo y
+  así se libera espacio en el impreso y se evitan los problemas asociados a la
+  disipación calórica. En este caso, la conexión del dispositivo al impreso se
+  hace vía cable y conectores (aéreos o en la tarjeta).</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><a name=algunas></a><span style='font-size:12.0pt;line-height:115%;
+font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Algunas
+  indicaciones de medidas físicas típicas</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<div align=center>
+  <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width="41%"
+ style='width:41.5%;margin-left:68.75pt;border:solid #AAAAAA 1.0pt'>
+    <tr>
+      <td width="77%" valign=top style='width:77.06%;border:solid #AAAAAA 1.0pt;
+  padding:1.5pt 1.5pt 1.5pt 1.5pt'><p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Chip
+        angosto</span></p></td>
+      <td width="22%" valign=top style='width:22.94%;border:solid #AAAAAA 1.0pt;
+  padding:1.5pt 1.5pt 1.5pt 1.5pt'><p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>7.5
+        mm</span></p></td>
+    </tr>
+    <tr>
+      <td width="77%" valign=top style='width:77.06%;border:solid #AAAAAA 1.0pt;
+  padding:1.5pt 1.5pt 1.5pt 1.5pt'><p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Chip
+        ancho</span></p></td>
+      <td width="22%" valign=top style='width:22.94%;border:solid #AAAAAA 1.0pt;
+  padding:1.5pt 1.5pt 1.5pt 1.5pt'><p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>15
+        mm</span></p></td>
+    </tr>
+    <tr>
+      <td width="77%" valign=top style='width:77.06%;border:solid #AAAAAA 1.0pt;
+  padding:1.5pt 1.5pt 1.5pt 1.5pt'><p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Diodo
+        3 Amperios</span></p></td>
+      <td width="22%" valign=top style='width:22.94%;border:solid #AAAAAA 1.0pt;
+  padding:1.5pt 1.5pt 1.5pt 1.5pt'><p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>15
+        mm</span></p></td>
+    </tr>
+    <tr>
+      <td width="77%" valign=top style='width:77.06%;border:solid #AAAAAA 1.0pt;
+  padding:1.5pt 1.5pt 1.5pt 1.5pt'><p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Diodo
+        1 amperio</span></p></td>
+      <td width="22%" valign=top style='width:22.94%;border:solid #AAAAAA 1.0pt;
+  padding:1.5pt 1.5pt 1.5pt 1.5pt'><p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>10
+        mm</span></p></td>
+    </tr>
+    <tr>
+      <td width="77%" valign=top style='width:77.06%;border:solid #AAAAAA 1.0pt;
+  padding:1.5pt 1.5pt 1.5pt 1.5pt'><p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Resistor
+        ¼ watt</span></p></td>
+      <td width="22%" valign=top style='width:22.94%;border:solid #AAAAAA 1.0pt;
+  padding:1.5pt 1.5pt 1.5pt 1.5pt'><p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>10
+        mm</span></p></td>
+    </tr>
+    <tr>
+      <td width="77%" valign=top style='width:77.06%;border:solid #AAAAAA 1.0pt;
+  padding:1.5pt 1.5pt 1.5pt 1.5pt'><p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Resistor
+        1 W</span></p></td>
+      <td width="22%" valign=top style='width:22.94%;border:solid #AAAAAA 1.0pt;
+  padding:1.5pt 1.5pt 1.5pt 1.5pt'><p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>15
+        mm</span></p></td>
+    </tr>
+    <tr>
+      <td width="77%" valign=top style='width:77.06%;border:solid #AAAAAA 1.0pt;
+  padding:1.5pt 1.5pt 1.5pt 1.5pt'><p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Condensador
+        3300 uF a 25 V</span></p></td>
+      <td width="22%" valign=top style='width:22.94%;border:solid #AAAAAA 1.0pt;
+  padding:1.5pt 1.5pt 1.5pt 1.5pt'><p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>9
+        mm</span></p></td>
+    </tr>
+    <tr>
+      <td width="77%" valign=top style='width:77.06%;border:solid #AAAAAA 1.0pt;
+  padding:1.5pt 1.5pt 1.5pt 1.5pt'><p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Capacitor
+        tantalio</span></p></td>
+      <td width="22%" valign=top style='width:22.94%;border:solid #AAAAAA 1.0pt;
+  padding:1.5pt 1.5pt 1.5pt 1.5pt'><p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>2.5
+        mm</span></p></td>
+    </tr>
+  </table>
+</div>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>17. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>La
+  altura de los dispositivos debe ir en concordancia con la altura máxima de la
+  caja o el chasis donde va el impreso. A veces es necesario doblar el
+  dispositivo y &quot;acostarlo&quot; lo cual afecta el espacio disponible para
+  ubicar otros elementos.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>18. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Los
+  cables deben ir con amarradores, hay que evitar las &quot;marañas&quot; lo cual
+  denota desorden, falta de profesionalismo y causa errores frecuentes, afectando
+  la presentación y la calidad y generando grandes dolores de cabeza a la hora de
+  hacer un mantenimiento.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>19. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Dispositivos
+  muy pesados como los transformadores de alimentación, por lo regular, no se
+  deben ubicar en el impreso, pero sí en el chasís, a menos que sea absolutamente
+  necesario. En su lugar se prefiere el uso de conectores para establecer la conexión
+  entre el transformador y el impreso.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>20. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>En
+  los equipos en donde el chasis actúa como tierra, debe procurarse buscar
+  bastantes puntos de conexión del impreso al chasís, especialmente en equipos de
+  Telecomunicaciones. Para ello se deben aprovechar, eventualmente, los tornillos
+  de sujeción del impreso.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>21. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>En
+  circuitos de RF que requieran apantallamiento o blindaje contra el ruido
+  electromagnético y cuyo chasis sea <a
+href="http://www.monografias.com/trabajos5/plasti/plasti.shtml"><span
+style='color:windowtext;text-decoration:none'>plástico</span></a> se recomienda
+  revestir el interior de la caja plástica (conocida en inglés como enclosure)
+  con papel <a
+href="http://www.monografias.com/trabajos13/tramat/tramat.shtml#ALUMIN"><span
+style='color:windowtext;text-decoration:none'>aluminio</span></a>.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>22. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>No
+  olvidar dejar los espacios para ubicar los tornillos de sujeción del impreso y
+  medir el diámetro de éstos.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>23. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>En
+  equipos con dos o más tarjetas, hay que tener en cuenta:</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>-
+  Si se van a interconectar entre sí por medio de Racks o por medio de cables con
+  conectores o si las tarjetas están ubicadas en sitios diferentes.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>-
+  Si una tarjeta va sobre la otra hay que prever la altura de separación de
+  acuerdo con los dispositivos y el chasis.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>24. </span></b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Para
+  proteger las tarjetas de circuitos impresos contra la corrosión, la cual causa
+  oxidación y aislamiento eléctrico en las pistas de cobre, se debe proteger la
+  tarjeta bañándola con una capa de antisoldering. Esta sustancia, además,
+  facilita la aplicación de los puntos de <a
+href="http://www.monografias.com/trabajos13/elproces/elproces.shtml"><span
+style='color:windowtext;text-decoration:none'>soldadura</span></a> en los
+  componentes y le da una apariencia muy profesional al circuito con un color
+  típico, verde o azul.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><a name=consid></a><b><span style='font-size:12.0pt;line-height:115%;
+font-family:"Arial","sans-serif"'>Consideraciones finales</span></b></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>La
+  mayoría de los programas ofrecen, como mínimo, las siguientes posibilidades de
+  impresión de capas:</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:36.0pt;margin-bottom:.0001pt;text-align:justify;text-indent:-18.0pt'><span
+style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>La
+  capa de soldadura, que es la usual, especialmente cuando se trabaja con una
+  sola cara (solder side)</span></p>
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:36.0pt;margin-bottom:.0001pt;text-align:justify;text-indent:-18.0pt'><span
+style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>La
+  capa de los componentes, cuando se trabaja con dos caras (component side)</span></p>
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:36.0pt;margin-bottom:.0001pt;text-align:justify;text-indent:-18.0pt'><span
+style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>La
+  capa del screen (silk screen) cuando se utiliza como guía de componentes para
+  identificar el tipo de componente y su denominación o valor. Va por el lado de
+  los componentes</span></p>
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:36.0pt;margin-bottom:.0001pt;text-align:justify;text-indent:-18.0pt'><span
+style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>La
+  capa de máscara de puntos de pads sobre el lado de la soldadura (solder-side
+  mask). Se utiliza para el baño de antisoldering, permitiendo que sólo los
+  puntos de conexión de los componentes a la tarjeta queden libres para la
+  aplicación de la soldadura. Así mismo, para permitir el proceso de taladrar los
+  orificios mediante máquinas de control numérico.</span></p>
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:36.0pt;margin-bottom:.0001pt;text-align:justify;text-indent:-18.0pt'><span
+style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>La
+  capa de máscara de puntos de pads sobre el lado de los componentes (component-side
+  mask). Tiene el mismo propósito de la anterior.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Desde
+  el punto de vista de impresiones de prueba y arte final, un programa debe
+  permitir la impresión de chequeo de prueba a tamaño natural (1:1) y a doble
+  tamaño (2:1) y el arte final a doble tamaño.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>La
+  manera como se entrega el arte final para la fabricación del circuito impreso dependerá
+  de los requerimientos que tenga cada fabricante de circuitos impresos.
+  Anteriormente se entregaba el arte impreso a escala 1:1 o a escala 2:1. Ahora,
+  lo usual es entregarlo en disco o por e-mail y el fabricante se encarga del
+  resto del proceso: imprimir o plotear (esto es lo más indicado), elaborar los
+  negativos en las escalas necesarias y de acuerdo con la demanda del <a
+href="http://www.monografias.com/trabajos11/sercli/sercli.shtml"><span
+style='color:windowtext;text-decoration:none'>cliente</span></a>: para impreso
+  de una sola faz, de dos o más caras con o sin thrugh-hole, microcinta, con
+  máscara de pads o agujeros para aplicación de antisoldering y para guía de
+  perforaciones con máquina de control numérico, con silk screen para guía del
+  montaje de componentes, etc.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><a name=procedim></a><b><span style='font-size:12.0pt;line-height:
+115%;font-family:"Arial","sans-serif"'>Procedimiento guía para hacer una
+  búsqueda en el ECG</span></b></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>El
+  ECG es la guía de reemplazos de componentes electrónicos de los principales
+  fabricantes en el ámbito mundial; lo ideal es conseguir el elemento del fabricante
+  original, por ejemplo: National Semiconductor, Texas Instruments, Motorola,
+  etc. Hay que buscar un manual lo más actualizado posible para evitar la
+  sorpresa de que un dispositivo ya ha sido descontinuado por el fabricante.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>En
+  todo caso, la guía de reemplazos jamás podrá sustituir al manual del fabricante
+  original pero constituye una buena ayuda, específicamente en lo referente a
+  dimensiones numéricas exactas.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:36.0pt;margin-bottom:.0001pt;text-align:justify;text-indent:-18.0pt'><span
+style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Tomar
+  la referencia original del elemento que se va a buscar.</span></p>
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:36.0pt;margin-bottom:.0001pt;text-align:justify;text-indent:-18.0pt'><span
+style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Buscar
+  la referencia respectiva en la guía de reemplazos, Ejemplo: ECG 5710. Las
+  referencias se encuentran al final del manual en el siguiente orden:</span></p>
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:36.0pt;margin-bottom:.0001pt;text-align:justify;text-indent:34.8pt'><span
+style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Numéricas
+  y literales. Ejemplo: 2N 2222.</span></p>
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:35.4pt;margin-bottom:.0001pt;text-align:justify;text-indent:35.4pt'><span
+style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Sólo
+  numéricas. Ejemplo: 46 - 132206 - 6.</span></p>
+<p class=MsoNormal style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:36.0pt;margin-bottom:.0001pt;text-align:justify;text-indent:-18.0pt'><span
+style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>-<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Literales
+  y numéricos. Ejemplo: LM 317.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>-
+  Buscar la referencia de reemplazo en el índice de <a
+href="http://www.monografias.com/trabajos12/elproduc/elproduc.shtml"><span
+style='color:windowtext;text-decoration:none'>productos</span></a>, al
+  principio del manual. Allí aparece la referencia, el número de página, el
+  número de figura y una corta <a name=autolink>descripción</a>.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>-
+  Buscar la referencia en la página correspondiente. El ECG está dividido en los
+  siguientes bloques:</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Dispositivos <a href="http://www.monografias.com/trabajos11/semi/semi.shtml"><span
+style='color:windowtext;text-decoration:none'>semiconductores</span></a> discretos.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Diodos.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Transistores.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Tiristores.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Dispositivos
+  ópticos, etc.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Circuitos
+  modulares y circuitos integrados (IC’s) lineales.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Circuitos
+  integrados digitales, los cuales a su vez tienen las siguientes familias o
+  tecnologías:</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>1.
+  CMOS *</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>2.
+  HLL</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>3.
+  RTL</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>4.
+  TTL *</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>*
+  Tecnologías con las que más se trabaja actualmente.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Una
+  vez encontrada la referencia correspondiente, allí se tendrá la información
+  básica (datos de especificaciones típicas o críticas) a excepción de los IC’s
+  lineales y digitales, que sólo tendrán, por lo general, el diagrama de
+  conexiones (distribución de pines). Los semiconductores discretos disponen de
+  mayor información para los diferentes parámetros.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Muy
+  importante: el empaquetamiento externo (Package) se define mediante su
+  encapsulado (case) y un número de figura.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Una
+  referencia ECG puede corresponder a varias referencias originales.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>De
+  igual manera, un mismo encapsulado puede ser común a varios dispositivos. Puesto
+  que los transistores, Triac, SCR y reguladores vienen en una amplia variedad de
+  encapsulados, éstos se pueden encontrar en los Package Outlines (esquemas de
+  encapsulado) del ECG. A continuación se muestran algunos ejemplos de símbolos y
+  encapsulados comunes:</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><a name=taller></a><span style='font-size:12.0pt;line-height:115%;
+font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
+text-align:center'><i><span style='font-size:12.0pt;line-height:115%;
+font-family:"Arial","sans-serif"'><img border=0 width=316 height=202
+src="Reglas%20básicas%20para%20diseño%20de%20circuitos%20impresos_archivos/image011.png"></span></i></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Si
+  tiene dudas con los componentes electrónicos, es conveniente consultar los
+  símbolos y modalidades de encapsulado y los terminales o pines de conexión de
+  dispositivos semiconductores típicos. Esto lo puede hacer en los manuales de
+  componentes o en los <a
+href="http://www.monografias.com/trabajos16/contabilidad-mercantil/contabilidad-mercantil.shtml#libros"><span
+style='color:windowtext;text-decoration:none'>libros</span></a> de electrónica
+  típicos. Pero las dimensiones tendrán que consultarse necesariamente en los
+  manuales siempre que no se tenga a disposición el dispositivo físico real.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Observe
+  cuidadosamente la asignación de pines en los reguladores porque no siempre
+  coincidirá el mismo pin (tierra, entrada o salida) para todos. Por ejemplo, en
+  los reguladores (que son dispositivos de tres terminales) de encapsulado TO-220
+  como el LM 7815 y el LM 7805, el pin del medio es tierra; en el LM 7915 y el LM
+  337 el pin del medio es la entrada y en el LM 317 el pin del medio es la
+  salida. Esto es muy importante tenerlo en cuenta a la hora del diseño para no
+  cometer errores.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Tenga
+  muy presente las diferencias en dimensiones entre los diferentes dispositivos.
+  Por ejemplo: entre resistencias de ¼, ½ y 1 vatio, entre condensadores
+  cerámicos y condensadores electrolíticos, y así sucesivamente.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='border:solid #AAAAAA 1.0pt'>
+  <tr>
+    <td valign=top style='border:solid #AAAAAA 1.0pt;padding:1.5pt 1.5pt 1.5pt 1.5pt'><p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>REGLAS
+      GENERALES PARA EL DISEÑO DE CIRCUITOS IMPRESOS PARA EFECTOS DE SU FABRICACION
+      A NIVEL INDUSTRIAL</span></b></p>
+      <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>(CORTESIA
+        DE MICROCIRCUITOS LTDA. COLOMBIA)</span></p>
+      <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+      <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Use
+        el máximo grosor de pistas y espacio posible entre líneas.</span></p>
+      <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Use
+        la perforación adecuada según el terminal del componente, ésta deberá ser mínimo
+        0.006&quot; y máximo 0.020&quot; más grande que el grosor del terminal.</span></p>
+      <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>La
+        dona (o pad) de cobre deberá ser como mínimo 0.020&quot; mayor que el
+        diámetro del agujero.</span></p>
+      <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Programe
+        la menor cantidad posible de diámetros de agujeros.</span></p>
+      <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Tenga
+        muy en cuenta la localización de los componentes, de tal forma que no se
+        generen interferencias mecánicas, ej: conectores, puntos de prueba, etc.</span></p>
+      <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Defina
+        muy bien su arte de componentes; mínimo grosor de línea del caracter
+        0.020&quot; y altura de 1/32 &quot;</span></p>
+      <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>El
+        solder mask deberá ser por lo menos 0.015&quot; más grande que la dona de
+        cobre.</span></p>
+      <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Supla
+        una buena información de corte, perforación y tipo de conector.</span></p>
+      <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Recuerde
+        dejar un espacio para la identificación del circuito, logo de la empresa,
+        revisiones, etc.</span></p>
+      <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+  justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Recuerde
+        que es más conveniente tener el arte final a doble escala impreso en papel
+        adecuado.</span></p></td>
+  </tr>
+</table>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><a name=consulta></a><span style='font-size:12.0pt;line-height:115%;
+font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></b></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><b><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Consulta
+  bibliográfica</span></b></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Para
+  los comandos o instrucciones de dibujo de esquemáticos o de diseño de impresos
+  hay que remitirse a los programas originales o a las versiones libres, que se
+  pueden bajar de <a href="http://www.monografias.com/Computacion/Internet/"><span
+style='color:windowtext;text-decoration:none'>Internet</span></a>, de los
+  diferentes fabricantes: Eagle, SmArtwork, Tango, OrCAD, Circuit Maker, entre
+  otros.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Para
+  la consulta exacta de dimensiones, encapsulados, formas y otros datos técnicos
+  de los componentes a utilizar en un impreso, es necesario remitirse a los
+  manuales originales del fabricante o, en su defecto, a la guía de reemplazos
+  ECG u otra similar.</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Para
+  la entrega de los artes finales, se debe consultar los requerimientos de los fabricantes
+  existentes en el país:</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'><a
+href="http://microledpcb.blogspot.com/">http://microledpcb.blogspot.com/</a></span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'><a
+href="http://www.pcbtecnologias.com/">http://www.pcbtecnologias.com/</a></span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'><a
+href="http://www.colcircuitos.com/">http://www.colcircuitos.com/</a></span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'><a
+href="http://circuitos-impresos.com/">http://circuitos-impresos.com/</a></span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'><a
+href="http://www.procircuitos.com/">http://www.procircuitos.com/</a></span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'><a
+href="http://www.inelsoft.net/">http://www.inelsoft.net/</a></span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'><a
+href="http://www.microensamble.com/">http://www.microensamble.com/</a></span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'><a
+href="http://www.pcbmicrocircuitos.com/">http://www.pcbmicrocircuitos.com/</a></span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>&nbsp;</span></p>
+<p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:
+justify'><span style='font-size:12.0pt;line-height:115%;font-family:"Arial","sans-serif"'>Extraído
+  parcialmente de: </span><span style='font-size:12.0pt;line-height:115%;
+font-family:"Arial","sans-serif"'><a
+href="http://www.monografias.com/trabajos35/dibujo-electronico/dibujo-electronico.shtml"><span
+style='text-decoration:none'>http://www.monografias.com/trabajos35/dibujo-electronico/dibujo-electronico.shtml</span></a></span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;">&nbsp;</p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;">&nbsp;</p>
+<p>&nbsp;</p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;; font-family: 'Courier New'; font-size: 12.0pt; color: #101010">&nbsp;</p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;">&nbsp;</p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;">&nbsp;</p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;">&nbsp;</p>
+<p class="MsoNormal" align="center" style="margin-bottom:12.0pt;text-align:center;line-height:13.5pt;background:white;">&nbsp;</p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;">&nbsp;</p>
+</body>
+</html>
