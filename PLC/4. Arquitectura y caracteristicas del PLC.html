@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+<style type="text/css">
+<!--
+p.MsoNormal {
+margin-top:0cm;
+margin-right:0cm;
+margin-bottom:10.0pt;
+margin-left:0cm;
+line-height:115%;
+font-size:11.0pt;
+font-family:"Calibri","sans-serif";
+}
+-->
+</style>
+<style type="text/css">
+<!--
+table.MsoNormalTable {
+font-size:10.0pt;
+font-family:"Calibri","sans-serif";
+}
+-->
+</style>
+<script type="text/javascript">
+	document.oncontextmenu = function(){return false;}
+    function disabletext(e){
+    return false
+    }
+    function reEnable(){
+    return true
+    }
+    document.onselectstart=new Function ("return false")
+    if (window.sidebar){
+    document.onmousedown=disabletext
+    document.onclick=reEnable
+    }
+</script>
+<style type="text/css">
+<!--
+p.MsoListParagraph {
+margin-top:0cm;
+margin-right:0cm;
+margin-bottom:10.0pt;
+margin-left:36.0pt;
+line-height:115%;
+font-size:11.0pt;
+font-family:"Calibri","sans-serif";
+}
+-->
+</style>
+<style type="text/css">
+<!--
+-->
+</style>
+<style type="text/css">
+<!--
+p.Pa6 {
+margin:0cm;
+margin-bottom:.0001pt;
+line-height:12.0pt;
+text-autospace:none;
+font-size:12.0pt;
+font-family:"Georgia",serif;
+}
+p.Pa7 {
+margin-top:17.0pt;
+margin-right:0cm;
+margin-bottom:8.0pt;
+margin-left:0cm;
+line-height:16.0pt;
+text-autospace:none;
+font-size:12.0pt;
+font-family:"Georgia",serif;
+}
+p.Default {
+margin:0cm;
+margin-bottom:.0001pt;
+text-autospace:none;
+font-size:12.0pt;
+font-family:"Century Gothic",sans-serif;
+color:black;
+}
+-->
+</style>
+</head>
+
+<body>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;line-height:normal;background:white;"><strong><span style="font-family: 'Arial', 'sans-serif'; font-size: 12.0pt">Arquitectura y características del PLC</span></strong></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;line-height:normal;background:white;">&nbsp;</p>
+<p class="Pa6" style="text-align:justify;"><span style="font-family:'Calibri',sans-serif; color:black; ">A continuación, a manera de complemento al estudio de la  arquitectura del PLC, se presentan algunos tópicos que deben tener en cuenta  los programadores de aplicaciones.</span></p>
+<p class="Pa7" style="text-align:justify;"><strong><span style="font-family:'Calibri',sans-serif; color:black; ">Ancho de la Memoria </span></strong><span style="font-family:'Calibri',sans-serif; color:black; "> </span></p>
+<p class="Pa6" style="text-align:justify;"><span style="font-family:'Calibri',sans-serif; color:black; ">Número de bits que conforman una posición de memoria; es  usual que las memorias tengan anchos de 8 o 16 bits. En la tabla a  continuación, se presentan las denominaciones dadas a grupos de bits; son  nombres convencionales en el mundo informático, así como en la vida cotidiana,  llamamos docena a un grupo de doce.</span></p>
+<p class="MsoNormal" style="text-align:justify;"><span style="line-height:115%; font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal" align="center" style="text-align:center;"><span style="font-size:12.0pt; "><img src="Arquitectura y caracteristicas del PLC_archivos/Arquitectura y caracteristicas del PLC_clip_image002.png" width="371" height="150" alt=""/></span><span style="font-size:12.0pt; "> </span></p>
+<p class="Default" style="margin-top:8.0pt;margin-right:0cm;margin-bottom:17.0pt;margin-left:0cm;text-align:justify;line-height:12.0pt;"><span style="font-family:'Calibri',sans-serif; ">Cabe aclarar, que el término Word es usado  implícitamente para grupos de 16 bits, sin embargo, cuando un fabricante  utiliza grupos de bits no descritos en la tabla anterior puede emplear la  expresión para describir el grupo siempre y cuando haga la salvedad de a  cuantos bits se esta refiriendo en sus documentos. Por ejemplo, en el caso de  memorias con ancho de 14 bits, se pueden mencionar como palabras (Words) de 14  Bits.</span></p>
+<p class="Pa7" style="text-align:justify;"><strong><span style="font-family:'Calibri',sans-serif; color:black; ">Capacidad de Memoria </span></strong><span style="font-family:'Calibri',sans-serif; color:black; "> </span></p>
+<p class="Pa6" style="text-align:justify;"><span style="font-family:'Calibri',sans-serif; color:black; ">Indica la cantidad de posiciones que posee la memoria. Para  estas cantidades también existen convenciones:</span></p>
+<p class="MsoNormal" align="center" style="text-align:center;"><span style="font-size:12.0pt; "><img src="Arquitectura y caracteristicas del PLC_archivos/Arquitectura y caracteristicas del PLC_clip_image004.png" width="371" height="108" alt=""/></span><span style="font-size:12.0pt; "> </span></p>
+<p class="MsoNormal" style="text-align:justify;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">Los  valores de capacidad y ancho se integran en una sola notación. Por ejemplo, si  una memoria tiene 2.048 posiciones con un ancho de 8 bits se dice que su  capacidad es de 2K Bytes o 2KB. A esta última, se le puede agregar la  especificación del tipo de memoria. Así se puede hablar, por ejemplo, de una  RAM de 8MB.</span></p>
+<p class="MsoNormal" style="margin-bottom:17.0pt;text-align:justify;line-height:24.0pt;text-autospace:none;"><strong><span style="font-size:12.0pt; color:black; ">Estructura Externa </span></strong><span style="font-size:12.0pt; color:black; "> </span></p>
+<p class="MsoNormal" style="text-align:justify;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">El PLC  es una unidad electrónica que reemplaza a los dispositivos auxiliares de  automatización y control desempeñando él mismo toda la lógica de  automatización. </span></p>
+<p class="MsoNormal" style="text-align:justify;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">Está  compuesto por: </span></p>
+<p class="MsoNormal" style="margin-top:4.0pt;margin-right:0cm;margin-bottom:4.0pt;margin-left:19.0pt;text-align:justify;text-indent:-19.0pt;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">•  Entradas y Salidas Digitales</span></p>
+<p class="MsoNormal" style="margin-top:4.0pt;margin-right:0cm;margin-bottom:4.0pt;margin-left:19.0pt;text-align:justify;text-indent:-19.0pt;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">•  Fuentes de Poder.</span></p>
+<p class="MsoNormal" style="margin-top:4.0pt;margin-right:0cm;margin-bottom:4.0pt;margin-left:19.0pt;text-align:justify;text-indent:-19.0pt;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">•  Carcasa.</span></p>
+<p class="MsoNormal" style="margin-top:4.0pt;margin-right:0cm;margin-bottom:4.0pt;margin-left:19.0pt;text-align:justify;text-indent:-19.0pt;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">•  Control de Operario.</span></p>
+<p class="MsoNormal" style="margin-top:4.0pt;margin-right:0cm;margin-bottom:4.0pt;margin-left:19.0pt;text-align:justify;text-indent:-19.0pt;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">•  Interfaz de Programación.</span></p>
+<p class="MsoNormal" style="margin-top:4.0pt;margin-right:0cm;margin-bottom:4.0pt;margin-left:19.0pt;text-align:justify;text-indent:-19.0pt;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">•  Módulos de Expansión. </span></p>
+<p class="MsoNormal" style="margin-top:17.0pt;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;text-align:justify;line-height:16.0pt;text-autospace:none;"><strong><span style="font-size:12.0pt; color:black; ">Entradas  y Salidas Digitales </span></strong><span style="font-size:12.0pt; color:black; "> </span></p>
+<p class="MsoNormal" style="text-align:justify;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">Los  PLC están provistos de entradas y salidas digitales que les permite conectarse  a las diversas señales y actuadores de una aplicación específica. A las  entradas se conectan diversos tipos de interruptores los cuales serán activados  por el operario o directamente por la máquina, del tipo fin de carrera. De  igual manera, se admite la conexión de sensores. </span></p>
+<p class="MsoNormal" style="text-align:justify;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">Cuando  se conecta un interruptor o sensor a una entrada, simplemente se está  permitiendo que la tensión eléctrica del punto común se presente en la entrada  cuando el interruptor está cerrado y que se ausente si el interruptor está  abierto. </span></p>
+<p class="MsoNormal" style="text-align:justify;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">A las  salidas es usual acoplar lámparas, bobinas de contactores, de relevos, de  electro válvulas, entre otros. El PLC activa una salida al colocar un voltaje  al elemento colocado en el circuito. Como se aprecia en la gráfica, el circuito  de salida también incluye un punto común. </span></p>
+<p class="MsoNormal" style="text-align:justify;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">Para  el caso que estamos estudiando, tanto las salidas como las entradas admiten dos  tipos de valores de tensión eléctrica: presente (activa) o ausente (inactiva).  A esta bivalencia en los valores de tensión se le llama binaria; pues sólo  puede reconocer dos valores distintos de señal; a las entradas y salidas  binarias también se les llama entradas y salidas digitales.</span></p>
+<p class="MsoNormal" style="margin-top:17.0pt;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;text-align:justify;line-height:16.0pt;text-autospace:none;"><strong><span style="font-size:12.0pt; color:black; ">Nomenclatura  de las Entradas y Salidas Digitales </span></strong><span style="font-size:12.0pt; color:black; "> </span></p>
+<p class="MsoNormal" style="text-align:justify;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">Para  designar las entradas y salidas digitales, éstas se agrupan en conjuntos de 8  bits (octetos) numerados consecutivamente: 0, 1,2…7.</span></p>
+<p class="MsoNormal" style="text-align:justify;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">Por su  parte, cada uno de los bits de un octeto se numera del 0 al 7.</span></p>
+<p class="MsoNormal" style="margin-top:4.0pt;margin-right:0cm;margin-bottom:4.0pt;margin-left:0cm;text-align:justify;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">Tanto  los octetos como los circuitos son separados por un punto. A las entradas  digitales suele anteponerse la letra I y a las salidas la letra Q.</span></p>
+<p class="MsoNormal" style="margin-top:4.0pt;margin-right:0cm;margin-bottom:4.0pt;margin-left:0cm;text-align:justify;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">&nbsp;</span></p>
+<p class="MsoNormal" style="margin-top:4.0pt;margin-right:0cm;margin-bottom:4.0pt;margin-left:0cm;text-align:justify;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">Ejemplo: </span></p>
+<p class="MsoNormal" style="margin-top:4.0pt;margin-right:0cm;margin-bottom:4.0pt;margin-left:0cm;text-align:justify;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">&nbsp;</span></p>
+<p class="MsoNormal" style="text-align:justify;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">Tenemos  dieciocho salidas digitales, estas se repartirían es tres octetos: 0, 1 y 2;  cada uno de los bits de un octeto se numera del 0 al 7. Como son salidas se les  antepondría la letra Q. En conclusión se nominarían: </span></p>
+<p class="MsoNormal" style="margin-top:17.0pt;margin-right:0cm;margin-bottom:17.0pt;margin-left:0cm;text-align:justify;line-height:16.0pt;text-autospace:none;"><strong><span style="font-size:12.0pt; color:black; ">Q0.0, Q0.1, Q0.2, Q0.3, Q0.4,  Q0.5, Q0.6, Q0.7, </span></strong></p>
+<p class="MsoNormal" style="margin-top:17.0pt;margin-right:0cm;margin-bottom:17.0pt;margin-left:0cm;text-align:justify;line-height:16.0pt;text-autospace:none;"><strong><span style="font-size:12.0pt; color:black; ">Q1.0, Q1.1, Q1.2, Q1.3, Q1.4,  Q1.5, Q1.6, Q1.7, Q2.0 y Q2.1. </span></strong><span style="font-size:12.0pt; color:black; "> </span></p>
+<p class="MsoNormal" style="text-align:justify;"><span style="font-size:12.0pt; "><img src="Arquitectura y caracteristicas del PLC_archivos/Arquitectura y caracteristicas del PLC_clip_image006.png" width="515" height="176" alt=""/></span><span style="font-size:12.0pt; "> </span></p>
+<p class="MsoNormal" style="margin-bottom:17.0pt;text-align:justify;line-height:24.0pt;text-autospace:none;"><strong><span style="font-size:12.0pt; color:black; ">&nbsp;</span></strong></p>
+<p class="MsoNormal" style="margin-bottom:17.0pt;text-align:justify;line-height:24.0pt;text-autospace:none;"><strong><span style="font-size:12.0pt; color:black; ">Estructura Interna </span></strong> </p>
+<p class="MsoNormal" style="text-align:justify;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">Un PLC  está compuesto netamente por dispositivos electrónicos cuya configuración se  asemeja a la de un pequeño computador o procesador digital. La arquitectura  interna del PLC se divide en cuatro grandes partes: CPU, Memoria, Puertos y  Módulos.</span></p>
+<p class="MsoNormal" align="center" style="text-align:center;"><span style="font-size:12.0pt; "><img src="Arquitectura y caracteristicas del PLC_archivos/Arquitectura y caracteristicas del PLC_clip_image008.png" width="583" height="306" alt=""/></span><span style="font-size:12.0pt; "> </span></p>
+<p class="MsoNormal" style="margin-top:17.0pt;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;text-align:justify;line-height:16.0pt;text-autospace:none;"><strong><span style="font-size:12.0pt; color:black; ">Unidad  Central de Proceso – CPU </span></strong><span style="font-size:12.0pt; color:black; "> </span></p>
+<p class="MsoNormal" style="text-align:justify;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">Lleva  a cabo la mayoría de los procesos del sistema, su desempeño depende de una  lista de ejecución que se provee, denominada programa. Los programas que se  ejecutan son dos, el primero de autoconfiguración cuando el sistema arranca y  el segundo de usuario, diseñado para una aplicación específica. Por lo general  la CPU viene integrada en un chip semi-conductor caso en el cual recibe el nombre  de micro-procesador.</span></p>
+<p class="MsoNormal" style="text-align:justify;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">Los  principales componentes funcionales de la CPU son:</span></p>
+<p class="MsoNormal" style="margin-top:4.0pt;margin-right:0cm;margin-bottom:4.0pt;margin-left:19.0pt;text-align:justify;text-indent:-19.0pt;line-height:12.0pt;text-autospace:none;"><strong><span style="font-size:12.0pt; color:black; ">La  Unidad Lógica y Aritmética - ALU:</span></strong><strong><span style="font-size:12.0pt; color:black; "> </span></strong><span style="font-size:12.0pt; color:black; "> </span></p>
+<p class="MsoNormal" style="margin-top:4.0pt;margin-right:0cm;margin-bottom:4.0pt;margin-left:0cm;text-align:justify;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">Realiza  operaciones aritméticas como: suma, resta, multiplicación, comparación,  desplazamiento, entre otras, y operaciones lógicas como: AND, OR, EXOR, NOT,  entre otras. </span></p>
+<p class="MsoNormal" style="margin-top:4.0pt;margin-right:0cm;margin-bottom:4.0pt;margin-left:0cm;text-align:justify;line-height:12.0pt;text-autospace:none;"><strong><span style="font-size:12.0pt; color:black; ">La  Unidad de Control:</span></strong><strong><span style="font-size:12.0pt; color:black; "> </span></strong><span style="font-size:12.0pt; color:black; ">Se encarga de: a) Sincronizar las  tareas de la CPU, b) Determinar todas las rutas por las cuales fluirá la  información a través de los buses, y c) Interpreta el programa. La Unidad de  Control, tiene como salidas, centenares de líneas de selección, invasión y  conmutación requeridas por los diferentes elementos de la CPU. Su función es  habilitar los niveles lógicos adecuados a tiempos y secuencias precisos, con el  fin de ejecutar una instrucción completa. La entrada de la Unidad de Control  cuenta con un decodificador de instrucciones que recibe el código binario  correspon-diente a una instrucción de programa. La principal tarea de la Unidad  de Control es leer secuencialmente los códigos de instrucción de la memoria del  programa y hacer que el resto de la CPU ejecute dichas instrucciones. </span></p>
+<p class="MsoNormal" style="margin-top:4.0pt;margin-right:0cm;margin-bottom:4.0pt;margin-left:19.0pt;text-align:justify;text-indent:-19.0pt;line-height:12.0pt;text-autospace:none;"><strong><span style="font-size:12.0pt; color:black; ">Lenguaje  de Máquina: </span></strong></p>
+<p class="MsoNormal" style="margin-top:4.0pt;margin-right:0cm;margin-bottom:4.0pt;margin-left:0cm;text-align:justify;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">El  programa a ejecutar es recibido por la CPU en código binario o lenguaje de  máquina. </span></p>
+<p class="MsoNormal" style="margin-top:4.0pt;margin-right:0cm;margin-bottom:4.0pt;margin-left:19.0pt;text-align:justify;text-indent:-19.0pt;line-height:12.0pt;text-autospace:none;"><strong><span style="font-size:12.0pt; color:black; ">Banco  de Registros: </span></strong></p>
+<p class="MsoNormal" style="margin-top:4.0pt;margin-right:0cm;margin-bottom:4.0pt;margin-left:0cm;text-align:justify;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">Es una  pequeña memoria interna de la CPU que almacena los datos temporales necesarios  para la ejecución del programa. </span></p>
+<p class="MsoNormal" style="margin-top:4.0pt;margin-right:0cm;margin-bottom:4.0pt;margin-left:0cm;text-align:justify;line-height:12.0pt;text-autospace:none;"><strong><span style="font-size:12.0pt; color:black; ">Buses: </span></strong></p>
+<p class="MsoNormal" style="margin-top:4.0pt;margin-right:0cm;margin-bottom:4.0pt;margin-left:0cm;text-align:justify;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">Caminos  por los cuales fluye la información hacia los distintos componentes de la CPU.  Los Buses se clasifican en: </span></p>
+<p class="MsoNormal" style="margin-top:4.0pt;margin-right:0cm;margin-bottom:4.0pt;margin-left:0cm;text-align:justify;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">Bus de  Datos: Canal que lleva y trae datos desde y hacia la memoria, los registros  internos, la ALU y los puertos. </span></p>
+<p class="MsoNormal" style="margin-top:4.0pt;margin-right:0cm;margin-bottom:4.0pt;margin-left:0cm;text-align:justify;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">Bus de  Direcciones: Lleva valores de dirección hacia la memoria y el bus de  direcciones externo. </span></p>
+<p class="MsoNormal" style="margin-top:4.0pt;margin-right:0cm;margin-bottom:4.0pt;margin-left:19.0pt;text-align:justify;text-indent:-19.0pt;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">Bus  de Control: Pone señales de control en los diversos bloques funcionales.</span></p>
+<p class="MsoNormal" style="margin-top:17.0pt;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;text-align:justify;line-height:16.0pt;text-autospace:none;"><strong><span style="font-size:12.0pt; color:black; ">Memoria</span></strong><span style="font-size:12.0pt; color:black; "> </span></p>
+<p class="MsoNormal" style="text-align:justify;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">Almacén  de información del sistema. Contiene datos numéricos en código binario y está  dividida en posiciones de memoria, a cada una de las cuales le corresponde una  dirección de memoria, cada posición de memoria es un arreglo de una determinada  cantidad de bits (8 o 16 bits). </span></p>
+<p class="MsoNormal" align="center" style="text-align:center;"><span style="font-size:12.0pt; "><img src="Arquitectura y caracteristicas del PLC_archivos/Arquitectura y caracteristicas del PLC_clip_image010.png" width="451" height="325" alt=""/></span><span style="font-size:12.0pt; "> </span></p>
+<p class="MsoNormal" style="text-align:justify;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">&nbsp;</span></p>
+<p class="MsoNormal" style="text-align:justify;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">Las  posibilidades de acceso se clasifican en:</span></p>
+<p class="MsoNormal" style="margin-top:17.0pt;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;text-align:justify;line-height:12.0pt;text-autospace:none;"><strong><span style="font-size:12.0pt; color:black; ">Memorias  de Solo Lectura </span></strong><span style="font-size:12.0pt; color:black; "> </span></p>
+<p class="MsoNormal" style="text-align:justify;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">Se  utilizan para almacenar programas y datos constantes; La manera como están  dispuestos los circuitos en la CPU determinan que solo se pueda leer su  contenido. </span></p>
+<p class="MsoNormal" style="text-align:justify;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">Existen  Memorias de Solo Lectura de los siguientes tipos:</span></p>
+<p class="MsoNormal" style="text-align:justify;line-height:12.0pt;text-autospace:none;"><strong><span style="font-size:12.0pt; color:black; ">Memoria  de Solo Lectura - ROM (Read Only Memory): </span></strong></p>
+<p class="MsoNormal" style="text-align:justify;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">Son  grabadas por el fabricante del chip y su información no puede ser alterada. </span></p>
+<p class="MsoNormal" style="text-align:justify;line-height:12.0pt;text-autospace:none;"><strong><span style="font-size:12.0pt; color:black; ">Memoria  de Solo Lectura Programable – PROM (Programmable Read Only Memory): </span></strong></p>
+<p class="MsoNormal" style="text-align:justify;line-height:12.0pt;text-autospace:none;"><span style="font-size:12.0pt; color:black; ">Salen  de la fábrica en blanco para ser programadas por el usuario por una sola vez.</span></p>
+<p class="Default" style="text-align:justify;line-height:12.0pt;"><strong><span style="font-family:'Calibri',sans-serif; ">Memoria de Solo Lectura Programable y  Borrable - EPROM (Erasable Programmable Read Only Memory): </span></strong></p>
+<p style="margin:0cm;margin-bottom:.0001pt;text-align:justify;background:white;" bgcolor="white"><span style="font-family:'Calibri',sans-serif; font-size:12.0pt; ">Se  diferencia de las PROM en que pueden ser borradas y reprogramadas; generalmente  el borrado se efectúa con radiación ultravioleta.</span><span style="font-family:'Calibri',sans-serif; font-size:12.0pt; color:black; "> </span></p>
+<p style="margin:0cm;margin-bottom:.0001pt;text-align:justify;background:white;" bgcolor="white">&nbsp;</p>
+</body>
+</html>
