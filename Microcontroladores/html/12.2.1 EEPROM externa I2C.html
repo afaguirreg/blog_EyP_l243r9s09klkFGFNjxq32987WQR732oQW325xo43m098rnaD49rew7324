@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<title>Documento sin título</title>
+<style type="text/css">
+<!--
+p.MsoNormal {
+margin-top:0cm;
+margin-right:0cm;
+margin-bottom:10.0pt;
+margin-left:0cm;
+line-height:115%;
+font-size:11.0pt;
+font-family:"Calibri","sans-serif";
+}
+-->
+</style>
+<style type="text/css">
+<!--
+table.MsoNormalTable {
+font-size:10.0pt;
+font-family:"Calibri","sans-serif";
+}
+-->
+</style>
+<script type="text/javascript">
+	document.oncontextmenu = function(){return false;}
+    function disabletext(e){
+    return false
+    }
+    function reEnable(){
+    return true
+    }
+    document.onselectstart=new Function ("return false")
+    if (window.sidebar){
+    document.onmousedown=disabletext
+    document.onclick=reEnable
+    }
+</script>
+<style type="text/css">
+<!--
+p.MsoListParagraph {
+margin-top:0cm;
+margin-right:0cm;
+margin-bottom:10.0pt;
+margin-left:36.0pt;
+line-height:115%;
+font-size:11.0pt;
+font-family:"Calibri","sans-serif";
+}
+p.MsoNormal1 {	margin-top: 0cm;
+	margin-right: 0cm;
+	margin-bottom: 10.0pt;
+	margin-left: 0cm;
+	line-height: 115%;
+	font-size: 12pt;
+	font-family: Arial, sans-serif;
+}
+-->
+</style>
+</head>
+
+<body>
+<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">EEPROM  I2C</span></strong>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;line-height:normal;background:white;">&nbsp;</p>
+<p class="MsoNormal1" style="text-align:justify;">EEPROM o E²PROM son las siglas de Electrically Erasable Programmable Read-Only Memory (ROM programable y borrable eléctricamente). Es un tipo de memoria ROM que puede ser programada, borrada y reprogramada eléctricamente, a diferencia de la EPROM que ha de borrarse mediante un aparato que emite rayos ultravioleta. La memoria EEPROM permite la lectura-escritura de datos teniendo como característica principal que, a diferencia de la memoria RAM, <strong>no es volátil</strong>, es decir, si la alimentación externa del circuito se interrumpe, los datos contenidos en las localidades de la EEPROM no se pierden. Además, éstos datos son electrónicamente modificables a través de programa.</p>
+<p class="MsoNormal1" style="text-align:justify;">La memoria EEPROM es útil para almacenar datos que, por su importancia, se quieren conservar almacenados en forma segura, a pesar de cortes de energía o ruido inducido en los circuitos del microcontrolador, que en un momento dado podrían destruir estos datos en caso de encontrarse almacenados en memoria RAM. Como ejemplos de aplicaciones en donde se utilice la EEPROM se pueden mencionar los siguientes: en una chapa electrónica, la clave de control de acceso generalmente se almacena en EEPROM. Asimismo, en un temporizador programable, la hora de encendido y apagado del temporizador también se almacena en EEPROM. El kilometraje en el odómetro de un automóvil se almacena en memoria EEPROM, lo cual garantiza su permanencia. Aunque una EEPROM puede ser leída un número ilimitado de veces, sólo puede ser borrada y reprogramada entre 100.000 y un millón de veces. Estos dispositivos suelen comunicarse mediante protocolos como I²C, SPI y Microwire. En otras ocasiones, se integra dentro de chips como microcontroladores y DSPs para lograr una mayor rapidez. La memoria flash es una forma avanzada de EEPROM creada por el Dr. Fujio Masuoka mientras trabajaba para Toshiba en 1984 y fue presentada en la Reunión de Aparatos Electrónicos de la IEEE de 1984. Intel vió el potencial de la invención y en 1988 lanzó el primer chip comercial de tipo NOR. </p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Un ejemplo de dispositivo  que hace uso de ésta interfaz son las memorias EEPROM I2C, las cuales han  ganado poco a poco un espacio en el hardware de los equipos electrónicos hasta  transformarse en uno de los medios de almacenamiento de información más  populares por su practicidad y sencillez de manejo. Tener la posibilidad de  almacenar datos de diversa índole en una memoria no volátil, es una  característica importante de los equipos que les permite la desconexión  prolongada de cualquier suministro energético y conservar durante mucho tiempo  información valiosa que de otro modo, se perdería al desconectar un sistema.  También conocidas como memorias de protocolo “serie” las 24CXX son infaltables  en cualquier equipo electrónico de consumo masivo.</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal1" style="text-align:center;" align="center"><img src="../img/Microcontroladores%20PIC%20-%20CCS_clip_image002_0001.png" alt="" height="211" width="283"></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Algunas de las  características dignas de mencionar, pueden ser las que a continuación  enumeramos:</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">- Pueden ser escritas y  borradas de forma eléctrica = Electrically Erasable Programable Read Only  Memory</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">- Están garantizadas para 1  millón de ciclos de escritura/lectura.</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">- Pueden llegar a retener la  información sin ser alimentadas durante cientos de años.</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">- Se organizan por páginas  para facilitar su direccionamiento y almacenamiento de la información.</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">- Utilizan para su  funcionamiento una tensión única (5Volts o 3,3Volts)</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">- Son compatibles con el  protocolo serial I2C (Marca registrada de Philips)</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">- Bajísimo costo.</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">- Amplia variedad de encapsulados  para adaptar el modelo necesario, de acuerdo al tamaño de la aplicación.</span><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Veamos las características  de una de éstas memorias:</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><img src="../img/Microcontroladores%20PIC%20-%20CCS_clip_image004.png" alt="" height="176" width="726"></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; "><img src="../img/Microcontroladores%20PIC%20-%20CCS_clip_image006_0000.png" alt="" height="475" width="292"></span><img src="../img/Microcontroladores%20PIC%20-%20CCS_clip_image008.png" alt="" height="482" width="302"></p></body></html>

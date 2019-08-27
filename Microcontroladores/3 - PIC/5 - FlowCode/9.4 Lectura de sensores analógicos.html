@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+
+
+
+
+
+
+
+<title>Documento sin título</title>
+<style type="text/css">
+<!--
+p.MsoNormal {
+margin-top:0cm;
+margin-right:0cm;
+margin-bottom:10.0pt;
+margin-left:0cm;
+line-height:115%;
+font-size:11.0pt;
+font-family:"Calibri","sans-serif";
+}
+-->
+</style>
+<style type="text/css">
+<!--
+table.MsoNormalTable {
+font-size:10.0pt;
+font-family:"Calibri","sans-serif";
+}
+-->
+</style>
+<script type="text/javascript">
+	document.oncontextmenu = function(){return false;}
+    function disabletext(e){
+    return false
+    }
+    function reEnable(){
+    return true
+    }
+    document.onselectstart=new Function ("return false")
+    if (window.sidebar){
+    document.onmousedown=disabletext
+    document.onclick=reEnable
+    }
+</script>
+<style type="text/css">
+<!--
+p.MsoListParagraph {
+margin-top:0cm;
+margin-right:0cm;
+margin-bottom:10.0pt;
+margin-left:36.0pt;
+line-height:115%;
+font-size:11.0pt;
+font-family:"Calibri","sans-serif";
+}
+p.MsoNormal1 {	margin-top: 0cm;
+	margin-right: 0cm;
+	margin-bottom: 10.0pt;
+	margin-left: 0cm;
+	line-height: 115%;
+	font-size: 12pt;
+	font-family: Arial, sans-serif;
+}
+-->
+</style>
+
+<script language="JavaScript">
+var remplaza = /\+/gi; 
+var url = window.location.href;
+
+url = unescape(url);
+url = url.replace(remplaza, " ");
+
+function obtener_valor(variable) 
+{ 
+	var variable_may = variable;
+	var variable_pos = url.indexOf(variable);
+
+	if (variable_pos != -1) 
+	{
+		var pos_separador = url.indexOf("&", variable_pos);
+		if (pos_separador != -1) 
+		{
+			return url.substring(variable_pos + variable_may.length + 1, pos_separador);
+		}
+    else
+		{
+			return url.substring(variable_pos + variable_may.length + 1, url.length);
+		}
+	}
+  else 
+	{
+		return "NO_ENCONTRADO";
+	}
+}
+</script>
+<script language="JavaScript">
+  window.onload = function () { 
+		var valor = obtener_valor("verinfo");
+    var element = document.getElementById(valor);
+    element.scrollIntoView();
+  }
+</script>
+</head>
+
+<body>
+	
+	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Lectura de sensores analógicos</span></strong>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<a id="Sensor de humedad relativa"></a>
+	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Sensor de humedad relativa: 0% - 100%</span></strong>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<img src="../video/9.4.1%20Sensor%20de%20humedad%20relativa.gif" alt="" height="auto" width="auto">
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<img src="img/9.4.1%20Sensor%20de%20humedad%20relativa.png" alt="" height="auto" width="auto">
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<a id="Sensor de distancia infrarrojo"></a>
+	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Sensor de distancia infrarrojo: 0.0mm - 10.0mm</span></strong>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<img src="../video/9.4.2%20Sensor%20de%20distancia%20infrarrojo.gif" alt="" height="auto" width="auto">
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<img src="img/9.4.2%20Sensor%20de%20distancia%20infrarrojo.png" alt="" height="auto" width="auto">
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<a id="Sensor de distancia inductivo"></a>
+	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Sensor de distancia inductivo: 0.0mm - 20.0mm</span></strong>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<img src="../video/9.4.3%20Sensor%20de%20distancia%20inductivo.gif" alt="" height="auto" width="auto">
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<img src="img/9.4.3%20Sensor%20de%20distancia%20inductivo.png" alt="" height="auto" width="auto">
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<a id="Sensor de distancia ultrasonico"></a>
+	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Sensor de distancia ultrasónico: 5.0cm - 27.0cm</span></strong>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<img src="../video/9.4.3%20Sensor%20de%20distancia%20ultras%C3%B3nico.gif" alt="" height="auto" width="auto">
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<img src="img/9.4.3%20Sensor%20de%20distancia%20ultras%C3%B3nico.png" alt="" height="auto" width="auto">
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+
+	<a id="Sensor de temperatura LM35"></a>
+	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Sensor de temperatura LM35</span></strong>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<img src="../video/9.4.5%20Sensor%20de%20temperatura%20LM35.gif" alt="" height="619" width="921">
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<img src="../../img/LM35-Pinouts.png" alt="" height="auto" width="auto">
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;line-height:normal;background:white;"><strong>TECHNICAL DETAILS</strong> </p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;">Supply voltage: 4 to 30 V</p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;">Temperature range: -55 to 150 °C</p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;">Accuracy: +/- 2 °C over range</p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;">Output: +/- 2 mV/°C</p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Documentación</span></strong></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+  <strong><a href="http://www.ti.com/lit/ds/symlink/lm35.pdf" target="_blank">Especificaciones</a></strong>
+  <strong><a href="https://cdn-shop.adafruit.com/datasheets/DS18B20.pdf" target="_blank"><br></a></strong>
+  <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<img src="img/9.4.5%20Sensor%20de%20temperatura%20LM35.png" alt="" height="auto" width="auto">
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+  <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+  <a id="Sensor de temperatura Termocupla tipo J"></a>
+  <strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Sensor de temperatura Termocupla tipo J</span></strong>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;">
+  <img src="../video/9.4.6%20Sensor%20de%20temperatura%20Termocupla%20tipo%20J.gif" alt="" height="598" width="1000"></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><img src="../../img/Sensor%20Termocupla%20tipo%20K_1.jpg" alt="" height="319" width="320"></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<strong>TECHNICAL DETAILS</strong>
+	<div>
+  <div id="contenido">
+    <div>
+      <div>
+        <p>Termocupla tipo K, de 10 cm de longitud y cable de 1 m.</p>
+        <table cellspacing="1" cellpadding="2" border="1" align="left">
+          <tbody>
+            <tr>
+              <td>Rango de temperatura</td>
+              <td>0 - 400 C</td>
+            </tr>
+            <tr>
+              <td>Diámetro de el termopozo</td>
+              <td>5mm</td>
+            </tr>
+            <tr>
+              <td>Longitud del sensor</td>
+              <td>100mm</td>
+            </tr>
+            <tr>
+              <td>Diámetro de rosca</td>
+              <td>7.8mm</td>
+            </tr>
+            <tr>
+              <td>Longitud del cable aprox.</td>
+              <td>1m</td>
+            </tr>
+            <tr>
+              <td>Proteción externa</td>
+              <td>blindaje metálico</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>&nbsp;</p>
+      </div>
+      <div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  	</div>
+  	<div></div>
+	</div>
+	<div>
+	<div>
+	<div id="foot_right">
+	<div>
+	<br>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Documentación</span></strong>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<strong><a href="https://cdn-shop.adafruit.com/datasheets/SLHT5.pdf" target="_blank">Datasheet sensor</a></strong>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<strong><a href="https://cdn-shop.adafruit.com/datasheets/Sensirion_Humidity_SHT1x_Datasheet_V5.pdf" target="_blank">Especificaciones</a></strong>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<strong><a href="https://www.dropbox.com/s/s0rhdbarphrr9p2/sht1x_sht7x.c?dl=1" target="_blank">Descargar  librería sht1x_sht7x</a></strong>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<img src="../../img/Sensor%20Termocupla%20tipo%20K_1.jpg" alt="" height="319" width="320">
+	<img src="../../img/Sensor%20Termocupla%20tipo%20K_2.jpg" alt="" height="320" width="320">
+	<img src="../../img/Sensor%20Termocupla%20tipo%20K_3.jpg" alt="" height="320" width="320">
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p>Conversor transmisor de temperatura con entrada para termocupla tipo K y salida en corriente.</p>
+	<p>Características:</p>
+	<ul>
+		<li>Rango de medición: 0°C hasta 1300°C</li>
+		<li>Salida de señal estándar internacional: 4~20mA</li>
+		<li>Precisión: 0.5±0.5% (En toda la escala)</li>
+		<li>Máxima salida de corriente: 26mA</li>
+		<li>Diámetro: 45mm</li>
+		<li>Material: Plástico</li>
+	</ul>
+	</div></div></div></div>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<img src="img/9.4.6%20Sensor%20de%20temperatura%20Termocupla%20tipo%20J.png" alt="" height="auto" width="auto">
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+  <a id="Sensor de temperatura Termocupla tipo K"></a>
+	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Sensor de temperatura Termocupla tipo K</span></strong>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;">
+	<img src="../video/9.4.7%20Sensor%20de%20temperatura%20Termocupla%20tipo%20K.gif" alt="" height="598" width="1000"></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><img src="../../img/Sensor%20Termocupla%20tipo%20K_1.jpg" alt="" height="319" width="320"></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<strong>TECHNICAL DETAILS</strong>
+	<div>
+	<div id="contenido">
+	  <div>
+	    <div>
+	      <p>Termocupla tipo K, de 10 cm de longitud y cable de 1 m.</p>
+	      <table cellspacing="1" cellpadding="2" border="1" align="left">
+	        <tbody>
+	          <tr>
+	            <td>Rango de temperatura</td>
+	            <td>0 - 400 C</td>
+	          </tr>
+	          <tr>
+	            <td>Diámetro de el termopozo</td>
+	            <td>5mm</td>
+	          </tr>
+	          <tr>
+	            <td>Longitud del sensor</td>
+	            <td>100mm</td>
+	          </tr>
+	          <tr>
+	            <td>Diámetro de rosca</td>
+	            <td>7.8mm</td>
+	          </tr>
+	          <tr>
+	            <td>Longitud del cable aprox.</td>
+	            <td>1m</td>
+	          </tr>
+	          <tr>
+	            <td>Proteción externa</td>
+	            <td>blindaje metálico</td>
+	          </tr>
+	        </tbody>
+	      </table>
+	      <p>&nbsp;</p>
+	    </div>
+	    <div>
+	      <div></div>
+	      <div></div>
+	    </div>
+	  </div>
+		</div>
+		<div></div>
+	</div>
+	<div>
+	<div>
+	<div id="foot_right">
+	<div>
+	<br>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Documentación</span></strong>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<strong><a href="https://cdn-shop.adafruit.com/datasheets/SLHT5.pdf" target="_blank">Datasheet sensor</a></strong>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<strong><a href="https://cdn-shop.adafruit.com/datasheets/Sensirion_Humidity_SHT1x_Datasheet_V5.pdf" target="_blank">Especificaciones</a></strong>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<strong><a href="https://www.dropbox.com/s/s0rhdbarphrr9p2/sht1x_sht7x.c?dl=1" target="_blank">Descargar  librería sht1x_sht7x</a></strong>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<img src="../../img/Sensor%20Termocupla%20tipo%20K_1.jpg" alt="" height="319" width="320">
+	<img src="../../img/Sensor%20Termocupla%20tipo%20K_2.jpg" alt="" height="320" width="320">
+	<img src="../../img/Sensor%20Termocupla%20tipo%20K_3.jpg" alt="" height="320" width="320">
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p>Conversor transmisor de temperatura con entrada para termocupla tipo K y salida en corriente.</p>
+	<p>Características:</p>
+	<ul>
+		<li>Rango de medición: 0°C hasta 1300°C</li>
+		<li>Salida de señal estándar internacional: 4~20mA</li>
+		<li>Precisión: 0.5±0.5% (En toda la escala)</li>
+		<li>Máxima salida de corriente: 26mA</li>
+		<li>Diámetro: 45mm</li>
+		<li>Material: Plástico</li>
+	</ul>
+	</div></div></div></div>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<img src="img/9.4.7%20Sensor%20de%20temperatura%20Termocupla%20tipo%20K.png" alt="" height="auto" width="auto">
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<a id="Sensor de temperatura RTD PT-100"></a>
+	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Sensor de temperatura RTD PT-100</span></strong>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;">
+	<img src="../video/9.4.8%20Sensor%20de%20temperatura%20RTD%20PT-100.gif" alt="" height="598" width="1000"></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><img src="../../img/Sensor%20RTD%20PT-100_1.jpg" alt="" height="320" width="320">	</p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><strong>TECHNICAL DETAILS</strong></p>
+	<p>Sensor RTD de 3 hilos.</p>
+	<p>Características:</p>
+	<ul>
+		<li>RTD tipo PT100</li>
+		<li>Rango de temperatura:- 50 ~ +200℃</li>
+		<li>Longitud del cable: 50cm</li>
+	</ul>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Documentación</span></strong></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><strong><a href="https://cdn-shop.adafruit.com/datasheets/SLHT5.pdf" target="_blank">Datasheet sensor</a></strong></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><strong><a href="https://cdn-shop.adafruit.com/datasheets/Sensirion_Humidity_SHT1x_Datasheet_V5.pdf" target="_blank">Especificaciones</a></strong></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="text-align:justify;"><strong><a href="https://www.dropbox.com/s/s0rhdbarphrr9p2/sht1x_sht7x.c?dl=1" target="_blank">Descargar  librería sht1x_sht7x</a></strong></p>
+	<p class="MsoNormal1" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;">&nbsp;</p><span style="font-family:Courier; font-size:10.0pt; color:#101010; "></span><span style="font-family:Courier; font-size:10.0pt; color:black; "></span><span style="font-family:Courier; font-size:10.0pt; color:#101010; "></span>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;; font-family: Courier; font-size: 10.0pt; color: #101010">&nbsp;</p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;; font-family: Courier; font-size: 10.0pt; color: #101010">&nbsp;</p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;; font-family: Courier; font-size: 10.0pt; color: #101010"><span class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><img src="../../img/Sensor%20RTD%20PT-100_1.jpg" alt="" height="320" width="320"></span><span class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><img src="../../img/Sensor%20RTD%20PT-100_2.jpg" alt="" height="261" width="280"></span><span class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><img src="../../img/Sensor%20RTD%20PT-100_3.jpg" alt="" height="271" width="399"></span></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;; font-family: Courier; font-size: 10.0pt; color: #101010">&nbsp;</p>
+	<p>Conversor transmisor de temperatura con entrada para RTD y salida en corriente.&nbsp;</p>
+	<p>Características:</p>
+	<ul>
+		<li>Rango de medición: 0°C hasta 200°C</li>
+		<li>Salida de señal estándar internacional: 4~20mA</li>
+		<li>Para sondas PT100 de 2 ó 3 hilos</li>
+		<li>Precisión: ±0.5% (En toda la escala)</li>
+		<li>Máxima salida de corriente: 26mA</li>
+	</ul>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<img src="img/9.4.8%20Sensor%20de%20temperatura%20RTD%20PT-100.png" alt="" height="auto" width="auto">
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<a id="Sensor de temperatura RTD PT-1000"></a>
+	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Sensor de temperatura RTD PT-1000</span></strong>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;">
+	<img src="../video/9.4.9%20Sensor%20de%20temperatura%20RTD%20PT-1000.gif" alt="" height="598" width="1000"></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><img src="../../img/Sensor%20RTD%20PT-100_1.jpg" alt="" height="320" width="320">	</p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><strong>TECHNICAL DETAILS</strong></p>
+	<p>Sensor RTD de 3 hilos.</p>
+	<p>Características:</p>
+	<ul>
+		<li>RTD tipo PT100</li>
+		<li>Rango de temperatura:- 50 ~ +200℃</li>
+		<li>Longitud del cable: 50cm</li>
+	</ul>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Documentación</span></strong></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><strong><a href="https://cdn-shop.adafruit.com/datasheets/SLHT5.pdf" target="_blank">Datasheet sensor</a></strong></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><strong><a href="https://cdn-shop.adafruit.com/datasheets/Sensirion_Humidity_SHT1x_Datasheet_V5.pdf" target="_blank">Especificaciones</a></strong></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="text-align:justify;"><strong><a href="https://www.dropbox.com/s/s0rhdbarphrr9p2/sht1x_sht7x.c?dl=1" target="_blank">Descargar  librería sht1x_sht7x</a></strong></p>
+	<p class="MsoNormal1" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;">&nbsp;</p><span style="font-family:Courier; font-size:10.0pt; color:#101010; "></span><span style="font-family:Courier; font-size:10.0pt; color:black; "></span><span style="font-family:Courier; font-size:10.0pt; color:#101010; "></span>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;; font-family: Courier; font-size: 10.0pt; color: #101010">&nbsp;</p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;; font-family: Courier; font-size: 10.0pt; color: #101010">&nbsp;</p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;; font-family: Courier; font-size: 10.0pt; color: #101010"><span class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><img src="../../img/Sensor%20RTD%20PT-100_1.jpg" alt="" height="320" width="320"></span><span class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><img src="../../img/Sensor%20RTD%20PT-100_2.jpg" alt="" height="261" width="280"></span><span class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><img src="../../img/Sensor%20RTD%20PT-100_3.jpg" alt="" height="271" width="399"></span></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;; font-family: Courier; font-size: 10.0pt; color: #101010">&nbsp;</p>
+	<p>Conversor transmisor de temperatura con entrada para RTD y salida en corriente.&nbsp;</p>
+	<p>Características:</p>
+	<ul>
+		<li>Rango de medición: 0°C hasta 200°C</li>
+		<li>Salida de señal estándar internacional: 4~20mA</li>
+		<li>Para sondas PT100 de 2 ó 3 hilos</li>
+		<li>Precisión: ±0.5% (En toda la escala)</li>
+		<li>Máxima salida de corriente: 26mA</li>
+	</ul>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<img src="img/9.4.9%20Sensor%20de%20temperatura%20RTD%20PT-1000.png" alt="" height="auto" width="auto">
+</body></html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <title>Documento sin título</title>
+    <style type="text/css">
+<!--
+p.MsoNormal {
+margin-top:0cm;
+margin-right:0cm;
+margin-bottom:10.0pt;
+margin-left:0cm;
+line-height:115%;
+font-size:11.0pt;
+font-family:"Calibri","sans-serif";
+}
+-->
+</style> 
+<style type="text/css">
+<!--
+table.MsoNormalTable {
+font-size:10.0pt;
+font-family:"Calibri","sans-serif";
+}
+-->
+</style> 
+<script type="text/javascript">
+	document.oncontextmenu = function(){return false;}
+    function disabletext(e){
+    return false
+    }
+    function reEnable(){
+    return true
+    }
+    document.onselectstart=new Function ("return false")
+    if (window.sidebar){
+    document.onmousedown=disabletext
+    document.onclick=reEnable
+    }
+</script> 
+<style type="text/css">
+<!--
+p.MsoListParagraph {
+margin-top:0cm;
+margin-right:0cm;
+margin-bottom:10.0pt;
+margin-left:36.0pt;
+line-height:115%;
+font-size:11.0pt;
+font-family:"Calibri","sans-serif";
+}
+p.MsoNormal1 {	margin-top: 0cm;
+	margin-right: 0cm;
+	margin-bottom: 10.0pt;
+	margin-left: 0cm;
+	line-height: 115%;
+	font-size: 12pt;
+	font-family: Arial, sans-serif;
+}
+p.MsoNormal11 {margin-top:0cm;
+margin-right:0cm;
+margin-bottom:10.0pt;
+margin-left:0cm;
+line-height:115%;
+font-size:11.0pt;
+font-family:"Calibri","sans-serif";
+}
+-->
+</style>
+
+<script language="JavaScript">
+var remplaza = /\+/gi; 
+var url = window.location.href;
+
+url = unescape(url);
+url = url.replace(remplaza, " ");
+
+function obtener_valor(variable) 
+{ 
+	var variable_may = variable;
+	var variable_pos = url.indexOf(variable);
+
+	if (variable_pos != -1) 
+	{
+		var pos_separador = url.indexOf("&", variable_pos);
+		if (pos_separador != -1) 
+		{
+			return url.substring(variable_pos + variable_may.length + 1, pos_separador);
+		}
+    else
+		{
+			return url.substring(variable_pos + variable_may.length + 1, url.length);
+		}
+	}
+  else 
+	{
+		return "NO_ENCONTRADO";
+	}
+}
+</script>
+<script language="JavaScript">
+  window.onload = function () { 
+		var valor = obtener_valor("verinfo");
+    var element = document.getElementById(valor);
+    element.scrollIntoView();
+  }
+</script>
+</head>
+
+<body>
+	<a id="Salida analoga (PWM)"></a>
+	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Salida análoga (PWM)</span></strong>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Muchas veces  nos gustaría controlar la cantidad física de una acción: qué tan brillantes son  las luces, qué tan rápido se mueve un motor, cuantos grados girar, etc. En este  caso estaremos hablando de salidas de tipo analógico, con este tipo de salidas  podemos tener un grado de control sobre la salida, donde el resultado no solo  se limitará a On-Off.</span>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Como la mayoría de los microcontroladores no pueden  generar un voltaje (real) variable en sus pines de salida, una de las  soluciones para resolver esta carencia es utilizar un truco electrónico que se  basa en la modulación del ancho del pulso – Pulse Width Modulation - (PWM para  abreviar).</span>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<img src="../../img/Microcontroladores%20PIC%20-%20CCS_clip_image001_0001.png" alt="" height="278" width="326">
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">La conversión digital a analógico que es  capaz de hacer un PIC consiste en convertir un valor discreto en el ciclo de  trabajo del PWM proporcional al valor de tensión (voltaje) que deseamos  producir en un PIN habilitado para ello.</span>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Como se  puede observar en la figura, el voltaje promedio es el resultado de alternar el  valor de salida de un pin entre 0 y 5 voltios con un ancho de pulso variable,  durante un periodo de tiempo determinado.</span><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">&nbsp;</span>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Dicho  de otra forma: En un pin del PIC podemos tener una tensión, con respecto a GND,  entre 0V y 5V obtenida de la tensión promedio generada por el ciclo de trabajo  del PWM. Entonces el PIC puede "escribir" esa tensión en 100 valores  distintos, siendo el 0 el correspondiente a los 0V y el 100 el correspondiente  a los 5V, y todos los intermedios en "saltos" de 0,05 (5V/100).</span>
+	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Extraído parcialmente de: <a href="http://www.dtic.upf.edu/%7Ejlozano/interfaces/interfaces5.html" target="_blank">http://www.dtic.upf.edu/~jlozano/interfaces/interfaces5.html</a></span>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<a id="PWM Motor 12VDC"></a>
+	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">PWM Motor 12VDC</span></strong>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Como
+        ejemplo del uso de la señal PWM vamos a utilizar las funciones para
+        controlar la velociidad de un motor de corriente continua conectado al
+        colector de un transistor bipolar NPN (TIP41).</span>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Haremos que
+        nuestro circuito sea capaz de realizar un conteo ascendente/descendente
+        entre 0 y 1000 y que éste valor sea asignado al ciclo de trabajo del PWM
+        para manipular el voltaje aplicado a la base del transistor.</span>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<video controls="controls" controlslist="nodownload" preload="preload" autoplay="autoplay" loop="loop">
+		<source src="../video/10.1%20PWM%20motor%20DC%2012V.m4v" type="video/mp4">
+	</video>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<img src="img/10.1%20PWM%20motor%20DC%2012V.png" alt="" height="auto" width="auto">
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Comentarios del programa:</span>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">La variable
+        PWM se ha programado que su valor aumente o disminuya 10 unidades por
+        cada pulsación. Se ha limitado el valor máximo del parámetro PWM a 1000
+        y el mínimo a 0 y que nunca rebase estos límites. .</span>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Se debe
+        tener especial atención al asignar el ciclo de trabajo al PWM, el cual
+        debe ser un número entero comprendido entre 0 (0V) y 1000 (5V), es
+        decir, el incremento en una unidad en el contador se verá reflejado como
+        una variación de 0,005V a la salida del pin C2 del microcontrolador.</span>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Extraído
+        parcialmente de:</span>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; "><a href="http://www.dtic.upf.edu/%7Ejlozano/interfaces/interfaces5.html">http://www.dtic.upf.edu/~jlozano/interfaces/interfaces5.html</a></span>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<a id="PWM Motor DC industrial"></a>
+	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">PWM Motor DC industrial</span></strong>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<img src="../img/PWM%20motor%20DC%20industrial_1.png" alt="" height="873" width="841">
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<video controlslist="nodownload" preload="auto" autoplay="autoplay" loop="">
+		<source src="../../img/10.2%20PWM%20motor%20DC%20industrial.m4v" type="video/mp4">
+	</video>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<img src="img/10.2%20PWM%20motor%20DC%20industrial.png" alt="" height="auto" width="auto">
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<a id="Convertidor D/A con PWM"></a>
+	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Convertidor D/A con PWM</span></strong>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<img src="../img/PWM%20motor%20DC%20220V.png" alt="" height="616" width="916">
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">
+    	Hay proyectos en los que tenemos que controlar el nivel de voltaje como: la
+      referencia de una fuente regulada, la salida de audio, o bien queremos
+      hacer nuestro generador de funciones. Pero estas señales son analógicas y
+      la mayoría de los microcontroladores de gama baja y media (PICs, AVRs,
+    etc) no tienen un convertidor DAC.</span>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<p class="MsoNormal" style="margin-bottom: .0001pt; text-align: justify; line-height: normal; background: white; font-size: 12pt;">Una
+      solución muy frecuente es usar un circuito DAC (convertidor digital
+      analógico) aparte del micro controlador, lo que es muy útil, pero tiene
+      dos inconvenientes: es un circuito mas, lo que es mas espacio y costo,
+      aparte de que puede requerir muchas lineas de señales por parte de nuestro
+      procesador, en el caso de que la interfaz sea paralela.</p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">
+    	Pero todos los microcontroladores tienen por lo menos un timer y en la mayoria
+      de los casos se puede usar como un modulador de ancho de pulso (PWM) En el
+      caso de que se cuente con estos recursos. se puede usar el timer/PWM para
+      hacer conversiones de digital a analogico usando un arreglo de una
+    resistencia, un capacitor y un amplificador operacional.</span>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<img src="../../img/PWM%20DAC_1.png" alt="" height="307" width="558">
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">
+    	El circuito es un filtro pasabaja de primer orden y el amplificador
+      operacional sirve para evitar que se caiga el voltaje de salida debido a
+    la carga que le coloquemos.</span>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">
+    	Sin adentrarnos mucho en el tema, los filtros pasabaja dejan pasar las señales
+      con frecuencia menor a la frecuencia de corte. En pocas palabras, de la
+      frecuencia de corte para abajo. Para calcular la frecuencia de corte, en
+    este caso se puede usar la siguiente formula:</span>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<img src="../../img/PWM%20DAC_3.png" alt="" height="auto" width="auto">
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<img src="../../img/PWM%20DAC_2.png" alt="" height="250" width="558">
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">
+    	Esta frecuencia de corte es importante, ya que nos da la pauta de las
+      frecuencias que podemos suministrar como señal de salida analógica. Es
+      decir, si nuestra frecuencia de corte es de 1000Hz, con nuestro dac pwm
+      podemos sacar frecuencias menores de 1000Hz, por ejemplo podemos sacar
+    senoidales a 600Hz sin problema.</span>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">
+    	Ahora bien, ya tenemos la frecuencia de corte, pero hace falta otra frecuencia
+      importante a considerar, que es la frecuencia del PWM. La frecuencia del
+      pwm es la que usara el timer para generar la señal de salida analógica. No
+      podemos elegir una frecuencia de pwm menor que la frecuencia de corte del
+      filtro, ya que prácticamente solo veríamos la señal del timer. Tampoco
+      podemos igualarla con la de corte ya que la señal de salida presentaría
+      mucho ruido debido a que la atenuación empieza en la frecuencia de corte,
+    es decir, todavía veríamos la señal del timer en la salida analógica.</span>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">
+      Debemos elegir una frecuencia de pwm mucho mayor que la frecuencia de
+      corte, para asegurar que la frecuencia del timer no llegue a la salida de
+    nuestro convertidor ya que estaría muy atenuada según nuestro filtro.</span>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">
+    	Es recomendable utilizar frecuencias de pwm por lo menos 20 veces mas alta
+      que la frecuencia de corte. De hecho, generalmente empezaremos viendo cual
+      es la frecuencia máxima de pwm que podemos tener en el timer/pwm y de allí
+      propondremos la frecuencia de corte. Al final la velocidad del
+    	microcontrolador es nuestro limite.</span>
+</body></html>

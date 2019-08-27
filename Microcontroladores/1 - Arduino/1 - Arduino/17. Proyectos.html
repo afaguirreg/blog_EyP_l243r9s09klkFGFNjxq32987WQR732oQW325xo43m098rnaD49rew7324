@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+
+
+
+
+
+
+
+    
+    <meta content="IE=edge">
+    <title>Documento sin título</title>
+    <style type="text/css">
+<!--
+p.MsoNormal {
+	margin-top: 0cm;
+	margin-right: 0cm;
+	margin-bottom: 10.0pt;
+	margin-left: 0cm;
+	line-height: 115%;
+	font-size: 12pt;
+	font-family: Arial, sans-serif;
+}
+-->
+</style> 
+<style type="text/css">
+<!--
+table.MsoNormalTable {
+font-size:10.0pt;
+font-family:"Calibri","sans-serif";
+}
+-->
+</style> 
+<script type="text/javascript">
+	document.oncontextmenu = function(){return false;}
+    function disabletext(e){
+    return false
+    }
+    function reEnable(){
+    return true
+    }
+    document.onselectstart=new Function ("return false")
+    if (window.sidebar){
+    document.onmousedown=disabletext
+    document.onclick=reEnable
+    }
+</script> 
+<style type="text/css">
+<!--
+p.MsoListParagraph {
+margin-top:0cm;
+margin-right:0cm;
+margin-bottom:10.0pt;
+margin-left:36.0pt;
+line-height:115%;
+font-size:11.0pt;
+font-family:"Calibri","sans-serif";
+}
+p.MsoNormal1 {margin-top:0cm;
+margin-right:0cm;
+margin-bottom:10.0pt;
+margin-left:0cm;
+line-height:115%;
+font-size:11.0pt;
+font-family:"Calibri","sans-serif";
+}
+-->
+</style>
+
+<script language="JavaScript">
+var remplaza = /\+/gi; 
+var url = window.location.href;
+
+url = unescape(url);
+url = url.replace(remplaza, " ");
+
+function obtener_valor(variable) 
+{ 
+	var variable_may = variable;
+	var variable_pos = url.indexOf(variable);
+
+	if (variable_pos != -1) 
+	{
+		var pos_separador = url.indexOf("&", variable_pos);
+		if (pos_separador != -1) 
+		{
+			return url.substring(variable_pos + variable_may.length + 1, pos_separador);
+		}
+    else
+		{
+			return url.substring(variable_pos + variable_may.length + 1, url.length);
+		}
+	}
+  else 
+	{
+		return "NO_ENCONTRADO";
+	}
+}
+</script>
+<script language="JavaScript">
+  window.onload = function () { 
+		var valor = obtener_valor("verinfo");
+    var element = document.getElementById(valor);
+    element.scrollIntoView();
+  }
+</script>
+</head>
+
+<body>
+  <a id="Proyectos"></a>
+ 	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Proyectos</span></strong>
+  <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+  <a id="Plantilla proyecto"></a>
+ 	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Plantilla proyecto</span></strong>
+  <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;; font-family: 'Arial', 'sans-serif'; font-size: 12.0pt">&nbsp;</p>
+  <video controls="controls" controlslist="nodownload" preload="preload" autoplay="autoplay" loop="loop">
+  	<source src="../video/17.1%20Plantilla%20proyecto.m4v" type="video/mp4">
+  </video>
+  <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+  <img src="img/17.1%20Plantilla%20proyecto.png" alt="" height="auto" width="auto">
+  <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+  <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+  <strong><span style="font-family:Courier; font-size:10.0pt; color:#003EC7; "></span></strong><strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Control de tiempo y velocidad</span></strong>
+  <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;">
+  <img src="../video/17.2%20Control%20de%20tiempo%20y%20velocidad.gif" alt="" height="645" width="1000"></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+	<img src="img/17.2%20Control%20de%20tiempo%20y%20velocidad.png" alt="" height="auto" width="auto">
+ 	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+  <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+  <strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Alarma cambio de turno</span></strong>
+  <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;">
+  <img src="../video/17.3%20Alarma%20cambio%20de%20turno.gif" alt="" height="731" width="864"></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+	<img src="img/17.3%20Alarma%20cambio%20de%20turno.png" alt="" height="auto" width="auto">
+ 	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+  <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+  <strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Probador de CI 74XX</span></strong>
+  <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+	<video controls="controls" controlslist="nodownload" preload="preload" autoplay="autoplay" loop="loop">
+		<source src="../video/17.9%20Probador%20de%20CI%2074XX.m4v" type="video/mp4">
+	</video>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+	<img src="img/17.9%20Probador%20de%20CI%2074XX.png" alt="" height="auto" width="auto">
+ 	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+  <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;mso-layout-grid-align:none;text-autospace:none"><span class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;line-height:normal;background:white;"><span class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;line-height:normal;background:white;"><span class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;line-height:normal;background:white;">
+  <strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Programa
+                Sharp Develop</span></strong></span></span></span></p>
+<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;mso-layout-grid-align:none;text-autospace:none"><span class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;line-height:normal;background:white;"><span class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;line-height:normal;background:white;"><span class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;line-height:normal;background:white;"><strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; "><br></span></strong></span></span></span></p>
+<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;mso-layout-grid-align:none;text-autospace:none"><span class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;line-height:normal;background:white;"><span class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;line-height:normal;background:white;"><span class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;line-height:normal;background:white;"><strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; "></span></strong></span></span></span></p>
+<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;mso-layout-grid-align:none;text-autospace:none"><img src="../../img/17.9%20Probador%20de%20CI%2074XX.png" alt="" height="auto" width="auto"></p>
+<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;mso-layout-grid-align:none;text-autospace:none"><br></p>
+<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;line-height:
+normal;mso-layout-grid-align:none;text-autospace:none"><span style="color: #008000; ">/*</span><br>
+<span style="color: #008000; ">&nbsp;* Created by SharpDevelop.</span><br>
+<span style="color: #008000; ">&nbsp;* User: AnDrEs</span><br>
+<span style="color: #008000; ">&nbsp;* Date: 24/07/2017</span><br>
+<span style="color: #008000; ">&nbsp;* Time: 10:06</span><br>
+<span style="color: #008000; ">&nbsp;*&nbsp;</span><br>
+<span style="color: #008000; ">&nbsp;* To change this template use Tools | Options | Coding | Edit Standard Headers.</span><br>
+<span style="color: #008000; ">&nbsp;*/</span><br>
+<span style="color: #008000; font-weight: bold; ">using</span>&nbsp;System;<br>
+<span style="color: #008000; font-weight: bold; ">using</span>&nbsp;System.Collections.Generic;<br>
+<span style="color: #008000; font-weight: bold; ">using</span>&nbsp;System.Drawing;<br>
+<span style="color: #008000; font-weight: bold; ">using</span>&nbsp;System.Windows.Forms;<br>
+<span style="color: #008000; font-weight: bold; ">using</span>&nbsp;System.IO.Ports;<br>
+<br>
+<span style="color: #008000; font-weight: bold; ">namespace</span>&nbsp;Probador_de_CI_74XX<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; "><span style="color: #808080; ">///</span>&nbsp;<span style="color: #808080; ">&lt;<span style="font-weight: bold; ">summary</span>&gt;</span></span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; "><span style="color: #808080; ">///</span>&nbsp;Description of MainForm.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; "><span style="color: #808080; ">///</span>&nbsp;<span style="color: #808080; ">&lt;<span style="font-weight: bold; ">/</span><span style="font-weight: bold; ">summary</span>&gt;</span></span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff; font-weight: bold; ">public</span>&nbsp;<span style="color: #000080; ">partial</span>&nbsp;<span style="color: #ff0000; ">class</span>&nbsp;MainForm : Form<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff; font-weight: bold; ">public</span>&nbsp;<span style="color: #191970; font-weight: bold; ">MainForm</span>()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; ">//</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; ">// The InitializeComponent() call is required for Windows Forms designer support.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; ">//</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #191970; font-weight: bold; ">InitializeComponent</span>();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; ">//</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; ">//&nbsp;<span style="color: #ff0000; font-weight: bold; ">TODO</span>: Add constructor code after the InitializeComponent() call.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #008000; ">//</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ff0000; ">void</span>&nbsp;<span style="color: #191970; font-weight: bold; ">Button_BuscarClick</span>(<span style="color: #ff0000; ">object</span>&nbsp;sender,&nbsp;EventArgs e)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;comboBox_Puertos.Items.<span style="color: #191970; font-weight: bold; ">Clear</span>();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff; font-weight: bold; ">foreach</span>&nbsp;(<span style="color: #ff0000; ">string</span>&nbsp;s&nbsp;<span style="color: #0000ff; font-weight: bold; ">in</span>&nbsp;SerialPort.<span style="color: #191970; font-weight: bold; ">GetPortNames</span>())<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;comboBox_Puertos.Items.<span style="color: #191970; font-weight: bold; ">Add</span>(s);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff; font-weight: bold; ">if</span>&nbsp;(SerialPort.<span style="color: #191970; font-weight: bold; ">GetPortNames</span>().<span style="color: #191970; font-weight: bold; ">GetLength</span>(<span style="color: #00008b; ">0</span>)&gt;<span style="color: #00008b; ">0</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;comboBox_Puertos.Enabled =&nbsp;<span style="color: #008b8b; font-weight: bold; ">true</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;serialPort1.<span style="color: #191970; font-weight: bold; ">Close</span>();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;button1.Enabled =&nbsp;<span style="color: #008b8b; font-weight: bold; ">false</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ff0000; ">void</span>&nbsp;<span style="color: #191970; font-weight: bold; ">ComboBox_PuertosSelectedIndexChanged</span>(<span style="color: #ff0000; ">object</span>&nbsp;sender,&nbsp;EventArgs e)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff; font-weight: bold; ">if</span>&nbsp;(comboBox_Puertos.Text&nbsp;!=&nbsp;<span style="color: #0000ff; ">""</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;button_Conectar.Enabled =&nbsp;<span style="color: #008b8b; font-weight: bold; ">true</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ff0000; ">void</span>&nbsp;<span style="color: #191970; font-weight: bold; ">Button_ConectarClick</span>(<span style="color: #ff0000; ">object</span>&nbsp;sender,&nbsp;EventArgs e)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff; font-weight: bold; ">if</span>&nbsp;(comboBox_Puertos.Text&nbsp;!=&nbsp;<span style="color: #0000ff; ">""</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CheckForIllegalCrossThreadCalls =&nbsp;<span style="color: #008b8b; font-weight: bold; ">false</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;serialPort1.PortName = comboBox_Puertos.Text;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;comboBox_Puertos.Enabled =&nbsp;<span style="color: #008b8b; font-weight: bold; ">false</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;serialPort1.<span style="color: #191970; font-weight: bold; ">Open</span>();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;button_Conectar.Enabled =&nbsp;<span style="color: #008b8b; font-weight: bold; ">false</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;button1.Enabled =&nbsp;<span style="color: #008b8b; font-weight: bold; ">true</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ff0000; ">void</span>&nbsp;<span style="color: #191970; font-weight: bold; ">Button1Click</span>(<span style="color: #ff0000; ">object</span>&nbsp;sender,&nbsp;EventArgs e)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;serialPort1.<span style="color: #191970; font-weight: bold; ">Write</span>(<span style="color: #0000ff; ">"T"</span>&nbsp;+&nbsp;(<span style="color: #ff0000; font-weight: bold; ">char</span>)<span style="color: #00008b; ">13</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ff0000; ">void</span>&nbsp;<span style="color: #191970; font-weight: bold; ">MainFormLoad</span>(<span style="color: #ff0000; ">object</span>&nbsp;sender,&nbsp;EventArgs e)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.Threading.Thread.CurrentThread.CurrentCulture =&nbsp;<span style="color: #008b8b; font-weight: bold; ">new</span>&nbsp;System.Globalization.<span style="color: #191970; font-weight: bold; ">CultureInfo</span>(<span style="color: #0000ff; ">"en-US"</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ff0000; ">void</span>&nbsp;<span style="color: #191970; font-weight: bold; ">MainFormFormClosed</span>(<span style="color: #ff0000; ">object</span>&nbsp;sender,&nbsp;FormClosedEventArgs e)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;serialPort1.<span style="color: #191970; font-weight: bold; ">Close</span>();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;serialPort1.<span style="color: #191970; font-weight: bold; ">Dispose</span>();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ff0000; ">void</span>&nbsp;<span style="color: #191970; font-weight: bold; ">SerialPort1DataReceived</span>(<span style="color: #ff0000; ">object</span>&nbsp;sender,&nbsp;SerialDataReceivedEventArgs e)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ff0000; ">string</span>&nbsp;dato;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff; font-weight: bold; ">if</span>&nbsp;(serialPort1.BytesToRead&nbsp;&gt;&nbsp;<span style="color: #00008b; ">1</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dato = serialPort1.<span style="color: #191970; font-weight: bold; ">ReadLine</span>();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff; font-weight: bold; ">if</span>&nbsp;(dato.<span style="color: #191970; font-weight: bold; ">StartsWith</span>(<span style="color: #0000ff; ">"AB"</span>))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label1.Text =&nbsp;<span style="color: #0000ff; ">"AND Buena"</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff; font-weight: bold; ">else</span>&nbsp;<span style="color: #0000ff; font-weight: bold; ">if</span>&nbsp;(dato.<span style="color: #191970; font-weight: bold; ">StartsWith</span>(<span style="color: #0000ff; ">"OB"</span>))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label1.Text =&nbsp;<span style="color: #0000ff; ">"OR Buena"</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff; font-weight: bold; ">else</span>&nbsp;<span style="color: #0000ff; font-weight: bold; ">if</span>&nbsp;(dato.<span style="color: #191970; font-weight: bold; ">StartsWith</span>(<span style="color: #0000ff; ">"DB"</span>))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label1.Text =&nbsp;<span style="color: #0000ff; ">"NAND Buena"</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff; font-weight: bold; ">else</span>&nbsp;<span style="color: #0000ff; font-weight: bold; ">if</span>&nbsp;(dato.<span style="color: #191970; font-weight: bold; ">StartsWith</span>(<span style="color: #0000ff; ">"RB"</span>))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label1.Text =&nbsp;<span style="color: #0000ff; ">"NOR Buena"</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff; font-weight: bold; ">else</span>&nbsp;<span style="color: #0000ff; font-weight: bold; ">if</span>&nbsp;(dato.<span style="color: #191970; font-weight: bold; ">StartsWith</span>(<span style="color: #0000ff; ">"XB"</span>))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label1.Text =&nbsp;<span style="color: #0000ff; ">"XOR Buena"</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #0000ff; font-weight: bold; ">else</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label1.Text =&nbsp;<span style="color: #0000ff; ">"Mala"</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}</p><!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Tabla normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin-top:0cm;
+	mso-para-margin-right:0cm;
+	mso-para-margin-bottom:8.0pt;
+	mso-para-margin-left:0cm;
+	line-height:107%;
+	mso-pagination:widow-orphan;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:minor-latin;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;
+	mso-fareast-language:EN-US;}
+</style>
+<![endif]-->
+</body></html>

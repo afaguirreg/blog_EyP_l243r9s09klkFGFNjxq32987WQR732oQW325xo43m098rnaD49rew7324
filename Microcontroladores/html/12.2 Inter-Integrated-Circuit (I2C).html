@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<title>Documento sin título</title>
+<style type="text/css">
+<!--
+p.MsoNormal {
+margin-top:0cm;
+margin-right:0cm;
+margin-bottom:10.0pt;
+margin-left:0cm;
+line-height:115%;
+font-size:11.0pt;
+font-family:"Calibri","sans-serif";
+}
+-->
+</style>
+<style type="text/css">
+<!--
+table.MsoNormalTable {
+font-size:10.0pt;
+font-family:"Calibri","sans-serif";
+}
+-->
+</style>
+<script type="text/javascript">
+	document.oncontextmenu = function(){return false;}
+    function disabletext(e){
+    return false
+    }
+    function reEnable(){
+    return true
+    }
+    document.onselectstart=new Function ("return false")
+    if (window.sidebar){
+    document.onmousedown=disabletext
+    document.onclick=reEnable
+    }
+</script>
+<style type="text/css">
+<!--
+p.MsoListParagraph {
+margin-top:0cm;
+margin-right:0cm;
+margin-bottom:10.0pt;
+margin-left:36.0pt;
+line-height:115%;
+font-size:11.0pt;
+font-family:"Calibri","sans-serif";
+}
+p.MsoNormal1 {	margin-top: 0cm;
+	margin-right: 0cm;
+	margin-bottom: 10.0pt;
+	margin-left: 0cm;
+	line-height: 115%;
+	font-size: 12pt;
+	font-family: Arial, sans-serif;
+}
+-->
+</style>
+
+<script language="JavaScript">
+var remplaza = /\+/gi; 
+var url = window.location.href;
+
+url = unescape(url);
+url = url.replace(remplaza, " ");
+
+function obtener_valor(variable) 
+{ 
+	var variable_may = variable;
+	var variable_pos = url.indexOf(variable);
+
+	if (variable_pos != -1) 
+	{
+		var pos_separador = url.indexOf("&", variable_pos);
+		if (pos_separador != -1) 
+		{
+			return url.substring(variable_pos + variable_may.length + 1, pos_separador);
+		}
+    else
+		{
+			return url.substring(variable_pos + variable_may.length + 1, url.length);
+		}
+	}
+  else 
+	{
+		return "NO_ENCONTRADO";
+	}
+}
+</script>
+<script language="JavaScript">
+  window.onload = function () { 
+		var valor = obtener_valor("verinfo");
+    var element = document.getElementById(valor);
+    element.scrollIntoView();
+  }
+</script>
+</head>
+
+<body>
+  
+	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Inter-Integrated-Circuit (I2C)</span></strong>
+  <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;line-height:normal;background:white;">&nbsp;</p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">I²C es un bus de  comunicaciones en serie. Su nombre viene de Inter-Integrated Circuit (Circuitos  Inter-Integrados). La versión 1.0 data del año 1992 y la versión 2.1 del año  2000, su diseñador es Philips. La velocidad es de 100Kbits por segundo en el  modo estándar, aunque también permite velocidades de 3.4 Mbit/s. Es un bus muy  usado en la industria, principalmente para comunicar microntroladores y sus  periféricos en sistemas integrados (Embedded Systems) y generalizando más para  comunicar circuitos integrados entre si que normalmente residen en un mismo  circuito impreso.</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">La principal característica  de I²C es que utiliza dos líneas para transmitir la información: una para los  datos y por otra la señal de reloj. También es necesaria una tercera línea,  pero esta sólo es la referencia (masa). Como suelen comunicarse circuitos en  una misma placa que comparten una misma masa esta tercera línea no suele ser  necesaria.</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Las líneas se llaman:</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">SDA: datos</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">SCL: reloj</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">GND: tierra</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Las dos primeras líneas son  drenador abierto, por lo que necesitan resistencias de pull-up.</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Los dispositivos conectados  al bus I²C tienen una dirección única para cada uno. También pueden ser  maestros o esclavos. El dispositivo maestro inicia la transferencia de datos y  además genera la señal de reloj, pero no es necesario que el maestro sea  siempre el mismo dispositivo, esta característica se la pueden ir pasando los  dispositivos que tengan esa capacidad. Esta característica hace que al bus I²C  se le denomine bus multimaestro.</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Las transacciones en el bus  I2C tienen este formato:</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">| start | A7 A6 A5 A4 A3 A2 A1 | R/W | ACK | ... </span><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">DATA  ... | ACK | stop | idle |</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">- El bus esta libre cuando  SDA y SCL están en estado lógico alto.</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">- En estado bus libre,  cualquier dispositivo puede ocupar el bus I²C como maestro.</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">- El maestro comienza la  comunicación enviando un patrón llamado "start condition". Esto  alerta a los dispositivos esclavos, poniéndolos a la espera de una transacción.</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">- El maestro se dirige al  dispositivo con el que quiere hablar, enviando un byte que contiene los siete  bits (A7-A1) que componen la dirección del dispositivo esclavo con el que se  quiere comunicar, y el octavo bit (A0) de menor peso se corresponde con la  operación deseada (L/E), lectura=1 (recibir del esclavo) y escritura=0 (enviar  al esclavo).</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">- La dirección enviada es  comparada por cada esclavo del bus con su propia dirección, si ambas coinciden,  el esclavo se considera direccionado como esclavo-transmisor o esclavo receptor  dependiendo del bit R/W.</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">- El esclavo responde  enviando un bit de ACK que le indica al dispositivo maestro que el esclavo  reconoce la solicitud y está en condiciones de comunicarse.</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">- Seguidamente comienza el  intercambio de información entre los dispositivos.</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">- El maestro envía la dirección  del registro interno del dispositivo que se desea leer o escribir.</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">- El esclavo responde con  otro bit de ACK</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">- Ahora el maestro puede  empezar a leer o escribir bytes de datos. Todos los bytes de datos deben  constar de 8 bits, el número máximo de bytes que pueden ser enviados en una  transmisión no está restringido, siendo el esclavo quien fija esta cantidad de  acuerdo a sus características.</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">- Cada byte leído/escrito  por el maestro debe ser obligatoriamente reconocido por un bit de ACK por el  dispositivo maestro/esclavo.</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">- Se repiten los 2 pasos  anteriores hasta finalizar la comunicación entre maestro y esclavo.</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">- Aun cuando el maestro  siempre controla el estado de la línea del reloj, un esclavo de baja velocidad  o que deba detener la transferencia de datos mientras efectúa otra función,  puede forzar la línea SCL a nivel bajo. Esto hace que el maestro entre en un  estado de espera, durante el cual, no transmite información esperando a que el  esclavo esté listo para continuar la transferencia en el punto donde había sido  detenida.</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">- Cuando la comunicación  finaliza, el maestro transmite una "stop condition" para dejar libre  el bus.</span></p>
+<p class="MsoNormal1" style="text-align:justify;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">- Después de la "stop  condition", es obligatorio para el bus estar idle durante unos</span> <span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">microsegundos.</span></p>
+<p style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">*extraído de <a href="http://es.wikipedia.org/wiki/I%C2%B2C">http://es.wikipedia.org/wiki/I%C2%B2C</a></p></body></html>

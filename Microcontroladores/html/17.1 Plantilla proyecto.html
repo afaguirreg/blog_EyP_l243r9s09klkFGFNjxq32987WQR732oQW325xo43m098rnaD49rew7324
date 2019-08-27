@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<meta content="IE=edge">
+<title>Documento sin título</title>
+<style type="text/css">
+<!--
+p.MsoNormal {
+	margin-top: 0cm;
+	margin-right: 0cm;
+	margin-bottom: 10.0pt;
+	margin-left: 0cm;
+	line-height: 115%;
+	font-size: 12pt;
+	font-family: Arial, sans-serif;
+}
+-->
+</style>
+<style type="text/css">
+<!--
+table.MsoNormalTable {
+font-size:10.0pt;
+font-family:"Calibri","sans-serif";
+}
+-->
+</style>
+<script type="text/javascript">
+	document.oncontextmenu = function(){return false;}
+    function disabletext(e){
+    return false
+    }
+    function reEnable(){
+    return true
+    }
+    document.onselectstart=new Function ("return false")
+    if (window.sidebar){
+    document.onmousedown=disabletext
+    document.onclick=reEnable
+    }
+</script>
+<style type="text/css">
+<!--
+p.MsoListParagraph {
+margin-top:0cm;
+margin-right:0cm;
+margin-bottom:10.0pt;
+margin-left:36.0pt;
+line-height:115%;
+font-size:11.0pt;
+font-family:"Calibri","sans-serif";
+}
+p.MsoNormal1 {margin-top:0cm;
+margin-right:0cm;
+margin-bottom:10.0pt;
+margin-left:0cm;
+line-height:115%;
+font-size:11.0pt;
+font-family:"Calibri","sans-serif";
+}
+-->
+</style>
+</head>
+
+<body>
+<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Plantilla proyecto</span></strong>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;">&nbsp;</p>
+<p class="MsoNormal" style="text-align:center;" align="center"><img src="../img/DS1307.JPG" alt="" height="auto" width="auto"></p>
+<p>&nbsp;</p>
+<pre>#include&nbsp;<span style="color: #0066FF;">"Wire.h"</span>                 <span style="color: #007F00;">//for DS1307 I2C</span>
+#include&nbsp;&lt;string.h&gt;
+#include&nbsp;&lt;math.h&gt;
+#include&nbsp;&lt;<span style="color: #FF0000;">LiquidCrystal</span>.h&gt;
+
+<span style="color: #007F00;">//&nbsp;initialize&nbsp;the&nbsp;library&nbsp;with&nbsp;the&nbsp;numbers&nbsp;of&nbsp;the&nbsp;interface&nbsp;pins</span>
+<span style="color: #FF0000;">LiquidCrystal</span> lcd(P2_0, P2_1, P2_2, P2_3, P2_4, P2_5);
+
+#define&nbsp;DS1307_I2C_ADDRESS&nbsp;0x68
+#define&nbsp;boton&nbsp;P1_3
+
+<span style="color: #FF8000;">boolean</span> estado_boton;
+
+<span style="color: #FF8000;">char</span> txt2stream[17];
+
+<span style="color: #FF8000;">byte</span> second, minute, hour, dayOfWeek, dayOfMonth, month, year;
+<span style="color: #FF8000;">char</span> buffer_fecha[12];
+<span style="color: #FF8000;">char</span> buffer_hora[12];
+
+<span style="color: #FF0000;">void</span> <span style="color: #8B308B;"><b>setup</b></span>()
+{
+&nbsp;&nbsp;<span style="color: #FF8000;">pinMode</span>(P1_3, <span style="color: #0066FF;">INPUT</span>);
+&nbsp;&nbsp;<span style="color: #007F00;">// set up the LCD's number of columns and rows: </span>
+&nbsp;&nbsp;lcd.<span style="color: #FF8000;">begin</span>(16, 2);
+&nbsp;&nbsp;lcd.<span style="color: #FF8000;">setCursor</span>(5,0);
+&nbsp; lcd.<span style="color: #FF8000;">print</span>(<span style="color: #0066FF;">"Nombre"</span>);
+&nbsp;&nbsp;lcd.<span style="color: #FF8000;">setCursor</span>(4,1);
+&nbsp; lcd.<span style="color: #FF8000;">print</span>(<span style="color: #0066FF;">"Proyecto"</span>);
+&nbsp;&nbsp;<span style="color: #FF8000;">delay</span>(1500);
+&nbsp;&nbsp;lcd.<span style="color: #FF8000;">clear</span>();
+&nbsp;&nbsp;lcd.<span style="color: #FF8000;">setCursor</span>(2,1);
+&nbsp; lcd.<span style="color: #FF8000;">print</span>(,<span style="color: #0066FF;">"Ficha:xxxxxxx"</span>);
+&nbsp;&nbsp;lcd.<span style="color: #FF8000;">setCursor</span>(2,1);
+&nbsp; lcd.<span style="color: #FF8000;">print</span>(<span style="color: #0066FF;">"Sena Reg. Caldas"</span>);
+&nbsp;&nbsp;<span style="color: #FF8000;">delay</span>(1500);
+&nbsp;&nbsp;lcd.<span style="color: #FF8000;">clear</span>();
+&nbsp;&nbsp;<span style="color: #FF8000;">Wire</span>.<span style="color: #FF8000;">begin</span>();
+&nbsp;&nbsp;<span style="color: #007F00;">/*</span>
+<span style="color: #007F00;">&nbsp;&nbsp;//////here&nbsp;programmer&nbsp;set&nbsp;the&nbsp;current&nbsp;time&nbsp;,from&nbsp;where&nbsp;the&nbsp;ds&nbsp;runs</span>
+<span style="color: #007F00;">&nbsp;&nbsp;*/</span>
+&nbsp;&nbsp;dayOfWeek&nbsp;=&nbsp;5;
+&nbsp;&nbsp;dayOfMonth&nbsp;=&nbsp;8;
+&nbsp;&nbsp;month&nbsp;=&nbsp;3;
+&nbsp;&nbsp;year&nbsp;=&nbsp;17;
+&nbsp;&nbsp;hour&nbsp;=&nbsp;1;
+&nbsp;&nbsp;minute&nbsp;=&nbsp;1;
+&nbsp;&nbsp;second&nbsp;=&nbsp;40;
+&nbsp;&nbsp;setDateDs1307(second,&nbsp;minute,&nbsp;hour,&nbsp;dayOfWeek,&nbsp;dayOfMonth,&nbsp;month,&nbsp;year);
+}
+
+<span style="color: #FF0000;">void</span> <span style="color: #FF8000;">loop</span>()
+{
+&nbsp;&nbsp;&nbsp;<span style="color: #007F00;">// Escribir código de la aplicación</span>
+
+&nbsp;&nbsp;&nbsp;estado_boton&nbsp;=&nbsp;!<span style="color: #FF8000;">digitalRead</span>(boton);
+
+&nbsp;&nbsp;&nbsp;<span style="color: #FF0000;">if</span> (estado_boton==1)
+&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #FF0000;">while</span> (estado_boton==1)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;leer_fecha_y_hora();
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #FF8000;">delay</span>(1000);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;estado_boton&nbsp;=&nbsp;<span style="color: #FF8000;">digitalRead</span>(boton);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lcd.<span style="color: #FF8000;">clear</span>();
+&nbsp;&nbsp;&nbsp;}
+}
+
+<span style="color: #FF0000;">void</span> leer_fecha_y_hora()
+{
+&nbsp;&nbsp;getDateDs1307(&amp;second,&nbsp;&amp;minute,&nbsp;&amp;hour,&nbsp;&amp;dayOfWeek,&nbsp;&amp;dayOfMonth,&nbsp;&amp;month,&nbsp;&amp;year);<span style="color: #007F00;">///to get current time from ds1307</span>
+&nbsp;&nbsp;sprintf(buffer_fecha,&nbsp;<span style="color: #0066FF;">"%02d/%02d/20%02d "</span>, dayOfMonth, month, year);
+&nbsp;&nbsp;sprintf(buffer_hora,&nbsp;<span style="color: #0066FF;">"%02d:%02d:%02d"</span>, hour, minute, second);
+&nbsp;&nbsp;lcd.<span style="color: #FF8000;">setCursor</span>(0, 0);
+&nbsp;&nbsp;lcd.<span style="color: #FF8000;">print</span>(buffer_fecha);
+&nbsp;&nbsp;lcd.<span style="color: #FF8000;">setCursor</span>(0, 1);
+&nbsp;&nbsp;lcd.<span style="color: #FF8000;">print</span>(buffer_hora); 
+}
+
+<span style="color: #FF0000;">void</span> getDateDs1307(<span style="color: #FF8000;">byte</span> *second,   <span style="color: #007F00;">// Gets the date and time from the ds1307</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #FF8000;">byte</span> *minute,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #FF8000;">byte</span> *hour,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #FF8000;">byte</span> *dayOfWeek,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #FF8000;">byte</span> *dayOfMonth,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #FF8000;">byte</span> *month,
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #FF8000;">byte</span> *year)
+{
+&nbsp;&nbsp;<span style="color: #007F00;">// Reset the register pointer</span>
+&nbsp;&nbsp;<span style="color: #FF8000;">Wire</span>.<span style="color: #FF8000;">beginTransmission</span>(DS1307_I2C_ADDRESS);
+&nbsp;&nbsp;<span style="color: #FF8000;">Wire</span>.<span style="color: #FF8000;">write</span>(0);
+&nbsp;&nbsp;<span style="color: #FF8000;">Wire</span>.<span style="color: #FF8000;">endTransmission</span>();
+
+&nbsp;&nbsp;<span style="color: #FF8000;">Wire</span>.<span style="color: #FF8000;">requestFrom</span>(DS1307_I2C_ADDRESS, 7);
+
+&nbsp;&nbsp;<span style="color: #007F00;">// A few of these need masks because certain bits are control bits</span>
+&nbsp;&nbsp;*second&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;bcdToDec(<span style="color: #FF8000;">Wire</span>.<span style="color: #FF8000;">read</span>() &amp; 0x7f);
+&nbsp;&nbsp;*minute&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;bcdToDec(<span style="color: #FF8000;">Wire</span>.<span style="color: #FF8000;">read</span>());
+&nbsp;&nbsp;*hour&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;bcdToDec(<span style="color: #FF8000;">Wire</span>.<span style="color: #FF8000;">read</span>() &amp; 0x3f);  <span style="color: #007F00;">// Need to change this if 12 hour am/pm</span>
+&nbsp;&nbsp;*dayOfWeek&nbsp;&nbsp;=&nbsp;bcdToDec(<span style="color: #FF8000;">Wire</span>.<span style="color: #FF8000;">read</span>());
+&nbsp;&nbsp;*dayOfMonth&nbsp;=&nbsp;bcdToDec(<span style="color: #FF8000;">Wire</span>.<span style="color: #FF8000;">read</span>());
+&nbsp;&nbsp;*month&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;bcdToDec(<span style="color: #FF8000;">Wire</span>.<span style="color: #FF8000;">read</span>());
+&nbsp;&nbsp;*year&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;bcdToDec(<span style="color: #FF8000;">Wire</span>.<span style="color: #FF8000;">read</span>());
+}
+
+<span style="color: #FF0000;">void</span> setDateDs1307(<span style="color: #FF8000;">byte</span> second,        <span style="color: #007F00;">// 0-59         ///to set time in ds1307</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #FF8000;">byte</span> minute,        <span style="color: #007F00;">// 0-59</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #FF8000;">byte</span> hour,          <span style="color: #007F00;">// 1-23</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #FF8000;">byte</span> dayOfWeek,     <span style="color: #007F00;">// 1-7</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #FF8000;">byte</span> dayOfMonth,    <span style="color: #007F00;">// 1-28/29/30/31</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #FF8000;">byte</span> month,         <span style="color: #007F00;">// 1-12</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #FF8000;">byte</span> year)          <span style="color: #007F00;">// 0-99</span>
+{
+&nbsp;&nbsp;<span style="color: #FF8000;">Wire</span>.<span style="color: #FF8000;">beginTransmission</span>(DS1307_I2C_ADDRESS);
+&nbsp;&nbsp;<span style="color: #FF8000;">Wire</span>.<span style="color: #FF8000;">write</span>(0);
+&nbsp;&nbsp;<span style="color: #FF8000;">Wire</span>.<span style="color: #FF8000;">write</span>(decToBcd(second));    <span style="color: #007F00;">// 0 to bit 7 starts the clock</span>
+&nbsp;&nbsp;<span style="color: #FF8000;">Wire</span>.<span style="color: #FF8000;">write</span>(decToBcd(minute));
+&nbsp;&nbsp;<span style="color: #FF8000;">Wire</span>.<span style="color: #FF8000;">write</span>(decToBcd(hour));      <span style="color: #007F00;">// If you want 12 hour am/pm you need to set</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #007F00;">// bit 6 (also need to change readDateDs1307)</span>
+&nbsp;&nbsp;<span style="color: #FF8000;">Wire</span>.<span style="color: #FF8000;">write</span>(decToBcd(dayOfWeek));
+&nbsp;&nbsp;<span style="color: #FF8000;">Wire</span>.<span style="color: #FF8000;">write</span>(decToBcd(dayOfMonth));
+&nbsp;&nbsp;<span style="color: #FF8000;">Wire</span>.<span style="color: #FF8000;">write</span>(decToBcd(month));
+&nbsp;&nbsp;<span style="color: #FF8000;">Wire</span>.<span style="color: #FF8000;">write</span>(decToBcd(year));
+&nbsp;&nbsp;<span style="color: #FF8000;">Wire</span>.<span style="color: #FF8000;">endTransmission</span>();
+}
+
+<span style="color: #007F00;">//&nbsp;Convert&nbsp;normal&nbsp;decimal&nbsp;numbers&nbsp;to&nbsp;binary&nbsp;coded&nbsp;decimal</span>
+<span style="color: #FF8000;">byte</span> decToBcd(<span style="color: #FF8000;">byte</span> val)
+{
+&nbsp;&nbsp;<span style="color: #FF0000;">return</span> ( (val/10*16) + (val%10) );
+}
+
+<span style="color: #007F00;">//&nbsp;Convert&nbsp;binary&nbsp;coded&nbsp;decimal&nbsp;to&nbsp;normal&nbsp;decimal&nbsp;numbers</span>
+<span style="color: #FF8000;">byte</span> bcdToDec(<span style="color: #FF8000;">byte</span> val)
+{
+&nbsp;&nbsp;<span style="color: #FF0000;">return</span> ( (val/16*10) + (val%16) );
+}</pre>
+
+
+</body></html>

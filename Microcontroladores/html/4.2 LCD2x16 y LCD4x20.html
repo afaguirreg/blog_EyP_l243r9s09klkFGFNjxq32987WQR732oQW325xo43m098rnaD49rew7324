@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+
+
+
+
+
+<title>Documento sin título</title>
+<style type="text/css">
+<!--
+p.MsoNormal {
+margin-top:0cm;
+margin-right:0cm;
+margin-bottom:10.0pt;
+margin-left:0cm;
+line-height:115%;
+font-size:11.0pt;
+font-family:"Calibri","sans-serif";
+}
+-->
+</style>
+<style type="text/css">
+<!--
+table.MsoNormalTable {
+font-size:10.0pt;
+font-family:"Calibri","sans-serif";
+}
+-->
+</style>
+<script type="text/javascript">
+	document.oncontextmenu = function(){return false;}
+    function disabletext(e){
+    return false
+    }
+    function reEnable(){
+    return true
+    }
+    document.onselectstart=new Function ("return false")
+    if (window.sidebar){
+    document.onmousedown=disabletext
+    document.onclick=reEnable
+    }
+</script>
+<style type="text/css">
+<!--
+p.MsoListParagraph {
+margin-top:0cm;
+margin-right:0cm;
+margin-bottom:10.0pt;
+margin-left:36.0pt;
+line-height:115%;
+font-size:11.0pt;
+font-family:"Calibri","sans-serif";
+}
+p.MsoNormal1 {	margin-top: 0cm;
+	margin-right: 0cm;
+	margin-bottom: 10.0pt;
+	margin-left: 0cm;
+	line-height: 115%;
+	font-size: 12pt;
+	font-family: Arial, sans-serif;
+}
+-->
+</style>
+
+<script language="JavaScript">
+var remplaza = /\+/gi; 
+var url = window.location.href;
+
+url = unescape(url);
+url = url.replace(remplaza, " ");
+
+function obtener_valor(variable) 
+{ 
+	var variable_may = variable;
+	var variable_pos = url.indexOf(variable);
+
+	if (variable_pos != -1) 
+	{
+		var pos_separador = url.indexOf("&", variable_pos);
+		if (pos_separador != -1) 
+		{
+			return url.substring(variable_pos + variable_may.length + 1, pos_separador);
+		}
+    else
+		{
+			return url.substring(variable_pos + variable_may.length + 1, url.length);
+		}
+	}
+  else 
+	{
+		return "NO_ENCONTRADO";
+	}
+}
+</script>
+<script language="JavaScript">
+  window.onload = function () { 
+		var valor = obtener_valor("verinfo");
+    var element = document.getElementById(valor);
+    element.scrollIntoView();
+  }
+</script>
+</head>
+
+<body>
+  
+	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">LCD2x16 y LCD4x20</span></strong>
+  <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;line-height:normal;background:white;">&nbsp;</p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;line-height:normal;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">La  pantalla&nbsp;<strong>LCD</strong>&nbsp;es otro dispositivo de despliegue de información  muy versatil y viene en una gran cantidad de modelos y configuraciones. Sirven  como ventana a datos, configuraciones o despliegue de información donde  un&nbsp;<strong>LED</strong>&nbsp;no es suficiente.</span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;line-height:normal;background:white;">&nbsp;</p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;line-height:normal;background:white;"><span class="MsoNormal" style="margin-bottom:12.0pt;text-align:justify;line-height:13.5pt;background:white;">
+<img src="../img/Microcontroladores%20PIC%20-%20CCS_clip_image006.jpg" alt="" height="265" width="354"></span></p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;line-height:normal;background:white;">&nbsp;</p>
+<p class="MsoNormal1">Los Display LCD son visualizadores pasivos, esto significa que no emiten luz como el visualizador o display alfanumérico hecho a base de un arreglo de diodos LED.</p>
+<p class="MsoNormal1">Es por esa razón que, algunas veces, cuando intentamos ver la hora en un reloj que utiliza esta tecnología, es necesario una fuente de luz adicional. El Display LCD tiene muy bajo consumo de energía si se lo compara con el display o visualizador alfanumérico y son compatibles con la tecnología CMOS, característica que permite que se utilice en equipos portátiles (ejemplo: los relojes de pulsera, calculadoras, etc.). Tiene una vida aproximada de 50,000 horas. Hay diferentes tipos de presentaciones y son muy fáciles de configurar. Hay desde visualizadores comunes de 7 segmentos, hasta una matriz de puntos, todos ellos muy delgados.</p>
+<p class="MsoNormal1">¿Cómo funciona un Display LCD?</p>
+<p class="MsoNormal1">El LCD modifica la luz que lo incide. Dependiendo de la polarización que se esté aplicando, el LCD reflejará o absorberá más o menos luz. Cuando un segmento recibe la tensión de polarización adecuada no reflejará la luz y aparecerá en la pantalla del dispositivo como un segmento oscuro. Seguro que más de un lector habrá visto este fenómeno en calculadoras, relojes, etc. </p>
+<p class="MsoNormal1">El líquido de un display LCD está entre dos placas de vidrio paralelas con una separación de unos micrones. Estas placas de vidrio tienen unos electrodos especiales que definen, con su forma, los símbolos, caracteres, etc. que se visualizarán. La superficie del vidrio que hace contacto con el líquido es tratada de manera que induzca la alineación de los cristales en dirección paralela a las placas. Esta alineación permite el paso de la luz incidente sin ninguna alteración. Cuando se aplica la polarización adecuada entre los electrodos, aparece un campo eléctrico entre estos electrodos (campo que es perpendicular a las placas) y esto causa que las moléculas del líquido se agrupen en sentido paralelo a este (el campo eléctrico) y cause que aparezca una zona oscura sobre un fondo claro (contraste positivo). De esta manera aparece la información que se desea mostrar.</p>
+<p class="MsoNormal1"><strong>Visualización del Display</strong></p>
+<p class="MsoNormal1">LCD en modo reflector</p>
+<p class="MsoNormal1">En este modo el sistema LCD utiliza un reflector de difusión (una lámina reflectora), que refleja la luz ambiente a través del visualizador. </p>
+<p class="MsoNormal1"><img src="../img/LCD_1.png" alt="" height="73" width="85"></p>
+<p class="MsoNormal1">Excelente para áreas donde siempre hay luz disponible y como no requiere de una fuente de energía se puede utilizar con baterías. Este modo ofrece un alto contraste.</p>
+<p class="MsoNormal1">Visualización del Display LCD en modo transmisor</p>
+<p class="MsoNormal1">En este modo el visualizador LCD es iluminado desde atrás en forma artificial. Se utiliza mucho para visualizaciones negativas (segmentos claros sobre fondo oscuro).</p>
+<p class="MsoNormal1"><img src="../img/LCD_2.png" alt="" height="119" width="85"></p>
+<p class="MsoNormal1">Visualización del Display LCD en modo transflector</p>
+<p class="MsoNormal1">Este modo es un híbrido de los dos modos antes mencionados y se utiliza para desplegar la información bajo cualquier condición de iluminación. En este modo el display LCD refleja tanto la luz ambiente como la luz artificial de fondo difusa para uso nocturno. </p>
+<p class="MsoNormal1"><img src="../img/LCD_3.png" alt="" height="121" width="82"></p>
+<p class="MsoNormal1"></p>
+<p class="MsoNormal1">Se puede introducir color en los visualizadores LCD de las siguientes maneras:</p>
+<p class="MsoNormal1">- Polarizadores selectivos de color. Estos producen segmentos de color sobre un fondo brillante o segmentos brillantes sobre un fondo de color.</p>
+<p class="MsoNormal1">- Filtros de color. Pueden ser una lámina o estar impresos en el visualizador. Estos filtros trabajan mejor con iluminación trasera.</p>
+<p class="MsoNormal1">- Luz trasera de color Cuando los segmentos no han sido energizados, aparecen oscuros, pero cuando se energizan permiten el paso de la luz de color. </p>
+<p class="MsoNormal1" style="margin-bottom:12.0pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Lo primero  que debemos saber, es la conexión de la pantalla LCD según el tipo que vamos a  usar y para esto consultaremos el “</span><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">LCDpc1602h”</span><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">&nbsp;<strong>(Hoja información)</strong>&nbsp;de una pantalla  LCD genérica <strong>2x16</strong>&nbsp;es decir 2 filas de 16 caracteres cada una.</span><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="line-height:115%; font-family:'Arial','sans-serif'; font-size:12.0pt; ">Las pantallas LCD son&nbsp;dispositivos que se  puede dañar muy&nbsp;fácilmente, actualmente se encuentran varios modelos:  1X30, 4X16, 2X16 y de led, en vez de cristal líquido y todas trabajan de forma  similar.</span></p>
+<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">&nbsp;</span></p>
+<div align="center"><img src="../img/Microcontroladores%20PIC%20-%20CCS_clip_image002_0001.jpg" alt="" height="587" width="157"></div>
+<p class="MsoNormal1" style="margin-bottom:12.0pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; "><br>
+  Al dorso de la pantalla veremos que los pines&nbsp;están&nbsp;numerados.</span></p>
+<div align="center"><img src="../img/Microcontroladores%20PIC%20-%20CCS_clip_image004.jpg" alt="" height="238" width="443">
+  <p><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Dorso    Pantalla LCD</span></p>
+</div>
+<p class="MsoNormal1" style="margin-bottom:12.0pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">  En este modelo en particular de pantalla LCD, solo se marca el PIN&nbsp;<strong>1</strong>&nbsp;y  el&nbsp;<strong>16</strong>.</span></p>
+<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Identificar  los pines no es gran problema, ahora debemos saber cómo conectarlos, para  eso&nbsp;vamos&nbsp;a ver el&nbsp;siguiente&nbsp;diagrama.</span></p>
+<div align="center">
+  <table class="MsoNormalTable" cellspacing="0" cellpadding="0" border="0">
+    <tbody>
+<tr>
+      <td style="padding:3.0pt 3.0pt 3.0pt 3.0pt;">&nbsp;</td>
+    </tr>
+    <tr>
+      <td style="padding:3.0pt 3.0pt 3.0pt 3.0pt;">
+<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:normal;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Diagrama    de la pantalla LCD</span></p></td>
+    </tr>
+  </tbody></table>
+<span class="MsoNormal" style="margin-bottom:12.0pt;text-align:center;line-height:13.5pt;background:white;">
+<img src="../img/Microcontroladores%20PIC%20-%20CCS_clip_image008.jpg" alt="" height="252" width="400"></span></div>
+<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal1" style="margin-bottom:12.0pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Podemos&nbsp;dividir  el diagrama en dos partes como se ve en la figura, la parte de "<strong>control  y&nbsp;despliegue" (izquierda)</strong>&nbsp;y la parte de "<strong>alimentación&nbsp;y  ajuste" (derecha)</strong>.</span></p>
+<p class="MsoNormal1" style="margin-bottom:12.0pt;text-align:center;line-height:13.5pt;background:white;" align="center"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; "> </span>
+<img src="../img/Microcontroladores%20PIC%20-%20CCS_clip_image010.jpg" alt="" height="185" width="529"></p>
+<p class="MsoNormal1" style="margin-bottom:12.0pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">&nbsp;</span></p>
+<p class="MsoNormal1" style="margin-bottom:12.0pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">El  diagrama&nbsp;<strong>Power Supply</strong>&nbsp;(<strong>alimentación&nbsp;y ajuste</strong>)&nbsp;<strong>VSS</strong>&nbsp;sería  el neutro (polaridad&nbsp;-) y<strong>&nbsp;VDD</strong>&nbsp;de <strong>+3.3</strong>V a&nbsp;<strong>+5</strong>V  (<strong>según&nbsp;el modelo de la LCD</strong>), entre ellos  una&nbsp;resistencia&nbsp;ajustable (potenciómetro) a&nbsp;<strong>V0</strong>&nbsp;que  nos&nbsp;servirá&nbsp;para ajustar el contraste de la pantalla.</span></p>
+<p class="MsoNormal1" style="margin-bottom:12.0pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">El LED  BKL&nbsp;<strong>(LED BACKLIGHT</strong>) lo podemos tomar como un circuito  independiente, su&nbsp;función es de retroiluminar la pantalla, es decir, es  para poder ver los&nbsp;dígitos&nbsp;en la oscuridad, <strong>A</strong>&nbsp;y <strong>K</strong>&nbsp;no  por casualidad se comportan en&nbsp;cierto&nbsp;modo como un led normal, pero  este tiene mayor consumo, se alimenta directamente a +4.5V o a +5V.</span></p>
+<p class="MsoNormal1" style="margin-bottom:12.0pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">No es  obligatorio conectar el&nbsp;<strong>(LED BACKLIGHT</strong>)&nbsp;para que funcione la  LCD, como comentamos antes es un circuito independiente, lo interesante es que  podemos usar un interruptor normal o uno mediante un circuito  de&nbsp;conmutación&nbsp;(transistores&nbsp;o&nbsp;</span><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; "><a href="http://es.wikipedia.org/wiki/MOSFET" target="_blank"><span style="color:windowtext; ">MOSFET</span></a></span><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">) controlado  por el mismo PIC para que solo cuando halla actividad (<strong>por ejemplo</strong>) este  encendido (ya que este tiene un consumo&nbsp;considerable).</span></p>
+<p class="MsoNormal1" style="margin-bottom:12.0pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Para  lo&nbsp;demás&nbsp;pines tenemos a continuación la&nbsp;descripción&nbsp;que  nos da una hoja de datos de un fabricante ya que no hay mucho problema en lo  que de&nbsp;conexión se trata.</span></p>
+<div align="center">
+  <table class="MsoNormalTable" cellspacing="0" cellpadding="0" border="0">
+    <tbody>
+<tr>
+      <td style="padding:3.0pt 3.0pt 3.0pt 3.0pt;">
+<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:normal;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">
+<img src="../img/Microcontroladores%20PIC%20-%20CCS_clip_image012.jpg" alt="" height="305" width="457"></span></p></td>
+    </tr>
+    <tr>
+      <td style="padding:3.0pt 3.0pt 3.0pt 3.0pt;">
+<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:normal;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Descripción    de los pines y su función</span></p></td>
+    </tr>
+  </tbody></table>
+</div>
+</body></html>
