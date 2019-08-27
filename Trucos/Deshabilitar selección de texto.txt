@@ -1,0 +1,18 @@
+Deshabilitar selección de texto:
+
+Sólo tienes que entrar a Plantilla | Edición de HTML y pegar antes de </head> lo siguiente:
+
+<script type="text/javascript">
+	document.oncontextmenu = function(){return false;}
+    function disabletext(e){
+    return false
+    }
+    function reEnable(){
+    return true
+    }
+    document.onselectstart=new Function ("return false")
+    if (window.sidebar){
+    document.onmousedown=disabletext
+    document.onclick=reEnable
+    }
+</script>
