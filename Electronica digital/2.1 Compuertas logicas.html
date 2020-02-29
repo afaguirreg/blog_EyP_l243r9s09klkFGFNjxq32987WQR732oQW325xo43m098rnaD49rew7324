@@ -2,19 +2,18 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
-
-
+<meta content="IE=edge">
 <title>Documento sin título</title>
 <style type="text/css">
 <!--
 p.MsoNormal {
-margin-top:0cm;
-margin-right:0cm;
-margin-bottom:10.0pt;
-margin-left:0cm;
-line-height:115%;
-font-size:11.0pt;
-font-family:"Calibri","sans-serif";
+	margin-top: 0cm;
+	margin-right: 0cm;
+	margin-bottom: 10.0pt;
+	margin-left: 0cm;
+	line-height: 115%;
+	font-size: 12pt;
+	font-family: Arial, sans-serif;
 }
 -->
 </style>
@@ -51,64 +50,135 @@ line-height:115%;
 font-size:11.0pt;
 font-family:"Calibri","sans-serif";
 }
--->
-</style>
-<style type="text/css">
-<!--
-p.MsoHeader {
-margin:0cm;
-margin-bottom:.0001pt;
-tab-stops:center 212.6pt right 425.2pt;
-font-size:11.0pt;
-font-family:"Calibri",sans-serif;
-}
--->
-</style>
-<style type="text/css">
-<!--
-span.MsoHyperlink {
-color:blue;
-text-decoration:underline;
-text-underline:single;
-}
-p.MsoHeader1 {margin:0cm;
-margin-bottom:.0001pt;
-tab-stops:center 212.6pt right 425.2pt;
-font-size:11.0pt;
-font-family:"Calibri",sans-serif;
-}
--->
-</style>
-<style type="text/css">
-<!--
-table.MsoTableGrid {
-border:solid black 1.0pt;
-font-size:10.0pt;
-font-family:"Calibri",sans-serif;
-}
 p.MsoNormal1 {margin-top:0cm;
-	margin-right:0cm;
-	margin-bottom:10.0pt;
-	margin-left:0cm;
-	line-height:115%;
-	font-size:11.0pt;
-	font-family:"Calibri",sans-serif;}
+margin-right:0cm;
+margin-bottom:10.0pt;
+margin-left:0cm;
+line-height:115%;
+font-size:11.0pt;
+font-family:"Calibri","sans-serif";
+}
 -->
 </style>
+  
+<script language="JavaScript">
+var remplaza = /\+/gi; 
+var url = window.location.href;
+
+url = unescape(url);
+url = url.replace(remplaza, " ");
+
+function obtener_valor(variable) 
+{ 
+	var variable_may = variable;
+	var variable_pos = url.indexOf(variable);
+
+	if (variable_pos != -1) 
+	{
+		var pos_separador = url.indexOf("&", variable_pos);
+		if (pos_separador != -1) 
+		{
+			return url.substring(variable_pos + variable_may.length + 1, pos_separador);
+		}
+    else
+		{
+			return url.substring(variable_pos + variable_may.length + 1, url.length);
+		}
+	}
+  else 
+	{
+		return "NO_ENCONTRADO";
+	}
+}
+</script>
+<script language="JavaScript">
+  window.onload = function () { 
+		var valor = obtener_valor("verinfo");
+    var element = document.getElementById(valor);
+    element.scrollIntoView();
+  }
+</script>
 </head>
 
-<body><strong><span style="font-family:'Arial, sans-serif',serif; font-size:12.0pt; color:white; ">&nbsp;</span></strong><b style="mso-bidi-font-weight:normal"><span style="mso-ascii-font-family:Calibri;mso-ascii-theme-font:minor-latin;
-mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin;mso-bidi-font-family:
-Arial;mso-ansi-language:ES-TRAD" lang="ES-TRAD">Sistemas numéricos</span></b>
-
-<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
-justify"><span style="mso-ascii-font-family:Calibri;mso-ascii-theme-font:
-minor-latin;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin;
-mso-bidi-font-family:Arial;mso-ansi-language:ES-TRAD" lang="ES-TRAD">&nbsp;</span></p>
-
-<p class="MsoNormal" style="margin-bottom:0cm;margin-bottom:.0001pt;text-align:
-justify"><span style="mso-ascii-font-family:Calibri;mso-ascii-theme-font:
-minor-latin;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin;
-mso-bidi-font-family:Arial;mso-ansi-language:ES-TRAD" lang="ES-TRAD">Un sistema de numeración
-es un conjunto de símbolos y reglas que se utilizan para representar y operar
-con cantidades.</span></p></body></html>
+<body>
+	<a id="Operaciones logicas"></a>
+	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">2. Operaciones lógicas</span></strong>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+	<a id="NOT"></a>
+	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">2.1 NOT</span></strong>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+	<video controls controlslist="nodownload" preload="preload" autoplay loop>
+  		<source src="../video/2.1%20NOT.webm" type="video/webm">
+	</video>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+	<img src="../../img/2.1%20NOT.png" alt="" height="auto" width="auto">
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+	<img src="img/2.1%20NOT.png" alt="" height="auto" width="auto">
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+	<a id="AND"></a>
+	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">2.2 AND</span></strong>	
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+	<video controls controlslist="nodownload" preload="preload" autoplay loop>
+  		<source src="../video/2.2%20AND.webm" type="video/webm">
+	</video>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+	<img src="../../img/2.2%20AND.png" alt="" height="auto" width="auto">
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+	<img src="img/2.2%20AND.png" alt="" height="auto" width="auto">
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+	<a id="OR"></a>
+	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">2.3 OR</span></strong>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+	<video controls controlslist="nodownload" preload="preload" autoplay loop>
+		<source src="../video/2.3%20OR.webm" type="video/webm">
+	</video>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+	<img src="../../img/2.3%20OR.png" alt="" height="auto" width="auto">
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+	<img src="img/2.3%20OR.png" alt="" height="auto" width="auto">
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+	<a id="XOR"></a>
+	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">2.4 XOR</span></strong>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+	<video controls controlslist="nodownload" preload="preload" autoplay loop>
+		<source src="../video/2.4%20XOR.webm" type="video/webm">
+	</video>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+	<img src="../../img/2.4%20XOR.png" alt="" height="auto" width="auto">
+	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><br></p>
+	<img src="img/2.4%20XOR.png" alt="" height="auto" width="auto">
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+	<a id="NAND"></a>
+	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">2.5 NAND</span></strong>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+	<video controls controlslist="nodownload" preload="preload" autoplay loop>
+		<source src="../video/2.5%20NAND.webm" type="video/webm">
+	</video>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+	<img src="../../img/2.5%20NAND.png" alt="" height="auto" width="auto">
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+	<a id="NOR"></a>
+ 	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">2.6 NOR</span></strong>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+	<video controls controlslist="nodownload" preload="preload" autoplay loop>
+		<source src="../video/2.6%20NOR.webm" type="video/webm">
+	</video>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+	<img src="../../img/2.6%20NOR.png" alt="" height="auto" width="auto">
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+	<a id="XNOR"></a>
+	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">2.7 XNOR</span></strong>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+	<video controls controlslist="nodownload" preload="preload" autoplay loop>
+		<source src="../video/2.7%20XNOR.webm" type="video/webm">
+	</video>
+	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
+	<img src="../../img/2.7%20XNOR.png" alt="" height="auto" width="auto">
+</body>
+</html>
