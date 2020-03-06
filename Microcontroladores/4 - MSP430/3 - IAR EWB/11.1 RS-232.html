@@ -103,15 +103,15 @@ function obtener_valor(variable)
 <body>
 	
 	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">11. Comunicación serial asíncrona (UART)</span></strong>
-    <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+    <div><br></div>
 	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Algunas referencias de microcontroladores PIC incluyen  módulos para comunicación dentro de su hardware. El módulo para comunicaciones  RS-232 se conoce también como UART.</span>
-	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<div><br></div>
   <span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">En general habrá que usar un conversor de niveles  basado en el MAX232 o similar.</span>
-	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<div><br></div>
 	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">El protocolo serie es una descripción  "digital" (0/1) de lo que debe estar pasando en la línea (por  ejemplo, 1 mientras se espera, 0 indica el bit de start, etc.), pero no  especifica que voltajes representan el 0/1 lógicos.</span>
-	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<div><br></div>
 	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Por ejemplo en los PIC se usa la convención (lógica)  que el 0 lógico son 0V y el 1 lógico (línea alta) son 5V.</span>
-	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<div><br></div>
 	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">En el puerto serie de un PC (standard RS232) la  relación lógica/voltajes está invertida. Un 0 lógico se representa con un  voltaje entre 3 y 15V (12 es típico) y un 1 lógico por un voltaje negativo  (entre -3 y -15V). Es por esto por lo que para comunicar PIC-PC necesitamos un  Max232 o equivalente.</span><p></p>
 	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">&nbsp;</span>
 	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Las especificaciones de su tarjeta le dirán cuales son  los voltajes asociados a su puerto serie. Si dice algo de RS232 tendrá que usar  seguramente un buffer tipo MAX232.</span>
@@ -119,27 +119,27 @@ function obtener_valor(variable)
 	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Si nuestro PIC no tiene UART como es el caso del PIC  16f84A, CCS nos permite implementar la comunicación serie por software y de  forma totalmente transparente para el programador. Sin embargo el utilizar un  PIC con UART nos permite disponer de una serie de funcionalidades adicionales,  como el empleo de interrupciones para controlar el envío y recepción de datos.</span><p></p>
 	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">&nbsp;</span>
 	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Si queremos realizar una comunicación serie utilizando la UART del MSP430G2553, las conexiones tendrán que ser a las siguientes: P1_2 para la transmisión de datos y P1_1 para la recepción de datos.</span>
-	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<div><br></div>
   <span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">El procedimiento Serial.begin(baud) admite como parámetro la tasa de transferencia de bits de la comunicación a establecer:</span>
-	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<div><br></div>
 	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Para este tipo de comunicación lo primero será  configurarla mediante la siguiente directiva en la cabecera del programa:</span><p></p>
-	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<div><br></div>
   <span style="color:#00B050; ">#use  rs232(baud=9600,bits=8,parity=N,xmit=PIN_C6,rcv=PIN_C7,errors)</span>
-	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<div><br></div>
 	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Esto quiere decir que cada vez que queramos utilizar  las funciones para enviar o recibir información utilizando el protocolo de  comunicación serie RS-232 debemos haber incluido previamente esta directiva,  que posibilita la comunicación del PIC con otro dispositivo.</span>
-	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<div><br></div>
 	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Como vemos la directiva #use RS232 admite una serie de  parámetros que son los que van entre paréntesis separados por comas, estos son  los siguientes:</span>
-	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<div><br></div>
 	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">baud</span></strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; "> con este parámetro establecemos la  velocidad en baudios a la que queremos que se transmitan los datos por el  puerto serie, 9600 es lo normal.</span>
-	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<div><br></div>
   <strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">bits</span></strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; "> número de bits que utilizaremos en  la transmisión, el estándar establece que pueden ser 8 ó 9, para la  comunicación con microcontroladores con 8 son suficientes.</span>
-	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<div><br></div>
   <strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">parity</span></strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; "> nos permite utilizar un bit de  paridad para la comprobación de errores.<strong></strong></span>
-	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<div><br></div>
   <strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">xmit</span></strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; "> ésta opción nos permite seleccionar  la patilla del PIC por la cual saldrán los datos.</span>
-	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<div><br></div>
   <strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">rcv</span></strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; "> ésta opción nos permite seleccionar  la patilla del PIC por la cual PIC se recibirán los datos.</span>
-	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<div><br></div>
   <strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">errors</span></strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; "> El PIC se sobrecargará al recibir 3  caracteres con la función getc(). Esta opción previene el apagado del módulo  UART detectando la condición y reseteándolo.</span>
 <p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">&nbsp;</span></p>
 <p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Pero ¿de qué funciones disponemos para enviar y  recibir datos desde y hacia nuestro PIC?.</span></p>
@@ -344,88 +344,88 @@ function obtener_valor(variable)
 <p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:normal;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">* Frecuencia  de reloj 20 MHz</span></p>
 <p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:normal;">&nbsp;</p>
 <p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:normal;"><span class="MsoNormal" style="margin-bottom:12.0pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Extraído  parcialmente de: <a href="http://www.aquihayapuntes.com/programacion-pic-en-c.html?start=7">http://www.aquihayapuntes.com/programacion-pic-en-c.html?start=7</a></span></span></p>
-	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
-  <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<div><br></div>
+  <div><br></div>
 	<a id="Micro a PC_pulsadores"></a>
 	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">11.1.1 Micro a PC_pulsadores</span></strong>
-	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<div><br></div>
 	<video controls controlslist="nodownload" preload="preload" autoplay loop>
 		<source src="../video/11.1.1%20Micro%20a%20PC_pulsadores.webm" type="video/webm">
 	</video>
-	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<div><br></div>
 	<img src="img/11.1.1%20y%2016.1.1%20Micro%20a%20PC_y_BT_pulsadores.png" alt="" height="auto" width="auto">
-	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<div><br></div>
 	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Programa Sharp Develop</span></strong>
-	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<div><br></div>
   <img src="../../img/11.1.1%20Micro%20a%20PC_pulsadores_1.png" alt="" height="auto" width="auto">
-  <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+  <div><br></div>
   <img src="../../img/11.1.1%20Micro%20a%20PC_pulsadores_2.png" alt="" height="auto" width="auto">
-  <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
-  <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+  <div><br></div>
+  <div><br></div>
 	<a id="Micro a PC_pulsadores_contador"></a>
  	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">11.1.2 Micro a PC_pulsadores_contador</span></strong>
-    <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+    <div><br></div>
   <video controls controlslist="nodownload" preload="preload" autoplay loop>
   	<source src="../video/11.1.2%20Micro%20a%20PC_pulsadores_contador.webm" type="video/webm">
   </video>
-  <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+  <div><br></div>
   <img src="img/11.1.2%20y%2016.1.2%20Micro%20a%20PC_y_BT_pulsadores_contador.png" alt="" height="auto" width="auto">
-	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<div><br></div>
 	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Programa Sharp Develop</span></strong>
-	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<div><br></div>
   <img src="../../img/11.1.2%20Micro%20a%20PC_pulsadores_contador_1.png" alt="" height="auto" width="auto">
-  <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+  <div><br></div>
   <img src="../../img/11.1.2%20Micro%20a%20PC_pulsadores_contador_2.png" alt="" height="auto" width="auto">
-  <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
-	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+  <div><br></div>
+	<div><br></div>
 	<a id="Micro a PC_pulsadores_contador_sensor"></a>
  	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">11.1.3 Micro a PC_pulsadores_contador_sensor</span></strong>
-    <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+    <div><br></div>
   <video controls controlslist="nodownload" preload="preload" autoplay loop>
   	<source src="../video/11.1.3%20Micro%20a%20PC_pulsadores_contador_sensor.webm" type="video/webm">
   </video>
-  <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+  <div><br></div>
 	<img src="img/11.1.3%20y%2016.1.3%20Micro%20a%20PC_y_BT_pulsadores_contador_sensor.png" alt="" height="auto" width="auto">
-  <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+  <div><br></div>
   <strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Programa Sharp Develop</span></strong>
-  <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+  <div><br></div>
   <img src="../../img/11.1.3%20Micro%20a%20PC_pulsadores_contador_sensor_1.png" alt="" height="auto" width="auto">
-  <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+  <div><br></div>
   <img src="../../img/11.1.3%20Micro%20a%20PC_pulsadores_contador_sensor_2.png" alt="" height="auto" width="auto">
-  <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
-<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+  <div><br></div>
+<div><br></div>
 	<a id="PC a micro_bits"></a>
 	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">11.1.4 PC a micro_bits</span></strong>
-    <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+    <div><br></div>
   <video controls controlslist="nodownload" preload="preload" autoplay loop>
   	<source src="../video/11.1.4%20PC%20a%20micro_bits.webm" type="video/webm">
   </video>
-  <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+  <div><br></div>
 	<img src="img/11.1.4%20y%2016.1.4%20PC%20y%20BT%20a%20micro_bits.png" alt="" height="auto" width="auto">
-	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<div><br></div>
 	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Programa Sharp Develop</span></strong>
-  <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+  <div><br></div>
   <img src="../../img/11.1.4%20PC%20a%20micro_bits_1.png" alt="" height="auto" width="auto">
-  <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+  <div><br></div>
   <img src="../../img/11.1.4%20PC%20a%20micro_bits_2.png" alt="" height="auto" width="auto">
-  <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
-	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+  <div><br></div>
+	<div><br></div>
 	<a id="PC a micro_byte_7Seg"></a>
 	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">11.1.5 PC a micro_byte_7Seg</span></strong>
-    <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+    <div><br></div>
   <video controls controlslist="nodownload" preload="preload" autoplay loop>
   	<source src="../video/11.1.5%20PC%20a%20micro_byte_7Seg.webm" type="video/webm">
   </video>
-  <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+  <div><br></div>
   <img src="img/11.1.5%20y%2016.1.5%20PC%20y%20BT%20a%20micro_byte_7Seg.png" alt="" height="auto" width="auto">
-  <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+  <div><br></div>
 	<a>
   <strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Programa Sharp Develop</span></strong>
-  <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+  <div><br></div>
   <img src="../../img/11.1.5%20PC%20a%20micro_byte_7Seg_1.png" alt="" height="auto" width="auto">
-  <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+  <div><br></div>
   <img src="../../img/11.1.5%20PC%20a%20micro_byte_7Seg_2.png" alt="" height="auto" width="auto">
-  <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+  <div><br></div>
   <p class="MsoNormal"><span style="color:green; ">/*</span><br>
       <span style="color:green; ">&nbsp;* Created by SharpDevelop.</span><br>
       <span style="color:green; ">&nbsp;* User: AnDrEs</span><br>
@@ -674,24 +674,24 @@ function obtener_valor(variable)
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
       &nbsp;&nbsp;&nbsp;&nbsp;}<br>
       }</p></a>
-  <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
-  <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+  <div><br></div>
+  <div><br></div>
   <a id="PC a micro_byte_PWM"></a>
 	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">11.1.6 PC a micro_byte_PWM</span></strong>
-    <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+    <div><br></div>
     <video controls controlslist="nodownload" preload="preload" autoplay loop>
       <source src="../video/11.1.6%20PC%20a%20micro_byte_PWM.webm" type="video/webm">
     </video>
     <a>
-  <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+  <div><br></div>
   <img src="img/11.1.6%20y%2016.1.6%20PC%20y%20BT%20a%20micro_byte_PWM.png" alt="" height="auto" width="auto">
-    <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+    <div><br></div>
     <strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Programa Sharp Develop</span></strong>
-    <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+    <div><br></div>
     <img src="../../img/11.1.6%20PC%20a%20micro_byte_PWM_1.png" alt="" height="auto" width="auto">
-    <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+    <div><br></div>
     <img src="../../img/11.1.6%20PC%20a%20micro_byte_PWM_2.png" alt="" height="auto" width="auto">
-    <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+    <div><br></div>
     <p class="MsoNormal"><span style="color:green; ">/*</span><br>
       <span style="color:green; ">&nbsp;* Created by SharpDevelop.</span><br>
       <span style="color:green; ">&nbsp;* User: AnDrEs</span><br>
@@ -806,20 +806,20 @@ function obtener_valor(variable)
       }</p>
 
 	</a>
-  <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
-  <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+  <div><br></div>
+  <div><br></div>
   <a id="Proyecto comunicacion micro_PC"></a>
   <strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">11.1.7 Proyecto comunicación micro&lt;-&gt;PC</span></strong>
-    <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+    <div><br></div>
     <video controls controlslist="nodownload" preload="preload" autoplay loop>
       <source src="../video/11.1.7%20Proyecto%20comunicacion%20micro_PC.webm" type="video/webm">
     </video>
-    <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+    <div><br></div>
   <img src="img/11.1.7%20y%2016.1.7%20Proyecto%20comunicacion%20micro_PC_BT.png" alt="" height="auto" width="auto">
-	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+	<div><br></div>
   <strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Programa Sharp Develop</span></strong>
-  <p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+  <div><br></div>
   <img src="../../img/11.1.7%20Proyecto%20comunicacion%20micro_PC_1.png" alt="" height="auto" width="auto">
-<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><br></p>
+<div><br></div>
   <img src="../../img/11.1.7%20Proyecto%20comunicacion%20micro_PC_2.png" alt="" height="auto" width="auto">
 </body></html>
