@@ -30,10 +30,10 @@
 				return false
 			}
 			function reEnable(){
-    			return true
-    		}
-    		document.onselectstart=new Function ("return false")
-    		if (window.sidebar){
+				return true
+			}
+			document.onselectstart=new Function ("return false")
+			if (window.sidebar){
 				document.onmousedown=disabletext
 				document.onclick=reEnable
 			}

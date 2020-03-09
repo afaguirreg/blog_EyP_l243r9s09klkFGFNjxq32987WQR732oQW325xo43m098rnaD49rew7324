@@ -26,17 +26,17 @@ font-family:"Calibri","sans-serif";
 </style>
 <script type="text/javascript">
 	document.oncontextmenu = function(){return false;}
-    function disabletext(e){
-    return false
-    }
-    function reEnable(){
-    return true
-    }
-    document.onselectstart=new Function ("return false")
-    if (window.sidebar){
-    document.onmousedown=disabletext
-    document.onclick=reEnable
-    }
+function disabletext(e){
+return false
+}
+function reEnable(){
+return true
+}
+document.onselectstart=new Function ("return false")
+if (window.sidebar){
+document.onmousedown=disabletext
+document.onclick=reEnable
+}
 </script>
 <style type="text/css">
 <!--
@@ -79,51 +79,51 @@ function obtener_valor(variable)
 		{
 			return url.substring(variable_pos + variable_may.length + 1, pos_separador);
 		}
-    else
+else
 		{
 			return url.substring(variable_pos + variable_may.length + 1, url.length);
 		}
 	}
-  else 
+else 
 	{
 		return "NO_ENCONTRADO";
 	}
 }
 </script>
 <script language="JavaScript">
-  window.onload = function () { 
+window.onload = function () { 
 		var valor = obtener_valor("verinfo");
-    var element = document.getElementById(valor);
-    element.scrollIntoView();
-  }
+var element = document.getElementById(valor);
+element.scrollIntoView();
+}
 </script>
 </head>
 
 <body>
 	
-  <iframe id="ifrm" scrolling="no" src="../../html/9.%20Entradas%20an%C3%A1logas.html" height="1700" frameborder="0" width="100%"></iframe> <br><p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"></p>
+<iframe id="ifrm" scrolling="no" src="../../html/9.%20Entradas%20an%C3%A1logas.html" height="1700" frameborder="0" width="100%"></iframe> <br><p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"></p>
 	
-	<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">La conversión Analógica a Digital que es  capaz de hacer un PIC consiste en convertir un valor de tensión (voltaje) que  conectemos a un PIN habilitado para ello, en un valor numérico proporcional a  dicha tensión que podemos guardar en una variable y ser utilizado por nuestro  programa del PIC.</span></p>
+	<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">La conversión Analógica a Digital que escapaz de hacer un PIC consiste en convertir un valor de tensión (voltaje) queconectemos a un PIN habilitado para ello, en un valor numérico proporcional adicha tensión que podemos guardar en una variable y ser utilizado por nuestroprograma del PIC.</span></p>
 	<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;">&nbsp;</p>
-	<p class="MsoNormal1" style="margin-bottom:12.0pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Dicho  de otra forma: Si entre un pin del PIC podemos tener una tensión, con respecto  a GND, entre 0V y 5V y realizamos una conversión Analógico-Digital de ese pin  con una precisión de 8 bits entonces el PIC puede "leer" esa tensión  en 256 (2^8=256) valores distintos que nos devuelve como resultado de la  lectura, siendo el 0 el correspondiente a los 0V y el 255 el correspondiente a  los 5V, y todos los intermedios en "saltos" de 0,019V (5V/256).</span></p>
-	<p class="MsoNormal1" style="margin-bottom:12.0pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Si  en lugar de 8 bits estamos utilizando un PIC que tiene un conversor A/D de 10  bits de precisión entonces ese mismo rango de 0V a 5V podemos  "leerlo" en 1024 (2^10=1024) valores distintos, siendo el  "resultado" 0 el que corresponde a los 0V y el 1023 a los 5V.  Cualquier valor intermedio nos devolverá un número equivalente con  "pasos" de 0,0049V por valor.</span></p>
-	<p class="MsoNormal1" style="margin-bottom:12.0pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Hemos  visto que el mínimo que podemos convertir es 0V o tensión del nivel del Vss  (GND) del PIC y 5V o tensión del nivel de alimentación Vcc del PIC.</span></p>
-	<p class="MsoNormal1" style="margin-bottom:12.0pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Esto  es así si no utilizamos los Voltajes de Referencia, porque si los utilizamos  entonces las cosas pueden cambiar....</span></p>
-	<p class="MsoNormal1" style="margin-bottom:12.0pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Imaginemos  un dispositivo analógico que varía su tensión de salida entre 0V y 1V. Si le  aplicamos la conversión A/D como antes con 8 bits de precisión entonces los  valores que vamos a obtener son entre 0 y 51 (1*256/5V) con lo que  desperdiciamos una parte muy importante del rango posible de conversión, entre  52 y 255 nunca nos va a aparecer como resultado de la misma.</span></p>
-	<p class="MsoNormal1" style="margin-bottom:12.0pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Entonces  el truco está en poner a 1V la patilla VRef+ del PIC con lo que la conversión  A/D a realizar en lo que haya presente en nuestro pin a leer se va a efectuar  en 256 pasos entre GND y VRef+, no entre GND y Vcc como antes, con lo que  obtenemos un resultado 5 veces más preciso: 1V dividido en 256 partes con lo  que cada número corresponde con 0,0039V.</span></p>
-	<p class="MsoNormal1" style="margin-bottom:12.0pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Ahora,  imaginemos que nuestro dispositivo analógico varía su tensión de salida entre  1V y 2V. Si utilizamos el primer ejemplo que vimos, conversión A/D entre 0V y  5V con 8 bits de precisión, entonces solo obtendremos números entre 51 y 102,  perdiendo todos los valores inferiores y superiores a éstos.</span></p>
-	<p class="MsoNormal1" style="margin-bottom:12.0pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Si  utilizamos el ejemplo anterior a éste pero colocando el VRef+ a 2V entonces  tendremos valores entre 128 y 255 pero ninguno inferior a 128 ya que nuestra  tensión analógica no baja de 1V .... </span></p>
-	<p class="MsoNormal1" style="margin-bottom:12.0pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Así  que la solución está en utilizar otra patilla del PIC, en este caso para VRef-,  o sea para ponerle la referencia de tensión mínima a partir de la cual vamos a  convertir valores, que junto con la VRef+ tenemos el margen o rango de  tensiones a convertir a gusto.</span></p>
-	<p style="line-height:115%; font-family:'Arial','sans-serif'; font-size:12.0pt; ">En este segundo ejemplo pondríamos VRef- a 1V y VRef+  a 2V con lo que tendríamos una conversión de 8 bits en la que el 0  correspondería a los 1V y el 255 a los 2V.</p>
-	<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Todo esto se puede ver en el siguiente  diagrama de bloques del conversor A/D de los PIC's de la familia 16F87X:</span></p>
+	<p class="MsoNormal1" style="margin-bottom:12.0pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Dichode otra forma: Si entre un pin del PIC podemos tener una tensión, con respectoa GND, entre 0V y 5V y realizamos una conversión Analógico-Digital de ese pincon una precisión de 8 bits entonces el PIC puede "leer" esa tensiónen 256 (2^8=256) valores distintos que nos devuelve como resultado de lalectura, siendo el 0 el correspondiente a los 0V y el 255 el correspondiente alos 5V, y todos los intermedios en "saltos" de 0,019V (5V/256).</span></p>
+	<p class="MsoNormal1" style="margin-bottom:12.0pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Sien lugar de 8 bits estamos utilizando un PIC que tiene un conversor A/D de 10bits de precisión entonces ese mismo rango de 0V a 5V podemos"leerlo" en 1024 (2^10=1024) valores distintos, siendo el"resultado" 0 el que corresponde a los 0V y el 1023 a los 5V.Cualquier valor intermedio nos devolverá un número equivalente con"pasos" de 0,0049V por valor.</span></p>
+	<p class="MsoNormal1" style="margin-bottom:12.0pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Hemosvisto que el mínimo que podemos convertir es 0V o tensión del nivel del Vss(GND) del PIC y 5V o tensión del nivel de alimentación Vcc del PIC.</span></p>
+	<p class="MsoNormal1" style="margin-bottom:12.0pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Estoes así si no utilizamos los Voltajes de Referencia, porque si los utilizamosentonces las cosas pueden cambiar....</span></p>
+	<p class="MsoNormal1" style="margin-bottom:12.0pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Imaginemosun dispositivo analógico que varía su tensión de salida entre 0V y 1V. Si leaplicamos la conversión A/D como antes con 8 bits de precisión entonces losvalores que vamos a obtener son entre 0 y 51 (1*256/5V) con lo quedesperdiciamos una parte muy importante del rango posible de conversión, entre52 y 255 nunca nos va a aparecer como resultado de la misma.</span></p>
+	<p class="MsoNormal1" style="margin-bottom:12.0pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Entoncesel truco está en poner a 1V la patilla VRef+ del PIC con lo que la conversiónA/D a realizar en lo que haya presente en nuestro pin a leer se va a efectuaren 256 pasos entre GND y VRef+, no entre GND y Vcc como antes, con lo queobtenemos un resultado 5 veces más preciso: 1V dividido en 256 partes con loque cada número corresponde con 0,0039V.</span></p>
+	<p class="MsoNormal1" style="margin-bottom:12.0pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Ahora,imaginemos que nuestro dispositivo analógico varía su tensión de salida entre1V y 2V. Si utilizamos el primer ejemplo que vimos, conversión A/D entre 0V y5V con 8 bits de precisión, entonces solo obtendremos números entre 51 y 102,perdiendo todos los valores inferiores y superiores a éstos.</span></p>
+	<p class="MsoNormal1" style="margin-bottom:12.0pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Siutilizamos el ejemplo anterior a éste pero colocando el VRef+ a 2V entoncestendremos valores entre 128 y 255 pero ninguno inferior a 128 ya que nuestratensión analógica no baja de 1V .... </span></p>
+	<p class="MsoNormal1" style="margin-bottom:12.0pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Asíque la solución está en utilizar otra patilla del PIC, en este caso para VRef-,o sea para ponerle la referencia de tensión mínima a partir de la cual vamos aconvertir valores, que junto con la VRef+ tenemos el margen o rango detensiones a convertir a gusto.</span></p>
+	<p style="line-height:115%; font-family:'Arial','sans-serif'; font-size:12.0pt; ">En este segundo ejemplo pondríamos VRef- a 1V y VRef+a 2V con lo que tendríamos una conversión de 8 bits en la que el 0correspondería a los 1V y el 255 a los 2V.</p>
+	<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Todo esto se puede ver en el siguientediagrama de bloques del conversor A/D de los PIC's de la familia 16F87X:</span></p>
 	<p class="MsoNormal1" style="margin-bottom:12.0pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">&nbsp;</span></p>
 	<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:center;line-height:13.5pt;background:white;" align="center"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; "> </span><img src="../img/Microcontroladores%20PIC%20-%20CCS_clip_image001_0000.png" alt="" height="475" width="489"></p>
 	<div><br></div>
-  <div><br></div>
-  <a id="Lectura convertidor Analogo/Digital"></a>
+<div><br></div>
+<a id="Lectura convertidor Analogo/Digital"></a>
 	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">9.1 Lectura convertidor Análogo/Digital</span></strong>
-    <div><br></div>
-	<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Como ejemplo del uso del conversor ADC del  microcontrolador vamos a utilizar las funciones para leer el dato proveniente  de un sensor en el rango de 0 a 5V y representar en un display LCD el valor </span>leído por el convertidor ADC en el rango de 0 a 1023.</p>
+<div><br></div>
+	<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Como ejemplo del uso del conversor ADC delmicrocontrolador vamos a utilizar las funciones para leer el dato provenientede un sensor en el rango de 0 a 5V y representar en un display LCD el valor </span>leído por el convertidor ADC en el rango de 0 a 1023.</p>
 	<div><br></div>
 	<video controls controlslist="nodownload" preload="preload" autoplay loop>
 		<source src="../video/9.1%20Lectura%20convertidor%20An%C3%A1logo_Digital.webm" type="video/webm">
@@ -133,40 +133,40 @@ function obtener_valor(variable)
 	<div><br></div>
 	<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Comentarios del programa:</span></p>
 	<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">&nbsp;</span></p>
-	<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">El ejemplo está debidamente documentado, por lo cual  su comprensión no reviste mayor dificultad.</span></p>
+	<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">El ejemplo está debidamente documentado, por lo cualsu comprensión no reviste mayor dificultad.</span></p>
 	<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">&nbsp;</span></p>
-	<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Se debe tener especial atención al seleccionar el  canal a leer:</span></p>
+	<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Se debe tener especial atención al seleccionar elcanal a leer:</span></p>
 	<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">&nbsp;</span></p>
-	<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">analogRead(A0); esta instrucción selecciona el  canal AN0</span></p>
-	<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">analogRead(A1); esta instrucción selecciona el  canal AN1</span></p>
-	<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">analogRead(A2); esta instrucción selecciona el  canal AN2…&nbsp; etc…</span></p>
+	<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">analogRead(A0); esta instrucción selecciona elcanal AN0</span></p>
+	<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">analogRead(A1); esta instrucción selecciona elcanal AN1</span></p>
+	<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">analogRead(A2); esta instrucción selecciona elcanal AN2…&nbsp; etc…</span></p>
 	<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">&nbsp;</span></p>
-	<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Esta instrucción lee el  valor análogo en el canal seleccionado previamente</span></p>
+	<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Esta instrucción lee elvalor análogo en el canal seleccionado previamente</span></p>
 	<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">&nbsp;</span></p>
-	<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Para observar la variación de la unidad medida se ha  dispuesto un potenciómetro como  sensor.</span></p>
+	<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Para observar la variación de la unidad medida se hadispuesto un potenciómetro comosensor.</span></p>
 	<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:center;line-height:13.5pt;background:white;" align="center"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">&nbsp;</span></p>
 	<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Extraído parcialmente de:</span></p>
 	<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">&nbsp;</span></p>
 	<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; "><a href="http://picmania.garcia-cuervo.net/conceptos.php#CONVAD01">http://picmania.garcia-cuervo.net/conceptos.php#CONVAD01</a></span></p>
 	<div><br></div>
-  <div><br></div>
-  <a id="Escalamiento de lectura analogica (Formula)"></a>
+<div><br></div>
+<a id="Escalamiento de lectura analogica (Formula)"></a>
 	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">9.2 Escalamiento de lectura analógica (Fórmula)</span></strong>
 	<div><br></div>
 	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Rango 0 a 100</span></strong>
 	<div><br></div>
-	<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">En el siguiente ejemplo haremos que el programa  lea una entrada entre 0 y 5V de manera que para 0V representará 0 unidades  y 5V representará 100 unidades.</span></span></p>
+	<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">En el siguiente ejemplo haremos que el programalea una entrada entre 0 y 5V de manera que para 0V representará 0 unidadesy 5V representará 100 unidades.</span></span></p>
 	<div><br></div>
 	<video controls controlslist="nodownload" preload="preload" autoplay loop>
 		<source src="../video/9.2%20Escalamiento%20de%20lectura%20analogica%20%28Formula%29_0_100.webm" type="video/webm">
 	</video>
 	<div><br></div>
 	<img src="img/9.2%20Escalamiento%20de%20lectura%20analogica%20Formula_0_100.png" alt="" height="auto" width="auto">
-  <div><br></div>
-  <div><br></div>
+<div><br></div>
+<div><br></div>
 	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Rango 20 a 80</span></strong>
 	<div><br></div>
-	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">En el siguiente ejemplo haremos que el programa  lea una entrada entre 0 y 5V de manera que para 0V representará 20 unidades  y 5V representará 80 unidades.</span>
+	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">En el siguiente ejemplo haremos que el programalea una entrada entre 0 y 5V de manera que para 0V representará 20 unidadesy 5V representará 80 unidades.</span>
 	<div><br></div>
 	<video controls controlslist="nodownload" preload="preload" autoplay loop>
 		<source src="../video/9.2%20Escalamiento%20de%20lectura%20analogica%20%28Formula%29_20_80.webm" type="video/webm">
@@ -174,30 +174,30 @@ function obtener_valor(variable)
 	<div><br></div>
 	<img src="img/9.2%20Escalamiento%20de%20lectura%20analogica%20Formula_20_80.png" alt="" height="auto" width="auto">
 	<div><br></div>
-  <div><br></div>
+<div><br></div>
 	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Rango -50 a 150</span></strong>
-  <div><br></div>
-	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">En el siguiente ejemplo haremos que el programa  lea una entrada entre 0 y 5V de manera que para 0V representará -50 unidades  y 5V representará 150 unidades.</span>
-  <div><br></div>
+<div><br></div>
+	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">En el siguiente ejemplo haremos que el programalea una entrada entre 0 y 5V de manera que para 0V representará -50 unidadesy 5V representará 150 unidades.</span>
+<div><br></div>
 	<video controls controlslist="nodownload" preload="preload" autoplay loop>
 		<source src="../video/9.2%20Escalamiento%20de%20lectura%20analogica%20%28Formula%29_-50_150.webm" type="video/webm">
 	</video>
 	<div><br></div>
 	<img src="img/9.2%20Escalamiento%20de%20lectura%20analogica%20Formula_-50_150.png" alt="" height="auto" width="auto">
-  <div><br></div>
-  <div><br></div>
+<div><br></div>
+<div><br></div>
 	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Rango 0 a 100 con decimales</span></strong>
 	<div><br></div>
-  <span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">En el siguiente ejemplo haremos que el programa  lea una entrada entre 0 y 5V de manera que para 0V representará 0 unidades  y 5V representará 100 unidades (con dígitos decimales).</span>
+<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">En el siguiente ejemplo haremos que el programalea una entrada entre 0 y 5V de manera que para 0V representará 0 unidadesy 5V representará 100 unidades (con dígitos decimales).</span>
 	<div><br></div>
-  <video controls controlslist="nodownload" preload="preload" autoplay loop>
+<video controls controlslist="nodownload" preload="preload" autoplay loop>
 		<source src="../video/9.2%20Escalamiento%20de%20lectura%20analogica%20%28Formula%29_0_100_dec.webm" type="video/webm">
 	</video>
 	<div><br></div>
 	<img src="img/9.2%20Escalamiento%20de%20lectura%20analogica%20Formula_0_100_dec.png" alt="" height="auto" width="auto">
 	<div><br></div>
-  <div><br></div>
-  <strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">9.3 Función map para escalamiento de lectura analógica</span></strong>
+<div><br></div>
+<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">9.3 Función map para escalamiento de lectura analógica</span></strong>
 	<div><br></div>
 	<video controls controlslist="nodownload" preload="preload" autoplay loop>
 		<source src="../video/9.3%20Funcion%20map%20para%20escalamiento%20de%20lectura%20analogica.webm" type="video/webm">

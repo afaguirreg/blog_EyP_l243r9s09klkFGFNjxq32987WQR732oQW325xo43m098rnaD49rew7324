@@ -2,15 +2,6 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
-
-
-
-
-
-
-
-
-
 <title>Documento sin título</title>
 <style type="text/css">
 <!--
@@ -35,17 +26,17 @@ font-family:"Calibri","sans-serif";
 </style>
 <script type="text/javascript">
 	document.oncontextmenu = function(){return false;}
-    function disabletext(e){
-    return false
-    }
-    function reEnable(){
-    return true
-    }
-    document.onselectstart=new Function ("return false")
-    if (window.sidebar){
-    document.onmousedown=disabletext
-    document.onclick=reEnable
-    }
+function disabletext(e){
+return false
+}
+function reEnable(){
+return true
+}
+document.onselectstart=new Function ("return false")
+if (window.sidebar){
+document.onmousedown=disabletext
+document.onclick=reEnable
+}
 </script>
 <style type="text/css">
 <!--
@@ -88,23 +79,23 @@ function obtener_valor(variable)
 		{
 			return url.substring(variable_pos + variable_may.length + 1, pos_separador);
 		}
-    else
+else
 		{
 			return url.substring(variable_pos + variable_may.length + 1, url.length);
 		}
 	}
-  else 
+else 
 	{
 		return "NO_ENCONTRADO";
 	}
 }
 </script>
 <script language="JavaScript">
-  window.onload = function () { 
+window.onload = function () { 
 		var valor = obtener_valor("verinfo");
-    var element = document.getElementById(valor);
-    element.scrollIntoView();
-  }
+var element = document.getElementById(valor);
+element.scrollIntoView();
+}
 </script>
 </head>
 
@@ -158,8 +149,8 @@ function obtener_valor(variable)
 	<div><br></div>
 	<a id="Sensor de temperatura Termocupla tipo J"></a>
 	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">9.4.4 Sensor de temperatura Termocupla tipo J</span></strong>
-    <div><br></div>
-    <video controls controlslist="nodownload" preload="preload" autoplay loop>
+<div><br></div>
+<video controls controlslist="nodownload" preload="preload" autoplay loop>
 		<source src="../video/9.4.4%20Sensor%20de%20temperatura%20Termocupla%20tipo%20J.webm" type="video/webm">
 	</video>
 	<div><br></div>
@@ -167,47 +158,47 @@ function obtener_valor(variable)
 	<div><br></div>
 	<strong>TECHNICAL DETAILS</strong>
 	<div>
-  	<div id="contenido">
-    <div>
-      <div>
-        <p>Termocupla tipo K, de 10 cm de longitud y cable de 1 m.</p>
-        <table cellspacing="1" cellpadding="2" border="1" align="left">
-          <tbody>
-            <tr>
-              <td>Rango de temperatura</td>
-              <td>0 - 400 C</td>
-            </tr>
-            <tr>
-              <td>Diámetro de el termopozo</td>
-              <td>5mm</td>
-            </tr>
-            <tr>
-              <td>Longitud del sensor</td>
-              <td>100mm</td>
-            </tr>
-            <tr>
-              <td>Diámetro de rosca</td>
-              <td>7.8mm</td>
-            </tr>
-            <tr>
-              <td>Longitud del cable aprox.</td>
-              <td>1m</td>
-            </tr>
-            <tr>
-              <td>Proteción externa</td>
-              <td>blindaje metálico</td>
-            </tr>
-          </tbody>
-        </table>
-        <p>&nbsp;</p>
-      </div>
-      <div>
-        <div></div>
-        <div></div>
-      </div>
-    </div>
-  	</div>
-  	<div></div>
+	<div id="contenido">
+<div>
+<div>
+<p>Termocupla tipo K, de 10 cm de longitud y cable de 1 m.</p>
+<table cellspacing="1" cellpadding="2" border="1" align="left">
+<tbody>
+<tr>
+<td>Rango de temperatura</td>
+<td>0 - 400 C</td>
+</tr>
+<tr>
+<td>Diámetro de el termopozo</td>
+<td>5mm</td>
+</tr>
+<tr>
+<td>Longitud del sensor</td>
+<td>100mm</td>
+</tr>
+<tr>
+<td>Diámetro de rosca</td>
+<td>7.8mm</td>
+</tr>
+<tr>
+<td>Longitud del cable aprox.</td>
+<td>1m</td>
+</tr>
+<tr>
+<td>Proteción externa</td>
+<td>blindaje metálico</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+</div>
+<div>
+<div></div>
+<div></div>
+</div>
+</div>
+	</div>
+	<div></div>
 	</div>
 	<div>
 	<div>
@@ -223,7 +214,7 @@ function obtener_valor(variable)
 	<strong><a href="https://cdn-shop.adafruit.com/datasheets/Sensirion_Humidity_SHT1x_Datasheet_V5.pdf" target="_blank">Especificaciones</a></strong>
 	<div><br></div>
 	<div><br></div>
-	<strong><a href="https://www.dropbox.com/s/s0rhdbarphrr9p2/sht1x_sht7x.c?dl=1" target="_blank">Descargar  librería sht1x_sht7x</a></strong>
+	<strong><a href="https://www.dropbox.com/s/s0rhdbarphrr9p2/sht1x_sht7x.c?dl=1" target="_blank">Descargarlibrería sht1x_sht7x</a></strong>
 	<div><br></div>
 	<img src="../../img/9.4.4%20Sensor%20Termocupla%20tipo%20J_2.png" alt="" height="auto" width="auto">
 	<div><br></div>
@@ -242,7 +233,7 @@ function obtener_valor(variable)
 	<img src="img/9.4.4%20Sensor%20de%20temperatura%20Termocupla%20tipo%20J.png" alt="" height="auto" width="auto">
 	<div><br></div>
 	<div><br></div>
-  <a id="Sensor de temperatura Termocupla tipo K"></a>
+<a id="Sensor de temperatura Termocupla tipo K"></a>
 	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">9.4.5 Sensor de temperatura Termocupla tipo K</span></strong>
 <div><br></div>
 	<video controls controlslist="nodownload" preload="preload" autoplay loop>
@@ -256,44 +247,44 @@ function obtener_valor(variable)
 	<strong>TECHNICAL DETAILS</strong>
 	<div>
 	<div id="contenido">
-	  <div>
-	    <div>
-	      <p>Termocupla tipo K, de 10 cm de longitud y cable de 1 m.</p>
-	      <table cellspacing="1" cellpadding="2" border="1" align="left">
-	        <tbody>
-	          <tr>
-	            <td>Rango de temperatura</td>
-	            <td>0 - 400 C</td>
-	          </tr>
-	          <tr>
-	            <td>Diámetro de el termopozo</td>
-	            <td>5mm</td>
-	          </tr>
-	          <tr>
-	            <td>Longitud del sensor</td>
-	            <td>100mm</td>
-	          </tr>
-	          <tr>
-	            <td>Diámetro de rosca</td>
-	            <td>7.8mm</td>
-	          </tr>
-	          <tr>
-	            <td>Longitud del cable aprox.</td>
-	            <td>1m</td>
-	          </tr>
-	          <tr>
-	            <td>Proteción externa</td>
-	            <td>blindaje metálico</td>
-	          </tr>
-	        </tbody>
-	      </table>
-	      <p>&nbsp;</p>
-	    </div>
-	    <div>
-	      <div></div>
-	      <div></div>
-	    </div>
-	  </div>
+	<div>
+	<div>
+	<p>Termocupla tipo K, de 10 cm de longitud y cable de 1 m.</p>
+	<table cellspacing="1" cellpadding="2" border="1" align="left">
+	<tbody>
+	<tr>
+	<td>Rango de temperatura</td>
+	<td>0 - 400 C</td>
+	</tr>
+	<tr>
+	<td>Diámetro de el termopozo</td>
+	<td>5mm</td>
+	</tr>
+	<tr>
+	<td>Longitud del sensor</td>
+	<td>100mm</td>
+	</tr>
+	<tr>
+	<td>Diámetro de rosca</td>
+	<td>7.8mm</td>
+	</tr>
+	<tr>
+	<td>Longitud del cable aprox.</td>
+	<td>1m</td>
+	</tr>
+	<tr>
+	<td>Proteción externa</td>
+	<td>blindaje metálico</td>
+	</tr>
+	</tbody>
+	</table>
+	<p>&nbsp;</p>
+	</div>
+	<div>
+	<div></div>
+	<div></div>
+	</div>
+	</div>
 		</div>
 		<div></div>
 	</div>
@@ -311,7 +302,7 @@ function obtener_valor(variable)
 	<strong><a href="https://cdn-shop.adafruit.com/datasheets/Sensirion_Humidity_SHT1x_Datasheet_V5.pdf" target="_blank">Especificaciones</a></strong>
 	<div><br></div>
 	<div><br></div>
-	<strong><a href="https://www.dropbox.com/s/s0rhdbarphrr9p2/sht1x_sht7x.c?dl=1" target="_blank">Descargar  librería sht1x_sht7x</a></strong>
+	<strong><a href="https://www.dropbox.com/s/s0rhdbarphrr9p2/sht1x_sht7x.c?dl=1" target="_blank">Descargarlibrería sht1x_sht7x</a></strong>
 	<div><br></div>
 	<img src="../../img/9.4.5%20Sensor%20Termocupla%20tipo%20K_2.png" alt="" height="auto" width="auto">
 	<div><br></div>
@@ -358,12 +349,12 @@ function obtener_valor(variable)
 	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><strong><a href="https://cdn-shop.adafruit.com/datasheets/Sensirion_Humidity_SHT1x_Datasheet_V5.pdf" target="_blank">Especificaciones</a></strong></p>
 	<div><br></div>
 	<div><br></div>
-	<p class="MsoNormal" style="text-align:justify;"><strong><a href="https://www.dropbox.com/s/s0rhdbarphrr9p2/sht1x_sht7x.c?dl=1" target="_blank">Descargar  librería sht1x_sht7x</a></strong></p>
+	<p class="MsoNormal" style="text-align:justify;"><strong><a href="https://www.dropbox.com/s/s0rhdbarphrr9p2/sht1x_sht7x.c?dl=1" target="_blank">Descargarlibrería sht1x_sht7x</a></strong></p>
 	<p class="MsoNormal1" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;">&nbsp;</p><span style="font-family:Courier; font-size:10.0pt; color:#101010; "></span><span style="font-family:Courier; font-size:10.0pt; color:black; "></span><span style="font-family:Courier; font-size:10.0pt; color:#101010; "></span>
 	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;; font-family: Courier; font-size: 10.0pt; color: #101010">&nbsp;</p>
 	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;; font-family: Courier; font-size: 10.0pt; color: #101010">&nbsp;</p>
 	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;; font-family: Courier; font-size: 10.0pt; color: #101010"><span class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;">
-    <img src="../../img/9.4.6%20Sensor%20RTD%20PT-100_2.png" alt="" height="auto" width="auto"></span></p>
+<img src="../../img/9.4.6%20Sensor%20RTD%20PT-100_2.png" alt="" height="auto" width="auto"></span></p>
 	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;; font-family: Courier; font-size: 10.0pt; color: #101010">&nbsp;</p>
 	<p>Conversor transmisor de temperatura con entrada para RTD y salida en corriente.&nbsp;</p>
 	<p>Características:</p>
@@ -377,7 +368,7 @@ function obtener_valor(variable)
 	<div><br></div>
 	<img src="img/9.4.6%20Sensor%20de%20temperatura%20RTD%20PT-100.png" alt="" height="auto" width="auto">
 	<div><br></div>
-    <div><br></div>
+<div><br></div>
 	<a id="Sensor de temperatura RTD PT-1000"></a>
 	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">9.4.7 Sensor de temperatura RTD PT-1000</span></strong>
 	<div><br></div>
@@ -402,7 +393,7 @@ function obtener_valor(variable)
 	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><strong><a href="https://cdn-shop.adafruit.com/datasheets/Sensirion_Humidity_SHT1x_Datasheet_V5.pdf" target="_blank">Especificaciones</a></strong></p>
 	<div><br></div>
 	<div><br></div>
-	<p class="MsoNormal" style="text-align:justify;"><strong><a href="https://www.dropbox.com/s/s0rhdbarphrr9p2/sht1x_sht7x.c?dl=1" target="_blank">Descargar  librería sht1x_sht7x</a></strong></p>
+	<p class="MsoNormal" style="text-align:justify;"><strong><a href="https://www.dropbox.com/s/s0rhdbarphrr9p2/sht1x_sht7x.c?dl=1" target="_blank">Descargarlibrería sht1x_sht7x</a></strong></p>
 	<p class="MsoNormal1" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;">&nbsp;</p><span style="font-family:Courier; font-size:10.0pt; color:#101010; "></span><span style="font-family:Courier; font-size:10.0pt; color:black; "></span><span style="font-family:Courier; font-size:10.0pt; color:#101010; "></span>
 	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;; font-family: Courier; font-size: 10.0pt; color: #101010">&nbsp;</p>
 	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;; font-family: Courier; font-size: 10.0pt; color: #101010"><span class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><img src="../../img/9.4.7%20Sensor%20RTD%20PT-1000_2.png" alt="" height="auto" width="auto"></span></p>

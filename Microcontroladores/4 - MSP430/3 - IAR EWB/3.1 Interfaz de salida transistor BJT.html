@@ -26,17 +26,17 @@ font-family:"Calibri","sans-serif";
 </style>
 <script type="text/javascript">
 	document.oncontextmenu = function(){return false;}
-    function disabletext(e){
-    return false
-    }
-    function reEnable(){
-    return true
-    }
-    document.onselectstart=new Function ("return false")
-    if (window.sidebar){
-    document.onmousedown=disabletext
-    document.onclick=reEnable
-    }
+function disabletext(e){
+return false
+}
+function reEnable(){
+return true
+}
+document.onselectstart=new Function ("return false")
+if (window.sidebar){
+document.onmousedown=disabletext
+document.onclick=reEnable
+}
 </script>
 <style type="text/css">
 <!--
@@ -79,29 +79,29 @@ function obtener_valor(variable)
 		{
 			return url.substring(variable_pos + variable_may.length + 1, pos_separador);
 		}
-    else
+else
 		{
 			return url.substring(variable_pos + variable_may.length + 1, url.length);
 		}
 	}
-  else 
+else 
 	{
 		return "NO_ENCONTRADO";
 	}
 }
 </script>
 <script language="JavaScript">
-  window.onload = function () { 
+window.onload = function () { 
 		var valor = obtener_valor("verinfo");
-    var element = document.getElementById(valor);
-    element.scrollIntoView();
-  }
+var element = document.getElementById(valor);
+element.scrollIntoView();
+}
 </script>
 
 </head>
 
 <body>
-	<a id="Interfaz de salida transistor BJT"></a>  
+	<a id="Interfaz de salida transistor BJT"></a>
  	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">3.1 Interfaz de salida transistor BJT</span></strong>
 	<div><br></div>
 	<img src="../../img/3.1.1%202N2222A.png" alt="" height="auto" width="auto">
@@ -112,7 +112,7 @@ function obtener_valor(variable)
 	<div><br></div>
 	<a id="Control motor DC con transistor NPN"></a>
  	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">3.1.1 Control motor DC con transistor NPN</span></strong>
-    <div><br></div>
+<div><br></div>
 	<video controls controlslist="nodownload" preload="preload" autoplay loop>
 		<source src="../video/3.1.1%20Control%20motor%20DC%20con%20transistor%20NPN.webm" type="video/webm">
 	</video>
@@ -120,19 +120,19 @@ function obtener_valor(variable)
 	<img src="img/3.1.1%20Control%20motor%20DC%20con%20transistor%20BJT.png" alt="" height="auto" width="auto">
 	<div><br></div>
 	<div><br></div>
-    <a id="Control motor DC con transistor PNP"></a>
-    <strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">3.1.2 Control motor DC con transistor PNP</span></strong>
-    <div><br></div>
+<a id="Control motor DC con transistor PNP"></a>
+<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">3.1.2 Control motor DC con transistor PNP</span></strong>
+<div><br></div>
 	<video controls controlslist="nodownload" preload="preload" autoplay loop>
-	  <source src="../video/3.1.2%20Control%20motor%20DC%20con%20transistor%20PNP.webm" type="video/webm">
+	<source src="../video/3.1.2%20Control%20motor%20DC%20con%20transistor%20PNP.webm" type="video/webm">
 	</video>
 <div><br></div>
 	<div><br></div>
 	<a id="Puente H transistores BJT"></a>
  	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">3.1.3 Puente H transistores BJT</span></strong>
-    <div><br></div>
+<div><br></div>
 	<video controls controlslist="nodownload" preload="preload" autoplay loop>
-  		<source src="../video/3.1.2%20Puente%20H%20transistores%20BJT.webm" type="video/webm">
+		<source src="../video/3.1.2%20Puente%20H%20transistores%20BJT.webm" type="video/webm">
 	</video>
 	<div><br></div>
 	<img src="img/3.1.2%20Puente%20H%20transistores%20BJT.png" alt="" height="auto" width="auto">
@@ -142,7 +142,7 @@ function obtener_valor(variable)
  	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">3.1.4 Control motor paso a paso unipolar</span></strong>
 <div><br></div>
 	<video controls controlslist="nodownload" preload="preload" autoplay loop>
-  		<source src="../video/3.1.3%20Control%20motor%20paso%20a%20paso%20unipolar.webm" type="video/webm">
+		<source src="../video/3.1.3%20Control%20motor%20paso%20a%20paso%20unipolar.webm" type="video/webm">
 	</video>
 	<div><br></div>
 	<div><br></div>
@@ -150,7 +150,7 @@ function obtener_valor(variable)
  	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">3.1.5 Control motor paso a paso bipolar</span></strong>
 <div><br></div>
 	<video controls controlslist="nodownload" preload="preload" autoplay loop>
-  		<source src="../video/3.1.4%20Control%20motor%20paso%20a%20paso%20bipolar.webm" type="video/webm">
+		<source src="../video/3.1.4%20Control%20motor%20paso%20a%20paso%20bipolar.webm" type="video/webm">
 	</video>
 </body>
 </html>

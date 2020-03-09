@@ -26,17 +26,17 @@ font-family:"Calibri","sans-serif";
 </style>
 <script type="text/javascript">
 	document.oncontextmenu = function(){return false;}
-    function disabletext(e){
-    return false
-    }
-    function reEnable(){
-    return true
-    }
-    document.onselectstart=new Function ("return false")
-    if (window.sidebar){
-    document.onmousedown=disabletext
-    document.onclick=reEnable
-    }
+function disabletext(e){
+return false
+}
+function reEnable(){
+return true
+}
+document.onselectstart=new Function ("return false")
+if (window.sidebar){
+document.onmousedown=disabletext
+document.onclick=reEnable
+}
 </script>
 <style type="text/css">
 <!--
@@ -79,35 +79,35 @@ function obtener_valor(variable)
 		{
 			return url.substring(variable_pos + variable_may.length + 1, pos_separador);
 		}
-    else
+else
 		{
 			return url.substring(variable_pos + variable_may.length + 1, url.length);
 		}
 	}
-  else 
+else 
 	{
 		return "NO_ENCONTRADO";
 	}
 }
 </script>
 <script language="JavaScript">
-  window.onload = function () { 
+window.onload = function () { 
 		var valor = obtener_valor("verinfo");
-    var element = document.getElementById(valor);
-    element.scrollIntoView();
-  }
+var element = document.getElementById(valor);
+element.scrollIntoView();
+}
 </script>
 </head>
 
 <body>
 	<a id="Interfaz de salida optotransistor"></a>
 	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">3.2 Interfaz de salida optotransistor<br></span></strong>
-    <div><br></div>
+<div><br></div>
 	<img src="../../img/3.2.1 4N25.png" alt="" height="auto" width="auto">
 	<div><br></div>
 	<a id="Control motor DC con optotransistor y transistor NPN"></a>
 <strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">3.2.1 Control motor DC con optotransistor y transistor NPN<br></span></strong>
-    <div><br></div>
+<div><br></div>
 	<video controls controlslist="nodownload" preload="preload" autoplay loop>
 		<source src="../video/3.2.1%20Interfaz%20de%20salida%20optotransistor%20y%20transistor%20NPN.webm" type="video/webm">
 	</video>
@@ -115,7 +115,7 @@ function obtener_valor(variable)
 	<div><br></div>
 	<a id="Control motor DC con optotransistor y transistor PNP"></a>
 	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">3.2.2 Control motor DC con optotransistor y transistor PNP<br></span></strong>
-    <div><br></div>
+<div><br></div>
 	<video controls controlslist="nodownload" preload="preload" autoplay loop>
 		<source src="../video/3.2.2%20Interfaz%20de%20salida%20optotransistor%20y%20transistor%20PNP.webm" type="video/webm">
 	</video>

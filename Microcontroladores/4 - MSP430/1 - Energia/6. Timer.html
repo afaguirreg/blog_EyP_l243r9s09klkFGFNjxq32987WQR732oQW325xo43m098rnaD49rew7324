@@ -2,9 +2,9 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta content="IE=edge">
-    <title>Documento sin título</title>
-    <style type="text/css">
+<meta content="IE=edge">
+<title>Documento sin título</title>
+<style type="text/css">
 <!--
 p.MsoNormal {
 	margin-top: 0cm;
@@ -17,7 +17,7 @@ p.MsoNormal {
 }
 -->
 </style>
-    <style type="text/css">
+<style type="text/css">
 <!--
 table.MsoNormalTable {
 font-size:10.0pt;
@@ -25,21 +25,21 @@ font-family:"Calibri","sans-serif";
 }
 -->
 </style>
-    <script type="text/javascript">
+<script type="text/javascript">
 	document.oncontextmenu = function(){return false;}
-    function disabletext(e){
-    return false
-    }
-    function reEnable(){
-    return true
-    }
-    document.onselectstart=new Function ("return false")
-    if (window.sidebar){
-    document.onmousedown=disabletext
-    document.onclick=reEnable
-    }
+function disabletext(e){
+return false
+}
+function reEnable(){
+return true
+}
+document.onselectstart=new Function ("return false")
+if (window.sidebar){
+document.onmousedown=disabletext
+document.onclick=reEnable
+}
 </script>
-    <style type="text/css">
+<style type="text/css">
 <!--
 p.MsoListParagraph {
 margin-top:0cm;
@@ -80,23 +80,23 @@ function obtener_valor(variable)
 		{
 			return url.substring(variable_pos + variable_may.length + 1, pos_separador);
 		}
-    else
+else
 		{
 			return url.substring(variable_pos + variable_may.length + 1, url.length);
 		}
 	}
-  else 
+else 
 	{
 		return "NO_ENCONTRADO";
 	}
 }
 </script>
 <script language="JavaScript">
-  window.onload = function () { 
+window.onload = function () { 
 		var valor = obtener_valor("verinfo");
-    var element = document.getElementById(valor);
-    element.scrollIntoView();
-  }
+var element = document.getElementById(valor);
+element.scrollIntoView();
+}
 </script>
 </head>
 

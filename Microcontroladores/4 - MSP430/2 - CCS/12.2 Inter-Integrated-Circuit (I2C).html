@@ -2,231 +2,6 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <title>Documento sin título</title>
 <style type="text/css">
 <!--
@@ -251,17 +26,17 @@ font-family:"Calibri","sans-serif";
 </style>
 <script type="text/javascript">
 	document.oncontextmenu = function(){return false;}
-    function disabletext(e){
-    return false
-    }
-    function reEnable(){
-    return true
-    }
-    document.onselectstart=new Function ("return false")
-    if (window.sidebar){
-    document.onmousedown=disabletext
-    document.onclick=reEnable
-    }
+function disabletext(e){
+return false
+}
+function reEnable(){
+return true
+}
+document.onselectstart=new Function ("return false")
+if (window.sidebar){
+document.onmousedown=disabletext
+document.onclick=reEnable
+}
 </script>
 <style type="text/css">
 <!--
@@ -304,64 +79,64 @@ function obtener_valor(variable)
 		{
 			return url.substring(variable_pos + variable_may.length + 1, pos_separador);
 		}
-    else
+else
 		{
 			return url.substring(variable_pos + variable_may.length + 1, url.length);
 		}
 	}
-  else 
+else 
 	{
 		return "NO_ENCONTRADO";
 	}
 }
 </script>
 <script language="JavaScript">
-  window.onload = function () { 
+window.onload = function () { 
 		var valor = obtener_valor("verinfo");
-    var element = document.getElementById(valor);
-    element.scrollIntoView();
-  }
+var element = document.getElementById(valor);
+element.scrollIntoView();
+}
 </script>
 </head>
 
 <body>
-  
-  <iframe id="ifrm" scrolling="no" src="../../html/12.2%20Inter-Integrated-Circuit%20%28I2C%29.html" height="1200" frameborder="0" width="100%"></iframe>
+
+<iframe id="ifrm" scrolling="no" src="../../html/12.2%20Inter-Integrated-Circuit%20%28I2C%29.html" height="1200" frameborder="0" width="100%"></iframe>
 	<div><br></div>
-  <a id="EEPROM I2C"></a>
+<a id="EEPROM I2C"></a>
 	<iframe id="ifrm" scrolling="no" src="../../html/12.2.1%20EEPROM%20externa%20I2C.html" height="1900" frameborder="0" width="100%"></iframe>
-	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Veamos  una aplicación con un ejemplo:</span>
+	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Veamosuna aplicación con un ejemplo:</span>
 	<div><br></div>
 	<img src="../img/EEPROM_EXT_I2C.png" alt="" height="auto" width="auto">
 	<div><br></div>
-	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Vamos  a copiar el siguiente código ejemplo para la aplición propuesta:</span><div><br></div>
-  <img src="img/EEPROM_EXT_I2C.png" alt="" height="au" width="auto"><p class="MsoNormal1" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><strong><span style="font-family:'Courier New'; font-size:12.0pt; color:#003EC7; "><span style="font-family:'Courier New'; font-size:12.0pt; color:black; "></span><span style="font-family:'Courier New'; font-size:12.0pt; color:black; "></span></span></strong><br></p>
-	<p class="MsoNormal1" style="text-align:justify;text-autospace:none;"><strong><a href="https://www.dropbox.com/s/jvrau47sbck8bvq/Programa%20C#.zip?dl=0" target="_blank">Descargar  programa C#</a></strong></p>
+	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Vamosa copiar el siguiente código ejemplo para la aplición propuesta:</span><div><br></div>
+<img src="img/EEPROM_EXT_I2C.png" alt="" height="au" width="auto"><p class="MsoNormal1" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><strong><span style="font-family:'Courier New'; font-size:12.0pt; color:#003EC7; "><span style="font-family:'Courier New'; font-size:12.0pt; color:black; "></span><span style="font-family:'Courier New'; font-size:12.0pt; color:black; "></span></span></strong><br></p>
+	<p class="MsoNormal1" style="text-align:justify;text-autospace:none;"><strong><a href="https://www.dropbox.com/s/jvrau47sbck8bvq/Programa%20C#.zip?dl=0" target="_blank">Descargarprograma C#</a></strong></p>
 	<p class="MsoNormal1" style="text-align:justify;"><br></p>
 	<a id="Real Time Clock DS1302"></a>
-  <iframe id="ifrm" scrolling="no" src="../../html/12.2.2%20Real%20Time%20Clock%20DS1302.html" height="800" frameborder="0" width="100%"></iframe>
-	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; "></span><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; "></span><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Veamos  una aplicación con un ejemplo:</span>
+<iframe id="ifrm" scrolling="no" src="../../html/12.2.2%20Real%20Time%20Clock%20DS1302.html" height="800" frameborder="0" width="100%"></iframe>
+	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; "></span><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; "></span><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Veamosuna aplicación con un ejemplo:</span>
 	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; "></span>
 	<video controls controlslist="nodownload" preload="preload" autoplay loop>
-  		<source src="../video/12.2.3%20Real%20Time%20Clock%20DS1307.webm" type="video/webm">
+		<source src="../video/12.2.3%20Real%20Time%20Clock%20DS1307.webm" type="video/webm">
 	</video>
 	<div><br></div>
-  <img src="img/12.2.2%20Real%20Time%20Clock%20DS1302.png" alt="" height="auto" width="auto">
-  <strong><span style="font-family:Courier; font-size:10.0pt; color:#003EC7; "></span></strong><span style="font-family:Courier; font-size:10.0pt; color:#101010; "> </span><strong></strong><span style="font-family:Courier; font-size:10.0pt; color:#101010; "></span><div><br></div>
-  <a id="Real Time Clock DS1307"></a>
-  <iframe id="ifrm" scrolling="no" src="../../html/12.2.3%20Real%20Time%20Clock%20DS1307.html" height="800" frameborder="0" width="100%"></iframe>
-	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Veamos  una aplicación con un ejemplo</span>
-  <div><br></div>
+<img src="img/12.2.2%20Real%20Time%20Clock%20DS1302.png" alt="" height="auto" width="auto">
+<strong><span style="font-family:Courier; font-size:10.0pt; color:#003EC7; "></span></strong><span style="font-family:Courier; font-size:10.0pt; color:#101010; "> </span><strong></strong><span style="font-family:Courier; font-size:10.0pt; color:#101010; "></span><div><br></div>
+<a id="Real Time Clock DS1307"></a>
+<iframe id="ifrm" scrolling="no" src="../../html/12.2.3%20Real%20Time%20Clock%20DS1307.html" height="800" frameborder="0" width="100%"></iframe>
+	<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Veamosuna aplicación con un ejemplo</span>
+<div><br></div>
 	<video controls controlslist="nodownload" preload="preload" autoplay loop>
-  		<source src="../video/12.2.3%20Real%20Time%20Clock%20DS1307.webm" type="video/webm">
+		<source src="../video/12.2.3%20Real%20Time%20Clock%20DS1307.webm" type="video/webm">
 	</video>
 	<div><br></div>
-  <img src="img/12.2.3%20Real%20Time%20Clock%20DS1307.png" alt="" height="auto" width="auto"><strong><span style="font-family:Courier; font-size:10.0pt; color:#003EC7; "></span></strong><div><br></div>
-  
+<img src="img/12.2.3%20Real%20Time%20Clock%20DS1307.png" alt="" height="auto" width="auto"><strong><span style="font-family:Courier; font-size:10.0pt; color:#003EC7; "></span></strong><div><br></div>
+
 	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Sensor de humedad y temperatura SHT1x_SHT7x</span></strong>
-  <div><br></div>
+<div><br></div>
 	<video controls controlslist="nodownload" preload="preload" autoplay loop>
-  		<source src="../video/12.2.4%20Sensor%20de%20humedad%20y%20temperatura%20SHT1x_SHT7x.webm" type="video/webm">
+		<source src="../video/12.2.4%20Sensor%20de%20humedad%20y%20temperatura%20SHT1x_SHT7x.webm" type="video/webm">
 	</video>
 	<div><br></div>
 	<img src="../../img/12.2.4 SHT1x_SHT7x.png" alt="" height="auto" width="auto">
@@ -383,16 +158,16 @@ function obtener_valor(variable)
 	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><strong><a href="https://cdn-shop.adafruit.com/datasheets/Sensirion_Humidity_SHT1x_Datasheet_V5.pdf" target="_blank">Especificaciones</a></strong></p>
 	<div><br></div>
 	<div><br></div>
-	<p class="MsoNormal" style="text-align:justify;"><strong><a href="https://www.dropbox.com/s/s0rhdbarphrr9p2/sht1x_sht7x.c?dl=1" target="_blank">Descargar  librería sht1x_sht7x</a></strong></p>
+	<p class="MsoNormal" style="text-align:justify;"><strong><a href="https://www.dropbox.com/s/s0rhdbarphrr9p2/sht1x_sht7x.c?dl=1" target="_blank">Descargarlibrería sht1x_sht7x</a></strong></p>
 	<div><br></div>
-  <img src="img/12.2.4%20Sensor%20de%20humedad%20y%20temperatura%20SHT1x_SHT7x.png" alt="" height="auto" width="auto">
-  <div><br></div>
+<img src="img/12.2.4%20Sensor%20de%20humedad%20y%20temperatura%20SHT1x_SHT7x.png" alt="" height="auto" width="auto">
+<div><br></div>
 	<div><br></div>
-  <a id="Sensor de humedad y temperatura SHT20"></a>
+<a id="Sensor de humedad y temperatura SHT20"></a>
 	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">12.2.5 Sensor de humedad y temperatura SHT20</span></strong>
-    <div><br></div>
+<div><br></div>
 	<video controls controlslist="nodownload" preload="preload" autoplay loop>
-  		<source src="../video/12.2.4%20Sensor%20de%20humedad%20y%20temperatura%20SHT1x_SHT7x.webm" type="video/webm">
+		<source src="../video/12.2.4%20Sensor%20de%20humedad%20y%20temperatura%20SHT1x_SHT7x.webm" type="video/webm">
 	</video>
 	<div><br></div>
 	<img src="../../img/12.2.5 SHT20.png" alt="" height="auto" width="auto">
@@ -412,7 +187,7 @@ function obtener_valor(variable)
 	<div><br></div>
 	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><strong><a href="file:///C:/Users/AnDrEs/Downloads/Sensirion-Humidity-SHT20-Datasheet.pdf" target="_blank">Datasheet sensor</a></strong></p>
 	<div><br></div>
-	<p class="MsoNormal" style="text-align:justify;"><strong><a href="https://www.dropbox.com/s/s0rhdbarphrr9p2/sht1x_sht7x.c?dl=1" target="_blank">Descargar  librería sht20</a></strong></p>
+	<p class="MsoNormal" style="text-align:justify;"><strong><a href="https://www.dropbox.com/s/s0rhdbarphrr9p2/sht1x_sht7x.c?dl=1" target="_blank">Descargarlibrería sht20</a></strong></p>
 	<div><br></div>
 	<img src="img/12.2.5%20Sensor%20de%20humedad%20y%20temperatura%20SHT20.png" alt="" height="auto" width="auto">
 </body></html>

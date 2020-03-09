@@ -26,17 +26,17 @@ font-family:"Calibri","sans-serif";
 </style>
 <script type="text/javascript">
 	document.oncontextmenu = function(){return false;}
-    function disabletext(e){
-    return false
-    }
-    function reEnable(){
-    return true
-    }
-    document.onselectstart=new Function ("return false")
-    if (window.sidebar){
-    document.onmousedown=disabletext
-    document.onclick=reEnable
-    }
+function disabletext(e){
+return false
+}
+function reEnable(){
+return true
+}
+document.onselectstart=new Function ("return false")
+if (window.sidebar){
+document.onmousedown=disabletext
+document.onclick=reEnable
+}
 </script>
 <style type="text/css">
 <!--
@@ -79,30 +79,30 @@ function obtener_valor(variable)
 		{
 			return url.substring(variable_pos + variable_may.length + 1, pos_separador);
 		}
-    else
+else
 		{
 			return url.substring(variable_pos + variable_may.length + 1, url.length);
 		}
 	}
-  else 
+else 
 	{
 		return "NO_ENCONTRADO";
 	}
 }
 </script>
 <script language="JavaScript">
-  window.onload = function () { 
+window.onload = function () { 
 		var valor = obtener_valor("verinfo");
-    var element = document.getElementById(valor);
-    element.scrollIntoView();
-  }
+var element = document.getElementById(valor);
+element.scrollIntoView();
+}
 </script>
 </head>
 
 <body>
 	<iframe id="ifrm" scrolling="no" src="../../html/4.2%20LCD2x16%20y%20LCD4x20.html" height="4250" frameborder="0" width="100%"></iframe>
 	<div><br></div>
-    <div><br></div>
+<div><br></div>
  	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">4.2.1 Driver LCD2x16 y LCD4x20</span></strong>
 	<div><br></div>
 	<video controls controlslist="nodownload" preload="preload" autoplay loop>
@@ -116,7 +116,7 @@ function obtener_valor(variable)
 	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">4.2.2 Contador 0 a 100 LCD2x16</span></strong>
 	<div><br></div>
 	<video controls controlslist="nodownload" preload="preload" autoplay loop>
-  		<source src="../video/4.2.2%20Contador%200%20a%20100%20LCD2x16.webm" type="video/webm">
+		<source src="../video/4.2.2%20Contador%200%20a%20100%20LCD2x16.webm" type="video/webm">
 	</video>
 	<div><br></div>
 	<img src="img/4.2.2%20Contador%200%20a%20100%20LCD2x16.png" alt="" height="auto" width="auto">

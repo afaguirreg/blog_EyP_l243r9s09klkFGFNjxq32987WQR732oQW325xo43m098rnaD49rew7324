@@ -26,17 +26,17 @@ font-family:"Calibri","sans-serif";
 </style>
 <script type="text/javascript">
 	document.oncontextmenu = function(){return false;}
-    function disabletext(e){
-    return false
-    }
-    function reEnable(){
-    return true
-    }
-    document.onselectstart=new Function ("return false")
-    if (window.sidebar){
-    document.onmousedown=disabletext
-    document.onclick=reEnable
-    }
+function disabletext(e){
+return false
+}
+function reEnable(){
+return true
+}
+document.onselectstart=new Function ("return false")
+if (window.sidebar){
+document.onmousedown=disabletext
+document.onclick=reEnable
+}
 </script>
 <style type="text/css">
 <!--
@@ -79,33 +79,33 @@ function obtener_valor(variable)
 		{
 			return url.substring(variable_pos + variable_may.length + 1, pos_separador);
 		}
-    else
+else
 		{
 			return url.substring(variable_pos + variable_may.length + 1, url.length);
 		}
 	}
-  else 
+else 
 	{
 		return "NO_ENCONTRADO";
 	}
 }
 </script>
 <script language="JavaScript">
-  window.onload = function () { 
+window.onload = function () { 
 		var valor = obtener_valor("verinfo");
-    var element = document.getElementById(valor);
-    element.scrollIntoView();
-  }
+var element = document.getElementById(valor);
+element.scrollIntoView();
+}
 </script>
 </head>
 
 <body>
 	<a id="Interfaz de salida TRIAC"></a>
 	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">3.5.1 Interfaz de salida TRIAC</span></strong>
-    <div><br></div>
-    <img src="../../img/3.5.1%20Q4015.png" alt="" height="auto" width="auto">
-    <div><br></div>
+<div><br></div>
+<img src="../../img/3.5.1%20Q4015.png" alt="" height="auto" width="auto">
+<div><br></div>
 	<video controlslist="nodownload" preload="preload" autoplay loop>
-  		<source src="../video/3.5.1%20Interfaz%20de%20salida%20TRIAC.webm" type="video/webm">
+		<source src="../video/3.5.1%20Interfaz%20de%20salida%20TRIAC.webm" type="video/webm">
 	</video>
 </body></html>

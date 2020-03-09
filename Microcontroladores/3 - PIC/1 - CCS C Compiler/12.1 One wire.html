@@ -27,17 +27,17 @@ font-family:"Calibri","sans-serif";
 </style>
 <script type="text/javascript">
 	document.oncontextmenu = function(){return false;}
-    function disabletext(e){
-    return false
-    }
-    function reEnable(){
-    return true
-    }
-    document.onselectstart=new Function ("return false")
-    if (window.sidebar){
-    document.onmousedown=disabletext
-    document.onclick=reEnable
-    }
+function disabletext(e){
+return false
+}
+function reEnable(){
+return true
+}
+document.onselectstart=new Function ("return false")
+if (window.sidebar){
+document.onmousedown=disabletext
+document.onclick=reEnable
+}
 </script>
 <style type="text/css">
 <!--
@@ -67,7 +67,7 @@ font-family:"Calibri","sans-serif";
 	<div><br></div>
 	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">12.1.1 Sensor de temperatura DS1820</span></strong>
 	<div><br></div>
-    <video controls controlslist="nodownload" preload="preload" autoplay loop>
+<video controls controlslist="nodownload" preload="preload" autoplay loop>
 		<source src="../video/12.1.1%20Sensor%20de%20temperatura%20DS1820.webm" type="video/webm">
 	</video>
 	<div><br></div>
@@ -102,112 +102,112 @@ font-family:"Calibri","sans-serif";
 	<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><strong><a href="https://cdn-shop.adafruit.com/datasheets/DS18B20.pdf" target="_blank">Especificaciones</a></strong></p>
 	<div><br></div>
 	<img src="img/12.1.1%20Sensor%20de%20temperatura%20DS1820.png" alt="" height="auto" width="auto">
-  <div><br></div>
+<div><br></div>
 	<div><br></div>
 	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Código Sharp Develop</span></strong>
 	<div><br></div>
 	<p class="MsoNormal"><span style="line-height:107%; font-family:Courier; font-size:10.0pt; color:green; ">/*</span><span style="line-height:107%; font-family:Courier; font-size:10.0pt; "><br>
-  <span style="color:green; ">&nbsp;* Created by SharpDevelop.</span><br>
-  <span style="color:green; ">&nbsp;* User: AnDrEs</span><br>
-  <span style="color:green; ">&nbsp;* Date: 25/04/2016</span><br>
-  <span style="color:green; ">&nbsp;* Time: 19:25</span><br>
-  <span style="color:green; ">&nbsp;*&nbsp;</span><br>
-  <span style="color:green; ">&nbsp;* To change this template use Tools | Options |  Coding | Edit Standard Headers.</span><br>
-  <span style="color:green; ">&nbsp;*/</span><br>
-  <strong><span style="color:green; ">using</span></strong>&nbsp;System;<br>
-  <strong><span style="color:green; ">using</span></strong>&nbsp;System.Collections.Generic;<br>
-  <strong><span style="color:green; ">using</span></strong>&nbsp;System.Drawing;<br>
-  <strong><span style="color:green; ">using</span></strong>&nbsp;System.Windows.Forms;<br>
-  <strong><span style="color:green; ">using</span></strong>&nbsp;System.IO.Ports;<br>
-  <br>
-  <strong><span style="color:green; ">namespace</span></strong>&nbsp;PIC_a_C_<br>
-  {<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:gray; ">///</span><span style="color:green; ">&nbsp;</span><span style="color:gray; ">&lt;<strong>summary</strong>&gt;</span><br>
-  &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:gray; ">///</span><span style="color:green; ">&nbsp;Description of MainForm.</span><br>
-  &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:gray; ">///</span><span style="color:green; ">&nbsp;</span><span style="color:gray; ">&lt;<strong>/summary</strong>&gt;</span><br>
-  &nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="color:blue; ">public</span></strong>&nbsp;<span style="color:navy; ">partial</span>&nbsp;<span style="color:red; ">class</span>&nbsp;MainForm  : Form<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;{<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="color:blue; ">public</span></strong>&nbsp;<strong><span style="color:midnightblue; ">MainForm</span></strong>()<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:green; ">//</span><br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:green; ">// The InitializeComponent() call is required for Windows  Forms designer support.</span><br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:green; ">//</span><br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="color:midnightblue; ">InitializeComponent</span></strong>();<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:green; ">//</span><br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:green; ">//&nbsp;</span><strong><span style="color:red; ">TODO</span></strong><span style="color:green; ">: Add constructor code after the InitializeComponent()  call.</span><br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:green; ">//</span><br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-  <br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red; ">void</span>&nbsp;<strong><span style="color:midnightblue; ">Button_BuscarClick</span></strong>(<span style="color:red; ">object</span>&nbsp;sender,&nbsp;EventArgs e)<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;comboBox_Puertos.Items.<strong><span style="color:midnightblue; ">Clear</span></strong>();<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="color:blue; ">foreach</span></strong>&nbsp;(<span style="color:red; ">string</span>&nbsp;s&nbsp;<strong><span style="color:blue; ">in</span></strong>&nbsp;SerialPort.<strong><span style="color:midnightblue; ">GetPortNames</span></strong>())<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;comboBox_Puertos.Items.<strong><span style="color:midnightblue; ">Add</span></strong>(s);<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="color:blue; ">if</span></strong>&nbsp;(SerialPort.<strong><span style="color:midnightblue; ">GetPortNames</span></strong>().<strong><span style="color:midnightblue; ">GetLength</span></strong>(<span style="color:darkblue; ">0</span>)&gt;<span style="color:darkblue; ">0</span>)<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;comboBox_Puertos.Enabled  =&nbsp;<strong><span style="color:darkcyan; ">true</span></strong>;<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;serialPort1.<strong><span style="color:midnightblue; ">Close</span></strong>();<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-  <br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red; ">void</span>&nbsp;<strong><span style="color:midnightblue; ">ComboBox_PuertosSelectedIndexChanged</span></strong>(<span style="color:red; ">object</span>&nbsp;sender,&nbsp;EventArgs e)<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="color:blue; ">if</span></strong>&nbsp;(comboBox_Puertos.Text&nbsp;!=&nbsp;<span style="color:blue; ">""</span>)<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;button_Conectar.Enabled  =&nbsp;<strong><span style="color:darkcyan; ">true</span></strong>;<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red; ">void</span>&nbsp;<strong><span style="color:midnightblue; ">Button_ConectarClick</span></strong>(<span style="color:red; ">object</span>&nbsp;sender,&nbsp;EventArgs e)<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="color:blue; ">if</span></strong>&nbsp;(comboBox_Puertos.Text&nbsp;!=&nbsp;<span style="color:blue; ">""</span>)<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CheckForIllegalCrossThreadCalls  =&nbsp;<strong><span style="color:darkcyan; ">false</span></strong>;<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;serialPort1.PortName  = comboBox_Puertos.Text;<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;comboBox_Puertos.Enabled  =&nbsp;<strong><span style="color:darkcyan; ">false</span></strong>;<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;serialPort1.<strong><span style="color:midnightblue; ">Open</span></strong>();<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;button_Conectar.Enabled  =&nbsp;<strong><span style="color:darkcyan; ">false</span></strong>;<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red; ">void</span>&nbsp;<strong><span style="color:midnightblue; ">SerialPort1DataReceived</span></strong>(<span style="color:red; ">object</span>&nbsp;sender,&nbsp;System.IO.Ports.SerialDataReceivedEventArgs  e)<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="color:red; ">int</span></strong>&nbsp;cant_datos =&nbsp;<span style="color:darkblue; ">1</span>;<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red; ">string</span>&nbsp;datos;<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red; ">string</span>[]&nbsp;vector_datos;<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="color:red; ">double</span></strong>&nbsp;sensor;<br>
-  <br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="color:blue; ">if</span></strong>&nbsp;(serialPort1.BytesToRead&nbsp;&gt;&nbsp;<span style="color:darkblue; ">1</span>)<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;datos  = serialPort1.<strong><span style="color:midnightblue; ">ReadLine</span></strong>();<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="color:blue; ">if</span></strong>&nbsp;(datos.<strong><span style="color:midnightblue; ">StartsWith</span></strong>(<span style="color:blue; ">"$"</span>))<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vector_datos  = datos.<strong><span style="color:midnightblue; ">Substring</span></strong>(<span style="color:darkblue; ">1</span>).<strong><span style="color:midnightblue; ">Split</span></strong>(<span style="color:fuchsia; ">'/'</span>);<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="color:blue; ">if</span></strong>&nbsp;(vector_datos.Length==cant_datos)<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sensor  = Convert.<strong><span style="color:midnightblue; ">ToDouble</span></strong>(vector_datos[<span style="color:darkblue; ">0</span>])/<span style="color:darkblue; ">10</span>;<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label2.Text  = sensor.<strong><span style="color:midnightblue; ">ToString</span></strong>()+<span style="color:blue; ">"°C"</span>;<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;basicChart1.MaxPoints  =&nbsp;<span style="color:darkblue; ">1000</span>;<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;basicChart1.YMaximum  =&nbsp;<span style="color:darkblue; ">100</span>;<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;basicChart1.Points.<strong><span style="color:midnightblue; ">Add</span></strong>(Convert.<strong><span style="color:midnightblue; ">ToInt16</span></strong>(sensor));<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-  <br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red; ">void</span>&nbsp;<strong><span style="color:midnightblue; ">MainFormLoad</span></strong>(<span style="color:red; ">object</span>&nbsp;sender,&nbsp;EventArgs  e)<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.Threading.Thread.CurrentThread.CurrentCulture  =&nbsp;<strong><span style="color:darkcyan; ">new</span></strong>&nbsp;System.Globalization.<strong><span style="color:midnightblue; ">CultureInfo</span></strong>(<span style="color:blue; ">"en-US"</span>);<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-  <br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red; ">void</span>&nbsp;<strong><span style="color:midnightblue; ">MainFormFormClosed</span></strong>(<span style="color:red; ">object</span>&nbsp;sender,&nbsp;FormClosedEventArgs e)<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;serialPort1.<strong><span style="color:midnightblue; ">Close</span></strong>();<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<span style="color:green; ">&nbsp;* Created by SharpDevelop.</span><br>
+<span style="color:green; ">&nbsp;* User: AnDrEs</span><br>
+<span style="color:green; ">&nbsp;* Date: 25/04/2016</span><br>
+<span style="color:green; ">&nbsp;* Time: 19:25</span><br>
+<span style="color:green; ">&nbsp;*&nbsp;</span><br>
+<span style="color:green; ">&nbsp;* To change this template use Tools | Options |Coding | Edit Standard Headers.</span><br>
+<span style="color:green; ">&nbsp;*/</span><br>
+<strong><span style="color:green; ">using</span></strong>&nbsp;System;<br>
+<strong><span style="color:green; ">using</span></strong>&nbsp;System.Collections.Generic;<br>
+<strong><span style="color:green; ">using</span></strong>&nbsp;System.Drawing;<br>
+<strong><span style="color:green; ">using</span></strong>&nbsp;System.Windows.Forms;<br>
+<strong><span style="color:green; ">using</span></strong>&nbsp;System.IO.Ports;<br>
+<br>
+<strong><span style="color:green; ">namespace</span></strong>&nbsp;PIC_a_C_<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:gray; ">///</span><span style="color:green; ">&nbsp;</span><span style="color:gray; ">&lt;<strong>summary</strong>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:gray; ">///</span><span style="color:green; ">&nbsp;Description of MainForm.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:gray; ">///</span><span style="color:green; ">&nbsp;</span><span style="color:gray; ">&lt;<strong>/summary</strong>&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="color:blue; ">public</span></strong>&nbsp;<span style="color:navy; ">partial</span>&nbsp;<span style="color:red; ">class</span>&nbsp;MainForm: Form<br>
+&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="color:blue; ">public</span></strong>&nbsp;<strong><span style="color:midnightblue; ">MainForm</span></strong>()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:green; ">//</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:green; ">// The InitializeComponent() call is required for WindowsForms designer support.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:green; ">//</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="color:midnightblue; ">InitializeComponent</span></strong>();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:green; ">//</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:green; ">//&nbsp;</span><strong><span style="color:red; ">TODO</span></strong><span style="color:green; ">: Add constructor code after the InitializeComponent()call.</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:green; ">//</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red; ">void</span>&nbsp;<strong><span style="color:midnightblue; ">Button_BuscarClick</span></strong>(<span style="color:red; ">object</span>&nbsp;sender,&nbsp;EventArgs e)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;comboBox_Puertos.Items.<strong><span style="color:midnightblue; ">Clear</span></strong>();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="color:blue; ">foreach</span></strong>&nbsp;(<span style="color:red; ">string</span>&nbsp;s&nbsp;<strong><span style="color:blue; ">in</span></strong>&nbsp;SerialPort.<strong><span style="color:midnightblue; ">GetPortNames</span></strong>())<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;comboBox_Puertos.Items.<strong><span style="color:midnightblue; ">Add</span></strong>(s);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="color:blue; ">if</span></strong>&nbsp;(SerialPort.<strong><span style="color:midnightblue; ">GetPortNames</span></strong>().<strong><span style="color:midnightblue; ">GetLength</span></strong>(<span style="color:darkblue; ">0</span>)&gt;<span style="color:darkblue; ">0</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;comboBox_Puertos.Enabled=&nbsp;<strong><span style="color:darkcyan; ">true</span></strong>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;serialPort1.<strong><span style="color:midnightblue; ">Close</span></strong>();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red; ">void</span>&nbsp;<strong><span style="color:midnightblue; ">ComboBox_PuertosSelectedIndexChanged</span></strong>(<span style="color:red; ">object</span>&nbsp;sender,&nbsp;EventArgs e)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="color:blue; ">if</span></strong>&nbsp;(comboBox_Puertos.Text&nbsp;!=&nbsp;<span style="color:blue; ">""</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;button_Conectar.Enabled=&nbsp;<strong><span style="color:darkcyan; ">true</span></strong>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red; ">void</span>&nbsp;<strong><span style="color:midnightblue; ">Button_ConectarClick</span></strong>(<span style="color:red; ">object</span>&nbsp;sender,&nbsp;EventArgs e)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="color:blue; ">if</span></strong>&nbsp;(comboBox_Puertos.Text&nbsp;!=&nbsp;<span style="color:blue; ">""</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CheckForIllegalCrossThreadCalls=&nbsp;<strong><span style="color:darkcyan; ">false</span></strong>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;serialPort1.PortName= comboBox_Puertos.Text;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;comboBox_Puertos.Enabled=&nbsp;<strong><span style="color:darkcyan; ">false</span></strong>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;serialPort1.<strong><span style="color:midnightblue; ">Open</span></strong>();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;button_Conectar.Enabled=&nbsp;<strong><span style="color:darkcyan; ">false</span></strong>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red; ">void</span>&nbsp;<strong><span style="color:midnightblue; ">SerialPort1DataReceived</span></strong>(<span style="color:red; ">object</span>&nbsp;sender,&nbsp;System.IO.Ports.SerialDataReceivedEventArgse)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="color:red; ">int</span></strong>&nbsp;cant_datos =&nbsp;<span style="color:darkblue; ">1</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red; ">string</span>&nbsp;datos;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red; ">string</span>[]&nbsp;vector_datos;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="color:red; ">double</span></strong>&nbsp;sensor;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="color:blue; ">if</span></strong>&nbsp;(serialPort1.BytesToRead&nbsp;&gt;&nbsp;<span style="color:darkblue; ">1</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;datos= serialPort1.<strong><span style="color:midnightblue; ">ReadLine</span></strong>();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="color:blue; ">if</span></strong>&nbsp;(datos.<strong><span style="color:midnightblue; ">StartsWith</span></strong>(<span style="color:blue; ">"$"</span>))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vector_datos= datos.<strong><span style="color:midnightblue; ">Substring</span></strong>(<span style="color:darkblue; ">1</span>).<strong><span style="color:midnightblue; ">Split</span></strong>(<span style="color:fuchsia; ">'/'</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><span style="color:blue; ">if</span></strong>&nbsp;(vector_datos.Length==cant_datos)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sensor= Convert.<strong><span style="color:midnightblue; ">ToDouble</span></strong>(vector_datos[<span style="color:darkblue; ">0</span>])/<span style="color:darkblue; ">10</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label2.Text= sensor.<strong><span style="color:midnightblue; ">ToString</span></strong>()+<span style="color:blue; ">"°C"</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;basicChart1.MaxPoints=&nbsp;<span style="color:darkblue; ">1000</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;basicChart1.YMaximum=&nbsp;<span style="color:darkblue; ">100</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;basicChart1.Points.<strong><span style="color:midnightblue; ">Add</span></strong>(Convert.<strong><span style="color:midnightblue; ">ToInt16</span></strong>(sensor));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red; ">void</span>&nbsp;<strong><span style="color:midnightblue; ">MainFormLoad</span></strong>(<span style="color:red; ">object</span>&nbsp;sender,&nbsp;EventArgse)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.Threading.Thread.CurrentThread.CurrentCulture=&nbsp;<strong><span style="color:darkcyan; ">new</span></strong>&nbsp;System.Globalization.<strong><span style="color:midnightblue; ">CultureInfo</span></strong>(<span style="color:blue; ">"en-US"</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red; ">void</span>&nbsp;<strong><span style="color:midnightblue; ">MainFormFormClosed</span></strong>(<span style="color:red; ">object</span>&nbsp;sender,&nbsp;FormClosedEventArgs e)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;serialPort1.<strong><span style="color:midnightblue; ">Close</span></strong>();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
 }</span></p>
-<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">12.1.2 Sensor de humedad y temperatura DHT11</span></strong>  </p>
+<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;"><strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">12.1.2 Sensor de humedad y temperatura DHT11</span></strong></p>
 	<div><br></div>
-    <video controls controlslist="nodownload" preload="preload" autoplay loop>
+<video controls controlslist="nodownload" preload="preload" autoplay loop>
 		<source src="../video/12.1.2%20Sensor%20de%20humedad%20y%20temperatura%20DHT11.webm" type="video/webm">
 	</video>
-    <div><br></div>
+<div><br></div>
 	<img src="../../img/12.1.2 DHT11.png" alt="" height="auto" width="auto">
 </body></html>

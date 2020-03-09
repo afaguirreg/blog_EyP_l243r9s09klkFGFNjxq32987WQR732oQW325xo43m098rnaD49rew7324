@@ -26,17 +26,17 @@ font-family:"Calibri","sans-serif";
 </style>
 <script type="text/javascript">
 	document.oncontextmenu = function(){return false;}
-    function disabletext(e){
-    return false
-    }
-    function reEnable(){
-    return true
-    }
-    document.onselectstart=new Function ("return false")
-    if (window.sidebar){
-    document.onmousedown=disabletext
-    document.onclick=reEnable
-    }
+function disabletext(e){
+return false
+}
+function reEnable(){
+return true
+}
+document.onselectstart=new Function ("return false")
+if (window.sidebar){
+document.onmousedown=disabletext
+document.onclick=reEnable
+}
 </script>
 <style type="text/css">
 <!--
@@ -79,42 +79,42 @@ function obtener_valor(variable)
 		{
 			return url.substring(variable_pos + variable_may.length + 1, pos_separador);
 		}
-    else
+else
 		{
 			return url.substring(variable_pos + variable_may.length + 1, url.length);
 		}
 	}
-  else 
+else 
 	{
 		return "NO_ENCONTRADO";
 	}
 }
 </script>
 <script language="JavaScript">
-  window.onload = function () { 
+window.onload = function () { 
 		var valor = obtener_valor("verinfo");
-    var element = document.getElementById(valor);
-    element.scrollIntoView();
-  }
+var element = document.getElementById(valor);
+element.scrollIntoView();
+}
 </script>
 </head>
 
 <body>
 	<a id="Interfaz de salida transistor MOSFET"></a>
  	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">3.3 Interfaz de salida transistor MOSFET</span></strong>
-    <div><br></div>
+<div><br></div>
 	<img src="../../img/3.1.3%20IRF840.png" alt="" height="auto" width="auto">
 	<div><br></div>
 	<a id="Control motor DC con transistor MOSFET"></a>
  	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">3.3.1 Control motor DC con transistor MOSFET</span></strong>
-    <div><br></div>
+<div><br></div>
 	<video controls controlslist="nodownload" preload="preload" autoplay loop>
 		<source src="../video/3.3.1%20Control%20motor%20DC%20con%20transistor%20MOSFET.webm" type="video/webm">
 	</video>
 	<div><br></div>
 	<a id="Puente H transistores MOSFET"></a>
  	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">3.3.2 Puente H transistores MOSFET</span></strong>
-    <div><br></div>
+<div><br></div>
 	<video controls controlslist="nodownload" preload="preload" autoplay loop>
 		<source src="../video/3.3.2%20Puente%20H%20transistores%20MOSFET.webm" type="video/webm">
 	</video>
