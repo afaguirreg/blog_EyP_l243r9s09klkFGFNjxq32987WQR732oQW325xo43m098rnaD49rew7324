@@ -1,8 +1,7 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
-		<meta content="IE=edge">
 		<title>Documento sin título</title>
 		<style type="text/css">
 			<!--
@@ -14,6 +13,24 @@
 				line-height: 115%;
 				font-size: 12pt;
 				font-family: Arial, sans-serif;
+			}
+			p.MsoNormal1 {
+				margin-top: 0cm;
+				margin-right: 0cm;
+				margin-bottom: 10.0pt;
+				margin-left: 0cm;
+				line-height: 115%;
+				font-size: 11.0pt;
+				font-family: "Calibri","sans-serif";
+			}
+			p.MsoListParagraph {
+				margin-top: 0cm;
+				margin-right: 0cm;
+				margin-bottom: 10.0pt;
+				margin-left: 36.0pt;
+				line-height: 115%;
+				font-size: 11.0pt;
+				font-family: "Calibri","sans-serif";
 			}
 			-->
 		</style>
@@ -39,35 +56,12 @@
 				document.onclick=reEnable
 			}
 		</script>
-		<style type="text/css">
-			<!--
-			p.MsoListParagraph {
-				margin-top:0cm;
-				margin-right:0cm;
-				margin-bottom:10.0pt;
-				margin-left:36.0pt;
-				line-height:115%;
-				font-size:11.0pt;
-				font-family:"Calibri","sans-serif";
-			}
-			p.MsoNormal1 {
-				margin-top:0cm;
-				margin-right:0cm;
-				margin-bottom:10.0pt;
-				margin-left:0cm;
-				line-height:115%;
-				font-size:11.0pt;
-				font-family:"Calibri","sans-serif";
-			}
-			-->
-		</style>
 		<script language="JavaScript">
 			var remplaza = /\+/gi; 
 			var url = window.location.href;
 			url = unescape(url);
 			url = url.replace(remplaza, " ");
-			function obtener_valor(variable) 
-			{
+			function obtener_valor(variable) {
 				var variable_may = variable;
 				var variable_pos = url.indexOf(variable);
 				if (variable_pos != -1)
