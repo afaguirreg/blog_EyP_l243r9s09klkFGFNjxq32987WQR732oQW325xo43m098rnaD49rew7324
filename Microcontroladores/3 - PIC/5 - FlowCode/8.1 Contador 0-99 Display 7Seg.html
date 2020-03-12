@@ -92,30 +92,30 @@
 	</head>
 
 	<body>
-<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">8. EEPROM</span></strong>
-<div><br></div>
-<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">8.1 Contador 0-99 Display 7 Segmentos</span></strong>
-<div><br></div>
-<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">El ejemplo es un contador. Como funcionalidadesmínimas haremos que sea capaz de contar del 0 al 9 de manera ascendente ydescendente, y que tenga un botón de RESET a cero.</span></p>
-<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Y por supuesto que si se corta el suministro deenergía guarda en memoria el último valor. </span></p>
-<div><br></div>
-<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;line-height:normal;background:white;"><span class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><img src="../img/Microcontroladores PIC - CCS_clip_image002_0005.jpg" width="697" height="681" alt=""/></span></p>
-<div><br></div>
-<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Comentarios del programa:</span></p>
-<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">&nbsp;</span></p>
-<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">El ejemplo básicamente es un contadorascendente/descendente de 0 a 9 que incrementa su valor cada vez que pulsamos&quot;INC&quot; (PIN B0) y decrementa el contador si se pulsa &ldquo;DEC&rdquo; (PIN B1) yademás se puede restablecer a cero si se pulsa &ldquo;RESET&rdquo; (PIN B2). Para evitarque el contador se reinicie y empiece a contar desde cero cada vez que seinterrumpa el suministro de energía, el valor actual del contador se almacenaráen la memoria EEPROM del PIC en vez de en la memoria RAM. Como solo queremosguardar un valor que estará comprendido entre 0 y 99, solo utilizaremos elprimer byte de la memoria EEPROM.</span></p>
-<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">&nbsp;</span></p>
-<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">La primera vez que se ejecute el programa el valor dela EEPROM es 0xFF (viene así de fábrica) por lo que tendremos que sobrescribirsu valor a 0 para iniciar el conteo, después de esto esta condición no secumplirá más.  </span></p>
-<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">&nbsp;</span></p>
-<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">contador = read_eeprom(dir_contador);</span></p>
-<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">if ((contador&gt;9)||(contador&lt;0))</span></p>
-<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">   contador=0; </span></p>
-<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">&nbsp;</span></p>
-<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Proteus simula bastante bien el uso de la memoriaEEPROM del PIC, si paramos la simulación y volvemos a iniciarla vemos como losvalores de la EEPROM se mantienen.</span></p>
-<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">&nbsp;</span></p>
-<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Extraído parcialmente de:</span></p>
-<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">&nbsp;</span></p>
-<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; "><a href="http://www.aquihayapuntes.com/indice-practicas-pic-en-c/memoria-eeprom-interna-del-pic.html">http://www.aquihayapuntes.com/indice-practicas-pic-en-c/memoria-eeprom-interna-del-pic.html</a></span><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; "></span></p>
-<div><br></div>
-</body>
+		<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">8. EEPROM</span></strong>
+		<div><br></div>
+		<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">8.1 Contador 0-99 Display 7 Segmentos</span></strong>
+		<div><br></div>
+		<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">El ejemplo es un contador. Como funcionalidadesmínimas haremos que sea capaz de contar del 0 al 9 de manera ascendente ydescendente, y que tenga un botón de RESET a cero.</span></p>
+		<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Y por supuesto que si se corta el suministro deenergía guarda en memoria el último valor. </span></p>
+		<div><br></div>
+		<p class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;line-height:normal;background:white;"><span class="MsoNormal" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><img src="../img/Microcontroladores PIC - CCS_clip_image002_0005.jpg" width="697" height="681" alt=""/></span></p>
+		<div><br></div>
+		<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Comentarios del programa:</span></p>
+		<div><br></div>
+		<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">El ejemplo básicamente es un contadorascendente/descendente de 0 a 9 que incrementa su valor cada vez que pulsamos&quot;INC&quot; (PIN B0) y decrementa el contador si se pulsa &ldquo;DEC&rdquo; (PIN B1) yademás se puede restablecer a cero si se pulsa &ldquo;RESET&rdquo; (PIN B2). Para evitarque el contador se reinicie y empiece a contar desde cero cada vez que seinterrumpa el suministro de energía, el valor actual del contador se almacenaráen la memoria EEPROM del PIC en vez de en la memoria RAM. Como solo queremosguardar un valor que estará comprendido entre 0 y 99, solo utilizaremos elprimer byte de la memoria EEPROM.</span></p>
+		<div><br></div>
+		<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">La primera vez que se ejecute el programa el valor dela EEPROM es 0xFF (viene así de fábrica) por lo que tendremos que sobrescribirsu valor a 0 para iniciar el conteo, después de esto esta condición no secumplirá más.  </span></p>
+		<div><br></div>
+		<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">contador = read_eeprom(dir_contador);</span></p>
+		<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">if ((contador&gt;9)||(contador&lt;0))</span></p>
+		<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">   contador=0; </span></p>
+		<div><br></div>
+		<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Proteus simula bastante bien el uso de la memoriaEEPROM del PIC, si paramos la simulación y volvemos a iniciarla vemos como losvalores de la EEPROM se mantienen.</span></p>
+		<div><br></div>
+		<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Extraído parcialmente de:</span></p>
+		<div><br></div>
+		<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; "><a href="http://www.aquihayapuntes.com/indice-practicas-pic-en-c/memoria-eeprom-interna-del-pic.html">http://www.aquihayapuntes.com/indice-practicas-pic-en-c/memoria-eeprom-interna-del-pic.html</a></span><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; "></span></p>
+		<div><br></div>
+	</body>
 </html>
