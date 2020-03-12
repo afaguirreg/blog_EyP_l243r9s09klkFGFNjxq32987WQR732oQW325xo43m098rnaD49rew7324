@@ -111,8 +111,8 @@
 		<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:center;line-height:13.5pt;background:white;" align="center"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; "> </span><img src="../img/Microcontroladores%20PIC%20-%20CCS_clip_image001_0000.png" alt="" height="475" width="489"></p>
 		<div><br></div>
 		<div><br></div>
-		<a id="Lectura convertidor Analogo/Digital"></a>
-		<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">9.1 Lectura convertidor Análogo/Digital</span></strong>
+		<a id="Lectura convertidor Analogo / Digital"></a>
+		<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">9.1 Lectura convertidor Análogo / Digital</span></strong>
 		<div><br></div>
 		<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Como ejemplo del uso del conversor ADC delmicrocontrolador vamos a utilizar las funciones para leer el dato provenientede un sensor en el rango de 0 a 5V y representar en un display LCD el valor </span>leído por el convertidor ADC en el rango de 0 a 1023.</p>
 		<div><br></div>
@@ -144,34 +144,37 @@
 		<a id="Escalamiento de lectura analogica (Formula)"></a>
 		<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">9.2 Escalamiento de lectura analógica (Fórmula)</span></strong>
 		<div><br></div>
-		<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Rango 0 a 100</span></strong>
+		<a id="Escalamiento sin desplazamiento. Rango 0 a 100"></a>
+		<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">9.2.1 Escalamiento sin desplazamiento. Rango 0 a 100</span></strong>
 		<div><br></div>
-		<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">En el siguiente ejemplo haremos que el programalea una entrada entre 0 y 5V de manera que para 0V representará 0 unidadesy 5V representará 100 unidades.</span></span></p>
+		<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">En el siguiente ejemplo haremos que el programa lea una entrada entre 0 y 5V de manera que para 0V representará 0 unidades y 5V representará 100 unidades.</span></span></p>
 		<div><br></div>
 		<video controls controlslist="nodownload" preload="preload" autoplay loop>
-			<source src="../video/9.2%20Escalamiento%20de%20lectura%20analogica%20%28Formula%29_0_100.webm" type="video/webm">
+			<source src="../video/9.2.1%20Escalamiento%20sin%20desplazamiento_0_100.webm" type="video/webm">
 		</video>
 		<div><br></div>
 		<img src="img/9.2%20Escalamiento%20de%20lectura%20analogica%20Formula_0_100.png" alt="" height="auto" width="auto">
 		<div><br></div>
 		<div><br></div>
-		<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Rango 20 a 80</span></strong>
+		<a id="Escalamiento con desplazamiento positivo. Rango 20 a 80"></a>
+		<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">9.2.2 Escalamiento con desplazamiento positivo. Rango 20 a 80</span></strong>
 		<div><br></div>
-		<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">En el siguiente ejemplo haremos que el programalea una entrada entre 0 y 5V de manera que para 0V representará 20 unidadesy 5V representará 80 unidades.</span>
+		<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">En el siguiente ejemplo haremos que el programa lea una entrada entre 0 y 5V de manera que para 0V representará 20 unidades y 5V representará 80 unidades.</span>
 		<div><br></div>
 		<video controls controlslist="nodownload" preload="preload" autoplay loop>
-			<source src="../video/9.2%20Escalamiento%20de%20lectura%20analogica%20%28Formula%29_20_80.webm" type="video/webm">
+			<source src="../video/9.2.2%20Escalamiento%20con%20desplazamiento%20positivo_20_80.webm" type="video/webm">
 		</video>
 		<div><br></div>
 		<img src="img/9.2%20Escalamiento%20de%20lectura%20analogica%20Formula_20_80.png" alt="" height="auto" width="auto">
 		<div><br></div>
 		<div><br></div>
-		<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Rango -50 a 150</span></strong>
+		<a id="Escalamiento con desplazamiento negativo. Rango -50 a 150"></a>
+		<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">9.2.3 Escalamiento con desplazamiento negativo. Rango -50 a 150</span></strong>
 		<div><br></div>
-		<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">En el siguiente ejemplo haremos que el programalea una entrada entre 0 y 5V de manera que para 0V representará -50 unidadesy 5V representará 150 unidades.</span>
+		<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">En el siguiente ejemplo haremos que el programa lea una entrada entre 0 y 5V de manera que para 0V representará -50 unidades y 5V representará 150 unidades.</span>
 		<div><br></div>
 		<video controls controlslist="nodownload" preload="preload" autoplay loop>
-			<source src="../video/9.2%20Escalamiento%20de%20lectura%20analogica%20%28Formula%29_-50_150.webm" type="video/webm">
+			<source src="../video/9.2.3%20Escalamiento%20con%20desplazamiento%20negativo_-50_150.webm" type="video/webm">
 		</video>
 		<div><br></div>
 		<img src="img/9.2%20Escalamiento%20de%20lectura%20analogica%20Formula_-50_150.png" alt="" height="auto" width="auto">
@@ -182,10 +185,10 @@
 		<span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">En el siguiente ejemplo haremos que el programalea una entrada entre 0 y 5V de manera que para 0V representará 0 unidadesy 5V representará 100 unidades (con dígitos decimales).</span>
 		<div><br></div>
 		<video controls controlslist="nodownload" preload="preload" autoplay loop>
-			<source src="../video/9.2%20Escalamiento%20de%20lectura%20analogica%20%28Formula%29_0_100_dec.webm" type="video/webm">
+			<source src="../video/9.2%20Decimales.webm" type="video/webm">
 		</video>
 		<div><br></div>
-		<img src="img/9.2%20Escalamiento%20de%20lectura%20analogica%20Formula_0_100_dec.png" alt="" height="auto" width="auto">
+		<img src="img/9.2%20Decimales.png" alt="" height="auto" width="auto">
 		<div><br></div>
 		<div><br></div>
 		<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">9.3 Función map para escalamiento de lectura analógica</span></strong>
