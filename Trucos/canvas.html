@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style type="text/css">
+    .fraction {
+    display: inline-block;
+    vertical-align: middle; 
+    margin: 0 0.2em 0.4ex;
+    text-align: center;
+}
+.fraction > span {
+    display: block;
+    padding-top: 0.15em;
+}
+.fraction span.fdn {border-top: thin solid black;}
+.fraction span.bar {display: none;}
+  </style>
+<script>
+    var Smin=0:
+    var Smax=0;
+</script>
+</head>
+<body>
+<div>Ingresar Smax: <input type="text" id="max" name="max"></div>
+<div><br></div>
+<div>Ingresar Smin: <input type="text" id="min" name="min"></div>
+<div><br></div>
+<input type="submit" value="Recalcular" onclick="capturar();">
+<div><br></div>
+  <div class="dibujo-canvas">
+    <canvas id="lienzo1" display="block" color="blue" width="700" height="512"></canvas>
+    <script type="text/javascript">
+      ejercicio1(0,0);
+      function ejercicio1(y1, y2){
+        ej1=document.getElementById("lienzo1");
+        lienzo1=ej1.getContext("2d");
+	lienzo1.clearRect(0,0,700,512);
+	lienzo1.fillStyle = "#CCCCCC";
+	lienzo1.fillRect(0, 0, 512, 512);
+        lienzo1.lineWidth=2;
+        lienzo1.strokeStyle = '#000';
+      //EJE X
+        lienzo1.beginPath();
+        lienzo1.moveTo(0,256);
+        lienzo1.lineTo(512,256);
+        lienzo1.stroke();
+        lienzo1.closePath();
+      //EJEY
+        lienzo1.beginPath();
+        lienzo1.moveTo(256,0);
+        lienzo1.lineTo(256,512);
+        lienzo1.stroke();
+        lienzo1.closePath();
+      //DRAW SCALE
+        lienzo1.lineWidth=1;
+	lienzo1.strokeStyle = '#BBBBBB';
+        lienzo1.beginPath(); 
+	for (var i=0;i<=512;i+=32) {
+	   lienzo1.moveTo(i,0);
+           lienzo1.lineTo(i,512);
+	}
+	for (var i=0;i<=512;i+=32) {
+	   lienzo1.moveTo(0,i);
+           lienzo1.lineTo(512,i);
+	}
+        lienzo1.stroke();
+        lienzo1.closePath();
+      //DRAW 0 - 1023
+        lienzo1.lineWidth=1;
+	lienzo1.strokeStyle = '#FF0000';
+        lienzo1.beginPath(); 
+	if (y2<=1023) {
+	   lienzo1.moveTo(256,256);
+           lienzo1.lineTo(512,0);
+	   lienzo1.stroke();
+           lienzo1.closePath();
+	   lienzo1.font = "13px Arial";
+	   lienzo1.fillStyle = '#FF0000';
+	   lienzo1.beginPath();
+	   lienzo1.fillText("x:0 y:0", 208, 274);
+	   lienzo1.fillText("x:5 y:1023", 518, 10);
+	   lienzo1.stroke();
+           lienzo1.closePath();
+	}
+	else {
+	   lienzo1.moveTo(256,256);
+           lienzo1.lineTo(512,256-1023/y2*256);
+	   lienzo1.stroke();
+           lienzo1.closePath();
+	   lienzo1.font = "13px Arial";
+	   lienzo1.fillStyle = '#FF0000';
+	   lienzo1.beginPath();
+	   lienzo1.fillText("x:0 y:0", 208, 274);
+	   lienzo1.fillText("x:5 y:1023", 518, 266-1023/y2*256);
+	   lienzo1.stroke();
+           lienzo1.closePath();
+	}
+      //DRAW X,Y
+	lienzo1.strokeStyle = '#0000FF';
+        lienzo1.beginPath();
+	if (y2<=1023) {
+	   lienzo1.moveTo(256,256-y1/1023*256);
+           lienzo1.lineTo(512,256-y2/1023*256);
+	   lienzo1.stroke();
+           lienzo1.closePath();
+	   lienzo1.fillStyle = '#0000FF';
+	   lienzo1.font = "13px Arial";
+	   lienzo1.fillText("x:0" + " y:" + y1, 160, 274-y1/1023*256);
+	   lienzo1.fillText("x:5" + " y:" + y2, 600, 266-y2/1023*256);
+	   lienzo1.stroke();
+           lienzo1.closePath();
+	}
+	else {
+	   lienzo1.moveTo(256,256-y1/y2*256);
+           lienzo1.lineTo(512,0);
+	   lienzo1.stroke();
+           lienzo1.closePath();
+	   lienzo1.fillStyle = '#0000FF';
+	   lienzo1.font = "13px Arial";
+	   lienzo1.fillText("x:0" + " y:" + y1, 160, 274-y1/y2*256);
+	   lienzo1.fillText("x:5" + " y:" + y2, 600, 10);
+	   lienzo1.stroke();
+           lienzo1.closePath();
+	}
+       }
+    </script>
+    <script>
+    function capturar()
+    {
+        Smin=document.getElementById("min").value
+	Smax=document.getElementById("max").value
+	ejercicio1(Smin, Smax);
+	if (Smin>=0) {
+	   document.getElementById("Ymin1").innerHTML = " - " + Smin;
+	   document.getElementById("Ymin2").innerHTML = " + " + Smin;
+	}
+	else {
+	   document.getElementById("Ymin1").innerHTML = " + " + -Smin;
+	   document.getElementById("Ymin2").innerHTML = " - " + -Smin;
+	}
+	document.getElementById("Ymax").innerHTML = Smax;
+    }
+    </script>
+  </div>
+<div><br></div>
+<i>S</i> = <i>E</i> *
+   <div class="fraction">
+   <span class="fup">(Smax - Smin)</span>
+   <span class="bar">/</span>
+   <span class="fdn">1023</span>
+</div> - Smin
+<div><br></div>
+<div id="resultado"></div>
+<div><br></div>
+<i>S</i> = <i>E</i> *
+   <div class="fraction">
+   <span class="fup">(<span id="Ymax"></span><span id="Ymin1"></span>)</span>
+   <span class="bar">/</span>
+   <span class="fdn">1023</span>
+</div><span id="Ymin2"></span>
+</body>
+</html>
