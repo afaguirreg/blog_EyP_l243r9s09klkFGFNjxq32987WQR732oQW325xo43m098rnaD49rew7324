@@ -60,19 +60,40 @@
 			}
 			-->
 		</style>
+		<script type="text/javascript">
+			document.oncontextmenu = function(){return false;}
+			function disabletext(e){
+				return false
+			}
+			function reEnable(){
+				return true
+			}
+			document.onselectstart=new Function ("return false")
+			if (window.sidebar){
+				document.onmousedown=disabletext
+				document.onclick=reEnable
+			}
+		</script>
+		<script language="JavaScript">
+			window.onload = function () { 
+				var element = document.getElementById("CONTENIDO");
+				element.scrollIntoView();
+			}
+		</script>
 	</head>
 
 	<body>
+		<a id="CONTENIDO"></a>
 		<table width="1000">
 			<tbody>
 				<tr>
 					<td>
-						<input type="button" target="_self" onClick="window.location='Concepto%20de%20comunicacion.html'" value="1. Concepto de comunicación" style="cursor:pointer; border: rgb(255,255,255) 1px solid; background-color: rgb(255,255,255); color: rgb(0,64,255); font-family: Arial, sans-serif; font-weight: bold; font-size: 12pt">
+						<input type="button" target="_self" onClick="window.location='1%20Concepto%20de%20comunicacion.html'" value="1. Concepto de comunicación" style="cursor:pointer; border: rgb(255,255,255) 1px solid; background-color: rgb(255,255,255); color: rgb(0,64,255); font-family: Arial, sans-serif; font-weight: bold; font-size: 12pt">
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<input type="button" target="_self" onClick="window.location='Sistemas%20de%20transmision.html'" value="2. Sistemas de transmisión" style="cursor:pointer; border: rgb(255,255,255) 1px solid; background-color: rgb(255,255,255); color: rgb(0,64,255); font-family: Arial, sans-serif; font-weight: bold; font-size: 12pt">
+						<input type="button" target="_self" onClick="window.location='2%20Sistemas%20de%20transmision.html'" value="2. Sistemas de transmisión" style="cursor:pointer; border: rgb(255,255,255) 1px solid; background-color: rgb(255,255,255); color: rgb(0,64,255); font-family: Arial, sans-serif; font-weight: bold; font-size: 12pt">
 					</td>
 				</tr>
 				<tr>
@@ -87,12 +108,12 @@
 				</tr>
 				<tr>
 					<td>
-						<input type="button" target="_self" onClick="window.location='El%20puerto%20serie%20RS-232.html'" value="    3.2 El puerto serie" style="cursor:pointer; border: rgb(255,255,255) 1px solid; background-color: rgb(255,255,255); color: rgb(0,64,255); font-family: Arial, sans-serif; font-weight: bold; font-size: 12pt">
+						<input type="button" target="_self" onClick="window.location='3.2%20El%20puerto%20serie%20RS-232.html'" value="    3.2 El puerto serie" style="cursor:pointer; border: rgb(255,255,255) 1px solid; background-color: rgb(255,255,255); color: rgb(0,64,255); font-family: Arial, sans-serif; font-weight: bold; font-size: 12pt">
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<input type="button" style="cursor:pointer; border: rgb(255,255,255) 1px solid; background-color: rgb(255,255,255); color: rgb(0,64,255); font-family: Arial, sans-serif; font-weight: bold; font-size: 12pt" onClick="window.location='El%20puerto%20USB.html'" value="    3.3 El puerto USB" target="_self">
+						<input type="button" style="cursor:pointer; border: rgb(255,255,255) 1px solid; background-color: rgb(255,255,255); color: rgb(0,64,255); font-family: Arial, sans-serif; font-weight: bold; font-size: 12pt" onClick="window.location='3.3%20El%20puerto%20USB.html'" value="    3.3 El puerto USB" target="_self">
 					</td>
 				</tr>
 				<tr>
@@ -112,7 +133,7 @@
 				</tr>
 				<tr>
 					<td>
-						<input type="button" style="cursor:pointer; border: rgb(255,255,255) 1px solid; background-color: rgb(255,255,255); color: rgb(0,64,255); font-family: Arial, sans-serif; font-weight: bold; font-size: 12pt" onClick="window.location='Estandar%20RS-485.html'" value="    4.3 Estandar RS-485" target="_self">
+						<input type="button" style="cursor:pointer; border: rgb(255,255,255) 1px solid; background-color: rgb(255,255,255); color: rgb(0,64,255); font-family: Arial, sans-serif; font-weight: bold; font-size: 12pt" onClick="window.location='4.3%20Estandar%20RS-485.html'" value="    4.3 Estandar RS-485" target="_self">
 					</td>
 				</tr>
 				<tr>
@@ -132,7 +153,7 @@
 				</tr>
 				<tr>
 					<td>
-						<input type="button" target="_self" onClick="window.location='Protocolos%20industriales.html'" value="    6. Protocolos industriales" style="cursor:pointer; border: rgb(255,255,255) 1px solid; background-color: rgb(255,255,255); color: rgb(0,64,255); font-family: Arial, sans-serif; font-weight: bold; font-size: 12pt">
+						<input type="button" target="_self" onClick="window.location='6%20Protocolos%20industriales.html'" value="    6. Protocolos industriales" style="cursor:pointer; border: rgb(255,255,255) 1px solid; background-color: rgb(255,255,255); color: rgb(0,64,255); font-family: Arial, sans-serif; font-weight: bold; font-size: 12pt">
 					</td>
 				</tr>
 			</tbody>
