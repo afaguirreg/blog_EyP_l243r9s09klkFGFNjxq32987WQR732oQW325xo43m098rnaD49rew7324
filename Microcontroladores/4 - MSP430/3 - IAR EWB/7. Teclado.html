@@ -92,88 +92,124 @@
 
 	<body>
 		<a id="Teclado"></a>
-		<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">7. Teclado</span></strong>
+		<div class="MsoNormal1" style="text-align:justify">7. Teclado</div>
 		<div><br></div>
-		<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">El teclado4x4 es el más utilizadoen el desarrollo de proyectos con microcontroladoresytienen suaplicación en el ingreso de datos de forma manual por parte del usuario, enaquellos casos en que el empleo de pulsadores simples no es lo más apropiado,ya sea por la presentación final del producto o por la restricción del númerode líneas de entrada del microcontrolador.</span></p>
+		<div class="MsoNormal" style="text-align:justify">El teclado 4x4 es el más utilizadoen el desarrollo de proyectos con microcontroladoresytienen suaplicación en el ingreso de datos de forma manual por parte del usuario, enaquellos casos en que el empleo de pulsadores simples no es lo más apropiado,ya sea por la presentación final del producto o por la restricción del númerode líneas de entrada del microcontrolador.</div>
 		<div><br></div>
-		<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">El teclado4x4 está constituido por unamatriz de pulsadores dispuestos en filas (A,B,C,D) y columnas (1,2,3,4), con laintención de reducir el número de pines necesarios para su conexión. Las 16teclas necesitan sólo 8 pines del microcontrolador, en lugar de los 16 pinesque se requerirían para la conexión de 16 teclas independientes.</span></p>
+		<div class="MsoNormal" style="text-align:justify">El teclado4x4 está constituido por unamatriz de pulsadores dispuestos en filas (A,B,C,D) y columnas (1,2,3,4), con laintención de reducir el número de pines necesarios para su conexión. Las 16teclas necesitan sólo 8 pines del microcontrolador, en lugar de los 16 pinesque se requerirían para la conexión de 16 teclas independientes.</div>
 		<div><br></div>
-		<p align="center">
+		<div align="center">
 	  		<img src="../../img/7. Teclado_1.png" alt="" height="auto" width="auto">
-		</p>
+		</div>
 		<div><br></div>
-		<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">A cada tecla le corresponde una posición única en la matriz.</span></p>
+		<div class="MsoNormal" style="text-align:justify">A cada tecla le corresponde una posición única en la matriz.</div>
 		<div><br></div>
-		<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Su funcionamiento es muy sencillo,cuando se presiona una tecla, se conectan internamente la fila y columnacorrespondientes; por ejemplo, al presionar la tecla “6” se conectan la fila By la columna 3. Si no hay ninguna tecla presionada, las filas estándesconectadas de las columnas.</span></p>
+		<div class="MsoNormal" style="text-align:justify">Su funcionamiento es muy sencillo,cuando se presiona una tecla, se conectan internamente la fila y columna correspondientes; por ejemplo, al presionar la tecla “6” se conectan la fila By la columna 3. Si no hay ninguna tecla presionada, las filas están desconectadas de las columnas.</div>
 		<div><br></div>
-		<p align="center">
+		<div align="center">
 			<img src="../../img/7. Teclado_2.png" alt="" height="auto" width="auto">
-		</p>
+		</div>
 		<div><br></div>
-		<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Para facilitar la lectura del teclado matricialusaremos la librería kbd_matricial.c que se encarga de gestionar las líneasfísicas (pines del microcontrolador) y contiene la función kbd_getc() que seencuentra implementada en ella.</span></p>
+		<div class="MsoNormal" style="text-align:justify">Para facilitar la lectura del teclado matricialusaremos la librería kbd_matricial.c que se encarga de gestionar las líneasfísicas (pines del microcontrolador) y contiene la función kbd_getc() que seencuentra implementada en ella.</div>
 		<div><br></div>
-		<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">La variable tecla es de tipo <span style="color:#4F81BD; ">char</span>,permitiendo almacenar en ella un caracter alfanumérico, el cual obtiene alllamar la función kbd_getc().</span></p>
+		<div class="MsoNormal" style="text-align:justify">La variable tecla es de tipo <span style="color:#4F81BD; ">char</span>,permitiendo almacenar en ella un caracter alfanumérico, el cual obtiene al llamar la función kbd_getc().</div>
 		<div><br></div>
-		<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">La función kbd_getc() devuelve un caracter ASCII que corresponde a la tecla pulsada o cero (0) si no se hapulsado ninguna tecla.</span></p>
+		<div class="MsoNormal" style="text-align:justify">La función kbd_getc() devuelve un caracter ASCII que corresponde a la tecla pulsada o cero (0) si no se hapulsado ninguna tecla.</div>
 		<div><br></div>
-		<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Extraído parcialmente de:</span></p>
+		<div class="MsoNormal" style="text-align:justify">Extraído parcialmente de: <a href="http://www.programarpicenc.com/libro/cap08-teclado-matricial-4x4-microcontroladores-pic.html">http://www.programarpicenc.com/libro/cap08-teclado-matricial-4x4-microcontroladores-pic.html</a></div>
 		<div><br></div>
-		<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; "><a href="http://www.programarpicenc.com/libro/cap08-teclado-matricial-4x4-microcontroladores-pic.html">http://www.programarpicenc.com/libro/cap08-teclado-matricial-4x4-microcontroladores-pic.html</a></span></p>
-		<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; "><a href="http://www.programarpicenc.com/libro/cap08-teclado-matricial-4x4-microcontroladores-pic.html"><br></a></span></p>
+		<div><br></div>
 		<a id="Teclado matricial"></a>
-		<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">7.1 Teclado matricial</span></strong>
+		<div class="MsoNormal1" style="text-align:justify">7.1 Teclado matricial</div>
 		<div><br></div>
-		<img src="../../img/7. Teclado_3.png" alt="" height="auto" width="auto">
-		<img src="../../img/7. Teclado_5.png" alt="" height="auto" width="auto">
+		<div align="center">
+			<img src="../../img/7. Teclado_3.png" alt="" height="auto" width="auto">
+			<img src="../../img/7. Teclado_5.png" alt="" height="auto" width="auto">
+		</div>
 		<div><br></div>
 		<video controls controlslist="nodownload" preload="preload" autoplay loop>
 			<source src="../video/7.1%20Teclado%20matricial.webm" type="video/webm">
 		</video>
 		<div><br></div>
-		<strong><a href="https://www.dropbox.com/s/sanrbb2v8lw9hp6/kbd_matricial.c.encrypted?dl=1" target="_blank">Descargarlibrería kbd_matricial</a></strong>
+		<div class="MsoNormal" style="text-align:justify">Descargar librería kbd_matricial: <a href="https://www.dropbox.com/s/sanrbb2v8lw9hp6/kbd_matricial.c.encrypted?dl=1" target="_blank">https://www.dropbox.com/s/sanrbb2v8lw9hp6/kbd_matricial.c.encrypted?dl=1</a></div>
 		<div><br></div>
 		<img src="img/7.1%20Teclado%20matricial.png" alt="" height="auto" width="auto">
 		<div><br></div>
 		<div><br></div>
 		<a id="Teclado membrana"></a>
-		<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">7.2 Teclado membrana</span></strong>
+		<div class="MsoNormal1" style="text-align:justify">7.2 Teclado membrana</div>
 		<div><br></div>
 		<video controls controlslist="nodownload" preload="preload" autoplay loop>
 			<source src="../video/7.2%20Teclado%20membrana.webm" type="video/webm">
 		</video>
 		<div><br></div>
-		<img src="../../img/7. Teclado_4.png" alt="" height="auto" width="auto">
-		<img src="../../img/7. Teclado_5.png" alt="" height="auto" width="auto">
+		<div align="center">
+			<img src="../../img/7. Teclado_4.png" alt="" height="auto" width="auto">
+			<img src="../../img/7. Teclado_5.png" alt="" height="auto" width="auto">
+		</div>
 		<div><br></div>
-		<p class="MsoNormal" style="text-align:justify;"><span style="box-sizing:border-box; margin:0px; padding:0px; border:0px; font-variant:inherit; font-stretch:inherit; line-height:inherit; vertical-align:baseline; font-family:verdana, geneva; font-size:10pt; font-style:inherit; font-weight:inherit; "><strong style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 13.3333px; vertical-align: baseline;"><span style="box-sizing:border-box; margin:0px; padding:0px; border:0px; font-variant:inherit; font-stretch:inherit; line-height:inherit; vertical-align:baseline; font-family:inherit; font-size:13.3333px; color:rgb(255, 0, 0); font-style:inherit; font-weight:inherit; ">Características:</span></strong></span></p>
-		<ul style="box-sizing: border-box; margin: 0px 0px 9px; padding: 0px 0px 0px 15px; border: 0px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-weight: 400; font-stretch: inherit; line-height: inherit; font-family: Arial, Helvetica, sans-serif; font-size: 13px; vertical-align: baseline; list-style: disc; color: rgb(119, 119, 119); letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">
-			<li style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 13px; vertical-align: baseline;"><span style="font-family:verdana, geneva; font-size:10pt; font-style:inherit; font-weight:inherit; ">16 botones con o<span style="box-sizing:border-box; margin:0px; padding:0px; border:0px; font-variant:inherit; font-stretch:inherit; line-height:inherit; vertical-align:baseline; font-family:inherit; font-size:10pt; font-style:inherit; font-weight:inherit; ">rganización matricial (4 filas x 4 columnas)</span></span></li>
-			<li style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 13px; vertical-align: baseline;"><span style="font-family:verdana, geneva; font-size:10pt; font-style:inherit; font-weight:inherit; ">Teclado tipo membrana</span></li>
-			<li style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 13px; vertical-align: baseline;"><span style="font-family:verdana, geneva; font-size:10pt; font-style:inherit; font-weight:inherit; ">Mayor resistencia al agua y al polvo</span></li>
-			<li style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 13px; vertical-align: baseline;"><span style="font-family:verdana, geneva; font-size:10pt; font-style:inherit; font-weight:inherit; ">Auto adhesivo en la parte de atrás</span></li>
-			<li style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 13px; vertical-align: baseline;"><span style="font-family:verdana, geneva; font-size:10pt; font-style:inherit; font-weight:inherit; ">Tiempo de rebote (Bounce time): ≤5 ms</span></li>
-			<li style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 13px; vertical-align: baseline;"><span style="font-family:verdana, geneva; font-size:10pt; font-style:inherit; font-weight:inherit; ">Máximo voltaje operativo: 24 V DC</span></li>
-			<li style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 13px; vertical-align: baseline;"><span style="font-family:verdana, geneva; font-size:10pt; font-style:inherit; font-weight:inherit; ">Máxima corriente operativa: 30 mA</span></li>
-			<li style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 13px; vertical-align: baseline;"><span style="font-family:verdana, geneva; font-size:10pt; font-style:inherit; font-weight:inherit; ">Resistencia de aislamiento: 100 MΩ (@ 100 V)</span></li>
-			<li style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 13px; vertical-align: baseline;"><span style="font-family:verdana, geneva; font-size:10pt; font-style:inherit; font-weight:inherit; ">Voltaje que soporta el dieléctrico: 250 V<sub style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 0; font-family: inherit; font-size: 10px; vertical-align: baseline; position: relative; bottom: -0.25em;">RMS</sub>&nbsp;(@ 60Hz, por 1 min)</span></li>
-			<li style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 13px; vertical-align: baseline;"><span style="font-family:verdana, geneva; font-size:10pt; font-style:inherit; font-weight:inherit; ">Expectativa de vida: 1.000.000 de operaciones</span></li>
-			<li style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 13px; vertical-align: baseline;"><span style="font-family:verdana, geneva; font-size:10pt; font-style:inherit; font-weight:inherit; ">Dimensiones del pad: 6.9 x 7.7 cm aprox.</span></li>
-			<li style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 13px; vertical-align: baseline;"><span style="font-family:verdana, geneva; font-size:10pt; font-style:inherit; font-weight:inherit; ">Cable de cinta plana de 8.3 cm de largo aprox. (incluido el conector)</span></li>
-			<li style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 13px; vertical-align: baseline;"><span style="font-family:verdana, geneva; font-size:10pt; font-style:inherit; font-weight:inherit; ">Conector tipo DuPont hembra de una fila y 8 contactos&nbsp;con separación estándar&nbsp;0.1" (2.54mm)</span></li>
-			<li style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 13px; vertical-align: baseline;"><span style="font-family:verdana, geneva; font-size:10pt; font-style:inherit; font-weight:inherit; ">Temperatura de operación: 0 a 50 °C</span></li>
+		<div class="MsoNormal1" style="text-align:justify">Características:</div>
+		<ul>
+			<li>
+				<div class="MsoNormal" style="text-align:justify">16 botones con organización matricial (4 filas x 4 columnas)</div>
+			</li>
+			<li>
+				<div class="MsoNormal" style="text-align:justify">Teclado tipo membrana</div>
+			</li>
+			<li>
+				<div class="MsoNormal" style="text-align:justify">Mayor resistencia al agua y al polvo</div>
+			</li>
+			<li>
+				<div class="MsoNormal" style="text-align:justify">Auto adhesivo en la parte de atrás</div>
+			</li>
+			<li>
+				<div class="MsoNormal" style="text-align:justify">Tiempo de rebote (Bounce time): ≤5 ms</div></li>
+			<li>
+				<div class="MsoNormal" style="text-align:justify">Máximo voltaje operativo: 24 V DC</div>
+			</li>
+			<li>
+				<div class="MsoNormal" style="text-align:justify">Máxima corriente operativa: 30 mA</div>
+			</li>
+			<li>
+				<div class="MsoNormal" style="text-align:justify">Resistencia de aislamiento: 100 MΩ (@ 100 V)</div>
+			</li>
+			<li>
+				<div class="MsoNormal" style="text-align:justify">Voltaje que soporta el dieléctrico: 250 V<sub style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: 0; font-family: inherit; font-size: 10px; vertical-align: baseline; position: relative; bottom: -0.25em;">RMS</sub>&nbsp;(@ 60Hz, por 1 min)</div>
+			</li>
+			<li>
+				<div class="MsoNormal" style="text-align:justify">Expectativa de vida: 1.000.000 de operaciones</div>
+			</li>
+			<li>
+				<div class="MsoNormal" style="text-align:justify">Dimensiones del pad: 6.9 x 7.7 cm aprox.</div>
+			</li>
+			<li>
+				<div class="MsoNormal" style="text-align:justify">Cable de cinta plana de 8.3 cm de largo aprox. (incluido el conector)</div>
+			</li>
+			<li>
+				<div class="MsoNormal" style="text-align:justify">Conector tipo DuPont hembra de una fila y 8 contactos&nbsp;con separación estándar&nbsp;0.1" (2.54mm)</div>
+			</li>
+			<li><div class="MsoNormal" style="text-align:justify">Temperatura de operación: 0 a 50 °C</div>
+			</li>
 		</ul>
 		<div><br></div>
-		<p style="box-sizing: border-box; margin: 0px 0px 1em; padding: 0px; border: 0px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-weight: 400; font-stretch: inherit; line-height: inherit; font-family: Arial, Helvetica, sans-serif; font-size: 13px; vertical-align: baseline; min-height: 1px; color: rgb(119, 119, 119); letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;"><span style="font-family:verdana, geneva; font-size:10pt; font-style:inherit; font-weight:inherit; "><strong style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 13.3333px; vertical-align: baseline;"><span style="font-family:inherit; font-size:13.3333px; color:rgb(255, 0, 0); font-style:inherit; font-weight:inherit; ">Aplicaciones:</span></strong></span></p>
-		<ul style="box-sizing: border-box; margin: 0px 0px 9px; padding: 0px 0px 0px 15px; border: 0px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-weight: 400; font-stretch: inherit; line-height: inherit; font-family: Arial, Helvetica, sans-serif; font-size: 13px; vertical-align: baseline; list-style: disc; color: rgb(119, 119, 119); letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); text-decoration-style: initial; text-decoration-color: initial;">
-			<li style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 13px; vertical-align: baseline;"><span style="box-sizing:border-box; margin:0px; padding:0px; border:0px; font-variant:inherit; font-stretch:inherit; line-height:inherit; vertical-align:baseline; font-family:verdana, geneva; font-size:10pt; color:rgb(0, 0, 0); font-style:inherit; font-weight:inherit; ">Sistemas de seguridad</span></li>
-			<li style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 13px; vertical-align: baseline;"><span style="font-family:verdana, geneva; font-size:10pt; font-style:inherit; font-weight:inherit; ">Selección de menús</span></li>
-			<li style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-size: 13px; vertical-align: baseline;"><span style="font-family:verdana, geneva; font-size:10pt; font-style:inherit; font-weight:inherit; ">Entrada de datos en&nbsp;sistemas embebidos</span></li>
+		<div class="MsoNormal1" style="text-align:justify">Aplicaciones:</div>
+		<ul>
+			<li>
+				<div class="MsoNormal" style="text-align:justify">Sistemas de seguridad</div>
+			</li>
+			<li>
+				<div class="MsoNormal" style="text-align:justify">Selección de menús</div>
+			</li>
+			<li>
+				<div class="MsoNormal" style="text-align:justify">Entrada de datos en&nbsp;sistemas embebidos</div>
+			</li>
 		</ul>
 		<div><br></div>
-		<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Documentación</span></strong>
-		<strong><a href="http://www.electronicoscaldas.com/datasheet/27899_Parallax.pdf" target="_blank">Datasheet</a></strong>
+		<div class="MsoNormal1" style="text-align:justify">Documentación</div>
 		<div><br></div>
-		<strong><a href="https://www.dropbox.com/s/ndnu7ejk90cou0e/kbd_membrana.c.encrypted?dl=1" target="_blank">Descargarlibrería kbd_membrana</a></strong>
+		<div class="MsoNormal" style="text-align:justify">Datasheet: <a href="http://www.electronicoscaldas.com/datasheet/27899_Parallax.pdf" target="_blank">http://www.electronicoscaldas.com/datasheet/27899_Parallax.pdf</a></div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">Descargar librería kbd_membrana: <a href="https://www.dropbox.com/s/ndnu7ejk90cou0e/kbd_membrana.c.encrypted?dl=1" target="_blank">https://www.dropbox.com/s/ndnu7ejk90cou0e/kbd_membrana.c.encrypted?dl=1</a></div>
 		<div><br></div>
 		<img src="img/7.2%20Teclado%20membrana.png" alt="" height="auto" width="auto">
 		<div><br></div>
