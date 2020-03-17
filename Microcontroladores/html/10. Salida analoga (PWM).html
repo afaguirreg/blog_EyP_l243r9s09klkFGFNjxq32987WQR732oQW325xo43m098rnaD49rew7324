@@ -88,54 +88,27 @@
 				element.scrollIntoView();
 			}
 		</script>
-		<style type="text/css">
-			iframe#ifrm {
-				border:0px;
-				width:100%;
-				height:100px;
-			}
-		</style>
-		<script type="text/javascript">
-			function getDocHeight(doc) {
-				doc = doc || document;
-				// stackoverflow.com/questions/1145850/
-				var body = doc.body, html = doc.documentElement;
-				var height = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight );
-				return height;
-			}
-			function setIframeHeight(id) {
-				var ifrm = document.getElementById(id);
-				var doc = ifrm.contentDocument? ifrm.contentDocument:ifrm.contentWindow.document;
-				ifrm.style.visibility = 'hidden';
-				ifrm.style.height = "10px"; // reset to minimal height ...
-				// IE opt. for bing/msn needs a bit added or scrollbar appears
-				ifrm.style.height = getDocHeight( doc ) + 4 + "px";
-				ifrm.style.visibility = 'visible';
-			}
-		</script>
 	</head>
 
 	<body>
-		<a id="LCD2x16 y LCD4x20"></a>
-		<iframe id="ifrm" name="ifrm" src="../../html/4.2%20LCD2x16%20y%20LCD4x20.html" onload="setIframeHeight(this.id)"></iframe>
+		<a id="Salida analoga (PWM)"></a>
+		<div class="MsoNormal1" style="text-align:justify">10. Salida análoga (PWM)</div>
 		<div><br></div>
-		<a id="Driver LCD2x16 y LCD4x20"></a>
- 		<div class="MsoNormal1" style="text-align:justify">4.2.1 Driver LCD2x16 y LCD4x20</div>
+		<div class="MsoNormal" style="text-align:justify">Muchas vecesnos gustaría controlar la cantidad física de una acción: qué tan brillantes sonlas luces, qué tan rápido se mueve un motor, cuantos grados girar, etc. En estecaso estaremos hablando de salidas de tipo analógico, con este tipo de salidaspodemos tener un grado de control sobre la salida, donde el resultado no solose limitará a On-Off.</div>
 		<div><br></div>
-		<video controls controlslist="nodownload" preload="preload" autoplay loop>
-			<source src="../video/4.2.1%20Driver%20LCD2x16%20y%20LCD4x20.webm" type="video/webm">
-		</video>
+		<div class="MsoNormal" style="text-align:justify">Como la mayoría de los microcontroladores no puedengenerar un voltaje (real) variable en sus pines de salida, una de lassoluciones para resolver esta carencia es utilizar un truco electrónico que sebasa en la modulación del ancho del pulso – Pulse Width Modulation - (PWM paraabreviar).</div>
 		<div><br></div>
-		<img src="img/4.2.1%20Driver%20LCD2x16%20y%204x20.png" alt="" height="auto" width="auto">
+		<img src="../img/10.%20PWM.png" alt="" height="auto" width="auto">
 		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">La conversión digital a analógico que escapaz de hacer un PIC consiste en convertir un valor discreto en el ciclo detrabajo del PWM proporcional al valor de tensión (voltaje) que deseamosproducir en un PIN habilitado para ello.</div>
 		<div><br></div>
-		<a id="Contador 0 a 100 LCD2x16"></a>
-		<div class="MsoNormal1" style="text-align:justify">4.2.2 Contador 0 a 100 LCD2x16</div>
+		<div class="MsoNormal" style="text-align:justify">Como sepuede observar en la figura, el voltaje promedio es el resultado de alternar elvalor de salida de un pin entre 0 y 5 voltios con un ancho de pulso variable,durante un periodo de tiempo determinado.</div>
 		<div><br></div>
-		<video controls controlslist="nodownload" preload="preload" autoplay loop>
-			<source src="../video/4.2.2%20Contador%200%20a%20100%20LCD2x16.webm" type="video/webm">
-		</video>
+		<div class="MsoNormal" style="text-align:justify">Dichode otra forma: En un pin del PIC podemos tener una tensión, con respecto a GND,entre 0V y 5V obtenida de la tensión promedio generada por el ciclo de trabajodel PWM. Entonces el PIC puede "escribir" esa tensión en 100 valoresdistintos, siendo el 0 el correspondiente a los 0V y el 100 el correspondientea los 5V, y todos los intermedios en "saltos" de 0,05 (5V/100).</div>
 		<div><br></div>
-		<img src="img/4.2.2%20Contador%200%20a%20100%20LCD2x16.png" alt="" height="auto" width="auto">
+		<div class="MsoNormal" style="text-align:justify">Extraído parcialmente de: <a href="http://www.dtic.upf.edu/%7Ejlozano/interfaces/interfaces5.html" target="_blank">http://www.dtic.upf.edu/~jlozano/interfaces/interfaces5.html</a></div>
+		<div></div>
+	<div></div>
+	<div class="MsoNormal" style="text-align:justify"></div>
 	</body>
 </html>

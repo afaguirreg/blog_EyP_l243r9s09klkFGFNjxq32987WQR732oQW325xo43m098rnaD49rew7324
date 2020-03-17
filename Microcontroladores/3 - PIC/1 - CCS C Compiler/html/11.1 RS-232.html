@@ -1,0 +1,504 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Documento sin título</title>
+		<style type="text/css">
+			<!--
+			div.MsoNormal {
+				margin-top: 0cm;
+				margin-right: 0cm;
+				margin-bottom: 0pt;
+				margin-left: 0cm;
+				line-height: 100%;
+				font-size: 12pt;
+				font-weight: normal;
+				font-family: Arial, sans-serif;
+			}
+			div.MsoNormal1 {
+				margin-top: 0cm;
+				margin-right: 0cm;
+				margin-bottom: 0pt;
+				margin-left: 0cm;
+				line-height: 100%;
+				font-size: 12pt;
+				font-weight: bold;
+				font-family: Arial, sans-serif;
+			}
+			-->
+		</style> 
+		<style type="text/css">
+			<!--
+			table.MsoNormalTable {
+				margin-top: 0cm;
+				margin-right: 0cm;
+				margin-bottom: 0pt;
+				margin-left: 0cm;
+				line-height: 100%;
+				font-weight: normal;
+				font-size: 12pt;
+				font-family: Arial, sans-serif;
+			}
+			-->
+		</style>
+		<script type="text/javascript">
+			document.oncontextmenu = function(){return false;}
+			function disabletext(e){
+				return false
+			}
+			function reEnable(){
+				return true
+			}
+			document.onselectstart=new Function ("return false")
+			if (window.sidebar){
+				document.onmousedown=disabletext
+				document.onclick=reEnable
+			}
+		</script>
+		<script language="JavaScript">
+			var remplaza = /\+/gi; 
+			var url = window.location.href;
+			url = unescape(url);
+			url = url.replace(remplaza, " ");
+			function obtener_valor(variable) {
+				var variable_may = variable;
+				var variable_pos = url.indexOf(variable);
+				if (variable_pos != -1)
+				{
+					var pos_separador = url.indexOf("&", variable_pos);
+					if (pos_separador != -1) 
+					{
+						return url.substring(variable_pos + variable_may.length + 1, pos_separador);
+					}
+					else
+					{
+						return url.substring(variable_pos + variable_may.length + 1, url.length);
+					}
+				}
+				else
+				{
+					return "NO_ENCONTRADO";
+				}
+			}
+		</script>
+		<script language="JavaScript">
+			window.onload = function () {
+				var valor = obtener_valor("verinfo");
+				var element = document.getElementById(valor);
+				element.scrollIntoView();
+			}
+		</script>
+	</head>
+
+	<body>
+		<div class="MsoNormal1" style="text-align:justify">11. Comunicación serial asíncrona (UART)</div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">Algunas referencias de microcontroladores PIC incluyenmódulos para comunicación dentro de su hardware. El módulo para comunicacionesRS-232 se conoce también como UART.</div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">En general habrá que usar un conversor de nivelesbasado en el MAX232 o similar.</div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">El protocolo serie es una descripción"digital" (0/1) de lo que debe estar pasando en la línea (porejemplo, 1 mientras se espera, 0 indica el bit de start, etc.), pero noespecifica que voltajes representan el 0/1 lógicos.</div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">Por ejemplo en los PIC se usa la convención (lógica)que el 0 lógico son 0V y el 1 lógico (línea alta) son 5V.</div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">En el puerto serie de un PC (standard RS232) larelación lógica/voltajes está invertida. Un 0 lógico se representa con unvoltaje entre 3 y 15V (12 es típico) y un 1 lógico por un voltaje negativo(entre -3 y -15V). Es por esto por lo que para comunicar PIC-PC necesitamos un Max232 o equivalente.</div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">Las especificaciones de su tarjeta le dirán cuales sonlos voltajes asociados a su puerto serie. Si dice algo de RS232 tendrá que usarseguramente un buffer tipo MAX232.</div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">Si nuestro PIC no tiene UART como es el caso del PIC16f84A, CCS nos permite implementar la comunicación serie por software y deforma totalmente transparente para el programador. Sin embargo el utilizar unPIC con UART nos permite disponer de una serie de funcionalidades adicionales,como el empleo de interrupciones para controlar el envío y recepción de datos.</div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">Si queremos realizar una comunicación serie utilizando la UART del MSP430G2553, las conexiones tendrán que ser a las siguientes: P1_2 para la transmisión de datos y P1_1 para la recepción de datos.</div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">El procedimiento Serial.begin(baud) admite como parámetro la tasa de transferencia de bits de la comunicación a establecer:</div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">Para este tipo de comunicación lo primero seráconfigurarla mediante la siguiente directiva en la cabecera del programa:</div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">#users232(baud=9600,bits=8,parity=N,xmit=PIN_C6,rcv=PIN_C7,errors)</div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">Esto quiere decir que cada vez que queramos utilizarlas funciones para enviar o recibir información utilizando el protocolo decomunicación serie RS-232 debemos haber incluido previamente esta directiva,que posibilita la comunicación del PIC con otro dispositivo.</div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">Como vemos la directiva #use RS232 admite una serie deparámetros que son los que van entre paréntesis separados por comas, estos sonlos siguientes:</div>
+		<div><br></div>
+		<div class="MsoNormal1" style="text-align:justify">baud</div>
+		<div class="MsoNormal" style="text-align:justify"> con este parámetro establecemos lavelocidad en baudios a la que queremos que se transmitan los datos por elpuerto serie, 9600 es lo normal.</div>
+		<div><br></div>
+		<div class="MsoNormal1" style="text-align:justify">bits</div>
+		<div class="MsoNormal" style="text-align:justify"> número de bits que utilizaremos enla transmisión, el estándar establece que pueden ser 8 ó 9, para lacomunicación con microcontroladores con 8 son suficientes.</div>
+		<div><br></div>
+		<div class="MsoNormal1" style="text-align:justify">parity</div>
+		<div class="MsoNormal" style="text-align:justify"> nos permite utilizar un bit deparidad para la comprobación de errores.</div>
+		<div><br></div>
+		<div class="MsoNormal1" style="text-align:justify">xmit</div>
+		<div class="MsoNormal" style="text-align:justify"> ésta opción nos permite seleccionarla patilla del PIC por la cual saldrán los datos.</div>
+		<div><br></div>
+		<div class="MsoNormal1" style="text-align:justify">rcv</div>
+		<div class="MsoNormal" style="text-align:justify"> ésta opción nos permite seleccionarla patilla del PIC por la cual PIC se recibirán los datos.</div>
+		<div><br></div>
+		<div class="MsoNormal1" style="text-align:justify">errors</div>
+		<div class="MsoNormal" style="text-align:justify"> El PIC se sobrecargará al recibir 3caracteres con la función getc(). Esta opción previene el apagado del móduloUART detectando la condición y reseteándolo.</div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">Pero ¿de qué funciones disponemos para enviar y recibir datos desde y hacia nuestro PIC?.</div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">Para éste propósito disponemos de múltiples funciones</div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">Para enviar solamente un caracter tenemos: <strong>putc()</strong></div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">Para enviar una cadena de caracteres: <strong>printf()</strong></div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">La forma de hacer la llamada a la función printf es lasiguiente:</div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">printf(cadena de caracteres,valores);</div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">Los datos se enviaran por el puerto serie al pin quehayamos definido en la directiva #use RS232, en esta llamada vemos que tenemosla cadena de caracteres limitada por las comillas dobles y separado por unacoma, como tercer parámetro el nombre de la variable i1 que habíamos declaradopreviamente. En la cadena de caracteres vemos que aparece el carácter de %seguido de la letra d, ese es un carácter especial para la función y lo que leindica a la función es que en esa posición muestre el valor de la variable i1,la d le indica a la función que represente ese valor en formato de númeroentero. Podemos representar el valor de la variable en diferentes formatossegún se muestra en la tabla de abajo:</div>
+		<div><br></div>
+		<div><br></div>
+		<div align="center">
+			<table class="MsoNormalTable" style="width:246.75pt;background:white;" width="329" cellpadding="0" border="1">
+				<tbody>
+					<tr>
+						<td style="width:31.5pt;padding:0cm 0cm 0cm 0cm;" width="42">
+							<div class="MsoNormal" style="text-align:justify">c</div>
+						</td>
+						<td style="width:203.25pt;padding:0cm 0cm 0cm 0cm;" width="271">
+							<div class="MsoNormal" style="text-align:justify">Caracter</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">s</div>
+						</td>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">Cadena ó caracter</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">u</div></td>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">Entero sin signo</div></td>
+					</tr>
+					<tr>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">d</div>
+						</td>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">Entero con signo</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">Lu</div>
+						</td>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">Entero largo sin signo</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">Ld</div>
+						</td>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">Entero largo con signo</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">x</div>
+						</td>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">Entero Hexadecimal (minúsculas)</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">X</div>
+						</td>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">Entero Hexadecimal (mayúsculas)</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">Lx</div>
+						</td>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">Entero largo Hexadecimal (minúsculas)</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">LX</div>
+						</td>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">Entero largo Hexadecimal (mayúsculas)</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">f</div>
+						</td>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">Número real en coma flotante truncado</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">g</div>
+						</td>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">Número real en coma flotante con redondeo</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">e</div>
+						</td>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">Número real en formato exponencial</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">w</div>
+						</td>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">Entero sin signo con decimales insertados. Especifica dos números para n.La 1ª cifra indica el total y la 2ª el número de decimales</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">Si quisiésemos mostrar el valor de más de una variablelo haríamos de la siguiente forma:</div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">printf("El valor i1 es: %d el de i2: %d y el dei3: %d",i1,i2,i3);</div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">Vamos con la última llamada a la función del 1ºejemplo:</div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">printf (lcd_putc,"El valor de i1 es:%d",i1);</div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">En esta llamada hemos incluido el primer parámetro yhemos puesto el nombre de la función lcd_putc, está función está definida en lalibrería LCD.C que trae el compilador para ayuda del manejo de los dispositivosLCD y que hemos incluido en nuestro programa por medio de la directiva #include&lt;lcd.c&gt;, vemos que la librería está encerrada entre los símbolos de&lt;&gt; esto le indica al compilador que busque la librería en el directorioen que se instalo el compilador, si copiáramos esa librería en otro directoriotendríamos que indicarle la ruta completa, pero esta vez encerrada entrecomillas dobles.</div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">Las secuencias de escape se utilizan para representarcaracteres o acciones especiales.</div>
+		<div><br></div>
+		<div class="MsoNormal1" style="text-align:justify">printf("Esto es unacadena\r");</div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">como parámetro incluimos una cadena de caracteresconstante que termina en (\r), esa barra invertida junto con la r se le llamasecuencia de escape y le está diciendo al compilador que al final de la cadenaintroduzca un retorno de carro (tecla enter).</div>
+		<div><br></div>
+	<div class="MsoNormal" style="text-align:justify">En la tabla de abajo se muestran las secuencias de escape que tenemosdisponibles para utilizar con la función printf:</div>
+		<div><br></div>
+		<div align="center">
+			<table class="MsoNormalTable" style="width:150.0pt;background:white;" width="200" cellpadding="0" border="1">
+				<tbody>
+					<tr>
+						<td style="width:21.0pt;padding:0cm 0cm 0cm 0cm;" width="28">
+							<div class="MsoNormal" style="text-align:justify">\r</div>
+						</td>
+						<td style="width:117.0pt;padding:0cm 0cm 0cm 0cm;" width="156">
+							<div class="MsoNormal" style="text-align:justify">Retorno de carro</div></td>
+					</tr>
+					<tr>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">\t</div>
+						</td>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">Tabulador</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">\'</div>
+						</td>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">Comilla simple</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">\"</div>
+						</td>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">Comillas dobles</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">\\</div>
+						</td>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">Barra invertida</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">\?</div>
+						</td>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">Símbolo de interrogación</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">\0</div>
+						</td>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">Caracter nulo</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">\%</div>
+						</td>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">Símbolo Tanto por ciento</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">\b</div>
+						</td>
+						<td>
+							<div class="MsoNormal" style="text-align:justify">Retroceder un caracter</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">Para recibir solamente un caracter tenemos: <strong>getc(), getch() y getchar()</strong>. Las treshacen lo mismo por lo que podemos usarlas indistintamente.</div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">Estas funciones esperan un carácter por la patilla delPIC que hayamos definido en la directiva #use RS232 con el parámetro <strong>rcv</strong>.</div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">Pues vamos a ver nuestro primer ejemplo acerca del usode estas funciones:</div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">Además de lafunción printf esta directiva permite el uso de otras funciones para la entraday salida de datos serie como: getc, getchar, gets, puts y kbhit que iremosviendo poco a poco, pero la más importante para la salida de datos sin duda esprintf, porque nos permite formatear la salida de esos datos de la forma quenosotros queramos.</div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">Cada vez que por el pin configurado en ladirectiva&nbsp;&nbsp; #use rs232 como rcv se recibanueva información, actuará la interrupción por recepción RS232 anteriormentehabilitada y el programa saltará inmediatamente a la función int_RDA donde seencuentra el código que debe ejecutarse, en este caso, mostrar la informaciónrecibida por LCD.</div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">Durante la simulación es muy conveniente que el micro nos mande mensajes, así como en unprograma de PC normal con la ayuda de la función printf(), para este caso sepuede conectar la terminal virtual de ISIS a la línea TX del micro que nos va amandar la información y, con un simple printf() el programa va a mandar esacadena por el puerto serial.</div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">Manos a la obra!!!</div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">En PIC-C CCS creamos un&nbsp;proyecto con las siguientes características:</div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">*Micro-controlador PIC 18F4550.</div>
+		<div class="MsoNormal" style="text-align:justify">* Frecuenciade reloj 20 MHz</div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">Extraído parcialmente de: <a href="http://www.aquihayapuntes.com/programacion-pic-en-c.html?start=7">http://www.aquihayapuntes.com/programacion-pic-en-c.html?start=7</a></div>
+		<div><br></div>
+		<div class="MsoNormal" style="text-align:justify">Agregamos la&nbsp;directiva&nbsp;<span style="color:#00B050; ">#use  rs232(baud=9600,bits=8,parity=N,xmit=PIN_C6,rcv=PIN_C7,errors)</div>
+		<div><br></div>
+		<div><br></div>
+		<a id="Micro a PC_pulsadores"></a>
+		<div class="MsoNormal1" style="text-align:justify">11.1.1 Micro a PC_pulsadores</div>
+		<div><br></div>
+		<video controls controlslist="nodownload" preload="preload" autoplay loop>
+			<source src="../video/11.1.1%20Micro%20a%20PC_pulsadores.webm" type="video/webm">
+		</video>
+		<div><br></div>
+		<img src="img/11.1.1%20y%2016.1.1%20Micro%20a%20PC_y_BT_pulsadores.png" alt="" height="auto" width="auto">
+		<div><br></div>
+		<div class="MsoNormal1" style="text-align:justify">Programa Sharp Develop</div>
+		<div><br></div>
+		<img src="../../img/11.1.1%20Micro%20a%20PC_pulsadores_1.png" alt="" height="auto" width="auto">
+		<div><br></div>
+		<img src="../../img/11.1.1%20Micro%20a%20PC_pulsadores_2.png" alt="" height="auto" width="auto">
+		<div><br></div>
+		<div><br></div>
+		<a id="Micro a PC_pulsadores_contador"></a>
+ 		<div class="MsoNormal1" style="text-align:justify">11.1.2 Micro a PC_pulsadores_contador</div>
+		<div><br></div>
+		<video controls controlslist="nodownload" preload="preload" autoplay loop>
+			<source src="../video/11.1.2%20Micro%20a%20PC_pulsadores_contador.webm" type="video/webm">
+		</video>
+		<div><br></div>
+		<img src="img/11.1.2%20y%2016.1.2%20Micro%20a%20PC_y_BT_pulsadores_contador.png" alt="" height="auto" width="auto">
+		<div><br></div>
+		<div class="MsoNormal1" style="text-align:justify">Programa Sharp Develop</div>
+		<div><br></div>
+		<img src="../../img/11.1.2%20Micro%20a%20PC_pulsadores_contador_1.png" alt="" height="auto" width="auto">
+		<div><br></div>
+		<img src="../../img/11.1.2%20Micro%20a%20PC_pulsadores_contador_2.png" alt="" height="auto" width="auto">
+		<div><br></div>
+		<div><br></div>
+		<a id="Micro a PC_pulsadores_contador_sensor"></a>
+	 	<div class="MsoNormal1" style="text-align:justify">11.1.3 Micro a PC_pulsadores_contador_sensor</div>
+		<div><br></div>
+		<video controls controlslist="nodownload" preload="preload" autoplay loop>
+			<source src="../video/11.1.3%20Micro%20a%20PC_pulsadores_contador_sensor.webm" type="video/webm">
+		</video>
+		<div><br></div>
+		<img src="img/11.1.3%20y%2016.1.3%20Micro%20a%20PC_y_BT_pulsadores_contador_sensor.png" alt="" height="auto" width="auto">
+		<div><br></div>
+		<div class="MsoNormal1" style="text-align:justify">Programa Sharp Develop</div>
+		<div><br></div>
+		<img src="../../img/11.1.3%20Micro%20a%20PC_pulsadores_contador_sensor_1.png" alt="" height="auto" width="auto">
+		<div><br></div>
+		<img src="../../img/11.1.3%20Micro%20a%20PC_pulsadores_contador_sensor_2.png" alt="" height="auto" width="auto">
+		<div><br></div>
+		<div><br></div>
+		<a id="PC a micro_bits"></a>
+		<div class="MsoNormal1" style="text-align:justify">11.1.4 PC a micro_bits</div>
+		<div><br></div>
+		<video controls controlslist="nodownload" preload="preload" autoplay loop>
+			<source src="../video/11.1.4%20PC%20a%20micro_bits.webm" type="video/webm">
+		</video>
+		<div><br></div>
+		<img src="img/11.1.4%20y%2016.1.4%20PC%20y%20BT%20a%20micro_bits.png" alt="" height="auto" width="auto">
+		<div><br></div>
+		<div class="MsoNormal1" style="text-align:justify">Programa Sharp Develop</div>
+		<div><br></div>
+		<img src="../../img/11.1.4%20PC%20a%20micro_bits_1.png" alt="" height="auto" width="auto">
+		<div><br></div>
+		<img src="../../img/11.1.4%20PC%20a%20micro_bits_2.png" alt="" height="auto" width="auto">
+		<div><br></div>
+		<div><br></div>
+		<a id="PC a micro_byte_7Seg"></a>
+		<div class="MsoNormal1" style="text-align:justify">11.1.5 PC a micro_byte_7Seg</div>
+		<div><br></div>
+		<video controls controlslist="nodownload" preload="preload" autoplay loop>
+			<source src="../video/11.1.5%20PC%20a%20micro_byte_7Seg.webm" type="video/webm">
+		</video>
+		<div><br></div>
+		<img src="img/11.1.5%20y%2016.1.5%20PC%20y%20BT%20a%20micro_byte_7Seg.png" alt="" height="auto" width="auto">
+		<div><br></div>
+		<div class="MsoNormal1" style="text-align:justify">Programa Sharp Develop</div>
+		<div><br></div>
+		<img src="../../img/11.1.5%20PC%20a%20micro_byte_7Seg_1.png" alt="" height="auto" width="auto">
+		<div><br></div>
+		<img src="../../img/11.1.5%20PC%20a%20micro_byte_7Seg_2.png" alt="" height="auto" width="auto">
+		<div><br></div>
+		<div><br></div>
+		<a id="PC a micro_byte_PWM"></a>
+		<div class="MsoNormal1" style="text-align:justify">11.1.6 PC a micro_byte_PWM</div>
+		<div><br></div>
+		<video controls controlslist="nodownload" preload="preload" autoplay loop>
+			<source src="../video/11.1.6%20PC%20a%20micro_byte_PWM.webm" type="video/webm">
+		</video>
+		<div><br></div>
+		<img src="img/11.1.6%20y%2016.1.6%20PC%20y%20BT%20a%20micro_byte_PWM.png" alt="" height="auto" width="auto">
+		<div><br></div>
+		<div class="MsoNormal1" style="text-align:justify">Programa Sharp Develop</div>
+		<div><br></div>
+		<img src="../../img/11.1.6%20PC%20a%20micro_byte_PWM_1.png" alt="" height="auto" width="auto">
+		<div><br></div>
+		<img src="../../img/11.1.6%20PC%20a%20micro_byte_PWM_2.png" alt="" height="auto" width="auto">
+		<div><br></div>
+		<div><br></div>
+		<div><br></div>
+		<a id="Proyecto comunicacion micro_PC"></a>
+		<div class="MsoNormal1" style="text-align:justify">11.1.7 Proyecto comunicación micro&lt;-&gt;PC</div>
+		<div><br></div>
+		<video controls controlslist="nodownload" preload="preload" autoplay loop>
+			<source src="../video/11.1.7%20Proyecto%20comunicacion%20micro_PC.webm" type="video/webm">
+		</video>
+		<div><br></div>
+		<img src="img/11.1.7%20y%2016.1.7%20Proyecto%20comunicacion%20micro_PC_BT.png" alt="" height="auto" width="auto">
+		<div><br></div>
+		<div class="MsoNormal1" style="text-align:justify">Programa Sharp Develop</div>
+		<div><br></div>
+		<img src="../../img/11.1.7%20Proyecto%20comunicacion%20micro_PC_1.png" alt="" height="auto" width="auto">
+		<div><br></div>
+		<img src="../../img/11.1.7%20Proyecto%20comunicacion%20micro_PC_2.png" alt="" height="auto" width="auto">
+	</body>
+</html>

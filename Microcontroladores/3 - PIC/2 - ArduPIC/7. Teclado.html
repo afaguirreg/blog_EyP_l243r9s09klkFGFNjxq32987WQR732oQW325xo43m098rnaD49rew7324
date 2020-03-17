@@ -88,36 +88,36 @@
 				element.scrollIntoView();
 			}
 		</script>
+		<style type="text/css">
+			iframe#ifrm {
+				border:0px;
+				width:100%;
+				height:100px;
+			}
+		</style>
+		<script type="text/javascript">
+			function getDocHeight(doc) {
+				doc = doc || document;
+				// stackoverflow.com/questions/1145850/
+				var body = doc.body, html = doc.documentElement;
+				var height = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight );
+				return height;
+			}
+			function setIframeHeight(id) {
+				var ifrm = document.getElementById(id);
+				var doc = ifrm.contentDocument? ifrm.contentDocument:ifrm.contentWindow.document;
+				ifrm.style.visibility = 'hidden';
+				ifrm.style.height = "10px"; // reset to minimal height ...
+				// IE opt. for bing/msn needs a bit added or scrollbar appears
+				ifrm.style.height = getDocHeight( doc ) + 4 + "px";
+				ifrm.style.visibility = 'visible';
+			}
+		</script>
 	</head>
 
 	<body>
 		<a id="Teclado"></a>
-		<div class="MsoNormal1" style="text-align:justify">7. Teclado</div>
-		<div><br></div>
-		<div class="MsoNormal" style="text-align:justify">El teclado 4x4 es el más utilizadoen el desarrollo de proyectos con microcontroladoresytienen suaplicación en el ingreso de datos de forma manual por parte del usuario, enaquellos casos en que el empleo de pulsadores simples no es lo más apropiado,ya sea por la presentación final del producto o por la restricción del númerode líneas de entrada del microcontrolador.</div>
-		<div><br></div>
-		<div class="MsoNormal" style="text-align:justify">El teclado4x4 está constituido por unamatriz de pulsadores dispuestos en filas (A,B,C,D) y columnas (1,2,3,4), con laintención de reducir el número de pines necesarios para su conexión. Las 16teclas necesitan sólo 8 pines del microcontrolador, en lugar de los 16 pinesque se requerirían para la conexión de 16 teclas independientes.</div>
-		<div><br></div>
-		<div align="center">
-	  		<img src="../../img/7. Teclado_1.png" alt="" height="auto" width="auto">
-		</div>
-		<div><br></div>
-		<div class="MsoNormal" style="text-align:justify">A cada tecla le corresponde una posición única en la matriz.</div>
-		<div><br></div>
-		<div class="MsoNormal" style="text-align:justify">Su funcionamiento es muy sencillo,cuando se presiona una tecla, se conectan internamente la fila y columna correspondientes; por ejemplo, al presionar la tecla “6” se conectan la fila By la columna 3. Si no hay ninguna tecla presionada, las filas están desconectadas de las columnas.</div>
-		<div><br></div>
-		<div align="center">
-			<img src="../../img/7. Teclado_2.png" alt="" height="auto" width="auto">
-		</div>
-		<div><br></div>
-		<div class="MsoNormal" style="text-align:justify">Para facilitar la lectura del teclado matricialusaremos la librería kbd_matricial.c que se encarga de gestionar las líneasfísicas (pines del microcontrolador) y contiene la función kbd_getc() que seencuentra implementada en ella.</div>
-		<div><br></div>
-		<div class="MsoNormal" style="text-align:justify">La variable tecla es de tipo <span style="color:#4F81BD; ">char</span>,permitiendo almacenar en ella un caracter alfanumérico, el cual obtiene al llamar la función kbd_getc().</div>
-		<div><br></div>
-		<div class="MsoNormal" style="text-align:justify">La función kbd_getc() devuelve un caracter ASCII que corresponde a la tecla pulsada o cero (0) si no se hapulsado ninguna tecla.</div>
-		<div><br></div>
-		<div class="MsoNormal" style="text-align:justify">Extraído parcialmente de: <a href="http://www.programarpicenc.com/libro/cap08-teclado-matricial-4x4-microcontroladores-pic.html">http://www.programarpicenc.com/libro/cap08-teclado-matricial-4x4-microcontroladores-pic.html</a></div>
-		<div><br></div>
+		<iframe id="ifrm" name="ifrm" src="../../html/7.%20Teclado.html" onload="setIframeHeight(this.id)"></iframe>
 		<div><br></div>
 		<a id="Teclado matricial"></a>
 		<div class="MsoNormal1" style="text-align:justify">7.1 Teclado matricial</div>

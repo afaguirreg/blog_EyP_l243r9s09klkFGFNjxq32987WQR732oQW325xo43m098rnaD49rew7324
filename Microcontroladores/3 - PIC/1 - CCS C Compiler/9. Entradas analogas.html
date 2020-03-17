@@ -106,10 +106,36 @@
 			.fraction span.fdn {border-top: thin solid black;}
 			.fraction span.bar {display: none;}
 		</style>
+		<style type="text/css">
+			iframe#ifrm {
+				border:0px;
+				width:100%;
+				height:100px;
+			}
+		</style>
+		<script type="text/javascript">
+			function getDocHeight(doc) {
+				doc = doc || document;
+				// stackoverflow.com/questions/1145850/
+				var body = doc.body, html = doc.documentElement;
+				var height = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight );
+				return height;
+			}
+			function setIframeHeight(id) {
+				var ifrm = document.getElementById(id);
+				var doc = ifrm.contentDocument? ifrm.contentDocument:ifrm.contentWindow.document;
+				ifrm.style.visibility = 'hidden';
+				ifrm.style.height = "10px"; // reset to minimal height ...
+				// IE opt. for bing/msn needs a bit added or scrollbar appears
+				ifrm.style.height = getDocHeight( doc ) + 4 + "px";
+				ifrm.style.visibility = 'visible';
+			}
+		</script>
 	</head>
 
 	<body>
-		<iframe id="ifrm" scrolling="no" src="../../html/9.%20Entradas%20an%C3%A1logas.html" height="1700" frameborder="0" width="100%"></iframe>
+		<a id="Entradas analogas"></a>
+		<iframe id="ifrm" name="ifrm" src="../../html/9.%20Entradas%20analogas.html" onload="setIframeHeight(this.id)"></iframe>
 		<div><br></div>
 		<div class="MsoNormal" style="text-align:justify">La conversión Analógica a Digital que escapaz de hacer un PIC consiste en convertir un valor de tensión (voltaje) queconectemos a un PIN habilitado para ello, en un valor numérico proporcional adicha tensión que podemos guardar en una variable y ser utilizado por nuestro programa del PIC.</div>
 		<div><br></div>
@@ -170,9 +196,9 @@
 		<a id="Escalamiento de lectura analogica (Formula)"></a>
 		<div class="MsoNormal1" style="text-align:justify">9.2 Escalamiento de lectura analógica (Fórmula)</div>
 		<div><br></div>
-		<div class="MsoNormal" style="text-align:justify">Ingresar Smax: <input type="text" id="max" name="max"></div>
+		<div class="MsoNormal" style="text-align:justify">Ingresar Smax: <input type="number" id="max" max=99999 min=-99999 name="max"></div>
 		<div><br></div>
-		<div class="MsoNormal" style="text-align:justify">Ingresar Smin: <input type="text" id="min" name="min"></div>
+		<div class="MsoNormal" style="text-align:justify">Ingresar Smin: <input type="number" id="min" max=99999 min=-99999 name="min"></div>
 		<div><br></div>
 		<input type="submit" value="Recalcular" onclick="capturar();">
 		<div><br></div>
