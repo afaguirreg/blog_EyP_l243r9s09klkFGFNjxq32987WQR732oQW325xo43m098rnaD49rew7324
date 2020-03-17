@@ -107,7 +107,7 @@
 			.fraction span.bar {display: none;}
 		</style>
 		<style type="text/css">
-			iframe#ifrm {
+			iframe {
 				border:0px;
 				width:100%;
 				height:100px;
@@ -196,9 +196,9 @@
 		<a id="Escalamiento de lectura analogica (Formula)"></a>
 		<div class="MsoNormal1" style="text-align:justify">9.2 Escalamiento de lectura analógica (Fórmula)</div>
 		<div><br></div>
-		<div class="MsoNormal" style="text-align:justify">Ingresar Smax: <input type="number" id="max" max=99999 min=-99999 name="max"></div>
+		<div class="MsoNormal" style="text-align:justify">Ingresar Smax: <input type="number" id="max" name="max" max=99999 min=-99999></div>
 		<div><br></div>
-		<div class="MsoNormal" style="text-align:justify">Ingresar Smin: <input type="number" id="min" max=99999 min=-99999 name="min"></div>
+		<div class="MsoNormal" style="text-align:justify">Ingresar Smin: <input type="number" id="min" name="min" max=99999 min=-99999></div>
 		<div><br></div>
 		<input type="submit" value="Recalcular" onclick="capturar();">
 		<div><br></div>
@@ -222,8 +222,8 @@ lienzo1.stroke();
 lienzo1.closePath();
   //EJEY
 lienzo1.beginPath();
-lienzo1.moveTo(256,0);
-lienzo1.lineTo(256,512);
+lienzo1.moveTo(96,0);
+lienzo1.lineTo(96,512);
 lienzo1.stroke();
 lienzo1.closePath();
   //DRAW SCALE
@@ -240,59 +240,71 @@ lienzo1.beginPath();
 	}
 lienzo1.stroke();
 lienzo1.closePath();
+lienzo1.strokeStyle = '#000000';
+lienzo1.beginPath(); 
+	for (var i=0;i<=512;i+=32) {
+	   lienzo1.moveTo(i,250);
+   lienzo1.lineTo(i,262);
+	}
+	for (var i=0;i<=512;i+=32) {
+	   lienzo1.moveTo(90,i);
+   lienzo1.lineTo(102,i);
+	}
+lienzo1.stroke();
+lienzo1.closePath();
   //DRAW 0 - 1023
 lienzo1.lineWidth=1;
-	lienzo1.strokeStyle = '#FF0000';
+	lienzo1.strokeStyle = '#0000FF';
 lienzo1.beginPath(); 
 	if (y2<=1023) {
-	   lienzo1.moveTo(256,256);
+	   lienzo1.moveTo(96,256);
    lienzo1.lineTo(512,0);
 	   lienzo1.stroke();
    lienzo1.closePath();
 	   lienzo1.font = "13px Arial";
-	   lienzo1.fillStyle = '#FF0000';
+	   lienzo1.fillStyle = '#0000FF';
 	   lienzo1.beginPath();
-	   lienzo1.fillText("x:0 y:0", 208, 274);
+	   lienzo1.fillText("x:0 y:0", 48, 274);
 	   lienzo1.fillText("x:5 y:1023", 518, 10);
 	   lienzo1.stroke();
    lienzo1.closePath();
 	}
 	else {
-	   lienzo1.moveTo(256,256);
+	   lienzo1.moveTo(96,256);
    lienzo1.lineTo(512,256-1023/y2*256);
 	   lienzo1.stroke();
    lienzo1.closePath();
 	   lienzo1.font = "13px Arial";
-	   lienzo1.fillStyle = '#FF0000';
+	   lienzo1.fillStyle = '#0000FF';
 	   lienzo1.beginPath();
-	   lienzo1.fillText("x:0 y:0", 208, 274);
+	   lienzo1.fillText("x:0 y:0", 48, 274);
 	   lienzo1.fillText("x:5 y:1023", 518, 266-1023/y2*256);
 	   lienzo1.stroke();
    lienzo1.closePath();
 	}
   //DRAW X,Y
-	lienzo1.strokeStyle = '#0000FF';
+	lienzo1.strokeStyle = '#FF0000';
 lienzo1.beginPath();
 	if (y2<=1023) {
-	   lienzo1.moveTo(256,256-y1/1023*256);
+	   lienzo1.moveTo(96,256-y1/1023*256);
    lienzo1.lineTo(512,256-y2/1023*256);
 	   lienzo1.stroke();
    lienzo1.closePath();
-	   lienzo1.fillStyle = '#0000FF';
+	   lienzo1.fillStyle = '#FF0000';
 	   lienzo1.font = "13px Arial";
-	   lienzo1.fillText("x:0" + " y:" + y1, 160, 274-y1/1023*256);
+	   lienzo1.fillText("x:0" + " y:" + y1, 1, 274-y1/1023*256);
 	   lienzo1.fillText("x:5" + " y:" + y2, 600, 266-y2/1023*256);
 	   lienzo1.stroke();
    lienzo1.closePath();
 	}
 	else {
-	   lienzo1.moveTo(256,256-y1/y2*256);
+	   lienzo1.moveTo(96,256-y1/y2*256);
    lienzo1.lineTo(512,0);
 	   lienzo1.stroke();
    lienzo1.closePath();
-	   lienzo1.fillStyle = '#0000FF';
+	   lienzo1.fillStyle = '#FF0000';
 	   lienzo1.font = "13px Arial";
-	   lienzo1.fillText("x:0" + " y:" + y1, 160, 274-y1/y2*256);
+	   lienzo1.fillText("x:0" + " y:" + y1, 1, 274-y1/y2*256);
 	   lienzo1.fillText("x:5" + " y:" + y2, 600, 10);
 	   lienzo1.stroke();
    lienzo1.closePath();

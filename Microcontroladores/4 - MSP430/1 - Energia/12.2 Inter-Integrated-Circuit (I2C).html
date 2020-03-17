@@ -88,13 +88,40 @@
 				element.scrollIntoView();
 			}
 		</script>
+		</script>
+		<style type="text/css">
+			iframe {
+				border:0px;
+				width:100%;
+				height:100px;
+			}
+		</style>
+		<script type="text/javascript">
+			function getDocHeight(doc) {
+				doc = doc || document;
+				// stackoverflow.com/questions/1145850/
+				var body = doc.body, html = doc.documentElement;
+				var height = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight );
+				return height;
+			}
+			function setIframeHeight(id) {
+				var ifrm = document.getElementById(id);
+				var doc = ifrm.contentDocument? ifrm.contentDocument:ifrm.contentWindow.document;
+				ifrm.style.visibility = 'hidden';
+				ifrm.style.height = "10px"; // reset to minimal height ...
+				// IE opt. for bing/msn needs a bit added or scrollbar appears
+				ifrm.style.height = getDocHeight( doc ) + 4 + "px";
+				ifrm.style.visibility = 'visible';
+			}
+		</script>
 	</head>
 
 	<body>
-		<iframe id="ifrm" scrolling="no" src="../../html/12.2%20Inter-Integrated-Circuit%20%28I2C%29.html" height="1200" frameborder="0" width="100%"></iframe>
+		<a id="Inter-Integrated-Circuit (I2C)"></a>
+		<iframe id="ifrm1" name="ifrm1" src="../../html/12.2%20Inter-Integrated-Circuit%20%28I2C%29.html" onload="setIframeHeight(this.id)"></iframe>
 		<div><br></div>
 		<a id="EEPROM I2C"></a>
-		<iframe id="ifrm" scrolling="no" src="../../html/12.2.1%20EEPROM%20externa%20I2C.html" height="1900" frameborder="0" width="100%"></iframe>
+		<iframe id="ifrm2" name="ifrm2" src="../../html/12.2.1%20EEPROM%20externa%20I2C.html" onload="setIframeHeight(this.id)"></iframe>
 		<div><br></div>
 		<div class="MsoNormal" style="text-align:justify">Veamos una aplicación con un ejemplo:</div>
 		<div><br></div>
@@ -107,7 +134,7 @@
 		<div class="MsoNormal" style="text-align:justify">Descargar programa C#: <a href="https://www.dropbox.com/s/jvrau47sbck8bvq/Programa%20C#.zip?dl=0" target="_blank">https://www.dropbox.com/s/jvrau47sbck8bvq/Programa%20C#.zip?dl=0</a></div>
 		<div><br></div>
 		<a id="Real Time Clock DS1302"></a>
-		<iframe id="ifrm" scrolling="no" src="../../html/12.2.2%20Real%20Time%20Clock%20DS1302.html" height="800" frameborder="0" width="100%"></iframe>
+		<iframe id="ifrm3" name="ifrm3" src="../../html/12.2.2%20Real%20Time%20Clock%20DS1302.html" onload="setIframeHeight(this.id)"></iframe>
 		<div><br></div>
 		<div class="MsoNormal" style="text-align:justify">Veamos una aplicación con un ejemplo:</div>
 		<div><br></div>
@@ -118,7 +145,7 @@
 		<img src="img/12.2.2%20Real%20Time%20Clock%20DS1302.png" alt="" height="auto" width="auto">
 		<div><br></div>
 		<a id="Real Time Clock DS1307"></a>
-		<iframe id="ifrm" scrolling="no" src="../../html/12.2.3%20Real%20Time%20Clock%20DS1307.html" height="800" frameborder="0" width="100%"></iframe>
+		<iframe id="ifrm4" name="ifrm4" src="../../html/12.2.3%20Real%20Time%20Clock%20DS1307.html" onload="setIframeHeight(this.id)"></iframe>
 		<div class="MsoNormal" style="text-align:justify">Veamos una aplicación con un ejemplo</div>
 		<div><br></div>
 		<video controls controlslist="nodownload" preload="preload" autoplay loop>
@@ -127,6 +154,8 @@
 		<div><br></div>
 		<img src="img/12.2.3%20Real%20Time%20Clock%20DS1307.png" alt="" height="auto" width="auto">
 		<div><br></div>
+		<div><br></div>
+		<a id="Sensor de humedad y temperatura SHT1x_SHT7x"></a>
 		<div class="MsoNormal1" style="text-align:justify">Sensor de humedad y temperatura SHT1x_SHT7x</div>
 		<div><br></div>
 		<video controls controlslist="nodownload" preload="preload" autoplay loop>
