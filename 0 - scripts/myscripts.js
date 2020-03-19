@@ -1,4 +1,4 @@
-<script type="text/javascript">
+
 			document.oncontextmenu = function(){return false;}
 			function disabletext(e){
 				return false
@@ -11,4 +11,3 @@
 				document.onmousedown=disabletext
 				document.onclick=reEnable
 			}
-		</script>
