@@ -1,109 +1,46 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 		<title>Documento sin título</title>
-		<link rel="stylesheet" type = "text/css" href="./0 - styles/mystyles.css">
-		<script language="JavaScript"  src="./0 - scripts/myscripts.js"></script>
-		<style type="text/css">
-			<!--
-			div.MsoNormal {
-				margin-top: 0cm;
-				margin-right: 0cm;
-				margin-bottom: 0pt;
-				margin-left: 0cm;
-				line-height: 100%;
-				font-size: 12pt;
-				font-weight: normal;
-				font-family: Arial, sans-serif;
-			}
-			div.MsoNormal1 {
-				margin-top: 0cm;
-				margin-right: 0cm;
-				margin-bottom: 0pt;
-				margin-left: 0cm;
-				line-height: 100%;
-				font-size: 12pt;
-				font-weight: bold;
-				font-family: Arial, sans-serif;
-			}
-			-->
-		</style> 
-		<style type="text/css">
-			<!--
-			table.MsoNormalTable {
-				margin-top: 0cm;
-				margin-right: 0cm;
-				margin-bottom: 0pt;
-				margin-left: 0cm;
-				line-height: 100%;
-				font-weight: normal;
-				font-size: 12pt;
-				font-family: Arial, sans-serif;
-			}
-			-->
-		</style><script type="text/javascript">
-	document.oncontextmenu = function(){return false;}
-    function disabletext(e){
-    return false
-    }
-    function reEnable(){
-    return true
-    }
-    document.onselectstart=new Function ("return false")
-    if (window.sidebar){
-    document.onmousedown=disabletext
-    document.onclick=reEnable
-    }
-</script>
-<style>
-img {
-    transition: -webkit-transform 0.25s ease;
-    transition: transform 0.25s ease;
-}
-
-img:active {
-    -webkit-transform: scale(2);
-    transform: scale(2);
-}
-</style>
-
+		<link rel="stylesheet" type="text/css" href="../0 - styles/mystyles.css">
+		<script language="JavaScript" src="../0 - scripts/myscripts.js"></script>
 	</head>
 
 	<body>
-		<div class="MsoNormal1" style="text-align:justify">Diseño de tarjetas de circuito impreso con PROTEUS</div>
+		<div class="Bold" style="text-align:justify">Diseño de tarjetas de circuito impreso con PROTEUS</div>
 		<div><br></div>
-		<div class="MsoNormal" style="text-align:justify">Vamos a configurar un proyecto paso a paso para exportar un esquemático al diseño de la PCB correspondiente.</div>
+		<div class="Normal" style="text-align:justify">Vamos a configurar un proyecto paso a paso para exportar un esquemático al diseño de la PCB correspondiente.</div>
 		<div><br></div>
-		<div class="MsoNormal" style="text-align:justify">Esquemático fuente DC variable, +12V, +5V. -12V y -5V</div>
+		<div class="Normal" style="text-align:justify">Esquemático fuente DC variable, +12V, +5V. -12V y -5V</div>
 		<div><br></div>
-		<div class="MsoNormal" style="text-align:justify">1 - Insertamos los componentes requeridos para elaborar el circuito de la fuente:</div>
+		<div class="Normal" style="text-align:justify">1 - Insertamos los componentes requeridos para elaborar el circuito de la fuente:</div>
 		<div><br></div>
 		<div align="center"><img width=auto height=auto src="img/1.2_1.png"></div>
 		<div><br></div>
-		<div class="MsoNormal" style="text-align:justify">2 - Realizamos las conexiones entre los componentes:</div>
+		<div class="Normal" style="text-align:justify">2 - Realizamos las conexiones entre los componentes:</div>
 		<div><br></div>
 		<div align="center"><img width="1000" height=auto src="video/Fuente variable.png"></div>
 		<div><br></div>
-		<div class="MsoNormal" style="text-align:justify">3 - Configuramos los componentes.</div>
+		<div class="Normal" style="text-align:justify">3 - Configuramos los componentes.</div>
 		<div><br></div>
-		<div class="MsoNormal1" style="text-align:justify">Configuración de la fuente de voltaje AC</div>
+		<div class="Normal" style="text-align:justify">Configuración de la fuente de voltaje AC</div>
 		<div><br></div>
 		<div align="center"><img width=auto height=auto src="img/1.2_2.png"></div>
 		<div><br></div>
-		<div class="MsoNormal" style="text-align:justify">Configuración del transformador (se debe excluir de la PCB)</div>
+		<div class="Normal" style="text-align:justify">Configuración del transformador (se debe excluir de la PCB)</div>
 		<div><br></div>
 		<div align="center"><img width=518 height=415 src="img/1.2_3.png"></div>
 		<div><br></div>
-		<div class="MsoNormal" style="text-align:justify">Configuración de los bornes (se deben excluir de la PCB)</div>
+		<div class="Normal" style="text-align:justify">Configuración de los bornes (se deben excluir de la PCB)</div>
 		<div><br></div>
 		<div align="center"><img width=492 height=376 src="img/1.2_4.png"></div>
 		<div><br></div>
-		<div class="MsoNormal" style="text-align:justify">Los filtros son capacitores de diferente valor, por lo tanto debemos configurarlos antes de generar el circuito impreso. C1 y C5 son un capacitores de 2200uF, por lo tanto su encapsulado ELEC-RAD30 es más grande.</div>
+		<div class="Normal" style="text-align:justify">Los filtros son capacitores de diferente valor, por lo tanto debemos configurarlos antes de generar el circuito impreso. C1 y C5 son un capacitores de 2200uF, por lo tanto su encapsulado ELEC-RAD30 es más grande.</div>
 		<div><br></div>
 		<div align="center"><img width=491 height=376 src="img/1.2_5.png"></div>
 		<div><br></div>
-		<div class="MsoNormal" style="text-align:justify">Debemos asignar un encapsulado a los diodos LED, siguiendo el procedimiento mostrado a continuación:</div>
+		<div class="Normal" style="text-align:justify">Debemos asignar un encapsulado a los diodos LED, siguiendo el procedimiento mostrado a continuación:</div>
 		<div><br></div>
 		<div align="center">
 			<video controls controlslist="nodownload" preload="preload" autoplay loop>
@@ -111,214 +48,208 @@ img:active {
 			</video>
 		</div>
 		<div><br></div>
-		<div class="MsoNormal" style="text-align:justify">Una vez finalizado el esquemático podemos pasar al diseño de la PCB con la herramienta ARES.</div>
+		<div class="Normal" style="text-align:justify">Una vez finalizado el esquemático podemos pasar al diseño de la PCB con la herramienta ARES.</div>
 		<div><br></div>
 		<div align="center"><img width="auto" height="auto" id="Imagen 30" src="img/1.2_6.png"></div>
 		<div><br></div>
-		<div class="MsoNormal" style="text-align:justify">4 - Agregamos un polígono de la Toolbox “2D Graphics Box Mode”</div>
+		<div class="Normal" style="text-align:justify">4 - Agregamos un polígono de la Toolbox “2D Graphics Box Mode”</div>
 		<div><br></div>
 		<div align="center"><img width="auto" height="auto" src="img/1.2_7.png"></div>
 		<div><br></div>
-		<div class="MsoNormal" style="text-align:justify">Este polígono corresponderá al área de nuestro circuito, por lo tanto, debemos asociarlo con la capa “Board Edge” haciendo Click derecho sobre el polígono y modificando la opción en el menú “Change Layer”.</div>
+		<div class="Normal" style="text-align:justify">Este polígono corresponderá al área de nuestro circuito, por lo tanto, debemos asociarlo con la capa “Board Edge” haciendo Click derecho sobre el polígono y modificando la opción en el menú “Change Layer”.</div>
 		<div><br></div>
 		<div align="center"><img width=554 height=317 id="Imagen 28" src="img/1.2_8.jpg"></div>
 		<div><br></div>
-		<div class="MsoNormal" style="text-align:justify">Muchas de las medidas que se utilizan en este programa están dadas en milésimas de pulgada.</div>
+		<div class="Normal" style="text-align:justify">Muchas de las medidas que se utilizan en este programa están dadas en milésimas de pulgada.</div>
 		<div><br></div>
-		<div class="MsoNormal" style="text-align:justify">A continuación una sencilla tabla para recordar su equivalencia:</div>
+		<div class="Normal" style="text-align:justify">A continuación una sencilla tabla para recordar su equivalencia:</div>
 		<div><br></div>
-		<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 style='margin-left:147.15pt;border-collapse:collapse;border:none'>
+		<table class=NormalTable border=1 cellspacing=0 cellpadding=0 style='margin-left:147.15pt;border-collapse:collapse;border:none'>
 			<tr>
-				<td width=157 valign=top style='width:118.0pt;border:solid windowtext 1.0pt; padding:0cm 5.4pt 0cm 5.4pt'>
-					<div class="MsoNormal1" style="text-align:center">Medida (th)</div>
+				<td width=155 valign=top>
+					<div class="Bold" style="text-align:center">Medida (th)</div>
 				</td>
-				<td width=155 valign=top style='width:115.9pt;border:solid windowtext 1.0pt; border-left:none;padding:0cm 5.4pt 0cm 5.4pt'>
-					<div class="MsoNormal1" style="text-align:center">Equivalencia (mm)</div>
+				<td width=155 valign=top>
+					<div class="Bold" style="text-align:center">Equivalencia (mm)</div>
 				</td>
 			</tr>
-  <tr>
-    <td width=157 valign=top style='width:118.0pt;border:solid windowtext 1.0pt;
-  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
-  <span lang=ES-CO>10</span></div></td>
-    <td width=155 valign=top style='width:115.9pt;border-top:none;border-left:
-  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:0cm 5.4pt 0cm 5.4pt'>
-  <span lang=ES-CO>0.2540</span></div></td>
-  </tr>
-  <tr>
-    <td width=157 valign=top style='width:118.0pt;border:solid windowtext 1.0pt;
-  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
-  <span lang=ES-CO>20</span></div></td>
-    <td width=155 valign=top style='width:115.9pt;border-top:none;border-left:
-  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:0cm 5.4pt 0cm 5.4pt'>
-  <span lang=ES-CO>0.5080</span></div></td>
-  </tr>
-  <tr>
-    <td width=157 valign=top style='width:118.0pt;border:solid windowtext 1.0pt;
-  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
-  <span lang=ES-CO>30</span></div></td>
-    <td width=155 valign=top style='width:115.9pt;border-top:none;border-left:
-  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:0cm 5.4pt 0cm 5.4pt'>
-  <span lang=ES-CO>0.7620</span></div></td>
-  </tr>
-  <tr>
-    <td width=157 valign=top style='width:118.0pt;border:solid windowtext 1.0pt;
-  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
-  <span lang=ES-CO>40</span></div></td>
-    <td width=155 valign=top style='width:115.9pt;border-top:none;border-left:
-  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:0cm 5.4pt 0cm 5.4pt'>
-  <span lang=ES-CO>1.0160</span></div></td>
-  </tr>
-  <tr>
-    <td width=157 valign=top style='width:118.0pt;border:solid windowtext 1.0pt;
-  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
-  <span lang=ES-CO>60</span></div></td>
-    <td width=155 valign=top style='width:115.9pt;border-top:none;border-left:
-  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:0cm 5.4pt 0cm 5.4pt'>
-  <span lang=ES-CO>1.5240</span></div></td>
-  </tr>
-  <tr>
-    <td width=157 valign=top style='width:118.0pt;border:solid windowtext 1.0pt;
-  border-top:none;padding:0cm 5.4pt 0cm 5.4pt'>
-  <span lang=ES-CO>80</span></div></td>
-    <td width=155 valign=top style='width:115.9pt;border-top:none;border-left:
-  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-  padding:0cm 5.4pt 0cm 5.4pt'>
-  <span lang=ES-CO>2.0320</span></div></td>
-  </tr>
-</table>
-<div><br></div>
-<div class="MsoNormal" style="text-align:justify">Para cambiar entre sistema métrico y sistema imperial solamente pulse la letra m en el teclado.</div>
-<div><br></div>
-<div class="MsoNormal" style="text-align:justify">6-Una vez definido el borde de la placa, éste debe quedar como un marco de color amarillo.</div>
-<div class="MsoNormal" style="text-align:justify">Ahora vamos a ubicar los componentes requeridos para el circuito. Este es un proceso semi-automático que se ejecuta con la opción ”Auto-placer” del menú “Tools”.</div>
-<div><br></div>
-<img width=1128 height=627 src="1.2_9.jpg"></div>
-<div><br></div>
-<div class="MsoNormal" style="text-align:center">Nos aseguramos de que todos los componentes estén marcados y hacemos Click en OK.</div>
-<div><br></div>
-<div align="center"><img width=615 height=464 src="img/1.2_10.jpg"></div>
-<div><br></div>
-<div class="MsoNormal" style="text-align:center">7 - Realizamos la redistribución de los componentes de manera manual y guiándonos por las líneas de conexión proporcionadas por el software, las cuales vienen definidas desde la creación del esquemático.</div>
-<div><br></div>
-<div align="center"><img width=573 height=419 src="img/1.2_11.png"></div>
-<div><br></div>
-<div class="MsoNormal" style="text-align:center">8-Cuando los componentes hayan sido ubicados en su posición, verificamos si es necesario redimensionar el tamaño de la placa, de manera que todos los componentes cuenten con el espacio requerido dentro del perímetro del polígono amarillo.</div>
-<div><br></div>
-<div><br></div>
-Para medir las dimensiones de la placa siga el procedimiento que se muestra a continuación:</div>
-<div><br></div>
-<div align="center">
+			<tr>
+				<td>
+					<div class="Normal" style="text-align:center">10</div>
+				</td>
+				<td>
+					<div class="Normal" style="text-align:center">0.2540</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="Normal" style="text-align:center">20</div>
+				</td>
+				<td>
+					<div class="Normal" style="text-align:center">0.5080</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="Normal" style="text-align:center">30</div>
+				</td>
+				<td>
+					<div class="Normal" style="text-align:center">0.7620</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="Normal" style="text-align:center">40</div>
+				</td>
+				<td>
+					<div class="Normal" style="text-align:center">1.0160</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="Normal" style="text-align:center">60</div>
+				</td>
+				<td>
+					<div class="Normal" style="text-align:center">1.5240</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="Normal" style="text-align:center">80</div>
+				</td>
+				<td>
+					<div class="Normal" style="text-align:center">2.0320</div>
+				</td>
+			</tr>
+		</table>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Para cambiar entre sistema métrico y sistema imperial solamente pulse la letra m en el teclado.</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">6 - Una vez definido el borde de la placa, éste debe quedar como un marco de color amarillo.</div>
+		<div class="Normal" style="text-align:justify">Ahora vamos a ubicar los componentes requeridos para el circuito. Este es un proceso semi-automático que se ejecuta con la opción ”Auto-placer” del menú “Tools”.</div>
+		<div><br></div>
+		<img width=1128 height=627 src="1.2_9.jpg">
+		<div><br></div>
+		<div class="Normal" style="text-align:center">Nos aseguramos de que todos los componentes estén marcados y hacemos Click en OK.</div>
+		<div><br></div>
+		<div align="center"><img width=615 height=464 src="img/1.2_10.jpg"></div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">7 - Realizamos la redistribución de los componentes de manera manual y guiándonos por las líneas de conexión proporcionadas por el software, las cuales vienen definidas desde la creación del esquemático.</div>
+		<div><br></div>
+		<div align="center"><img width=573 height=419 src="img/1.2_11.png"></div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">8 - Cuando los componentes hayan sido ubicados en su posición, verificamos si es necesario redimensionar el tamaño de la placa, de manera que todos los componentes cuenten con el espacio requerido dentro del perímetro del polígono amarillo.</div>
+		<div><br></div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Para medir las dimensiones de la placa siga el procedimiento que se muestra a continuación:</div>
+		<div><br></div>
+		<div align="center">
 			<video controls controlslist="nodownload" preload="preload" autoplay loop>
 				<source src="video/Dimension.webm" type="video/webm">
 			</video>
 		</div>
-<div><br></div>
-<div class="MsoNormal" style="text-align:justify">Ahora podemos generar la capa “Power Plane” que servirá como blindaje de nuestro circuito.</div>
-<div><br></div>
-<div align="center"><img width=1025 height=611 src="img/1.2_12.jpg"></div>
-<div><br></div>
-<div class="MsoNormal" style="text-align:justify">Opciones recomendadas para crear la capa “Power Plane”</div>
-<div align="center"><img width=388 height=225 id="Imagen 22" src="img/1.2_13.jpg"></div>
-<div><br></div>
-<div class="MsoNormal" style="text-align:justify">9)Buscamos el borde de la capa “Power Plane” (bloque azul), hacemos doble Click para modificar sus parámetros.</div>
-<div><br></div>
-<div align="center"><img width=517 height=419 src="img/1.2_14.jpg"></div>
-<div><br></div>
-<div class="MsoNormal" style="text-align:justify">Parámetros recomendados para la capa “Power Plane”. En esta ventana puede también cambiar el color de su placa
-  de circuito impreso.</div>
-<div><br></div>
-<div align="center"><img width=419 height=251 src="img/1.2_15.png"></div>
-<div><br></div>
-<div class="MsoNormal" style="text-align:justify">10 - Ahora podemos generar la capa que contendrá las pistas de cobre que interconectarán nuestros componentes. Esto lo haremos mediante la opción “Auto-router” del menú Tools.</div>
-<div><br></div>
-<div align="center">
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Ahora podemos generar la capa “Power Plane” que servirá como blindaje de nuestro circuito.</div>
+		<div><br></div>
+		<div align="center"><img width=1025 height=611 src="img/1.2_12.jpg"></div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Opciones recomendadas para crear la capa “Power Plane”</div>
+		<div align="center"><img width=388 height=225 src="img/1.2_13.jpg"></div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">9)Buscamos el borde de la capa “Power Plane” (bloque azul), hacemos doble Click para modificar sus parámetros.</div>
+		<div><br></div>
+		<div align="center"><img width=517 height=419 src="img/1.2_14.jpg"></div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Parámetros recomendados para la capa “Power Plane”. En esta ventana puede también cambiar el color de su placa de circuito impreso.</div>
+		<div><br></div>
+		<div align="center"><img width=419 height=251 src="img/1.2_15.png"></div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">10 - Ahora podemos generar la capa que contendrá las pistas de cobre que interconectarán nuestros componentes. Esto lo haremos mediante la opción “Auto-router” del menú Tools.</div>
+		<div><br></div>
+		<div align="center">
 			<video controls controlslist="nodownload" preload="preload" autoplay loop>
 				<source src="video/auto-routing.webm" type="video/webm">
 			</video>
 		</div>
-<div><br></div><div><br></div>
-<div align="center"><img width=405 height=339 src="img/1.2_16.jpg"></div>
-<div><br></div>
-<div class="MsoNormal" style="text-align:justify">11 - Es posible que el software no haya podido generar una capa de pistas en la que todas ellas hayan quedado en la parte inferior de la placa (pistas de color rojo). Aquellas pistas que no tengan ningún obstáculo podrán ser transferidas a la capa “Bottom Copper” mediante la función “Change Layer”</div>
-<div><br></div>
-<div align="center"><img width=606 height=517 src="img/1.2_17.jpg"></div>
-<div><br></div>
-<div class="MsoNormal" style="text-align:justify">12 - Un aspecto fundamental en el diseño de circuitos impresos es la dimensión de las pistas de cobre. En términos generales, una pista nunca será demasiado ancha para la función que habrá de cumplir en el circuito si puede conducir la cantidad de corriente necesaria para cumplir su función.</div>
-<div><br></div>
-<div class="MsoNormal" style="text-align:justify">En este enlace encontrará una herramienta para calcular el ancho de las pistas de cobre basada en su longitud y la cantidad de corriente que transportará.</div>
-<div><br></div>
-<div class="MsoNormal" style="text-align:justify"><a href="http://www.microensamble.com/site/index.php?option=com_content&amp;view=article&amp;id=105:calculadora-de-ancho-de-pista&amp;catid=62&amp;Itemid=197">http://www.microensamble.com/site/index.php?option=com_content&amp;view=article&amp;id=105:calculadora-de-ancho-de-pista&amp;catid=62&amp;Itemid=197</a></div>
-<div><br></div>
-<div class="MsoNormal" style="text-align:justify">Esta utilidad calcula el ancho de una pista en el diseño de circuitos impresos de acuerdo a la curva de la norma IPC-2221 (Formalmente llamada IPC-D-275) tomando como base el valor de la corriente que va a circular por ella, así como el espesor del cobre utilizado.</div>
-<div><br></div>
-<div align="center"><img width=301 height=232 src="img/1.2_18.jpg"></div>
-<div><br></div>
-<div class="MsoNormal" style="text-align:justify">Ejemplo: cálculo del ancho de una pista para conducir una corriente hasta de 1 Amperio.</div>
-<div><br></div>
-<div align="center"><img width=303 height=245 src="img/1.2_19.jpg"></div>
-<div class="MsoNormal" style="text-align:justify">El resultado arrojado por la calculadora es el siguiente:</div>
-<div><br></div>
-<div align="center"><img width=273 height=153 src="img/1.2_20.png"></div>
-<div><br></div>
-<div align="center"><img width=360 height=357 src="img/1.2_21.png"></div>
-Para modificar el ancho de una pista hacemos Click derecho sobre la misma y la modificamos con la opción “Change Trace Style”.</div>
-<div><br></div>
-<div align="center"><img width=572 height=550 src="img/1.2_22.jpg"></div>
-<div><br></div>
-<div class="MsoNormal" style="text-align:justify">13 - Si quedan pistas por conectar, el programa lo notificará mostrando las líneas correspondientes a las conexiones faltantes y en la parte inferior llevará el conteo.</div>
-<div class="MsoNormal" style="text-align:justify">En la imagen – 2 conexiones faltantes (2 missing).</div>
-<div><br></div>
-<div align="center"><img width=407 height=319 src="img/1.2_23.jpg"></div>
-<div><br></div>
-<div class="MsoNormal" style="text-align:justify">14 - Cuando no haya conexiones faltantes aparecerá una indicación en la parte inferior de la ventana (No CRC Errors)</div>
-<div align="center"><img width=860 height=582 src="img/1.2_24.jpg"></div>
-<div><br></div>
-<div class="MsoNormal" style="text-align:justify">Configuramos las dimensiones de los PAD para que los pines de los componentes a ensamblar en la tarjeta encajen <div class="MsoNormal" style="text-align:justify">con exactitud en las perforaciones y para tener un área de soldadura que permita una adherencia firme.</div>
-<div><br></div>
-<div><br></div>
-<div class="MsoNormal" style="text-align:justify">Para cambiar las dimensiones de un PAD: Hacer Click derecho sobre el PAD y seleccionar la opción “Edit Properties”</div>
-<div><br></div>
-<div align="center"><img width=561 height=477 src="img/1.2_25.jpg"></div>
-<div class="MsoNormal" style="text-align:justify">La opción “Style” nos permite seleccionar entre diferentes formas y dimensiones de PAD.</div>
-<div><br></div>
-<div align="center"><img border=0 width=293 height=202 src="img/1.2_26.png"></div>
-<div><br></div>
-<div class="MsoNormal" style="text-align:justify">Los parámetros del PAD son su forma, dimensiones externas y dimensiones internas (diámetro de perforación).</div>
-<div><br></div>
-<div class="MsoNormal" style="text-align:justify">Por ejemplo, un PAD tipo S-70-40 es un PAD cuadrado (Square) con 70 th (milésimas de pulgada) de lado y 40 th de diámetro de perforación.</div>
-<div><br></div>
-<div class="MsoNormal" style="text-align:justify">Un PAD tipo C-80-40 es un PAD circular (Circle) con 80 th (milésimas de pulgada) de diámetro y 30 th de diámetro de perforación.</div>
-<div align="center"><img width=314 height=284 src="img/1.2_27.jpg"></div>
-<div><br></div>
-<div class="MsoNormal" style="text-align:justify">Dimensiones recomendadas para los PAD  de diferentes encapsulados.</div>
-<div><br></div>
-<div align="center"><img width=437 height=729 src="img/1.2_28.jpg"></div>
-<div><br></div>
-<div class="MsoNormal" style="text-align:justify">15 - Finalmente, agregamos Pad’s de tamaño C250-M4 que servirán para la sujeción de la placa a la carcasa que la contendrá.</div>
-<div><br></div>
-<div align="center">
+		<div><br></div>
+		<div align="center"><img width=405 height=339 src="img/1.2_16.jpg"></div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">11 - Es posible que el software no haya podido generar una capa de pistas en la que todas ellas hayan quedado en la parte inferior de la placa (pistas de color rojo). Aquellas pistas que no tengan ningún obstáculo podrán ser transferidas a la capa “Bottom Copper” mediante la función “Change Layer”</div>
+		<div><br></div>
+		<div align="center"><img width=606 height=517 src="img/1.2_17.jpg"></div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">12 - Un aspecto fundamental en el diseño de circuitos impresos es la dimensión de las pistas de cobre. En términos generales, una pista nunca será demasiado ancha para la función que habrá de cumplir en el circuito si puede conducir la cantidad de corriente necesaria para cumplir su función.</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">En este enlace encontrará una herramienta para calcular el ancho de las pistas de cobre basada en su longitud y la cantidad de corriente que transportará.</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify"><a href="http://www.microensamble.com/site/index.php?option=com_content&amp;view=article&amp;id=105:calculadora-de-ancho-de-pista&amp;catid=62&amp;Itemid=197">http://www.microensamble.com/site/index.php?option=com_content&amp;view=article&amp;id=105:calculadora-de-ancho-de-pista&amp;catid=62&amp;Itemid=197</a></div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Esta utilidad calcula el ancho de una pista en el diseño de circuitos impresos de acuerdo a la curva de la norma IPC-2221 (Formalmente llamada IPC-D-275) tomando como base el valor de la corriente que va a circular por ella, así como el espesor del cobre utilizado.</div>
+		<div><br></div>
+		<div align="center"><img width=301 height=232 src="img/1.2_18.jpg"></div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Ejemplo: cálculo del ancho de una pista para conducir una corriente hasta de 1 Amperio.</div>
+		<div><br></div>
+		<div align="center"><img width=303 height=245 src="img/1.2_19.jpg"></div>
+		<div class="Normal" style="text-align:justify">El resultado arrojado por la calculadora es el siguiente:</div>
+		<div><br></div>
+		<div align="center"><img width=273 height=153 src="img/1.2_20.png"></div>
+		<div><br></div>
+		<div align="center"><img width=360 height=357 src="img/1.2_21.png"></div>
+		<div class="Normal" style="text-align:justify">Para modificar el ancho de una pista hacemos Click derecho sobre la misma y la modificamos con la opción “Change Trace Style”.</div>
+		<div><br></div>
+		<div align="center"><img width=572 height=550 src="img/1.2_22.jpg"></div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">13 - Si quedan pistas por conectar, el programa lo notificará mostrando las líneas correspondientes a las conexiones faltantes y en la parte inferior llevará el conteo.</div>
+		<div class="Normal" style="text-align:justify">En la imagen – 2 conexiones faltantes (2 missing).</div>
+		<div><br></div>
+		<div align="center"><img width=407 height=319 src="img/1.2_23.jpg"></div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">14 - Cuando no haya conexiones faltantes aparecerá una indicación en la parte inferior de la ventana (No CRC Errors)</div>
+		<div align="center"><img width=860 height=582 src="img/1.2_24.jpg"></div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Configuramos las dimensiones de los PAD para que los pines de los componentes a ensamblar en la tarjeta encajen con exactitud en las perforaciones y para tener un área de soldadura que permita una adherencia firme.</div>
+		<div><br></div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Para cambiar las dimensiones de un PAD: Hacer Click derecho sobre el PAD y seleccionar la opción “Edit Properties”</div>
+		<div><br></div>
+		<div align="center"><img width=561 height=477 src="img/1.2_25.jpg"></div>
+		<div class="Normal" style="text-align:justify">La opción “Style” nos permite seleccionar entre diferentes formas y dimensiones de PAD.</div>
+		<div><br></div>
+		<div align="center"><img border=0 width=293 height=202 src="img/1.2_26.png"></div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Los parámetros del PAD son su forma, dimensiones externas y dimensiones internas (diámetro de perforación).</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Por ejemplo, un PAD tipo S-70-40 es un PAD cuadrado (Square) con 70 th (milésimas de pulgada) de lado y 40 th de diámetro de perforación.</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Un PAD tipo C-80-40 es un PAD circular (Circle) con 80 th (milésimas de pulgada) de diámetro y 30 th de diámetro de perforación.</div>
+		<div><br></div>
+		<div align="center"><img width=314 height=284 src="img/1.2_27.jpg"></div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Dimensiones recomendadas para los PAD  de diferentes encapsulados.</div>
+		<div><br></div>
+		<div align="center"><img width=437 height=729 src="img/1.2_28.jpg"></div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">15 - Finalmente, agregamos Pad’s de tamaño C250-M4 que servirán para la sujeción de la placa a la carcasa que la contendrá.</div>
+		<div><br></div>
+		<div align="center">
 			<video controls controlslist="nodownload" preload="preload" autoplay loop>
 				<source src="video/C250-M4.webm" type="video/webm">
 			</video>
 		</div>
-	<div><br></div>
-<div align="center"><img width=519 height=419 src="img/1.2_29.jpg"></div>
-<div><br></div>
-<div class="MsoNormal" style="text-align:justify">16 - En el menú tenemos la opción “3D visualizer” para conocer el aspecto que tendrá nuestra PCB una vez ensamblada.</div>
-<div><br></div>
-<div align="center"><img width=292 height=83 src="img/1.2_30.png"></div>
-<div><br></div>
-<div class="MsoNormal" style="text-align:justify">Aspecto de la placa vista desde la parte superior (capa de componentes)</div>
-<div><br></div>
-<div align="center"><img border=0 width=753 height=696 src="img/1.2_31.jpg"></div>
-<div><br></div>
-<div class="MsoNormal" style="text-align:justify">Aspecto de la placa vista desde la parte inferior (capa de pistas de cobre)</div>
-<div><br></div>
-	<div align="center"><img width=455 height=694 src="img/1.2_32.png"></div>
+		<div><br></div>
+		<div align="center"><img width=519 height=419 src="img/1.2_29.jpg"></div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">16 - En el menú tenemos la opción “3D visualizer” para conocer el aspecto que tendrá nuestra PCB una vez ensamblada.</div>
+		<div><br></div>
+		<div align="center"><img width=292 height=83 src="img/1.2_30.png"></div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Aspecto de la placa vista desde la parte superior (capa de componentes)</div>
+		<div><br></div>
+		<div align="center"><img border=0 width=753 height=696 src="img/1.2_31.jpg"></div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Aspecto de la placa vista desde la parte inferior (capa de pistas de cobre)</div>
+		<div><br></div>
+		<div align="center"><img width=455 height=694 src="img/1.2_32.png"></div>
 	</body>
 </html>
