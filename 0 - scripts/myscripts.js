@@ -28,18 +28,13 @@ function obtener_valor(variable) {
 	}
 	else
 	{
-		return "NO_ENCONTRADO";
+		return "CONTENIDO";
 	}
 }
 
 window.onload = function() {
 	var valor = obtener_valor("verinfo");
-	var n = valor.localeCompare("NO_ENCONTRADO");
-
-	if (n==0)
-		var element = document.getElementById("CONTENIDO");
-	else
-		var element = document.getElementById(valor);
+	var element = document.getElementById(valor);
 	element.scrollIntoView();
 }
 
