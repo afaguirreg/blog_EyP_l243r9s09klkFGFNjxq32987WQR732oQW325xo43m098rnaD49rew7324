@@ -32,6 +32,17 @@ function obtener_valor(variable) {
 	}
 }
 
+window.onload = function() {
+	var valor = obtener_valor("verinfo");
+	var n = valor.localeCompare("NO_ENCONTRADO");
+
+	if (n==0)
+		var element = document.getElementById("CONTENIDO");
+	else
+		var element = document.getElementById(valor);
+	element.scrollIntoView();
+}
+
 function getDocHeight(doc) {
 	doc = doc || document;
 	// stackoverflow.com/questions/1145850/
