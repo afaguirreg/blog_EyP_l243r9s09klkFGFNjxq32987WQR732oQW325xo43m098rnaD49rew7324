@@ -7,13 +7,14 @@ if (window.sidebar){
 	document.onclick=reEnable
 }
 
-var remplaza = /\+/gi; 
-var url = window.location.href;
-url = unescape(url);
-url = url.replace(remplaza, " ");
 function obtener_valor(variable) {
+	var remplaza = /\+/gi; 
+	var url = window.location.href;
+	url = unescape(url);
+	url = url.replace(remplaza, " ");
 	var variable_may = variable;
 	var variable_pos = url.indexOf(variable);
+
 	if (variable_pos != -1)
 	{
 		var pos_separador = url.indexOf("&", variable_pos);
