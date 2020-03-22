@@ -5,46 +5,9 @@
 		<title>Documento sin título</title>
 		<link rel="stylesheet" type="text/css" href="../0 - styles/mystyles.css">
 		<script language="JavaScript" src="../0 - scripts/myscripts.js"></script>
-<script language="JavaScript">
-var remplaza = /\+/gi; 
-var url = window.location.href;
+	</head>
 
-url = unescape(url);
-url = url.replace(remplaza, " ");
-
-function obtener_valor(variable) 
-{ 
-	var variable_may = variable;
-	var variable_pos = url.indexOf(variable);
-
-	if (variable_pos != -1) 
-	{
-		var pos_separador = url.indexOf("&", variable_pos);
-		if (pos_separador != -1) 
-		{
-			return url.substring(variable_pos + variable_may.length + 1, pos_separador);
-		}
-    else
-		{
-			return url.substring(variable_pos + variable_may.length + 1, url.length);
-		}
-	}
-  else 
-	{
-		return "NO_ENCONTRADO";
-	}
-}
-</script>
-<script language="JavaScript">
-  window.onload = function () { 
-		var valor = obtener_valor("verinfo");
-    var element = document.getElementById(valor);
-    element.scrollIntoView();
-  }
-</script>
-</head>
-
-<body>
+	<body>
 	<a id="Operaciones logicas"></a>
 	<strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">2. Operaciones lógicas</span></strong>
 	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:normal;text-autospace:none;"><br></p>
