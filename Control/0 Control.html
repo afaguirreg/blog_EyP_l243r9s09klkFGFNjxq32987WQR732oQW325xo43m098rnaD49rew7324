@@ -9,15 +9,17 @@
 
 	<body>
 		<div class="Bold" style="text-align:justify">Fundamentos de control</div>
+		<div><br></div>
 		<div class="Bold" style="text-align:justify">Sistemas de control</div>
+		<div><br></div>
 		<div class="Normal" style="text-align:justify">El término sistema se emplea para describir un conjunto de componentes que interactúan, alrededor de los cuales se dibuja una frontera imaginaria de modo que sólo es de interés la interacción entre la entrada o entradas y su salida o salidas, sin necesidad de estudiar en detalle las interacciones entre los componentes que lo forman. Así el aspecto importante en un sistema es la relación entre las entradas y las salidas. Un sistema puede ser una estación de generación de energía completa ó quizá sólo un motor eléctrico. No importa qué tan complejo sea un conjunto de componentes y sus interacciones dentro del sistema; se puede considerar que todos están dentro de una caja negra y sólo tener en cuenta las entradas y salidas a dicha caja. La siguiente figura muestra cómo es posible representar un sistema mediante una caja con las entradas y las salidas al sistema indicadas por líneas con flechas, en las que la dirección de la flecha hace referencia ya sea a una entrada o una salida:</div>
-		<img width="357" height="81" src="img/Control_clip_image002.png">
+		<div align=center><img width="357" height="81" src="img/Control_clip_image002.png"></div>
 		<div class="Normal" style="text-align:justify">La ventaja de estudiar los sistemas de esta manera es que aunque existe una amplia variedad de sistemas posibles, la relación entre la salida y la entrada de muchos sistemas tiende a ser similar. Así, por ejemplo, la respuesta de un sistema eléctrico formado por un capacitor en serie con un resistor y tiene el mismo tipo de relación que la respuesta de un contenedor de líquido al cual se le aplica súbitamente una entrada de calor. De este modo, al estudiar un modelo de sistema con este tipo de relación entre la entrada y la salida es posible determinar cómo responderán muchas formas diferentes de sistemas con la misma relación salida-entrada.</div>
-		<img width="417" height="430" src="img/Control_clip_image004.png">
+		<div align=center><img width="417" height="430" src="img/Control_clip_image004.png"></div>
 		<div class="Normal" style="text-align:justify">Sistemas similares: a) sistema RC, b) sistema de calefacción</div>
 		<div class="Normal" style="text-align:justify">En algunas situaciones es conveniente particionar el sistema en subsistemas enlazados en serie. Así, por ejemplo, se puede tener un sistema de medición de temperatura que consiste De un termómetro resistivo conectado a un puente de Wheatstone y la salida presentada.</div>
 		<div><br></div>
-		<img width="636" height="176" src="img/Control_clip_image006.jpg">
+		<div align=center><img width="636" height="176" src="img/Control_clip_image006.jpg"></div>
 		<div class="Normal" style="text-align:justify">a) Sistema de medición de temperatura y b) sus subsistemas</div>
 		<div><br></div>
 		<div class="Normal" style="text-align:justify">Un sistema de control es aquél en el que la salida del sistema se controla para tener un valor específico o cambiarlo, según lo determina la entrada al sistema. De este modo, un sistema de control de temperatura, por ejemplo, un sistema de calefacción central, puede tener en su entrada un termostato o panel de control en el que se fija la temperatura requerida y su salida es la temperatura real producida. Esta temperatura se ajusta mediante el sistema de control, de modo que se obtenga el valor fijado por la entrada al sistema.</div>
@@ -144,11 +146,11 @@
 			</li>
 		</ul>
 		<div><br></div>
-		<div class="Normal" style="text-align:justify"><strong>Sistemas de control en lazo abierto</strong></div>
+		<div class="Bold" style="text-align:justify">Sistemas de control en lazo abierto</div>
 		<div><br></div>
 		<div class="Normal" style="text-align:justify">Existen dos formas básicas de sistemas de control, una es la denominada en lazo abierto y la otra en lazo cerrado. Con un sistema en lazo abierto la entrada se elige con base en la experiencia que se tiene con dichos sistemas para producir el valor de salida requerido. Esta salida, sin embargo, no se ve modificada por el cambio en las condiciones de operación externas. Así, por ejemplo, un calefactor eléctrico puede tener un selector que permite elegir una disipación en el elemento calefactor de 1 kW o 2 kW. De este modo, la entrada al sistema está determinada por la posición del selector ya sea en 1 kW o 2 kW. La temperatura producida en la habitación acondicionada por el calefactor está determinada únicamente por el hecho de que se haya elegido la disipación de 1 kW en el selector y no 2 kW. Si se presentan cambios en las condiciones de operación, quizá alguien que abre una ventana, la temperatura cambiará debido a que no hay modo de que el calor de salida se ajuste para compensar dicha condición. Éste es un ejemplo de un sistema de control en lazo abierto en el que no existe información que se alimente de regreso (realimentación) al elemento calefactor para ajustarlo y mantener una temperatura constante. Los sistemas de control que operan mediante mecanismos de temporización preestablecidos son sistemas en lazo abierto.</div>
 		<div><br></div>
-		<img width="600" height="178" src="img/Control_clip_image008.png">
+		<div align=center><img width="600" height="178" src="img/Control_clip_image008.png"></div>
 		<div class="Normal" style="text-align:justify">El control en lazo abierto se caracteriza porque la información o variables que controlan el proceso circulan en una sola dirección.</div>
 		<strong>Características</strong>
 		<ul>
@@ -173,11 +175,11 @@
 		</ul>
 		<div class="Normal" style="text-align:justify">El control en lazo abierto suele aparecer en dispositivos con control secuencial, en el que no hay una regulación de variables sino que se realizan una serie de operaciones de manera determinada. Esa secuencia de operaciones puede venir impuesta por eventos (event-driven) o por tiempo (time-driven). Se programa utilizando PLC (Controlador Lógico Programable).</div>
 		<div><br></div>
-		<img width="655" height="396" src="img/Control_clip_image010.jpg">
+		<div align=center><img width="655" height="396" src="img/Control_clip_image010.jpg"></div>
 		<div class="Normal" style="text-align:justify"><strong>Elementos de un sistema de control en lazo abierto</strong></div>
 		<div class="Normal" style="text-align:justify">Se puede considerar que un sistema en lazo abierto consiste en algunos subsistemas básicos arreglados como se muestra en la figura. Estos elementos pueden ser distintos equipos separados, pero todas las funciones que cumple cada subsistema se deben preservar. La entrada global al sistema es una señal, que, basada en experiencias anteriores, es probable que conduzca a la salida requerida.</div>
 		<div><br></div>
-		<img width="694" height="116" src="img/Control_clip_image002.jpg">
+		<div align=center><img width="694" height="116" src="img/Control_clip_image002.jpg"></div>
 		<div><br></div>
 		<div class="Normal" style="text-align:justify"><strong>Señal de referencia o consigna: </strong>Es una señal externa de  control con la cual imponemos el valor deseado en la señal de salida. Un ejemplo de generador de referencia es el selector de temperatura en el control de temperatura de una nevera. La señal de referencia es una posición de la perilla, que está directamente relacionada con la variable de salida que es la temperatura.</div>
 		<div class="Normal" style="text-align:justify"><strong>Elemento de control:</strong> Este elemento determina qué acción se va a tomar dada una entrada al sistema de control.</div>
@@ -186,19 +188,19 @@
 		<div class="Normal" style="text-align:justify"><strong>Perturbaciones:</strong> se producen de forma imprevista y provocan una desviación de la señal real respecto de la señal deseada. Pueden ser internas, que dependen del propio sistema como puede ser el envejecimiento de componentes, o externas como, por ejemplo, la apertura de una  ventana en un recinto que se está climatizando.</div>
 		<div class="Normal" style="text-align:justify"><strong>Señal de salida o respuesta: </strong>Es el valor real en cada instante que toma la señal que pretendemos controlar.</div>
 		<div class="Normal" style="text-align:justify">Un ejemplo de un sistema en lazo abierto es un calefactor eléctrico utilizado para calentar una habitación. Con dicho sistema se tiene:</div>
-		<img width="287" height="225" src="img/Control_clip_image003.png">
+		<div align=center><img width="287" height="225" src="img/Control_clip_image003.png"></div>
 		<div class="Normal" style="text-align:justify">Variable controlada: temperatura de la habitación</div>
 		<div><br></div>
 		<div class="Normal" style="text-align:justify">Elemento de control: una persona que toma las decisiones basadas en la experiencia de las temperaturas producidas mediante la conmutación del elemento calefactor.</div>
 		<div class="Normal" style="text-align:justify">Elemento de corrección: el interruptor y el elemento calefactor.</div>
 		<div class="Normal" style="text-align:justify">Proceso: la habitación</div>
 		<div><br></div>
-		<div class="Normal" style="text-align:justify"><strong>Estrategias de control en lazo abierto</strong></div>
+		<div class="Bold" style="text-align:justify">Estrategias de control en lazo abierto</div>
 		<div><br></div>
 		<div class="Normal" style="text-align:justify">Con sistemas de control en lazo abierto los tipos de control más probables son el de dos posiciones (encendido-apagado o mejor conocido como on-off) o secuencias o acciones conmutadas por tiempo. Un ejemplo del control on-off es una persona que enciende un calefactor eléctrico para obtener la temperatura requerida en una habitación. Un ejemplo de una secuencia conmutada por tiempo es la operación de la lavadora de ropa doméstica.</div>
 		<div><br></div>
 		<div class="Normal" style="text-align:justify">Modo de control de dos posiciones</div>
-		<div class="Normal" style="text-align:justify"><img width="310" height="184" src="img/Control_clip_image004_0000.png"></div>
+		<div align=center><img width="310" height="184" src="img/Control_clip_image004_0000.png"></div>
 		<div><br></div>
 		<div class="Normal" style="text-align:justify"><strong>MODELOS MATEMATICOS DE LOS SISTEMAS DE CONTROL</strong></div>
 		<div><br></div>
@@ -214,13 +216,13 @@
 		<div class="Normal" style="text-align:justify">Valor en estado estable de ω: G(Valor en estado estable de)</div>
 		<div><br></div>
 		<div class="Normal" style="text-align:justify">Por lo tanto:</div>
-		<img width="264" height="51" src="img/Control_clip_image005.png">
+		<div align=center><img width="264" height="51" src="img/Control_clip_image005.png"></div>
 		<div><br></div>
 		<div class="Normal" style="text-align:justify">La constante G se denomina función de transferencia o ganancia del sistema. En general, se puede definir la función de transferencia como el cociente de la salida en estado estable entre la entrada en estado estable para un sistema o subsistema.</div>
 		<div class="Normal" style="text-align:justify">Por ejemplo, al insertar una moneda en una máquina de barras de chocolate se obtiene la salida de una barra de chocolate. La función de transferencia, para el estado estable, es 1 barra/moneda. Sí se supone que el sistema es lineal, para una entrada de dos monedas se obtendrían dos barras de chocolate. </div>
 		<div><br></div>
 		<div class="Normal" style="text-align:justify">Un sistema de medición de temperatura puede tener una entrada de 10 °C y producir una salida en estado estable de 5.0 mV. Este sistema tiene una función de transferencia de 0.5 mV/°C. Si se supone que el sistema es lineal se puede predecir que si la entrada fuera de 20 °C entonces la salida en estado estable sería 10.0 mV. El modelo matemático del sistema es:</div>
-		<img width="378" height="64" src="img/Control_clip_image006.png">
+		<div align=center><img width="378" height="64" src="img/Control_clip_image006.png"></div>
 		<div class="Normal" style="text-align:justify">Lo anterior es el análisis de un sistema que tiene una relación lineal entre la entrada y la salida. Sin embargo, los sistemas reales pueden exhibir un comportamiento no lineal. En muchos casos tales sistemas son lineales si las señales de entrada se mantienen dentro de ciertos límites. Para la máquina de barras de chocolate el sistema es lineal siempre que no se inserta un mayor número de monedas que las barras de chocolate que tiene la máquina. Un amplificador puede ser lineal sólo para señales de entrada hasta cierta magnitud.</div>
 		<div><br></div>
 		<div class="Normal" style="text-align:justify">Ejemplo</div>
@@ -228,189 +230,205 @@
 		<div><br></div>
 		<div class="Normal" style="text-align:justify"><em>Respuesta</em></div>
 		<div class="Normal" style="text-align:justify">Si se utiliza la ecuación</div>
-		<img width="400" height="59" src="img/Control_clip_image007.png">
+		<div align=center><img width="400" height="59" src="img/Control_clip_image007.png"></div>
 		<div class="Normal" style="text-align:justify">Entonces,</div>
-		<img width="422" height="67" src="img/Control_clip_image008_0000.png">
+		<div align=center><img width="422" height="67" src="img/Control_clip_image008_0000.png"></div>
 		<div><br></div>
 		<div class="Normal" style="text-align:justify">Existen muchas situaciones donde se requiere la función de transferencia para varios elementos en serie. Considere dos elementos en serie como se muestra en la figura.</div>
-		<img width="211" height="63" src="img/Control_clip_image009.png">
-<div class="Normal" style="text-align:justify">Los dos elementos pueden ser un sistema en lazo abierto puesto que no hay lazo de realimentación, o sólo dos elementos en serie de un sistema más grande.</div>
-<div><br></div>
-<div class="Normal" style="text-align:justify">Para el elemento 1 la función de transferencia G1, es la salida Y(s) dividida entre la entrada U(s). Así, </div>
-<img width="79" height="61" src="img/Control_clip_image010.png"></div>
-<div class="Normal" style="text-align:justify">Para el elemento 2 la función de transferencia <em>G2 </em>es la salida V(s)dividida entre la entrada Y(s). Es decir,</span> </div>
-<div class="Normal" style="text-align:justify"><strong>&nbsp;</div>
-<img width="83" height="71" src="img/Control_clip_image011.png"></div>
-<div class="Normal" style="text-align:justify">La función de transferencia global del sistema es la salida V(s)dividida entre la entrada U(s). Pero esto se puede escribir como</div>
-<div><br></div>
-<img width="155" height="73" src="img/Control_clip_image012.png"></div>
-<div class="Normal" style="text-align:justify">Por lo tanto, para el sistema en lazo abierto</div>
-<div><br></div>
-<div><br></div>
-<img width="325" height="29" src="img/Control_clip_image013.png"></div>
-<div><br></div>
-<div class="Normal" style="text-align:justify">La función de transferencia global en lazo abierto es el producto de las funciones de transferencia de los elementos individuales. Esto se aplica a cualquier número de elementos conectados en serie.</div>
-<div><br></div>
-<div class="Normal" style="text-align:justify">Ejemplo</div>
-<div class="Normal" style="text-align:justify">El sistema de medición empleado en un sistema de control consta de dos elementos, un sensor y un acondicionador de señal en serie. Si el sensor tiene una función de transferencia de 0.1 mA/Pa y el acondicionador de señal una función de transferencia de 20, ¿cuál es la función de transferencia del sistema de medición?</div>
-<img width="482" height="73" src="img/Control_clip_image014.png"></div>
-<div class="Normal" style="text-align:justify"><em>Respuesta</span></em></p>
-<div class="Normal" style="text-align:justify">El sensor y el acondicionador de señal están en serie, de modo que la función de transferencia combinada es el producto de las funciones de transferencia de los elementos individuales.</div>
-<div><br></div>
-<img width="420" height="39" src="img/Control_clip_image015.png"></div>
-&nbsp;</div>
-<div class="Normal" style="text-align:justify"><strong>Error en estado estable</div>
-<div class="Normal" style="text-align:justify">El <em>error en estado estable E </em>de un sistema es la diferencia entre la salida del sistema y su entrada cuando las condiciones están en estado estable.</div>
-&nbsp;</div>
-<img width="111" height="31" src="img/Control_clip_image016.png"></div>
-&nbsp;</div>
-<div class="Normal" style="text-align:justify">Puesto que para un sistema con una función de transferencia global G(s)</div>
-<div><br></div>
-<img width="94" height="73" src="img/Control_clip_image017.png"></span> </div>
-<div class="Normal" style="text-align:justify">Entonces,</div>
-<div><br></div>
-<img width="171" height="78" src="img/Control_clip_image018.png"></span> </div>
-<div class="Normal" style="text-align:justify">Para un sistema en lazo abierto con múltiples elementos en serie, el error en estado estable se puede escribir como:</div>
-<div><br></div>
-<img width="247" height="38" src="img/Control_clip_image019.png"></span> </div>
-<div class="Normal" style="text-align:justify">donde <em>G1, G2 y G3 </em>son las funciones de transferencia de los elementos en el sistema.</div>
-<div><br></div>
-<div class="Normal" style="text-align:justify">Para que el error sea cero, <em>G1 G2 G3 </em>deben ser igual a 1. Aunque esto se puede lograr en la preparación o calibración del sistema, es inevitable que se presenten errores en estado estable debido a que las funciones de transferencia cambian como consecuencia de cambios en el entorno del sistema.</div>
-<div><br></div>
-<div class="Normal" style="text-align:justify"><strong>Ejemplo 1:</div>
-<div><br></div>
-<div class="Normal" style="text-align:justify">La siguiente figura muestra un controlador con una función de transferencia de 12 y un motor con una función de transferencia de 0.10 rev/min por V.</div>
-<div><br></div>
-<img width="317" height="80" src="img/Control_clip_image021.jpg"></div>
-<div><br></div>
-<div class="Normal" style="text-align:justify">¿Cuál será el error en estado estable cuando el sistema es un sistema de control en lazo abierto y cómo cambiará el error si, debido a cambios ambientales, la función de transferencia del motor cambia en 10%?</span> </div>
-<div><br></div>
-<div class="Normal" style="text-align:justify">Respuesta:</div>
-<div><br></div>
-<div class="Normal" style="text-align:justify">Antes de que se presente cualquier cambio, el error E, es:</div>
-<div><br></div>
-<div><br></div>
-<img width="216" height="100" src="img/Control_clip_image022.png"></span> </div>
-<div><br></div>
-<div class="Normal" style="text-align:justify">Si hay un cambio de 10% en la función de transferencia del motor, es decir, 0.11 rev/min por V, entonces</div>
-<div><br></div>
-<img width="196" height="66" src="img/Control_clip_image023.png"></div>
-<div><br></div>
-<div class="Normal" style="text-align:justify">El error se ha incrementado en un factor de 1,6.</div>
-<div><br></div>
-<div class="Normal" style="text-align:justify"><strong>&nbsp;</div>
-<div class="Normal" style="text-align:justify"><strong>Efecto de las perturbaciones y estabilidad en el modelamiento de un sistema<strong> </div>
-<div><br></div>
-<div class="Normal" style="text-align:justify">Una consideración importante con un sistema de control es el efecto de cualquier perturbación. De esta manera, en un sistema de calefacción central doméstico con un sistema de control en lazo abierto involucrado, el calefactor se enciende para obtener la temperatura requerida en la habitación, ¿qué ocurrirá si alguien abre la ventana y permite que el aire frío entre en la habitación? Tal perturbación se puede incorporar en el diagrama de bloques del sistema de la forma que muestra la siguiente figura. En este caso, la perturbación P(s)se suma a la salida del proceso. Para tal situación se tiene:</div>
-<div><br></div>
-<img width="532" height="207" src="img/Control_clip_image024.png"></span> </div>
-<div><br></div>
-<div class="Normal" style="text-align:justify">El término P(s)es el error en estado estable adicionado al sistema por la presencia de la perturbación.</div>
-<div class="Normal" style="text-align:justify">Si la perturbación se adiciona al sistema entre los elementos 1 y 2 (como ilustra la siguiente figura, entonces: </div>
-<div><br></div>
-<div><br></div>
-<img width="574" height="234" src="img/Control_clip_image025.png"></span> </div>
-<div><br></div>
-<div class="Normal" style="text-align:justify">El término G2xP(s)es el error en estado estable adicionado al sistema por la presencia de la perturbación.</div>
-<div><br></div>
-<div class="Normal" style="text-align:justify"><strong>Actividad</div>
-<div class="Normal" style="text-align:justify"><strong>&nbsp;</div>
-<div class="Normal" style="text-align:justify">Calcular el error en estado estable para los siguientes sistemas de control en lazo abierto con perturbaciones:</div>
-<p class="Normal" style="margin-bottom:.0001pt;text-align:justify;text-indent:35.4pt;line-height:normal;text-autospace:none;">&nbsp;</div>
-<ol>
- <li><img width="501" height="194" src="img/Control_clip_image026.jpg"></span> </span></li>
-</ol>
-<div><br></div>
-<ol>
- <li><img width="542" height="222" src="img/Control_clip_image027.jpg"></span> </span></li>
-</ol>
-<div class="Normal" style="text-align:justify"><strong>&nbsp;</div>
-<div class="Normal" style="text-align:justify"><strong>Sensibilidad a cambios en los componentes</div>
-<div><br></div>
-<div class="Normal" style="text-align:justify">Con un sistema en lazo abierto la función de transferencia global está dada por la ecuación:</div>
-<div><br></div>
-<strong><img width="412" height="31" src="img/Control_clip_image029.png"><strong><strong> </div>
-<div><br></div>
-<div class="Normal" style="text-align:justify">donde<em>G1, G2 </em>y G3 son las funciones de transferencia de los elementos en el sistema.</div>
-<div><br></div>
-<div class="Normal" style="text-align:justify">Los cambios en las características de estos elementos con el tiempo y las condiciones ambientales pueden resultar en un cambio en la función de transferencia.</div>
-<div class="Normal" style="text-align:justify">Así, por ejemplo, si un elemento es un motor, el incremento de la fricción en los rodamientos resultaría en un decremento en la función de transferencia del motor. Un cambio en la función de transferencia del elemento 1 de </span><img width="36" height="28" src="img/Control_clip_image031.jpg"></span>  significa un cambio en la función de transferencia global para el sistema en lazo abierto de:</div>
-<img width="500" height="46" src="img/Control_clip_image032.png"></span> </div>
-&nbsp;</div>
-<div class="Normal" style="text-align:justify"><strong>Estabilidad de los sistemas de control</div>
-<div class="Normal" style="text-align:justify"><strong>&nbsp;</div>
-<div class="Normal" style="text-align:justify">En términos mecánicos se dice que un sistema está en equilibrio estable, si cuando se le da un empujón, éste regresa a su posición original cuando se deja de empujar. Un ejemplo de esta situación es una bola en reposo sobre un plato esférico. Cuando la bola se empuja, ésta se mueve hacia un lado del plato, pero cuando se deja de empujar, regresa pronto a su posición de reposo al centro del plato. Sin embargo, la posición sería inestable si la bola estuviera en reposo sobre la parte exterior del plato si éste se voltea, cualquier ligero empujón causa que la bola ruede y no regrese a su posición original cuando se deja de empujar.</div>
-<div><br></div>
-<div class="Normal" style="text-align:justify">a) Estable, <em>b) </em>inestable</div>
-<div><br></div>
-<div><br></div>
-<strong><img width="393" height="173" src="img/Control_clip_image034.png"><strong><strong> </div>
-<div><br></div>
-<div class="Normal" style="text-align:justify">En general, se dice que un sistema es estable si cuando está sujeto a una entrada o perturbación acotada entonces la salida es acotada. Una entrada o salida acotada es la que tiene una magnitud finita. Así, en el caso de la bola, la entrada es al inicio cero, seguido de un empujón que no continúa en forma indefinida sino que cesa después de un tiempo. La salida en la condición estable es tal que el empujón causa el movimiento de la bola y que se desplace de su posición de reposo, pero eventualmente el movimiento de la bola cesa y el desplazamiento no continúa incrementándose o cambiando.</div>
-<div class="Normal" style="text-align:justify">En la condición inestable, el desplazamiento de la salida se va incrementando, es decir, una entrada de magnitud finita puede producir una salida que crece sin límite.</div>
-<div><br></div>
-<div class="Normal" style="text-align:justify">La condición para estabilidad también se puede expresar como que un sistema es estable si al aplicarle un impulso la salida regresa eventualmente a cero.</div>
-<div><br></div>
-<div class="Normal" style="text-align:justify">Los sistemas de control en lazo abierto son inherentemente estables. Una entrada finita produce una salida finita y que en forma indefinida no cambia con el tiempo. Al incrementar la función de transferencia de un elemento en tales sistemas no tiene efecto en la estabilidad del propio sistema. Así, para un sistema en lazo abierto denominado horno microondas, el programar y activar el temporizador para calentar un alimento durante 2 minutos dará como resultado un conteo de 120 segundos, no continuará contando de manera indefinida. Al cambiar el tipo de alimento, éste no tiene efecto sobre la estabilidad del sistema.</div>
-<div><br></div>
-<div class="Normal" style="text-align:justify">No obstante, los sistemas en lazo abierto pueden mostrar inestabilidad, que se puede presentar como resultado de tiempos de retardo que ocurren entre el cambio en la variable y la señal de realimentación que resulta de la respuesta del sistema. Un ejemplo de inestabilidad se puede presentar cuando una persona para utilizar la ducha ajusta en forma manual la temperatura del agua mediante una llave mezcladora, la cual permite determinar las cantidades relativas de agua caliente y fría. Suponga que al principio el agua está muy fría. Entonces decide incrementar el elemento agua caliente.</div>
-<div class="Normal" style="text-align:justify">Sin embargo, existe un tiempo de retardo antes de que el agua caliente alcance la salida de la regadera. De este modo, si la persona no espera y sólo responde a la temperatura del agua, continuará incrementando el elemento agua caliente. El resultado será que cuando el agua muy caliente alcance la salida de la regadera se calentará muy rápido. La persona entonces incrementa el elemento agua fría. Una vez más, debido al tiempo de retardo que transcurre antes de que el agua se enfríe a la salida de la regadera, la persona continuará incrementando el elemento agua fría.</div>
-<div class="Normal" style="text-align:justify">El resultado será que cuando el agua fría alcance la salida de la regadera se enfriará muy rápido. Así, el ciclo se repite con el resultado de que la temperatura del agua en la salida de la regadera oscilará ampliamente.</div>
-<strong>SISTEMAS DE CONTROL EN LAZO CERRADO</div>
-<div><br></div>
-<p class="Style5" style="line-height:16.3pt;"><div class="Normal" style="text-align:justify">Con un sistema de control en lazo cerrado se tiene una señal de realimentación hacia la entrada desde la salida, la cual se utiliza para modificar la entrada de modo que la salida se mantenga constante a pesar de los cambios en las condiciones de operación. El sistema de calefacción con el calefactor eléctrico se puede transformar en un sistema en lazo cerrado si alguien con un termómetro monitorea la temperatura en la habitación y enciende o apaga los elementos calefactores de 1 kW o 2 kW para mantener la temperatura de la habitación constante. En esta situación existe la realimentación de una señal a la entrada referente a la temperatura, con lo que la entrada al sistema se ajusta según si su salida es la temperatura requerida. Así, la entrada al calefactor depende de la desviación de la temperatura real con la temperatura requerida.</span></div>
-<p class="Style5" style="line-height:16.3pt;"><img width="449" height="324" src="img/Control_clip_image036.png"><br clear="ALL">
- <div class="Normal" style="text-align:justify"> </span></div>
-<div class="Normal" style="text-align:justify">Para ilustrar las diferencias adicionales entre los sistemas en lazo abierto y en lazo cerrado, considere un motor. Con un sistema en lazo abierto, la velocidad angular en el eje del motor se podría determinar sólo por la posición inicial de la perilla de selección de velocidad, que afecta al voltaje aplicado al motor. Aquí no se compensan los cambios en el voltaje de alimentación, ni en las características del motor debidas a variaciones en la temperatura o los cambios de velocidad en el eje debidos a variación de carga mecánica, ya que no existe lazo de realimentación. Por otro lado, en un sistema en lazo cerrado la posición inicial de la perilla de control tiene una velocidad específica del eje y ésta se mantiene mediante realimentación, a pesar de los cambios en el voltaje de alimentación, las características de motor o de la carga. En un sistema de control en lazo abierto la salida del sistema no tiene efecto sobre la señal de entrada. En un sistema de control en lazo cerrado la salida sí tiene un efecto sobre la señal de entrada, y la modifica para mantener una señal de salida en el valor </div>requerido.</div>
-<div><br></div>
-Los sistemas en lazo cerrado tienen la ventaja de ser capaces de igualar los valores reales a los requeridos. No obstante, si existen retrasos en el sistema pueden surgir problemas. Dichos retrasos propician que la acción correctiva requerida llegue </span>demasiado tarde, y como consecuencia, se obtienen oscilaciones en la entrada e inestabilidad (como se verá más adelante). Los sistemas en lazo cerrado son más complicados que aquellos en lazo abierto y más costosos con una gran posibilidad de descomposturas debidas a la gran cantidad de componentes. Más adelante se estudian las ventajas de los sistemas en lazo cerrado respecto a la minimización de los efectos de cambios en las relaciones entrada-salida de los elementos del sistema como resultado de los cambios en el medio y los efectos delas perturbaciones sobre el sistema.</div>
-<div class="Normal" style="text-align:justify"><strong>Características</div>
-Las ventajas de tener una trayectoria de realimentación y, por lo tanto, un sistema en lazo cerrado en lugar de un sistema en lazo abierto se pueden resumir de la manera siguiente:</div>
-<div class="Normal" style="text-align:justify">1. Más exacto en la igualación de los valores real y requerido para la variable.</div>
-2. Menos sensible a las perturbaciones.</div>
-3. Menos sensible a cambios en las características de los componentes.</div>
-4. La velocidad de respuesta se incrementa y, por lo tanto, el ancho de banda es mayor, es decir, el intervalo de frecuencias en los que el sistema responderá.</div>
-Pero hay algunas desventajas:</div>
-1. Hay una pérdida en la ganancia en cuanto a que la función de transferencia de un sistema en lazo abierto, se reduce de G a G/(1 +GH) por una trayectoria de realimentación con una función de transferencia H.</div>
-2. Existe una gran posibilidad de inestabilidad.</div>
-3. El sistema es más complejo y, por lo tanto, no sólo más caro, sino más propenso a descomposturas.</div>
-<strong>Elementos de un sistema de control en lazo cerrado</div>
-<div class="Normal" style="text-align:justify">Se puede considerar que un sistema en lazo cerrado consiste en algunos subsistemas básicos ordenados como muestra la figura:</div>
-<p style="text-align:center;"><img width="701" height="220" src="img/Control_clip_image037.png"></div>
-<div class="Normal" style="text-align:justify">Estos elementos pueden ser partes distintas o equipos separados, pero todas las funciones de los subsistemas estarán presentes. La entrada global al sistema de control es el valor requerido de la variable y la salida es el valor real de la variable.</div>
-<div><br></div>
-<div class="Normal" style="text-align:justify"><strong>Señal de referencia o consigna: <strong>Es una señal externa de  control con la cual imponemos el valor deseado en la señal de salida. Un ejemplo de generador de referencia es el selector de temperatura en el control de temperatura de una nevera. La señal de referencia es una posición de la perilla, que está directamente relacionada con la variable de salida que es la temperatura.</div>
-<div class="Normal" style="text-align:justify"><strong>Elemento de comparación<strong>: Este elemento compara el valor requerido o de referencia de la variable por controlar con el valor medido de lo que se obtiene a la salida, y produce una señal de error la cual indica la diferencia del valor obtenido a la salida y el valor requerido:</div>
-<div class="Normal" style="text-align:justify">Señal de error = señal del valor de referencia- señal del valor medido</span><strong> </div>
-<strong>Elemento de control:<strong> </span>Este elemento </span>determina qué acción se va a tomar dada una entrada al sistema de control y </span>decide qué acción tomar cuando se recibe una señal de error. A menudo se utiliza el término controladorpara un elemento que incorpora el elemento de control y la unidad de corrección</span><strong> </div>
-<strong>Elemento de corrección:<strong> Este elemento responde a la entrada que viene del elemento de control e inicia la acción para producir el cambio en la variable controlada al valor requerido.</div>
-<div class="Normal" style="text-align:justify"><strong>Planta:<strong> El proceso o planta es el sistema en el que se va a controlar la variable.</div>
-<strong>Perturbaciones:<strong> se producen de forma imprevista y provocan una desviación de la señal real respecto de la señal deseada. Pueden ser internas, que dependen del propio sistema como puede ser el envejecimiento de componentes, o externas como, por ejemplo, la apertura de una  ventana en un recinto que se está climatizando.</div>
-<div class="Normal" style="text-align:justify"><strong>Señal de salida o respuesta: <strong>Es el valor real en cada instante que toma la señal que pretendemos controlar.</div>
-<strong>Elemento de medición<strong>: Este elemento produce una señal relacionada con la condición de la variable controlada, y proporciona la señal de realimentación al elemento de comparación para determinar si hay o no error.</div>
-Una característica necesaria de un sistema de control en lazo cerrado es el lazo de</span> realimentación. Este es el medio a través del cual una señal relacionada con la variable real obtenida se realimenta para compararse con la señal de referencia. Se</span> </span>dice que se tiene realimentación negativa cuando la señal realimentada se sustrae del valor de referencia, esto es,</div>
-Señal de error = valor de referencia - señal de realimentación</div>
-<div class="Normal" style="text-align:justify">La realimentación negativa es necesaria para que logre el control. La realimentación positiva se presenta cuando la señal realimentada se adiciona al valor de referencia, esto es,</div>
-<div class="Normal" style="text-align:justify">Señal de error = valor de referencia + señal de realimentación</div>
-<div class="Normal" style="text-align:justify">En la figura la señal de realimentación se combina con el valor de referencia en el elemento de comparación. El elemento de comparación se indica mediante un círculo con una cruz, éste es el símbolo genérico para indicar un elemento de suma. Cuando en el elemento de comparación hay realimentación negativa, el valor de referencia se marca como una señal positiva y la señal de realimentación como negativa de modo que la salida del elemento de comparación es la diferencia entre las señales. Si hubiera realimentación positiva en el elemento de suma, entonces ambas señales deben marcarse como positivas.</div>
-Para ilustrar esta presentación de los elementos de un sistema de control, considere el sistema de control estudiado al principio con la, donde se controló la temperatura de una habitación mediante una persona que encendía y apagaba el elemento calefactor de acuerdo a si la temperatura de la habitación dada por un termómetro tenía o no el valor requerido figura 2.5. Los elementos de este sistema de control son:</div>
-<div><br></div>
-Variable controlada - temperatura de la habitación</div>
-Valor de referencia - temperatura requerida en la habitación</div>
-Elemento de comparación - persona que compara el valor medido y la</div>
-temperatura requerida</div>
-Señal de error - diferencia entre la temperatura requerida y la</div>
-medida</div>
-Elemento de control - la persona</div>
-Elemento de corrección - mano que opera el encendido del elemento calefactor</div>
-Proceso - habitación</div>
-Dispositivo de medición - termómetro</div>
-<div class="Normal" style="text-align:justify">Realimentación – negativa</div>
-<div><br></div>
-<strong>Estrategias de control en lazo cerrado</div>
-<div><br></div>
-Con sistemas de control en lazo cerrado los tipos de control son a menudo el control de dos posiciones, el control proporcional o el control proporcional combinado con algún otro refinamiento. Con el modo de control de dos posiciones, la señal de error de entrada al elemento de control es una salida de encendido o de apagado, que se utiliza para encender o apagar al elemento de corrección. Así, en el caso del sistema de calefacción central doméstico controlado por un termostato, éste produce una salida que enciende o apaga el calefactor según el error. Si la temperatura de la habitación baja de cierto valor, entonces el termostato enciende el calefactor; si por el contrario, la temperatura rebasa el valor fijado, el calefactor se apaga.</div>
-<div class="Normal" style="text-align:justify">Con el control proporcional la salida del elemento de control es una señal, la cual es proporcional al error: cuanto mayor sea el error mayor será la salida. Esto significa que el elemento de corrección recibirá una señal que depende de la magnitud de la corrección que se necesite. En la figura 3.3 se muestra un ejemplo de tal sistema de control para mantener constante el nivel de un líquido. Los cambios en el nivel producen un movimiento del flotador y, por lo tanto del brazo móvil que lo sostiene. A su vez, esto cambia la apertura de la válvula y afecta la tasa a la que el líquido sale del tanque. Cuanto mayor sea el error en el nivel del líquido mayor será el cambio en la apertura de la válvula. Debido a que el control proporcional por sí solo puede presentar algunos problemas, con frecuencia se combina con otras formas de control. Existe el <em>control derivativo, </em>donde la salida es proporcional a la razón de cambio de la señal de error, y el <em>control integral, </em>donde la salida en el tiempo / es proporcional a la integral de la señal de error entre <em>t </em>= 0 y <em>t. </em>Un ejemplo sencillo del control proporcional derivativo es un vehículo automático donde el controlador toma acciones basadas no sólo en el conocimiento de la posición del vehículo, sino también de su velocidad, es decir, la razón de cambio de la distancia. Con sólo el control proporcional, el controlador da nada más una respuesta en proporción a la magnitud del error de la posición requerida.</div>
-No toma en cuenta la rapidez del cambio del error. El control derivativo sí lo hace. Así, si el vehículo se empieza a mover alejándose rápido de la trayectoria requerida, con el control derivativo habrá una acción correctiva mucho mayor que si el vehículo se alejara lentamente de la trayectoria requerida. De este modo, la combinación del control proporcional derivativo toma en cuenta más rápido las desviaciones de la trayectoria requerida y las corrige.</div>
-</body>
+		<div align=center><img width="211" height="63" src="img/Control_clip_image009.png"></div>
+		<div class="Normal" style="text-align:justify">Los dos elementos pueden ser un sistema en lazo abierto puesto que no hay lazo de realimentación, o sólo dos elementos en serie de un sistema más grande.</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Para el elemento 1 la función de transferencia G1, es la salida Y(s) dividida entre la entrada U(s). Así, </div>
+		<div align=center><img width="79" height="61" src="img/Control_clip_image010.png"></div>
+		<div class="Normal" style="text-align:justify">Para el elemento 2 la función de transferencia <em>G2 </em>es la salida V(s)dividida entre la entrada Y(s). Es decir,</div>
+		<div><br></div>
+		<div align=center><img width="83" height="71" src="img/Control_clip_image011.png"></div>
+		<div class="Normal" style="text-align:justify">La función de transferencia global del sistema es la salida V(s)dividida entre la entrada U(s). Pero esto se puede escribir como</div>
+		<div><br></div>
+		<div align=center><img width="155" height="73" src="img/Control_clip_image012.png"></div>
+		<div class="Normal" style="text-align:justify">Por lo tanto, para el sistema en lazo abierto</div>
+		<div><br></div>
+		<div><br></div>
+		<div align=center><img width="325" height="29" src="img/Control_clip_image013.png"></div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">La función de transferencia global en lazo abierto es el producto de las funciones de transferencia de los elementos individuales. Esto se aplica a cualquier número de elementos conectados en serie.</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Ejemplo</div>
+		<div class="Normal" style="text-align:justify">El sistema de medición empleado en un sistema de control consta de dos elementos, un sensor y un acondicionador de señal en serie. Si el sensor tiene una función de transferencia de 0.1 mA/Pa y el acondicionador de señal una función de transferencia de 20, ¿cuál es la función de transferencia del sistema de medición?</div>
+		<div align=center><img width="482" height="73" src="img/Control_clip_image014.png"></div>
+		<div class="Normal" style="text-align:justify"><em>Respuesta</em></div>
+		<div class="Normal" style="text-align:justify">El sensor y el acondicionador de señal están en serie, de modo que la función de transferencia combinada es el producto de las funciones de transferencia de los elementos individuales.</div>
+		<div><br></div>
+		<div align=center><img width="420" height="39" src="img/Control_clip_image015.png"></div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Error en estado estable</div>
+		<div class="Normal" style="text-align:justify">El <em>error en estado estable E </em>de un sistema es la diferencia entre la salida del sistema y su entrada cuando las condiciones están en estado estable.</div>
+		<div><br></div>
+		<div align=center><img width="111" height="31" src="img/Control_clip_image016.png"></div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Puesto que para un sistema con una función de transferencia global G(s)</div>
+		<div><br></div>
+		<div align=center><img width="94" height="73" src="img/Control_clip_image017.png"></div>
+		<div class="Normal" style="text-align:justify">Entonces,</div>
+		<div><br></div>
+		<div align=center><img width="171" height="78" src="img/Control_clip_image018.png"></div>
+		<div class="Normal" style="text-align:justify">Para un sistema en lazo abierto con múltiples elementos en serie, el error en estado estable se puede escribir como:</div>
+		<div><br></div>
+		<div align=center><img width="247" height="38" src="img/Control_clip_image019.png"></div>
+		<div class="Normal" style="text-align:justify">donde <em>G1, G2 y G3 </em>son las funciones de transferencia de los elementos en el sistema.</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Para que el error sea cero, <em>G1 G2 G3 </em>deben ser igual a 1. Aunque esto se puede lograr en la preparación o calibración del sistema, es inevitable que se presenten errores en estado estable debido a que las funciones de transferencia cambian como consecuencia de cambios en el entorno del sistema.</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Ejemplo 1:</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">La siguiente figura muestra un controlador con una función de transferencia de 12 y un motor con una función de transferencia de 0.10 rev/min por V.</div>
+		<div><br></div>
+		<div align=center><img width="317" height="80" src="img/Control_clip_image021.jpg"></div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">¿Cuál será el error en estado estable cuando el sistema es un sistema de control en lazo abierto y cómo cambiará el error si, debido a cambios ambientales, la función de transferencia del motor cambia en 10%?</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Respuesta:</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Antes de que se presente cualquier cambio, el error E, es:</div>
+		<div><br></div>
+		<div align=center><img width="216" height="100" src="img/Control_clip_image022.png"></div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Si hay un cambio de 10% en la función de transferencia del motor, es decir, 0.11 rev/min por V, entonces</div>
+		<div><br></div>
+		<div align=center><img width="196" height="66" src="img/Control_clip_image023.png"></div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">El error se ha incrementado en un factor de 1,6.</div>
+		<div><br></div>
+		<div><br></div>
+		<div class="Bold" style="text-align:justify">Efecto de las perturbaciones y estabilidad en el modelamiento de un sistema</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Una consideración importante con un sistema de control es el efecto de cualquier perturbación. De esta manera, en un sistema de calefacción central doméstico con un sistema de control en lazo abierto involucrado, el calefactor se enciende para obtener la temperatura requerida en la habitación, ¿qué ocurrirá si alguien abre la ventana y permite que el aire frío entre en la habitación? Tal perturbación se puede incorporar en el diagrama de bloques del sistema de la forma que muestra la siguiente figura. En este caso, la perturbación P(s)se suma a la salida del proceso. Para tal situación se tiene:</div>
+		<div><br></div>
+		<div align=center><img width="532" height="207" src="img/Control_clip_image024.png"></div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">El término P(s)es el error en estado estable adicionado al sistema por la presencia de la perturbación.</div>
+		<div class="Normal" style="text-align:justify">Si la perturbación se adiciona al sistema entre los elementos 1 y 2 (como ilustra la siguiente figura, entonces:</div>
+		<div><br></div>
+		<div align=center><img width="574" height="234" src="img/Control_clip_image025.png"></div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">El término G2xP(s)es el error en estado estable adicionado al sistema por la presencia de la perturbación.</div>
+		<div><br></div>
+		<div class="Bold" style="text-align:justify">Actividad</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Calcular el error en estado estable para los siguientes sistemas de control en lazo abierto con perturbaciones:</div>
+		<div><br></div>
+		<div align=center><img width="501" height="194" src="img/Control_clip_image026.jpg"></div>
+		<div><br></div>
+		<div align=center><img width="542" height="222" src="img/Control_clip_image027.jpg"></div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Sensibilidad a cambios en los componentes</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Con un sistema en lazo abierto la función de transferencia global está dada por la ecuación:</div>
+		<div><br></div>
+		<div align=center><img width="412" height="31" src="img/Control_clip_image029.png"></div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">donde<em>G1, G2 </em>y G3 son las funciones de transferencia de los elementos en el sistema.</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Los cambios en las características de estos elementos con el tiempo y las condiciones ambientales pueden resultar en un cambio en la función de transferencia.</div>
+		<div class="Normal" style="text-align:justify">Así, por ejemplo, si un elemento es un motor, el incremento de la fricción en los rodamientos resultaría en un decremento en la función de transferencia del motor. Un cambio en la función de transferencia del elemento 1 de <img width="36" height="28" src="img/Control_clip_image031.jpg"> significa un cambio en la función de transferencia global para el sistema en lazo abierto de:</div>
+		<div align=center><img width="500" height="46" src="img/Control_clip_image032.png"></div>
+		<div><br></div>
+		<div class="Bold" style="text-align:justify">Estabilidad de los sistemas de control</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">En términos mecánicos se dice que un sistema está en equilibrio estable, si cuando se le da un empujón, éste regresa a su posición original cuando se deja de empujar. Un ejemplo de esta situación es una bola en reposo sobre un plato esférico. Cuando la bola se empuja, ésta se mueve hacia un lado del plato, pero cuando se deja de empujar, regresa pronto a su posición de reposo al centro del plato. Sin embargo, la posición sería inestable si la bola estuviera en reposo sobre la parte exterior del plato si éste se voltea, cualquier ligero empujón causa que la bola ruede y no regrese a su posición original cuando se deja de empujar.</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">a) Estable, <em>b) </em>inestable</div>
+		<div><br></div>
+		<div align=center><img width="393" height="173" src="img/Control_clip_image034.png"></div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">En general, se dice que un sistema es estable si cuando está sujeto a una entrada o perturbación acotada entonces la salida es acotada. Una entrada o salida acotada es la que tiene una magnitud finita. Así, en el caso de la bola, la entrada es al inicio cero, seguido de un empujón que no continúa en forma indefinida sino que cesa después de un tiempo. La salida en la condición estable es tal que el empujón causa el movimiento de la bola y que se desplace de su posición de reposo, pero eventualmente el movimiento de la bola cesa y el desplazamiento no continúa incrementándose o cambiando.</div>
+		<div class="Normal" style="text-align:justify">En la condición inestable, el desplazamiento de la salida se va incrementando, es decir, una entrada de magnitud finita puede producir una salida que crece sin límite.</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">La condición para estabilidad también se puede expresar como que un sistema es estable si al aplicarle un impulso la salida regresa eventualmente a cero.</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Los sistemas de control en lazo abierto son inherentemente estables. Una entrada finita produce una salida finita y que en forma indefinida no cambia con el tiempo. Al incrementar la función de transferencia de un elemento en tales sistemas no tiene efecto en la estabilidad del propio sistema. Así, para un sistema en lazo abierto denominado horno microondas, el programar y activar el temporizador para calentar un alimento durante 2 minutos dará como resultado un conteo de 120 segundos, no continuará contando de manera indefinida. Al cambiar el tipo de alimento, éste no tiene efecto sobre la estabilidad del sistema.</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">No obstante, los sistemas en lazo abierto pueden mostrar inestabilidad, que se puede presentar como resultado de tiempos de retardo que ocurren entre el cambio en la variable y la señal de realimentación que resulta de la respuesta del sistema. Un ejemplo de inestabilidad se puede presentar cuando una persona para utilizar la ducha ajusta en forma manual la temperatura del agua mediante una llave mezcladora, la cual permite determinar las cantidades relativas de agua caliente y fría. Suponga que al principio el agua está muy fría. Entonces decide incrementar el elemento agua caliente.</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Sin embargo, existe un tiempo de retardo antes de que el agua caliente alcance la salida de la regadera. De este modo, si la persona no espera y sólo responde a la temperatura del agua, continuará incrementando el elemento agua caliente. El resultado será que cuando el agua muy caliente alcance la salida de la regadera se calentará muy rápido. La persona entonces incrementa el elemento agua fría. Una vez más, debido al tiempo de retardo que transcurre antes de que el agua se enfríe a la salida de la regadera, la persona continuará incrementando el elemento agua fría.</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">El resultado será que cuando el agua fría alcance la salida de la regadera se enfriará muy rápido. Así, el ciclo se repite con el resultado de que la temperatura del agua en la salida de la regadera oscilará ampliamente.</div>
+		<div><br></div>
+		<div class="Bold" style="text-align:justify">SISTEMAS DE CONTROL EN LAZO CERRADO</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Con un sistema de control en lazo cerrado se tiene una señal de realimentación hacia la entrada desde la salida, la cual se utiliza para modificar la entrada de modo que la salida se mantenga constante a pesar de los cambios en las condiciones de operación. El sistema de calefacción con el calefactor eléctrico se puede transformar en un sistema en lazo cerrado si alguien con un termómetro monitorea la temperatura en la habitación y enciende o apaga los elementos calefactores de 1 kW o 2 kW para mantener la temperatura de la habitación constante. En esta situación existe la realimentación de una señal a la entrada referente a la temperatura, con lo que la entrada al sistema se ajusta según si su salida es la temperatura requerida. Así, la entrada al calefactor depende de la desviación de la temperatura real con la temperatura requerida.</div>
+		<div align=center><img width="449" height="324" src="img/Control_clip_image036.png"></div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Para ilustrar las diferencias adicionales entre los sistemas en lazo abierto y en lazo cerrado, considere un motor. Con un sistema en lazo abierto, la velocidad angular en el eje del motor se podría determinar sólo por la posición inicial de la perilla de selección de velocidad, que afecta al voltaje aplicado al motor. Aquí no se compensan los cambios en el voltaje de alimentación, ni en las características del motor debidas a variaciones en la temperatura o los cambios de velocidad en el eje debidos a variación de carga mecánica, ya que no existe lazo de realimentación. Por otro lado, en un sistema en lazo cerrado la posición inicial de la perilla de control tiene una velocidad específica del eje y ésta se mantiene mediante realimentación, a pesar de los cambios en el voltaje de alimentación, las características de motor o de la carga. En un sistema de control en lazo abierto la salida del sistema no tiene efecto sobre la señal de entrada. En un sistema de control en lazo cerrado la salida sí tiene un efecto sobre la señal de entrada, y la modifica para mantener una señal de salida en el valor requerido.</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Los sistemas en lazo cerrado tienen la ventaja de ser capaces de igualar los valores reales a los requeridos. No obstante, si existen retrasos en el sistema pueden surgir problemas. Dichos retrasos propician que la acción correctiva requerida llegue demasiado tarde, y como consecuencia, se obtienen oscilaciones en la entrada e inestabilidad (como se verá más adelante). Los sistemas en lazo cerrado son más complicados que aquellos en lazo abierto y más costosos con una gran posibilidad de descomposturas debidas a la gran cantidad de componentes. Más adelante se estudian las ventajas de los sistemas en lazo cerrado respecto a la minimización de los efectos de cambios en las relaciones entrada-salida de los elementos del sistema como resultado de los cambios en el medio y los efectos delas perturbaciones sobre el sistema.</div>
+		<div><br></div>
+		<div class="Bold" style="text-align:justify">Características</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Las ventajas de tener una trayectoria de realimentación y, por lo tanto, un sistema en lazo cerrado en lugar de un sistema en lazo abierto se pueden resumir de la manera siguiente:</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">1. Más exacto en la igualación de los valores real y requerido para la variable.</div>
+		<div class="Normal" style="text-align:justify">2. Menos sensible a las perturbaciones.</div>
+		<div class="Normal" style="text-align:justify">3. Menos sensible a cambios en las características de los componentes.</div>
+		<div class="Normal" style="text-align:justify">4. La velocidad de respuesta se incrementa y, por lo tanto, el ancho de banda es mayor, es decir, el intervalo de frecuencias en los que el sistema responderá.</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Pero hay algunas desventajas:</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">1. Hay una pérdida en la ganancia en cuanto a que la función de transferencia de un sistema en lazo abierto, se reduce de G a G/(1 +GH) por una trayectoria de realimentación con una función de transferencia H.</div>
+		<div class="Normal" style="text-align:justify">2. Existe una gran posibilidad de inestabilidad.</div>
+		<div class="Normal" style="text-align:justify">3. El sistema es más complejo y, por lo tanto, no sólo más caro, sino más propenso a descomposturas.</div>
+		<div><br></div>
+		<div class="Bold" style="text-align:justify">Elementos de un sistema de control en lazo cerrado</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Se puede considerar que un sistema en lazo cerrado consiste en algunos subsistemas básicos ordenados como muestra la figura:</div>
+		<div><br></div>
+		<div align=center><img width="701" height="220" src="img/Control_clip_image037.png"></div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Estos elementos pueden ser partes distintas o equipos separados, pero todas las funciones de los subsistemas estarán presentes. La entrada global al sistema de control es el valor requerido de la variable y la salida es el valor real de la variable.</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify"><strong>Señal de referencia o consigna: </strong>Es una señal externa de  control con la cual imponemos el valor deseado en la señal de salida. Un ejemplo de generador de referencia es el selector de temperatura en el control de temperatura de una nevera. La señal de referencia es una posición de la perilla, que está directamente relacionada con la variable de salida que es la temperatura.</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify"><strong>Elemento de comparación</strong>: Este elemento compara el valor requerido o de referencia de la variable por controlar con el valor medido de lo que se obtiene a la salida, y produce una señal de error la cual indica la diferencia del valor obtenido a la salida y el valor requerido:</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify"><strong>Señal de error</strong> = señal del valor de referencia - señal del valor medido</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify"><strong>Elemento de control:</strong> Este elemento determina qué acción se va a tomar dada una entrada al sistema de control y decide qué acción tomar cuando se recibe una señal de error. A menudo se utiliza el término controladorpara un elemento que incorpora el elemento de control y la unidad de corrección</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify"><strong>Elemento de corrección:</strong> Este elemento responde a la entrada que viene del elemento de control e inicia la acción para producir el cambio en la variable controlada al valor requerido.</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify"><strong>Planta:</strong> El proceso o planta es el sistema en el que se va a controlar la variable.</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify"><strong>Perturbaciones:</strong> se producen de forma imprevista y provocan una desviación de la señal real respecto de la señal deseada. Pueden ser internas, que dependen del propio sistema como puede ser el envejecimiento de componentes, o externas como, por ejemplo, la apertura de una  ventana en un recinto que se está climatizando.</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify"><strong>Señal de salida o respuesta: </strong>Es el valor real en cada instante que toma la señal que pretendemos controlar.</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify"><strong>Elemento de medición</strong>: Este elemento produce una señal relacionada con la condición de la variable controlada, y proporciona la señal de realimentación al elemento de comparación para determinar si hay o no error.</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Una característica necesaria de un sistema de control en lazo cerrado es el lazo de realimentación. Este es el medio a través del cual una señal relacionada con la variable real obtenida se realimenta para compararse con la señal de referencia. Se dice que se tiene realimentación negativa cuando la señal realimentada se sustrae del valor de referencia, esto es,</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Señal de error = valor de referencia - señal de realimentación</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">La realimentación negativa es necesaria para que logre el control. La realimentación positiva se presenta cuando la señal realimentada se adiciona al valor de referencia, esto es,</div>
+		<div class="Normal" style="text-align:justify">Señal de error = valor de referencia + señal de realimentación</div>
+		<div class="Normal" style="text-align:justify">En la figura la señal de realimentación se combina con el valor de referencia en el elemento de comparación. El elemento de comparación se indica mediante un círculo con una cruz, éste es el símbolo genérico para indicar un elemento de suma. Cuando en el elemento de comparación hay realimentación negativa, el valor de referencia se marca como una señal positiva y la señal de realimentación como negativa de modo que la salida del elemento de comparación es la diferencia entre las señales. Si hubiera realimentación positiva en el elemento de suma, entonces ambas señales deben marcarse como positivas.</div>
+		<div class="Normal" style="text-align:justify">Para ilustrar esta presentación de los elementos de un sistema de control, considere el sistema de control estudiado al principio con la, donde se controló la temperatura de una habitación mediante una persona que encendía y apagaba el elemento calefactor de acuerdo a si la temperatura de la habitación dada por un termómetro tenía o no el valor requerido figura 2.5. Los elementos de este sistema de control son:</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Variable controlada: temperatura de la habitación</div>
+		<div class="Normal" style="text-align:justify">Valor de referencia: temperatura requerida en la habitación</div>
+		<div class="Normal" style="text-align:justify">Elemento de comparación: persona que compara el valor medido y la temperatura requerida</div>
+		<div class="Normal" style="text-align:justify">Señal de error: diferencia entre la temperatura requerida y la medida</div>
+		<div class="Normal" style="text-align:justify">Elemento de control: la persona</div>
+		<div class="Normal" style="text-align:justify">Elemento de corrección: mano que opera el encendido del elemento calefactor</div>
+		<div class="Normal" style="text-align:justify">Proceso: habitación</div>
+		<div class="Normal" style="text-align:justify">Dispositivo de medición: termómetro</div>
+		<div class="Normal" style="text-align:justify">Realimentación: negativa</div>
+		<div><br></div>
+		<div class="Bold" style="text-align:justify">Estrategias de control en lazo cerrado</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Con sistemas de control en lazo cerrado los tipos de control son a menudo el control de dos posiciones, el control proporcional o el control proporcional combinado con algún otro refinamiento. Con el modo de control de dos posiciones, la señal de error de entrada al elemento de control es una salida de encendido o de apagado, que se utiliza para encender o apagar al elemento de corrección. Así, en el caso del sistema de calefacción central doméstico controlado por un termostato, éste produce una salida que enciende o apaga el calefactor según el error. Si la temperatura de la habitación baja de cierto valor, entonces el termostato enciende el calefactor; si por el contrario, la temperatura rebasa el valor fijado, el calefactor se apaga.</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Con el control proporcional la salida del elemento de control es una señal, la cual es proporcional al error: cuanto mayor sea el error mayor será la salida. Esto significa que el elemento de corrección recibirá una señal que depende de la magnitud de la corrección que se necesite. En la figura 3.3 se muestra un ejemplo de tal sistema de control para mantener constante el nivel de un líquido. Los cambios en el nivel producen un movimiento del flotador y, por lo tanto del brazo móvil que lo sostiene. A su vez, esto cambia la apertura de la válvula y afecta la tasa a la que el líquido sale del tanque. Cuanto mayor sea el error en el nivel del líquido mayor será el cambio en la apertura de la válvula. Debido a que el control proporcional por sí solo puede presentar algunos problemas, con frecuencia se combina con otras formas de control. Existe el <em>control derivativo, </em>donde la salida es proporcional a la razón de cambio de la señal de error, y el <em>control integral, </em>donde la salida en el tiempo / es proporcional a la integral de la señal de error entre <em>t </em>= 0 y <em>t. </em>Un ejemplo sencillo del control proporcional derivativo es un vehículo automático donde el controlador toma acciones basadas no sólo en el conocimiento de la posición del vehículo, sino también de su velocidad, es decir, la razón de cambio de la distancia. Con sólo el control proporcional, el controlador da nada más una respuesta en proporción a la magnitud del error de la posición requerida.</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">No toma en cuenta la rapidez del cambio del error. El control derivativo sí lo hace. Así, si el vehículo se empieza a mover alejándose rápido de la trayectoria requerida, con el control derivativo habrá una acción correctiva mucho mayor que si el vehículo se alejara lentamente de la trayectoria requerida. De este modo, la combinación del control proporcional derivativo toma en cuenta más rápido las desviaciones de la trayectoria requerida y las corrige.</div>
+	</body>
 </html>
