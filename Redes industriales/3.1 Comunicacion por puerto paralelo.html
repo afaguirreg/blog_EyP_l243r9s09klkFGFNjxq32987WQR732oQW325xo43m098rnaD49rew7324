@@ -11,141 +11,73 @@
 		<div class="Bold" style="text-align:justify">COMUNICACIÓN POR PUERTO PARALELO</div>
 		<div><br></div>
 		<div class="Normal" style="text-align:justify">El puerto paralelo o interfaz paralela se utiliza para la comunicación en los ordenadores desde los primeros 80ª. La impresora es el dispositivo donde se encuentra un mayor uso de esta interfaz.</div>
+		<div><br></div>
 		<div class="Normal" style="text-align:justify">Este es un puerto al cual podemos conectar dispositivos que soportan transmisión en paralelo, y son capaces de enviar / recibir múltiples señales al tiempo.</div>
+		<div><br></div>
 		<div class="Normal" style="text-align:justify">En un PC se utiliza como conector hembra de 25 pines.</div>
+		<div><br></div>
 		<div class="Normal" style="text-align:justify">La interconexión entre dos computadores a través del puerto paralelo posibilita un intercambio de información de una forma más rápida que a través del puerto serie debido a que se produce una transferencia de datos de byte en byte en lugar de ser de bit en bit (1 byte = 8 bits).</div>
-		<div class="Normal" style="text-align:justify">En un esquema de transmisión de datos en <b>paralelo  </b>un dispositivo envía datos a otro a una tasa de <i>n </i>número de bits a través de <i>n </i>número de cables a un tiempo. Sería fácil pensar que un sistema en <i>paralelo </i>es <i>n </i>veces más rápido que un sistema en <i>serie</i>, sin embargo esto no se cumple, básicamente el impedimento principal es el tipo de cable que se utiliza para interconectar los equipos. Si bien un sistema de comunicación en paralelo puede utilizar cualquier número de cables para transmitir datos, la mayoría de los sistemas paralelos utilizan ocho líneas de datos para transmitir un byte a la vez, como en todo, existen excepciones, por ejemplo el estándar SCSI permite transferencia de datos en esquemas que van desde los ocho bits y hasta los treinta y dos bits en paralelo</div>
+		<div class="Normal" style="text-align:justify">En un esquema de transmisión de datos en <b>paralelo </b>un dispositivo envía datos a otro a una tasa de <i>n </i>número de bits a través de <i>n </i>número de cables a un tiempo. Sería fácil pensar que un sistema en <i>paralelo </i>es <i>n </i>veces más rápido que un sistema en <i>serie</i>, sin embargo esto no se cumple, básicamente el impedimento principal es el tipo de cable que se utiliza para interconectar los equipos. Si bien un sistema de comunicación en paralelo puede utilizar cualquier número de cables para transmitir datos, la mayoría de los sistemas paralelos utilizan ocho líneas de datos para transmitir un byte a la vez, como en todo, existen excepciones, por ejemplo el estándar SCSI permite transferencia de datos en esquemas que van desde los ocho bits y hasta los treinta y dos bits en paralelo</div>
+		<div><br></div>
 		<div class="Normal" style="text-align:justify">Un típico sistema de comunicación en paralelo puede ser de una dirección (<i>unidireccional</i>) o de dos direcciones (<i>bidireccional</i>). El más simple mecanismo utilizado en un puerto paralelo de una PC es de tipo unidireccional y es el que analizaremos en primer lugar.</div>
-<P class="Normal" 
-style="text-align: justify; -ms-text-autospace:;">Distinguimos dos 
-elementos: La <i>parte transmisora </i>y la <i>parte receptora</i>. La 
-parte transmisora coloca la información en las <i>líneas de datos </i>e informa 
- a la parte receptora que la información (los datos) están disponibles; 
-entonces la parte receptora lee la información en las líneas de datos e 
-informa a la parte transmisora que ha tomado la información (los datos). Se 
-puede observar que ambas partes sincronizan su respectivo acceso a las 
-líneas de datos, la parte receptora no leerá las líneas de datos hasta que 
-la parte transmisora se lo indique en tanto que la parte transmisora no 
-colocará nueva información en las líneas de datos hasta que la parte 
-receptora remueva la información y le indique a la parte transmisora que ya 
-ha tomado los datos, a ésta coordinación de operaciones se le llama 
-<i>acuerdo </i>ó <i>entendimiento </i>(<b>handshaking </b>). Bien, en éstos 
-ámbitos tecnológicos es recomendable utilizar ciertas palabras en inglés 
-que nos permiten irónicamente un mejor entendimiento de los conceptos 
-tratados.</P>
-<div class="Normal" style="text-align:justify"><b>El 
- handshaking </b></P>
-<div class="Normal" style="text-align:justify">Para implementar el <i>handshaking </i>se requieren dos líneas adicionales. La línea de <b>estroboscopio  </b>(en inglés <i>strobe</i>) es la que utiliza la parte transmisora para indicarle a la parte receptora la disponibilidad de 
- información. La línea de <b>admisión  </b>(<i>acknowledge</i>) es la que 
-utiliza la parte receptora para indicarle a la parte transmisora que ha 
-tomado la información (los datos) y que está lista para recibir más datos. 
-El puerto paralelo provee de una tercera línea de handshaking llamada en 
-inglés <b>busy  </b>(<i>ocupado</i>), ésta la puede utilizar la parte 
-receptora para indicarle a la parte transmisora que está ocupada y por lo 
-tanto la parte transmisora no debe intentar colocar nueva información en 
-las líneas de datos. Una típica sesión de transmisión de datos sería de la 
-siguiente manera:</P>
-<div class="Normal" style="text-align:justify"><b>Parte 
- transmisora: </b></P>
-<div class="Normal" style="text-align:justify">La parte 
- transmisora checa la línea <i>busy </i>para ver si la parte receptora está 
- ocupada. Si la línea <i>busy </i>está activa, la parte transmisora espera en 
-un bucle hasta que la línea <i>busy </i>esté inactiva.</P>
-<div class="Normal" style="text-align:justify">· La 
-parte transmisora coloca la información en las líneas de datos.</P>
-<div class="Normal" style="text-align:justify">· La 
-parte transmisora activa la línea de <i>strobe</i>.</P>
-<div class="Normal" style="text-align:justify">· La parte transmisora espera en un bucle hasta que la línea <i>acknowledge 
-</i>está activa.</P>
-<div class="Normal" style="text-align:justify">· La parte transmisora inactiva la línea de <i>strobe</i>.</P>
-<div class="Normal" style="text-align:justify">· La parte transmisora espera en un bucle hasta que la línea <i>acknowledge </i>esté inactiva.</P>
-<div class="Normal" style="text-align:justify">· La parte transmisora repite los pasos anteriores por cada byte a ser 
-transmitido.</P>
-<div class="Normal" style="text-align:justify"><b>Parte receptora: </b></P>
-<div class="Normal" style="text-align:justify">· La parte receptora inactiva la línea <i>busy </i>(asumiendo que está lista para recibir información).</P>
-<div class="Normal" style="text-align:justify">· La parte receptora espera en un bucle hasta que la línea <i>strobe </i>esté activa.</P>
-<div class="Normal" style="text-align:justify">· La parte receptora lee la información de las líneas de datos (y si es necesario, procesa los datos).</P>
-<div class="Normal" style="text-align:justify">· La parte receptora activa la línea <i>acknowledge</i>.</P>
-<div class="Normal" style="text-align:justify">· La parte receptora espera en un bucle hasta que esté inactiva la línea de <i>strobe</i>.</P>
-<div class="Normal" style="text-align:justify">· La parte receptora inactiva la línea <i>acknowledge</i>.</P>
-<div class="Normal" style="text-align:justify"><span style='font-family: "Calibri",sans-serif; font-size: 11pt;'>· La parte receptora repite los pasos anteriores por cada byte que debe recibir.</span></P>
-<div class="Normal" style="text-align:justify"><span style='font-family: "Calibri",sans-serif; font-size: 11pt;'>&nbsp;</span></P>
-<div class="Normal" style="text-align:justify">Se debe 
-ser muy cuidadoso al seguir éstos pasos, tanto la parte transmisora como la 
- receptora coordinan sus acciones de tal manera que la parte transmisora no 
- intentará colocar varios bytes en las líneas de datos, en tanto que la parte 
- receptora no debe leer más datos que los que le envíe la parte transmisora, 
-un byte a la vez.</P>
-<div class="Normal" style="text-align:justify"><b>El 
- hardware del puerto paralelo </b></P>
-<div class="Normal" style="text-align:justify">El 
-puerto paralelo de una típica PC utiliza un conector hembra de tipo D de 25 
-pines (DB-25 S), éste es el caso más común, sin embargo es conveniente 
-mencionar los tres tipos de conectores definidos por el estándar <b>IEEE 
-1284 </b>, el primero, llamado <b>1284 tipo A  </b>es un conector hembra de 
-25 pines de tipo D, es decir, el que ya mencionamos.</P>
-<div class="Normal" style="text-align:justify">El 
-segundo conector se llama <b>1284 tipo B  </b>que es un conector de 36 pines de tipo <i>Centronics </i>y lo encontramos en la mayoría de las impresoras; el tercero se denomina <b>1284 tipo C </b>, se trata de un conector similar al 1284 tipo B pero más pequeño, además se dice que tiene mejores propiedades eléctricas y mecánicas, éste conector es el recomendado para nuevos diseños.</P>
-<div class="Normal" style="text-align:justify"><span style='font-family: "Calibri",sans-serif; font-size: 11pt;'>La siguiente tabla describe la función de cada pin del conector 1284 tipo A:</span></P>
-<div class="Normal" style="text-align:justify"><span style='font-family: "Calibri",sans-serif; font-size: 11pt;'>&nbsp;</span></P>
-<P align="center" style="margin: 0cm 0cm 0pt; text-align: center;"><b><span 
-style='color: rgb(0, 112, 192); font-family: "Calibri",sans-serif; font-size: 11pt;'><img 
-width="589" height="458" src="img/3_1.jpg"></span> </b></P>
-<P align="center" style="margin: 0cm 0cm 0pt; text-align: center;"><b><span 
-style='color: rgb(0, 112, 192); font-family: "Calibri",sans-serif; font-size: 11pt;'><img 
-width="589" height="287" src="img/3_2.jpg"></span> </b></P>
-<P class="MsoHeader" style="text-align: justify;"><div><br></div>
-<div class="Normal" style="text-align:justify"><b>Tabla 
-1: Configuración del puerto paralelo estándar </b></P>
-<div class="Normal" style="text-align:justify">El 
-puerto paralelo tiene 12 líneas de salida (8 líneas de datos, strobe, 
-Autofeed, Init, y Select input) y 5 de entrada (acknowledge, busy, falta de 
-papel, Select y error). El estándar IEEE 1284 define cinco modos de 
-operación:</P>
-<div class="Normal" style="text-align:justify">1. Modo 
- compatible</P>
-<div class="Normal" style="text-align:justify">2. Modo 
- nibble</P>
-<div class="Normal" style="text-align:justify">3. Modo 
-byte</P>
-<div class="Normal" style="text-align:justify">4. Modo 
-EPP, puerto paralelo ampliado</P>
-<div class="Normal" style="text-align:justify">5. Modo 
-ECP, puerto de capacidad extendida</P>
-<div class="Normal" style="text-align:justify">El 
-objetivo del estándar es diseñar nuevos dispositivos que sean totalmente 
-compatibles con el puerto paralelo estándar (SPP) definido originalmente 
-por la IBM. Hay tres direcciones de E/S asociadas con un puerto paralelo de 
-la PC, éstas direcciones pertenecen al <b>registro de datos </b>, el 
-<b>registro de estado  </b>y el <b>registro de control </b>. El <i>registro 
-de datos </i>es un puerto de lectura-escritura de ocho bits. Leer el 
-registro de datos (en la modalidad unidireccional) retorna el último valor 
-escrito en el registro de datos. Los registros de control y estado proveen 
-la internase a las otras líneas de E/S. La distribución de las diferentes 
-señales para cada uno de los tres registros de un puerto paralelo está dada 
-en las siguientes tablas:</P><span style='line-height: 107%; font-family: "Calibri",sans-serif; font-size: 11pt;'><BR 
-clear="all" style="page-break-before: always;"></span> 
-<div class="Normal" style="text-align:justify">Una PC 
- soporta hasta tres puertos paralelo separados, por tanto puede haber hasta 
-tres juegos de registros en un sistema en un momento dado. Existen tres 
-<b>direcciones base  </b>para el puerto paralelo asociadas con tres 
-posibles puertos paralelo: 0x3BCh, 0x378h y 0x278h, nos referimos a éstas 
-como las direcciones base para el puerto <b>LPT1 </b>, <b>LPT2  </b>y 
-<b>LPT3 </b>, respectivamente. El registro de datos se localiza siempre en 
-la dirección base de un puerto paralelo, el registro de estado aparece en 
-la dirección base + 1, y el registro de control aparece en la dirección 
-base + 2. Por ejemplo, para un puerto LPT2 localizado en 0x378h, ésta es la 
-dirección del registro de datos, al registro de estado le corresponde la 
-dirección 0x379h y su respectivo registro de control está en la dirección 
-0x37Ah. Cuando la PC se enciende el BIOS ejecuta una rutina para determinar 
-el número de puertos presentes en el sistema asignando la etiqueta LPT1 al 
-primer puerto localizado, si existen más puertos entonces se asignarán 
-consecutivamente las etiquetas LPT2 y LPT3 de acuerdo a la siguiente tabla:</P>
-<img width="272" height="190" id="Imagen 25" src="img/image003.jpg"></P>
-<P class="Normal" style="text-align: justify; margin-bottom: 0pt; -ms-text-autospace:;"><div><br></div>
-<div class="Normal" style="text-align:justify">Para localizar el puerto paralelo en el administrador de hardware del equipo procedemos de la siguiente manera: click en propiedades del sistema:</P>
-<img width="478" height="347" id="Imagen 24" src="img/image004.png"></P>
-<div><br></div>
-<img width="474" height="395" id="Imagen 23" src="img/image005.png"></P>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Distinguimos dos elementos: La <i>parte transmisora </i>y la <i>parte receptora</i>. La parte transmisora coloca la información en las <i>líneas de datos </i>e informa a la parte receptora que la información (los datos) están disponibles; entonces la parte receptora lee la información en las líneas de datos e informa a la parte transmisora que ha tomado la información (los datos). Se puede observar que ambas partes sincronizan su respectivo acceso a las líneas de datos, la parte receptora no leerá las líneas de datos hasta que la parte transmisora se lo indique en tanto que la parte transmisora no colocará nueva información en las líneas de datos hasta que la parte receptora remueva la información y le indique a la parte transmisora que ya ha tomado los datos, a ésta coordinación de operaciones se le llama <i>acuerdo </i>ó <i>entendimiento </i>(<b>handshaking </b>). Bien, en éstos ámbitos tecnológicos es recomendable utilizar ciertas palabras en inglés que nos permiten irónicamente un mejor entendimiento de los conceptos tratados.</div>
+		<div><br></div>
+		<div class="Bold" style="text-align:justify">El handshaking</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Para implementar el <i>handshaking </i>se requieren dos líneas adicionales. La línea de <b>estroboscopio </b>(en inglés <i>strobe</i>) es la que utiliza la parte transmisora para indicarle a la parte receptora la disponibilidad de información. La línea de <b>admisión </b>(<i>acknowledge</i>) es la que utiliza la parte receptora para indicarle a la parte transmisora que ha tomado la información (los datos) y que está lista para recibir más datos. El puerto paralelo provee de una tercera línea de handshaking llamada en inglés <b>busy </b>(<i>ocupado</i>), ésta la puede utilizar la parte receptora para indicarle a la parte transmisora que está ocupada y por lo tanto la parte transmisora no debe intentar colocar nueva información en las líneas de datos. Una típica sesión de transmisión de datos sería de la siguiente manera:</div>
+		<div><br></div>
+		<div class="Bold" style="text-align:justify">Parte transmisora:</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">· La parte transmisora checa la línea <i>busy </i>para ver si la parte receptora está ocupada. Si la línea <i>busy </i>está activa, la parte transmisora espera en un bucle hasta que la línea <i>busy </i>esté inactiva.</div>
+		<div class="Normal" style="text-align:justify">· La parte transmisora coloca la información en las líneas de datos.</div>
+		<div class="Normal" style="text-align:justify">· La parte transmisora activa la línea de <i>strobe</i>.</div>
+		<div class="Normal" style="text-align:justify">· La parte transmisora espera en un bucle hasta que la línea <i>acknowledge </i>está activa.</div>
+		<div class="Normal" style="text-align:justify">· La parte transmisora inactiva la línea de <i>strobe</i>.</div>
+		<div class="Normal" style="text-align:justify">· La parte transmisora espera en un bucle hasta que la línea <i>acknowledge </i>esté inactiva.</div>
+		<div class="Normal" style="text-align:justify">· La parte transmisora repite los pasos anteriores por cada byte a ser transmitido.</div>
+		<div><br></div>
+		<div class="Bold" style="text-align:justify">Parte receptora:</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">· La parte receptora inactiva la línea <i>busy </i>(asumiendo que está lista para recibir información).</div>
+		<div class="Normal" style="text-align:justify">· La parte receptora espera en un bucle hasta que la línea <i>strobe </i>esté activa.</div>
+		<div class="Normal" style="text-align:justify">· La parte receptora lee la información de las líneas de datos (y si es necesario, procesa los datos).</div>
+		<div class="Normal" style="text-align:justify">· La parte receptora activa la línea <i>acknowledge</i>.</div>
+		<div class="Normal" style="text-align:justify">· La parte receptora espera en un bucle hasta que esté inactiva la línea de <i>strobe</i>.</div>
+		<div class="Normal" style="text-align:justify">· La parte receptora inactiva la línea <i>acknowledge</i>.</div>
+		<div class="Normal" style="text-align:justify">· La parte receptora repite los pasos anteriores por cada byte que debe recibir.</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Se debe ser muy cuidadoso al seguir éstos pasos, tanto la parte transmisora como la receptora coordinan sus acciones de tal manera que la parte transmisora no intentará colocar varios bytes en las líneas de datos, en tanto que la parte receptora no debe leer más datos que los que le envíe la parte transmisora, un byte a la vez.</div>
+		<div><br></div>
+		<div class="Bold" style="text-align:justify">El hardware del puerto paralelo</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">El puerto paralelo de una típica PC utiliza un conector hembra de tipo D de 25 pines (DB-25 S), éste es el caso más común, sin embargo es conveniente mencionar los tres tipos de conectores definidos por el estándar <b>IEEE 1284 </b>, el primero, llamado <b>1284 tipo A </b>es un conector hembra de 25 pines de tipo D, es decir, el que ya mencionamos.</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">El segundo conector se llama <b>1284 tipo B </b>que es un conector de 36 pines de tipo <i>Centronics </i>y lo encontramos en la mayoría de las impresoras; el tercero se denomina <b>1284 tipo C </b>, se trata de un conector similar al 1284 tipo B pero más pequeño, además se dice que tiene mejores propiedades eléctricas y mecánicas, éste conector es el recomendado para nuevos diseños.</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">La siguiente tabla describe la función de cada pin del conector 1284 tipo A:</div>
+		<div><br></div>
+		<div align=center><img width="589" height="458" src="img/3_1.jpg"></div>
+		<div align=center><img width="589" height="287" src="img/3_2.jpg"></div>
+		<div><br></div>
+		<div class="Bold" style="text-align:justify">Tabla 1: Configuración del puerto paralelo estándar</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">El puerto paralelo tiene 12 líneas de salida (8 líneas de datos, strobe, Autofeed, Init, y Select input) y 5 de entrada (acknowledge, busy, falta de papel, Select y error). El estándar IEEE 1284 define cinco modos de operación:</div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">1. Modo compatible</div>
+		<div class="Normal" style="text-align:justify">2. Modo nibble</div>
+		<div class="Normal" style="text-align:justify">3. Modo byte</div>
+		<div class="Normal" style="text-align:justify">4. Modo EPP, puerto paralelo ampliado</div>
+		<div class="Normal" style="text-align:justify">5. Modo ECP, puerto de capacidad extendida</div>
+		<div class="Normal" style="text-align:justify">El objetivo del estándar es diseñar nuevos dispositivos que sean totalmente compatibles con el puerto paralelo estándar (SPP) definido originalmente por la IBM. Hay tres direcciones de E/S asociadas con un puerto paralelo de la PC, éstas direcciones pertenecen al <b>registro de datos </b>, el <b>registro de estado </b>y el <b>registro de control </b>. El <i>registro de datos </i>es un puerto de lectura-escritura de ocho bits. Leer el registro de datos (en la modalidad unidireccional) retorna el último valor escrito en el registro de datos. Los registros de control y estado proveen la internase a las otras líneas de E/S. La distribución de las diferentes señales para cada uno de los tres registros de un puerto paralelo está dada en las siguientes tablas:</div>
+		<div class="Normal" style="text-align:justify">Una PC soporta hasta tres puertos paralelo separados, por tanto puede haber hasta tres juegos de registros en un sistema en un momento dado. Existen tres <b>direcciones base </b>para el puerto paralelo asociadas con tres posibles puertos paralelo: 0x3BCh, 0x378h y 0x278h, nos referimos a éstas como las direcciones base para el puerto <b>LPT1 </b>, <b>LPT2 </b>y <b>LPT3 </b>, respectivamente. El registro de datos se localiza siempre en la dirección base de un puerto paralelo, el registro de estado aparece en la dirección base + 1, y el registro de control aparece en la dirección base + 2. Por ejemplo, para un puerto LPT2 localizado en 0x378h, ésta es la dirección del registro de datos, al registro de estado le corresponde la dirección 0x379h y su respectivo registro de control está en la dirección 0x37Ah. Cuando la PC se enciende el BIOS ejecuta una rutina para determinar el número de puertos presentes en el sistema asignando la etiqueta LPT1 al primer puerto localizado, si existen más puertos entonces se asignarán consecutivamente las etiquetas LPT2 y LPT3 de acuerdo a la siguiente tabla:</div>
+		<div><br></div>
+		<div align=center><img width=auto height=auto src="img/image003.jpg"></div>
+		<div><br></div>
+		<div class="Normal" style="text-align:justify">Para localizar el puerto paralelo en el administrador de hardware del equipo procedemos de la siguiente manera: click en propiedades del sistema:</div>
+		<div><br></div>
+		<div align=center><img width=auto height=auto src="img/image004.png"></div>
+		<div><br></div>
+		<div align=center><img width=auto height=auto src="img/image005.png"></div>
 	</body>
-	</html>
+</html>
