@@ -8,31 +8,34 @@
 	</head>
 
 	<body>
-		<a id="EEPROM"></a>
-		<div class="Bold" style="text-align:justify">8. EEPROM</div>
-		<div><br></div>
-		<div><br></div>
-		<a id="Contador 0-99 Display 7 Segmentos"></a>
-		<div class="Bold" style="text-align:justify">8.1 Contador 0-99 Display 7 Segmentos</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">El ejemplo es un contador. Como funcionalidades mínimas haremos que sea capaz de contar del 0 al 9 de manera ascendente ydescendente, y que tenga un botón de RESET a cero.</div>
-		<div class="Normal" style="text-align:justify">Y por supuesto que si se corta el suministro de energía guarda en memoria el último valor.</div>
-		<div><br></div>
-		<img src="../img/Microcontroladores PIC - CCS_clip_image002_0005.jpg" width="697" height="681" alt=""/>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Comentarios del programa:</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">El ejemplo básicamente es un contador ascendente/descendente de 0 a 9 que incrementa su valor cada vez que pulsamos&quot;INC&quot; (PIN B0) y decrementa el contador si se pulsa &ldquo;DEC&rdquo; (PIN B1) yademás se puede restablecer a cero si se pulsa &ldquo;RESET&rdquo; (PIN B2). Para evitarque el contador se reinicie y empiece a contar desde cero cada vez que seinterrumpa el suministro de energía, el valor actual del contador se almacenaráen la memoria EEPROM del PIC en vez de en la memoria RAM. Como solo queremosguardar un valor que estará comprendido entre 0 y 99, solo utilizaremos el primer byte de la memoria EEPROM.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">La primera vez que se ejecute el programa el valor dela EEPROM es 0xFF (viene así de fábrica) por lo que tendremos que sobrescribirsu valor a 0 para iniciar el conteo, después de esto esta condición no secumplirá más.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">contador = read_eeprom(dir_contador);</div>
-		<div class="Normal" style="text-align:justify">if ((contador&gt;9)||(contador&lt;0))</div>
-		<div class="Normal" style="text-align:justify">   contador=0;</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Proteus simula bastante bien el uso de la memoriaEEPROM del PIC, si paramos la simulación y volvemos a iniciarla vemos como los valores de la EEPROM se mantienen.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Extraído parcialmente de: <a href="http://www.aquihayapuntes.com/indice-practicas-pic-en-c/memoria-eeprom-interna-del-pic.html">http://www.aquihayapuntes.com/indice-practicas-pic-en-c/memoria-eeprom-interna-del-pic.html</a></div>
-		<div><br></div>
+		<div class="Normal" style="text-align:justify">
+			<a id="EEPROM"></a>
+			<b>8. EEPROM</b>
+			<br><br>
+			<a id="Contador 0-99 Display 7 Segmentos"></a>
+			<b><i>8.1 Contador 0-99 Display 7 Segmentos</i></b>
+			<br><br>
+			El ejemplo es un contador. Como funcionalidades mínimas haremos que sea capaz de contar del 0 al 9 de manera ascendente ydescendente, y que tenga un botón de RESET a cero.
+			<br><br>
+			Y por supuesto que si se corta el suministro de energía guarda en memoria el último valor.
+			<br><br>
+			<img src="../img/Microcontroladores PIC - CCS_clip_image002_0005.jpg" width="697" height="681" alt=""/>
+			<br><br>
+			Comentarios del programa:
+			<br><br>
+			El ejemplo básicamente es un contador ascendente/descendente de 0 a 9 que incrementa su valor cada vez que pulsamos&quot;INC&quot; (PIN B0) y decrementa el contador si se pulsa &ldquo;DEC&rdquo; (PIN B1) yademás se puede restablecer a cero si se pulsa &ldquo;RESET&rdquo; (PIN B2). Para evitarque el contador se reinicie y empiece a contar desde cero cada vez que seinterrumpa el suministro de energía, el valor actual del contador se almacenaráen la memoria EEPROM del PIC en vez de en la memoria RAM. Como solo queremosguardar un valor que estará comprendido entre 0 y 99, solo utilizaremos el primer byte de la memoria EEPROM.
+			<br><br>
+			La primera vez que se ejecute el programa el valor dela EEPROM es 0xFF (viene así de fábrica) por lo que tendremos que sobrescribirsu valor a 0 para iniciar el conteo, después de esto esta condición no secumplirá más.
+			<br><br>
+			contador = read_eeprom(dir_contador);
+			<br>
+			if ((contador&gt;9)||(contador&lt;0))
+			<br>
+			contador=0;
+			<br><br>
+			Proteus simula bastante bien el uso de la memoriaEEPROM del PIC, si paramos la simulación y volvemos a iniciarla vemos como los valores de la EEPROM se mantienen.
+			<br><br>
+			Extraído parcialmente de: <a href="http://www.aquihayapuntes.com/indice-practicas-pic-en-c/memoria-eeprom-interna-del-pic.html">http://www.aquihayapuntes.com/indice-practicas-pic-en-c/memoria-eeprom-interna-del-pic.html</a>
+		</div>
 	</body>
 </html>

@@ -8,273 +8,279 @@
 	</head>
 
 	<body>
-		<a id="Entradas analogas"></a>
-		<iframe class=pag id="ifrm" name="ifrm" src="../../html/9.%20Entradas%20analogas.html" onload="setIframeHeight(this.id)"></iframe>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">La conversión Analógica a Digital que escapaz de hacer un PIC consiste en convertir un valor de tensión (voltaje) queconectemos a un PIN habilitado para ello, en un valor numérico proporcional adicha tensión que podemos guardar en una variable y ser utilizado por nuestro programa del PIC.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Dicho de otra forma: Si entre un pin del PIC podemos tener una tensión, con respectoa GND, entre 0V y 5V y realizamos una conversión Analógico-Digital de ese pincon una precisión de 8 bits entonces el PIC puede "leer" esa tensiónen 256 (2^8=256) valores distintos que nos devuelve como resultado de lalectura, siendo el 0 el correspondiente a los 0V y el 255 el correspondiente alos 5V, y todos los intermedios en "saltos" de 0,019V (5V/256).</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Si en lugar de 8 bits estamos utilizando un PIC que tiene un conversor A/D de 10bits de precisión entonces ese mismo rango de 0V a 5V podemos"leerlo" en 1024 (2^10=1024) valores distintos, siendo el"resultado" 0 el que corresponde a los 0V y el 1023 a los 5V.Cualquier valor intermedio nos devolverá un número equivalente con "pasos" de 0,0049V por valor.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Hemos visto que el mínimo que podemos convertir es 0V o tensión del nivel del Vss(GND) del PIC y 5V o tensión del nivel de alimentación Vcc del PIC.</div>
-		<div class="Normal" style="text-align:justify">Esto es así si no utilizamos los Voltajes de Referencia, porque si los utilizamosentonces las cosas pueden cambiar....</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Imaginemos un dispositivo analógico que varía su tensión de salida entre 0V y 1V. Si leaplicamos la conversión A/D como antes con 8 bits de precisión entonces losvalores que vamos a obtener son entre 0 y 51 (1*256/5V) con lo que desperdiciamos una parte muy importante del rango posible de conversión, entre52 y 255 nunca nos va a aparecer como resultado de la misma.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Entonces el truco está en poner a 1V la patilla VRef+ del PIC con lo que la conversiónA/D a realizar en lo que haya presente en nuestro pin a leer se va a efectuaren 256 pasos entre GND y VRef+, no entre GND y Vcc como antes, con lo queobtenemos un resultado 5 veces más preciso: 1V dividido en 256 partes con loque cada número corresponde con 0,0039V.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Ahora,imaginemos que nuestro dispositivo analógico varía su tensión de salida entre1V y 2V. Si utilizamos el primer ejemplo que vimos, conversión A/D entre 0V y5V con 8 bits de precisión, entonces solo obtendremos números entre 51 y 102,perdiendo todos los valores inferiores y superiores a éstos.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Siutilizamos el ejemplo anterior a éste pero colocando el VRef+ a 2V entoncestendremos valores entre 128 y 255 pero ninguno inferior a 128 ya que nuestra tensión analógica no baja de 1V ....</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Así que la solución está en utilizar otra patilla del PIC, en este caso para VRef-,o sea para ponerle la referencia de tensión mínima a partir de la cual vamos aconvertir valores, que junto con la VRef+ tenemos el margen o rango detensiones a convertir a gusto.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">En este segundo ejemplo pondríamos VRef- a 1V y VRef+a 2V con lo que tendríamos una conversión de 8 bits en la que el 0correspondería a los 1V y el 255 a los 2V.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Todo esto se puede ver en el siguientediagrama de bloques del conversor A/D de los PIC's de la familia 16F87X:</div>
-		<div><br></div>
-		<div align="center"><img src="../img/Microcontroladores%20PIC%20-%20CCS_clip_image001_0000.png" alt="" height="475" width="489"></div>
-		<div><br></div>
-		<div align="center"><img src="../img/9.1%20Entradas%20analogas.png" alt="" height="475" width="489"></div>
-		<div><br></div>
-		<div><br></div>
-		<a id="Lectura convertidor Analogo / Digital"></a>
-		<div class="Bold" style="text-align:justify">9.1 Lectura convertidor Análogo / Digital</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Como ejemplo del uso del conversor ADC delmicrocontrolador vamos a utilizar las funciones para leer el dato provenientede un sensor en el rango de 0 a 5V y representar en un display LCD el valor leído por el convertidor ADC en el rango de 0 a 1023.</div>
-		<div><br></div>
-		<video controls controlslist="nodownload" preload="preload" loop>
-			<source src="../video/9.1%20Lectura%20convertidor%20An%C3%A1logo_Digital.webm" type="video/webm">
-		</video>
-		<div><br></div>
-		<img src="img/9.1%20Lectura%20convertidor%20An%C3%A1logo_Digital.png" alt="" height="auto" width="auto">
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Comentarios del programa:</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">El ejemplo está debidamente documentado, por lo cual su comprensión no reviste mayor dificultad.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Se debe tener especial atención al seleccionar elcanal a leer:</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">analogRead(A0); esta instrucción selecciona elcanal AN0</div>
-		<div class="Normal" style="text-align:justify">analogRead(A1); esta instrucción selecciona elcanal AN1</div>
-		<div class="Normal" style="text-align:justify">analogRead(A2); esta instrucción selecciona elcanal AN2…&nbsp; etc…</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Esta instrucción lee elvalor análogo en el canal seleccionado previamente</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Para observar la variación de la unidad medida se hadispuesto un potenciómetro comosensor.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Extraído parcialmente de: <a href="http://picmania.garcia-cuervo.net/conceptos.php#CONVAD01">http://picmania.garcia-cuervo.net/conceptos.php#CONVAD01</a></div>
-		<div><br></div>
-		<div><br></div>
-		<a id="Escalamiento de lectura analogica (Formula)"></a>
-		<div class="Bold" style="text-align:justify">9.2 Escalamiento de lectura analógica (Fórmula)</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Ingresar Smax: <input type="number" id="max" name="max" max=99999 min=-99999></div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Ingresar Smin: <input type="number" id="min" name="min" max=99999 min=-99999></div>
-		<div><br></div>
-		<input type="submit" value="Recalcular" onclick="capturar();">
-		<div><br></div>
-		<div class="dibujo-canvas">
+		<div class="Normal" style="text-align:justify">
+			<a id="Entradas analogas"></a>
+			<iframe class=pag id="ifrm" name="ifrm" src="../../html/9.%20Entradas%20analogas.html" onload="setIframeHeight(this.id)"></iframe>
+			<br><br>
+			La conversión Analógica a Digital que escapaz de hacer un PIC consiste en convertir un valor de tensión (voltaje) queconectemos a un PIN habilitado para ello, en un valor numérico proporcional adicha tensión que podemos guardar en una variable y ser utilizado por nuestro programa del PIC.
+			<br><br>
+			Dicho de otra forma: Si entre un pin del PIC podemos tener una tensión, con respectoa GND, entre 0V y 5V y realizamos una conversión Analógico-Digital de ese pincon una precisión de 8 bits entonces el PIC puede "leer" esa tensiónen 256 (2^8=256) valores distintos que nos devuelve como resultado de lalectura, siendo el 0 el correspondiente a los 0V y el 255 el correspondiente alos 5V, y todos los intermedios en "saltos" de 0,019V (5V/256).
+			<br><br>
+			Si en lugar de 8 bits estamos utilizando un PIC que tiene un conversor A/D de 10bits de precisión entonces ese mismo rango de 0V a 5V podemos"leerlo" en 1024 (2^10=1024) valores distintos, siendo el"resultado" 0 el que corresponde a los 0V y el 1023 a los 5V.Cualquier valor intermedio nos devolverá un número equivalente con "pasos" de 0,0049V por valor.
+			<br><br>
+			Hemos visto que el mínimo que podemos convertir es 0V o tensión del nivel del Vss(GND) del PIC y 5V o tensión del nivel de alimentación Vcc del PIC.
+			<br><br>
+			Esto es así si no utilizamos los Voltajes de Referencia, porque si los utilizamosentonces las cosas pueden cambiar....
+			<br><br>
+			Imaginemos un dispositivo analógico que varía su tensión de salida entre 0V y 1V. Si leaplicamos la conversión A/D como antes con 8 bits de precisión entonces los valores que vamos a obtener son entre 0 y 51 (1*256/5V) con lo que desperdiciamos una parte muy importante del rango posible de conversión, entre52 y 255 nunca nos va a aparecer como resultado de la misma.
+			<br><br>
+			Entonces el truco está en poner a 1V la patilla VRef+ del PIC con lo que la conversiónA/D a realizar en lo que haya presente en nuestro pin a leer se va a efectuaren 256 pasos entre GND y VRef+, no entre GND y Vcc como antes, con lo queobtenemos un resultado 5 veces más preciso: 1V dividido en 256 partes con loque cada número corresponde con 0,0039V.
+			<br><br>
+			Ahora,imaginemos que nuestro dispositivo analógico varía su tensión de salida entre1V y 2V. Si utilizamos el primer ejemplo que vimos, conversión A/D entre 0V y5V con 8 bits de precisión, entonces solo obtendremos números entre 51 y 102,perdiendo todos los valores inferiores y superiores a éstos.
+			<br><br>
+			Si utilizamos el ejemplo anterior a éste pero colocando el VRef+ a 2V entoncestendremos valores entre 128 y 255 pero ninguno inferior a 128 ya que nuestra tensión analógica no baja de 1V ....
+			<br><br>
+			Así que la solución está en utilizar otra patilla del PIC, en este caso para VRef-,o sea para ponerle la referencia de tensión mínima a partir de la cual vamos aconvertir valores, que junto con la VRef+ tenemos el margen o rango detensiones a convertir a gusto.
+			<br><br>
+			En este segundo ejemplo pondríamos VRef- a 1V y VRef+a 2V con lo que tendríamos una conversión de 8 bits en la que el 0correspondería a los 1V y el 255 a los 2V.
+			<br><br>
+			Todo esto se puede ver en el siguientediagrama de bloques del conversor A/D de los PIC's de la familia 16F87X:
+			<br><br>
+			<div align="center"><img src="../img/Microcontroladores%20PIC%20-%20CCS_clip_image001_0000.png" alt="" height="475" width="489"></div>
+			<br><br>
+			<div align="center"><img src="../img/9.1%20Entradas%20analogas.png" alt="" height="475" width="489"></div>
+			<br><br>
+			<br><br>
+			<a id="Lectura convertidor Analogo / Digital"></a>
+			<b><i>9.1 Lectura convertidor Análogo / Digital</i></b>
+			<br><br>
+			Como ejemplo del uso del conversor ADC del microcontrolador vamos a utilizar las funciones para leer el dato provenientede un sensor en el rango de 0 a 5V y representar en un display LCD el valor leído por el convertidor ADC en el rango de 0 a 1023.
+			<br>
+			<br>
+			<video controls controlslist="nodownload" preload="preload" loop>
+				<source src="../video/9.1%20Lectura%20convertidor%20An%C3%A1logo_Digital.webm" type="video/webm">
+			</video>
+			<br><br>
+			<img src="img/9.1%20Lectura%20convertidor%20An%C3%A1logo_Digital.png" alt="" height="auto" width="auto">
+			<br><br>
+			Comentarios del programa:
+			<br><br>
+			El ejemplo está debidamente documentado, por lo cual su comprensión no reviste mayor dificultad.
+			<br><br>
+			Se debe tener especial atención al seleccionar elcanal a leer:
+			<br><br>
+			analogRead(A0); esta instrucción selecciona elcanal AN0
+			<br>
+			analogRead(A1); esta instrucción selecciona elcanal AN1
+			<br>
+			analogRead(A2); esta instrucción selecciona elcanal AN2…&nbsp; etc…
+			<br><br>
+			Esta instrucción lee elvalor análogo en el canal seleccionado previamente
+			<br><br>
+			Para observar la variación de la unidad medida se hadispuesto un potenciómetro comosensor.
+			<br><br>
+			Extraído parcialmente de: <a href="http://picmania.garcia-cuervo.net/conceptos.php#CONVAD01">http://picmania.garcia-cuervo.net/conceptos.php#CONVAD01</a>
+			<br><br>
+			<br><br>
+			<a id="Escalamiento de lectura analogica (Formula)"></a>
+			<b><i>9.2 Escalamiento de lectura analógica (Fórmula)</i></b>
+			<br><br>
+			Ingresar Smax: <input type="number" id="max" name="max" max=99999 min=-99999>
+			<br><br>
+			Ingresar Smin: <input type="number" id="min" name="min" max=99999 min=-99999>
+			<br><br>
+			<input type="submit" value="Recalcular" onclick="capturar();">
+			<br><br>
+			<div class="dibujo-canvas">
 			<canvas id="lienzo1" display="block" color="blue" width="700" height="512"></canvas>
 			<script type="text/javascript">
 				ejercicio1(0,0);
-				function ejercicio1(y1, y2){
+				function ejercicio1(y1, y2) {
 					ej1=document.getElementById("lienzo1");
 					lienzo1=ej1.getContext("2d");
 					lienzo1.clearRect(0,0,700,512);
 					lienzo1.fillStyle = "#CCCCCC";
-	lienzo1.fillRect(0, 0, 512, 512);
-lienzo1.lineWidth=2;
-lienzo1.strokeStyle = '#000';
-  //EJE X
-lienzo1.beginPath();
-lienzo1.moveTo(0,256);
-lienzo1.lineTo(512,256);
-lienzo1.stroke();
-lienzo1.closePath();
-  //EJEY
-lienzo1.beginPath();
-lienzo1.moveTo(96,0);
-lienzo1.lineTo(96,512);
-lienzo1.stroke();
-lienzo1.closePath();
-  //DRAW SCALE
-lienzo1.lineWidth=1;
-		  lienzo1.strokeStyle = '#BBBBBB';
-lienzo1.beginPath(); 
-	for (var i=0;i<=512;i+=32) {
-	   lienzo1.moveTo(i,0);
-   lienzo1.lineTo(i,512);
-	}
-	for (var i=0;i<=512;i+=32) {
-	   lienzo1.moveTo(0,i);
-   lienzo1.lineTo(512,i);
-	}
-lienzo1.stroke();
-lienzo1.closePath();
-lienzo1.strokeStyle = '#000000';
-lienzo1.beginPath(); 
-	for (var i=0;i<=512;i+=32) {
-	   lienzo1.moveTo(i,250);
-   lienzo1.lineTo(i,262);
-	}
-	for (var i=0;i<=512;i+=32) {
-	   lienzo1.moveTo(90,i);
-   lienzo1.lineTo(102,i);
-	}
-lienzo1.stroke();
-lienzo1.closePath();
-  //DRAW 0 - 1023
-lienzo1.lineWidth=1;
-	lienzo1.strokeStyle = '#0000FF';
-lienzo1.beginPath(); 
-	if (y2<=1023) {
-	   lienzo1.moveTo(96,256);
-   lienzo1.lineTo(512,0);
-	   lienzo1.stroke();
-   lienzo1.closePath();
-	   lienzo1.font = "13px Arial";
-	   lienzo1.fillStyle = '#0000FF';
-	   lienzo1.beginPath();
-	   lienzo1.fillText("x:0 y:0", 48, 274);
-	   lienzo1.fillText("x:5 y:1023", 518, 10);
-	   lienzo1.stroke();
-   lienzo1.closePath();
-	}
-	else {
-	   lienzo1.moveTo(96,256);
-   lienzo1.lineTo(512,256-1023/y2*256);
-	   lienzo1.stroke();
-   lienzo1.closePath();
-	   lienzo1.font = "13px Arial";
-	   lienzo1.fillStyle = '#0000FF';
-	   lienzo1.beginPath();
-	   lienzo1.fillText("x:0 y:0", 48, 274);
-	   lienzo1.fillText("x:5 y:1023", 518, 266-1023/y2*256);
-	   lienzo1.stroke();
-   lienzo1.closePath();
-	}
-  //DRAW X,Y
-	lienzo1.strokeStyle = '#FF0000';
-lienzo1.beginPath();
-	if (y2<=1023) {
-	   lienzo1.moveTo(96,256-y1/1023*256);
-   lienzo1.lineTo(512,256-y2/1023*256);
-	   lienzo1.stroke();
-   lienzo1.closePath();
-	   lienzo1.fillStyle = '#FF0000';
-	   lienzo1.font = "13px Arial";
-	   lienzo1.fillText("x:0" + " y:" + y1, 1, 274-y1/1023*256);
-	   lienzo1.fillText("x:5" + " y:" + y2, 600, 266-y2/1023*256);
-	   lienzo1.stroke();
-   lienzo1.closePath();
-	}
-	else {
-	   lienzo1.moveTo(96,256-y1/y2*256);
-   lienzo1.lineTo(512,0);
-	   lienzo1.stroke();
-   lienzo1.closePath();
-	   lienzo1.fillStyle = '#FF0000';
-	   lienzo1.font = "13px Arial";
-	   lienzo1.fillText("x:0" + " y:" + y1, 1, 274-y1/y2*256);
-	   lienzo1.fillText("x:5" + " y:" + y2, 600, 10);
-	   lienzo1.stroke();
-   lienzo1.closePath();
-	}
-   }
-</script>
-<script>
-function capturar()
-{
-	var Smax=document.getElementById("max").value
-	var Smin=document.getElementById("min").value
-	ejercicio1(Smin, Smax);
-	if (Smin>=0) {
-	   document.getElementById("Ymin1").innerHTML = " - " + Smin;
-	   document.getElementById("Ymin2").innerHTML = " + " + Smin;
-	}
-	else {
-	   document.getElementById("Ymin1").innerHTML = " + " + -Smin;
-	   document.getElementById("Ymin2").innerHTML = " - " + -Smin;
-	}
-	document.getElementById("Ymax").innerHTML = Smax;
-}
-</script>
-  </div>
-		<div><br></div>
-		<i>S</i> = <i>E</i> *
-   <div class="fraction">
-   <span class="fup">(Smax - Smin)</span>
-   <span class="bar">/</span>
-   <span class="fdn">1023</span>
-</div> + Smin
-<div><br></div>
-<div id="resultado"></div>
-<div><br></div>
-<i>S</i> = <i>E</i> *
-   <div class="fraction">
-   <span class="fup">(<span id="Ymax"></span><span id="Ymin1"></span>)</span>
-   <span class="bar">/</span>
-	   <span class="fdn">1023</span>
-		</div><span id="Ymin2"></span>
-		<div><br></div>
-		<div><br></div>
-		<a id="Escalamiento sin desplazamiento. Rango 0 a 100"></a>
-		<div class="Bold" style="text-align:justify">9.2.1 Escalamiento sin desplazamiento. Rango 0 a 100</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">En el siguiente ejemplo haremos que el programa lea una entrada entre 0 y 5V de manera que para 0V representará 0 unidades y 5V representará 100 unidades.</div>
-		<div><br></div>
-		<video controls controlslist="nodownload" preload="preload" loop>
-			<source src="../video/9.2.1%20Escalamiento%20sin%20desplazamiento_0_100.webm" type="video/webm">
-		</video>
-		<div><br></div>
-		<img src="img/9.2%20Escalamiento%20de%20lectura%20analogica%20Formula_0_100.png" alt="" height="auto" width="auto">
-		<div><br></div>
-		<div><br></div>
-		<a id="Escalamiento con desplazamiento positivo. Rango 20 a 80"></a>
-		<div class="Bold" style="text-align:justify">9.2.2 Escalamiento con desplazamiento positivo. Rango 20 a 80</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">En el siguiente ejemplo haremos que el programa lea una entrada entre 0 y 5V de manera que para 0V representará 20 unidades y 5V representará 80 unidades.</div>
-		<div><br></div>
-		<video controls controlslist="nodownload" preload="preload" loop>
-			<source src="../video/9.2.2%20Escalamiento%20con%20desplazamiento%20positivo_20_80.webm" type="video/webm">
-		</video>
-		<div><br></div>
-		<img src="img/9.2%20Escalamiento%20de%20lectura%20analogica%20Formula_20_80.png" alt="" height="auto" width="auto">
-		<div><br></div>
-		<div><br></div>
-		<a id="Escalamiento con desplazamiento negativo. Rango -50 a 150"></a>
-		<div class="Bold" style="text-align:justify">9.2.3 Escalamiento con desplazamiento negativo. Rango -50 a 150</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">En el siguiente ejemplo haremos que el programa lea una entrada entre 0 y 5V de manera que para 0V representará -50 unidades y 5V representará 150 unidades.</div>
-		<div><br></div>
-		<video controls controlslist="nodownload" preload="preload" loop>
-			<source src="../video/9.2.3%20Escalamiento%20con%20desplazamiento%20negativo_-50_150.webm" type="video/webm">
-		</video>
-		<div><br></div>
-		<img src="img/9.2%20Escalamiento%20de%20lectura%20analogica%20Formula_-50_150.png" alt="" height="auto" width="auto">
-		<div><br></div>
-		<div><br></div>
-		<div class="Bold" style="text-align:justify">Rango 0 a 100 con decimales</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">En el siguiente ejemplo haremos que el programalea una entrada entre 0 y 5V de manera que para 0V representará 0 unidadesy 5V representará 100 unidades (con dígitos decimales).</div>
-		<div><br></div>
-		<video controls controlslist="nodownload" preload="preload" loop>
-			<source src="../video/9.2%20Decimales.webm" type="video/webm">
-		</video>
-		<div><br></div>
-		<img src="img/9.2%20Decimales.png" alt="" height="auto" width="auto">
-		<div><br></div>
-		<div><br></div>
-		<a id="Funcion map para escalamiento de lectura analogica"></a>
-		<div class="Bold" style="text-align:justify">9.3 Función map para escalamiento de lectura analógica</div>
-		<div><br></div>
-		<video controls controlslist="nodownload" preload="preload" loop>
-			<source src="../video/9.3%20Funcion%20map%20para%20escalamiento%20de%20lectura%20analogica.webm" type="video/webm">
-		</video>
-		<div><br></div>
-		<img src="img/9.3%20Funcion%20map%20para%20escalamiento%20de%20lectura%20analogica.png" alt="" height="auto" width="auto">
+					lienzo1.fillRect(0, 0, 512, 512);
+					lienzo1.lineWidth=2;
+					lienzo1.strokeStyle = '#000';
+					//EJE X
+					lienzo1.beginPath();
+					lienzo1.moveTo(0,256);
+					lienzo1.lineTo(512,256);
+					lienzo1.stroke();
+					lienzo1.closePath();
+					//EJEY
+					lienzo1.beginPath();
+					lienzo1.moveTo(96,0);
+					lienzo1.lineTo(96,512);
+					lienzo1.stroke();
+					lienzo1.closePath();
+					//DRAW SCALE
+					lienzo1.lineWidth=1;
+					lienzo1.strokeStyle = '#BBBBBB';
+					lienzo1.beginPath(); 
+					for (var i=0;i<=512;i+=32) {
+						lienzo1.moveTo(i,0);
+						lienzo1.lineTo(i,512);
+					}
+					for (var i=0;i<=512;i+=32) {
+						lienzo1.moveTo(0,i);
+						lienzo1.lineTo(512,i);
+					}
+					lienzo1.stroke();
+					lienzo1.closePath();
+					lienzo1.strokeStyle = '#000000';
+					lienzo1.beginPath(); 
+					for (var i=0;i<=512;i+=32) {
+						lienzo1.moveTo(i,250);
+						lienzo1.lineTo(i,262);
+					}
+					for (var i=0;i<=512;i+=32) {
+						lienzo1.moveTo(90,i);
+						lienzo1.lineTo(102,i);
+					}
+					lienzo1.stroke();
+					lienzo1.closePath();
+					//DRAW 0 - 1023
+					lienzo1.lineWidth=1;
+					lienzo1.strokeStyle = '#0000FF';
+					lienzo1.beginPath();
+					if (y2<=1023) {
+						lienzo1.moveTo(96,256);
+						lienzo1.lineTo(512,0);
+						lienzo1.stroke();
+						lienzo1.closePath();
+						lienzo1.font = "13px Arial";
+						lienzo1.fillStyle = '#0000FF';
+						lienzo1.beginPath();
+						lienzo1.fillText("x:0 y:0", 48, 274);
+						lienzo1.fillText("x:5 y:1023", 518, 10);
+						lienzo1.stroke();
+						lienzo1.closePath();
+					}
+					else {
+						lienzo1.moveTo(96,256);
+						lienzo1.lineTo(512,256-1023/y2*256);
+						lienzo1.stroke();
+						lienzo1.closePath();
+						lienzo1.font = "13px Arial";
+						lienzo1.fillStyle = '#0000FF';
+						lienzo1.beginPath();
+						lienzo1.fillText("x:0 y:0", 48, 274);
+						lienzo1.fillText("x:5 y:1023", 518, 266-1023/y2*256);
+						lienzo1.stroke();
+						lienzo1.closePath();
+					}
+					//DRAW X,Y
+					lienzo1.strokeStyle = '#FF0000';
+					lienzo1.beginPath();
+					if (y2<=1023) {
+						lienzo1.moveTo(96,256-y1/1023*256);
+						lienzo1.lineTo(512,256-y2/1023*256);
+						lienzo1.stroke();
+						lienzo1.closePath();
+						lienzo1.fillStyle = '#FF0000';
+						lienzo1.font = "13px Arial";
+						lienzo1.fillText("x:0" + " y:" + y1, 1, 274-y1/1023*256);
+						lienzo1.fillText("x:5" + " y:" + y2, 600, 266-y2/1023*256);
+						lienzo1.stroke();
+						lienzo1.closePath();
+					}
+					else {
+						lienzo1.moveTo(96,256-y1/y2*256);
+						lienzo1.lineTo(512,0);
+						lienzo1.stroke();
+						lienzo1.closePath();
+						lienzo1.fillStyle = '#FF0000';
+						lienzo1.font = "13px Arial";
+						lienzo1.fillText("x:0" + " y:" + y1, 1, 274-y1/y2*256);
+						lienzo1.fillText("x:5" + " y:" + y2, 600, 10);
+						lienzo1.stroke();
+						lienzo1.closePath();
+					}
+				}
+			</script>
+			<script>
+				function capturar() {
+					var Smax=document.getElementById("max").value
+					var Smin=document.getElementById("min").value
+					ejercicio1(Smin, Smax);
+					if (Smin>=0) {
+						document.getElementById("Ymin1").innerHTML = " - " + Smin;
+						document.getElementById("Ymin2").innerHTML = " + " + Smin;
+					}
+					else {
+						document.getElementById("Ymin1").innerHTML = " + " + -Smin;
+						document.getElementById("Ymin2").innerHTML = " - " + -Smin;
+					}
+					document.getElementById("Ymax").innerHTML = Smax;
+				}
+			</script>
+			</div>
+			<br><br>
+			<i>S</i> = <i>E</i> *
+			<div class="fraction">
+				<span class="fup">(Smax - Smin)</span>
+				<span class="bar">/</span>
+				<span class="fdn">1023</span>
+			</div> + Smin
+			<br><br>
+			<div id="resultado"></div>
+			<br><br>
+			<i>S</i> = <i>E</i> *
+			<div class="fraction">
+				<span class="fup">(<span id="Ymax"></span><span id="Ymin1"></span>)</span>
+				<span class="bar">/</span>
+				<span class="fdn">1023</span>
+			</div>
+			<span id="Ymin2"></span>
+			<br><br>
+			<br><br>
+			<a id="Escalamiento sin desplazamiento. Rango 0 a 100"></a>
+			<b><i>9.2.1 Escalamiento sin desplazamiento. Rango 0 a 100</i></b>
+			<br><br>
+			En el siguiente ejemplo haremos que el programa lea una entrada entre 0 y 5V de manera que para 0V representará 0 unidades y 5V representará 100 unidades.
+			<br><br>
+			<video controls controlslist="nodownload" preload="preload" loop>
+				<source src="../video/9.2.1%20Escalamiento%20sin%20desplazamiento_0_100.webm" type="video/webm">
+			</video>
+			<br><br>
+			<img src="img/9.2%20Escalamiento%20de%20lectura%20analogica%20Formula_0_100.png" alt="" height="auto" width="auto">
+			<br><br>
+			<br><br>
+			<a id="Escalamiento con desplazamiento positivo. Rango 20 a 80"></a>
+			<b><i>9.2.2 Escalamiento con desplazamiento positivo. Rango 20 a 80</i></b>
+			<br><br>
+			En el siguiente ejemplo haremos que el programa lea una entrada entre 0 y 5V de manera que para 0V representará 20 unidades y 5V representará 80 unidades.
+			<br><br>
+			<video controls controlslist="nodownload" preload="preload" loop>
+				<source src="../video/9.2.2%20Escalamiento%20con%20desplazamiento%20positivo_20_80.webm" type="video/webm">
+			</video>
+			<br><br>
+			<img src="img/9.2%20Escalamiento%20de%20lectura%20analogica%20Formula_20_80.png" alt="" height="auto" width="auto">
+			<br><br>
+			<br><br>
+			<a id="Escalamiento con desplazamiento negativo. Rango -50 a 150"></a>
+			<b><i>9.2.3 Escalamiento con desplazamiento negativo. Rango -50 a 150</i></b>
+			<br><br>
+			En el siguiente ejemplo haremos que el programa lea una entrada entre 0 y 5V de manera que para 0V representará -50 unidades y 5V representará 150 unidades.
+			<br><br>
+			<video controls controlslist="nodownload" preload="preload" loop>
+				<source src="../video/9.2.3%20Escalamiento%20con%20desplazamiento%20negativo_-50_150.webm" type="video/webm">
+			</video>
+			<br><br>
+			<img src="img/9.2%20Escalamiento%20de%20lectura%20analogica%20Formula_-50_150.png" alt="" height="auto" width="auto">
+			<br><br>
+			<br><br>
+			<b><i>Rango 0 a 100 con decimales</i></b>
+			<br><br>
+			En el siguiente ejemplo haremos que el programalea una entrada entre 0 y 5V de manera que para 0V representará 0 unidadesy 5V representará 100 unidades (con dígitos decimales).
+			<br><br>
+			<video controls controlslist="nodownload" preload="preload" loop>
+				<source src="../video/9.2%20Decimales.webm" type="video/webm">
+			</video>
+			<br><br>
+			<img src="img/9.2%20Decimales.png" alt="" height="auto" width="auto">
+			<br><br>
+			<br><br>
+			<a id="Funcion map para escalamiento de lectura analogica"></a>
+			<b><i>9.3 Función map para escalamiento de lectura analógica</i></b>
+			<br><br>
+			<video controls controlslist="nodownload" preload="preload" loop>
+				<source src="../video/9.3%20Funcion%20map%20para%20escalamiento%20de%20lectura%20analogica.webm" type="video/webm">
+			</video>
+			<br><br>
+			<img src="img/9.3%20Funcion%20map%20para%20escalamiento%20de%20lectura%20analogica.png" alt="" height="auto" width="auto">
+		</div>
 	</body>
 </html>

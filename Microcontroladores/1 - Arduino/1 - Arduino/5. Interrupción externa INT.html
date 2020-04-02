@@ -8,24 +8,27 @@
 	</head>
 
 	<body>
-		<a id="Interrupción externa INT"></a>
-		<div class="Bold" style="text-align:justify">5. Interrupción externa INT</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Una interrupción es un evento que hace que el microcontrolador deje de ejecutar la tarea que está realizando para atender dicho acontecimiento y luego regrese y continúe la tarea que estaba realizando antes de que se presentara la interrupción. El pic 16F628 (y el 16F628A) tiene 10 fuentes de interrupción, si las interrupciones están habilitadas cada vez que uno de estos acontecimientos se presente el pic dejará de ejecutar el programa para ir a atender la interrupción y al término de la misma continuará ejecutando el programa donde lo había dejado.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Las fuentes de interrupción son:</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Interrupción externa RB0/INT</div>
-		<div class="Normal" style="text-align:justify">Interrupción por cambio lógico en el puerto B (pines RB7 a RB4)</div>
-		<div class="Normal" style="text-align:justify">Interrupción por desborde del timer 0 (TMR0)</div>
-		<div class="Normal" style="text-align:justify">Interrupción por desborde del timer 1 (TMR1)</div>
-		<div class="Normal" style="text-align:justify">Interrupción por comparación exitosa exitosa en TMR2</div>
-		<div class="Normal" style="text-align:justify">Interrupción del comparador</div>
-		<div class="Normal" style="text-align:justify">Interrupción del transmisor del USART</div>
-		<div class="Normal" style="text-align:justify">Interrupción del receptor del USART</div>
-		<div class="Normal" style="text-align:justify">Interrupción del módulo CCP</div>
-		<div class="Normal" style="text-align:justify">Interrupción del EEPROM </div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Aunque el pic cuenta con 10 fuentes distintas de interrupción solamente tiene un vector de interrupción por lo que si se habilitan varias interrupciones al momento de presentarse cualquiera de ellas el programa saltara a la misma rutina de interrupción y es responsabilidad del programador crear una rutina que identifique la fuente de la interrupción.</div>
+		<div class="Normal" style="text-align:justify">
+			<a id="Interrupción externa INT"></a>
+			<b>5. Interrupción externa INT</b>
+			<br><br>
+			Una interrupción es un evento que hace que el microcontrolador deje de ejecutar la tarea que está realizando para atender dicho acontecimiento y luego regrese y continúe la tarea que estaba realizando antes de que se presentara la interrupción. El pic 16F628 (y el 16F628A) tiene 10 fuentes de interrupción, si las interrupciones están habilitadas cada vez que uno de estos acontecimientos se presente el pic dejará de ejecutar el programa para ir a atender la interrupción y al término de la misma continuará ejecutando el programa donde lo había dejado.
+			<br><br>
+			Las fuentes de interrupción son:
+			<ul>
+				<li>Interrupción externa RB0/INT</li>
+				<li>Interrupción por cambio lógico en el puerto B (pines RB7 a RB4)</li>
+				<li>Interrupción por desborde del timer 0 (TMR0)</li>
+				<li>Interrupción por desborde del timer 1 (TMR1)</li>
+				<li>Interrupción por comparación exitosa exitosa en TMR2</li>
+				<li>Interrupción del comparador</li>
+				<li>Interrupción del transmisor del USART</li>
+				<li>Interrupción del receptor del USART</li>
+				<li>Interrupción del módulo CCP</li>
+				<li>Interrupción del EEPROM</li>
+			</ul>
+			<br><br>
+			Aunque el pic cuenta con 10 fuentes distintas de interrupción solamente tiene un vector de interrupción por lo que si se habilitan varias interrupciones al momento de presentarse cualquiera de ellas el programa saltara a la misma rutina de interrupción y es responsabilidad del programador crear una rutina que identifique la fuente de la interrupción.
+		</div>
 	</body>
 </html>
