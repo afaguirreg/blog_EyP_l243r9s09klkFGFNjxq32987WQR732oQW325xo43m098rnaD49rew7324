@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Documento sin título</title>
+		<link rel="stylesheet" type="text/css" href="../0 - styles/mystyles.css">
+		<script language="JavaScript" src="../0 - scripts/myscripts.js"></script>
+	</head>
+
+	<body>
+		<div class="Normal" style="text-align:justify">
+			<a id="Tiristor apagado por compuerta (GTO Gated Turnoff Thyristor)"></a>
+			<b>1. Tiristor apagado por compuerta (GTO Gated Turnoff Thyristor)</b>
+			Un Tiristor GTO o simplemente GTO (del inglés Gate Turn-Off Thyristor) es un dispositivo de electrónica de potencia que puede ser encendido por un solo pulso de corriente positiva en la terminal puerta o gate (G), al igual que el tiristor normal; pero en cambio puede ser apagado al aplicar un pulso de corriente negativa en el mismo terminal. Ambos estados, tanto el estado de encendido como el estado de apagado, son controlados por la corriente en la puerta (G).
+			<br><br>
+			El proceso de encendido es similar al del tiristor. Las características de apagado son un poco diferentes. Cuando un voltaje negativo es aplicado a través de las terminales puerta (G) y cátodo (C o K), la corriente en la puerta (ig), crece. Cuando la corriente en la puerta (G) alcanza su máximo valor, IGR, la corriente de ánodo comienza a caer y el voltaje a través del dispositivo (VAK), comienza a crecer. El tiempo de caída de la corriente de ánodo (IA) es abrupta, típicamente menor a 1 us. Después de esto, la corriente de ánodo varía lentamente y ésta porción de la corriente de ánodo es conocido como corriente de cola.
+			<br><br>
+			La razón (IA/IGR) de la corriente de ánodo IA a la máxima corriente negativa en la puerta (IGR) requerida para el voltaje es baja, comúnmente entre 3 y 5. Por ejemplo, para un voltaje de 2500 V y una corriente de 1000 A, un GTO normalmente requiere una corriente negativa de pico en la puerta de 250 A para el apagado.
+			<br><br>
+			<b><i>Estructura y funcionamiento</i></b>
+			<br><br>
+			La estructura del GTO es esencialmente la de un tiristor convencional. Existen 4 capas de silicio (PNPN), 3 uniones (P-N, N-P y P-N) y tres terminales: ánodo (A), cátodo (C o K) y puerta (G). La diferencia en la operación radica en que una señal negativa en la puerta (G) puede apagar el GTO. Mientras el GTO se encuentre apagado y no exista señal en la puerta, el dispositivo se bloquea para cualquier polaridad en el ánodo, pero una corriente de fuga (IA leak) existe. Con un voltaje de bias en directa el GTO se bloquea hasta que un voltaje de ruptura VAK = VB0 es alcanzado. En este punto existe un proceso dinámico de encendido., VAK = 3V y la corriente IA es determinada por la carga. Cuando el GTO se apaga y con la aplicación de un voltaje en inversa, solo una pequeña corriente de fuga (IA leak) existe. Una polarización en inversa VAK puede ser alcanzada cuando ocurra un corte. El valor del voltaje de ruptura inverso depende del método de fabricación para la creación de una regeneración interna para facilitar el proceso de apagado. Con un voltaje de polarización directo aplicado al ánodo y un pulso de corriente positiva es aplicada a la puerta G (gate), el GTO se enciende y permanece de esa forma. Para ésta condición, existen 2 formas de apagarlo. Una forma es reduciendo la corriente de ánodo IA por medios externos hasta un valor menor a la corriente de holding Ih, en la cual, la acción regenerativa interna no es efectiva. La segunda forma de apagarlo es por medio de un pulso en el gate, y este es el método más recomendable porque proporciona un mejor control. Como el GTO tiene una conducción de corriente unidireccional, y puede ser apagado en cualquier instante, éste se aplica en circuitos chopper (conversiones de dc- dc) y circuitos inversores (conversiones dc -ac) a niveles de potencia en los que los MOSFET's, TBJ's e IGBT's no pueden ser utilizados. A bajos niveles de potencia los semiconductores de conmutación rápida son preferibles. En la conversión de AC - DC, los GTO's, son útiles porque las estrategias de conmutación que posee, pueden ser usadas para regular la potencia, como el factor de potencia.
+			<br><br>
+			<video controls controlslist="nodownload" preload="preload" loop>
+				<source src="../video/1.1%20Salida%20digital%20pin.webm" type="video/webm">
+			</video>
+			<br><br>
+			<img src="img/MCT MOS Controlled Thyristor.png" alt="" height="auto" width="auto">
+		</div>
+	</body>
+</html>

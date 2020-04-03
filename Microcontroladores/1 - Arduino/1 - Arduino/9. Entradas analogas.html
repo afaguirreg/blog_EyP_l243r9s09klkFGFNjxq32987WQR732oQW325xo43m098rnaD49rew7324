@@ -5,9 +5,10 @@
 		<title>Documento sin título</title>
 		<link rel="stylesheet" type="text/css" href="../../../0 - styles/mystyles.css">
 		<script language="JavaScript" src="../../../0 - scripts/myscripts.js"></script>
+		<script language="JavaScript" src="../../../0 - scripts/yui-min.js"></script>
 	</head>
 
-	<body>
+	<body class="yui3-skin-sam">
 		<div class="Normal" style="text-align:justify">
 			<a id="Entradas analogas"></a>
 			<iframe class=pag id="ifrm" name="ifrm" src="../../html/9.%20Entradas%20analogas.html" onload="setIframeHeight(this.id)"></iframe>
@@ -51,7 +52,7 @@
 				<source src="../video/9.1%20Lectura%20convertidor%20An%C3%A1logo_Digital.webm" type="video/webm">
 			</video>
 			<br><br>
-			<img src="img/9.1%20Lectura%20convertidor%20An%C3%A1logo_Digital.png" alt="" height="auto" width="auto">
+			<img src="img/9.1%20Lectura%20convertidor%20An%C3%A1logo_Digital.png" height="auto" width="auto">
 			<br><br>
 			Comentarios del programa:
 			<br><br>
@@ -73,11 +74,57 @@
 			<br><br>
 			<br><br>
 			<a id="Escalamiento de lectura analogica (Formula)"></a>
-			<b><i>9.2 Escalamiento de lectura analógica (Fórmula)</i></b>
+			<strong><em>9.2 Escalamiento de lectura analógica (Fórmula)</em></strong>
 			<br><br>
-			Ingresar Smax: <input type="number" id="max" name="max" max=99999 min=-99999>
+			<table>
+				<tbody width="1000">
+					<tr>
+						<td width="150"><div id="demo"></div></td>
+						<td>
+							<div align=center>Voltaje</div>
+							<div align=center><input style="width:96px" class="panel" id="voltaje" value="0.000 V" disabled></div>
+							<div><br></div>
+							<div align=center>ADC</div>
+							<div align=center><input style="width:96px" class="panel" id="ADC" value="0" disabled></div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<script>
+				YUI().use('dial', function(Y) {
+					var dial = new Y.Dial( {
+						min: -2.5,
+						max: 2.5,
+						minorStep: 0.001,
+						majorStep: 0.001,
+						stepsPerRevolution: 6,
+						value: -2.5,
+						decimalPlaces: 3,
+						strings: {label:'', resetStr:'Reset', tooltipHandle:''},
+					});
+					dial.render('#demo');
+
+					// Function to update the text input value from the Dial value
+					function updateInput( e ) {
+						var val = e.newVal;
+						if (isNaN(val)) {
+							// Not a valid number.
+							return;
+						}
+						this.set("value", parseFloat(val + 2.5).toFixed(3) + " V");
+						document.getElementById("ADC").value = parseInt((val + 2.5) * 1023 / 5) ;
+					}
+
+					var theInput = Y.one( "#voltaje" );
+
+					// Subscribe to the Dial's valueChange event, passing the input as the 'this'
+					dial.on("valueChange", updateInput, theInput);
+				});
+			</script>
 			<br><br>
-			Ingresar Smin: <input type="number" id="min" name="min" max=99999 min=-99999>
+			Ingresar Smax: <input type="number" id="max" name="max" max=99999 min=-99999 value=1023 onchange="capturar();">
+			<br><br>
+			Ingresar Smin: <input type="number" id="min" name="min" max=99999 min=-99999 value=0 onchange="capturar();">
 			<br><br>
 			<input type="submit" value="Recalcular" onclick="capturar();">
 			<br><br>

@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+	<script src="yui-min.js"></script>
+
+	<style>
+		#demo {
+			margin:0 0 1em;
+		}
+
+		#voltaje {
+			width:96px;
+		}
+
+		input.voltaje {
+			text-align: center;
+			font-family: Arial, sans-serif;
+			font-weight: normal;
+			font-size: 18pt;
+			width: 100%;
+			padding: 1px 1px;
+			margin: 0px 0;
+			box-sizing: border-box;
+			border: 2px solid red;
+			border-radius: 4px;
+		}
+		.yui3-dial-value-string {visibility: hidden};
+		.yui3-dial-north-mark {visibility: hidden};
+	</style>
+
+	<body class="yui3-skin-sam"> <!-- You need this skin class -->
+		<div id="demo"></div>
+		<table width="50">
+			<tbody>
+				<tr>
+					<td>
+						<div align=center><input class="voltaje" id="voltaje" value="0.00 V" disabled></div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+
+	<script>
+		YUI().use('dial', function(Y) {
+			var dial = new Y.Dial( {
+				min: -2.5,
+				max: 2.5,
+				minorStep: 0.01,
+				majorStep: 0.01,
+				stepsPerRevolution: 6,
+				value: -2.5,
+				decimalPlaces: 2,
+				strings: {label:'', resetStr:'Reset', tooltipHandle:''},
+			});
+			dial.render('#demo');
+		
+			// Function to update the text input value from the Dial value
+			function updateInput( e ) {
+				var val = e.newVal;
+				if (isNaN(val)) {
+					// Not a valid number.
+					return;
+				}
+				this.set("value", parseFloat(val + 2.5).toFixed(2) + " V");
+			}
+
+			var theInput = Y.one( "#voltaje" );
+
+			// Subscribe to the Dial's valueChange event, passing the input as the 'this'
+			dial.on("valueChange", updateInput, theInput);
+		});
+	</script>
+</html>

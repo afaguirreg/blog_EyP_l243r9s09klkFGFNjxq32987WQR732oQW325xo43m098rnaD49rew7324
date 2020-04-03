@@ -52,6 +52,21 @@ input.ButtonSub {
 	font-weight: bold;
 	font-size: 12pt
 }
+input.panel {
+	text-align: center;
+	font-family: Arial, sans-serif;
+	font-weight: normal;
+	font-size: 18pt;
+	width: 100%;
+	padding: 1px 1px;
+	margin: 0px 0;
+	box-sizing: border-box;
+	border: 2px solid red;
+	border-radius: 4px;
+}
+#demo {
+	margin:0 0 1em;
+}
 
 li.Normal {margin-top:0cm;
 	margin-top: 0cm;
@@ -139,3 +154,5 @@ table.MsoNormalTable {
 }
 .fraction span.fdn {border-top: thin solid black;}
 .fraction span.bar {display: none;}
+.yui3-dial-value-string {visibility: hidden};
+.yui3-dial-north-mark {visibility: hidden};
