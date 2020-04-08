@@ -1,99 +1,37 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Documento sin título</title>
+		<link rel="stylesheet" type="text/css" href="../../../../0 - styles/mystyles.css">
+		<script language="JavaScript" src="../../../../0 - scripts/myscripts.js"></script>
+	</head>
 
-<title>Documento sin título</title>
-<style type="text/css">
-<!--
-p.MsoNormal {
-margin-top:0cm;
-margin-right:0cm;
-margin-bottom:10.0pt;
-margin-left:0cm;
-line-height:115%;
-font-size:11.0pt;
-font-family:"Calibri","sans-serif";
-}
--->
-</style>
-<style type="text/css">
-<!--
-table.MsoNormalTable {
-font-size:10.0pt;
-font-family:"Calibri","sans-serif";
-}
--->
-</style>
-<script src="Scripts/swfobject_modified.js" type="text/javascript"></script>
-<script type="text/javascript">
-	document.oncontextmenu = function(){return false;}
-    function disabletext(e){
-    return false
-    }
-    function reEnable(){
-    return true
-    }
-    document.onselectstart=new Function ("return false")
-    if (window.sidebar){
-    document.onmousedown=disabletext
-    document.onclick=reEnable
-    }
-</script>
-<style type="text/css">
-<!--
-p.MsoListParagraph {
-margin-top:0cm;
-margin-right:0cm;
-margin-bottom:10.0pt;
-margin-left:36.0pt;
-line-height:115%;
-font-size:11.0pt;
-font-family:"Calibri","sans-serif";
-}
-p.MsoNormal1 {	margin-top: 0cm;
-	margin-right: 0cm;
-	margin-bottom: 10.0pt;
-	margin-left: 0cm;
-	line-height: 115%;
-	font-size: 12pt;
-	font-family: Arial, sans-serif;
-}
--->
-</style>
-</head>
-
-<body>
-    <p><span class="MsoNormal1" style="margin-bottom:12.0pt;text-align:justify;line-height:13.5pt;background:white;"><strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">LCD2x16 y LCD4x20</span></strong></span></p>
-    <p class="MsoNormal1" style="margin-bottom:12.0pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">En PIC-C CCS a</span><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">gregamos la&nbsp;librería&nbsp;<strong>#include&nbsp;&lt;flex_lcd.c&gt;&nbsp;</strong>que  hace una&nbsp;función similar&nbsp;a la de un driver en una PC, pero esta vez  entre el PIC y la LCD.</span></p>
-    <p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Para conocer como se debe conectar el LCD, abriremos la  librería “<strong>flex_lcd.c</strong>”</span></p>
-    <p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">&nbsp;</span></p>
-    <p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:center;line-height:13.5pt;background:white;" align="center"><img src="../img/4_1.png" alt="" height="auto" width="auto"></p>
-    <p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">&nbsp;</span></p>
-    <p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;">&nbsp;</p>
-    <p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Descripción de conexiones del LCD</span></p>
-    <p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;">&nbsp;</p>
-    <p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span class="MsoNormal" style="margin-bottom:.0001pt;text-align:center;line-height:13.5pt;background:white;"><img src="../../img/LCD.png" alt="" height="auto" width="auto"></span></p>
-    <p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">&nbsp;</span></p>
-    <p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">En las primeras líneas podemos ver que se definen los  pines del microcontrolador a los cuales irán conectados los pines del LCD, y  serán éstos los que&nbsp;usaremos&nbsp;para diseñar nuestro circuito en Proteus  ISIS.</span></p>
-    <p class="MsoNormal1" style="margin-bottom:12.0pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; "><br>
-      En el circuito&nbsp;seleccionamos&nbsp;un&nbsp;<strong>PIC18F4550</strong>&nbsp;y  un&nbsp;<strong>LM016L</strong> (pantalla  LCD&nbsp;<strong>2x16</strong>), como en  ejercicios anteriores algunas conexiones no se hacen por simplificar, pero eso  no indica que, cuando vamos hacerlo en un Proto-Board no debamos hacerlas. (ej:  conexión del pin V0 – contraste del LCD).</span></p>
-    <p class="MsoNormal1" style="margin-bottom:12.0pt;text-align:justify;line-height:13.5pt;background:white;"><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Hay que  recordar configurar el reloj 20MHz (<strong>en la simulación</strong>), también colocar  en alto el pin 1 del PIC (MCLR).</span></p>
-    <div align="center">
-      <table class="MsoNormalTable" cellspacing="0" cellpadding="0" border="0">
-        <tbody>
-<tr>
-          <td style="padding:3.0pt 3.0pt 3.0pt 3.0pt;"><br></td>
-        </tr>
-        <tr>
-          <td style="padding:3.0pt 3.0pt 3.0pt 3.0pt;"><br></td>
-        </tr>
-      </tbody></table>
-    </div>
-    <p class="MsoNormal1" style="margin-bottom:12.0pt;text-align:justify;line-height:13.5pt;background:white;"><strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Comentarios:</span></strong></p>
-    <ol>
-      <li><strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">lcd_gotoxy(1,1);</span></strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">&nbsp;nos  indica que la próxima instrucción que escriba datos en el LCD los ubicará en la  fila 1 columna 1.</span></li>
-      <li><strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">printf(lcd_putc, " escribir aqui ");&nbsp;</span></strong><span style="font-family:'Arial','sans-serif'; font-size:12.0pt; ">Este comando es para escribir en la  pantalla LCD y escribe lo que está dentro de la comillas.</span></li>
-    </ol>
-    <p style="line-height:115%; font-family:'Arial','sans-serif'; font-size:12.0pt; ">Extraído parcialmente de: <a href="http://22xd.blogspot.com/2011/04/programando-pic-con-ccs-ejercicio-3-lcd.html">http://22xd.blogspot.com/2011/04/programando-pic-con-ccs-ejercicio-3-lcd.html</a></p>
-</body></html>
+	<body>
+		<div class="Normal" style="text-align:justify">
+			<b><i>LCD2x16 y LCD4x20</i></b>
+			<br><br>
+			En PIC-C CCS agregamos la librería <b><i>#include &lt;flex_lcd.c&gt; </i></b>que hace una función similar a la de un driver en una PC, pero esta vez entre el PIC y la LCD.
+			Para conocer como se debe conectar el LCD, abriremos la librería “<b><i>flex_lcd.c</i></b>”
+			<div align=center><img src="../img/4_1.png" alt="" height="auto" width="auto"></div>
+			<br><br>
+			Descripción de conexiones del LCD
+			<br><br>
+			<div align=center><img src="../../img/LCD.png" alt="" height="auto" width="auto"></div>
+			<br><br>
+			En las primeras líneas podemos ver que se definen los pines del microcontrolador a los cuales irán conectados los pines del LCD, y serán éstos los que usaremos para diseñar nuestro circuito en Proteus ISIS.
+			<br><br>
+			En el circuito seleccionamos&nbsp;un&nbsp;<b><i>PIC18F4550</i></b>&nbsp;y un&nbsp;<b><i>LM016L</i></b> (pantalla LCD&nbsp;<b><i>2x16</i></b>), como en ejercicios anteriores algunas conexiones no se hacen por simplificar, pero eso no indica que, cuando vamos hacerlo en un Proto-Board no debamos hacerlas. (ej: conexión del pin V0 – contraste del LCD).
+			<br><br>
+			Hay que recordar configurar el reloj 20MHz (<b><i>en la simulación</i></b>), también colocar en alto el pin 1 del PIC (MCLR).
+			<br><br>
+			<div align="center"><img src="Cristalyreloj.png"></div>
+			<b><i>Comentarios:</i></b>
+			<ol>
+				<li><b><i>lcd_gotoxy(1,1):</i></b> nos indica que la próxima instrucción que escriba datos en el LCD los ubicará en la fila 1 columna 1.</li>
+				<li><b><i>printf(lcd_putc, " escribir aqui "):</i></b> Este comando es para escribir en la pantalla LCD y escribe lo que está dentro de la comillas.</li>
+			</ol>
+			Extraído parcialmente de: <a href="http://22xd.blogspot.com/2011/04/programando-pic-con-ccs-ejercicio-3-lcd.html">http://22xd.blogspot.com/2011/04/programando-pic-con-ccs-ejercicio-3-lcd.html</a>
+		</div>
+	</body>
+</html>

@@ -10,16 +10,9 @@
 
 	<body class="yui3-skin-sam">
 		<div class="Normal" style="text-align:justify">
-			<a id="Entradas analogas"></a>
-			La conversión Analógica a Digital que escapaz de hacer un PIC consiste en convertir un valor de tensión (voltaje) queconectemos a un PIN habilitado para ello, en un valor numérico proporcional adicha tensión que podemos guardar en una variable y ser utilizado por nuestro programa del PIC.
+			El valor de tensión mínimo que podemos convertir es 0V o tensión del nivel del Vss(GND) y 5V o tensión del nivel de alimentación Vcc del PIC.
 			<br><br>
-			Dicho de otra forma: Si entre un pin del PIC podemos tener una tensión, con respectoa GND, entre 0V y 5V y realizamos una conversión Analógico-Digital de ese pincon una precisión de 8 bits entonces el PIC puede "leer" esa tensiónen 256 (2^8=256) valores distintos que nos devuelve como resultado de lalectura, siendo el 0 el correspondiente a los 0V y el 255 el correspondiente alos 5V, y todos los intermedios en "saltos" de 0,019V (5V/256).
-			<br><br>
-			Si en lugar de 8 bits estamos utilizando un PIC que tiene un conversor A/D de 10bits de precisión entonces ese mismo rango de 0V a 5V podemos"leerlo" en 1024 (2^10=1024) valores distintos, siendo el"resultado" 0 el que corresponde a los 0V y el 1023 a los 5V.Cualquier valor intermedio nos devolverá un número equivalente con "pasos" de 0,0049V por valor.
-			<br><br>
-			Hemos visto que el mínimo que podemos convertir es 0V o tensión del nivel del Vss(GND) del PIC y 5V o tensión del nivel de alimentación Vcc del PIC.
-			<br><br>
-			Esto es así si no utilizamos los Voltajes de Referencia, porque si los utilizamosentonces las cosas pueden cambiar....
+			Esto es así si no utilizamos los Voltajes de Referencia, porque si los utilizamos entonces las cosas pueden cambiar....
 			<br><br>
 			Imaginemos un dispositivo analógico que varía su tensión de salida entre 0V y 1V. Si leaplicamos la conversión A/D como antes con 8 bits de precisión entonces los valores que vamos a obtener son entre 0 y 51 (1*256/5V) con lo que desperdiciamos una parte muy importante del rango posible de conversión, entre52 y 255 nunca nos va a aparecer como resultado de la misma.
 			<br><br>
@@ -36,8 +29,6 @@
 			Todo esto se puede ver en el siguientediagrama de bloques del conversor A/D de los PIC's de la familia 16F87X:
 			<br><br>
 			<div align="center"><img src="../img/Microcontroladores%20PIC%20-%20CCS_clip_image001_0000.png" alt="" height="475" width="489"></div>
-			<br><br>
-			<div align="center"><img src="../img/9.1%20Entradas%20analogas.png" alt="" height="475" width="489"></div>
 		</div>
 	</body>
 </html>

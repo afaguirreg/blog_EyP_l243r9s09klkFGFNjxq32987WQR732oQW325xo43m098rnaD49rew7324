@@ -8,57 +8,59 @@
 	</head>
 
 	<body>
-		<div align=center><img src="img/0_1.png" width=auto height=auto alt=""></div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Descripción: Circuito entrenador en programación de microcontroladores PIC18F4550.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Incluye: Tarjeta con microcontrolador PIC 18F4550, regleta para conexión de LCD alfanumérico 2x16, conector DB-9 para conexión RS-232, regleta para conexión de teclado, borneras para conexión de entradas y salidas adicionales.</div>
-		<div><br></div>
-		<div class="Bold" style="text-align:justify"><i>Instrucciones de instalación</i></div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Instalación el driver de la tarjeta:</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">1. Antes de conectar el cable USB al computador, ejecute el programa USBProg.exe y pulse el botón “Instalar driver”. (Si el sistema operativo es Windows 7 se recomienda hacer lo siguiente: Click derecho sobre USBProg.exe y seleccione <b>ejecutar como administrador</b>)</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Instalador del driver USBProg.exe</div>
-		<div><br></div>
-		<div align=center><img src="img/1_1.jpg" width="auto" height="auto" alt=""></div>
-		<div><br></div>
-		<div align=center><img alt="" src="img/1_2.jpg" width=567 height=208></div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">2. Apague la conexión inalámbrica o cualquier medio que lo conecte a internet. (Esto evitará que el sistema operativo busque el driver en internet)</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">3. Conecte la tarjeta a un puerto USB de su computador.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">4. Si el sistema operativo solicita la ubicación del driver, indique al programa instalador del driver su ubicación en la siguiente ruta: C:\Windows.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">5. Al finalizar la instalación del driver puede cerrar la aplicación USBProg.exe.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Procedimiento para reprogramar la tarjeta:</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">1. Para poner la tarjeta en modo de programación debe conectarla a un puerto USB de su computador.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">2. Ejecute la herramienta <b>mikrobootloader USB HID</b>.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">3. Pulse simultáneamente los el botón RESET y el botón PROGRAM (botón rojo y botón negro, respectivamente).</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Libere primero el botón RESET sin dejar de pulsar program, espere 2 segundos y libere el botón PROGRAM. La tarjeta ha pasado a modo de reprogramación.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Cuando el sistema operativo del PC reconozca el dispositivo el ícono USB se volverá de color rojo indicando que el enlace ha sido establecido. <b>Tendrá 5 segundos para proceder con el siguiente paso, si espera más tiempo el dispositivo se reiniciará</b>.</div>
-		<div><br></div>
-		<div align=center><img alt="" src="img/1_3.png" width=499 height=395></div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">4. Haga Click en el botón <B><I>Connect</I></B>, el dispositivo entrará en modo Bootloader y estará preparado para recibir el nuevo programa.</div>
-		<div><br></div>
-		<div align=center><img alt="" src="img/1_4.png" width=498 height=396></div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">5. Pulse el botón <b><i>Browse for Hex</i></b> para seleccionar el archivo .hex de su proyecto que generó el compilador.</div>
-		<div><br></div>
-		<div align=center><img alt="" src="img/1_5.jpg" width=566 height=309></div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">6. Pulse el botón <B><I>Begin uploading</I></B> para enviar el programa al microcontrolador. El programa le informará cuando el proceso haya sido completado.</div>
-		<div><br></div>
-		<div align=center><img alt="" src="img/1_6.jpg" width=566 height=364></div>
-		<div class="Normal" style="text-align:justify">7. Si requiere reprogramar la tarjeta, solamente necesita repetir el proceso descrito.</div>
+		<div class="Normal" style="text-align:justify">
+			<div align=center><img src="img/0_1.png" width=auto height=auto alt=""></div>
+			<br><br>
+			Descripción: Circuito entrenador en programación de microcontroladores PIC18F4550.
+			<br><br>
+			Incluye: Tarjeta con microcontrolador PIC 18F4550, regleta para conexión de LCD alfanumérico 2x16, conector DB-9 para conexión RS-232, regleta para conexión de teclado, borneras para conexión de entradas y salidas adicionales.
+			<br><br>
+			<b><i>Instrucciones de instalación</i></b>
+			<br><br>
+			Instalación el driver de la tarjeta:
+			<br><br>
+			1. Antes de conectar el cable USB al computador, ejecute el programa USBProg.exe y pulse el botón “Instalar driver”. (Si el sistema operativo es Windows 7 se recomienda hacer lo siguiente: Click derecho sobre USBProg.exe y seleccione <b><i>ejecutar como administrador</i></b>)
+			<br><br>
+			Instalador del driver USBProg.exe
+			<br><br>
+			<div align=center><img src="img/1_1.jpg" width="auto" height="auto" alt=""></div>
+			<br><br>
+			<div align=center><img alt="" src="img/1_2.jpg" width=567 height=208></div>
+			<br><br>
+			2. Apague la conexión inalámbrica o cualquier medio que lo conecte a internet. (Esto evitará que el sistema operativo busque el driver en internet)
+			<br><br>
+			3. Conecte la tarjeta a un puerto USB de su computador.
+			<br><br>
+			4. Si el sistema operativo solicita la ubicación del driver, indique al programa instalador del driver su ubicación en la siguiente ruta: C:\Windows.
+			<br><br>
+			5. Al finalizar la instalación del driver puede cerrar la aplicación USBProg.exe.
+			<br><br>
+			<b><i>Procedimiento para reprogramar la tarjeta:</i></b>
+			<br><br>
+			1. Para poner la tarjeta en modo de programación debe conectarla a un puerto USB de su computador.
+			<br><br>
+			2. Ejecute la herramienta <b><i>mikrobootloader USB HID</i></b>.
+			<br><br>
+			3. Pulse simultáneamente los el botón RESET y el botón PROGRAM (botón rojo y botón negro, respectivamente).
+			<br><br>
+			Libere primero el botón RESET sin dejar de pulsar program, espere 2 segundos y libere el botón PROGRAM. La tarjeta ha pasado a modo de reprogramación.
+			<br><br>
+			Cuando el sistema operativo del PC reconozca el dispositivo el ícono USB se volverá de color rojo indicando que el enlace ha sido establecido. <b><i>Tendrá 5 segundos para proceder con el siguiente paso, si espera más tiempo el dispositivo se reiniciará</i></b>.
+			<br><br>
+			<div align=center><img alt="" src="img/1_3.png" width=499 height=395></div>
+			<br><br>
+			4. Haga Click en el botón <B><I>Connect</I></B>, el dispositivo entrará en modo Bootloader y estará preparado para recibir el nuevo programa.
+			<br><br>
+			<div align=center><img alt="" src="img/1_4.png" width=498 height=396></div>
+			<br><br>
+			5. Pulse el botón <b><i>Browse for Hex</i></b> para seleccionar el archivo .hex de su proyecto que generó el compilador.
+			<br><br>
+			<div align=center><img alt="" src="img/1_5.jpg" width=566 height=309></div>
+			<br><br>
+			6. Pulse el botón <B><I>Begin uploading</I></B> para enviar el programa al microcontrolador. El programa le informará cuando el proceso haya sido completado.
+			<br><br>
+			<div align=center><img alt="" src="img/1_6.jpg" width=566 height=364></div>
+			7. Si requiere reprogramar la tarjeta, solamente necesita repetir el proceso descrito.
+		</div>
 	</body>
 </html>

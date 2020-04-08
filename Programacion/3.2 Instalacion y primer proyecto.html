@@ -8,123 +8,129 @@
 	</head>
 
 	<body>
-		<div class="Bold" style="text-align:justify">Instalación</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">SharpDevelop es una distribución libre para programar sobre la plataforma .Net con el lenguaje C#.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">SharpDevelop requiere .Net Framework 4.5.1</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify"><a href="http://www.microsoft.com/en-us/download/details.aspx?id=40779">http://www.microsoft.com/en-us/download/details.aspx?id=40779</a></div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Se puede obtener el instalador de SharpDevelop en el siguiente enlace:</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify"><a href="http://www.icsharpcode.net/opensource/sd/download/GetFile.aspx?What=Setup&Release=Zimnitz">http://www.icsharpcode.net/opensource/sd/download/GetFile.aspx?What=Setup&amp;Release=Zimnitz</a></div>
-		<div><br></div>
-		<video controls>
-			<source src="video/1 - Instalación.m4v" type="video/mp4">
-			<source src="video/1 - Instalación.mp4" type="video/mp4">
-		</video>
-		<div><br></div>
-		<div class="Bold" style="text-align:justify">Primer proyecto</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Una vez instalado vamos a crear el primer proyecto en C#.</div>
-		<div><br></div>
-		<div align=center><img src="img/Nuevo proyecto.png" width="495" height="449" alt=""/></div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Al ejecutar C# debemos seleccionar el tipo de proyecto <strong>Windows Application</strong> y darle un nombre.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">La ruta predeterminada donde se guardará el proyecto es la carpeta de documentos del sistema:</div>
-		<div><br></div>
-		<div class="Bold" style="text-align:justify">Documentos<span style="font-family:Wingdings; font-size:12.0pt; ">à</span>SharpDevelop Projects</div>
-		<div><br></div>
-		<div align=center><img src="img/Crear windows application.png" width="601" height="462" alt=""/></div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Ahora vamos a la pestaña &ldquo;Design&rdquo; para comenzar a configurar la interfaz visual del proyecto.</div>
-		<div><br></div>
-		<video controls>
-			<source src="video/2 - Design.m4v" type="video/mp4">
-			<source src="video/2 - Design.mp4" type="video/mp4">
-		</video>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Identiquemos las herramientas del entorno:</div>
-		<div><br></div>
-		<div align=center><img src="img/Herramientas.png" width="811" height="693" alt=""/></div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Explorador de soluciones: Permite explorar los archivos del proyecto abierto e integrar proyectos nuevos y preexistentes. Si está oculto se muestra haciendo click en el menú <em>View</em><em><span style="line-height:115%; font-family:Wingdings; font-size:12.0pt; ">à</span>Projects</em></div>
-		<div><br></div>
-		<div align=center><img src="img/View projects.png" width="220" height="162" alt=""/></div>
-		<div><br></div>
-		<div align="center">
-			<table>
-				<tr>
-					<td width="328" valign="top" style="width:245.85pt;border:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;">
-						<div class="Normal" style="text-align:justify"><b>Cuadro de propiedades</b>: Esta herramienta nos permite configurar las características de los controles utilizados en el proyecto. Si está oculto se muestra haciendo click en el menú <em>View</em><em><span style="font-family:Wingdings; font-size:12.0pt; ">à</span></em><em>Properties</em></div>
-					</td>
-					<td width="328" valign="top" style="width:245.85pt;border:solid black 1.0pt;border-left:none;padding:0cm 5.4pt 0cm 5.4pt;">
-						<div class="Normal" style="text-align:justify"><b>Barra de herramientas</b>: Aquí encontraremos los controles que es posible agregar a nuestro proyecto. Si está oculto se muestra haciendo click en el menú <em>View</em><em><span style="font-family:Wingdings; font-size:12.0pt; ">à</span></em><em>Tools</em></div>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<div align=center><img src="img/View properties.png" width="326" height="637" alt=""/></div>
-					</td>
-					<td>
-						<div align=center><img src="img/View tools.png" width="224" height="641" alt=""/></div>
-					</td>
-				</tr>
-			</table>
-		</div>
-		<div><br></div>
-		<div class="Bold" style="text-align:justify">Controles y propiedades</div>
-		<div><br></div>
-		<div align="center">
-			<table>
-				<tr>
-					<td>
-						<div align=center><img src="img/MainForm.png" width="300" height="300" alt=""/></div>
-					</td>
-					<td width="328" valign="top" style="width:245.85pt;border:solid black 1.0pt;border-left:none;padding:0cm 5.4pt 0cm 5.4pt;"><div><br></div>
-						<div class="Normal" style="text-align:justify">Cuando se crea el proyecto, éste añade un control predeterminado, que es la propia ventana (MainForm) al cual añadiremos los demás controles que requeriremos para poner en funcionamiento nuestro programa. <b>MainForm</b> en sí es un objeto con el cual podemos interactuar, recordemos que la interfaz visual es lo que el usuario del programa verá cuando éste se ejecuta.</div>
-					</td>
-				</tr>
-			</table>
-		</div>
-		<div><br></div>
-		<div class="Bold" style="text-align:justify"><i>Propiedades</i></div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Son las características que identifican un objeto. Algunas de ellas son:
+		<div class="Normal" style="text-align:justify">
+			<b><i>Instalación y primer proyecto</i></b>
+			<br><br>
+			SharpDevelop es una distribución libre para programar sobre la plataforma .Net con el lenguaje C#.
+			<br><br>
+			SharpDevelop requiere .Net Framework 4.5.1
+			<br><br>
+			<a href="http://www.microsoft.com/en-us/download/details.aspx?id=40779">http://www.microsoft.com/en-us/download/details.aspx?id=40779</a>
+			<br><br>
+			Se puede obtener el instalador de SharpDevelop en el siguiente enlace:
+			<br><br>
+			<a href="http://www.icsharpcode.net/opensource/sd/download/GetFile.aspx?What=Setup&Release=Zimnitz">http://www.icsharpcode.net/opensource/sd/download/GetFile.aspx?What=Setup&amp;Release=Zimnitz</a>
+			<br><br>
+			<video controls>
+				<source src="video/1 - Instalación.m4v" type="video/mp4">
+				<source src="video/1 - Instalación.mp4" type="video/mp4">
+			</video>
+			<br><br>
+			<b><i>Primer proyecto</i></b>
+			<br><br>
+			Una vez instalado vamos a crear el primer proyecto en C#.
+			<br><br>
+			<div align=center><img src="img/Nuevo proyecto.png" width="495" height="449" alt=""/></div>
+			<br><br>
+			Al ejecutar C# debemos seleccionar el tipo de proyecto <b><i>Windows Application</i></b> y darle un nombre.
+			<br><br>
+			La ruta predeterminada donde se guardará el proyecto es la carpeta de documentos del sistema:
+			<br><br>
+			<b><i>Documentos</i></b><span style="font-family:Wingdings; font-size:12.0pt; ">à</span>SharpDevelop Projects
+			<br><br>
+			<div align=center><img src="img/Crear windows application.png" width="601" height="462" alt=""/></div>
+			<br><br>
+			Ahora vamos a la pestaña &ldquo;Design&rdquo; para comenzar a configurar la interfaz visual del proyecto.
+			<br><br>
+			<video controls>
+				<source src="video/2 - Design.m4v" type="video/mp4">
+				<source src="video/2 - Design.mp4" type="video/mp4">
+			</video>
+			<br><br>
+			Identiquemos las herramientas del entorno:
+			<br><br>
+			<div align=center><img src="img/Herramientas.png" width="811" height="693" alt=""/></div>
+			<br><br>
+			Explorador de soluciones: Permite explorar los archivos del proyecto abierto e integrar proyectos nuevos y preexistentes. Si está oculto se muestra haciendo click en el menú <em>View</em><em><span style="line-height:115%; font-family:Wingdings; font-size:12.0pt; ">à</span>Projects</em>
+			<br><br>
+			<div align=center><img src="img/View projects.png" width="220" height="162" alt=""/></div>
+			<br><br>
+			<div align="center">
+				<table>
+					<tr>
+						<td width="328" valign="top" style="width:245.85pt;border:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;">
+							<b><i>Cuadro de propiedades</i></b>: Esta herramienta nos permite configurar las características de los controles utilizados en el proyecto. Si está oculto se muestra haciendo click en el menú <em>View</em><em><span style="font-family:Wingdings; font-size:12.0pt; ">à</span></em><em>Properties</em>
+						</td>
+						<td width="328" valign="top" style="width:245.85pt;border:solid black 1.0pt;border-left:none;padding:0cm 5.4pt 0cm 5.4pt;">
+							<b><i>Barra de herramientas</i></b>: Aquí encontraremos los controles que es posible agregar a nuestro proyecto. Si está oculto se muestra haciendo click en el menú <em>View</em><em><span style="font-family:Wingdings; font-size:12.0pt; ">à</span></em><em>Tools</em>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div align=center><img src="img/View properties.png" width="326" height="637" alt=""/></div>
+						</td>
+						<td>
+							<div align=center><img src="img/View tools.png" width="224" height="641" alt=""/></div>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<br><br>
+			<b><i>Controles y propiedades</i></b>
+			<br><br>
+			<div align="center">
+				<table>
+					<tr>
+						<td>
+							<div align=center><img src="img/MainForm.png" width="300" height="300" alt=""/></div>
+						</td>
+						<td width="328" valign="top" style="width:245.85pt;border:solid black 1.0pt;border-left:none;padding:0cm 5.4pt 0cm 5.4pt;">
+							<br><br>
+							Cuando se crea el proyecto, éste añade un control predeterminado, que es la propia ventana (MainForm) al cual añadiremos los demás controles que requeriremos para poner en funcionamiento nuestro programa. <b><i>MainForm</i></b> en sí es un objeto con el cual podemos interactuar, recordemos que la interfaz visual es lo que el usuario del programa verá cuando éste se ejecuta.
+						</td>
+					</tr>
+				</table>
+			</div>
+			<br><br>
+			<b><i>Propiedades</i></b>
+			<br><br>
+			Son las características que identifican un objeto. Algunas de ellas son:
 			<ul>
-				<li><b>BackgroundColor</b>. Obtiene o establece el color de fondo del objeto.</li>
-				<li><b>ForegroundColor</b>. Obtiene o establece el color de primer plano.</li>
-				<li><b>Text</b>. Obtiene o establece el texto en un control.</li>
+				<li><b><i>BackgroundColor</i></b>. Obtiene o establece el color de fondo del objeto.</li>
+				<li><b><i>ForegroundColor</i></b>. Obtiene o establece el color de primer plano.</li>
+				<li><b><i>Text</i></b>. Obtiene o establece el texto en un control.</li>
 			</ul>
+			<br><br>
+			En la barra de herramientas encontraremos los controles que es posible agregar a nuestro proyecto. También se pueden agregar y agrupar controles por categorías.
+			<br><br>
+			Por ejemplo, podemos cambiar la propiedad Backcolor de la ventana a nuestro gusto:
+			<br><br>
+			<video controls>
+				<source src="video/3 - BackColor.m4v" type="video/mp4">
+				<source src="video/3 - BackColor.mp4" type="video/mp4">
+			</video>
+			<br><br>
+			Algunas propiedades se usan más frecuentemente que otras.
+			<br><br>
+			Para cambiar el texto de una etiqueta: <b><i>Text</i></b>
+			<br>
+			Para cambiar el color del texto: <b><i>Fore Color</i></b>
+			<br>
+			Para cambiar el tipo de texto: <b><i>Font</i></b>
+			<br>
+			Para ocultar/mostrar un objeto: <b><i>Visibility</i></b>
+			<br>
+			Para deshabilitar/habilitar un control: <b><i>Enabled</i></b>
+			<br><br>
+			<b><i>Nota:</i></b> Las propiedades con las que se configure cada control en el diseño serán con las que inicie cuando el programa sea ejecutado.
+			<br><br>
+			<b><i>Control Button</i></b>
+			<br><br>
+			Este control se programa para ejecutar una o varias acciones como reacción a un evento, por ejemplo, que se haga click sobre el botón.
+			<br><br>
+			<b><i>Control Label (Etiqueta)</i></b>
+			<br><br>
+			Tiene como propósito mostrar información (Propiedad <b><i>Text</i></b>)
 		</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">En la barra de herramientas encontraremos los controles que es posible agregar a nuestro proyecto. También se pueden agregar y agrupar controles por categorías.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Por ejemplo, podemos cambiar la propiedad Backcolor de la ventana a nuestro gusto:</div>
-		<div><br></div>
-		<video controls>
-			<source src="video/3 - BackColor.m4v" type="video/mp4">
-			<source src="video/3 - BackColor.mp4" type="video/mp4">
-		</video>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Algunas propiedades se usan más frecuentemente que otras.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Para cambiar el texto de una etiqueta: <b>Text</b></div>
-		<div class="Normal" style="text-align:justify">Para cambiar el color del texto: <b>Fore Color</b></div>
-		<div class="Normal" style="text-align:justify">Para cambiar el tipo de texto: <b>Font</b></div>
-		<div class="Normal" style="text-align:justify">Para ocultar/mostrar un objeto: <b>Visibility</b></div>
-		<div class="Normal" style="text-align:justify">Para deshabilitar/habilitar un control: <b>Enabled</b></div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify"><b>Nota:</b> Las propiedades con las que se configure cada control en el diseño serán con las que inicie cuando el programa sea ejecutado.</div>
-		<div><br></div>
-		<div class="Bold" style="text-align:justify"><i>Control Button</i></div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Este control se programa para ejecutar una o varias acciones como reacción a un evento, por ejemplo, que se haga click sobre el botón.</div>
-		<div><br></div>
-		<div class="Bold" style="text-align:justify"><i>Control Label (Etiqueta)</i></div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Tiene como propósito mostrar información (Propiedad <b>Text</b>)</div>
 	</body>
 </html>

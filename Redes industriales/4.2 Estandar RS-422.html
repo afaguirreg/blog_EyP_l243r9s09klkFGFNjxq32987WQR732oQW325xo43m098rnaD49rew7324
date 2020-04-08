@@ -8,52 +8,86 @@
 	</head>
 
 	<body>
-		<div class="Bold" style="text-align:justify">ESTANDAR RS-422</div>
-		<div><br></div>
-		<div align=center><img width=355 height=238 src="img/4.2_1.png"></div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">El Enlace RS-422 debe su nombre al medio físico definido por la norma americana EIA de igual designación y que hace referencia a la transmisión de datos y señales de control mediante pares de señales diferenciales.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">En aplicaciones industriales se designa como bus RS-422 al enlace físico previsto para la conexión punto a punto entre dos terminales empleando para cada línea un par de señales diferenciales transmitidas a través de un par de cables trenzados.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">La norma RS-422 se creó con objeto de superar las limitaciones de RS-232, y de permitir mayores velocidades de comunicación, entre otras.</div>
-		<div class="Bold" style="text-align:justify">Características</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">1. <b>Modo de trabajo diferencial: </b>Es una comunicación balanceada ya que no necesita una referencia para la señal de transmisión o de recepción.</div>
-		<div class="Normal" style="text-align:justify">2. <b><i>Número de nodos posible</i></b>: Aunque fué creada para remplazar RS-232 que solo permite 2 nodos, con Rs-422 es posible interconectar hasta 32 nodos en una configuración de anillo físico.</div>
-		<div class="Normal" style="text-align:justify">3. <b><i>Máxima longitud: </i></b>La máxima distancia en metros permitida entre el primer nodo y el último es de 1200, en caso de requerir mayor distancia se debe recurrir a repetidores.</div>
-		<div class="Normal" style="text-align:justify">4. <b><i>Velocidad Máxima: </i></b>Teóricamente se habla de una velocidad máxima de transmisión de 100 M (100 mega baudios), pero todo depende de los ETD y ECD que se utilicen.</div>
-		<div class="Normal" style="text-align:justify"><b><i>5. Salida del transmisor: </i></b>+/- 2 V min</div>
-		<div class="Normal" style="text-align:justify"><b><i>6. Carga del transmisor: </i></b>100 ohmios min</div>
-		<div class="Normal" style="text-align:justify"><b><i>7. Resistencia de entrada del receptor: </i></b>4 Kohmios min.</div>
-		<div class="Normal" style="text-align:justify"><b><i>8. Sensibilidad del receptor: </i></b>+/- 20 mV</div>
-		<div class="Normal" style="text-align:justify"><b><i>9. Explotación de la transmisión: </i></b>RS-422 es de tipo full dúplex.</div>
-		<div class="Normal" style="text-align:justify"><b>10.</b> <b><i>Jerarquía: </i></b>En Rs-422 no existe un nivel de jerarquía, todos pueden comunicarse con todos RS-422 no define cuales deben ser las señales de control ni el protocolo de enlace.</div>
-		<div class="Normal" style="text-align:justify">RS-422.- Es un estándar de la industria que especifica las características eléctricas de un circuito de interconexión diferencial.</div>
-		<div class="Normal" style="text-align:justify">Las interconexiones de un solo terminal carecen de capacidad de rechazo de ruido en modo común; ideales para entornos ruidosos.</div>
-		<div class="Normal" style="text-align:justify">También, las velocidades de transmisión de datos están limitadas generalmente a menos de 0.5 Mbps.</div>
-		<div class="Normal" style="text-align:justify">Una interconexión RS-422 puede vencer estas limitaciones. Un &quot;driver&quot; de RS-422 puede llegar hasta diez unidades de carga (por ejemplo, 4K&#937; para un circuito común, es una unidad de carga).</div>
-		<div class="Normal" style="text-align:justify">El &quot;driver&quot; es capaz de transmitir datos a través de 1200m de cable (límite recomendado), pero no a velocidades de transmisión máxima. Los &quot;drivers&quot; del estándar RS-422 están garantizados para suministrar y aceptar un mínimo de 20 mA a través de una carga de 100 &#937;.</div>
-		<div class="Normal" style="text-align:justify">Esto corresponde a un voltaje de salida diferencial mínimo de 2 V a través de la carga. El receptor complemento de RS-422 tiene que ser igual o menor que una unidad de carga. Los &quot;drivers&quot; y los receptores RS-422 están diseñados para configuraciones punto-a-punto y multiterminal, pero no para multipunto. Para configuraciones multiterminal, la configuración más recomendada de interconexión es en forma de margarita. Hay que tener precaución, en largas distancias o velocidades de transmisión altas, la terminación está recomendada para reducir reflejos provocados por un desacoplo en la impedancia del cable y la impedancia de entrada del receptor.</div>
-		<div align=center><img width=459 height=240 id="Imagen 3" src="img/4.2_2.png"></div>
-		<div class="Bold" style="text-align:justify">Señales típicas en un enlace por bus RS-422</div>
-		<div class="Normal" style="text-align:justify">TxDA o T - Salida invertida del trasmisor</div>
-		<div class="Normal" style="text-align:justify">TxDB o T + Salida no invertida del transmisor</div>
-		<div class="Normal" style="text-align:justify">RxDA o R - Entrada inversora del receptor</div>
-		<div class="Normal" style="text-align:justify">RxDB o R + Entrada no inversora del receptor</div>
-		<div class="Bold" style="text-align:justify">Conexión de dos nodos utilizando un conexión RS-422</div>
-		<div align=center><img width=435 height=164 id="Imagen 6" src="img/4.2_3.png"></div>
-		<div class="Normal" style="text-align:justify">Como se puede observar en el esquema anterior una conexión entre dos nodos utilizando Rs-422 es muy similar a una conexión Rs-232, los programas para utilizar esta conexión son bastante sencillos, también se puede utilizar el programa Hyperterminal que trae Windows.</div>
-		<div class="Bold" style="text-align:justify">Conexión de varios nodos utilizando un conexión RS-422 en anillo físico</div>
-		<div align=center><img width=428 height=193 id="Imagen 7" src="img/4.2_4.png"></div>
-		<div class="Normal" style="text-align:justify">El número máximo de nodos es de 32, y cada uno de ellos debe tener un identificador o número para poderlo reconocer en la red; se debe tener cuidad que este número de identificación debe ser único y no se permite el 0. El orden de numeración no es estricto.</div>
-		<div class="Bold" style="text-align:justify">Conexión con PC</div>
-		<div class="Normal" style="text-align:justify">Debido a que los PC no poseen puertos con capacidad de manejar señales diferenciales como es la de Rs-422 es necesario utilizar una tarjeta que se encargue de realizar la conversión de Rs-232 a Rs-422 y de Rs-422 a Rs-232, o sea, que sea bidireccional.</div>
-		<div class="Normal" style="text-align:justify">Para realizar esta tarjeta debemos conocer los circuitos integrados Max232 y el 75176.</div>
-		<div class="Bold" style="text-align:justify">Max232</div>
-		<div align=center><img width=555 height=233 id="Imagen 22" src="img/4.2_5.png"></div>
-		<div class="Bold" style="text-align:justify">Descripción: El MAX232 dispone internamente de 4 conversores de niveles TTL al bus standard rs232 y viceversa, para comunicación serie como los usados en los ordenadores y que ahora están en desuso, el Com1 y Com2.</div>
-		<div class="Normal" style="text-align:justify"><b>Funcionamiento: </b>El circuito integrado lleva internamente 2 conversores de nivel de TTL a rs232 y otros 2 de rs232 a TTL con lo que en total podremos manejar 4 señales del puerto serie del PC, por lo general las más usadas son; TX, RX, RTS, CTS, estas dos últimas son las usadas para el protocolo handshaking pero no es imprescindible su uso. Para que el max232 funcione correctamente deberemos de poner unos condensadores externos, todo esto lo podemos ver en la siguiente figura en la que solo se han cableado las líneas TX y RX que son las más usualmente usadas para casi cualquier aplicación</div>
-		<div align=center><img width=563 height=300 id="Imagen 28" src="img/4.2_6.png"></div>
+		<div class="Normal" style="text-align:justify">
+			<b><i>ESTANDAR RS-422</i></b>
+			<br><br>
+			<div align=center><img width=355 height=238 src="img/4.2_1.png"></div>
+			<br><br>
+			El Enlace RS-422 debe su nombre al medio físico definido por la norma americana EIA de igual designación y que hace referencia a la transmisión de datos y señales de control mediante pares de señales diferenciales.
+			<br><br>
+			En aplicaciones industriales se designa como bus RS-422 al enlace físico previsto para la conexión punto a punto entre dos terminales empleando para cada línea un par de señales diferenciales transmitidas a través de un par de cables trenzados.
+			<br><br>
+			La norma RS-422 se creó con objeto de superar las limitaciones de RS-232, y de permitir mayores velocidades de comunicación, entre otras.
+			<b><i>Características</i></b>
+			<br><br>
+			1. <b><i>Modo de trabajo diferencial: </i></b>Es una comunicación balanceada ya que no necesita una referencia para la señal de transmisión o de recepción.
+			<br>
+			2. <b><i>Número de nodos posible</i></b>: Aunque fué creada para remplazar RS-232 que solo permite 2 nodos, con Rs-422 es posible interconectar hasta 32 nodos en una configuración de anillo físico.
+			<br>
+			3. <b><i>Máxima longitud: </i></b>La máxima distancia en metros permitida entre el primer nodo y el último es de 1200, en caso de requerir mayor distancia se debe recurrir a repetidores.
+			<br>
+			4. <b><i>Velocidad Máxima: </i></b>Teóricamente se habla de una velocidad máxima de transmisión de 100 M (100 mega baudios), pero todo depende de los ETD y ECD que se utilicen.
+			<br>
+			5. <b><i>Salida del transmisor: </i></b>+/- 2 V min
+			<br>
+			6. <b><i>Carga del transmisor: </i></b>100 ohmios min
+			<br>
+			7. <b><i>Resistencia de entrada del receptor: </i></b>4 Kohmios min.
+			<br>
+			8. <b><i>Sensibilidad del receptor: </i></b>+/- 20 mV
+			<br>
+			9. <b><i>Explotación de la transmisión: </i></b>RS-422 es de tipo full dúplex.
+			<br>
+			10. <b><i>Jerarquía: </i></b>En Rs-422 no existe un nivel de jerarquía, todos pueden comunicarse con todos RS-422 no define cuales deben ser las señales de control ni el protocolo de enlace.
+			<br><br>
+			<b><i>RS-422</i></b> Es un estándar de la industria que especifica las características eléctricas de un circuito de interconexión diferencial.
+			<br><br>
+			Las interconexiones de un solo terminal carecen de capacidad de rechazo de ruido en modo común; ideales para entornos ruidosos.
+			<br><br>
+			También, las velocidades de transmisión de datos están limitadas generalmente a menos de 0.5 Mbps.
+			<br><br>
+			Una interconexión RS-422 puede vencer estas limitaciones. Un &quot;driver&quot; de RS-422 puede llegar hasta diez unidades de carga (por ejemplo, 4K&#937; para un circuito común, es una unidad de carga).
+			<br><br>
+			El &quot;driver&quot; es capaz de transmitir datos a través de 1200m de cable (límite recomendado), pero no a velocidades de transmisión máxima. Los &quot;drivers&quot; del estándar RS-422 están garantizados para suministrar y aceptar un mínimo de 20 mA a través de una carga de 100 &#937;.
+			<br><br>
+			Esto corresponde a un voltaje de salida diferencial mínimo de 2 V a través de la carga. El receptor complemento de RS-422 tiene que ser igual o menor que una unidad de carga. Los &quot;drivers&quot; y los receptores RS-422 están diseñados para configuraciones punto-a-punto y multiterminal, pero no para multipunto. Para configuraciones multiterminal, la configuración más recomendada de interconexión es en forma de margarita. Hay que tener precaución, en largas distancias o velocidades de transmisión altas, la terminación está recomendada para reducir reflejos provocados por un desacoplo en la impedancia del cable y la impedancia de entrada del receptor.
+			<br><br>
+			<div align=center><img width=459 height=240 id="Imagen 3" src="img/4.2_2.png"></div>
+			<br><br>
+			<b><i>Señales típicas en un enlace por bus RS-422</i></b>
+			<br><br>
+			TxDA o T - Salida invertida del trasmisor
+			<br>
+			TxDB o T + Salida no invertida del transmisor
+			<br>
+			RxDA o R - Entrada inversora del receptor
+			<br>
+			RxDB o R + Entrada no inversora del receptor
+			<br><br>
+			<b><i>Conexión de dos nodos utilizando un conexión RS-422</i></b>
+			<div align=center><img width=435 height=164 id="Imagen 6" src="img/4.2_3.png"></div>
+			<br><br>
+			Como se puede observar en el esquema anterior una conexión entre dos nodos utilizando Rs-422 es muy similar a una conexión Rs-232, los programas para utilizar esta conexión son bastante sencillos, también se puede utilizar el programa Hyperterminal que trae Windows.
+			<br><br>
+			<b><i>Conexión de varios nodos utilizando un conexión RS-422 en anillo físico</i></b>
+			<br><br>
+			<div align=center><img width=428 height=193 id="Imagen 7" src="img/4.2_4.png"></div>
+			<br><br>
+			El número máximo de nodos es de 32, y cada uno de ellos debe tener un identificador o número para poderlo reconocer en la red; se debe tener cuidad que este número de identificación debe ser único y no se permite el 0. El orden de numeración no es estricto.
+			<br><br>
+			<b><i>Conexión con PC</i></b>
+			<br><br>
+			Debido a que los PC no poseen puertos con capacidad de manejar señales diferenciales como es la de Rs-422 es necesario utilizar una tarjeta que se encargue de realizar la conversión de Rs-232 a Rs-422 y de Rs-422 a Rs-232, o sea, que sea bidireccional.
+			<br><br>
+			Para realizar esta tarjeta debemos conocer los circuitos integrados Max232 y el 75176.
+			<br><br>
+			<b><i>MAX232</i></b>
+			<br><br>
+			<div align=center><img width=555 height=233 id="Imagen 22" src="img/4.2_5.png"></div>
+			<br><br>
+			<b><i>Descripción:</i></b> El MAX232 dispone internamente de 4 conversores de niveles TTL al bus standard rs232 y viceversa, para comunicación serie como los usados en los ordenadores y que ahora están en desuso, el Com1 y Com2.
+			<b><i>Funcionamiento:</i></b> El circuito integrado lleva internamente 2 conversores de nivel de TTL a rs232 y otros 2 de rs232 a TTL con lo que en total podremos manejar 4 señales del puerto serie del PC, por lo general las más usadas son; TX, RX, RTS, CTS, estas dos últimas son las usadas para el protocolo handshaking pero no es imprescindible su uso. Para que el max232 funcione correctamente deberemos de poner unos condensadores externos, todo esto lo podemos ver en la siguiente figura en la que solo se han cableado las líneas TX y RX que son las más usualmente usadas para casi cualquier aplicación
+			<div align=center><img width=563 height=300 id="Imagen 28" src="img/4.2_6.png"></div>
+		</div>
 	</body>
 </html>

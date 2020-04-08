@@ -8,99 +8,128 @@
 	</head>
 
 	<body>
-	<div class="Bold" style="text-align:justify">EL PUERTO SERIE (ESTANDAR RS-232)</div>
-		<div><br></div>
-	<div align=center><img src="img/4.1_1.png" width="auto" height="auto"></div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Conector macho DB-9 se usa para conectar por el puerto serie a las computadoras <b>PC</b>.</div>
-		<div class="Normal" style="text-align:justify">Un <b>puerto serie </b>o <b>puerto serial </b>es una interfaz de comunicaciones de datos digitales, frecuentemente utilizado por computadoras y periféricos, donde la información es transmitida bit a bit enviando un solo bit a la vez, en contraste con el puerto paralelo que envía varios bits simultáneamente. La comparación entre la transmisión en serie y en paralelo se puede explicar usando una analogía con las carreteras. Una carretera tradicional de un sólo carril por sentido sería como la transmisión en serie y una autovía con varios carriles por sentido sería la transmisión en paralelo, siendo los vehículos los bits que circulan por el cable.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Lo anterior nos permite utilizar menos hardware y obtener más distancia de comunicación, pero introduce retardos significativos de tiempo en la transmisión. Los PC convencionales tienen al menos un puerto de tipo serial, y son denominados COMn, siendo n un numero de 1 a 256. Cada puerto COM corresponde a un distinto puerto serial. Entre estos tenemos el USB, el PS2, un MODEM entre otros.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">A lo largo de la mayor parte de la historia de las computadoras, la transferencia de datos a través de los puertos de serie ha sido generalizada. Se ha usado y sigue usándose para conectar las computadoras a dispositivos como terminales o módems. Los <i>mouse</i>, teclados, y otros periféricos también se conectaban de esta forma.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Actualmente en la mayoría de los periféricos serie, la interfaz USB ha reemplazado al puerto serie puesto que es más rápida. La mayor parte de las computadoras están conectados a dispositivos externos a través de USB y, a menudo, ni siquiera llegan a tener un puerto serie pero todavía se encuentran en sistemas de automatización industrial y algunos productos industriales y de consumo.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Los dispositivos de redes, como los enrutadores y conmutadores, a menudo tienen puertos serie para modificar su configuración. Los puertos serie se usan frecuentemente en estas áreas porque son sencillos, baratos y permiten la interoperabilidad entre dispositivos. La desventaja es que la configuración de las conexiones serie requiere, en la mayoría de los casos, un conocimiento avanzado por parte del usuario y el uso de comandos complejos si la implementación no es adecuada.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Una de las formas más rápidas para implementar una comunicación entre dos PCs es utilizar una interfaz serial Rs-232, cuyo puerto se reconoce por ser un conector DB9 macho en el PC. Este puerto además de ser serial es asíncrono y full dúplex, pero no nos permite por norma distancias mayores a 15 metros entre los interlocutores, y es de tipo punto a punto, aunque es muy utilizada entre PCs no es muy recomendable para establecer enlaces continuos entre equipos industriales ya que al ser electrónicamente desbalanceada es susceptible a ruido e interferencia y le afecta demasiado la atenuación que es la perdida de magnitud debido a la impedancia característica de la línea.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">La proliferación de equipos de distintos fabricantes ha causado que estos hayan tenido que ponerse de acuerdo sobre las normativas de interconexión de sus equipos. Muchas asociaciones de estándares han dictado normas y recomendaciones a las que los diseñadores de dispositivos de comunicación se acogen con el fin de garantizar que los equipos que producen se entenderán con los de otros fabricantes.</div>
-		<div class="Normal" style="text-align:justify">Este problema fue resuelto inicialmente por la asociación de estándares EIA con el estándar RS-232, que es el adoptado con más frecuencia para transmisiones serie, especialmente utilizado por gran parte de los módems.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Características Eléctricas</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">- Las señales han de ser binarias y sin balancear.</div>
-		<div class="Normal" style="text-align:justify">- La tensión no debe superar los 25 voltios en circuito abierto.</div>
-		<div class="Normal" style="text-align:justify">- La tensión de utilización del equipo puede ser positiva (0 lógico) o negativa (1 lógico) y su valor esta entre los 5 y los 15 voltios.</div>
-		<div class="Normal" style="text-align:justify">- En caso de cortocircuito, la intensidad eléctrica no debe superar los 0.5 amperios.</div>
-		<div class="Normal" style="text-align:justify">- La resistencia de carga debe ser superior a 3000 ohmios y no debe sobrepasar los 7000 ohmios.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify"><b>Puerto serie asincrónico</b></div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">A través de este tipo de puerto la comunicación se establece usando un protocolo de transmisión asíncrono. En este caso, se envía en primer lugar una señal inicial anterior al primer bit de cada byte, carácter o palabra codificada. Una vez enviado el código correspondiente, se envía inmediatamente una señal de stop después de cada palabra codificada.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">La señal de inicio (start) sirve para preparar al mecanismo de recepción o receptor, la llegada y registro de un símbolo, mientras que la señal de stop sirve para predisponer al mecanismo de recepción para que tome un descanso y se prepare para la recepción del nuevo símbolo.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">La típica transmisión start-stop es la que se usa en la transmisión de códigos ASCII a través de RS-232 (también conocido como COM) es del tipo asincrónico, utiliza cableado simple desde 3 hilos hasta 25 y conecta computadoras o microcontroladores a todo tipo de periféricos, desde terminales a impresoras y módems pasando por mouses.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">La interfaz entre el RS-232 y el microprocesador generalmente se realiza mediante una UART 8250 (computadoras de 8 y 16 bits, PC XT) o 16550 (IBM Personal Computer/AT y posteriores).</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">El RS-232 original tenía un conector tipo DB-25, sin embargo la mayoría de dichos pines no se utilizaban, por lo que IBM estandarizó con su gama IBM Personal System/2 el uso del conector DE-9 (ya introducido en el AT) que se usaba, de manera mayoritaria en computadoras. Sin embargo, a excepción del mouse, el resto de periféricos solían presentar el DB-25 La norma RS-422, similar al RS-232, es un estándar utilizado en el ámbito industrial. Esto nos muestra que por medio de un cable y el puerto RS232 podemos intercambiar información.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Puertos serie modernos Uno de los defectos de los puertos serie iniciales era su lentitud en comparación con los puertos paralelos -hablamos de 19.2 kbits por segundo- sin embargo, con el paso del tiempo, están apareciendo multitud de puertos serie de alta velocidad que los hacen muy interesantes ya que presentan las ventajas del menor cableado y solucionan el problema de la merma de velocidad usando un mayor apantallamiento, y más barato, usando la técnica del par trenzado. Por ello, el puerto RS-232, e incluso multitud de puertos paralelos, se están sustituyendo por los nuevos puertos serie como el USB, el FireWire o el Serial ATA.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify"><b>Tipos de comunicación en serie</b></div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify"><b>Simplex</b></div>
-		<div class="Normal" style="text-align:justify">En este caso el emisor y el receptor están perfectamente definidos y la comunicación es unidireccional. Este tipo de comunicaciones se emplean, usualmente, en redes de radiodifusión, donde los receptores no necesitan enviar ningún tipo de dato al transmisor.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify"><b>Duplex, half duplex o semi-duplex</b></div>
-		<div class="Normal" style="text-align:justify">En este caso ambos extremos del sistema de comunicación cumplen funciones de transmisor y receptor y los datos se desplazan en ambos sentidos pero no de manera simultánea. Este tipo de comunicación se utiliza habitualmente en la interacción entre terminales y una computadora central.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify"><b>Full Duplex</b></div>
-		<div class="Normal" style="text-align:justify">El sistema es similar al duplex, pero los datos se desplazan en ambos sentidos simultáneamente.</div>
-		<div class="Normal" style="text-align:justify">Para que sea posible ambos emisores poseen diferentes frecuencias de transmisión o dos caminos de comunicación separados, mientras que la comunicación semi-duplex necesita normalmente uno solo. Para el intercambio de datos entre computadores este tipo de comunicaciones son más eficientes que las transmisiones semi-dúplex</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Distribución de pines del conector DB9. Para lograr una comunicación bidireccional se requiere contar como mínimo con esta configuración de 3 hilos.</div>
-		<div align=center><img src="img/4.1_2.png" width="auto" height="auto" alt=""></div>
-		<div align=center><img src="img/4.1_3.png" width="auto" height="auto" alt=""></div>
-		<div class="Normal" style="text-align:justify">Para localizar el puerto serial en el administrador de hardware del equipo procedemos de la siguiente manera: click en propiedades del sistema -> Harwdare -> Administrador de dispositivos:</div>
-		<div align=center><img src="img/4.1_4.png" width="auto" height="auto" alt=""></div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Aquí podremos ver características del dispositivo como su tipo y nombre del fabricante.</div>
-		<div><br></div>
-		<div align=center><img src="img/4.1_5.png" width="auto" height="auto" alt=""></div>
-		<div><br></div>
-		<div align=center><img src="img/4.1_6.png" width="auto" height="auto" alt=""></div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Cuando se conectan los equipos utilizando una interfaz RS-232, en estos se deben configurar de igual modo los siguientes parámetros:</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify"><b>• Velocidad de transmisión: </b>Se da en Baudios (bits/seg), existen valores estándar, como son 110, 300, 600, 1200, 2400, 4800, 9600, 14400, 19200, 38400, 56K, 115K. El valor por defecto es 9600 baudios.</div>
-		<div class="Normal" style="text-align:justify"><b>• Bits de datos: </b>4,5,6,7,8</div>
-		<div class="Normal" style="text-align:justify"><b>• Bit de paridad: </b>Es un bit para detectar errores en el dato a enviar, existen las siguientes posibilidades, N (none – no utilizar), E (even - par), O (odd- impar), M (mark - marca), Z (zero - cero). Por defecto es n (none).</div>
-		<div class="Normal" style="text-align:justify"><b>• Numero de bits por dato: </b>Se define cuantos bits de cada dato se enviaran, se tiene la posibilidad de 7 u 8. Por defecto es 8</div>
-		<div class="Normal" style="text-align:justify">• <b>Bits de parada: </b>Existe la posibilidad de 1 o 2, estos bits se anexan tras el envío de cada dato, se utiliza para finalizar el envío por carácter (sirve de sincronización). Por defecto es 1</div>
-		<div class="Normal" style="text-align:justify">• <b>Control de Flujo: </b>El control de flujo sirve para administrar la comunicación entre procesos con distinta velocidad de CPU. Existen las posibilidades siguientes:</div>
-		<div class="Normal" style="text-align:justify">- No usar, en este caso no existirá regulación de velocidad de proceso.</div>
-		<div class="Normal" style="text-align:justify">- Por software, se utilizan dos valores ASCII, a saber, XON y XOFF; cuando el equipo receptor quiere pausar el envío del transmisor envía XON, y cuando quiere reanudarla envía XOFF.</div>
-		<div class="Normal" style="text-align:justify">- Por hardware, se utiliza la línea RTS conectada a CTS, el equipo receptor habilita RTS para activar el envío y la apaga para pausar el transmisor.</div>
-		<div class="Normal" style="text-align:justify">- Combinación de software y hardware, se utilizan los dos métodos anteriores en conjunto</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify"><b>Una configuración típica se escribiría</b>: 9600,N,8,1</div>
-		<div class="Normal" style="text-align:justify">Velocidad 9600 baudios, no usar bit de paridad, 8 bits por dato, 1 bit de paro.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify"><b>Análisis de envío</b></div>
-		<div class="Normal" style="text-align:justify">Podemos graficar las señales digitales que se generan en TX cuando se transmite un carácter, esto nos ayudara a aclarar los conceptos físicos de una transmisión serial.</div>
-		<div class="Normal" style="text-align:justify">Por ejemplo deseamos transmitir la letra B, cuto ASCII es el 42h o 01000010, con una configuración 9600,n,8,1.</div>
-		<div class="Normal" style="text-align:justify">Cuando un PC inicia el puerto serial COM (correspondiente a RS232) se activa poniendo un nivel H en TX, en RS232 un H equivale a un voltaje con rango de -3 a -15 voltios, y un L a un rango de +3 a +15 voltios, por lo que si procedemos a medir entre los pines 3 (TX) y 5 (SGND) en condiciones normales tenemos un nivel H correspondiente a un voltaje con un promedio de -9 voltios, si en un caso este valor es de medida menor podría ser síntoma de un problema de sobrecarga sobre la fuente del PC.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">El orden de envío es el siguiente:</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">• Se envía el bit de inicio, o sea, el bit de start, que es un flanco de bajada en TX, en este momento el receptor conectado con RX lo detecta y se sincroniza con el transmisor.</div>
-		<div class="Normal" style="text-align:justify">• A un tiempo de 9600 baudios, o sea, 104 microsegundos (1/9600, aprox.) se trasmite el bit de paridad correspondiente al ASCII del carácter B, en este caso como seconfiguro como N (none) no se genera ni se envía.</div>
-		<div class="Normal" style="text-align:justify">• Luego se transmite los 7 u 8 bits del dato iniciando por el LSB (menos significativo), en este caso se envían los 8 (0100 0010), la diferencia de tiempo es de 104 useg.</div>
-		<div class="Normal" style="text-align:justify">• Para finalizar se transmite el o los bits de paro, para nuestro caso es 1; lo anterior se realiza poniendo un nivel H en TX y sosteniéndolo un tiempo de 104 useg.</div>
-		<div class="Normal" style="text-align:justify">• Terminado lo anterior quedamos con TX en nivel H, para iniciar un nuevo ciclo.</div>
+		<div class="Normal" style="text-align:justify">
+			<b><i>EL PUERTO SERIE (ESTANDAR RS-232)</i></b>
+			<br><br>
+			<div align=center><img src="img/4.1_1.png" width="auto" height="auto"></div>
+			<br><br>
+			Conector macho DB-9 se usa para conectar por el puerto serie a las computadoras <b><i>PC</i></b>.
+			Un <b><i>puerto serie</i></b> o <b><i>puerto serial</i></b> es una interfaz de comunicaciones de datos digitales, frecuentemente utilizado por computadoras y periféricos, donde la información es transmitida bit a bit enviando un solo bit a la vez, en contraste con el puerto paralelo que envía varios bits simultáneamente. La comparación entre la transmisión en serie y en paralelo se puede explicar usando una analogía con las carreteras. Una carretera tradicional de un sólo carril por sentido sería como la transmisión en serie y una autovía con varios carriles por sentido sería la transmisión en paralelo, siendo los vehículos los bits que circulan por el cable.
+			<br><br>
+			Lo anterior nos permite utilizar menos hardware y obtener más distancia de comunicación, pero introduce retardos significativos de tiempo en la transmisión. Los PC convencionales tienen al menos un puerto de tipo serial, y son denominados COMn, siendo n un numero de 1 a 256. Cada puerto COM corresponde a un distinto puerto serial. Entre estos tenemos el USB, el PS2, un MODEM entre otros.
+			<br><br>
+			A lo largo de la mayor parte de la historia de las computadoras, la transferencia de datos a través de los puertos de serie ha sido generalizada. Se ha usado y sigue usándose para conectar las computadoras a dispositivos como terminales o módems. Los <b><i>mouse</i></b>, teclados, y otros periféricos también se conectaban de esta forma.
+			<br><br>
+			Actualmente en la mayoría de los periféricos serie, la interfaz USB ha reemplazado al puerto serie puesto que es más rápida. La mayor parte de las computadoras están conectados a dispositivos externos a través de USB y, a menudo, ni siquiera llegan a tener un puerto serie pero todavía se encuentran en sistemas de automatización industrial y algunos productos industriales y de consumo.
+			<br><br>
+			Los dispositivos de redes, como los enrutadores y conmutadores, a menudo tienen puertos serie para modificar su configuración. Los puertos serie se usan frecuentemente en estas áreas porque son sencillos, baratos y permiten la interoperabilidad entre dispositivos. La desventaja es que la configuración de las conexiones serie requiere, en la mayoría de los casos, un conocimiento avanzado por parte del usuario y el uso de comandos complejos si la implementación no es adecuada.
+			<br><br>
+			Una de las formas más rápidas para implementar una comunicación entre dos PCs es utilizar una interfaz serial Rs-232, cuyo puerto se reconoce por ser un conector DB9 macho en el PC. Este puerto además de ser serial es asíncrono y full dúplex, pero no nos permite por norma distancias mayores a 15 metros entre los interlocutores, y es de tipo punto a punto, aunque es muy utilizada entre PCs no es muy recomendable para establecer enlaces continuos entre equipos industriales ya que al ser electrónicamente desbalanceada es susceptible a ruido e interferencia y le afecta demasiado la atenuación que es la perdida de magnitud debido a la impedancia característica de la línea.
+			<br><br>
+			La proliferación de equipos de distintos fabricantes ha causado que estos hayan tenido que ponerse de acuerdo sobre las normativas de interconexión de sus equipos. Muchas asociaciones de estándares han dictado normas y recomendaciones a las que los diseñadores de dispositivos de comunicación se acogen con el fin de garantizar que los equipos que producen se entenderán con los de otros fabricantes.
+			<br><br>
+			Este problema fue resuelto inicialmente por la asociación de estándares EIA con el estándar RS-232, que es el adoptado con más frecuencia para transmisiones serie, especialmente utilizado por gran parte de los módems.
+			<br><br>
+			Características Eléctricas
+			<br><br>
+			- Las señales han de ser binarias y sin balancear.
+			<br>
+			- La tensión no debe superar los 25 voltios en circuito abierto.
+			<br>
+			- La tensión de utilización del equipo puede ser positiva (0 lógico) o negativa (1 lógico) y su valor esta entre los 5 y los 15 voltios.
+			<br>
+			- En caso de cortocircuito, la intensidad eléctrica no debe superar los 0.5 amperios.
+			<br>
+			- La resistencia de carga debe ser superior a 3000 ohmios y no debe sobrepasar los 7000 ohmios.
+			<br><br>
+			<b><i>Puerto serie asincrónico</i></b>
+			<br><br>
+			A través de este tipo de puerto la comunicación se establece usando un protocolo de transmisión asíncrono. En este caso, se envía en primer lugar una señal inicial anterior al primer bit de cada byte, carácter o palabra codificada. Una vez enviado el código correspondiente, se envía inmediatamente una señal de stop después de cada palabra codificada.
+			<br><br>
+			La señal de inicio (start) sirve para preparar al mecanismo de recepción o receptor, la llegada y registro de un símbolo, mientras que la señal de stop sirve para predisponer al mecanismo de recepción para que tome un descanso y se prepare para la recepción del nuevo símbolo.
+			<br><br>
+			La típica transmisión start-stop es la que se usa en la transmisión de códigos ASCII a través de RS-232 (también conocido como COM) es del tipo asincrónico, utiliza cableado simple desde 3 hilos hasta 25 y conecta computadoras o microcontroladores a todo tipo de periféricos, desde terminales a impresoras y módems pasando por mouses.
+			<br><br>
+			La interfaz entre el RS-232 y el microprocesador generalmente se realiza mediante una UART 8250 (computadoras de 8 y 16 bits, PC XT) o 16550 (IBM Personal Computer/AT y posteriores).
+			<br><br>
+			El RS-232 original tenía un conector tipo DB-25, sin embargo la mayoría de dichos pines no se utilizaban, por lo que IBM estandarizó con su gama IBM Personal System/2 el uso del conector DE-9 (ya introducido en el AT) que se usaba, de manera mayoritaria en computadoras. Sin embargo, a excepción del mouse, el resto de periféricos solían presentar el DB-25 La norma RS-422, similar al RS-232, es un estándar utilizado en el ámbito industrial. Esto nos muestra que por medio de un cable y el puerto RS232 podemos intercambiar información.
+			<br><br>
+			Puertos serie modernos Uno de los defectos de los puertos serie iniciales era su lentitud en comparación con los puertos paralelos -hablamos de 19.2 kbits por segundo- sin embargo, con el paso del tiempo, están apareciendo multitud de puertos serie de alta velocidad que los hacen muy interesantes ya que presentan las ventajas del menor cableado y solucionan el problema de la merma de velocidad usando un mayor apantallamiento, y más barato, usando la técnica del par trenzado. Por ello, el puerto RS-232, e incluso multitud de puertos paralelos, se están sustituyendo por los nuevos puertos serie como el USB, el FireWire o el Serial ATA.
+			<br><br>
+			<b><i>Tipos de comunicación en serie</i></b>
+			<br><br>
+			<b><i>Simplex</i></b>
+			En este caso el emisor y el receptor están perfectamente definidos y la comunicación es unidireccional. Este tipo de comunicaciones se emplean, usualmente, en redes de radiodifusión, donde los receptores no necesitan enviar ningún tipo de dato al transmisor.
+			<br><br>
+			<b><i>Duplex, half duplex o semi-duplex</i></b>
+			En este caso ambos extremos del sistema de comunicación cumplen funciones de transmisor y receptor y los datos se desplazan en ambos sentidos pero no de manera simultánea. Este tipo de comunicación se utiliza habitualmente en la interacción entre terminales y una computadora central.
+			<br><br>
+			<b><i>Full Duplex</i></b>
+			El sistema es similar al duplex, pero los datos se desplazan en ambos sentidos simultáneamente.
+			<br><br>
+			Para que sea posible ambos emisores poseen diferentes frecuencias de transmisión o dos caminos de comunicación separados, mientras que la comunicación semi-duplex necesita normalmente uno solo. Para el intercambio de datos entre computadores este tipo de comunicaciones son más eficientes que las transmisiones semi-dúplex
+			<br><br>
+			Distribución de pines del conector DB9. Para lograr una comunicación bidireccional se requiere contar como mínimo con esta configuración de 3 hilos.
+			<br><br>
+			<div align=center><img src="img/4.1_2.png" width="auto" height="auto" alt=""></div>
+			<br><br>
+			<div align=center><img src="img/4.1_3.png" width="auto" height="auto" alt=""></div>
+			<br><br>
+			Para localizar el puerto serial en el administrador de hardware del equipo procedemos de la siguiente manera: click en propiedades del sistema -> Harwdare -> Administrador de dispositivos:
+			<div align=center><img src="img/4.1_4.png" width="auto" height="auto" alt=""></div>
+			<br><br>
+			Aquí podremos ver características del dispositivo como su tipo y nombre del fabricante.
+			<br><br>
+			<div align=center><img src="img/4.1_5.png" width="auto" height="auto" alt=""></div>
+			<br><br>
+			<div align=center><img src="img/4.1_6.png" width="auto" height="auto" alt=""></div>
+			<br><br>
+			Cuando se conectan los equipos utilizando una interfaz RS-232, en estos se deben configurar de igual modo los siguientes parámetros:
+			<br><br>
+			<b><i>• Velocidad de transmisión:</i></b> Se da en Baudios (bits/seg), existen valores estándar, como son 110, 300, 600, 1200, 2400, 4800, 9600, 14400, 19200, 38400, 56K, 115K. El valor por defecto es 9600 baudios.
+			<br>
+			<b><i>• Bits de datos:</i></b> 4,5,6,7,8
+			<br>
+			<b><i>• Bit de paridad:</i></b> Es un bit para detectar errores en el dato a enviar, existen las siguientes posibilidades, N (none – no utilizar), E (even - par), O (odd- impar), M (mark - marca), Z (zero - cero). Por defecto es n (none).
+			<br>
+			<b><i>• Numero de bits por dato:</i></b> Se define cuantos bits de cada dato se enviaran, se tiene la posibilidad de 7 u 8. Por defecto es 8
+			<br>
+			<b><i>• Bits de parada:</i></b> Existe la posibilidad de 1 o 2, estos bits se anexan tras el envío de cada dato, se utiliza para finalizar el envío por carácter (sirve de sincronización). Por defecto es 1
+			<br>
+			<b><i>• Control de Flujo:</i></b> El control de flujo sirve para administrar la comunicación entre procesos con distinta velocidad de CPU. Existen las posibilidades siguientes:
+			<br><br>
+			- No usar, en este caso no existirá regulación de velocidad de proceso.
+			<br>
+			- Por software, se utilizan dos valores ASCII, a saber, XON y XOFF; cuando el equipo receptor quiere pausar el envío del transmisor envía XON, y cuando quiere reanudarla envía XOFF.
+			<br>
+			- Por hardware, se utiliza la línea RTS conectada a CTS, el equipo receptor habilita RTS para activar el envío y la apaga para pausar el transmisor.
+			<br>
+			- Combinación de software y hardware, se utilizan los dos métodos anteriores en conjunto
+			<br>
+			<br><br>
+			<b><i>Una configuración típica se escribiría</i></b>: 9600,N,8,1
+			<br><br>
+			Velocidad 9600 baudios, no usar bit de paridad, 8 bits por dato, 1 bit de paro.
+			<br><br>
+			<b><i>Análisis de envío</i></b>
+			<br><br>
+			Podemos graficar las señales digitales que se generan en TX cuando se transmite un carácter, esto nos ayudara a aclarar los conceptos físicos de una transmisión serial.
+			<br><br>
+			Por ejemplo deseamos transmitir la letra B, cuto ASCII es el 42h o 01000010, con una configuración 9600,n,8,1.
+			<br><br>
+			Cuando un PC inicia el puerto serial COM (correspondiente a RS232) se activa poniendo un nivel H en TX, en RS232 un H equivale a un voltaje con rango de -3 a -15 voltios, y un L a un rango de +3 a +15 voltios, por lo que si procedemos a medir entre los pines 3 (TX) y 5 (SGND) en condiciones normales tenemos un nivel H correspondiente a un voltaje con un promedio de -9 voltios, si en un caso este valor es de medida menor podría ser síntoma de un problema de sobrecarga sobre la fuente del PC.
+			<br><br>
+			El orden de envío es el siguiente:
+			<br><br>
+			• Se envía el bit de inicio, o sea, el bit de start, que es un flanco de bajada en TX, en este momento el receptor conectado con RX lo detecta y se sincroniza con el transmisor.
+			<br>
+			• A un tiempo de 9600 baudios, o sea, 104 microsegundos (1/9600, aprox.) se trasmite el bit de paridad correspondiente al ASCII del carácter B, en este caso como seconfiguro como N (none) no se genera ni se envía.
+			<br>
+			• Luego se transmite los 7 u 8 bits del dato iniciando por el LSB (menos significativo), en este caso se envían los 8 (0100 0010), la diferencia de tiempo es de 104 useg.
+			<br>
+			• Para finalizar se transmite el o los bits de paro, para nuestro caso es 1; lo anterior se realiza poniendo un nivel H en TX y sosteniéndolo un tiempo de 104 useg.
+			<br>
+			• Terminado lo anterior quedamos con TX en nivel H, para iniciar un nuevo ciclo.
+		</div>
 	</body>
 </html>

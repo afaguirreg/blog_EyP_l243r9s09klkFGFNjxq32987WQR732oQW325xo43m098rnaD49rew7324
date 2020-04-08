@@ -8,57 +8,84 @@
 	</head>
 
 	<body>
-		<div class="Bold" style="text-align:justify">Serial Peripheral Interface</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">El Bus SPI (del inglés Serial Peripheral Interface) es un estándar de comunicaciones, usado principalmente para la transferencia de información entre circuitos integrados en equipos electrónicos. El bus de interfaz de periféricos serie o bus SPI es un estándar para controlar casi cualquier dispositivo electrónico digital que acepte un flujo de bits serie regulado por un reloj.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Incluye una línea de reloj, dato entrante, dato saliente y un pin de chip select, que conecta o desconecta la operación del dispositivo con el que uno desea comunicarse. De esta forma, este estándar permite multiplexar las líneas de reloj.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Muchos sistemas digitales tienen periféricos que necesitan existir pero no ser rápidos. La ventajas de un bus serie es que minimiza el número de conductores, pines y el tamaño del circuito integrado. Esto reduce el coste de fabricar montar y probar la electrónica. Un bus de periféricos serie es la opción más flexible cuando se tiene tipos diferentes de periféricos serie. El hardware consiste en señales de reloj, data in, data out y chip select para cada circuito integrado que tiene que ser controlado. Casi cualquier dispositivo digital puede ser controlado con esta combinación de señales. Los dispositivos se diferencian en un número predecible de formas. Unos leen el dato cuando el reloj sube otros cuando el reloj baja. Algunos lo leen en el flanco de subida del reloj y otros en el flanco de bajada. Escribir es casi siempre en la dirección opuesta de la dirección de movimiento del reloj. Algunos dispositivos tienen dos relojes. Uno para capturar o mostrar los datos y el otro para el dispositivo interno.</div>
-		<div><br></div>
-		<div align=center><img border=0 width=263 height=59 src="img/image009.gif"></div>
-		<div><br></div>
-		<div align=center><img border=0 width=276 height=211 src="img/image010.gif"></div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Operación</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">El SPI es un protocolo síncrono. La sincronización y la transmisión de datos se realiza por medio de 4 señales:</div>
-		<div class="Normal" style="text-align:justify">SCLK (Clock): Es el pulso que marca la sincronización. Con cada pulso de este reloj, se lee o se envía un bit. También llamado TAKT (en Alemán).</div>
-		<div class="Normal" style="text-align:justify">MOSI (Master Output Slave Input): Salida de datos del Master y entrada de datos al Slave. También llamada SIMO.</div>
-		<div class="Normal" style="text-align:justify">MISO (Master Input Slave Output): Salida de datos del Slave y entrada al Master. También conocida por SOMI.</div>
-		<div class="Normal" style="text-align:justify">SS/Select: Para seleccionar un Slave, o para que el Master le diga al Slave que se active. También llamada SSTE.</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">La Cadena de bits es enviada de manera síncrona con los pulsos del reloj, es decir con cada pulso, el Master envía un bit. Para que empiece la transmisión el Master baja la señal SSTE ó SS/Select a cero, con esto el Slave se activa y empieza la transmisión, con un pulso de reloj al mismo tiempo que el primer bit es leído. Nótese que los pulsos de reloj pueden estar programados de manera que la transmisión del bit se realice en 4 modos diferentes, a esto se llama polaridad y fase de la transmisión:</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">1. Con el flanco de subida sin retraso.</div>
-		<div class="Normal" style="text-align:justify">2. Con el flanco de subida con retraso.</div>
-		<div class="Normal" style="text-align:justify">3. Con el flanco de bajada sin retraso.</div>
-		<div class="Normal" style="text-align:justify">4. Con el flanco de bajada con retraso.</div>
-		<div><br></div>
-		<div class="Bold" style="text-align:justify">Pros y contras del bus SPI</div>
-		<div><br></div>
-		<div class="Bold" style="text-align:justify">Ventajas</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Comunicación Full Duplex</div>
-		<div class="Normal" style="text-align:justify">Mayor velocidad de transmisión que con I²C o SMBus</div>
-		<div class="Normal" style="text-align:justify">Protocolo flexible en que se puede tener un control absoluto sobre los bits transmitidos</div>
-		<div class="Normal" style="text-align:justify">No está limitado a la transferencia de bloques de 8 bits</div>
-		<div class="Normal" style="text-align:justify">Elección del tamaño de la trama de bits, de su significado y propósito</div>
-		<div class="Normal" style="text-align:justify">Su implementación en hardware es extremadamente simple</div>
-		<div class="Normal" style="text-align:justify">Consume menos energía que I²C o que SMBus debido que posee menos circuitos (incluyendo las resistencias pull-up) y estos son más simples</div>
-		<div class="Normal" style="text-align:justify">No es necesario arbitraje o mecanismo de respuesta ante fallos</div>
-		<div class="Normal" style="text-align:justify">Los dispositivos clientes usan el reloj que envía el servidor, no necesitan por tanto su propio reloj</div>
-		<div class="Normal" style="text-align:justify">No es obligatorio implementar un transceptor (emisor y receptor), un dispositivo conectado puede configurarse para que solo envíe, sólo reciba o ambas cosas a la vez</div>
-		<div class="Normal" style="text-align:justify">Usa mucho menos terminales en cada chip/conector que una interfaz paralelo equivalente</div>
-		<div class="Normal" style="text-align:justify">Como mucho una única señal específica para cada cliente (señal SS), las demás señales pueden ser compartidas</div>
-		<div><br></div>
-		<div class="Bold" style="text-align:justify">Desventajas</div>
-		<div><br></div>
-		<div class="Normal" style="text-align:justify">Consume más pines de cada chip que I²C, incluso en la variante de 3 hilos</div>
-		<div class="Normal" style="text-align:justify">El direccionamiento se hace mediante líneas específicas (señalización fuera de banda) a diferencia de lo que ocurre en I²C que se selecciona cada chip mediante una dirección de 7 bits que se envía por las mismas líneas del bus</div>
-		<div class="Normal" style="text-align:justify">No hay control de flujo por hardware</div>
-		<div class="Normal" style="text-align:justify">No hay señal de asentimiento. El servidor podría estar enviando información sin que estuviese conectado ningún cliente y no se daría cuenta de nada</div>
-		<div class="Normal" style="text-align:justify">No permite fácilmente tener varios servidores conectados al bus</div>
-		<div class="Normal" style="text-align:justify">Sólo funciona en las distancias cortas a diferencia de, por ejemplo, RS-232, RS-485, o Bus CAN.</div>
+		<div class="Normal" style="text-align:justify">
+			<b><i>Serial Peripheral Interface</i></b>
+			<br><br>
+			El Bus SPI (del inglés Serial Peripheral Interface) es un estándar de comunicaciones, usado principalmente para la transferencia de información entre circuitos integrados en equipos electrónicos. El bus de interfaz de periféricos serie o bus SPI es un estándar para controlar casi cualquier dispositivo electrónico digital que acepte un flujo de bits serie regulado por un reloj.
+			<br><br>
+			Incluye una línea de reloj, dato entrante, dato saliente y un pin de chip select, que conecta o desconecta la operación del dispositivo con el que uno desea comunicarse. De esta forma, este estándar permite multiplexar las líneas de reloj.
+			<br><br>
+			Muchos sistemas digitales tienen periféricos que necesitan existir pero no ser rápidos. La ventajas de un bus serie es que minimiza el número de conductores, pines y el tamaño del circuito integrado. Esto reduce el coste de fabricar montar y probar la electrónica. Un bus de periféricos serie es la opción más flexible cuando se tiene tipos diferentes de periféricos serie. El hardware consiste en señales de reloj, data in, data out y chip select para cada circuito integrado que tiene que ser controlado. Casi cualquier dispositivo digital puede ser controlado con esta combinación de señales. Los dispositivos se diferencian en un número predecible de formas. Unos leen el dato cuando el reloj sube otros cuando el reloj baja. Algunos lo leen en el flanco de subida del reloj y otros en el flanco de bajada. Escribir es casi siempre en la dirección opuesta de la dirección de movimiento del reloj. 
+			<br><br>
+			Algunos dispositivos tienen dos relojes. Uno para capturar o mostrar los datos y el otro para el dispositivo interno.
+			<br><br>
+			<div align=center><img border=0 width=263 height=59 src="img/image009.gif"></div>
+			<br><br>
+			<div align=center><img border=0 width=276 height=211 src="img/image010.gif"></div>
+			<br><br>
+			<b><i>Operación</i></b>
+			<br><br>
+			El SPI es un protocolo síncrono. La sincronización y la transmisión de datos se realiza por medio de 4 señales:
+			<br><br>
+			SCLK (Clock): Es el pulso que marca la sincronización. Con cada pulso de este reloj, se lee o se envía un bit. También llamado TAKT (en Alemán).
+			<br>
+			MOSI (Master Output Slave Input): Salida de datos del Master y entrada de datos al Slave. También llamada SIMO.
+			<br>
+			MISO (Master Input Slave Output): Salida de datos del Slave y entrada al Master. También conocida por SOMI.
+			<br>
+			SS/Select: Para seleccionar un Slave, o para que el Master le diga al Slave que se active. También llamada SSTE.
+			<br><br>
+			La Cadena de bits es enviada de manera síncrona con los pulsos del reloj, es decir con cada pulso, el Master envía un bit. Para que empiece la transmisión el Master baja la señal SSTE ó SS/Select a cero, con esto el Slave se activa y empieza la transmisión, con un pulso de reloj al mismo tiempo que el primer bit es leído. Nótese que los pulsos de reloj pueden estar programados de manera que la transmisión del bit se realice en 4 modos diferentes, a esto se llama polaridad y fase de la transmisión:
+			<br><br>
+			1. Con el flanco de subida sin retraso.
+			<br>
+			2. Con el flanco de subida con retraso.
+			<br>
+			3. Con el flanco de bajada sin retraso.
+			<br>
+			4. Con el flanco de bajada con retraso.
+			<br><br>
+			<b><i>Pros y contras del bus SPI</i></b>
+			<br><br>
+			<b><i>Ventajas</i></b>
+			<br><br>
+			<b><i>Comunicación Full Duplex</i></b>
+			<br><br>
+			Mayor velocidad de transmisión que con I²C o SMBus
+			<br>
+			Protocolo flexible en que se puede tener un control absoluto sobre los bits transmitidos
+			<br>
+			No está limitado a la transferencia de bloques de 8 bits
+			<br>
+			Elección del tamaño de la trama de bits, de su significado y propósito
+			<br>
+			Su implementación en hardware es extremadamente simple
+			<br>
+			Consume menos energía que I²C o que SMBus debido que posee menos circuitos (incluyendo las resistencias pull-up) y estos son más simples
+			<br>
+			No es necesario arbitraje o mecanismo de respuesta ante fallos
+			<br>
+			Los dispositivos clientes usan el reloj que envía el servidor, no necesitan por tanto su propio reloj
+			<br>
+			No es obligatorio implementar un transceptor (emisor y receptor), un dispositivo conectado puede configurarse para que solo envíe, sólo reciba o ambas cosas a la vez
+			<br>
+			Usa mucho menos terminales en cada chip/conector que una interfaz paralelo equivalente
+			<br>
+			Como mucho una única señal específica para cada cliente (señal SS), las demás señales pueden ser compartidas
+			<br><br>
+			<b><i>Desventajas</i></b>
+			<br><br>
+			Consume más pines de cada chip que I²C, incluso en la variante de 3 hilos
+			<br>
+			El direccionamiento se hace mediante líneas específicas (señalización fuera de banda) a diferencia de lo que ocurre en I²C que se selecciona cada chip mediante una dirección de 7 bits que se envía por las mismas líneas del bus
+			<br>
+			No hay control de flujo por hardware
+			<br>
+			No hay señal de asentimiento. El servidor podría estar enviando información sin que estuviese conectado ningún cliente y no se daría cuenta de nada
+			<br>
+			No permite fácilmente tener varios servidores conectados al bus
+			<br>
+			Sólo funciona en las distancias cortas a diferencia de, por ejemplo, RS-232, RS-485, o Bus CAN.
+		</div>
 	</body>
 </html>
