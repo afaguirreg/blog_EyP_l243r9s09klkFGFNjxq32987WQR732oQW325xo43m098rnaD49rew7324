@@ -24,6 +24,7 @@
 			<b><i>Transmisión en serie</i></b>
 			<br><br>
 			Cuando todas las señales se transmiten por una única línea de datos secuencialmente. Esta forma de envió es mas adecuada en transmisiones a largas distancias. La transmisión se realiza en bits por segundo (bit/seg) que se denomina baudio.
+			<br><br>
 			<div align=center><img width="491" height="134" src="img/2_2.jpg"></div>
 			<br><br>
 			<b><i>Transmisión en paralelo</i></b>
@@ -35,7 +36,7 @@
 			<br><br>
 			Si la transmisión se realiza sin ningún proceso de modulación, se dice que la transmisión opera en banda base; por el contrario, si se exige un proceso de modulación, se dice que la transmisión se produce en banda ancha.
 			<br><br>
-			La Modulación por desplazamiento de frecuencia o FSK, (Frequency Shift Keying) es la más simple de las modulaciones digitales y por lo tanto es de bajo desempeño. Es similar a la modulación de frecuencia (FM), pero más sencillo, dado que la señal moduladora es un tren de pulsos binarios que solo varía entre dos valores de tensión discretos.
+			La modulación por desplazamiento de frecuencia o FSK, (Frequency Shift Keying) es la más simple de las modulaciones digitales y por lo tanto es de bajo desempeño. Es similar a la modulación de frecuencia (FM), pero más sencillo, dado que la señal moduladora es un tren de pulsos binarios que solo varía entre dos valores de tensión discretos.
 			<br><br>
 			En la modulación digital, a la relación de cambio a la entrada del modulador se le llama bit-rate y tiene como unidad el bit por segundo (bps).
 			<br><br>
@@ -43,143 +44,63 @@
 			<br><br>
 			En FSK, el bit rate = baud rate. Así, por ejemplo, un 0 binario se puede representar con una frecuencia f1, y el 1 binario se representa con una frecuencia distinta f2.
 			<br><br>
-			<div align=center>
-				<table height="8" cellspacing="0" cellpadding="0" vspace="0" hspace="0">
-					<tbody>
-						<tr>
-							<td height="8" align="left" valign="top" style="padding: 0cm 1.9pt;">
-<P class="Style57" style="text-align: justify; -ms-text-justify: inter-ideograph;"><SPAN class="FontStyle128"><SPAN lang="ES-TRAD" style='color: black; font-family: "Arial",sans-serif;'><SPAN style="color: black;">10<SPAN 
-class="FontStyle128">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-<SPAN class="FontStyle128"><SPAN lang="ES-TRAD" style='color: black; font-family: "Arial",sans-serif;'><SPAN style="color: black;">110&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10 
-0</TD></TR></TBODY></TABLE><BR clear="ALL">
-<TABLE cellspacing="0" cellpadding="0">
- <TBODY>
- <TR>
-<TD></TD>
-<TD><div align=center><img width="235" height="65" src="img/2_4.png"></TD></TR></TBODY></TABLE></div>El módem usa un VCO, que es un oscilador cuya frecuencia varía en función del voltaje aplicado. Indice modulación general para una M-FSK n=(2 fd) / 
-[(M-l)Rsymb] Siendo: fd: máxima desviación en frecuencia; Rsym: Velocidad de símbolo por segundo b) ASK, salto de amplitud <P></P>
-La modulación pordesplazamiento de amplitud, en inglés Amplitude-shift keying (ASK), es una forma de modulación en 
-la cual se representan los datosdigitales como variaciones de amplitud de la onda portadora.
-La amplitud de una señal portadora análoga varía conforme ala corriente de bit (modulando la señal), manteniendo la 
-frecuencia y la faseconstante. El nivel de amplitud puede ser usado para representar los valores binarios 0s y 1s. Podemos pensar en la señal portadora
-como un interruptor ON/OFF. En la señal modulada, el valor lógico 0 es representado por la ausencia de una portadora, así que daON/OFF la operación 
-de pulsación y de ahí el nombre dado.
-Como la modulación AM, ASK es también lineal y sensible alruido atmosférico, distorsiones, condiciones de propagación en rutas diferentesen PSTN, etc. Esto requiere la amplitud de banda excesiv<SPAN style="color: black;">a y es por lo tanto una un gasto de energía. Tanto los procesos demodulación ASK como los procesos de demodulación son relativamente baratos. Latécnica ASK también es usada comúnmente para transmitir datos digitales sobrela fibra óptica. Para los transmisores LED, el valorbinario 1 es representado por un pulso corto de luz y el valor binario 0 por laausencia de luz. Los transmisores de láser normalmente tienen una corriente"de tendencia" fija que hace que el dispositivo emita un nivel bajode luz. Este nivel bajo representa el valor 0,mientras una onda luminosa de amplitud más alta representa el valor binario 1.
-<br><br>
-c)&nbsp; 
-PSK, 
-salto de fase;
-<div align=center><img width="626" height="155" src="img/2_5.png">La modulación por desplazamiento de fase o PSK (Phase ShiftKeying) es una forma de modulación angular que consiste en hacer variar la fasede la portadora entre un número de valores discretos. La diferencia con la modulación de fase convencional (PM) es quemientras en ésta la variación de fase es continua, en función de la señalmoduladora, en la PSK la señal moduladora es una señal digital y, por tanto,con un número de estados limitado.
-<br><br>
-Dependiendo del número de posibles fases a tomar, recibe diferentesdenominaciones. Dado que lo más común es codificar 
-un número entero de bits porcada símbolo, el número de fases a tomar es una potencia de dos. Así tendremosBPSK con 2 fases (equivalente a PAM), QPSK con 
-4fases (equivalente a QAM), 8-PSK con 8 fases y así sucesivamente. A mayor número de posibles fases, mayor es la cantidad de información que se puede transmitir utilizando el mismo ancho de banda, pero mayor es también su sensibilidad frente a ruidos e interferencias. Lasmodulaciones BPSK y QPSK son óptimas desde el punto de vista de protecciónfrente a errores. Conceptualmente hablando, la diferencia entre distintossímbolos (asociados a cada fase) es máxima para la potencia y ancho de bandautilizados. No pasa lo mismo con 8-PSK, 16-PSK osuperiores, para las que existen otras modulaciones más eficientes.
-<br><br>
-La gran ventaja delas modulaciones PSK es que la potencia de todos los símbolos es la misma, porlo que se simplifica el diseño de los amplificadoresy etapas receptoras (reduciendo costes), dado que la potencia de la fuente es constante.
-<br><br>
-Existen dosalternativas de modulación 
-PSK: PSK convencional, donde se tienen en cuenta losdesplazamientos de fase 
-y PSK diferencial, en la cual<SPAN 
-lang="ES-TRAD" style="color: black;"> se consideran las 
-transiciones
-<SPAN 
-lang="ES-TRAD" style="color: black;">&nbsp;
-<SPAN 
-lang="ES-TRAD" style="color: black;">En el sistema PSKconvencional es 
-necesario tener una portadora en el receptor parasincronización, o usar un 
-código autosincronizante, por esta razón surge lanecesidad de un sistema PSK 
-diferencial. Es diferencial puesto que la información no esta contenida en la 
-faseabsoluta, sino en las transiciones. La referencia de fase se toma del 
-intervaloinmediato anterior, con lo que el detector decodifica la 
-información digitalbasándose en diferencias relativas de 
-fase.
-<SPAN lang="ES-TRAD" 
-style='font-family: "Arial",sans-serif;'>&nbsp;
-<SPAN 
-lang="ES-TRAD" style="color: black;">En las comunicaciones donde noexisten 
-limitaciones de ancho de banda, por ejemplo en redes de área local o en
-comunicaciones punto a punto de corta distancia, resulta ventajoso transmitir
-los datos de forma digital. Para llevar a cabo estas transmisiones, se utilizan 
-unos equipos que, a pesar de no realizar unamodulación y desmodulación, se 
-siguen llamando módems, en este casos se llamanmódems banda base. Los módems 
-banda base no realizan modulación, pero si se usacodificación de la 
-señal.
-<SPAN 
-lang="ES-TRAD" style="color: black;">&nbsp;
-<SPAN 
-lang="ES-TRAD" style="color: black;">La forma binaria queutilizan 
-normalmente los computadores en su interior representan a lasinformaciones 0 
-y 1 con voltajes que varían entre 0 y +5 voltios. Este tipo derepresentación 
-se denomina NRZ (non return to zero), debido a que el voltaje novuelve a 
-cero entre bis consecutivos. Larepresentación NRZ funciona bien en el 
-interior de los computadores pero esinadecuada cuando se va a transmitir la 
-señal por cable, ya que, entre otrascosas, no se aseguran cambios de nivel 
-que permitan una correcta sincronización de la señal y, además, pueden aparecer 
-nivelesresiduales de corriente continua. Los cambios de estado son 
-importantes para lasincronización, ya que una serie de unos o de ceros 
-pueden ocasionar que elreloj del receptor se desplace con respecto a la
-señal entrante, con lo que los datos de la línea no se muestrean en el instante 
- correcto. Para resolver estos problemas, las señales unipolares procedentes 
-delETD son convertidas en otro tipo de señales, de acuerdo con 
-alguno 
-de los códigos existentes.<SPAN 
-class="FontStyle145"><SPAN lang="ES-TRAD" style="color: black; font-size: 12pt; font-style: normal;"><BR 
-clear="all" style="page-break-before: always;">
-
-<SPAN 
-lang="ES-TRAD" style="color: black;">El sistema más simple para eliminar 
-la corriente residual continua consiste en utilizar el llamado código NRZ 
-polar. Este código se basa en representar los 0 con valores de tensión 
-negativos y los 1 con valores de tensión positivos. Este sistema aunque supone 
-una mejora sobre el sistema NRZ unipolar, tiene el inconveniente de que 
-concentra la mayor parte de la energía de la señal transmitida alrededor 
-de la frecuencia cer0.
-<SPAN 
-class="FontStyle135">Existe una 
-variación del código NRZ polar llamada <SPAN 
-lang="ES-TRAD" style="color: black;">bipolar <SPAN class="FontStyle135"><SPAN 
-lang="ES-TRAD" style="color: black;">o<SPAN 
-class="FontStyle135"> 
-<SPAN lang="IT" 
-style="color: black;">AMI<SPAN lang="IT" 
-style="color: black;"> <SPAN class="FontStyle135"><SPAN lang="ES-TRAD" 
-style="color: black;">(con inversión alterna demarcas), que consiste 
-en transmitir los 0 con niveles cero de tensión<SPAN class="FontStyle135"><SPAN lang="IT" style="color: black;"> e<SPAN class="FontStyle135"><SPAN 
-lang="ES-TRAD" style="color: black;"> ir alternando la representación
-de los 1 a niveles positivos y negativos de tensión.
-<P class="Style8" style="line-height: normal; margin-top: 7.45pt;">En cualquier caso el inconveniente de los 
-dos sistemas anteriores es que no garantizan que no se produzcan 
-largas cadenas de 0 sin que haya los suficientes cambios de estado para 
-asegurar la sincronización.
-<P class="Style71" style="text-align: justify; margin-left: 38.9pt; -ms-text-justify: inter-ideograph;"><SPAN lang="ES-TRAD" style='font-family: "Arial",sans-serif;'>&nbsp;
-<P class="Style71" style="text-align: justify; margin-top: 1.9pt; -ms-text-justify: inter-ideograph;"><SPAN lang="ES-TRAD" 
-style="color: black;">Código<SPAN lang="IT" style="color: black;"> Bifase
-<P class="Style91" style="text-align: justify; line-height: normal; text-indent: 0cm; margin-top: 0.25pt; -ms-text-justify: inter-ideograph;"><SPAN 
-class="FontStyle135">Con este CODIG, 
-también llamado difase o<SPAN class="FontStyle135"><SPAN lang="IT" style="color: black;"> Manchester,<SPAN class="FontStyle135"> se asegura la sincronización al dividir cada bit de información en dos estados. Si la información a transmitir
- es un 0, se transmiten los estados 01, y si la información a transmitir es 1 setransmiten los estados 10.
-<P class="Style91" style="text-align: justify; line-height: normal; text-indent: 0cm; margin-top: 8.9pt; -ms-text-justify: inter-ideograph;"><SPAN class="FontStyle135">Con la utilización del código bifase se solucionan tanto el problema de las corrientes continuas residuales, al utilizar tensiones positivas y negativas para cada bit, como el de la sincronización, al asegurarse un cambio de estado por cada bit. No obstante, tiene la particularidad de que duplica el ancho de la banda necesario. En la practica, la codificación bifase es utilizada, por ejemplo, en las redes de area local ethernet o en las tecnologías de comunicaciones relacionadas con la luz (fibra optica).
-Código bifase diferencial
-El uso mas generalizado de la codificación bifase se da con la llamada codificación bifase diferencial. Este método se basa, igual que en el caso anterior, en codificar dos bits en transmisión por cada bit de información, sin embargo las correspondencias no son fijas, sino que siguen estas reglas:
-Si el bit de información es un 0, el dibit resultante s construye de forma que el primer 
-bit sigue el mismo estado que el segundo bit del dibit anterior.
-Si el bit de información es 1, el dibit resultante se construye de forma que el primer bit tendrá un estado contrario al del segundo bit del dibit anterior.
-
-<TABLE width="279" height="26" cellspacing="0" cellpadding="0" vspace="0" 
-hspace="0">
- <TBODY>
- <TR>
-<TD height="26" align="left" valign="top" style="padding: 0cm 1.9pt;">
-Bifase (Manchester) Bifase<SPAN class="FontStyle108"> 
- diferencial</TD></TR></TBODY></TABLE>
-
-<TABLE cellspacing="0" cellpadding="0">
- <TBODY>
- <TR>
-<TD width="214" height="0"></TD></TR>
- <TR>
-<TD></TD>
-<TD><div align=center><img width="211" height="97" src="img/2_6.png"></TD></TR></TBODY></TABLE><BR clear="ALL">Este sistema se suele emplear para la transmisión de datos hasta 64 Kbaudios con cables que no superen los 5 kilómetros de distancia, o a 9600baudios con cables de hasta 15 kilómetros.
-	</div>
+			<div style="text-align: center">1 0 1 1 0 1 0 0</div>
+			<br><br>
+			<div align=center><img width="235" height="65" src="img/2_4.png"></div>
+			<br><br>
+			El módem usa un VCO, que es un oscilador cuya frecuencia varía en función del voltaje aplicado. Indice modulación general para una M-FSK n=(2 fd) / [(M-l)Rsymb] Siendo: fd: máxima desviación en frecuencia; Rsym: Velocidad de símbolo por segundo b) ASK, salto de amplitud
+			<br><br>
+			La modulación pordesplazamiento de amplitud, en inglés Amplitude-shift keying (ASK), es una forma de modulación en la cual se representan los datos digitales como variaciones de amplitud de la onda portadora.
+			<br><br>
+			La amplitud de una señal portadora análoga varía conforme ala corriente de bit (modulando la señal), manteniendo la frecuencia y la fase constante. El nivel de amplitud puede ser usado para representar los valores binarios 0s y 1s. Podemos pensar en la señal portadora como un interruptor ON/OFF. En la señal modulada, el valor lógico 0 es representado por la ausencia de una portadora, así que da ON/OFF la operación de pulsación y de ahí el nombre dado.
+			<br><br>
+			Como la modulación AM, ASK es también lineal y sensible alruido atmosférico, distorsiones, condiciones de propagación en rutas diferentesen PSTN, etc. Esto requiere la amplitud de banda excesiv a y es por lo tanto una un gasto de energía. Tanto los procesos demodulación ASK como los procesos de demodulación son relativamente baratos. Latécnica ASK también es usada comúnmente para transmitir datos digitales sobrela fibra óptica. Para los transmisores LED, el valorbinario 1 es representado por un pulso corto de luz y el valor binario 0 por laausencia de luz. Los transmisores de láser normalmente tienen una corriente"de tendencia" fija que hace que el dispositivo emita un nivel bajode luz. Este nivel bajo representa el valor 0, mientras una onda luminosa de amplitud más alta representa el valor binario 1.
+			<br><br>
+			c) PSK, salto de fase:
+			<br><br>
+			<div align=center><img width="626" height="155" src="img/2_5.png"></div>
+			<br><br>
+			La modulación por desplazamiento de fase o PSK (Phase ShiftKeying) es una forma de modulación angular que consiste en hacer variar la fasede la portadora entre un número de valores discretos. La diferencia con la modulación de fase convencional (PM) es quemientras en ésta la variación de fase es continua, en función de la señal moduladora, en la PSK la señal moduladora es una señal digital y, por tanto, con un número de estados limitado.
+			<br><br>
+			Dependiendo del número de posibles fases a tomar, recibe diferentes denominaciones.
+			<br><br>
+			Dado que lo más común es codificar un número entero de bits porcada símbolo, el número de fases a tomar es una potencia de dos. Así tendremos BPSK con 2 fases (equivalente a PAM), QPSK con 4 fases (equivalente a QAM), 8-PSK con 8 fases y así sucesivamente. A mayor número de posibles fases, mayor es la cantidad de información que se puede transmitir utilizando el mismo ancho de banda, pero mayor es también su sensibilidad frente a ruidos e interferencias. Las modulaciones BPSK y QPSK son óptimas desde el punto de vista de protección frente a errores. Conceptualmente hablando, la diferencia entre distintos símbolos (asociados a cada fase) es máxima para la potencia y ancho de banda utilizados. No pasa lo mismo con 8-PSK, 16-PSK o superiores, para las que existen otras modulaciones más eficientes.
+			<br><br>
+			La gran ventaja delas modulaciones PSK es que la potencia de todos los símbolos es la misma, porlo que se simplifica el diseño de los amplificadores y etapas receptoras (reduciendo costes), dado que la potencia de la fuente es constante.
+			<br><br>
+			Existen dos alternativas de modulación
+			<br><br>
+			PSK: PSK convencional, donde se tienen en cuenta los desplazamientos de fase y PSK diferencial, en la cual se consideran las transiciones
+			<br><br>
+			En el sistema PSK convencional es necesario tener una portadora en el receptor parasincronización, o usar un código autosincronizante, por esta razón surge la necesidad de un sistema PSK diferencial. Es diferencial puesto que la información no esta contenida en la faseabsoluta, sino en las transiciones. La referencia de fase se toma del intervalo inmediato anterior, con lo que el detector decodifica la información digital basándose en diferencias relativas de fase.
+			<br><br>
+			En las comunicaciones donde no existen limitaciones de ancho de banda, por ejemplo en redes de área local o en comunicaciones punto a punto de corta distancia, resulta ventajoso transmitir los datos de forma digital. Para llevar a cabo estas transmisiones, se utilizan unos equipos que, a pesar de no realizar una modulación y desmodulación, se siguen llamando módems, en este casos se llaman módems banda base. Los módems banda base no realizan modulación, pero si se usa codificación de la señal.
+			<br><br>
+			La forma binaria que utilizan normalmente los computadores en su interior representan a las informaciones 0 y 1 con voltajes que varían entre 0 y +5 voltios. Este tipo de representación se denomina NRZ (non return to zero), debido a que el voltaje novuelve a cero entre bis consecutivos.
+			<br><br>
+			La representación NRZ funciona bien en el interior de los computadores pero esinadecuada cuando se va a transmitir la señal por cable, ya que, entre otrascosas, no se aseguran cambios de nivel que permitan una correcta sincronización de la señal y, además, pueden aparecer niveles residuales de corriente continua. Los cambios de estado son importantes para la sincronización, ya que una serie de unos o de ceros pueden ocasionar que elreloj del receptor se desplace con respecto a la señal entrante, con lo que los datos de la línea no se muestrean en el instante correcto. Para resolver estos problemas, las señales unipolares procedentes del ETD son convertidas en otro tipo de señales, de acuerdo con alguno de los códigos existentes.
+			<br><br>
+			El sistema más simple para eliminar la corriente residual continua consiste en utilizar el llamado código NRZ polar. Este código se basa en representar los 0 con valores de tensión negativos y los 1 con valores de tensión positivos. Este sistema aunque supone una mejora sobre el sistema NRZ unipolar, tiene el inconveniente de que concentra la mayor parte de la energía de la señal transmitida alrededor de la frecuencia cero.
+			<br><br>
+			Existe una variación del código NRZ polar llamada bipolar o AMI (con inversión alterna demarcas), que consiste en transmitir los 0 con niveles cero de tensión e ir alternando la representación de los 1 a niveles positivos y negativos de tensión.
+			<br><br>
+			En cualquier caso el inconveniente de los dos sistemas anteriores es que no garantizan que no se produzcan largas cadenas de 0 sin que haya los suficientes cambios de estado para asegurar la sincronización.
+			<br><br>
+			Código Bifase Con este CODIG, también llamado difase o Manchester, se asegura la sincronización al dividir cada bit de información en dos estados. Si la información a transmitir es un 0, se transmiten los estados 01, y si la información a transmitir es 1 se transmiten los estados 10.
+			<br><br>
+			Con la utilización del código bifase se solucionan tanto el problema de las corrientes continuas residuales, al utilizar tensiones positivas y negativas para cada bit, como el de la sincronización, al asegurarse un cambio de estado por cada bit. No obstante, tiene la particularidad de que duplica el ancho de la banda necesario. En la practica, la codificación bifase es utilizada, por ejemplo, en las redes de area local ethernet o en las tecnologías de comunicaciones relacionadas con la luz (fibra optica).
+			<br><br>
+			Código bifase diferencial
+			<br><br>
+			El uso mas generalizado de la codificación bifase se da con la llamada codificación bifase diferencial. Este método se basa, igual que en el caso anterior, en codificar dos bits en transmisión por cada bit de información, sin embargo las correspondencias no son fijas, sino que siguen estas reglas:
+			<br><br>
+			Si el bit de información es un 0, el dibit resultante s construye de forma que el primer bit sigue el mismo estado que el segundo bit del dibit anterior.
+			<br>
+			Si el bit de información es 1, el dibit resultante se construye de forma que el primer bit tendrá un estado contrario al del segundo bit del dibit anterior.
+			<br><br>
+			Bifase (Manchester) Bifase diferencial
+			<div align=center><img width="211" height="97" src="img/2_6.png"></div>
+			Este sistema se suele emplear para la transmisión de datos hasta 64 K baudios con cables que no superen los 5 kilómetros de distancia, o a 9600 baudios con cables de hasta 15 kilómetros.
+		</div>
 	</body>
 </html>
