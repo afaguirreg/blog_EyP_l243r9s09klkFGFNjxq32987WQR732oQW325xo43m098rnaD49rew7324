@@ -45,7 +45,7 @@
     elements.language = $('<select />')
       .append(elements.groupRecent, elements.groupAll)
       .change(function () {
-        $('#execute').click();
+        $('#pagina').load();
 
         recentLanguages.unshift(elements.language.val());
         var arr = [];

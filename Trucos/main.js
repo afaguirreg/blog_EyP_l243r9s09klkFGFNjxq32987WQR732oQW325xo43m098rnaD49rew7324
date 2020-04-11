@@ -24,7 +24,7 @@
       option.bind('input propertychange', autoUpdate);
     }
 
-    $('#output').change(execute);
+    $('#pagina').load(execute);
 
     var parts = location.pathname.split('/');
     $('a[href="' + parts[parts.length - 1] + '"]').addClass('active');
