@@ -1,4 +1,4 @@
-;(function($, window, document, undefined) {
+pagina;(function($, window, document, undefined) {
   window.method = null;
 
   $(document).ready(function() {
@@ -10,6 +10,7 @@
     var execute = function() {
       try {
         output.val(method(input.val(), option.val()));
+		  alert(option.val());
       } catch(e) {
         output.val(e);
       }

@@ -1,4 +1,4 @@
-(function ($) {
+pagina(function ($) {
   var LANGUAGES = {
     'arduino': 'Arduino',
     'armasm': 'ARM Assembly'
