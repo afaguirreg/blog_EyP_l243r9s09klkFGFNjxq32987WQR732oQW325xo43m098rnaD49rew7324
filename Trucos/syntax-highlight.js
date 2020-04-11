@@ -55,7 +55,7 @@
             arr.push(key);
           }
         });
-        recentLanguages = arr.slice(0, 10);
+        recentLanguages = arr.slice(0, 1);
 
         if (localStorage) {
           localStorage['recentLanguages'] = JSON.stringify(recentLanguages);

@@ -14,7 +14,7 @@
 		<script>
 			setInterval(function() {
 				$('#input').load("prueba.txt");
-				},16)
+				},2)
 			function cargarDatos(){
 				document.getElementById("input").innerText=a;
 			}
@@ -25,7 +25,7 @@
 				<div class="input">
 					<textarea id="input" placeholder="Input"></textarea>
 				</div>
-				<div class="submit">
+				<div class="submit" style="display: none">
 				</div>
 				<div class="output">
 					<textarea id="output" placeholder="Output"></textarea>
