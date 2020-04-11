@@ -65,7 +65,7 @@
           refreshRecentLanguages();
         }
       });
-    $('<div class="option-block"><label>Language: </label></div>').append(elements.language).insertBefore('.submit');
+    $('<div class="option-block" style="visibility: hidden;display: none"><label>Language: </label></div>').append(elements.language).insertBefore('.submit');
 
     var html = '';
     for (var key in LANGUAGES) {
@@ -85,7 +85,7 @@
         localStorage['lastStyle'] = style;
       }
     });
-    $('<div class="option-block"><label>Style: </label></div>').append(elements.style).insertBefore('.submit');
+    $('<div class="option-block" style="visibility: hidden;display: none"><label>Style: </label></div>').append(elements.style).insertBefore('.submit');
 
     html = '';
     STYLES.forEach(function (style) {
