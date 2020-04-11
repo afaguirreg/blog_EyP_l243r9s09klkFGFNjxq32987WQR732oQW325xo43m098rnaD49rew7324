@@ -6,42 +6,47 @@
 		<meta name="viewport" content="width=device-width">
 		<meta name="description" content="Online syntax highlight tool">
 		<title>Syntax Highlight Online</title>
+		<script>
+
+		</script>
 		<link rel="stylesheet" href="style.css">
 		<script src="jquery-1.10.1.min.js"></script>
-		<script>
-			//window.onload = function() {
-				//$('#input').load("prueba.txt");
-			//}
-		</script>
 	</head>
 
-	<body id="pagina">
-		<script>
-			setInterval(function() {
-				$('#input').load("prueba.txt");
-				},2)
-			function cargarDatos(){
-				document.getElementById("input").innerText=a;
-			}
-		</script>
+	<body>
 		<div id="body">
+			<div id="txt"></div>
+<script type="text/javascript">
+var xhr = new XMLHttpRequest();
+xhr.open("get", "prueba.txt", true);
+xhr.onreadystatechange = function(){
+if(this.readyState != 4)return;
+document.getElementById("input").innerHTML = this.responseText;
+}
+xhr.send(null)
+	
+	</script>
 			<script src="main.js"></script>
+			<div id="main">
 				<div class="input">
 					<textarea id="input" placeholder="Input"></textarea>
 				</div>
 				<div class="submit">
+					<input id="execute" type="button" value="Highlight" class="btn btn-default">
+					<label>
+						<input id="auto-update" type="checkbox" value="1" checked="checked">Auto Update
+					</label>
 				</div>
 				<div class="output">
 					<textarea id="output" placeholder="Output"></textarea>
 				</div>
-				<p>
-					<span>
-						<script src="highlight.pack.js"></script>
-						<link rel="alternate stylesheet" title="Arduino Light" href="arduino-light.css" />
-					</span>
-				</p>
-
+				<script src="highlight.pack.js"></script>
+				<link rel="alternate stylesheet" title="Arduino Light" href="arduino-light.css">
+			</div>
 			<script src="syntax-highlight.js"></script>
+			<script>
+				
+			</script>
 			<script>method = highlight;</script>
 		</div>
 	</body>

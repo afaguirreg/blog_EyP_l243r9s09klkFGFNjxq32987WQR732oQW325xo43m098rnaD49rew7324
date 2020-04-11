@@ -1,17 +1,16 @@
-pagina(function ($) {
+(function ($) {
   var LANGUAGES = {
     'arduino': 'Arduino',
-    'armasm': 'ARM Assembly'
   };
 
-  var STYLES = ['Arduino Light', 'Arta'];
+  var STYLES = ['Arduino Light'];
 
   var localStorage = window.localStorage;
 
-  var elements = {}, recentLanguages = [], lastStyle = 'Default';
+  var elements = {}, recentLanguages = [], lastStyle = 'Arduino Light';
   if (localStorage) {
     try {
-      lastStyle = localStorage['lastStyle'] || 'Default';
+      lastStyle = localStorage['lastStyle'] || 'Arduino Light';
       var array = JSON.parse(localStorage['recentLanguages']);
       if ($.isArray(array)) {
         recentLanguages = array;
@@ -45,7 +44,7 @@ pagina(function ($) {
     elements.language = $('<select />')
       .append(elements.groupRecent, elements.groupAll)
       .change(function () {
-        $('#output').change();
+        $('#execute').click();
 
         recentLanguages.unshift(elements.language.val());
         var arr = [];
@@ -55,7 +54,7 @@ pagina(function ($) {
             arr.push(key);
           }
         });
-        recentLanguages = arr.slice(0, 1);
+        recentLanguages = arr.slice(0, 10);
 
         if (localStorage) {
           localStorage['recentLanguages'] = JSON.stringify(recentLanguages);

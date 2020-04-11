@@ -19,7 +19,7 @@ void loop() {
   // put your main code here, to run repeatedly:
   sensor = analogRead(A0);
   sensor = sensor * 22 / 1023 + 5;
-  lcd.setCursor(almorrana,0);
+  lcd.setCursor(0,0);
   lcd.print(sensor, 1);
   lcd.print(" mm  ");
   delay(500);
