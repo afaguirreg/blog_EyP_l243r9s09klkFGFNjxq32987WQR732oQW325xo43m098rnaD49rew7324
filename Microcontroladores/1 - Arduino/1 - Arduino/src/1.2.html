@@ -16,7 +16,7 @@
 			<div id="txt"></div>
 			<script>
 				var xhr = new XMLHttpRequest();
-				xhr.open("get", "Salida_digital_pin.ino", true);
+				xhr.open("get", "Salida_digital_puerto.ino", true);
 				xhr.onreadystatechange = function(){
 					if(this.readyState != 4)return;
 					document.getElementById("input").innerHTML = this.responseText;
