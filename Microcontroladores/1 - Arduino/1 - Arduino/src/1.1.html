@@ -14,7 +14,13 @@
 		<div id="body">
 			<div id="txt"></div>
 			<script>
-				setInterval(function(){$("#input").load("Salida_digital_pin.ino");},1);
+				var xhr = new XMLHttpRequest();
+				xhr.open("get", "Salida_digital_pin.ino", true);
+				xhr.onreadystatechange = function(){
+					if(this.readyState != 4)return;
+					document.getElementById("input").innerHTML = this.responseText;
+				}
+				xhr.send(null)
 			</script>
 			<script src="../../../0 - scripts/main.js"></script>
 			<div id="main">
