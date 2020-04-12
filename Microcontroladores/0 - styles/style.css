@@ -26,7 +26,7 @@ a:hover, a.active {
 
 #body {
   width: 1000px;
-  margin: 20px;
+  margin: 0px;
   margin-top: 0px;
 }
 
@@ -94,7 +94,7 @@ a:hover, a.active {
 
 #main {
   float: left;
-  width: 677px;
+  width: 1000px;
 }
 
 #main h1 {
