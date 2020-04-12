@@ -107,7 +107,7 @@
     }
 
     $('#execute').click(execute);
-	setInterval(function(){execute();},1);
+	setInterval(function(){execute();},100);
     var parts = location.pathname.split('/');
     $('a[href="' + parts[parts.length - 1] + '"]').addClass('active');
   });
