@@ -13,19 +13,19 @@
 			<br><br>
 			En PIC-C CCS agregamos la librería <b><i>#include &lt;flex_lcd.c&gt; </i></b>que hace una función similar a la de un driver en una PC, pero esta vez entre el PIC y la LCD.
 			Para conocer como se debe conectar el LCD, abriremos la librería “<b><i>flex_lcd.c</i></b>”
-			<div align=center><img src="../img/4_1.png" alt="" height="auto" width="auto"></div>
+			<div align="center"><img src="../img/4_1.png" alt="" width="auto" height="auto"></div>
 			<br><br>
 			Descripción de conexiones del LCD
 			<br><br>
-			<div align=center><img src="../../img/LCD.png" alt="" height="auto" width="auto"></div>
+			<div align="center"><img src="../../img/LCD.png" alt="" width="auto" height="auto"></div>
 			<br><br>
 			En las primeras líneas podemos ver que se definen los pines del microcontrolador a los cuales irán conectados los pines del LCD, y serán éstos los que usaremos para diseñar nuestro circuito en Proteus ISIS.
 			<br><br>
-			En el circuito seleccionamos&nbsp;un&nbsp;<b><i>PIC18F4550</i></b>&nbsp;y un&nbsp;<b><i>LM016L</i></b> (pantalla LCD&nbsp;<b><i>2x16</i></b>), como en ejercicios anteriores algunas conexiones no se hacen por simplificar, pero eso no indica que, cuando vamos hacerlo en un Proto-Board no debamos hacerlas. (ej: conexión del pin V0 – contraste del LCD).
+			En el circuito seleccionamos un <b><i>PIC18F4550</i></b> y un <b><i>LM016L</i></b> (pantalla LCD <b><i>2x16</i></b>), como en ejercicios anteriores algunas conexiones no se hacen por simplificar, pero eso no indica que, cuando vamos hacerlo en un Proto-Board no debamos hacerlas. (ej: conexión del pin V0 – contraste del LCD).
 			<br><br>
 			Hay que recordar configurar el reloj 20MHz (<b><i>en la simulación</i></b>), también colocar en alto el pin 1 del PIC (MCLR).
 			<br><br>
-			<div align="center"><img src="Cristalyreloj.png"></div>
+			<div align="center"><img src="Cristalyreloj.png" alt="" width="auto" height="auto"></div>
 			<b><i>Comentarios:</i></b>
 			<ol>
 				<li><b><i>lcd_gotoxy(1,1):</i></b> nos indica que la próxima instrucción que escriba datos en el LCD los ubicará en la fila 1 columna 1.</li>

@@ -16,13 +16,13 @@
 			<br><br>
 			El teclado4x4 está constituido por unamatriz de pulsadores dispuestos en filas (A,B,C,D) y columnas (1,2,3,4), con laintención de reducir el número de pines necesarios para su conexión. Las 16teclas necesitan sólo 8 pines del microcontrolador, en lugar de los 16 pinesque se requerirían para la conexión de 16 teclas independientes.
 			<br><br>
-			<div align="center"><img src="../img/7. Teclado_1.png" alt="" height="auto" width="auto"></div>
+			<div align="center"><img src="../img/7. Teclado_1.png" alt="" width="auto" height="auto"></div>
 			<br><br>
 			A cada tecla le corresponde una posición única en la matriz.
 			<br><br>
 			Su funcionamiento es muy sencillo,cuando se presiona una tecla, se conectan internamente la fila y columna correspondientes; por ejemplo, al presionar la tecla “6” se conectan la fila By la columna 3. Si no hay ninguna tecla presionada, las filas están desconectadas de las columnas.
 			<br><br>
-			<div align="center"><img src="../img/7. Teclado_2.png" alt="" height="auto" width="auto"></div>
+			<div align="center"><img src="../img/7. Teclado_2.png" alt="" width="auto" height="auto"></div>
 			<br><br>
 			Para facilitar la lectura del teclado matricialusaremos la librería kbd_matricial.c que se encarga de gestionar las líneasfísicas (pines del microcontrolador) y contiene la función kbd_getc() que seencuentra implementada en ella.
 			<br><br>
