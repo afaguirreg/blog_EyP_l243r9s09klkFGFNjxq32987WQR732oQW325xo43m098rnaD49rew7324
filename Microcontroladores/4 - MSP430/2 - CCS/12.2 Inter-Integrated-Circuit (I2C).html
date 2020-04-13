@@ -5,15 +5,25 @@
 		<title>Documento sin título</title>
 		<link rel="stylesheet" type="text/css" href="../../../0 - styles/mystyles.css">
 		<script language="JavaScript" src="../../../0 - scripts/myscripts.js"></script>
+		<script>
+			setInterval(function() {
+				var x = document.getElementsByTagName("iframe");
+				for (var i = 0; i < x.length; i++) {
+					var ifrm = document.getElementById(x[i].id);
+					var doc = ifrm.contentDocument? ifrm.contentDocument:ifrm.contentWindow.document;
+					ifrm.style.height = getDocHeight( doc ) + "px";
+				}
+			},1000);
+		</script>
 	</head>
 
 	<body>
 		<div class="Normal" style="text-align:justify">
 			<a id="Inter-Integrated-Circuit (I2C)"></a>
-			<iframe class=pag id="ifrm1" name="ifrm1" src="../../html/12.2%20Inter-Integrated-Circuit%20%28I2C%29.html" onload="setIframeHeight(this.id)"></iframe>
+			<iframe class="pag" id="ifrm1" name="ifrm1" src="../../html/12.2%20Inter-Integrated-Circuit%20%28I2C%29.html"></iframe>
 			<br><br>
 			<a id="EEPROM I2C"></a>
-			<iframe class=pag id="ifrm2" name="ifrm2" src="../../html/12.2.1%20EEPROM%20externa%20I2C.html" onload="setIframeHeight(this.id)"></iframe>
+			<iframe class="pag" id="ifrm2" name="ifrm2" src="../../html/12.2.1%20EEPROM%20externa%20I2C.html"></iframe>
 			<br><br>
 			Veamos una aplicación con un ejemplo:
 			<br><br>
@@ -26,7 +36,7 @@
 			Descargar programa C#: <a href="https://www.dropbox.com/s/jvrau47sbck8bvq/Programa%20C#.zip?dl=0" target="_blank">https://www.dropbox.com/s/jvrau47sbck8bvq/Programa%20C#.zip?dl=0</a>
 			<br><br>
 			<a id="Real Time Clock DS1302"></a>
-			<iframe id="ifrm3" name="ifrm3" src="../../html/12.2.2%20Real%20Time%20Clock%20DS1302.html" onload="setIframeHeight(this.id)"></iframe>
+			<iframe class="pag" id="ifrm3" name="ifrm3" src="../../html/12.2.2%20Real%20Time%20Clock%20DS1302.html"></iframe>
 			<br><br>
 			Veamos una aplicación con un ejemplo:
 			<br><br>
@@ -37,7 +47,8 @@
 			<img src="img/12.2.2%20Real%20Time%20Clock%20DS1302.png" alt="" height="auto" width="auto">
 			<br><br>
 			<a id="Real Time Clock DS1307"></a>
-			<iframe id="ifrm4" name="ifrm4" src="../../html/12.2.3%20Real%20Time%20Clock%20DS1307.html" onload="setIframeHeight(this.id)"></iframe>
+			<iframe class="pag" id="ifrm4" name="ifrm4" src="../../html/12.2.3%20Real%20Time%20Clock%20DS1307.html"></iframe>
+			<br><br>
 			Veamos una aplicación con un ejemplo
 			<br><br>
 			<video controls controlslist="nodownload" preload="preload" loop>

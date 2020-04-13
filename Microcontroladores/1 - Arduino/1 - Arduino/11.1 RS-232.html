@@ -5,12 +5,22 @@
 		<title>Documento sin título</title>
 		<link rel="stylesheet" type="text/css" href="../../../0 - styles/mystyles.css">
 		<script language="JavaScript" src="../../../0 - scripts/myscripts.js"></script>
+		<script>
+			setInterval(function() {
+				var x = document.getElementsByTagName("iframe");
+				for (var i = 0; i < x.length; i++) {
+					var ifrm = document.getElementById(x[i].id);
+					var doc = ifrm.contentDocument? ifrm.contentDocument:ifrm.contentWindow.document;
+					ifrm.style.height = getDocHeight( doc ) + "px";
+				}
+			},1000);
+		</script>
 	</head>
 
 	<body>
 		<div class="Normal" style="text-align:justify">
 			<a id="RS-232"></a>
-			<iframe class="pag" id="ifrm1" name="ifrm1" src="../../html/11.1%20RS-232.html" onload="setIframeHeight(this.id)"></iframe>
+			<iframe class="pag" id="ifrm1" name="ifrm1" src="../../html/11.1%20RS-232.html"></iframe>
 			<br><br>
 			<a id="Micro a PC_pulsadores"></a>
 			<b><i>11.1.1 Micro a PC_pulsadores</i></b>
