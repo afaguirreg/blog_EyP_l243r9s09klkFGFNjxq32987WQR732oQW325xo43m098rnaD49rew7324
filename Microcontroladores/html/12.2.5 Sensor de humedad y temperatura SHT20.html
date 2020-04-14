@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Documento sin título</title>
+		<link rel="stylesheet" type="text/css" href="../../0 - styles/mystyles.css">
+		<script language="JavaScript" src="../../0 - scripts/myscripts.js"></script>
+		<script>
+			setInterval(function() {
+				var x = document.getElementsByTagName("iframe");
+				for (var i = 0; i < x.length; i++) {
+					var ifrm = document.getElementById(x[i].id);
+					var doc = ifrm.contentDocument? ifrm.contentDocument:ifrm.contentWindow.document;
+					ifrm.style.height = getDocHeight( doc ) + "px";
+				}
+			},1000);
+		</script>
+	</head>
+
+	<body>
+		<div class="Normal" style="text-align:justify">
+			<img src="../img/12.2.5 SHT20.png" alt="" width="auto" height="auto">
+			<br><br>
+			<b><i>SPECIFICATION</i></b>
+			<br><br>
+			Operating Voltage: 3.3/5V
+			<br>
+			Communication Interface: I2C / IIC
+			<br>
+			Protection Class: waterproof anti-condensation
+			<br>
+			RH Response Time: 8s (tau63%)
+			<br>
+			Accuracy: ±3% RH / ±0.3 ℃
+			<br>
+			Measuring Range: 0-100% RH / -40-125 ℃
+			<br>
+			Dimension: 73mm * 17mm / 2.87 * 0.67 inches
+			<br>
+			Weight: 44g
+			<br>
+			Sensor Interface: Red	VCC Green	GND Black	SDA White	SCL
+			<br><br>
+			<b><i>Documentación</i></b>
+			<br><br>
+			Datasheet sensor: <a href="file:///C:/Users/AnDrEs/Downloads/Sensirion-Humidity-SHT20-Datasheet.pdf" target="_blank">file:///C:/Users/AnDrEs/Downloads/Sensirion-Humidity-SHT20-Datasheet.pdf</a>
+			<br><br>
+			Descargar librería SHT20: <a href="https://www.dropbox.com/s/s0rhdbarphrr9p2/sht1x_sht7x.c?dl=1" target="_blank">https://www.dropbox.com/s/s0rhdbarphrr9p2/sht1x_sht7x.c?dl=1</a>
+		</div>
+	</body>
+</html>

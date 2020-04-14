@@ -5,6 +5,16 @@
 		<title>Documento sin título</title>
 		<link rel="stylesheet" type="text/css" href="../../../0 - styles/mystyles.css">
 		<script language="JavaScript" src="../../../0 - scripts/myscripts.js"></script>
+		<script>
+			setInterval(function() {
+				var x = document.getElementsByTagName("iframe");
+				for (var i = 0; i < x.length; i++) {
+					var ifrm = document.getElementById(x[i].id);
+					var doc = ifrm.contentDocument? ifrm.contentDocument:ifrm.contentWindow.document;
+					ifrm.style.height = getDocHeight( doc ) + "px";
+				}
+			},1000);
+		</script>
 	</head>
 
 	<body>
@@ -20,8 +30,7 @@
 			</video>
 			<br><br>
 			<img src="img/9.4.1%20Sensor%20de%20distancia%20inductivo.png" alt="" width="auto" height="auto">
-			<br><br>
-			<br><br>
+			<br><br><br>
 			<a id="Sensor de distancia ultrasonico"></a>
 			<b><i>9.4.2 Sensor de distancia ultrasónico: 5.0cm a 27.0cm</i></b>
 			<br><br>
@@ -30,249 +39,59 @@
 			</video>
 			<br><br>
 			<img src="img/9.4.2%20Sensor%20de%20distancia%20ultras%C3%B3nico.png" alt="" width="auto" height="auto">
-			<br><br>
-			<br><br>
+			<br><br><br>
 			<a id="Sensor de temperatura LM35"></a>
 			<b><i>9.4.3 Sensor de temperatura LM35: 0°C a 150°C</i></b>
+			<br><br>
+			<iframe class="pag" id="ifrm1" name="ifrm1" src="../../html/9.4.3 Sensor de temperatura LM35.html"></iframe>
 			<br><br>
 			<video controls controlslist="nodownload" preload="preload" loop>
 				<source src="../video/9.4.3%20Sensor%20de%20temperatura%20LM35.webm" type="video/webm">
 			</video>
 			<br><br>
-			<img src="../../img/9.4.3 LM35.png" alt="" width="auto" height="auto">
-			<br><br>
-			<b><i>TECHNICAL DETAILS</i></b>
-			<br><br>
-			Supply voltage: 4 to 30 V
-			Temperature range: -55 to 150 °C
-			Accuracy: +/- 2 °C over range
-			Output: +/- 2 mV/°C
-			<br><br>
-			<b><i>Documentación</i></b>
-			<br><br>
-			Especificaciones: <a href="http://www.ti.com/lit/ds/symlink/lm35.pdf" target="_blank">http://www.ti.com/lit/ds/symlink/lm35.pdf</a>
-			<br><br>
 			<img src="img/9.4.3%20Sensor%20de%20temperatura%20LM35.png" alt="" width="auto" height="auto">
-			<br><br>
-			<br><br>
+			<br><br><br>
 			<a id="Sensor de temperatura Termocupla tipo J"></a>
 			<b><i>9.4.4 Sensor de temperatura Termocupla tipo J</i></b>
+			<br><br>
+			<iframe class="pag" id="ifrm2" name="ifrm2" src="../../html/9.4.4 Sensor de temperatura Termocupla tipo J.html"></iframe>
 			<br><br>
 			<video controls controlslist="nodownload" preload="preload" loop>
 				<source src="../video/9.4.4%20Sensor%20de%20temperatura%20Termocupla%20tipo%20J.webm" type="video/webm">
 			</video>
 			<br><br>
-			<img src="../../img/9.4.4%20Sensor%20Termocupla%20tipo%20J_1.png" alt="" width="auto" height="auto">
-			<br><br>
-			<b><i>TECHNICAL DETAILS</i></b>
-			<br><br>
-			<b><i>Termocupla tipo K, de 10 cm de longitud y cable de 1 m.</i></b>
-			<br><br>
-			<table class="NormalTable" cellspacing="1" cellpadding="2" border="1">
-				<tbody>
-					<tr>
-						<td>Rango de temperatura</td>
-						<td>0 - 400 C</td>
-					</tr>
-					<tr>
-						<td>Diámetro de el termopozo</td>
-						<td>5mm</td>
-					</tr>
-					<tr>
-						<td>Longitud del sensor</td>
-						<td>100mm</td>
-					</tr>
-					<tr>
-						<td>Diámetro de rosca</td>
-						<td>7.8mm</td>
-					</tr>
-					<tr>
-						<td>Longitud del cable aprox.</td>
-						<td>1m</td>
-					</tr>
-					<tr>
-						<td>Proteción externa</td>
-						<td>blindaje metálico</td>
-					</tr>
-				</tbody>
-			</table>
-			<br><br>
-			<b><i>Documentación</i></b>
-			<br><br>
-			Datasheet sensor: <a href="https://cdn-shop.adafruit.com/datasheets/SLHT5.pdf" target="_blank">https://cdn-shop.adafruit.com/datasheets/SLHT5.pdf</a>
-			<br><br>
-			Especificaciones: <a href="https://cdn-shop.adafruit.com/datasheets/Sensirion_Humidity_SHT1x_Datasheet_V5.pdf" target="_blank">https://cdn-shop.adafruit.com/datasheets/Sensirion_Humidity_SHT1x_Datasheet_V5.pdf</a>
-			<br><br>
-			Descargar librería SHT1x_SHT7x: <a href="https://www.dropbox.com/s/s0rhdbarphrr9p2/sht1x_sht7x.c?dl=1" target="_blank">https://www.dropbox.com/s/s0rhdbarphrr9p2/sht1x_sht7x.c?dl=1</a>
-			<br><br>
-			<img src="../../img/9.4.4%20Sensor%20Termocupla%20tipo%20J_2.png" alt="" width="auto" height="auto">
-			<br><br>
-			Conversor transmisor de temperatura con entrada para termocupla tipo K y salida en corriente.
-			<br><br>
-			<b><i>Características:</i></b>
-			<ul>
-				<li>Rango de medición: 0°C hasta 1300°C</li>
-				<li>Salida de señal estándar internacional: 4~20mA</li>
-				<li>Precisión: 0.5±0.5% (En toda la escala)</li>
-				<li>Máxima salida de corriente: 26mA</li>
-				<li>Diámetro: 45mm</li>
-				<li>Material: Plástico</li>
-			</ul>
-			<br><br>
 			<img src="img/9.4.4%20Sensor%20de%20temperatura%20Termocupla%20tipo%20J.png" alt="" width="auto" height="auto">
-			<br><br>
-			<br><br>
+			<br><br><br>
 			<a id="Sensor de temperatura Termocupla tipo K"></a>
 			<b><i>9.4.5 Sensor de temperatura Termocupla tipo K</i></b>
+			<br><br>
+			<iframe class="pag" id="ifrm3" name="ifrm3" src="../../html/9.4.5 Sensor de temperatura Termocupla tipo K.html"></iframe>
 			<br><br>
 			<video controls controlslist="nodownload" preload="preload" loop>
 				<source src="../video/9.4.5%20Sensor%20de%20temperatura%20Termocupla%20tipo%20K.webm" type="video/webm">
 			</video>
 			<br><br>
-			<br><br>
-			<img src="../../img/9.4.5%20Sensor%20Termocupla%20tipo%20K_1.png" alt="" width="auto" height="auto">
-			<br><br>
-			<br><br>
-			<b><i>TECHNICAL DETAILS</i></b>
-			<br><br>
-			<b><i>Termocupla tipo K, de 10 cm de longitud y cable de 1 m.</i></b>
-			<br><br>
-			<table class="NormalTable" cellspacing="1" cellpadding="2" border="1">
-				<tbody>
-					<tr>
-						<td>Rango de temperatura</td>
-						<td>0 - 400 C</td>
-					</tr>
-					<tr>
-						<td>Diámetro de el termopozo</td>
-						<td>5mm</td>
-					</tr>
-					<tr>
-						<td>Longitud del sensor</td>
-						<td>100mm</td>
-					</tr>
-					<tr>
-						<td>Diámetro de rosca</td>
-						<td>7.8mm</td>
-					</tr>
-					<tr>
-						<td>Longitud del cable aprox.</td>
-						<td>1m</td>
-					</tr>
-					<tr>
-						<td>Proteción externa</td>
-						<td>blindaje metálico</td>
-					</tr>
-				</tbody>
-			</table>
-			<br><br>
-			<b><i>Documentación</i></b>
-			<br><br>
-			Datasheet sensor: <a href="https://cdn-shop.adafruit.com/datasheets/SLHT5.pdf" target="_blank">https://cdn-shop.adafruit.com/datasheets/SLHT5.pdf</a>
-			<br><br>
-			Especificaciones: <a href="https://cdn-shop.adafruit.com/datasheets/Sensirion_Humidity_SHT1x_Datasheet_V5.pdf" target="_blank">https://cdn-shop.adafruit.com/datasheets/Sensirion_Humidity_SHT1x_Datasheet_V5.pdf</a>
-			<br><br>
-			Descargar librería SHT1x_SHT7x: <a href="https://www.dropbox.com/s/s0rhdbarphrr9p2/sht1x_sht7x.c?dl=1" target="_blank">https://www.dropbox.com/s/s0rhdbarphrr9p2/sht1x_sht7x.c?dl=1</a>
-			<br><br>
-			<img src="../../img/9.4.5%20Sensor%20Termocupla%20tipo%20K_2.png" alt="" width="auto" height="auto">
-			<br><br>
-			<b><i>Conversor transmisor de temperatura con entrada para termocupla tipo K y salida en corriente.</i></b>
-			<br><br>
-			<b><i>Características:</i></b>
-			<ul>
-				<li>Rango de medición: 0°C hasta 1300°C</li>
-				<li>Salida de señal estándar internacional: 4~20mA</li>
-				<li>Precisión: 0.5±0.5% (En toda la escala)</li>
-				<li>Máxima salida de corriente: 26mA</li>
-				<li>Diámetro: 45mm</li>
-				<li>Material: Plástico</li>
-			</ul>
-			<br><br>
 			<img src="img/9.4.5%20Sensor%20de%20temperatura%20Termocupla%20tipo%20K.png" alt="" width="auto" height="auto">
-			<br><br>
-			<br><br>
+			<br><br><br>
 			<a id="Sensor de temperatura RTD PT-100"></a>
 			<b><i>9.4.6 Sensor de temperatura RTD PT-100</i></b>
+			<br><br>
+			<iframe class="pag" id="ifrm4" name="ifrm4" src="../../html/9.4.6 Sensor de temperatura RTD PT-100.html"></iframe>
 			<br><br>
 			<video controls controlslist="nodownload" preload="preload" loop>
 				<source src="../video/9.4.6%20Sensor%20de%20temperatura%20RTD%20PT-100.webm" type="video/webm">
 			</video>
 			<br><br>
-			<img src="../../img/9.4.6 Sensor RTD PT-100_1.png" alt="" width="auto" height="auto">
-			<br><br>
-			<b><i>TECHNICAL DETAILS</i></b>
-			<br><br>
-			<b><i>Sensor RTD de 3 hilos.</i></b>
-			<br><br>
-			<b><i>Características:</i></b>
-			<ul>
-				<li>RTD tipo PT100</li>
-				<li>Rango de temperatura:- 50 ~ +200℃</li>
-				<li>Longitud del cable: 50cm</li>
-			</ul>
-			<b><i>Documentación</i></b>
-			<br><br>
-			Datasheet sensor: <a href="https://cdn-shop.adafruit.com/datasheets/SLHT5.pdf" target="_blank">https://cdn-shop.adafruit.com/datasheets/SLHT5.pdf</a>
-			<br><br>
-			Especificaciones: <a href="https://cdn-shop.adafruit.com/datasheets/Sensirion_Humidity_SHT1x_Datasheet_V5.pdf" target="_blank">https://cdn-shop.adafruit.com/datasheets/Sensirion_Humidity_SHT1x_Datasheet_V5.pdf</a>
-			<br><br>
-			Descargar librería SHT1x_SHT7x: <a href="https://www.dropbox.com/s/s0rhdbarphrr9p2/sht1x_sht7x.c?dl=1" target="_blank">https://www.dropbox.com/s/s0rhdbarphrr9p2/sht1x_sht7x.c?dl=1</a>
-			<br><br>
-			<img src="../../img/9.4.6%20Sensor%20RTD%20PT-100_2.png" alt="" width="auto" height="auto">
-			<br><br>
-			<b><i>Conversor transmisor de temperatura con entrada para RTD y salida en corriente.</i></b>
-			<br><br>
-			<b><i>Características:</i></b>
-			<ul>
-				<li>Rango de medición: 0°C hasta 200°C</li>
-				<li>Salida de señal estándar internacional: 4~20mA</li>
-				<li>Para sondas PT100 de 2 ó 3 hilos</li>
-				<li>Precisión: ±0.5% (En toda la escala)</li>
-				<li>Máxima salida de corriente: 26mA</li>
-			</ul>
-			<br><br>
 			<img src="img/9.4.6%20Sensor%20de%20temperatura%20RTD%20PT-100.png" alt="" width="auto" height="auto">
-			<br><br>
-			<br><br>
+			<br><br><br>
 			<a id="Sensor de temperatura RTD PT-1000"></a>
 			<b><i>9.4.7 Sensor de temperatura RTD PT-1000</i></b>
+			<br><br>
+			<iframe class="pag" id="ifrm5" name="ifrm5" src="../../html/9.4.7 Sensor de temperatura RTD PT-1000.html"></iframe>
 			<br><br>
 			<video controls controlslist="nodownload" preload="preload" loop>
 				<source src="../video/9.4.7%20Sensor%20de%20temperatura%20RTD%20PT-1000.webm" type="video/webm">
 			</video>
-			<br><br>
-			<img src="../../img/9.4.7%20Sensor%20RTD%20PT-1000_1.png" alt="" width="auto" height="auto">
-			<br><br>
-			<b><i>TECHNICAL DETAILS</i></b>
-			<br><br>
-			<b><i>Sensor RTD de 3 hilos.</i></b>
-			<br><br>
-			<b><i>Características:</i></b>
-			<ul>
-				<li>RTD tipo PT100</li>
-				<li>Rango de temperatura:- 50 ~ +200℃</li>
-				<li>Longitud del cable: 50cm</li>
-			</ul>
-			<b><i>Documentación</i></b>
-			<br><br>
-			Datasheet sensor: <a href="https://cdn-shop.adafruit.com/datasheets/SLHT5.pdf" target="_blank">https://cdn-shop.adafruit.com/datasheets/SLHT5.pdf</a>
-			<br><br>
-			Especificaciones: <a href="https://cdn-shop.adafruit.com/datasheets/Sensirion_Humidity_SHT1x_Datasheet_V5.pdf" target="_blank">https://cdn-shop.adafruit.com/datasheets/Sensirion_Humidity_SHT1x_Datasheet_V5.pdf</a>
-			<br><br>
-			Descargar librería SHT1x_SHT7x: <a href="https://www.dropbox.com/s/s0rhdbarphrr9p2/sht1x_sht7x.c?dl=1" target="_blank">https://www.dropbox.com/s/s0rhdbarphrr9p2/sht1x_sht7x.c?dl=1</a>
-			<br><br>
-			<img src="../../img/9.4.7%20Sensor%20RTD%20PT-1000_2.png" alt="" width="auto" height="auto">
-			<br><br>
-			Conversor transmisor de temperatura con entrada para RTD y salida en corriente.
-			<br><br>
-			<b><i>Características:</i></b>
-			<ul>
-				<li>Rango de medición: 0°C hasta 200°C</li>
-				<li>Salida de señal estándar internacional: 4~20mA</li>
-				<li>Para sondas PT100 de 2 ó 3 hilos</li>
-				<li>Precisión: ±0.5% (En toda la escala)</li>
-				<li>Máxima salida de corriente: 26mA</li>
-			</ul>
 			<br><br>
 			<img src="img/9.4.7%20Sensor%20de%20temperatura%20RTD%20PT-1000.png" alt="" width="auto" height="auto">
 		</div>
