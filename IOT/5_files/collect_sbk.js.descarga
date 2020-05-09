@@ -1,0 +1,964 @@
+if (location.href.indexOf("meucarronovo.com.br") > -1) {
+  if (typeof _st_account == "undefined") {
+    window._st_account = 365;
+  }
+
+  if (typeof _cv_data == "undefined") {
+    try {
+      if (dataLayer[1].event == "lead") {
+        window._cv_data = {
+          'order_id': 0, // Número do pedido
+          'valor': 3.00 // Valor do pedido
+        };
+      }
+    } catch (e) {
+
+    }
+  }
+} else if (location.href.indexOf("legiaodosherois.uol.com.br") > -1) {
+  if (typeof _st_account == "undefined") {
+    window._st_account = 1412;
+  }
+} else if (location.href.indexOf("eduzz.com") > -1) {
+  if (typeof _st_account == "undefined") {
+    window._st_account = 12;
+  }
+} else if (_st_account == 1609 && location.href.indexOf("crefisa.com.br/lojas/agendar-visitas?form=sucess&protocolo=") > -1) {
+  if (typeof _cv_data == "undefined") {
+    window._cv_data = {
+      'order_id': 'LEAD', // Número do pedido
+      'valor': 3.00 // Valor do pedido
+    };
+  }
+}
+
+function msieversion() {
+
+  var ua = window.navigator.userAgent;
+  var msie = ua.indexOf("MSIE ");
+
+  if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
+    return true;
+  } else {
+    return false;
+  }
+
+  return false;
+}
+
+var dvt = 'disabled';
+
+try {
+  var _test = top.location.href;
+  var _top = top;
+} catch (e) {
+  var _top = self;
+}
+
+if (!msieversion()) {
+  try {
+    (function() {
+      'use strict';
+
+      var devtools = {
+        open: false
+      };
+
+      var threshold = 160;
+
+      var emitEvent = function(state) {
+        try {
+          window.dispatchEvent(new CustomEvent('devtoolschange', {
+            detail: {
+              open: state
+            }
+          }));
+        } catch (e) {
+
+        }
+      };
+
+      window.check_dvt = function() {
+        try {
+          if ((window.Firebug && window.Firebug.chrome && window.Firebug.chrome.isInitialized) || _top.window.outerWidth - _top.window.innerWidth > threshold ||
+            _top.window.outerHeight - _top.window.innerHeight > threshold) {
+            if (!devtools.open) {
+              emitEvent(true);
+            }
+            devtools.open = true;
+          } else {
+            if (devtools.open) {
+              emitEvent(false);
+            }
+
+            devtools.open = false;
+          }
+        } catch (e) {
+          emitEvent(false);
+        }
+      }
+
+      /*setInterval(function()
+      {
+          check_dvt();
+      }, 500);*/
+
+      if (typeof module !== 'undefined' && module.exports) {
+        module.exports = devtools;
+      } else {
+        window.devtools = devtools;
+      }
+    })();
+
+    window.addEventListener('devtoolschange', function(e) {
+      if (e.detail.open) {
+        dvt = 'enabled';
+        _st_app = {
+          li: function() {},
+          ci: function() {},
+          send_cart: function() {},
+          tracking_page: function() {},
+          set_page: function() {}
+        };
+      } else {
+        dvt = 'disabled';
+      }
+    });
+
+    //check_dvt();
+  } catch (e) {
+    dvt = 'disabled';
+  }
+}
+
+var _acc, cv_data;
+
+if (_top.location.href.indexOf("webmotors.com.br") > -1) {
+  var _st_app = false;
+}
+
+var _st_app = _st_app || {
+  base_app: '//front.shoptarget.com.br',
+  //base_js: '//app.shoptarget.com.br',
+  base_js: '//static.shopback.net/shoptarget',
+  acc: false,
+  user_id: false,
+  user_name: false,
+  ses_id: false,
+  pv_id: false,
+  li_inputs: [],
+  ci_ids: [],
+  li_running: false,
+  ref: false,
+  convert: false,
+  page: "OTHER",
+  page_info: "product_id",
+  allow_tracking: false,
+  allow_sc: true,
+  initialize: function() {
+    _st_app.ref = _st_app.b64(location.href);
+
+    _st_app.set_session();
+
+    _st_app.check_user();
+
+    _st_app.check_cart();
+
+    _st_app.li();
+
+    if (window.addEventListener) {
+      document.addEventListener('DOMSubtreeModified', function(event) {
+        if (_st_app.li_running == false) {
+          _st_app.li();
+        }
+
+        setTimeout(function() {
+          _st_app.li();
+        }, 1500);
+      });
+
+      document.addEventListener("DOMNodeInserted", _st_app.li);
+    }
+
+    try {
+      var cp_view = _st_app.get_cookie('_st_cp_view');
+
+      if (cp_view == "5") {
+        _st_app.complete_view(true);
+      }
+    } catch (e) {}
+
+    _st_app.tracking_page();
+  },
+  check_user: function() {
+    var id = _st_app.get_cookie('_st_id');
+
+    if (id) {
+      _st_app.user_id = id;
+
+      _st_app.set_cookie('_st_id', _st_app.user_id, 0.5);
+
+      _st_app.view();
+
+      _st_app.cn();
+
+      _st_app.check_conversion();
+
+      _st_app.set_contact_metadata(_st_app.user_id);
+    } else {
+      if (!_st_app.get_cookie('_st_no_user')) {
+        var url = '//click.retargeter.com.br/get.php?i=' + _st_app.acc + '&r=' + location.href;
+        _st_app.ajax('GET', url, _st_app.set_user, false);
+      }
+    }
+  },
+  set_user: function(data) {
+    if (data.email) {
+      _st_app.user_id = _st_app.b64(data.email);
+
+      _st_app.view();
+
+      _st_app.cn();
+
+      _st_app.check_conversion();
+
+      _st_app.set_cookie('_st_id', _st_app.user_id, 0.5);
+
+      _st_app.set_contact_metadata(_st_app.user_id);
+    } else {
+      _st_app.set_cookie('_st_no_user', 1, 0.5);
+    }
+  },
+  set_contact_metadata: function(id) {
+    var id_api = _st_app.get_cookie('_st_idb');
+
+    if (id_api === id) {
+      return false;
+    }
+
+    if (typeof window.shopback !== 'object') {
+      setTimeout(function() {
+        _st_app.set_contact_metadata(id);
+      }, 1000);
+      return false;
+    }
+
+    if (typeof window.shopback.setMetadata !== 'function') {
+      setTimeout(function() {
+        _st_app.set_contact_metadata(id);
+      }, 1000);
+      return false;
+    }
+
+    _st_app.set_cookie('_st_idb', id, 0.5);
+
+    window.shopback.setMetadata('contact', {
+      type: 'email',
+      value: id,
+      legacy: true,
+      legacy_id: window._st_account
+    });
+  },
+  set_name: function(name) {
+    if (_st_app.user_id != false && _st_app.get_cookie('_st_nome') == false) {
+      _st_app.set_cookie('_st_nome', true, 24);
+
+      if (typeof name != "undefined") {
+        _st_app.user_name = _st_app.b64(encodeURIComponent(name));
+      }
+
+      var url = _st_app.base_app + '/tr2/cn/' + _st_app.acc + '/' + _st_app.user_id + '/' + _st_app.user_name + '/' + _st_app.ref;
+      _st_app.ajax('GET', url, false, false);
+    }
+  },
+  cn: function() {},
+  li: function() {
+    if (_st_account == 648) {
+      return false;
+    }
+
+    try {
+      if (_st_app.li_running) {
+        return false;
+      } else {
+        _st_app.li_running = true;
+        setTimeout(function() {
+          _st_app.li_running = false;
+        }, 750);
+      }
+
+      var inputs = document.getElementsByTagName('input');
+
+      if (typeof inputs === "undefined") {
+        return false;
+      }
+
+      if (inputs.length != _st_app.li_inputs.length) {
+        if (typeof _st_app === "undefined") {
+          return false;
+        } else {
+          if (typeof _st_app.li_inputs === "undefined") {
+            return false;
+          }
+        }
+
+        for (var i = _st_app.li_inputs.length; i < inputs.length; i++) {
+          try {
+            var input_full_name = inputs[i].type + inputs[i].name + inputs[i].id;
+
+            if (_st_app.li_inputs.indexOf(input_full_name) <= -1) {
+              //_st_app.li_inputs.push(input_full_name);
+
+              if (inputs[i].type === 'text' || inputs[i].type === 'email') {
+                if (inputs[i].addEventListener) {
+                  inputs[i].addEventListener("blur", function() {
+                    _st_app.ci(this.value);
+                  });
+                } else if (inputs[i].attachEvent) //IE
+                {
+                  inputs[i].attachEvent("blur", function() {
+                    _st_app.ci(this.value);
+                  });
+                }
+              }
+            }
+          } catch (e) {}
+        }
+      }
+
+    } catch (e) {}
+
+    if (_st_app.acc == 355) {
+      setTimeout(function() {
+        _st_app.li();
+      }, 1500);
+    }
+
+  },
+  set_view: function(ref) {
+    _st_app.ref = _st_app.b64(ref);
+    _st_app.view();
+  },
+  view: function() {
+    if (_st_app.user_id) {
+      _st_app.pv = _st_app.ref;
+      var url = _st_app.base_app + '/tr2/tv/' + _st_app.acc + '/' + _st_app.user_id + '/' + _st_app.ses_id + '/' + _st_app.ref;
+      _st_app.ajax('GET', url, _st_app.check_view, false);
+    }
+  },
+  check_view: function(data) {
+    _st_app.make_request_log('shoptarget_tracking_view');
+    if (data.success == "yes" && dvt == "disabled") {
+      var views = data.views;
+      var keys = views.split(',');
+      var persists = true;
+
+      for (var i = 0; i < keys.length; i++) {
+        try {
+          if (document.querySelectorAll(keys[i]).length > 0) {
+            persists = false;
+          }
+        } catch (e) {}
+      }
+
+      if (persists !== true) {
+        return false;
+      }
+
+      _st_app.complete_view(false, data.ck, data.vr);
+      _st_app.set_cookie('_st_cp_view', "5", 0.5);
+
+      var px = data.pixel;
+      var fcpx = new Function(px);
+      fcpx();
+
+      var pv = data.view;
+      var fcpv = new Function(pv);
+      fcpv();
+    }
+  },
+  complete_view: function(b, ck, vr) {
+    if (ck) {
+      var keys = ck.split(',');
+      for (var i = 0; i < keys.length; i++) {
+        try {
+          _st_app.set_cookie(keys[i], false);
+        } catch (e) {}
+
+      }
+    }
+
+    if (vr) {
+      var keys = vr.split(',');
+      for (var i = 0; i < keys.length; i++) {
+        try {
+          window[keys[i]] = false;
+          window[keys[i]] = null;
+        } catch (e) {}
+      }
+    }
+
+    if (b) {
+      _st_app.set_cookie('_st_cp_view', false);
+    }
+
+    setTimeout(function() {
+      _st_app.complete_view(b, ck, vr);
+    }, 50);
+  },
+  set_session: function() {
+    var ses_id = _st_app.get_cookie('_st_ses');
+
+    if (!ses_id) {
+      var ses_id = Math.random().toString().replace('0.', '');
+    }
+
+    _st_app.ses_id = ses_id;
+
+    _st_app.set_cookie('_st_ses', ses_id, 0.5);
+
+  },
+  ci: function(input) {
+    //console.log("blur no input" + input);
+    input = input.split(",").join(".");
+
+    if (/\S+@\S+\.[a-z]{2}/i.test(input)) {
+      if (_st_app.allow_sc) {
+        var id = _st_app.b64(input);
+
+        var old_id = _st_app.user_id;
+
+        _st_app.user_id = id;
+
+        if (_st_app.user_id !== old_id) {
+          var url = _st_app.base_app + '/tr2/sc/' + _st_app.acc + '/' + _st_app.user_id + '/' + _st_app.user_name + '/' + _st_app.ses_id + '/' + _st_app.ref;
+          _st_app.ajax('GET', url, _st_app.view, false);
+
+          _st_app.set_cookie('_st_id', _st_app.user_id, 0.5);
+          _st_app.set_cookie('_st_no_user', 1, 0);
+
+          var url = '//click.retargeter.com.br/user.php?i=' + _st_app.acc + '&id=' + _st_app.user_id + '&r=' + location.href;
+          _st_app.ajax('GET', url, false, false);
+        }
+        _st_app.check_conversion();
+        //_st_app.set_contact_metadata(id);
+      }
+    }
+  },
+  b64: function(data) {
+    var b64 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+    var o1, o2, o3, h1, h2, h3, h4, bits, i = 0,
+      ac = 0,
+      enc = '',
+      tmp_arr = [];
+
+    if (!data) {
+      return data;
+    }
+
+    do {
+      o1 = data.charCodeAt(i++);
+      o2 = data.charCodeAt(i++);
+      o3 = data.charCodeAt(i++);
+
+      bits = o1 << 16 | o2 << 8 | o3;
+
+      h1 = bits >> 18 & 0x3f;
+      h2 = bits >> 12 & 0x3f;
+      h3 = bits >> 6 & 0x3f;
+      h4 = bits & 0x3f;
+
+      tmp_arr[ac++] = b64.charAt(h1) + b64.charAt(h2) + b64.charAt(h3) + b64.charAt(h4);
+    }
+    while (i < data.length);
+
+    enc = tmp_arr.join('');
+
+    var r = data.length % 3;
+
+    var str = (r ? enc.slice(0, r - 3) : enc) + '==='.slice(r || 3);
+
+    return str.replace('/', '_');
+  },
+  set_cookie: function(name, value, hours) {
+
+    if (String(window.location).search("mobly.com.br") > -1) {
+      var date = new Date();
+      var now = date.getTime();
+      date.setTime(now + hours * 36e5);
+      var expire = date.getTime();
+
+      window.localStorage.setItem(name, value + "__-__" + expire);
+    } else {
+      var date = new Date();
+      var now = date.getTime();
+      date.setTime(now + hours * 36e5);
+      var expire = date.toUTCString();
+      var dominio = location.host.replace(/^www\.|^m\.|^checkout\.|^loja\.|^cart\.|^carrinho\.|^seguro\.|^secure\.|^ssl\./, ".");
+
+      document.cookie = name + "=" + value + "; expires=" + expire + "; domain=" + dominio + "; path=/";
+    }
+  },
+  get_cookie: function(name) {
+    if (String(window.location).search("mobly.com.br") > -1) {
+      var c_value = window.localStorage.getItem(name);
+
+      if (c_value) {
+        var date = new Date();
+        var now = date.getTime();
+
+        var vetor = c_value.split("__-__");
+        c_value = vetor[0];
+        expire = parseInt(vetor[1]);
+
+        if (expire < now) {
+          c_value = false;
+        }
+      } else {
+        c_value = false;
+      }
+    } else {
+      var c_value = document.cookie;
+      var c_start = c_value.indexOf(name + "=");
+
+      if (c_start === -1) {
+        c_value = false;
+      } else {
+        c_start = c_value.indexOf("=", c_start) + 1;
+        var c_end = c_value.indexOf(";", c_start);
+        if (c_end === -1) {
+          c_end = c_value.length;
+        }
+        c_value = unescape(c_value.substring(c_start, c_end));
+      }
+    }
+
+    return c_value;
+  },
+  ajax: function(type, url, callback, data) {
+    if (dvt == 'enabled') {
+      return false;
+    }
+
+    var cn = new window.XMLHttpRequest();
+    cn.open(type, url, true);
+
+    if ("withCredentials" in cn) {
+      cn.withCredentials = true;
+    }
+
+    cn.onreadystatechange = function() {
+      if (cn.readyState === 4 && cn.status === 200) {
+        if (callback) {
+          if (cn.response.indexOf('{') > -1) {
+            callback(JSON.parse(cn.response));
+          } else {
+            callback()
+          }
+        }
+      }
+    };
+
+    if (data) {
+      cn.send(JSON.stringify(data));
+    } else {
+      cn.send();
+    }
+  },
+  check_cart: function() {
+    var script = _st_app.get_cookie('_st_cart_script');
+
+    if (script) {
+      var url = _st_app.get_cookie('_st_cart_url');
+
+      if (location.href.indexOf(url) > -1 && url != false) {
+        var data = {
+          script: script,
+          url: url
+        };
+
+        _st_app.set_cart(data);
+      }
+    } else {
+      if (!_st_app.get_cookie('_st_no_script')) {
+        var url = _st_app.base_app + '/tr2/cc/' + _st_app.acc + '/' + _st_app.ref;
+        _st_app.ajax('GET', url, _st_app.set_cart, false);
+      }
+    }
+  },
+  set_cart: function(data) {
+    if (data.script) {
+      if (location.href.indexOf(data.url) > -1) {
+        var ss = document.createElement('script');
+        ss.type = 'text/javascript';
+        ss.async = false;
+        ss.src = _st_app.base_js + '/js/' + data.script;
+        var sc = document.getElementsByTagName('script')[0];
+        sc.parentNode.insertBefore(ss, sc);
+      }
+
+      _st_app.set_cookie('_st_cart_script', data.script, 0.5);
+      _st_app.set_cookie('_st_cart_url', data.url, 0.5);
+    } else {
+      _st_app.set_cookie('_st_no_script', 1, 0.5);
+    }
+  },
+  send_cart: function(data) {
+    if (_st_app.user_id) {
+      var url = _st_app.base_app + '/tr2/cd/' + _st_app.acc + '/' + _st_app.user_id + '/' + _st_app.ref;
+    } else {
+      var url = _st_app.base_app + '/tr2/cdt/' + _st_app.acc + '/' + _st_app.ses_id + '/' + _st_app.ref;
+    }
+
+    _st_app.ajax('POST', url, false, data);
+
+    try {
+      window.shopback_metadata = window.shopback_metadata || {};
+
+      var reference = [];
+      var reference_name = "";
+      var reference_quantity = 1;
+
+      if (typeof _st_cart.id != "undefined") {
+        reference = _st_cart.id;
+        reference_name = "product_id";
+      } else if (typeof _st_cart.name != "undefined") {
+        reference = _st_cart.name;
+        reference_name = "title";
+      } else if (typeof _st_cart.url != "undefined") {
+        reference = _st_cart.url;
+        reference_name = "link";
+      } else if (typeof _st_cart.sku != "undefined") {
+        reference = _st_cart.sku;
+        reference_name = "product_sku";
+      }
+
+      var cart_api = [];
+
+      for (var i = 0; i < reference.length; i++) {
+        reference_quantity = 1;
+
+        if (typeof _st_cart.qty != "undefined") {
+          if (typeof _st_cart.qty[i] != "undefined") {
+            reference_quantity = _st_cart.qty[i];
+          }
+        }
+
+        var cart_obj = {};
+        cart_obj[reference_name] = reference[i];
+        cart_obj['quantity'] = reference_quantity;
+
+        cart_api.push(cart_obj);
+      }
+
+      window.shopback_metadata.cart = cart_api;
+      _st_app.set_cart_metadata(cart_api);
+    } catch (e) {}
+  },
+  set_cart_metadata: function(cart) {
+    if (typeof cart !== 'object') {
+      return false;
+    }
+
+    if (typeof window.shopback !== 'object') {
+      setTimeout(function() {
+        _st_app.set_cart_metadata(cart);
+      }, 1000);
+      return false;
+    }
+
+    if (typeof window.shopback.setMetadata !== 'function') {
+      setTimeout(function() {
+        _st_app.set_cart_metadata(cart);
+      }, 1000);
+      return false;
+    }
+
+    window._sback_cart_data = cart;
+  },
+  sp: function(data) {
+    if (_st_app.user_id) {
+      var url = _st_app.base_app + '/tr2/sp/' + _st_app.acc + '/' + _st_app.user_id + '/' + _st_app.ses_id + '/' + _st_app.ref;
+
+      _st_app.ajax('POST', url, false, data);
+    }
+  },
+  vp: function(data) {
+    if (_st_app.user_id) {
+      var url = _st_app.base_app + '/tr2/vp/' + _st_app.acc + '/' + _st_app.user_id + '/' + _st_app.ses_id + '/' + _st_app.ref;
+
+      _st_app.ajax('POST', url, false, data);
+    }
+  },
+  set_page: function(page) {
+    if (page && _st_app.user_id) {
+      var _url = _st_app.base_app + '/tr2/page/' + _st_app.acc + '/' + _st_app.user_id + '/' + _st_app.ref + '/' + page;
+      _st_app.ajax('GET', _url, function () {
+        _st_app.make_request_log('shoptarget_page')
+      });
+    }
+  },
+  check_conversion: function() {
+    if (typeof _cv_data === "object" || window._cv_data_impulse_scrapping) {
+      if (_cv_data.order_id === 0 && _cv_data.valor === 0 && _st_app.acc == 386) {
+        //console.log("_cv_data chamado com valores zerados");
+        return false;
+      } else {
+        if (
+          document.querySelectorAll('script[src="//static.shopback.net/shoptarget/js/helper_impulse_meta.js"]')[0] 
+          && !window._cv_data_impulse_scrapping
+        ) {
+          setTimeout(function() {
+            _st_app.check_conversion();
+          }, 500);
+          return
+        }
+        var url = _st_app.base_app + '/tr2/cv/' + _st_app.acc + '/' + _st_app.user_id + '/' + _st_app.ref;
+        _st_app.ajax('POST', url, function () {
+          _st_app.make_request_log('shoptarget_tracking_conversao')
+        }, _cv_data);
+        try {
+          _st_app.set_order_metadata({
+            "id": _cv_data.order_id,
+            "price": _cv_data.valor
+          });
+
+          window.shopback_metadata = window.shopback_metadata || {};
+
+          var conversion_api = {
+            "order": _cv_data.order_id,
+            "price": _cv_data.valor
+          };
+
+          window.shopback_metadata.conversion = conversion_api;
+        } catch (e) {}
+      }
+    } else {
+      setTimeout(function() {
+        _st_app.check_conversion();
+      }, 1500);
+    }
+  },
+  set_order_metadata: function(order) {
+    /*if (typeof order !== 'object') {
+        return false;
+    }
+
+    if (typeof window.shopback !== 'object') {
+        setTimeout(function() {
+            _st_app.set_order_metadata(order);
+        }, 1000);
+        return false;
+    }
+
+    if (typeof window.shopback.setMetadata !== 'function') {
+        setTimeout(function() {
+            _st_app.set_order_metadata(order);
+        }, 1000);
+        return false;
+    }
+
+    window.shopback.setMetadata('order', order);*/
+
+    return false;
+  },
+  conversion_manual: function(cv) {
+    if (typeof cv === "object") {
+      var url = _st_app.base_app + '/tr2/cv/' + _st_app.acc + '/' + _st_app.user_id + '/' + _st_app.ref;
+      _st_app.ajax('POST', url, false, cv);
+
+      if (_st_app.convert && !botCheck()) {
+        cv_data = cv;
+
+        (function() {
+          var ss = document.createElement('script');
+          ss.type = 'text/javascript';
+          ss.async = true;
+          ss.src = '//static.shopback.net/shopconvert/js/conversion/v1.js';
+          var sc = document.getElementsByTagName('script')[0];
+          sc.parentNode.insertBefore(ss, sc);
+        })();
+      }
+    }
+  },
+  in_iframe: function() {
+    try {
+      return window.self !== window.top;
+    } catch (e) {
+      return true;
+    }
+  },
+  tracking_page: function() {
+    // Verificar se está permitido o tracking para esse user;
+    if (_st_app.allow_tracking) {
+
+      // Verificar se o metadata existe e é um objeto;
+      if (typeof window.shopback_metadata == "object") {
+
+        // Verificar se o metadata contém o atributo page;
+        if (typeof window.shopback_metadata.page == "string") {
+
+          // Verificar se o page do metadata é diferente do atual setado em _st_app.page;
+          if (window.shopback_metadata.page != _st_app.page) {
+
+            // Verificar se o cliente está setado
+            if (_st_app.user_id) {
+              try {
+                _st_app.page = window.shopback_metadata.page;
+
+                var current_page = _st_app.page.toLowerCase();
+
+                if (current_page == "product") {
+                  if (_st_app.page_info == "product_sku") {
+                    current_page = current_page + "/" + window.shopback_metadata.page_info.product_sku;
+                  } else {
+                    current_page = current_page + "/" + window.shopback_metadata.page_info.product_id;
+                  }
+                }
+
+                var _url = _st_app.base_app + '/tr2/page/' + _st_app.acc + '/' + _st_app.user_id + '/' + _st_app.ref + '/' + current_page;
+                _st_app.ajax('GET', _url);
+              } catch (e) {
+                console.log("Erro no tracking de páginas");
+              }
+            }
+          }
+        }
+      }
+    }
+
+    setTimeout(function() {
+      _st_app.tracking_page();
+    }, 1000);
+  },
+  make_request_log: function (label) {
+    try {
+      var http = new XMLHttpRequest();
+      var url = 'https://integration-healthy.dc.linximpulse.net/counter';
+      var body = JSON.stringify({
+          label: label,
+          client: window._st_account.toString()
+      });
+      http.open('POST', url, true);
+      http.setRequestHeader('Content-Type', 'application/json')
+      http.send(body);
+    } catch(e) {}
+  }
+};
+
+function botCheck() {
+  var botPattern = "(googlebot\/|Googlebot-Mobile|Googlebot-Image|Google favicon|Mediapartners-Google|bingbot|slurp|java|wget|curl|Commons-HttpClient|Python-urllib|libwww|httpunit|nutch|phpcrawl|msnbot|jyxobot|FAST-WebCrawler|FAST Enterprise Crawler|biglotron|teoma|convera|seekbot|gigablast|exabot|ngbot|ia_archiver|GingerCrawler|webmon |httrack|webcrawler|grub.org|UsineNouvelleCrawler|antibot|netresearchserver|speedy|fluffy|bibnum.bnf|findlink|msrbot|panscient|yacybot|AISearchBot|IOI|ips-agent|tagoobot|MJ12bot|dotbot|woriobot|yanga|buzzbot|mlbot|yandexbot|purebot|Linguee Bot|Voyager|CyberPatrol|voilabot|baiduspider|citeseerxbot|spbot|twengabot|postrank|turnitinbot|scribdbot|page2rss|sitebot|linkdex|Adidxbot|blekkobot|ezooms|dotbot|Mail.RU_Bot|discobot|heritrix|findthatfile|europarchive.org|NerdByNature.Bot|sistrix crawler|ahrefsbot|Aboundex|domaincrawler|wbsearchbot|summify|ccbot|edisterbot|seznambot|ec2linkfinder|gslfbot|aihitbot|intelium_bot|facebookexternalhit|yeti|RetrevoPageAnalyzer|lb-spider|sogou|lssbot|careerbot|wotbox|wocbot|ichiro|DuckDuckBot|lssrocketcrawler|drupact|webcompanycrawler|acoonbot|openindexspider|gnam gnam spider|web-archive-net.com.bot|backlinkcrawler|coccoc|integromedb|content crawler spider|toplistbot|seokicks-robot|it2media-domain-crawler|ip-web-crawler.com|siteexplorer.info|elisabot|proximic|changedetection|blexbot|arabot|WeSEE:Search|niki-bot|CrystalSemanticsBot|rogerbot|360Spider|psbot|InterfaxScanBot|Lipperhey SEO Service|CC Metadata Scaper|g00g1e.net|GrapeshotCrawler|urlappendbot|brainobot|fr-crawler|binlar|SimpleCrawler|Livelapbot|Twitterbot|cXensebot|smtbot|bnf.fr_bot|A6-Indexer|ADmantX|Facebot|Twitterbot|OrangeBot|memorybot|AdvBot|MegaIndex|SemanticScholarBot|ltx71|nerdybot|xovibot|BUbiNG|Qwantify|archive.org_bot|Applebot|TweetmemeBot|crawler4j|findxbot|SemrushBot|yoozBot|lipperhey|y!j-asr|Domain Re-Animator Bot|AddThis)";
+  var re = new RegExp(botPattern, 'i');
+  var userAgent = navigator.userAgent;
+  if (re.test(userAgent)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+if (typeof _st_account === "number" && dvt == 'disabled' && !botCheck()) {
+  _st_app.acc = _st_account;
+  _st_app.initialize();
+
+  setTimeout(function() {
+    if (dvt == "disabled") {
+      try {
+        _st_app.ci(window.chaordic_meta.user.email);
+        _st_app.set_name(window.chaordic_meta.user.name);
+      } catch (a) {}
+
+      try {
+        _st_app.ci(siteMetadata.sessaoInfo.usuarioInfo.email);
+        _st_app.set_name(siteMetadata.sessaoInfo.usuarioInfo.nome);
+      } catch (a) {}
+
+      var chaordic_vtex_session = _st_app.get_cookie('chaordic_vtex_session');
+
+      if (chaordic_vtex_session) {
+        try {
+          var b = JSON.parse(chaordic_vtex_session);
+          _st_app.ci(String(b.clientProfileData.email));
+
+          if (b.clientProfileData.firstName && b.clientProfileData.firstName != "null") {
+            _st_app.set_name(b.clientProfileData.firstName);
+          }
+        } catch (a) {}
+      }
+
+      var authorizationData = _st_app.get_cookie('authorizationData');
+
+      if (authorizationData) {
+        try {
+          var b = JSON.parse(authorizationData);
+          _st_app.ci(String(b.userName));
+          _st_app.set_name(String(b.name));
+        } catch (a) {}
+      }
+
+      var emporioambevUser = _st_app.get_cookie('emporioambevUser');
+
+      if (emporioambevUser) {
+        try {
+          _st_app.user_name = emporioambevUser.replace(/"/g, '');
+          _st_app.set_name();
+        } catch (a) {}
+      }
+
+      var ljkde = _st_app.get_cookie('km_ni');
+
+      if (ljkde) {
+        try {
+          _st_app.ci(ljkde);
+        } catch (a) {}
+      }
+
+      var mmdm = _st_app.get_cookie('mmmLogin');
+
+      if (mmdm) {
+        try {
+          _st_app.ci(mmdm.split("#")[0].replace('"', ''));
+          _st_app.set_name(String(_st_app.get_cookie('mmmUserName')));
+        } catch (a) {}
+      }
+
+      var arzo = _st_app.get_cookie('tagmizeCustomerEmail');
+
+      if (arzo) {
+        try {
+          _st_app.ci(arzo);
+        } catch (a) {}
+      }
+
+      var shtz = _st_app.get_cookie('tagCustomerEmail');
+
+      if (shtz) {
+        try {
+          _st_app.ci(shtz);
+        } catch (a) {}
+      }
+
+      try {
+        $('img[src*="https://b.btg360.com.br"]').each(function() {
+          var u = decodeURIComponent($(this).attr("src"));
+
+          if (u.search("cle=") > -1) {
+            var vt = u.split("&amp;").join("&").split("&");
+            var i = 0;
+
+            $.each(vt, function(a, b) {
+              if (vt[i].search("cle=") > -1) {
+                _st_app.ci(String(vt[i].split("cle=").join("")));
+
+                return false;
+              }
+
+              i++;
+            });
+
+          }
+        });
+      } catch (e) {}
+    }
+  }, 3500);
+}

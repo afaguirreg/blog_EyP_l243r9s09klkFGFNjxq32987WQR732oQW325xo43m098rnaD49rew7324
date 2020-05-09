@@ -1,7 +1,7 @@
 document.oncontextmenu = function(){return false;}
+document.onselectstart=new Function ("return false")
 function disabletext(e){return false}
 function reEnable(){return true}
-document.onselectstart=new Function ("return false")
 if (window.sidebar){
 	document.onmousedown=disabletext
 	document.onclick=reEnable

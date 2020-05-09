@@ -1,0 +1,386 @@
+(function helperImpulseMeta() {
+  function getQueryParams(qs) {
+    qs = qs.split('+').join(' ');
+    var params = {},
+      tokens,
+      re = /[?&]?([^=]+)=([^&]*)/g;
+
+    while (tokens = re.exec(qs)) {
+      params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+    }
+
+    return params;
+  }
+
+  function normalizePidForSb(pid) {
+    pid = pid.toString();
+    pid = pid.replace(/[^0-9]/g, '');
+    pid = pid.replace(/^0+/g, '');
+    return pid;
+  }
+
+  var islinxImpulseIsDev = null;
+  function verifyImpulseSuiteEnv(impulseSuiteEnv) {
+    if (impulseSuiteEnv) {
+      if (
+        impulseSuiteEnv === 'dev' ||
+        impulseSuiteEnv === 'stg'
+      ) {
+        islinxImpulseIsDev = true;
+        return true;
+      } else {
+        islinxImpulseIsDev = false;
+        return false;
+      }
+    }
+  }
+
+  function linxImpulseIsDev() {
+    if (islinxImpulseIsDev !== null) {
+      return islinxImpulseIsDev;
+    }
+
+    var impulseSuiteEnv = window.sessionStorage.getItem('impulseSuiteEnv');
+    if (impulseSuiteEnv) {
+      return verifyImpulseSuiteEnv(impulseSuiteEnv);
+    }
+
+    var impulseSuiteEnvUrl = getQueryParams(document.location.search);
+    if (impulseSuiteEnvUrl.url) {
+      try {
+        window.sessionStorage.setItem('impulseSuiteEnv', impulseSuiteEnvUrl);
+        return verifyImpulseSuiteEnv(impulseSuiteEnv);
+      } catch (e) {
+        logImpulse(e);
+      }
+    }
+
+    return false;
+  }
+
+  function logImpulse(e) {
+    if (linxImpulseIsDev()) {
+      console.log('For Linx Impulse Dev:', e);
+    }
+  }
+
+  function shopbackMountedProductPage(pid) {
+    _view = {
+      id: normalizePidForSb(pid)
+    };
+
+    try {
+      _st_app.vp(_view);
+      _st_app.set_page('product');
+      logImpulse({
+        msg: 'meta send to SB',
+        _view: _view,
+        page: 'product'
+      });
+    } catch (e) {
+      logImpulse(e);
+    }
+  }
+
+  function shopbackMountedCart(items) {
+    _st_cart = {
+      id: [],
+      qty: [],
+    };
+
+    for (var i = 0; i < items.length; i++) {
+      var item = items[i];
+      var pid = normalizePidForSb(item.pid);
+      var qtd = item.quantity;
+
+      _st_cart.id.push(pid);
+      _st_cart.qty.push(qtd);
+    }
+
+    try {
+      _st_app.send_cart(_st_cart);
+      _st_app.set_page('cart');
+      logImpulse({
+        msg: 'cart mounted for SB',
+        _st_cart: _st_cart,
+        page: 'cart'
+      })
+    } catch (e) {
+      logImpulse(e);
+    }
+  }
+
+  function getCartTotal (items) {
+    return items.reduce(function(accumulator, currentItem) {
+      var itemTotal = currentItem.price * currentItem.quantity
+      
+      if (!itemTotal) {
+        return accumulator
+      }
+      
+      return accumulator + itemTotal
+    }, 0)
+  }
+
+  function shopbackMountedTransaction(orderId, items) {
+    var total = getCartTotal(items);
+
+    if (total <= 0) {
+      return;
+    }
+
+    window._cv_data = {
+      order_id: orderId,
+      valor: total
+    };
+    window._cv_data_impulse_scrapping = true
+    _st_app.set_page('confirmation');
+
+    logImpulse({
+      msg: 'confirmation page meta seted to SB',
+      _cv_data: _cv_data,
+      page: 'confirmation'
+    })
+  }
+
+  function removeEventsWhenUserLogged(userEmail) {
+    if (
+      window.linxImpulse &&
+      window.linxImpulse.config.integrationFlags.shopback.campaignsToNotLoggedUsers
+    ) {
+      logImpulse({
+        msg: 'Campaings only not logged users',
+        page: 'all'
+      })
+
+      if (userEmail) {
+        _st_app.set_page('ignore_prods');
+        logImpulse({
+          msg: 'Logged User set ignore_prods page to remove all events',
+          page: 'all'
+        })
+      }
+    }
+  }
+
+  function impulseScrapping(impulseMeta) {
+    logImpulse('Impulse meta');
+    var metaIsEmpty = false;
+    try {
+      window.linxImpulse.meta.page;
+      metaIsEmpty = false;
+    } catch (e) {
+      metaIsEmpty = true;
+    }
+    if (metaIsEmpty) {
+      logImpulse('Meta is empty');
+      return;
+    }
+
+    switch (impulseMeta.meta.page) {
+      case 'product':
+        shopbackMountedProductPage(window.linxImpulse.meta.pid);
+        break;
+      case 'cart':
+        shopbackMountedCart(impulseMeta.meta.items)
+        break;
+      case 'transaction':
+        shopbackMountedTransaction(impulseMeta.meta.id, impulseMeta.meta.items)
+        break;
+      default:
+        _st_app.set_page(false);
+        logImpulse({
+          msg: 'Page not mapped',
+          page: 'all'
+        })
+        break;
+    }
+
+    if (window.linxImpulse.meta.user) {
+      removeEventsWhenUserLogged(window.linxImpulse.meta.user.email);
+    }
+  }
+
+  function getOrderItensChaordicMeta () {
+    var chaordic_items = chaordic_meta.transaction ? window.chaordic_meta.transaction.items : chaordic_meta.items;
+    var items = chaordic_items.map(function (item) {
+      var price = item.product ? item.product.price : item.price;
+      return {
+        price: price,
+        quantity: item.quantity
+      }
+    })
+    
+    return items
+  }
+
+  function watchChaordicMetaPage() {
+    var oldPage = window.chaordic_meta.page.name || window.chaordic_meta.page;
+    setInterval(function () {
+      var newPage = window.chaordic_meta.page.name || window.chaordic_meta.page;
+      if (newPage !== oldPage) {
+        oldPage = newPage
+        onChangePage(newPage)
+      }
+    }, 2000)
+  }
+
+  function onChangePage(newPage) {
+    scrapChaordicMeta(newPage);
+  }
+
+  function scrapChaordicMeta(page) {
+    logImpulse('Chaordic meta');
+
+    if (!window.chaordic_meta) {
+      logImpulse('Meta is empty');
+      return false;
+    }
+
+    if (!page) {
+      page = window.chaordic_meta.page.name || window.chaordic_meta.page;
+      watchChaordicMetaPage()
+    }
+
+    switch (page) {
+      case 'product':
+        var pid = window.chaordic_meta.product && window.chaordic_meta.product.id ? window.chaordic_meta.product.id : window.chaordic_meta.pid;
+        if (!pid) {
+          return false;
+        }
+        shopbackMountedProductPage(pid);
+        break;
+      case 'cart':
+        var items = window.chaordic_meta.cart ? window.chaordic_meta.cart.items : window.chaordic_meta.items
+        var cart = items.map(function (item) {
+          var pid = window.chaordic_meta.cart ? item.product.id : item.pid
+          return {
+            pid: pid,
+            quantity: item.quantity
+          }
+        })
+
+        if (!cart) {
+          return false;
+        }
+        shopbackMountedCart(cart)
+        break;
+      case 'transaction':
+        var orderId = window.chaordic_meta.transaction ? window.chaordic_meta.transaction.id : window.chaordic_meta.id;
+        var items = getOrderItensChaordicMeta();
+        
+        if (!orderId || !items) {
+          return false;
+        }
+        shopbackMountedTransaction(orderId, items)
+        break;
+      case 'confirmation':
+        var orderId = window.chaordic_meta.transaction ? window.chaordic_meta.transaction.id : window.chaordic_meta.id;
+        var items = getOrderItensChaordicMeta();
+        
+        if (!orderId || !items) {
+          return false;
+        }
+        shopbackMountedTransaction(orderId, items)
+        break;
+      default:
+        logImpulse({
+          msg: 'Page not mapped',
+          page: 'all'
+        })
+    }
+    // todo:  call funcion to when campaigns not logged user
+
+    return true
+  }
+
+  if (window.impulse_helper_exist) {
+    throw new Error('Helper for scrapping already in the page')
+  }
+
+  window.impulse_helper_exist = true;
+
+  function readMeta() {
+    if (window.linxImpulse) {
+      if (linxImpulse.meta.page) {
+        impulseScrapping(window.linxImpulse);
+        return true;
+      }
+
+      window.linxImpulse.impulseTag.addEventListener('linximpulse.onmeta', function () {
+        impulseScrapping(window.linxImpulse);
+        return true;
+      })
+
+      window.linxImpulse.impulseTag.addEventListener('linximpulse.onmetadata', function () {
+        impulseScrapping(window.linxImpulse);
+        return true;
+      })
+
+      window.linxImpulse.impulseTag.addEventListener('linximpulse.onmetaupdated', function (e) {
+        if (
+          e.detail.type === 'cart' ||
+          e.detail.type === 'transaction'
+        ) {
+          impulseScrapping({
+            meta: {
+              page: e.detail.type,
+              id: e.detail.cart.id,
+              items: e.detail.cart.items
+            }
+          });
+          return true;
+        } else if (e.detail.type === 'user') {
+          removeEventsWhenUserLogged(e.detail.user.email)
+          return true;
+        }
+      })
+
+      return true;
+    } else {
+      if (window.chaordic_meta) {
+        return scrapChaordicMeta();
+      }
+    }
+
+    return false;
+  }
+
+  /**
+   * Execute a Callback function with a condition with certain frequency
+   * @param { Function } callback The callback to be called
+   * @param { Function | Number } when The function or number in milliseconds that indicates when the callback is called
+   * @param { Function } stop The function that indicates when the interval must be stopped. This function receives two arguments: the number of current execution and the result of When function
+   * @param { Number } frequency The frequency of execution of retries
+   * @return { void }
+   */
+  var executer = function executer(callback, when, stop, frequency) {
+    if (typeof callback !== 'function') {
+      throw new Error('The "callback" is not a function');
+    }
+    var currentExecution = 1;
+    frequency = frequency || 0;
+    frequency = (typeof when === 'number' && parseInt(when, 10)) || frequency;
+    stop = (typeof stop === 'function' && stop) || function () { return true; };
+    when = (typeof when === 'function' && when) || function () { return true; };
+    var interval = setInterval(function handlerInterval() {
+      var resultOfWhenFunction = when();
+      if (resultOfWhenFunction) {
+        callback();
+      }
+      if (stop(currentExecution, resultOfWhenFunction)) {
+        clearInterval(interval);
+      }
+      currentExecution += 1;
+    }, frequency);
+  };
+
+  // uso
+  executer(
+    readMeta,
+    readMeta,
+    function stop(currentExecution, whenResult) {
+      return currentExecution === 10 || whenResult; // condição de parada
+    }, 500
+  ); // intervalo de execução  
+})();

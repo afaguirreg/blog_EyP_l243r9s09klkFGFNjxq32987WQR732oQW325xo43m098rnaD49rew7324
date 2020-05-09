@@ -1,0 +1,2030 @@
+<!DOCTYPE html>
+<!-- saved from url=(0263)https://codeiot.org.br/courses/course-v1:LSI-TEC+IOT101ES+2020_O1/courseware/02e53d48a29747e2bb70889aaeee92a4/bf87981cb4c14552a8075b6814eb290e/1?activate_block_id=block-v1%3ALSI-TEC%2BIOT101ES%2B2020_O1%2Btype%40vertical%2Bblock%408e96092472e34eb9a273808e08f6093e -->
+<html lang="es-419"><!--<![endif]--><head dir="ltr"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+  
+<title data-base-title="
+ Clase 1 - ¿Qué es Internet? | Material del curso IOT101ES | Code IoT">¿Qué es una red de computadoras? | Clase 1 - ¿Qué es Internet? | Material del curso IOT101ES | Code IoT</title>
+
+
+  <!-- Google Tag Manager -->
+  <script type="text/javascript" src="./2_files/helper_impulse_meta.js.descarga"></script><script type="text/javascript" async="" src="./2_files/analytics.js.descarga"></script><script src="./2_files/2796197407096863" async=""></script><script async="" src="./2_files/fbevents.js.descarga"></script><script async="" src="./2_files/gtm.js.descarga"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-THW765V');</script>
+  <!-- End Google Tag Manager -->
+
+      <script type="text/javascript">
+        /* immediately break out of an iframe if coming from the marketing website */
+        (function(window) {
+          if (window.location !== window.top.location) {
+            window.top.location = window.location;
+          }
+        })(this);
+      </script>
+
+  
+
+  <script type="text/javascript" src="./2_files/djangojs.e1e207975294.js.descarga"></script>
+  <script type="text/javascript" src="./2_files/ie11_find_array.bd1c6dc7a133.js.descarga"></script>
+
+  <link rel="icon" type="image/x-icon" href="https://codeiot.org.br/static/codeiot/images/favicon.72170e237305.ico">
+
+  
+  
+
+    <link href="./2_files/lms-style-vendor.68e48093f5dd.css" rel="stylesheet" type="text/css">
+
+
+
+    
+  
+
+    <link href="./2_files/lms-main-v1.ddf42c9abfea.css" rel="stylesheet" type="text/css">
+
+
+
+
+    
+    <script type="text/javascript" src="./2_files/lms-main_vendor.a04b73033169.js.descarga" charset="utf-8"></script>
+
+
+    
+    <script type="text/javascript" src="./2_files/lms-application.7bec85e7ca02.js.descarga" charset="utf-8"></script>
+
+
+
+  
+    
+    
+    <script type="text/javascript" src="./2_files/commons.7dc51240caff0acca5ba.e0cbe6b834dd.js.descarga"></script>
+
+
+
+  <script>
+    window.baseUrl = "/static/";
+    (function (require) {
+      require.config({
+          baseUrl: window.baseUrl
+      });
+    }).call(this, require || RequireJS.require);
+  </script>
+  <script type="text/javascript" src="./2_files/require-config.38226099c6ad.js.descarga"></script>
+  
+    <script type="text/javascript">
+        (function (require) {
+          require.config({
+              paths: {
+                'js/courseware/courseware_factory': 'js/courseware/courseware_factory.1504fc10caef',
+'draggabilly': 'js/vendor/draggabilly.26caba6f7187',
+'js/courseware/toggle_element_visibility': 'js/courseware/toggle_element_visibility.d5f10bc65ed0',
+'hls': 'common/js/vendor/hls.8f15a0109b05',
+'js/courseware/link_clicked_events': 'js/courseware/link_clicked_events',
+'moment': 'common/js/vendor/moment-with-locales.084396f4103c',
+'moment-timezone': 'common/js/vendor/moment-timezone-with-data.60142e6c4416',
+'js/student_account/logistration_factory': 'js/student_account/logistration_factory.1fd8a9290956',
+'js/groups/views/cohorts_dashboard_factory': 'js/groups/views/cohorts_dashboard_factory.7f46663f97b4',
+'js/dateutil_factory': 'codeiot/js/dateutil_factory.defdae175e78',
+'course_bookmarks/js/views/bookmark_button': 'course_bookmarks/js/views/bookmark_button.d4cfaf3361fa',
+'js/courseware/accordion_events': 'js/courseware/accordion_events.6064c7809de5',
+'js/views/message_banner': 'js/views/message_banner.bc5a1361d5f5',
+'js/groups/discussions_management/discussions_dashboard_factory': 'js/discussions_management/views/discussions_dashboard_factory.2e10d9097343',
+'js/courseware/course_info_events': 'js/courseware/course_info_events.2fc35b57627f'
+            }
+          });
+        }).call(this, require || RequireJS.require);
+    </script>
+  
+
+  
+
+  
+
+    <link href="./2_files/lms-style-course-vendor.9d99b807515a.css" rel="stylesheet" type="text/css">
+
+
+
+
+  
+
+    <link href="./2_files/lms-course.9b508c0bc684.css" rel="stylesheet" type="text/css">
+
+
+
+
+<script type="text/javascript" src="./2_files/jquery.autocomplete.3bd10d7510d2.js.descarga"></script>
+<script type="text/javascript" src="./2_files/tooltip_manager.da362490e199.js.descarga"></script>
+
+<link href="./2_files/jquery.autocomplete.896181d3ec33.css" rel="stylesheet" type="text/css">
+  
+
+  
+
+  
+
+
+  
+
+
+<script type="application/json" id="user-metadata">
+    {"username": "afaguirreg", "enrollment_mode": "honor", "upgrade_link": null, "user_id": 73057, "course_start": "2020-04-06T12:00:00+00:00", "course_end": "2020-05-17T12:00:00+00:00", "upgrade_deadline": null, "course_key_fields": {"org": "LSI-TEC", "run": "2020_O1", "course": "IOT101ES"}, "partition_groups": {"Grupos de Ruta de Inscripci\u00f3n": [6, "honor"]}, "has_non_audit_enrollments": true, "pacing_type": "instructor_paced", "upgrade_price": "Gratis", "course_id": "course-v1:LSI-TEC+IOT101ES+2020_O1", "has_staff_access": false, "forum_roles": [["Student"]], "enrollment_time": "2020-04-17T00:18:28.118443+00:00", "schedule_start": null, "email": "afaguirreg@misena.edu.co"}
+</script>
+
+  
+
+  
+
+
+  
+
+
+<!-- dummy Segment -->
+<script type="text/javascript">
+  var analytics = {
+    track: function() { return; },
+    trackLink: function() { return; },
+    pageview: function() { return; },
+    page: function() { return; }
+  };
+</script>
+<!-- end dummy Segment -->
+
+
+  <meta name="path_prefix" content="">
+  
+  
+
+  <meta name="openedx-release-line" content="ironwood">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="./2_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-162291032-1');
+</script>
+
+
+
+<script type="text/javascript" src="./2_files/session.js.descarga"></script><script type="text/javascript" src="./2_files/collection.js.descarga"></script><script type="text/javascript" src="./2_files/metadata.js.descarga"></script><script type="text/javascript" src="./2_files/collect_sbk.js.descarga" async="true" defer="true"></script><script type="text/javascript" src="./2_files/init.js.descarga" async="true" defer="true" data-client="694279e8ae63ac10bad9b6c6"></script><script data-apikey="codeiot-org" async="async" defer="defer" src="./2_files/impulse.js.descarga"></script><link id="avast_os_ext_custom_font" href="chrome-extension://eofcbnmajmjmplflapaojjnihcjkigck/common/ui/fonts/fonts.css" rel="stylesheet" type="text/css"><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover, .MJXp-munder {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > *, .MJXp-munder > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+
+<body class="ltr view-in-course view-courseware courseware  lang_es-419"><div id="MathJax_Message" style="display: none;"></div>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THW765V"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<div id="page-prompt"></div>
+  <div class="window-wrap" dir="ltr">
+    <a class="nav-skip sr-only sr-only-focusable" href="https://codeiot.org.br/courses/course-v1:LSI-TEC+IOT101ES+2020_O1/courseware/02e53d48a29747e2bb70889aaeee92a4/bf87981cb4c14552a8075b6814eb290e/1?activate_block_id=block-v1%3ALSI-TEC%2BIOT101ES%2B2020_O1%2Btype%40vertical%2Bblock%408e96092472e34eb9a273808e08f6093e#main">Ir al contenido principal</a>
+
+        
+
+
+
+
+
+
+
+
+
+
+  <header id="global-navigation" class="header-global slim">
+    <nav class="wrapper-header" aria-label="Global">
+    <h1 class="logo">
+      <a href="https://codeiot.org.br/">
+        
+  <img src="./2_files/logo.02ebff884646.png" height="40" alt="Home Page">
+
+      </a>
+    </h1>
+
+      <h2 class="course-header"><span class="provider">LSI-TEC:</span>
+        <span class="course-number">IOT101ES</span>
+        
+        <span class="course-name">Introducción al Internet de las Cosas</span></h2>
+
+        <ol class="left nav-global list-inline authenticated">
+        
+            <li class="item nav-global-01">
+              <a href="https://codeiot.org.br/courses">Explorar cursos</a>
+            </li>
+        
+        <li class="item">
+          <a href="https://codeiot.org.br/faq">Preguntas Frecuentes</a>
+        </li>
+        <li class="item">
+          <a href="https://naescola.codeiot.org.br/">Na escola</a>
+        </li>
+        <li class="item">
+          <a href="https://codeiot.org.br/about">Acerca de</a>
+        </li>
+      </ol>
+
+      
+
+
+
+
+
+
+    <ol class="user">
+        <li class="primary">
+            <a href="https://codeiot.org.br/dashboard" class="user-link">
+                <span class="sr">Panel de Control para:</span>
+                <img class="user-image-frame" src="./2_files/default_50.3455a6581573.png" alt="">
+                <div class="label-username">afaguirreg</div>
+            </a>
+        </li>
+        <li class="primary">
+            <div class="user-menu">
+                <button class="user-dropdown" aria-expanded="false" aria-haspopup="true">
+                    <span class="sr">Más opciones</span>
+                    <span class="fa fa-sort-desc" aria-hidden="true"></span>
+                </button>
+                <ul class="user-dropdown-menu" aria-label="Más" opciones="" role="menu">
+                    
+                    <li class="dropdown-item item has-block-link"><a href="https://codeiot.org.br/dashboard" role="menuitem" class="action dropdown-menuitem">Panel de control</a></li>
+                    <li class="dropdown-item item has-block-link"><a href="https://codeiot.org.br/account/settings" role="menuitem" class="action dropdown-menuitem">Cuenta</a></li>
+                
+                    <li class="item"><a href="https://codeiot.org.br/logout" role="menuitem" class="user-dropdown-menuitem">Cerrar sesión</a></li>
+                </ul>
+            </div>
+        </li>
+    </ol>
+
+
+    </nav>
+</header>
+<!--[if lte IE 9]>
+<div class="ie-banner" aria-hidden="true"><strong>Aviso:</strong> Tu navegador no es soportado completamente. Recomendamos el uso de <a href="https://www.google.com/chrome" target="_blank">Chrome</a> o <a href="http://www.mozilla.org/firefox" target="_blank">Firefox</a>.</div>
+<![endif]-->
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+    <div class="marketing-hero"></div>
+
+    <div class="content-wrapper main-container" id="content" dir="ltr">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/template" id="image-modal-tpl">
+    <div class="wrapper-modal wrapper-modal-image">
+  <section class="image-link">
+    <%= smallHTML%>
+    <a href="#" class="modal-ui-icon action-fullscreen" role="button">
+      <span class="label">
+        <span class="icon fa fa-arrows-alt fa-large" aria-hidden="true"></span> <%- gettext("Fullscreen") %>
+      </span>
+    </a>
+  </section>
+
+  <section class="image-modal">
+    <section class="image-content">
+      <div class="image-wrapper">
+        <img alt="<%= largeALT %>, <%- gettext('Large') %>" src="<%= largeSRC %>" />
+      </div>
+
+      <a href="#" class="modal-ui-icon action-close" role="button">
+        <span class="label">
+          <span class="icon fa fa-remove fa-large" aria-hidden="true"></span> <%- gettext("Close") %>
+        </span>
+      </a>
+
+      <ul class="image-controls">
+        <li class="image-control">
+          <a href="#" class="modal-ui-icon action-zoom-in" role="button">
+            <span class="label">
+              <span class="icon fa fa fa-search-plus fa-large" aria-hidden="true"></span> <%- gettext("Zoom In") %>
+            </span>
+          </a>
+        </li>
+
+        <li class="image-control">
+          <a href="#" class="modal-ui-icon action-zoom-out is-disabled" aria-disabled="true" role="button">
+            <span class="label">
+              <span class="icon fa fa fa-search-minus fa-large" aria-hidden="true"></span> <%- gettext("Zoom Out") %>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </section>
+  </section>
+</div>
+
+</script>
+
+
+
+
+
+
+
+
+<div class="message-banner" aria-live="polite"></div>
+
+  
+
+
+
+
+
+
+
+
+    
+        <nav class="courseware wrapper-course-material" aria-label="Material del curso">
+            <div class="course-material">
+                
+                <ol class="tabs course-tabs">
+                    
+
+
+
+
+
+  
+  <li class="tab">
+  <a href="https://codeiot.org.br/courses/course-v1:LSI-TEC+IOT101ES+2020_O1/course/" class="active">
+  Curso
+      <span class="sr">, current location</span>
+  </a>
+  </li>
+  
+  <li class="tab">
+  <a href="https://codeiot.org.br/courses/course-v1:LSI-TEC+IOT101ES+2020_O1/discussion/forum/" class="">
+  Discusión
+  </a>
+  </li>
+  
+  <li class="tab">
+  <a href="https://codeiot.org.br/courses/course-v1:LSI-TEC+IOT101ES+2020_O1/progress" class="">
+  Progreso
+  </a>
+  </li>
+
+                    
+                </ol>
+            </div>
+        </nav>
+
+
+<div class="container" lang="es">
+  <div class="course-wrapper" role="presentation">
+
+    <section class="course-content" id="course-content">
+        <header class="page-header has-secondary">
+            <div class="page-header-main">
+                <nav aria-label="Curso" class="sr-is-focusable" tabindex="-1">
+                    <div class="has-breadcrumbs">
+                        <div class="breadcrumbs">
+                                <span class="nav-item nav-item-course">
+                                    <a href="https://codeiot.org.br/courses/course-v1:LSI-TEC+IOT101ES+2020_O1/course/">Curso</a>
+                                </span>
+                                <span class="icon fa fa-angle-right" aria-hidden="true"></span>
+                                <span class="nav-item nav-item-chapter" data-course-position="2" data-chapter-position="1">
+                                    <a href="https://codeiot.org.br/courses/course-v1:LSI-TEC+IOT101ES+2020_O1/course/#block-v1:LSI-TEC+IOT101ES+2020_O1+type@chapter+block@02e53d48a29747e2bb70889aaeee92a4">Semana 1 - Conociendo Internet de las Cosas</a>
+                                </span>
+                                <span class="icon fa fa-angle-right" aria-hidden="true"></span>
+                                <span class="nav-item nav-item-section">
+                                    <a href="https://codeiot.org.br/courses/course-v1:LSI-TEC+IOT101ES+2020_O1/course/#block-v1:LSI-TEC+IOT101ES+2020_O1+type@sequential+block@bf87981cb4c14552a8075b6814eb290e">Clase 1 - ¿Qué es Internet?</a>
+                                </span>
+                                <span class="icon fa fa-angle-right" aria-hidden="true"></span>
+                            <span class="nav-item nav-item-sequence">¿Qué es una red de computadoras?</span>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <main id="main" tabindex="-1" aria-label="Content">
+
+              
+<div class="xblock xblock-student_view xblock-student_view-sequential xmodule_display xmodule_SequenceModule xblock-initialized" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="XBlockToXModuleShim" data-block-type="sequential" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@sequential+block@bf87981cb4c14552a8075b6814eb290e" data-type="Sequence" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1">
+  
+  
+
+
+<div id="sequence_bf87981cb4c14552a8075b6814eb290e" class="sequence" data-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@sequential+block@bf87981cb4c14552a8075b6814eb290e" data-position="1" data-ajax-url="/courses/course-v1:LSI-TEC+IOT101ES+2020_O1/xblock/block-v1:LSI-TEC+IOT101ES+2020_O1+type@sequential+block@bf87981cb4c14552a8075b6814eb290e/handler/xmodule_handler" data-next-url="/courses/course-v1:LSI-TEC+IOT101ES+2020_O1/courseware/02e53d48a29747e2bb70889aaeee92a4/5f6d2700665240279e4945fddafebc07/?child=first" data-prev-url="/courses/course-v1:LSI-TEC+IOT101ES+2020_O1/courseware/14b762280ede4c63aafa40709817f061/aa8c110489764bc9bf1956b11d9e3e2b/?child=last" data-save-position="true" data-show-completion="true">
+
+  <div class="sequence-nav">
+    <button class="sequence-nav-button button-previous">
+      <span class="icon fa fa-chevron-prev" aria-hidden="true"></span>
+      <span class="sequence-nav-button-label">Anterior</span>
+    </button>
+    <button class="sequence-nav-button button-next">
+      <span class="sequence-nav-button-label">Siguiente</span>
+      <span class="icon fa fa-chevron-next" aria-hidden="true"></span>
+    </button>
+    <nav class="sequence-list-wrapper" aria-label="Secuencia">
+      <ol id="sequence-list" role="tablist">
+        <li role="presentation">
+          <button class="seq_other nav-item tab visited" role="tab" tabindex="-1" aria-selected="false" aria-expanded="false" aria-controls="seq_content" data-index="0" data-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@8e96092472e34eb9a273808e08f6093e" data-element="1" data-page-title="¿Qué vamos a aprender?" data-path="Semana 1 - Conociendo Internet de las Cosas &gt; Clase 1 - ¿Qué es Internet? &gt; ¿Qué vamos a aprender?" data-graded="False" id="tab_0">
+            <span class="icon fa seq_other" aria-hidden="true"></span>
+              <span class="fa fa-check-circle check-circle is-hidden" style="color:green" aria-hidden="true"></span>
+            <span class="fa fa-fw fa-bookmark bookmark-icon is-hidden" aria-hidden="true"></span>
+            <div class="sequence-tooltip sr"><span class="sr">other&nbsp;</span>¿Qué vamos a aprender?<span class="sr bookmark-icon-sr">&nbsp;</span></div>
+          </button>
+        </li>
+        <li role="presentation">
+          <button class="seq_video inactive nav-item tab" role="tab" tabindex="-1" aria-selected="false" aria-expanded="false" aria-controls="seq_content" data-index="1" data-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@759cf43a505645c8ba666ea192e58bde" data-element="2" data-page-title="¿Qué es Internet?" data-path="Semana 1 - Conociendo Internet de las Cosas &gt; Clase 1 - ¿Qué es Internet? &gt; ¿Qué es Internet?" data-graded="False" id="tab_1">
+            <span class="icon fa seq_video" aria-hidden="true"></span>
+              <span class="fa fa-check-circle check-circle is-hidden" style="color:green" aria-hidden="true"></span>
+            <span class="fa fa-fw fa-bookmark bookmark-icon is-hidden" aria-hidden="true"></span>
+            <div class="sequence-tooltip sr"><span class="sr">video&nbsp;</span>¿Qué es Internet?<span class="sr bookmark-icon-sr">&nbsp;</span></div>
+          </button>
+        </li>
+        <li role="presentation">
+          <button class="seq_other nav-item tab visited" role="tab" tabindex="-1" aria-selected="false" aria-expanded="false" aria-controls="seq_content" data-index="2" data-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@cf55cd1d5c214074a47073ed214d21a2" data-element="3" data-page-title="¿Qué es Internet?" data-path="Semana 1 - Conociendo Internet de las Cosas &gt; Clase 1 - ¿Qué es Internet? &gt; ¿Qué es Internet?" data-graded="False" id="tab_2">
+            <span class="icon fa seq_other" aria-hidden="true"></span>
+              <span class="fa fa-check-circle check-circle is-hidden" style="color:green" aria-hidden="true"></span>
+            <span class="fa fa-fw fa-bookmark bookmark-icon is-hidden" aria-hidden="true"></span>
+            <div class="sequence-tooltip sr"><span class="sr">other&nbsp;</span>¿Qué es Internet?<span class="sr bookmark-icon-sr">&nbsp;</span></div>
+          </button>
+        </li>
+        <li role="presentation">
+          <button class="seq_other nav-item tab active" role="tab" tabindex="0" aria-selected="true" aria-expanded="true" aria-controls="seq_content" data-index="3" data-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@572e7b4a86894fd5a283731b62aaa045" data-element="4" data-page-title="¿Qué es una red de computadoras?" data-path="Semana 1 - Conociendo Internet de las Cosas &gt; Clase 1 - ¿Qué es Internet? &gt; ¿Qué es una red de computadoras?" data-graded="False" id="tab_3">
+            <span class="icon fa seq_other" aria-hidden="true"></span>
+              <span class="fa fa-check-circle check-circle is-hidden" style="color:green" aria-hidden="true"></span>
+            <span class="fa fa-fw fa-bookmark bookmark-icon is-hidden" aria-hidden="true"></span>
+            <div class="sequence-tooltip sr"><span class="sr">other&nbsp;</span>¿Qué es una red de computadoras?<span class="sr bookmark-icon-sr">&nbsp;</span></div>
+          </button>
+        </li>
+        <li role="presentation">
+          <button class="seq_other inactive nav-item tab" role="tab" tabindex="-1" aria-selected="false" aria-expanded="false" aria-controls="seq_content" data-index="4" data-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@248fa710599d4e79be61c0a302785283" data-element="5" data-page-title="Tipos de Redes de Computadoras" data-path="Semana 1 - Conociendo Internet de las Cosas &gt; Clase 1 - ¿Qué es Internet? &gt; Tipos de Redes de Computadoras" data-graded="False" id="tab_4">
+            <span class="icon fa seq_other" aria-hidden="true"></span>
+              <span class="fa fa-check-circle check-circle is-hidden" style="color:green" aria-hidden="true"></span>
+            <span class="fa fa-fw fa-bookmark bookmark-icon is-hidden" aria-hidden="true"></span>
+            <div class="sequence-tooltip"><span class="sr">other&nbsp;</span>Tipos de Redes de Computadoras<span class="sr bookmark-icon-sr">&nbsp;</span></div>
+          </button>
+        </li>
+        <li role="presentation">
+          <button class="seq_other inactive nav-item tab" role="tab" tabindex="-1" aria-selected="false" aria-expanded="false" aria-controls="seq_content" data-index="5" data-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@f18d6ef436c64f4e8de06fdb7a1282b3" data-element="6" data-page-title="Tipos de Redes de Computadoras - Red PAN" data-path="Semana 1 - Conociendo Internet de las Cosas &gt; Clase 1 - ¿Qué es Internet? &gt; Tipos de Redes de Computadoras - Red PAN" data-graded="False" id="tab_5">
+            <span class="icon fa seq_other" aria-hidden="true"></span>
+              <span class="fa fa-check-circle check-circle is-hidden" style="color:green" aria-hidden="true"></span>
+            <span class="fa fa-fw fa-bookmark bookmark-icon is-hidden" aria-hidden="true"></span>
+            <div class="sequence-tooltip sr"><span class="sr">other&nbsp;</span>Tipos de Redes de Computadoras - Red PAN<span class="sr bookmark-icon-sr">&nbsp;</span></div>
+          </button>
+        </li>
+        <li role="presentation">
+          <button class="seq_other inactive nav-item tab" role="tab" tabindex="-1" aria-selected="false" aria-expanded="false" aria-controls="seq_content" data-index="6" data-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@4d43b5160a004ccd89e134fcb148bc80" data-element="7" data-page-title="Tipos de Redes de Computadoras - Red LAN" data-path="Semana 1 - Conociendo Internet de las Cosas &gt; Clase 1 - ¿Qué es Internet? &gt; Tipos de Redes de Computadoras - Red LAN" data-graded="False" id="tab_6">
+            <span class="icon fa seq_other" aria-hidden="true"></span>
+              <span class="fa fa-check-circle check-circle is-hidden" style="color:green" aria-hidden="true"></span>
+            <span class="fa fa-fw fa-bookmark bookmark-icon is-hidden" aria-hidden="true"></span>
+            <div class="sequence-tooltip sr"><span class="sr">other&nbsp;</span>Tipos de Redes de Computadoras - Red LAN<span class="sr bookmark-icon-sr">&nbsp;</span></div>
+          </button>
+        </li>
+        <li role="presentation">
+          <button class="seq_other inactive nav-item tab" role="tab" tabindex="-1" aria-selected="false" aria-expanded="false" aria-controls="seq_content" data-index="7" data-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@7ad3cb357c0a4870a7633d7f5593e2db" data-element="8" data-page-title="Tipos de Redes de Computadoras - Red MAN" data-path="Semana 1 - Conociendo Internet de las Cosas &gt; Clase 1 - ¿Qué es Internet? &gt; Tipos de Redes de Computadoras - Red MAN" data-graded="False" id="tab_7">
+            <span class="icon fa seq_other" aria-hidden="true"></span>
+              <span class="fa fa-check-circle check-circle is-hidden" style="color:green" aria-hidden="true"></span>
+            <span class="fa fa-fw fa-bookmark bookmark-icon is-hidden" aria-hidden="true"></span>
+            <div class="sequence-tooltip sr"><span class="sr">other&nbsp;</span>Tipos de Redes de Computadoras - Red MAN<span class="sr bookmark-icon-sr">&nbsp;</span></div>
+          </button>
+        </li>
+        <li role="presentation">
+          <button class="seq_other inactive nav-item tab" role="tab" tabindex="-1" aria-selected="false" aria-expanded="false" aria-controls="seq_content" data-index="8" data-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@dc59886afcfb4ad98c3da6ab3c566a51" data-element="9" data-page-title="Tipos de Redes de Computadoras - Red WAN" data-path="Semana 1 - Conociendo Internet de las Cosas &gt; Clase 1 - ¿Qué es Internet? &gt; Tipos de Redes de Computadoras - Red WAN" data-graded="False" id="tab_8">
+            <span class="icon fa seq_other" aria-hidden="true"></span>
+              <span class="fa fa-check-circle check-circle is-hidden" style="color:green" aria-hidden="true"></span>
+            <span class="fa fa-fw fa-bookmark bookmark-icon is-hidden" aria-hidden="true"></span>
+            <div class="sequence-tooltip sr"><span class="sr">other&nbsp;</span>Tipos de Redes de Computadoras - Red WAN<span class="sr bookmark-icon-sr">&nbsp;</span></div>
+          </button>
+        </li>
+        <li role="presentation">
+          <button class="seq_other inactive nav-item tab" role="tab" tabindex="-1" aria-selected="false" aria-expanded="false" aria-controls="seq_content" data-index="9" data-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@cfe2f74163364ed1a6c690134e46cf59" data-element="10" data-page-title="Tipos de Redes de Computadoras" data-path="Semana 1 - Conociendo Internet de las Cosas &gt; Clase 1 - ¿Qué es Internet? &gt; Tipos de Redes de Computadoras" data-graded="False" id="tab_9">
+            <span class="icon fa seq_other" aria-hidden="true"></span>
+              <span class="fa fa-check-circle check-circle is-hidden" style="color:green" aria-hidden="true"></span>
+            <span class="fa fa-fw fa-bookmark bookmark-icon is-hidden" aria-hidden="true"></span>
+            <div class="sequence-tooltip sr"><span class="sr">other&nbsp;</span>Tipos de Redes de Computadoras<span class="sr bookmark-icon-sr">&nbsp;</span></div>
+          </button>
+        </li>
+        <li role="presentation">
+          <button class="seq_other inactive nav-item tab" role="tab" tabindex="-1" aria-selected="false" aria-expanded="false" aria-controls="seq_content" data-index="10" data-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@225bc0328789421caf566f47295baddf" data-element="11" data-page-title="¡Piensa!" data-path="Semana 1 - Conociendo Internet de las Cosas &gt; Clase 1 - ¿Qué es Internet? &gt; ¡Piensa!" data-graded="False" id="tab_10">
+            <span class="icon fa seq_other" aria-hidden="true"></span>
+              <span class="fa fa-check-circle check-circle is-hidden" style="color:green" aria-hidden="true"></span>
+            <span class="fa fa-fw fa-bookmark bookmark-icon is-hidden" aria-hidden="true"></span>
+            <div class="sequence-tooltip sr"><span class="sr">other&nbsp;</span>¡Piensa!<span class="sr bookmark-icon-sr">&nbsp;</span></div>
+          </button>
+        </li>
+        <li role="presentation">
+          <button class="seq_problem inactive nav-item tab" role="tab" tabindex="-1" aria-selected="false" aria-expanded="false" aria-controls="seq_content" data-index="11" data-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@78a7c4e94ec14c7d83ad4b6e4296dde8" data-element="12" data-page-title="Ejercicio no puntuado" data-path="Semana 1 - Conociendo Internet de las Cosas &gt; Clase 1 - ¿Qué es Internet? &gt; Ejercicio no puntuado" data-graded="False" id="tab_11">
+            <span class="icon fa seq_problem" aria-hidden="true"></span>
+              <span class="fa fa-check-circle check-circle is-hidden" style="color:green" aria-hidden="true"></span>
+            <span class="fa fa-fw fa-bookmark bookmark-icon is-hidden" aria-hidden="true"></span>
+            <div class="sequence-tooltip sr"><span class="sr">problem&nbsp;</span>Ejercicio no puntuado<span class="sr bookmark-icon-sr">&nbsp;</span></div>
+          </button>
+        </li>
+        <li role="presentation">
+          <button class="seq_other inactive nav-item tab" role="tab" tabindex="-1" aria-selected="false" aria-expanded="false" aria-controls="seq_content" data-index="12" data-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@5aed86df2f8e4826868307944cd279fd" data-element="13" data-page-title="Internet" data-path="Semana 1 - Conociendo Internet de las Cosas &gt; Clase 1 - ¿Qué es Internet? &gt; Internet" data-graded="False" id="tab_12">
+            <span class="icon fa seq_other" aria-hidden="true"></span>
+              <span class="fa fa-check-circle check-circle is-hidden" style="color:green" aria-hidden="true"></span>
+            <span class="fa fa-fw fa-bookmark bookmark-icon is-hidden" aria-hidden="true"></span>
+            <div class="sequence-tooltip sr"><span class="sr">other&nbsp;</span>Internet<span class="sr bookmark-icon-sr">&nbsp;</span></div>
+          </button>
+        </li>
+        <li role="presentation">
+          <button class="seq_other inactive nav-item tab" role="tab" tabindex="-1" aria-selected="false" aria-expanded="false" aria-controls="seq_content" data-index="13" data-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@10f4b453eb984c209ee8d1b14d636512" data-element="14" data-page-title="El Origen de Internet" data-path="Semana 1 - Conociendo Internet de las Cosas &gt; Clase 1 - ¿Qué es Internet? &gt; El Origen de Internet" data-graded="False" id="tab_13">
+            <span class="icon fa seq_other" aria-hidden="true"></span>
+              <span class="fa fa-check-circle check-circle is-hidden" style="color:green" aria-hidden="true"></span>
+            <span class="fa fa-fw fa-bookmark bookmark-icon is-hidden" aria-hidden="true"></span>
+            <div class="sequence-tooltip sr"><span class="sr">other&nbsp;</span>El Origen de Internet<span class="sr bookmark-icon-sr">&nbsp;</span></div>
+          </button>
+        </li>
+        <li role="presentation">
+          <button class="seq_other inactive nav-item tab" role="tab" tabindex="-1" aria-selected="false" aria-expanded="false" aria-controls="seq_content" data-index="14" data-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@a4a559a1266a4bdbac109749352a5fb9" data-element="15" data-page-title="¿Cómo funciona Internet?" data-path="Semana 1 - Conociendo Internet de las Cosas &gt; Clase 1 - ¿Qué es Internet? &gt; ¿Cómo funciona Internet?" data-graded="False" id="tab_14">
+            <span class="icon fa seq_other" aria-hidden="true"></span>
+              <span class="fa fa-check-circle check-circle is-hidden" style="color:green" aria-hidden="true"></span>
+            <span class="fa fa-fw fa-bookmark bookmark-icon is-hidden" aria-hidden="true"></span>
+            <div class="sequence-tooltip sr"><span class="sr">other&nbsp;</span>¿Cómo funciona Internet?<span class="sr bookmark-icon-sr">&nbsp;</span></div>
+          </button>
+        </li>
+        <li role="presentation">
+          <button class="seq_other inactive nav-item tab" role="tab" tabindex="-1" aria-selected="false" aria-expanded="false" aria-controls="seq_content" data-index="15" data-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@cee38befca464e7d86eb27c211e0dc9f" data-element="16" data-page-title="¿Cómo funciona Internet?" data-path="Semana 1 - Conociendo Internet de las Cosas &gt; Clase 1 - ¿Qué es Internet? &gt; ¿Cómo funciona Internet?" data-graded="False" id="tab_15">
+            <span class="icon fa seq_other" aria-hidden="true"></span>
+              <span class="fa fa-check-circle check-circle is-hidden" style="color:green" aria-hidden="true"></span>
+            <span class="fa fa-fw fa-bookmark bookmark-icon is-hidden" aria-hidden="true"></span>
+            <div class="sequence-tooltip sr"><span class="sr">other&nbsp;</span>¿Cómo funciona Internet?<span class="sr bookmark-icon-sr">&nbsp;</span></div>
+          </button>
+        </li>
+        <li role="presentation">
+          <button class="seq_other inactive nav-item tab" role="tab" tabindex="-1" aria-selected="false" aria-expanded="false" aria-controls="seq_content" data-index="16" data-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@d03ef484719945f2ab2274609b270ec3" data-element="17" data-page-title="Finalizando" data-path="Semana 1 - Conociendo Internet de las Cosas &gt; Clase 1 - ¿Qué es Internet? &gt; Finalizando" data-graded="False" id="tab_16">
+            <span class="icon fa seq_other" aria-hidden="true"></span>
+              <span class="fa fa-check-circle check-circle is-hidden" style="color:green" aria-hidden="true"></span>
+            <span class="fa fa-fw fa-bookmark bookmark-icon is-hidden" aria-hidden="true"></span>
+            <div class="sequence-tooltip sr"><span class="sr">other&nbsp;</span>Finalizando<span class="sr bookmark-icon-sr">&nbsp;</span></div>
+          </button>
+        </li>
+      </ol>
+    </nav>
+  </div>
+  <div class="sr-is-focusable" tabindex="-1"></div>
+
+  <div id="seq_contents_0" aria-labelledby="tab_0" aria-hidden="true" class="seq_contents tex2jax_ignore asciimath2jax_ignore">
+    
+&lt;div class="xblock xblock-student_view xblock-student_view-vertical" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="VerticalStudentView" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@8e96092472e34eb9a273808e08f6093e" data-block-type="vertical"&gt;
+  
+
+  &lt;h2 class="hd hd-2 unit-title"&gt;¿Qué vamos a aprender?&lt;/h2&gt;
+
+    
+
+
+
+&lt;div class="bookmark-button-wrapper"&gt;
+  &lt;button class="btn btn-link bookmark-button "
+    aria-pressed="false"
+    data-bookmark-id="afaguirreg,block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@8e96092472e34eb9a273808e08f6093e"
+    data-bookmarks-api-url="/api/bookmarks/v1/bookmarks/"&gt;
+     &lt;span class="bookmark-text"&gt;Marcar esta página&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;
+
+
+&lt;div class="vert-mod"&gt;
+    &lt;div class="vert vert-0" data-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@html+block@fde9019139354ac5bd2576491e4650ad"&gt;
+        
+&lt;div class="xblock xblock-student_view xblock-student_view-html xmodule_display xmodule_HtmlModule" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="XBlockToXModuleShim" data-block-type="html" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@html+block@fde9019139354ac5bd2576491e4650ad" data-type="HTMLModule" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1"&gt;
+  &lt;script type="json/xblock-args" class="xblock-json-init-args"&gt;
+    {"xmodule-type": "HTMLModule"}
+  &lt;/script&gt;
+  &lt;p&gt;&lt;span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;"&gt;Esta semana vamos a empezar a conocer el tema Internet de las Cosas.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;"&gt;En la primera clase vamos a comenzar por la primera parte:&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;"&gt;&amp;iquest;Qu&amp;eacute; es Internet?&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;"&gt;Tipos de redes de computadoras&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;"&gt;El origen de Internet&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;"&gt;&amp;iquest;C&amp;oacute;mo funciona Internet?&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;"&gt;En la segunda clase veremos qu&amp;eacute; es Internet de las Cosas.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;"&gt;&amp;iquest;Comenzamos?&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+  </div>
+  <div id="seq_contents_1" aria-labelledby="tab_1" aria-hidden="true" class="seq_contents tex2jax_ignore asciimath2jax_ignore">
+    
+&lt;div class="xblock xblock-student_view xblock-student_view-vertical" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="VerticalStudentView" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@759cf43a505645c8ba666ea192e58bde" data-block-type="vertical"&gt;
+  
+
+  &lt;h2 class="hd hd-2 unit-title"&gt;¿Qué es Internet?&lt;/h2&gt;
+
+    
+
+
+
+&lt;div class="bookmark-button-wrapper"&gt;
+  &lt;button class="btn btn-link bookmark-button "
+    aria-pressed="false"
+    data-bookmark-id="afaguirreg,block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@759cf43a505645c8ba666ea192e58bde"
+    data-bookmarks-api-url="/api/bookmarks/v1/bookmarks/"&gt;
+     &lt;span class="bookmark-text"&gt;Marcar esta página&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;
+
+
+&lt;div class="vert-mod"&gt;
+    &lt;div class="vert vert-0" data-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@video+block@bdfafc9aa3054c78a19978ff431c45e9"&gt;
+        
+&lt;div class="xblock xblock-student_view xblock-student_view-video xmodule_display xmodule_VideoModule" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="XBlockToXModuleShim" data-block-type="video" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@video+block@bdfafc9aa3054c78a19978ff431c45e9" data-type="Video" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1"&gt;
+  &lt;script type="json/xblock-args" class="xblock-json-init-args"&gt;
+    {"xmodule-type": "Video"}
+  &lt;/script&gt;
+  
+
+
+    &lt;h3 class="hd hd-2"&gt;Clase 1 - ¿Qué es Internet? &lt;/h3&gt;
+
+&lt;div
+    id="video_bdfafc9aa3054c78a19978ff431c45e9"
+    class="video closed"
+    data-metadata='{&amp;#34;savedVideoPosition&amp;#34;: 0.0, &amp;#34;ytMetadataUrl&amp;#34;: &amp;#34;https://www.googleapis.com/youtube/v3/videos/&amp;#34;, &amp;#34;sources&amp;#34;: [], &amp;#34;duration&amp;#34;: null, &amp;#34;saveStateEnabled&amp;#34;: true, &amp;#34;speed&amp;#34;: null, &amp;#34;generalSpeed&amp;#34;: 1.0, &amp;#34;end&amp;#34;: 0.0, &amp;#34;ytTestTimeout&amp;#34;: 1500, &amp;#34;completionPercentage&amp;#34;: 0.95, &amp;#34;transcriptLanguages&amp;#34;: {&amp;#34;en&amp;#34;: &amp;#34;English&amp;#34;}, &amp;#34;start&amp;#34;: 0.0, &amp;#34;ytKey&amp;#34;: &amp;#34;PUT_YOUR_API_KEY_HERE&amp;#34;, &amp;#34;poster&amp;#34;: null, &amp;#34;recordedYoutubeIsAvailable&amp;#34;: true, &amp;#34;publishCompletionUrl&amp;#34;: &amp;#34;/courses/course-v1:LSI-TEC+IOT101ES+2020_O1/xblock/block-v1:LSI-TEC+IOT101ES+2020_O1+type@video+block@bdfafc9aa3054c78a19978ff431c45e9/handler/publish_completion&amp;#34;, &amp;#34;ytApiUrl&amp;#34;: &amp;#34;https://www.youtube.com/iframe_api&amp;#34;, &amp;#34;prioritizeHls&amp;#34;: false, &amp;#34;autoAdvance&amp;#34;: false, &amp;#34;saveStateUrl&amp;#34;: &amp;#34;/courses/course-v1:LSI-TEC+IOT101ES+2020_O1/xblock/block-v1:LSI-TEC+IOT101ES+2020_O1+type@video+block@bdfafc9aa3054c78a19978ff431c45e9/handler/xmodule_handler/save_user_state&amp;#34;, &amp;#34;transcriptAvailableTranslationsUrl&amp;#34;: &amp;#34;/courses/course-v1:LSI-TEC+IOT101ES+2020_O1/xblock/block-v1:LSI-TEC+IOT101ES+2020_O1+type@video+block@bdfafc9aa3054c78a19978ff431c45e9/handler/transcript/available_translations&amp;#34;, &amp;#34;transcriptLanguage&amp;#34;: &amp;#34;en&amp;#34;, &amp;#34;showCaptions&amp;#34;: &amp;#34;true&amp;#34;, &amp;#34;autohideHtml5&amp;#34;: false, &amp;#34;streams&amp;#34;: &amp;#34;1.00:aSuQ771rbwM&amp;#34;, &amp;#34;completionEnabled&amp;#34;: false, &amp;#34;transcriptTranslationUrl&amp;#34;: &amp;#34;/courses/course-v1:LSI-TEC+IOT101ES+2020_O1/xblock/block-v1:LSI-TEC+IOT101ES+2020_O1+type@video+block@bdfafc9aa3054c78a19978ff431c45e9/handler/transcript/translation/__lang__&amp;#34;, &amp;#34;captionDataDir&amp;#34;: null, &amp;#34;autoplay&amp;#34;: false}'
+    data-bumper-metadata='null'
+    data-autoadvance-enabled="False"
+    data-poster='null'
+    tabindex="-1"
+&gt;
+    &lt;div class="focus_grabber first"&gt;&lt;/div&gt;
+
+    &lt;div class="tc-wrapper"&gt;
+      &lt;div class="video-wrapper"&gt;
+          &lt;span tabindex="0" class="spinner" aria-hidden="false" aria-label="Cargando reproductor de video"&gt;&lt;/span&gt;
+          &lt;span tabindex="-1" class="btn-play fa fa-youtube-play fa-2x is-hidden" aria-hidden="true" aria-label="Reproducir video"&gt;&lt;/span&gt;
+          &lt;div class="video-player-pre"&gt;&lt;/div&gt;
+          &lt;div class="video-player"&gt;
+              &lt;div id="bdfafc9aa3054c78a19978ff431c45e9"&gt;&lt;/div&gt;
+              &lt;h4 class="hd hd-4 video-error is-hidden"&gt;No se han encontrado los ficheros de video&lt;/h4&gt;
+              &lt;h4 class="hd hd-4 video-hls-error is-hidden"&gt;
+                  Tu navegador no es compatible con este formato de video. Intenta con otro navegador.
+              &lt;/h4&gt;
+          &lt;/div&gt;
+          &lt;div class="video-player-post"&gt;&lt;/div&gt;
+          &lt;div class="closed-captions"&gt;&lt;/div&gt;
+          &lt;div class="video-controls is-hidden"&gt;
+              &lt;div&gt;
+                  &lt;div class="vcr"&gt;&lt;div class="vidtime"&gt;0:00 / 0:00&lt;/div&gt;&lt;/div&gt;
+                  &lt;div class="secondary-controls"&gt;&lt;/div&gt;
+              &lt;/div&gt;
+          &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="focus_grabber last"&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+  </div>
+  <div id="seq_contents_2" aria-labelledby="tab_2" aria-hidden="true" class="seq_contents tex2jax_ignore asciimath2jax_ignore">
+    
+&lt;div class="xblock xblock-student_view xblock-student_view-vertical" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="VerticalStudentView" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@cf55cd1d5c214074a47073ed214d21a2" data-block-type="vertical"&gt;
+  
+
+  &lt;h2 class="hd hd-2 unit-title"&gt;¿Qué es Internet?&lt;/h2&gt;
+
+    
+
+
+
+&lt;div class="bookmark-button-wrapper"&gt;
+  &lt;button class="btn btn-link bookmark-button "
+    aria-pressed="false"
+    data-bookmark-id="afaguirreg,block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@cf55cd1d5c214074a47073ed214d21a2"
+    data-bookmarks-api-url="/api/bookmarks/v1/bookmarks/"&gt;
+     &lt;span class="bookmark-text"&gt;Marcar esta página&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;
+
+
+&lt;div class="vert-mod"&gt;
+    &lt;div class="vert vert-0" data-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@html+block@210d7bc983ae4600baa14fc4615a5e9f"&gt;
+        
+&lt;div class="xblock xblock-student_view xblock-student_view-html xmodule_display xmodule_HtmlModule" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="XBlockToXModuleShim" data-block-type="html" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@html+block@210d7bc983ae4600baa14fc4615a5e9f" data-type="HTMLModule" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1"&gt;
+  &lt;script type="json/xblock-args" class="xblock-json-init-args"&gt;
+    {"xmodule-type": "HTMLModule"}
+  &lt;/script&gt;
+  &lt;p&gt;Internet es el sistema de red capaz de conectar personas m&amp;aacute;s grande y m&amp;aacute;s desarrollado de todo el mundo.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/assets/courseware/v1/e92a6cab93b7811f79010300ce3f8009/asset-v1:LSI-TEC+IOT101ES+2020_O1+type@asset+block/figura1.png" alt="Globo terrestre interligado por v&amp;aacute;rias conex&amp;otilde;es indicando a ideia de rede " type="saveimage" target="[object Object]" style="float: left; margin: 10px;" width="171" height="160" /&gt;&lt;span style="line-height: 25.6px;"&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span&gt;Por medio de Internet es posible visitar un museo en otro pa&amp;iacute;s, saber el pron&amp;oacute;stico del tiempo en otra ciudad, enviar el resumen de la clase a un compa&amp;ntilde;ero que falt&amp;oacute;, consultar documentos digitales, entre infinidades de cosas.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="/assets/courseware/v1/17651dc132016a199e196424c4301e01/asset-v1:LSI-TEC+IOT101ES+2020_O1+type@asset+block/figura2.png" alt="V&amp;aacute;rias redes de computadores e servidores interligadas " type="saveimage" target="[object Object]" style="float: right; margin: 10px;" width="235" height="200" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Sorprendentemente, Internet no es una &amp;uacute;nica red, sino un conjunto de innumerables redes conectadas entre s&amp;iacute;.&lt;/p&gt;
+&lt;p&gt;Pero &amp;iquest;qu&amp;eacute; es una red de computadoras?&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: small;"&gt;CAPRON, H.L.; Johnson, J.A. Introdu&amp;ccedil;&amp;atilde;o &amp;agrave; Inform&amp;aacute;tica. S&amp;atilde;o Paulo: Pearson Prentice Hall, 2004&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+  </div>
+  <div id="seq_contents_3" aria-labelledby="tab_3" aria-hidden="true" class="seq_contents tex2jax_ignore asciimath2jax_ignore">
+    
+&lt;div class="xblock xblock-student_view xblock-student_view-vertical" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="VerticalStudentView" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@572e7b4a86894fd5a283731b62aaa045" data-block-type="vertical"&gt;
+  
+
+  &lt;h2 class="hd hd-2 unit-title"&gt;¿Qué es una red de computadoras?&lt;/h2&gt;
+
+    
+
+
+
+&lt;div class="bookmark-button-wrapper"&gt;
+  &lt;button class="btn btn-link bookmark-button "
+    aria-pressed="false"
+    data-bookmark-id="afaguirreg,block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@572e7b4a86894fd5a283731b62aaa045"
+    data-bookmarks-api-url="/api/bookmarks/v1/bookmarks/"&gt;
+     &lt;span class="bookmark-text"&gt;Marcar esta página&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;
+
+
+&lt;div class="vert-mod"&gt;
+    &lt;div class="vert vert-0" data-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@html+block@fc1f4f157acf4401ae09bc24e3761290"&gt;
+        
+&lt;div class="xblock xblock-student_view xblock-student_view-html xmodule_display xmodule_HtmlModule" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="XBlockToXModuleShim" data-block-type="html" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@html+block@fc1f4f157acf4401ae09bc24e3761290" data-type="HTMLModule" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1"&gt;
+  &lt;script type="json/xblock-args" class="xblock-json-init-args"&gt;
+    {"xmodule-type": "HTMLModule"}
+  &lt;/script&gt;
+  &lt;p&gt;La palabra &lt;strong&gt;red&lt;/strong&gt; sirve para describir un entrelazamiento de cosas conectadas unas con otras. Puede ser un enmara&amp;ntilde;ado de cables, de carreteras, o de computadoras.&lt;/p&gt;
+&lt;p&gt;&lt;img src="/assets/courseware/v1/831d5cc6637c87f9c1ddc0f2d729b2e0/asset-v1:LSI-TEC+IOT101ES+2020_O1+type@asset+block/figura5.png" alt="Computadores conectados entre si" type="saveimage" target="[object Object]" preventdefault="function (){r.isDefaultPrevented=n}" stoppropagation="function (){r.isPropagationStopped=n}" stopimmediatepropagation="function (){r.isImmediatePropagationStopped=n}" isdefaultprevented="function t(){return!1}" ispropagationstopped="function t(){return!1}" isimmediatepropagationstopped="function t(){return!1}" style="float: left;" width="288" height="159" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Una red de computadoras est&amp;aacute;, por lo tanto, formada por dos o m&amp;aacute;s computadoras conectadas entre s&amp;iacute;, pudiendo comunicarse unas con otras y compartir archivos, programas o, incluso, una impresora.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;span style="font-size: small;"&gt;CAPRON, H.L.; Johnson, J.A. &amp;nbsp;Introdu&amp;ccedil;&amp;atilde;o &amp;agrave; Inform&amp;aacute;tica. S&amp;atilde;o Paulo: Pearson Prentice Hall, 2004&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+  </div>
+  <div id="seq_contents_4" aria-labelledby="tab_4" aria-hidden="true" class="seq_contents tex2jax_ignore asciimath2jax_ignore">
+    
+&lt;div class="xblock xblock-student_view xblock-student_view-vertical" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="VerticalStudentView" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@248fa710599d4e79be61c0a302785283" data-block-type="vertical"&gt;
+  
+
+  &lt;h2 class="hd hd-2 unit-title"&gt;Tipos de Redes de Computadoras&lt;/h2&gt;
+
+    
+
+
+
+&lt;div class="bookmark-button-wrapper"&gt;
+  &lt;button class="btn btn-link bookmark-button "
+    aria-pressed="false"
+    data-bookmark-id="afaguirreg,block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@248fa710599d4e79be61c0a302785283"
+    data-bookmarks-api-url="/api/bookmarks/v1/bookmarks/"&gt;
+     &lt;span class="bookmark-text"&gt;Marcar esta página&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;
+
+
+&lt;div class="vert-mod"&gt;
+    &lt;div class="vert vert-0" data-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@html+block@e507cdfd5d494556b7b3da7f6c868e44"&gt;
+        
+&lt;div class="xblock xblock-student_view xblock-student_view-html xmodule_display xmodule_HtmlModule" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="XBlockToXModuleShim" data-block-type="html" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@html+block@e507cdfd5d494556b7b3da7f6c868e44" data-type="HTMLModule" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1"&gt;
+  &lt;script type="json/xblock-args" class="xblock-json-init-args"&gt;
+    {"xmodule-type": "HTMLModule"}
+  &lt;/script&gt;
+  &lt;p&gt;&amp;iquest;Sab&amp;iacute;as que existen diferentes tipos de redes de computadoras esparcidas por el mundo?&lt;/p&gt;
+&lt;p&gt;Vamos a ver cu&amp;aacute;les son ...&lt;/p&gt;
+&lt;p&gt;Existen b&amp;aacute;sicamente cuatro tipos de redes de computadoras:&lt;/p&gt;
+&lt;p style="text-align: center;"&gt;&lt;img src="/assets/courseware/v1/9bcf8717f3c0712b192baf2d542efe81/asset-v1:LSI-TEC+IOT101ES+2020_O1+type@asset+block/figura3a.png" alt="4 elipses contendo cada um, a mais exterior &amp;eacute; representa a WAN com &amp;iacute;cone de um sat&amp;eacute;lite seguida por MAN com o &amp;iacute;cone de uma torre de sinal seguida por LAN com o icone de sinal do celular e por &amp;uacute;ltimo PAN " type="saveimage" target="[object Object]" preventdefault="function (){r.isDefaultPrevented=n}" stoppropagation="function (){r.isPropagationStopped=n}" stopimmediatepropagation="function (){r.isImmediatePropagationStopped=n}" isdefaultprevented="function t(){return!1}" ispropagationstopped="function t(){return!1}" isimmediatepropagationstopped="function t(){return!1}" width="357" height="188" /&gt;&lt;/p&gt;
+&lt;p&gt;Vamos a entender cu&amp;aacute;l es la diferencia entre ellas.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;span style="font-size: small;"&gt;http://adrecursosdeunared.blogspot.com.br/&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+  </div>
+  <div id="seq_contents_5" aria-labelledby="tab_5" aria-hidden="true" class="seq_contents tex2jax_ignore asciimath2jax_ignore">
+    
+&lt;div class="xblock xblock-student_view xblock-student_view-vertical" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="VerticalStudentView" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@f18d6ef436c64f4e8de06fdb7a1282b3" data-block-type="vertical"&gt;
+  
+
+  &lt;h2 class="hd hd-2 unit-title"&gt;Tipos de Redes de Computadoras - Red PAN&lt;/h2&gt;
+
+    
+
+
+
+&lt;div class="bookmark-button-wrapper"&gt;
+  &lt;button class="btn btn-link bookmark-button "
+    aria-pressed="false"
+    data-bookmark-id="afaguirreg,block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@f18d6ef436c64f4e8de06fdb7a1282b3"
+    data-bookmarks-api-url="/api/bookmarks/v1/bookmarks/"&gt;
+     &lt;span class="bookmark-text"&gt;Marcar esta página&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;
+
+
+&lt;div class="vert-mod"&gt;
+    &lt;div class="vert vert-0" data-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@html+block@54cda7ff7ace441780813f22a6414ecd"&gt;
+        
+&lt;div class="xblock xblock-student_view xblock-student_view-html xmodule_display xmodule_HtmlModule" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="XBlockToXModuleShim" data-block-type="html" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@html+block@54cda7ff7ace441780813f22a6414ecd" data-type="HTMLModule" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1"&gt;
+  &lt;script type="json/xblock-args" class="xblock-json-init-args"&gt;
+    {"xmodule-type": "HTMLModule"}
+  &lt;/script&gt;
+  &lt;p&gt;La sigla &lt;strong&gt;PAN&lt;/strong&gt; significa &lt;em&gt;Personal Area Network&lt;/em&gt;, y permite la comunicaci&amp;oacute;n de tus equipos personales.&lt;/p&gt;
+&lt;p style="text-align: center; float: left; margin-right: 20px;"&gt;&lt;img src="/assets/courseware/v1/50b0adeb5c3fbcffe08ffdb099b1706e/asset-v1:LSI-TEC+IOT101ES+2020_O1+type@asset+block/figura4.png" alt="4 equipamentos, 1 smartphone, 1 impressora, 1 tablet e 1 celular interligados entre si" type="saveimage" target="[object Object]" preventdefault="function (){r.isDefaultPrevented=n}" stoppropagation="function (){r.isPropagationStopped=n}" stopimmediatepropagation="function (){r.isImmediatePropagationStopped=n}" isdefaultprevented="function t(){return!1}" ispropagationstopped="function t(){return!1}" isimmediatepropagationstopped="function t(){return!1}" width="257" height="198" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Es una red conectada por cables o inal&amp;aacute;mbrica, con tecnolog&amp;iacute;a para comunicar dispositivos con un alcance de hasta 10 metros.&lt;/p&gt;
+&lt;p&gt;Una red &lt;strong&gt;PAN&lt;/strong&gt; est&amp;aacute; centrada en una persona y permite la comunicaci&amp;oacute;n de sus equipos personales.&lt;/p&gt;
+&lt;p&gt;T&amp;uacute; usas una red PAN cuando conectas tu &lt;em&gt;smartphone&lt;/em&gt; a tu computadora para transferir fotos.&lt;/p&gt;
+&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+  </div>
+  <div id="seq_contents_6" aria-labelledby="tab_6" aria-hidden="true" class="seq_contents tex2jax_ignore asciimath2jax_ignore">
+    
+&lt;div class="xblock xblock-student_view xblock-student_view-vertical" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="VerticalStudentView" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@4d43b5160a004ccd89e134fcb148bc80" data-block-type="vertical"&gt;
+  
+
+  &lt;h2 class="hd hd-2 unit-title"&gt;Tipos de Redes de Computadoras - Red LAN&lt;/h2&gt;
+
+    
+
+
+
+&lt;div class="bookmark-button-wrapper"&gt;
+  &lt;button class="btn btn-link bookmark-button "
+    aria-pressed="false"
+    data-bookmark-id="afaguirreg,block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@4d43b5160a004ccd89e134fcb148bc80"
+    data-bookmarks-api-url="/api/bookmarks/v1/bookmarks/"&gt;
+     &lt;span class="bookmark-text"&gt;Marcar esta página&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;
+
+
+&lt;div class="vert-mod"&gt;
+    &lt;div class="vert vert-0" data-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@html+block@20d6b70995e34d9cabf7914e4546a86a"&gt;
+        
+&lt;div class="xblock xblock-student_view xblock-student_view-html xmodule_display xmodule_HtmlModule" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="XBlockToXModuleShim" data-block-type="html" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@html+block@20d6b70995e34d9cabf7914e4546a86a" data-type="HTMLModule" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1"&gt;
+  &lt;script type="json/xblock-args" class="xblock-json-init-args"&gt;
+    {"xmodule-type": "HTMLModule"}
+  &lt;/script&gt;
+  &lt;p&gt;&lt;strong&gt;LAN&lt;/strong&gt; es una sigla que en ingl&amp;eacute;s significa &lt;em&gt;Local Area Network&lt;/em&gt;, es decir, Red de &amp;Aacute;rea Local. Este t&amp;eacute;rmino generalmente se refiere a redes de computadoras restrictas a un lugar f&amp;iacute;sico, como una casa, una oficina o una empresa.&lt;/p&gt;
+&lt;p&gt;Por ejemplo, una familia que posee tres computadoras y una impresora puede conectarlos a una red &lt;strong&gt;LAN&lt;/strong&gt;. De esa forma, los archivos musicales de la familia pueden estar en una carpeta compartida para que todos en la casa puedan usarlos.&lt;/p&gt;
+&lt;p&gt;Con las computadoras de la casa conectados a la red, todos los miembros de la familia tambi&amp;eacute;n pueden compartir texto, fotos, videos y trabajar juntos en un mismo archivo compartido.&lt;/p&gt;
+&lt;p style="float: right; margin: 10px;"&gt;&lt;img src="/assets/courseware/v1/831d5cc6637c87f9c1ddc0f2d729b2e0/asset-v1:LSI-TEC+IOT101ES+2020_O1+type@asset+block/figura5.png" alt="Rede de computador com um computador distribuindo interligando toda a rede. " type="saveimage" target="[object Object]" preventdefault="function (){r.isDefaultPrevented=n}" stoppropagation="function (){r.isPropagationStopped=n}" stopimmediatepropagation="function (){r.isImmediatePropagationStopped=n}" isdefaultprevented="function t(){return!1}" ispropagationstopped="function t(){return!1}" isimmediatepropagationstopped="function t(){return!1}" width="388" height="214" /&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Seguramente ya visitaste un cibercaf&amp;eacute;, &amp;iquest;verdad?&lt;/p&gt;
+&lt;p&gt;Un cibercaf&amp;eacute; es un local caracterizado por tener diversas computadoras conectadas en una red que permite la interacci&amp;oacute;n entre sus usuarios.&lt;/p&gt;
+&lt;p&gt;De esa forma, las personas puede usar las computadoras del cibercaf&amp;eacute; para jugar juntos, por un ejemplo en modo &lt;em&gt;multiplayer&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+  </div>
+  <div id="seq_contents_7" aria-labelledby="tab_7" aria-hidden="true" class="seq_contents tex2jax_ignore asciimath2jax_ignore">
+    
+&lt;div class="xblock xblock-student_view xblock-student_view-vertical" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="VerticalStudentView" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@7ad3cb357c0a4870a7633d7f5593e2db" data-block-type="vertical"&gt;
+  
+
+  &lt;h2 class="hd hd-2 unit-title"&gt;Tipos de Redes de Computadoras - Red MAN&lt;/h2&gt;
+
+    
+
+
+
+&lt;div class="bookmark-button-wrapper"&gt;
+  &lt;button class="btn btn-link bookmark-button "
+    aria-pressed="false"
+    data-bookmark-id="afaguirreg,block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@7ad3cb357c0a4870a7633d7f5593e2db"
+    data-bookmarks-api-url="/api/bookmarks/v1/bookmarks/"&gt;
+     &lt;span class="bookmark-text"&gt;Marcar esta página&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;
+
+
+&lt;div class="vert-mod"&gt;
+    &lt;div class="vert vert-0" data-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@html+block@78ae139b35e84706bab964a7043b4743"&gt;
+        
+&lt;div class="xblock xblock-student_view xblock-student_view-html xmodule_display xmodule_HtmlModule" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="XBlockToXModuleShim" data-block-type="html" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@html+block@78ae139b35e84706bab964a7043b4743" data-type="HTMLModule" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1"&gt;
+  &lt;script type="json/xblock-args" class="xblock-json-init-args"&gt;
+    {"xmodule-type": "HTMLModule"}
+  &lt;/script&gt;
+  &lt;p&gt;&lt;strong&gt;MAN &lt;/strong&gt;es una sigla que en ingl&amp;eacute;s significa &lt;em&gt;Metropolitan Area Network. &lt;/em&gt;Esta red de car&amp;aacute;cter metropolitano, conecta computadoras y usuarios en un &amp;aacute;rea geogr&amp;aacute;fica mayor que la alcanzada por una LAN.&lt;/p&gt;
+&lt;p style="float: left; margin-right: 20px;"&gt;&lt;img src="/assets/courseware/v1/2af2fcf722d460e0fecba0095d2f9a50/asset-v1:LSI-TEC+IOT101ES+2020_O1+type@asset+block/figura6.png" alt="Casas, pr&amp;eacute;dios, internet interligadas a um grande pr&amp;eacute;dio " type="saveimage" target="[object Object]" preventdefault="function (){r.isDefaultPrevented=n}" stoppropagation="function (){r.isPropagationStopped=n}" stopimmediatepropagation="function (){r.isImmediatePropagationStopped=n}" isdefaultprevented="function t(){return!1}" ispropagationstopped="function t(){return!1}" isimmediatepropagationstopped="function t(){return!1}" width="195" height="195" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Una &lt;strong&gt;MAN&lt;/strong&gt; normalmente resulta de la interconexi&amp;oacute;n de varias &lt;strong&gt;LAN&lt;/strong&gt;s, cubriendo un &amp;aacute;rea geogr&amp;aacute;fica de mediana dimensi&amp;oacute;n, como por ejemplo, el campus de una universidad, o una ciudad entera.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p style="clear: both;"&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+  </div>
+  <div id="seq_contents_8" aria-labelledby="tab_8" aria-hidden="true" class="seq_contents tex2jax_ignore asciimath2jax_ignore">
+    
+&lt;div class="xblock xblock-student_view xblock-student_view-vertical" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="VerticalStudentView" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@dc59886afcfb4ad98c3da6ab3c566a51" data-block-type="vertical"&gt;
+  
+
+  &lt;h2 class="hd hd-2 unit-title"&gt;Tipos de Redes de Computadoras - Red WAN&lt;/h2&gt;
+
+    
+
+
+
+&lt;div class="bookmark-button-wrapper"&gt;
+  &lt;button class="btn btn-link bookmark-button "
+    aria-pressed="false"
+    data-bookmark-id="afaguirreg,block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@dc59886afcfb4ad98c3da6ab3c566a51"
+    data-bookmarks-api-url="/api/bookmarks/v1/bookmarks/"&gt;
+     &lt;span class="bookmark-text"&gt;Marcar esta página&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;
+
+
+&lt;div class="vert-mod"&gt;
+    &lt;div class="vert vert-0" data-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@html+block@8e19cc1750084fec854da98acb17fe74"&gt;
+        
+&lt;div class="xblock xblock-student_view xblock-student_view-html xmodule_display xmodule_HtmlModule" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="XBlockToXModuleShim" data-block-type="html" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@html+block@8e19cc1750084fec854da98acb17fe74" data-type="HTMLModule" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1"&gt;
+  &lt;script type="json/xblock-args" class="xblock-json-init-args"&gt;
+    {"xmodule-type": "HTMLModule"}
+  &lt;/script&gt;
+  &lt;p&gt;&lt;strong&gt;WAN&lt;/strong&gt; es una sigla que en ingl&amp;eacute;s significa &lt;em&gt;Wide Area Network&lt;/em&gt;, y como su nombre indica, es una red de telecomunicaciones dispersa en una gran &amp;aacute;rea geogr&amp;aacute;fica.&lt;/p&gt;
+&lt;p&gt;La WAN se distingue de una MAN por su tama&amp;ntilde;o y estructura de telecomunicaciones.&lt;/p&gt;
+&lt;p&gt;Las redes WAN son muy importantes, ya que empresas con miles de computadoras necesitan una red para transmitir grandes cantidades de informaci&amp;oacute;n entre filiales en diferentes localidades geogr&amp;aacute;ficas.&amp;nbsp; &lt;/p&gt;
+&lt;p style="text-align: center;"&gt;&lt;img src="/assets/courseware/v1/fd1bc5551cde2bbb7b8253982c24745a/asset-v1:LSI-TEC+IOT101ES+2020_O1+type@asset+block/figura7a.png" alt="Sat&amp;eacute;lite em cima da terra com v&amp;aacute;rios pa&amp;iacute;ses interligados por redes" type="saveimage" target="[object Object]" width="295" height="246" /&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+  </div>
+  <div id="seq_contents_9" aria-labelledby="tab_9" aria-hidden="true" class="seq_contents tex2jax_ignore asciimath2jax_ignore">
+    
+&lt;div class="xblock xblock-student_view xblock-student_view-vertical" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="VerticalStudentView" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@cfe2f74163364ed1a6c690134e46cf59" data-block-type="vertical"&gt;
+  
+
+  &lt;h2 class="hd hd-2 unit-title"&gt;Tipos de Redes de Computadoras&lt;/h2&gt;
+
+    
+
+
+
+&lt;div class="bookmark-button-wrapper"&gt;
+  &lt;button class="btn btn-link bookmark-button "
+    aria-pressed="false"
+    data-bookmark-id="afaguirreg,block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@cfe2f74163364ed1a6c690134e46cf59"
+    data-bookmarks-api-url="/api/bookmarks/v1/bookmarks/"&gt;
+     &lt;span class="bookmark-text"&gt;Marcar esta página&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;
+
+
+&lt;div class="vert-mod"&gt;
+    &lt;div class="vert vert-0" data-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@html+block@e6d76030225740a9ba6e1a9b697a903e"&gt;
+        
+&lt;div class="xblock xblock-student_view xblock-student_view-html xmodule_display xmodule_HtmlModule" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="XBlockToXModuleShim" data-block-type="html" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@html+block@e6d76030225740a9ba6e1a9b697a903e" data-type="HTMLModule" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1"&gt;
+  &lt;script type="json/xblock-args" class="xblock-json-init-args"&gt;
+    {"xmodule-type": "HTMLModule"}
+  &lt;/script&gt;
+  &lt;p style="float: right; margin-left: 20px;"&gt;&lt;img src="/assets/courseware/v1/9bd87d37c6e9db714903f870a0176f68/asset-v1:LSI-TEC+IOT101ES+2020_O1+type@asset+block/figura8a.png" alt="Lares com redes internas conectada a outros lares " type="saveimage" target="[object Object]" preventdefault="function (){r.isDefaultPrevented=n}" stoppropagation="function (){r.isPropagationStopped=n}" stopimmediatepropagation="function (){r.isImmediatePropagationStopped=n}" isdefaultprevented="function t(){return!1}" ispropagationstopped="function t(){return!1}" isimmediatepropagationstopped="function t(){return!1}" width="230" height="230" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Diferentes redes de computadoras pueden estar interconectadas entre s&amp;iacute;.&lt;/p&gt;
+&lt;p&gt;Por ejemplo, una red LAN puede estar conectada a otra red LAN, o a una red MAN.&lt;/p&gt;
+&lt;p&gt;Y cuando la red es tan amplia que cubre el mundo entero, la llamamos Internet.&lt;/p&gt;
+&lt;p style="clear: both;"&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+  </div>
+  <div id="seq_contents_10" aria-labelledby="tab_10" aria-hidden="true" class="seq_contents tex2jax_ignore asciimath2jax_ignore">
+    
+&lt;div class="xblock xblock-student_view xblock-student_view-vertical" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="VerticalStudentView" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@225bc0328789421caf566f47295baddf" data-block-type="vertical"&gt;
+  
+
+  &lt;h2 class="hd hd-2 unit-title"&gt;¡Piensa!&lt;/h2&gt;
+
+    
+
+
+
+&lt;div class="bookmark-button-wrapper"&gt;
+  &lt;button class="btn btn-link bookmark-button "
+    aria-pressed="false"
+    data-bookmark-id="afaguirreg,block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@225bc0328789421caf566f47295baddf"
+    data-bookmarks-api-url="/api/bookmarks/v1/bookmarks/"&gt;
+     &lt;span class="bookmark-text"&gt;Marcar esta página&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;
+
+
+&lt;div class="vert-mod"&gt;
+    &lt;div class="vert vert-0" data-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@html+block@4621241a4c6b40f69f023d67edda6346"&gt;
+        
+&lt;div class="xblock xblock-student_view xblock-student_view-html xmodule_display xmodule_HtmlModule" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="XBlockToXModuleShim" data-block-type="html" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@html+block@4621241a4c6b40f69f023d67edda6346" data-type="HTMLModule" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1"&gt;
+  &lt;script type="json/xblock-args" class="xblock-json-init-args"&gt;
+    {"xmodule-type": "HTMLModule"}
+  &lt;/script&gt;
+  &lt;p&gt;Y t&amp;uacute; &amp;iquest;tienes una red de computadoras en casa? &amp;iquest;c&amp;oacute;mo est&amp;aacute; compuesta?&lt;/p&gt;
+&lt;p&gt;&amp;iquest;Te conectas a otras redes, como por ejemplo, la red de computadoras de tu escuela para hacer los trabajos de casa?&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+  </div>
+  <div id="seq_contents_11" aria-labelledby="tab_11" aria-hidden="true" class="seq_contents tex2jax_ignore asciimath2jax_ignore">
+    
+&lt;div class="xblock xblock-student_view xblock-student_view-vertical" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="VerticalStudentView" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@78a7c4e94ec14c7d83ad4b6e4296dde8" data-block-type="vertical"&gt;
+  
+
+  &lt;h2 class="hd hd-2 unit-title"&gt;Ejercicio no puntuado&lt;/h2&gt;
+
+    
+
+
+
+&lt;div class="bookmark-button-wrapper"&gt;
+  &lt;button class="btn btn-link bookmark-button "
+    aria-pressed="false"
+    data-bookmark-id="afaguirreg,block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@78a7c4e94ec14c7d83ad4b6e4296dde8"
+    data-bookmarks-api-url="/api/bookmarks/v1/bookmarks/"&gt;
+     &lt;span class="bookmark-text"&gt;Marcar esta página&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;
+
+
+&lt;div class="vert-mod"&gt;
+    &lt;div class="vert vert-0" data-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@problem+block@0c5c5f7af9854ec6ba252cae6a18e8e4"&gt;
+        
+&lt;div class="xblock xblock-student_view xblock-student_view-problem xmodule_display xmodule_CapaModule" data-graded="False" data-has-score="True" data-runtime-class="LmsRuntime" data-init="XBlockToXModuleShim" data-block-type="problem" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@problem+block@0c5c5f7af9854ec6ba252cae6a18e8e4" data-type="Problem" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1"&gt;
+  &lt;script type="json/xblock-args" class="xblock-json-init-args"&gt;
+    {"xmodule-type": "Problem"}
+  &lt;/script&gt;
+  &lt;div id="problem_0c5c5f7af9854ec6ba252cae6a18e8e4" class="problems-wrapper" role="group"
+     aria-labelledby="0c5c5f7af9854ec6ba252cae6a18e8e4-problem-title"
+     data-problem-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@problem+block@0c5c5f7af9854ec6ba252cae6a18e8e4" data-url="/courses/course-v1:LSI-TEC+IOT101ES+2020_O1/xblock/block-v1:LSI-TEC+IOT101ES+2020_O1+type@problem+block@0c5c5f7af9854ec6ba252cae6a18e8e4/handler/xmodule_handler"
+     data-problem-score="3"
+     data-problem-total-possible="3"
+     data-attempts-used="1"
+     data-content="
+
+
+
+&amp;lt;h3 class=&amp;#34;hd hd-3 problem-header&amp;#34; id=&amp;#34;0c5c5f7af9854ec6ba252cae6a18e8e4-problem-title&amp;#34; aria-describedby=&amp;#34;block-v1:LSI-TEC+IOT101ES+2020_O1+type@problem+block@0c5c5f7af9854ec6ba252cae6a18e8e4-problem-progress&amp;#34; tabindex=&amp;#34;-1&amp;#34;&amp;gt;
+  Ejercicio no puntuado
+&amp;lt;/h3&amp;gt;
+
+&amp;lt;div class=&amp;#34;problem-progress&amp;#34; id=&amp;#34;block-v1:LSI-TEC+IOT101ES+2020_O1+type@problem+block@0c5c5f7af9854ec6ba252cae6a18e8e4-problem-progress&amp;#34;&amp;gt;&amp;lt;/div&amp;gt;
+
+&amp;lt;div class=&amp;#34;problem&amp;#34;&amp;gt;
+  &amp;lt;div&amp;gt;
+  &amp;lt;h3 class=&amp;#34;hd hd-2 problem-header&amp;#34;&amp;gt;&amp;amp;#161;Vamos a ejercitar!&amp;lt;/h3&amp;gt;
+  &amp;lt;br/&amp;gt;
+  &amp;lt;div class=&amp;#34;wrapper-problem-response&amp;#34; tabindex=&amp;#34;-1&amp;#34; aria-label=&amp;#34;Pregunta 1&amp;#34; role=&amp;#34;group&amp;#34;&amp;gt;&amp;lt;div class=&amp;#34;choicegroup capa_inputtype&amp;#34; id=&amp;#34;inputtype_0c5c5f7af9854ec6ba252cae6a18e8e4_2_1&amp;#34;&amp;gt;
+    &amp;lt;fieldset aria-describedby=&amp;#34;status_0c5c5f7af9854ec6ba252cae6a18e8e4_2_1&amp;#34;&amp;gt;
+        &amp;lt;legend id=&amp;#34;0c5c5f7af9854ec6ba252cae6a18e8e4_2_1-legend&amp;#34; class=&amp;#34;response-fieldset-legend field-group-hd&amp;#34;&amp;gt;1 - &amp;amp;#191;Qu&amp;amp;#233; es una red de computadoras?&amp;lt;/legend&amp;gt;
+          &amp;lt;div class=&amp;#34;field&amp;#34;&amp;gt;
+            
+
+            &amp;lt;label id=&amp;#34;0c5c5f7af9854ec6ba252cae6a18e8e4_2_1-choice_2-label&amp;#34; class=&amp;#34;response-label field-label label-inline&amp;#34; aria-describedby=&amp;#34;status_0c5c5f7af9854ec6ba252cae6a18e8e4_2_1&amp;#34;&amp;gt;
+                &amp;lt;input type=&amp;#34;radio&amp;#34; name=&amp;#34;input_0c5c5f7af9854ec6ba252cae6a18e8e4_2_1&amp;#34; id=&amp;#34;input_0c5c5f7af9854ec6ba252cae6a18e8e4_2_1_choice_2&amp;#34; class=&amp;#34;field-input input-radio&amp;#34; value=&amp;#34;choice_2&amp;#34;/&amp;gt; Son siempre 2 computadoras conectadas por un cable.
+            &amp;lt;/label&amp;gt;
+          &amp;lt;/div&amp;gt;
+          &amp;lt;div class=&amp;#34;field&amp;#34;&amp;gt;
+            
+
+            &amp;lt;label id=&amp;#34;0c5c5f7af9854ec6ba252cae6a18e8e4_2_1-choice_1-label&amp;#34; class=&amp;#34;response-label field-label label-inline choicegroup_correct&amp;#34; aria-describedby=&amp;#34;status_0c5c5f7af9854ec6ba252cae6a18e8e4_2_1&amp;#34;&amp;gt;
+                &amp;lt;input type=&amp;#34;radio&amp;#34; name=&amp;#34;input_0c5c5f7af9854ec6ba252cae6a18e8e4_2_1&amp;#34; id=&amp;#34;input_0c5c5f7af9854ec6ba252cae6a18e8e4_2_1_choice_1&amp;#34; class=&amp;#34;field-input input-radio&amp;#34; value=&amp;#34;choice_1&amp;#34; checked=&amp;#34;true&amp;#34;/&amp;gt; Es un conjunto de computadoras conectadas, que permite la transferencia de datos entre s&amp;amp;#237;.
+                    
+
+&amp;lt;span class=&amp;#34;status correct&amp;#34; id=&amp;#34;status_0c5c5f7af9854ec6ba252cae6a18e8e4_2_1&amp;#34; data-tooltip=&amp;#34;Esta respuesta es correcta.&amp;#34;&amp;gt;
+  &amp;lt;span class=&amp;#34;sr&amp;#34;&amp;gt;correcto&amp;lt;/span&amp;gt;&amp;lt;span class=&amp;#34;status-icon&amp;#34; aria-hidden=&amp;#34;true&amp;#34;/&amp;gt;
+&amp;lt;/span&amp;gt;
+
+            &amp;lt;/label&amp;gt;
+          &amp;lt;/div&amp;gt;
+          &amp;lt;div class=&amp;#34;field&amp;#34;&amp;gt;
+            
+
+            &amp;lt;label id=&amp;#34;0c5c5f7af9854ec6ba252cae6a18e8e4_2_1-choice_0-label&amp;#34; class=&amp;#34;response-label field-label label-inline&amp;#34; aria-describedby=&amp;#34;status_0c5c5f7af9854ec6ba252cae6a18e8e4_2_1&amp;#34;&amp;gt;
+                &amp;lt;input type=&amp;#34;radio&amp;#34; name=&amp;#34;input_0c5c5f7af9854ec6ba252cae6a18e8e4_2_1&amp;#34; id=&amp;#34;input_0c5c5f7af9854ec6ba252cae6a18e8e4_2_1_choice_0&amp;#34; class=&amp;#34;field-input input-radio&amp;#34; value=&amp;#34;choice_0&amp;#34;/&amp;gt; Es un conjunto de computadoras amarrados por algunas cuerdas.
+            &amp;lt;/label&amp;gt;
+          &amp;lt;/div&amp;gt;
+        &amp;lt;span id=&amp;#34;answer_0c5c5f7af9854ec6ba252cae6a18e8e4_2_1&amp;#34;/&amp;gt;
+    &amp;lt;/fieldset&amp;gt;
+    &amp;lt;div class=&amp;#34;indicator-container&amp;#34;&amp;gt;
+    &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;
+  &amp;lt;br/&amp;gt;
+  &amp;lt;hr/&amp;gt;
+  &amp;lt;br/&amp;gt;
+  &amp;lt;div class=&amp;#34;wrapper-problem-response&amp;#34; tabindex=&amp;#34;-1&amp;#34; aria-label=&amp;#34;Pregunta 2&amp;#34; role=&amp;#34;group&amp;#34;&amp;gt;&amp;lt;div class=&amp;#34;choicegroup capa_inputtype&amp;#34; id=&amp;#34;inputtype_0c5c5f7af9854ec6ba252cae6a18e8e4_3_1&amp;#34;&amp;gt;
+    &amp;lt;fieldset aria-describedby=&amp;#34;status_0c5c5f7af9854ec6ba252cae6a18e8e4_3_1&amp;#34;&amp;gt;
+        &amp;lt;legend id=&amp;#34;0c5c5f7af9854ec6ba252cae6a18e8e4_3_1-legend&amp;#34; class=&amp;#34;response-fieldset-legend field-group-hd&amp;#34;&amp;gt;2 - &amp;amp;#191;Cu&amp;amp;#225;les son los principales tipos de redes de computadoras?&amp;lt;/legend&amp;gt;
+          &amp;lt;div class=&amp;#34;field&amp;#34;&amp;gt;
+            
+
+            &amp;lt;label id=&amp;#34;0c5c5f7af9854ec6ba252cae6a18e8e4_3_1-choice_0-label&amp;#34; class=&amp;#34;response-label field-label label-inline choicegroup_correct&amp;#34; aria-describedby=&amp;#34;status_0c5c5f7af9854ec6ba252cae6a18e8e4_3_1&amp;#34;&amp;gt;
+                &amp;lt;input type=&amp;#34;radio&amp;#34; name=&amp;#34;input_0c5c5f7af9854ec6ba252cae6a18e8e4_3_1&amp;#34; id=&amp;#34;input_0c5c5f7af9854ec6ba252cae6a18e8e4_3_1_choice_0&amp;#34; class=&amp;#34;field-input input-radio&amp;#34; value=&amp;#34;choice_0&amp;#34; checked=&amp;#34;true&amp;#34;/&amp;gt; Los principales tipos de redes de computadoras son redes PAN, LAN, MAN y WAN.
+                    
+
+&amp;lt;span class=&amp;#34;status correct&amp;#34; id=&amp;#34;status_0c5c5f7af9854ec6ba252cae6a18e8e4_3_1&amp;#34; data-tooltip=&amp;#34;Esta respuesta es correcta.&amp;#34;&amp;gt;
+  &amp;lt;span class=&amp;#34;sr&amp;#34;&amp;gt;correcto&amp;lt;/span&amp;gt;&amp;lt;span class=&amp;#34;status-icon&amp;#34; aria-hidden=&amp;#34;true&amp;#34;/&amp;gt;
+&amp;lt;/span&amp;gt;
+
+            &amp;lt;/label&amp;gt;
+          &amp;lt;/div&amp;gt;
+          &amp;lt;div class=&amp;#34;field&amp;#34;&amp;gt;
+            
+
+            &amp;lt;label id=&amp;#34;0c5c5f7af9854ec6ba252cae6a18e8e4_3_1-choice_2-label&amp;#34; class=&amp;#34;response-label field-label label-inline&amp;#34; aria-describedby=&amp;#34;status_0c5c5f7af9854ec6ba252cae6a18e8e4_3_1&amp;#34;&amp;gt;
+                &amp;lt;input type=&amp;#34;radio&amp;#34; name=&amp;#34;input_0c5c5f7af9854ec6ba252cae6a18e8e4_3_1&amp;#34; id=&amp;#34;input_0c5c5f7af9854ec6ba252cae6a18e8e4_3_1_choice_2&amp;#34; class=&amp;#34;field-input input-radio&amp;#34; value=&amp;#34;choice_2&amp;#34;/&amp;gt; S&amp;amp;#243;lo hay un tipo de red, compuesta por computadoras, &amp;lt;i&amp;gt; smartphones y tablets&amp;lt;/i&amp;gt;.
+            &amp;lt;/label&amp;gt;
+          &amp;lt;/div&amp;gt;
+          &amp;lt;div class=&amp;#34;field&amp;#34;&amp;gt;
+            
+
+            &amp;lt;label id=&amp;#34;0c5c5f7af9854ec6ba252cae6a18e8e4_3_1-choice_1-label&amp;#34; class=&amp;#34;response-label field-label label-inline&amp;#34; aria-describedby=&amp;#34;status_0c5c5f7af9854ec6ba252cae6a18e8e4_3_1&amp;#34;&amp;gt;
+                &amp;lt;input type=&amp;#34;radio&amp;#34; name=&amp;#34;input_0c5c5f7af9854ec6ba252cae6a18e8e4_3_1&amp;#34; id=&amp;#34;input_0c5c5f7af9854ec6ba252cae6a18e8e4_3_1_choice_1&amp;#34; class=&amp;#34;field-input input-radio&amp;#34; value=&amp;#34;choice_1&amp;#34;/&amp;gt; Los principales tipos de redes de computadoras son los cibercaf&amp;amp;#233;s de una ciudad.
+            &amp;lt;/label&amp;gt;
+          &amp;lt;/div&amp;gt;
+        &amp;lt;span id=&amp;#34;answer_0c5c5f7af9854ec6ba252cae6a18e8e4_3_1&amp;#34;/&amp;gt;
+    &amp;lt;/fieldset&amp;gt;
+    &amp;lt;div class=&amp;#34;indicator-container&amp;#34;&amp;gt;
+    &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;
+  &amp;lt;br/&amp;gt;
+  &amp;lt;hr/&amp;gt;
+  &amp;lt;br/&amp;gt;
+  &amp;lt;div class=&amp;#34;wrapper-problem-response&amp;#34; tabindex=&amp;#34;-1&amp;#34; aria-label=&amp;#34;Pregunta 3&amp;#34; role=&amp;#34;group&amp;#34;&amp;gt;&amp;lt;div class=&amp;#34;choicegroup capa_inputtype&amp;#34; id=&amp;#34;inputtype_0c5c5f7af9854ec6ba252cae6a18e8e4_4_1&amp;#34;&amp;gt;
+    &amp;lt;fieldset aria-describedby=&amp;#34;status_0c5c5f7af9854ec6ba252cae6a18e8e4_4_1&amp;#34;&amp;gt;
+        &amp;lt;legend id=&amp;#34;0c5c5f7af9854ec6ba252cae6a18e8e4_4_1-legend&amp;#34; class=&amp;#34;response-fieldset-legend field-group-hd&amp;#34;&amp;gt;3 - &amp;amp;#191;Qu&amp;amp;#233; es un cibercaf&amp;amp;#233;?&amp;lt;/legend&amp;gt;
+          &amp;lt;div class=&amp;#34;field&amp;#34;&amp;gt;
+            
+
+            &amp;lt;label id=&amp;#34;0c5c5f7af9854ec6ba252cae6a18e8e4_4_1-choice_0-label&amp;#34; class=&amp;#34;response-label field-label label-inline&amp;#34; aria-describedby=&amp;#34;status_0c5c5f7af9854ec6ba252cae6a18e8e4_4_1&amp;#34;&amp;gt;
+                &amp;lt;input type=&amp;#34;radio&amp;#34; name=&amp;#34;input_0c5c5f7af9854ec6ba252cae6a18e8e4_4_1&amp;#34; id=&amp;#34;input_0c5c5f7af9854ec6ba252cae6a18e8e4_4_1_choice_0&amp;#34; class=&amp;#34;field-input input-radio&amp;#34; value=&amp;#34;choice_0&amp;#34;/&amp;gt; Es un dep&amp;amp;#243;sito de computadoras obsoletas.
+            &amp;lt;/label&amp;gt;
+          &amp;lt;/div&amp;gt;
+          &amp;lt;div class=&amp;#34;field&amp;#34;&amp;gt;
+            
+
+            &amp;lt;label id=&amp;#34;0c5c5f7af9854ec6ba252cae6a18e8e4_4_1-choice_1-label&amp;#34; class=&amp;#34;response-label field-label label-inline&amp;#34; aria-describedby=&amp;#34;status_0c5c5f7af9854ec6ba252cae6a18e8e4_4_1&amp;#34;&amp;gt;
+                &amp;lt;input type=&amp;#34;radio&amp;#34; name=&amp;#34;input_0c5c5f7af9854ec6ba252cae6a18e8e4_4_1&amp;#34; id=&amp;#34;input_0c5c5f7af9854ec6ba252cae6a18e8e4_4_1_choice_1&amp;#34; class=&amp;#34;field-input input-radio&amp;#34; value=&amp;#34;choice_1&amp;#34;/&amp;gt; Es la casa de un m&amp;amp;#233;dico famoso llamado Dr. House.
+            &amp;lt;/label&amp;gt;
+          &amp;lt;/div&amp;gt;
+          &amp;lt;div class=&amp;#34;field&amp;#34;&amp;gt;
+            
+
+            &amp;lt;label id=&amp;#34;0c5c5f7af9854ec6ba252cae6a18e8e4_4_1-choice_2-label&amp;#34; class=&amp;#34;response-label field-label label-inline choicegroup_correct&amp;#34; aria-describedby=&amp;#34;status_0c5c5f7af9854ec6ba252cae6a18e8e4_4_1&amp;#34;&amp;gt;
+                &amp;lt;input type=&amp;#34;radio&amp;#34; name=&amp;#34;input_0c5c5f7af9854ec6ba252cae6a18e8e4_4_1&amp;#34; id=&amp;#34;input_0c5c5f7af9854ec6ba252cae6a18e8e4_4_1_choice_2&amp;#34; class=&amp;#34;field-input input-radio&amp;#34; value=&amp;#34;choice_2&amp;#34; checked=&amp;#34;true&amp;#34;/&amp;gt; Es un espacio de computadoras conectadas entre s&amp;amp;#237; que permite a un grupo de personas acceso a Internet y juegos.
+                    
+
+&amp;lt;span class=&amp;#34;status correct&amp;#34; id=&amp;#34;status_0c5c5f7af9854ec6ba252cae6a18e8e4_4_1&amp;#34; data-tooltip=&amp;#34;Esta respuesta es correcta.&amp;#34;&amp;gt;
+  &amp;lt;span class=&amp;#34;sr&amp;#34;&amp;gt;correcto&amp;lt;/span&amp;gt;&amp;lt;span class=&amp;#34;status-icon&amp;#34; aria-hidden=&amp;#34;true&amp;#34;/&amp;gt;
+&amp;lt;/span&amp;gt;
+
+            &amp;lt;/label&amp;gt;
+          &amp;lt;/div&amp;gt;
+        &amp;lt;span id=&amp;#34;answer_0c5c5f7af9854ec6ba252cae6a18e8e4_4_1&amp;#34;/&amp;gt;
+    &amp;lt;/fieldset&amp;gt;
+    &amp;lt;div class=&amp;#34;indicator-container&amp;#34;&amp;gt;
+    &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+  &amp;lt;div class=&amp;#34;action&amp;#34;&amp;gt;
+    &amp;lt;input type=&amp;#34;hidden&amp;#34; name=&amp;#34;problem_id&amp;#34; value=&amp;#34;Ejercicio no puntuado&amp;#34; /&amp;gt;
+
+    &amp;lt;div class=&amp;#34;submit-attempt-container&amp;#34;&amp;gt;
+      &amp;lt;button type=&amp;#34;button&amp;#34; class=&amp;#34;submit btn-brand&amp;#34; data-submitting=&amp;#34;Enviando&amp;#34; data-value=&amp;#34;Enviar&amp;#34; data-should-enable-submit-button=&amp;#34;False&amp;#34; aria-describedby=&amp;#34;submission_feedback_0c5c5f7af9854ec6ba252cae6a18e8e4&amp;#34; disabled&amp;gt;
+          &amp;lt;span class=&amp;#34;submit-label&amp;#34;&amp;gt;Enviar&amp;lt;/span&amp;gt;
+      &amp;lt;/button&amp;gt;
+      &amp;lt;div class=&amp;#34;submission-feedback&amp;#34; id=&amp;#34;submission_feedback_0c5c5f7af9854ec6ba252cae6a18e8e4&amp;#34;&amp;gt;
+        &amp;lt;span class=&amp;#34;sr&amp;#34;&amp;gt;Algunos problemas tienen opciones como guardar, restablecer, sugerencias o mostrar respuesta. Estas opciones aparecen después de oprimir el botón Enviar.&amp;lt;/span&amp;gt;
+      &amp;lt;/div&amp;gt;
+    &amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;#34;problem-action-buttons-wrapper&amp;#34;&amp;gt;
+      &amp;lt;span class=&amp;#34;problem-action-button-wrapper&amp;#34;&amp;gt;
+          &amp;lt;button type=&amp;#34;button&amp;#34; class=&amp;#34;reset problem-action-btn btn-default btn-small&amp;#34; data-value=&amp;#34;Reiniciar&amp;#34;&amp;gt;&amp;lt;span class=&amp;#34;icon fa fa-refresh&amp;#34; aria-hidden=&amp;#34;true&amp;#34;&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span aria-hidden=&amp;#34;true&amp;#34;&amp;gt;Reiniciar&amp;lt;/span&amp;gt;&amp;lt;span class=&amp;#34;sr&amp;#34;&amp;gt;Restablecer respuesta&amp;lt;/span&amp;gt;&amp;lt;/button&amp;gt;
+      &amp;lt;/span&amp;gt;
+      &amp;lt;span class=&amp;#34;problem-action-button-wrapper&amp;#34;&amp;gt;
+          &amp;lt;button type=&amp;#34;button&amp;#34; class=&amp;#34;show problem-action-btn btn-default btn-small&amp;#34; aria-describedby=&amp;#34;0c5c5f7af9854ec6ba252cae6a18e8e4-problem-title&amp;#34;&amp;gt;&amp;lt;span class=&amp;#34;icon fa fa-info-circle&amp;#34; aria-hidden=&amp;#34;true&amp;#34;&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span class=&amp;#34;show-label&amp;#34;&amp;gt;Mostrar respuesta&amp;lt;/span&amp;gt;&amp;lt;/button&amp;gt;
+      &amp;lt;/span&amp;gt;
+    &amp;lt;/div&amp;gt;
+  &amp;lt;/div&amp;gt;
+    
+
+
+&amp;lt;div class=&amp;#34;notification warning notification-gentle-alert
+      is-hidden&amp;#34;
+     tabindex=&amp;#34;-1&amp;#34;&amp;gt;
+    &amp;lt;span class=&amp;#34;icon fa fa-exclamation-circle&amp;#34; aria-hidden=&amp;#34;true&amp;#34;&amp;gt;&amp;lt;/span&amp;gt;
+    &amp;lt;span class=&amp;#34;notification-message&amp;#34; aria-describedby=&amp;#34;0c5c5f7af9854ec6ba252cae6a18e8e4-problem-title&amp;#34;&amp;gt;
+    &amp;lt;/span&amp;gt;
+    &amp;lt;div class=&amp;#34;notification-btn-wrapper&amp;#34;&amp;gt;
+        &amp;lt;button type=&amp;#34;button&amp;#34; class=&amp;#34;btn btn-default btn-small notification-btn review-btn sr&amp;#34;&amp;gt;Revisión&amp;lt;/button&amp;gt;
+    &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+
+    
+
+
+&amp;lt;div class=&amp;#34;notification warning notification-save
+      is-hidden&amp;#34;
+     tabindex=&amp;#34;-1&amp;#34;&amp;gt;
+    &amp;lt;span class=&amp;#34;icon fa fa-save&amp;#34; aria-hidden=&amp;#34;true&amp;#34;&amp;gt;&amp;lt;/span&amp;gt;
+    &amp;lt;span class=&amp;#34;notification-message&amp;#34; aria-describedby=&amp;#34;0c5c5f7af9854ec6ba252cae6a18e8e4-problem-title&amp;#34;&amp;gt;None
+    &amp;lt;/span&amp;gt;
+    &amp;lt;div class=&amp;#34;notification-btn-wrapper&amp;#34;&amp;gt;
+        &amp;lt;button type=&amp;#34;button&amp;#34; class=&amp;#34;btn btn-default btn-small notification-btn review-btn sr&amp;#34;&amp;gt;Revisión&amp;lt;/button&amp;gt;
+    &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+
+    
+
+
+&amp;lt;div class=&amp;#34;notification general notification-show-answer
+      is-hidden&amp;#34;
+     tabindex=&amp;#34;-1&amp;#34;&amp;gt;
+    &amp;lt;span class=&amp;#34;icon fa fa-info-circle&amp;#34; aria-hidden=&amp;#34;true&amp;#34;&amp;gt;&amp;lt;/span&amp;gt;
+    &amp;lt;span class=&amp;#34;notification-message&amp;#34; aria-describedby=&amp;#34;0c5c5f7af9854ec6ba252cae6a18e8e4-problem-title&amp;#34;&amp;gt;Answers are displayed within the problem
+    &amp;lt;/span&amp;gt;
+    &amp;lt;div class=&amp;#34;notification-btn-wrapper&amp;#34;&amp;gt;
+        &amp;lt;button type=&amp;#34;button&amp;#34; class=&amp;#34;btn btn-default btn-small notification-btn review-btn sr&amp;#34;&amp;gt;Revisión&amp;lt;/button&amp;gt;
+    &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+
+&amp;lt;/div&amp;gt;
+"
+     data-graded="False"&gt;
+    &lt;p class="loading-spinner"&gt;
+        &lt;i class="fa fa-spinner fa-pulse fa-2x fa-fw"&gt;&lt;/i&gt;
+        &lt;span class="sr"&gt;Loading&amp;hellip;&lt;/span&gt;
+    &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+  </div>
+  <div id="seq_contents_12" aria-labelledby="tab_12" aria-hidden="true" class="seq_contents tex2jax_ignore asciimath2jax_ignore">
+    
+&lt;div class="xblock xblock-student_view xblock-student_view-vertical" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="VerticalStudentView" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@5aed86df2f8e4826868307944cd279fd" data-block-type="vertical"&gt;
+  
+
+  &lt;h2 class="hd hd-2 unit-title"&gt;Internet&lt;/h2&gt;
+
+    
+
+
+
+&lt;div class="bookmark-button-wrapper"&gt;
+  &lt;button class="btn btn-link bookmark-button "
+    aria-pressed="false"
+    data-bookmark-id="afaguirreg,block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@5aed86df2f8e4826868307944cd279fd"
+    data-bookmarks-api-url="/api/bookmarks/v1/bookmarks/"&gt;
+     &lt;span class="bookmark-text"&gt;Marcar esta página&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;
+
+
+&lt;div class="vert-mod"&gt;
+    &lt;div class="vert vert-0" data-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@html+block@da1c7f91012f4f73afc8fc9080becd4b"&gt;
+        
+&lt;div class="xblock xblock-student_view xblock-student_view-html xmodule_display xmodule_HtmlModule" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="XBlockToXModuleShim" data-block-type="html" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@html+block@da1c7f91012f4f73afc8fc9080becd4b" data-type="HTMLModule" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1"&gt;
+  &lt;script type="json/xblock-args" class="xblock-json-init-args"&gt;
+    {"xmodule-type": "HTMLModule"}
+  &lt;/script&gt;
+  &lt;p&gt;Al principio, Internet conectaba s&amp;oacute;lo dos computadoras, luego evolucion&amp;oacute; a la red mundial de computadoras (&lt;em&gt;World Wide Web&lt;/em&gt;), conectando un gran n&amp;uacute;mero de computadoras y cubriendo todo el mundo.&lt;/p&gt;
+&lt;p&gt;Internet m&amp;oacute;vil surgi&amp;oacute; conectando dispositivos m&amp;oacute;viles a Internet. Enseguida, las personas comenzaron a juntarse en Internet por medio de redes sociales.&lt;/p&gt;
+&lt;p&gt;Actualmente, Internet se est&amp;aacute; moviendo en direcci&amp;oacute;n a Internet de las Cosas, conectando todos los objetos del d&amp;iacute;a a d&amp;iacute;a con Internet.&lt;/p&gt;
+&lt;p&gt;&amp;iexcl;Vamos a aprender un poco sobre la historia de Internet!&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+  </div>
+  <div id="seq_contents_13" aria-labelledby="tab_13" aria-hidden="true" class="seq_contents tex2jax_ignore asciimath2jax_ignore">
+    
+&lt;div class="xblock xblock-student_view xblock-student_view-vertical" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="VerticalStudentView" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@10f4b453eb984c209ee8d1b14d636512" data-block-type="vertical"&gt;
+  
+
+  &lt;h2 class="hd hd-2 unit-title"&gt;El Origen de Internet&lt;/h2&gt;
+
+    
+
+
+
+&lt;div class="bookmark-button-wrapper"&gt;
+  &lt;button class="btn btn-link bookmark-button "
+    aria-pressed="false"
+    data-bookmark-id="afaguirreg,block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@10f4b453eb984c209ee8d1b14d636512"
+    data-bookmarks-api-url="/api/bookmarks/v1/bookmarks/"&gt;
+     &lt;span class="bookmark-text"&gt;Marcar esta página&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;
+
+
+&lt;div class="vert-mod"&gt;
+    &lt;div class="vert vert-0" data-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@html+block@d35d1f27dc194690bdffa846a928d787"&gt;
+        
+&lt;div class="xblock xblock-student_view xblock-student_view-html xmodule_display xmodule_HtmlModule" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="XBlockToXModuleShim" data-block-type="html" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@html+block@d35d1f27dc194690bdffa846a928d787" data-type="HTMLModule" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1"&gt;
+  &lt;script type="json/xblock-args" class="xblock-json-init-args"&gt;
+    {"xmodule-type": "HTMLModule"}
+  &lt;/script&gt;
+  &lt;p&gt;&lt;span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;"&gt;Debes estar imaginando que Internet no tiene due&amp;ntilde;o, ya que cualquier persona puede conectar una computadora o cualquier otro dispositivo a la red.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;"&gt;&amp;iexcl;Eso mismo! Internet no tiene una sede central, ni una central de servicios. Fue creada por el gobierno estadounidense en la d&amp;eacute;cada de 1950.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;"&gt;Pero &amp;iquest;c&amp;oacute;mo surgi&amp;oacute;? Vamos a conocer mejor esta historia.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;"&gt;Internet surgi&amp;oacute; en 1957, durante la Guerra Fr&amp;iacute;a entre Estados Unidos y la Uni&amp;oacute;n Sovi&amp;eacute;tica. Un ataque por el aire era una amenaza constante para los estadounidenses.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;"&gt;Pero toda esa historia de guerra, &amp;iquest;qu&amp;eacute; tiene que ver con Internet?&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;"&gt;En la &amp;eacute;poca de la Guerra Fr&amp;iacute;a los estadounidenses crearon la &lt;strong&gt;Agencia de Proyectos Avanzados de Defensa&lt;/strong&gt; (&lt;em&gt;Advanced Research and Projects Agency&lt;/em&gt; -&amp;nbsp;&lt;strong&gt;ARPA&lt;/strong&gt;), cuyo objetivo era desarrollar una red de computadoras capaces de intercambiar informaciones a trav&amp;eacute;s de tecnolog&amp;iacute;as de comunicaci&amp;oacute;n independientes.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;"&gt;Los estadounidenses quer&amp;iacute;an evitar la p&amp;eacute;rdida de informaci&amp;oacute;n, si parte de la red f&amp;iacute;sica quedaba inactiva debido a una destrucci&amp;oacute;n parcial, provocada, por ejemplo, por un ataque nuclear. De esta forma, una parte de la red da&amp;ntilde;ada no afectar&amp;iacute;a el funcionamiento de los puntos no alcanzados.&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;"&gt;En 1969 surgi&amp;oacute; la primera versi&amp;oacute;n de la red, la &lt;strong&gt;Arpanet&lt;/strong&gt; (&lt;em&gt;Advanced Research Projects Agency Network&lt;/em&gt;) que conectaba s&amp;oacute;lo cuatro puntos.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;"&gt;La idea era crear una red tejida como una tela de ara&amp;ntilde;a (&lt;em&gt;web&lt;/em&gt;, en ingl&amp;eacute;s), en la que los datos se mov&amp;iacute;an buscando la mejor trayectoria&amp;nbsp;&lt;/span&gt;posible, pudiendo "esperar" si las v&amp;iacute;as estuvieran obstruidas.&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-family: 'Open Sans', Verdana, Arial, Helvetica, sans-serif;"&gt;Surg&amp;iacute;a all&amp;iacute; otra idea b&amp;aacute;sica de Internet: la descentralizaci&amp;oacute;n. Pero, &amp;iquest;c&amp;oacute;mo funciona en la pr&amp;aacute;ctica?&amp;nbsp; &amp;nbsp;&lt;/span&gt; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;img src="/assets/courseware/v1/9efe480579a181b37d5a7549b83ca930/asset-v1:LSI-TEC+IOT101ES+2020_O1+type@asset+block/teia.png" alt="" type="saveimage" target="[object Object]" preventdefault="function (){r.isDefaultPrevented=n}" stoppropagation="function (){r.isPropagationStopped=n}" stopimmediatepropagation="function (){r.isImmediatePropagationStopped=n}" isdefaultprevented="function t(){return!1}" ispropagationstopped="function t(){return!1}" isimmediatepropagationstopped="function t(){return!1}" width="241" height="223" /&gt;&lt;/p&gt;
+&lt;hr style="clear: both;" /&gt;
+&lt;p&gt;&lt;span style="font-size: small;"&gt;ERCILIA, M.; GRAEFF, A. A Internet. 2&amp;ordf; ed, S&amp;atilde;o Paulo: Publifolha, 2008.&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+  </div>
+  <div id="seq_contents_14" aria-labelledby="tab_14" aria-hidden="true" class="seq_contents tex2jax_ignore asciimath2jax_ignore">
+    
+&lt;div class="xblock xblock-student_view xblock-student_view-vertical" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="VerticalStudentView" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@a4a559a1266a4bdbac109749352a5fb9" data-block-type="vertical"&gt;
+  
+
+  &lt;h2 class="hd hd-2 unit-title"&gt;¿Cómo funciona Internet?&lt;/h2&gt;
+
+    
+
+
+
+&lt;div class="bookmark-button-wrapper"&gt;
+  &lt;button class="btn btn-link bookmark-button "
+    aria-pressed="false"
+    data-bookmark-id="afaguirreg,block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@a4a559a1266a4bdbac109749352a5fb9"
+    data-bookmarks-api-url="/api/bookmarks/v1/bookmarks/"&gt;
+     &lt;span class="bookmark-text"&gt;Marcar esta página&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;
+
+
+&lt;div class="vert-mod"&gt;
+    &lt;div class="vert vert-0" data-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@html+block@cff690b410434504a229e4ce787913c3"&gt;
+        
+&lt;div class="xblock xblock-student_view xblock-student_view-html xmodule_display xmodule_HtmlModule" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="XBlockToXModuleShim" data-block-type="html" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@html+block@cff690b410434504a229e4ce787913c3" data-type="HTMLModule" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1"&gt;
+  &lt;script type="json/xblock-args" class="xblock-json-init-args"&gt;
+    {"xmodule-type": "HTMLModule"}
+  &lt;/script&gt;
+  &lt;p&gt;Supongamos que deseas acceder al sitio &lt;em&gt;web&lt;/em&gt; de Samsung para buscar algunos productos electr&amp;oacute;nicos.&lt;/p&gt;
+&lt;p&gt;Entonces utilizas un equipo conectado a Internet, abres tu navegador favorito y escribes www.samsung.com en la barra de direcciones y, pasados pocos segundos, la p&amp;aacute;gina de inicio de Samsung aparece en tu pantalla.&lt;/p&gt;
+&lt;p&gt;&amp;iquest;C&amp;oacute;mo todo este proceso, aparentemente simple, ocurre?&lt;/p&gt;
+&lt;p&gt;Todos los equipos tienen una direcci&amp;oacute;n num&amp;eacute;rica &amp;uacute;nica llamada &lt;strong&gt;direcci&amp;oacute;n IP&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Para que puedas acceder a la p&amp;aacute;gina de Samsung, por ejemplo, tu computadora debe antes establecer una conexi&amp;oacute;n con el equipo donde se aloja la p&amp;aacute;gina solicitada.&lt;/p&gt;
+&lt;p&gt;Llamaremos a partir de ahora a tu computadora de&amp;nbsp;&lt;strong&gt;cliente&lt;/strong&gt; y a la computadora donde la p&amp;aacute;gina de Samsung est&amp;aacute; almacenada de &lt;strong&gt;servidor&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Imagina que el&amp;nbsp;&lt;strong&gt;cliente&lt;/strong&gt;, tu computadora, con direcci&amp;oacute;n IP 177.175.79.80 quiera &amp;nbsp;iniciar una conexi&amp;oacute;n con el&amp;nbsp;&lt;strong&gt;servidor&lt;/strong&gt; de direcci&amp;oacute;n IP 185.187.87.88 para obtener la p&amp;aacute;gina inicial de Samsung.&lt;/p&gt;
+&lt;p style="text-align: center; margin: 20px;"&gt;&lt;img src="/assets/courseware/v1/9922767f5411169007ec350e6fa7a417/asset-v1:LSI-TEC+IOT101ES+2020_O1+type@asset+block/figura9.png" alt="um computador com endere&amp;ccedil;o IP 177.175.79.80 simbolizando o cliente ligado a internet representado por uma nuvem ligado ao servidor representado por computadores de servidor com endere&amp;ccedil;o IP 185.187.87.88 " type="saveimage" target="[object Object]" preventdefault="function (){r.isDefaultPrevented=n}" stoppropagation="function (){r.isPropagationStopped=n}" stopimmediatepropagation="function (){r.isImmediatePropagationStopped=n}" isdefaultprevented="function t(){return!1}" ispropagationstopped="function t(){return!1}" isimmediatepropagationstopped="function t(){return!1}" width="430" height="124" /&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Pero, &amp;iquest;c&amp;oacute;mo el cliente, tu computadora, sabe la direcci&amp;oacute;n IP con la que debe conectarse para obtener la p&amp;aacute;gina inicial de Samsung si nada de esto fue informado?&lt;/p&gt;
+&lt;p&gt;La &amp;uacute;nica informaci&amp;oacute;n pasada fue la direcci&amp;oacute;n www.samsung.com en la barra de direcciones del navegador.&lt;/p&gt;
+&lt;p&gt;Cuando un equipo est&amp;aacute; conectado a Internet, est&amp;aacute; configurado para acceder a un servidor especial denominado servidor de nombres o servidor DNS (&lt;em&gt;Domain Name System&lt;/em&gt;), ya que es m&amp;aacute;s conocido.&lt;/p&gt;
+&lt;p&gt;Este servidor funciona como una lista de direcciones.&lt;/p&gt;
+&lt;p&gt;Cuando escribes la direcci&amp;oacute;n www.samsung.com en la barra de direcciones,&amp;nbsp;est&amp;aacute;s informando la direcci&amp;oacute;n URL (&lt;em&gt;Uniform Resource Locator&lt;/em&gt;) del sitio.&lt;/p&gt;
+&lt;p&gt;Si el navegador no conoce la direcci&amp;oacute;n IP para esta direcci&amp;oacute;n URL, entonces se conecta con el servidor DNS y pregunta:&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;"Hola. Tengo la direcci&amp;oacute;n URL www.samsung.com,&amp;nbsp; &amp;iquest;puedes informarme cu&amp;aacute;l es la direcci&amp;oacute;n IP de ella? "&lt;/i&gt;&lt;/p&gt;
+&lt;p&gt;El servidor entonces responde:&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;"S&amp;iacute; la tengo , la direcci&amp;oacute;n IP de esta URL es 185.187.87.88."&lt;/i&gt;&lt;/p&gt;
+&lt;p&gt;&lt;i&gt;Por lo tanto ...&lt;/i&gt;&lt;/p&gt;
+&lt;p&gt;El servidor DNS funciona como una lista de direcciones para encontrar la direcci&amp;oacute;n IP de la direcci&amp;oacute;n URL solicitada. Se establece una conexi&amp;oacute;n entre el cliente, tu computadora, y el servidor donde se aloja la p&amp;aacute;gina de Samsung. A trav&amp;eacute;s de esta conexi&amp;oacute;n ocurre el env&amp;iacute;o de &lt;strong&gt;paquetes&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Digamos que est&amp;aacute;s buscando un dispositivo m&amp;oacute;vil en el sitio &lt;em&gt;web&lt;/em&gt; de Samsung,&amp;nbsp; y est&amp;aacute;s haciendo clic y navegando por el contenido de las p&amp;aacute;ginas.&lt;/p&gt;
+&lt;p&gt;Conforme vas navegando, el cliente, tu computadora, solicita m&amp;aacute;s p&amp;aacute;ginas al servidor para poder mostrarte en la pantalla la informaci&amp;oacute;n que solicitaste.&lt;/p&gt;
+&lt;p&gt;Las informaciones intercambiadas entre el cliente y el servidor, entre tu computadora y la computadora donde se alojan las p&amp;aacute;ginas de Samsung, son divididas en &lt;strong&gt;paquetes&lt;/strong&gt;.&lt;/p&gt;
+&lt;hr style="clear: both;" /&gt;
+&lt;p style="font-size: small;"&gt;ERCILIA, M.; GRAEFF, A. A Internet. 2&amp;ordf; ed, S&amp;atilde;o Paulo: Publifolha, 2008.&lt;br /&gt; &lt;a href="http://pensandonaweb.com.br/como-funciona-a-internet-e-a-world-wide-web/" target="_blank"&gt;http://pensandonaweb.com.br/como-funciona-a-internet-e-a-world-wide-web/&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+  </div>
+  <div id="seq_contents_15" aria-labelledby="tab_15" aria-hidden="true" class="seq_contents tex2jax_ignore asciimath2jax_ignore">
+    
+&lt;div class="xblock xblock-student_view xblock-student_view-vertical" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="VerticalStudentView" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@cee38befca464e7d86eb27c211e0dc9f" data-block-type="vertical"&gt;
+  
+
+  &lt;h2 class="hd hd-2 unit-title"&gt;¿Cómo funciona Internet?&lt;/h2&gt;
+
+    
+
+
+
+&lt;div class="bookmark-button-wrapper"&gt;
+  &lt;button class="btn btn-link bookmark-button "
+    aria-pressed="false"
+    data-bookmark-id="afaguirreg,block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@cee38befca464e7d86eb27c211e0dc9f"
+    data-bookmarks-api-url="/api/bookmarks/v1/bookmarks/"&gt;
+     &lt;span class="bookmark-text"&gt;Marcar esta página&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;
+
+
+&lt;div class="vert-mod"&gt;
+    &lt;div class="vert vert-0" data-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@html+block@28caf529f06644cd9ab3f8915a91718c"&gt;
+        
+&lt;div class="xblock xblock-student_view xblock-student_view-html xmodule_display xmodule_HtmlModule" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="XBlockToXModuleShim" data-block-type="html" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@html+block@28caf529f06644cd9ab3f8915a91718c" data-type="HTMLModule" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1"&gt;
+  &lt;script type="json/xblock-args" class="xblock-json-init-args"&gt;
+    {"xmodule-type": "HTMLModule"}
+  &lt;/script&gt;
+  &lt;p&gt;Y &amp;iquest;qu&amp;eacute; son esos paquetes?&lt;/p&gt;
+&lt;p&gt;Son fragmentos menores de los datos que transitan por la red. Por ejemplo, un mensaje de correo electr&amp;oacute;nico se puede dividir en varios paquetes. Cada paquete contiene algunas informaciones como: la direcci&amp;oacute;n de origen, la direcci&amp;oacute;n de destino y la secuencia seg&amp;uacute;n la cual los paquetes se deben reconstruir al llegar a su destino.&lt;/p&gt;
+&lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&lt;/p&gt;
+&lt;p style="text-align: center;"&gt;&lt;img src="/assets/courseware/v1/2fc65e7fb99e417502b3b94ed2d85018/asset-v1:LSI-TEC+IOT101ES+2020_O1+type@asset+block/img_1.png" alt="um email de tamanho de 3713 bytes &amp;eacute; divido em 3 pacotes, 2 pacotes com 1500 bytes cada e 1 pacote com 713 bytes" type="saveimage" target="[object Object]" width="434" height="174" /&gt;&lt;/p&gt;
+&lt;p&gt;Una caracter&amp;iacute;stica importante es la garant&amp;iacute;a de entrega, pues todos los paquetes que salen del origen tienen la garant&amp;iacute;a de que llegar&amp;aacute;n a su destino y que ser&amp;aacute;n entregados de forma ordenada y sin modificaciones.&lt;/p&gt;
+&lt;p&gt;Cada paquete puede viajar por la red por diferentes caminos, siendo enviado de una computadora&amp;nbsp;a otra, en la direcci&amp;oacute;n de su destino.&lt;/p&gt;
+&lt;p style="text-align: center;"&gt;&lt;img src="/assets/courseware/v1/87e4d45757ebc3937a1bab468aecf0cf/asset-v1:LSI-TEC+IOT101ES+2020_O1+type@asset+block/img_2_esp.png" alt="Conex&amp;atilde;o entre um cliente e um servidor, h&amp;aacute; dois caminhos 1 passando por um roteador e o outro passando por 2 roteadores" type="saveimage" target="[object Object]" width="588" height="151" /&gt;&lt;/p&gt;
+&lt;p&gt;Pero, &amp;iquest;qui&amp;eacute;n decide cu&amp;aacute;l es el mejor camino?&lt;/p&gt;
+&lt;p&gt;Es necesario utilizar un dispositivo llamado enrutador.&lt;/p&gt;
+&lt;p&gt;Los enrutadores son dispositivos capaces de realizar la comunicaci&amp;oacute;n entre varias redes que componen Internet.&lt;/p&gt;
+&lt;p&gt;El enruteador analiza cada paquete de informaci&amp;oacute;n y decide la mejor ruta hasta su destino.&lt;/p&gt;
+&lt;p style="text-align: center;"&gt;&lt;img src="/assets/courseware/v1/955f8e6b5c436f1ac98b451a1928dac9/asset-v1:LSI-TEC+IOT101ES+2020_O1+type@asset+block/figura12.png" alt="cliente e servidor conectado por 2 rotas com 3 roteadores cada, o segundo roteador da melhor rota est&amp;aacute; conectado ao roteador da outra rota. " type="saveimage" target="[object Object]" preventdefault="function (){r.isDefaultPrevented=n}" stoppropagation="function (){r.isPropagationStopped=n}" stopimmediatepropagation="function (){r.isImmediatePropagationStopped=n}" isdefaultprevented="function t(){return!1}" ispropagationstopped="function t(){return!1}" isimmediatepropagationstopped="function t(){return!1}" width="456" height="96" /&gt;&lt;img style="margin-left: 30px; margin-right: 30px;" src="/assets/courseware/v1/bc33763f8a02818cc1d4d1a3d43bd2bd/asset-v1:LSI-TEC+IOT101ES+2020_O1+type@asset+block/IMG_3_ESP.png" alt="Legenda da imagem " type="saveimage" target="[object Object]" width="130" height="74" /&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Pero &amp;iquest;qu&amp;eacute; pasa si una ruta est&amp;aacute; bloqueada?&lt;/p&gt;
+&lt;p&gt;Como hay varios&amp;nbsp;enrutadores&amp;nbsp;conectados en la misma red, es posible que un paquete tome una ruta y otro paquete tome otra ruta para llegar al destino. Es lo mismo que sucede cuando estamos tratando de escapar del tr&amp;aacute;nsito. Podemos entrar en otra v&amp;iacute;a, pasar por otras calles, pero avanzamos hacia el destino.&lt;/p&gt;
+&lt;p&gt;Cuando los paquetes llegan a su destino, la informaci&amp;oacute;n original se reconstituye.&lt;/p&gt;
+&lt;p style="text-align: center;"&gt;&lt;img src="/assets/courseware/v1/5fa69e8961d957a5d01c70d4c88f79d4/asset-v1:LSI-TEC+IOT101ES+2020_O1+type@asset+block/figura13.png" alt="Os tr&amp;ecirc;s pacotes juntos forma o e-mail enviado" type="saveimage" target="[object Object]" preventdefault="function (){r.isDefaultPrevented=n}" stoppropagation="function (){r.isPropagationStopped=n}" stopimmediatepropagation="function (){r.isImmediatePropagationStopped=n}" isdefaultprevented="function t(){return!1}" ispropagationstopped="function t(){return!1}" isimmediatepropagationstopped="function t(){return!1}" width="364" height="80" /&gt;&lt;/p&gt;
+&lt;hr style="clear: both;" /&gt;
+&lt;p style="font-size: small;"&gt;&lt;a href="http://pensandonaweb.com.br/como-funciona-a-internet-e-a-world-wide-web/" target="_blank"&gt;http://pensandonaweb.com.br/como-funciona-a-internet-e-a-world-wide-web/&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+  </div>
+  <div id="seq_contents_16" aria-labelledby="tab_16" aria-hidden="true" class="seq_contents tex2jax_ignore asciimath2jax_ignore">
+    
+&lt;div class="xblock xblock-student_view xblock-student_view-vertical" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="VerticalStudentView" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@d03ef484719945f2ab2274609b270ec3" data-block-type="vertical"&gt;
+  
+
+  &lt;h2 class="hd hd-2 unit-title"&gt;Finalizando&lt;/h2&gt;
+
+    
+
+
+
+&lt;div class="bookmark-button-wrapper"&gt;
+  &lt;button class="btn btn-link bookmark-button "
+    aria-pressed="false"
+    data-bookmark-id="afaguirreg,block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@d03ef484719945f2ab2274609b270ec3"
+    data-bookmarks-api-url="/api/bookmarks/v1/bookmarks/"&gt;
+     &lt;span class="bookmark-text"&gt;Marcar esta página&lt;/span&gt;
+    &lt;/button&gt;
+&lt;/div&gt;
+
+
+&lt;div class="vert-mod"&gt;
+    &lt;div class="vert vert-0" data-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@html+block@9c919e944da8467981e6077ed34ab83d"&gt;
+        
+&lt;div class="xblock xblock-student_view xblock-student_view-html xmodule_display xmodule_HtmlModule" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="XBlockToXModuleShim" data-block-type="html" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@html+block@9c919e944da8467981e6077ed34ab83d" data-type="HTMLModule" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1"&gt;
+  &lt;script type="json/xblock-args" class="xblock-json-init-args"&gt;
+    {"xmodule-type": "HTMLModule"}
+  &lt;/script&gt;
+  &lt;p&gt;En esta clase aprendimos qu&amp;eacute; es Internet y c&amp;oacute;mo funciona.&lt;/p&gt;
+&lt;p&gt;En la pr&amp;oacute;xima clase, vamos a estudiar Internet das Coisas.&lt;/p&gt;
+&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+
+  </div>
+  <div id="seq_content" role="tabpanel" aria-labelledby="tab_3">
+    
+<div class="xblock xblock-student_view xblock-student_view-vertical xblock-initialized" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="VerticalStudentView" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@572e7b4a86894fd5a283731b62aaa045" data-block-type="vertical">
+  
+
+  <h2 class="hd hd-2 unit-title">¿Qué es una red de computadoras?</h2>
+
+    
+
+
+
+<div class="bookmark-button-wrapper">
+  <button class="btn btn-link bookmark-button" aria-pressed="false" data-bookmark-id="afaguirreg,block-v1:LSI-TEC+IOT101ES+2020_O1+type@vertical+block@572e7b4a86894fd5a283731b62aaa045" data-bookmarks-api-url="/api/bookmarks/v1/bookmarks/">
+     <span class="bookmark-text">Marcar esta página</span>
+    </button>
+</div>
+
+
+<div class="vert-mod">
+    <div class="vert vert-0" data-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@html+block@fc1f4f157acf4401ae09bc24e3761290">
+        
+<div class="xblock xblock-student_view xblock-student_view-html xmodule_display xmodule_HtmlModule xblock-initialized" data-graded="False" data-has-score="False" data-runtime-class="LmsRuntime" data-init="XBlockToXModuleShim" data-block-type="html" data-request-token="735d328f80ed11ea867402a7a41208e2" data-runtime-version="1" data-usage-id="block-v1:LSI-TEC+IOT101ES+2020_O1+type@html+block@fc1f4f157acf4401ae09bc24e3761290" data-type="HTMLModule" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1">
+  
+  <p>La palabra <strong>red</strong> sirve para describir un entrelazamiento de cosas conectadas unas con otras. Puede ser un enmarañado de cables, de carreteras, o de computadoras.</p>
+<p><img src="./2_files/figura5.png" alt="Computadores conectados entre si" type="saveimage" target="[object Object]" preventdefault="function (){r.isDefaultPrevented=n}" stoppropagation="function (){r.isPropagationStopped=n}" stopimmediatepropagation="function (){r.isImmediatePropagationStopped=n}" isdefaultprevented="function t(){return!1}" ispropagationstopped="function t(){return!1}" isimmediatepropagationstopped="function t(){return!1}" style="float: left;" width="288" height="159"></p>
+<p></p>
+<p>Una red de computadoras está, por lo tanto, formada por dos o más computadoras conectadas entre sí, pudiendo comunicarse unas con otras y compartir archivos, programas o, incluso, una impresora.</p>
+<p></p>
+<p></p>
+<hr>
+<p><span style="font-size: small;">CAPRON, H.L.; Johnson, J.A. &nbsp;Introdução à Informática. São Paulo: Pearson Prentice Hall, 2004&nbsp;</span></p>
+</div>
+
+    </div>
+</div>
+
+</div>
+
+  </div>
+
+  <nav class="sequence-bottom" aria-label="Sección">
+    <button class="sequence-nav-button button-previous">
+      <span class="icon fa fa-chevron-prev" aria-hidden="true"></span>
+      <span>Anterior</span>
+    </button>
+    <button class="sequence-nav-button button-next">
+      <span>Siguiente</span>
+      <span class="icon fa fa-chevron-next" aria-hidden="true"></span>
+    </button>
+  </nav>
+</div>
+
+</div>
+
+        </main>
+    </section>
+
+    <section class="courseware-results-wrapper">
+      <div id="loading-message" aria-live="polite" aria-relevant="all"></div>
+      <div id="error-message" aria-live="polite"></div>
+      <div class="courseware-results search-results" data-course-id="course-v1:LSI-TEC+IOT101ES+2020_O1" data-lang-code="es-419"></div>
+    </section>
+
+  </div>
+  
+
+
+
+
+
+
+
+
+
+    
+    
+    <script type="text/javascript" src="./2_files/CourseSock.207e89e610bb26d251c9.713b569749c9.js.descarga"></script>
+      <script type="text/javascript">
+        
+    new CourseSock({
+        el:'.verification-sock'
+    });
+
+      </script>
+
+
+</div>
+<div class="container-footer">
+</div>
+
+      
+    </div>
+
+        
+
+
+
+
+
+<!-- footer overrides for stanford theme go here -->
+<div class="wrapper-footer">
+  <footer>
+    <div>
+
+      <!-- Iniciativa -->
+      <div class="credit">
+        Iniciativa
+        <br>
+        <a href="http://www.samsung.com/" target="_blank">
+          <img src="./2_files/logo-samsung-white.8ff8633e481a.png">
+        </a>
+      </div>
+
+      <!-- Desenvolvimento -->
+      <div class="credit">
+        Desarrollo
+        <br>
+        <a href="http://www.lsitec.org.br/" target="_blank">
+          <img src="./2_files/logo-lsitec-white.7539641b5206.png">
+        </a>
+      </div>
+
+    </div>
+
+    <img class="credit" src="./2_files/logo-enabling-people.fa48c9367ecd.png" height="44px">
+
+    <div class="references">
+      <p>
+        Si tienes algún cuestionamiento o comentario acerca de nuestro sitio web, envía un e-mail a
+        <a href="mailto:ayuda@codeiot.org.br" target="_blank">
+          ayuda@codeiot.org.br
+        </a>.
+      </p>
+      <span>Hecho con <a href="http://open.edx.org/">OpenEdX</a>.</span>
+      <span>
+        Derechos de autor 2020. Todos los derechos reservados.
+      </span>
+    </div>
+
+    <div style="margin: 0 auto 10px auto;">
+      
+
+
+
+<div class="footer-language-selector">
+    <label for="footer-language-select">
+        <span class="icon fa fa-globe" aria-hidden="true"></span>
+        <span class="sr">Seleccionar idioma</span>
+    </label>
+    <select id="footer-language-select" name="language" onchange="footerLanguageSelector.handleSelection(this)">
+            
+                <option value="en">English</option>
+            
+                <option value="es-419" selected="selected">español</option>
+            
+                <option value="pt-br">português</option>
+    </select>
+</div>
+
+<script type="text/javascript">
+    window.footerLanguageSelector = {
+        handleSelection: function($select) {
+            this.setLanguageCookie($select.value, this.refreshPage);
+        },
+
+        setLanguageCookie: function(value, callback) {
+            var cookie = 'openedx\u002Dlanguage\u002Dpreference=' + value + ';path=/';
+
+            
+                cookie += ';domain=.codeiot.org.br';
+                cookie += ';max-age=1209600';
+
+            document.cookie = cookie;
+
+            callback();
+        },
+
+        refreshPage: function() {
+            window.location.reload();
+        }
+    };
+</script>
+
+    </div>
+
+  </footer>
+</div>
+
+  </div>
+
+  
+  
+  
+<script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","2796197407096863");fbq("track","PageView");</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2796197407096863&amp;ev=PageView&amp;noscript=1"></noscript>
+<script type="text/javascript" id="">var script=document.createElement("script");script.setAttribute("data-apikey","codeiot-org");script.setAttribute("async","async");script.setAttribute("defer","defer");script.src="//suite.linximpulse.net/impulse/impulse.js";document.getElementsByTagName("head")[0].appendChild(script);</script>
+<script type="text/javascript" src="./2_files/jquery.scrollTo.525edcc52fe8.js.descarga"></script>
+  <script type="text/javascript" src="./2_files/jquery.flot.d3d45ff0c6a8.js.descarga"></script>
+
+  
+    <script type="text/javascript" src="./2_files/lms-courseware.43ed60564822.js.descarga" charset="utf-8"></script>
+
+
+  
+
+
+
+
+<script type="text/javascript">
+    // Fast Preview was introduced in 2.5. However, it
+    // causes undesirable flashing/font size changes when
+    // MathJax is used for interactive preview (equation editor).
+    // Setting processSectionDelay to 0 (see below) fully eliminates
+    // fast preview, but to reduce confusion, we are also setting
+    // the option as displayed in the context menu to false.
+    // When upgrading to 2.6, check if this variable name changed.
+    window.MathJax = {
+      menuSettings: {CHTMLpreview: false}
+    };
+</script>
+
+<script type="text/x-mathjax-config;executed=true">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [
+        ["\\(","\\)"],
+        ['[mathjaxinline]','[/mathjaxinline]']
+      ],
+      displayMath: [
+        ["\\[","\\]"],
+        ['[mathjax]','[/mathjax]']
+      ]
+    }
+  });
+</script>
+<script type="text/x-mathjax-config;executed=true">
+
+  // In order to eliminate all flashing during interactive
+  // preview, it is necessary to set processSectionDelay to 0
+  // (remove delay between input and output phases). This
+  // effectively disables fast preview, regardless of
+  // the fast preview setting as shown in the context menu.
+  MathJax.Hub.processSectionDelay = 0;
+
+  MathJax.Hub.signal.Interest(function(message) {
+    if(message[0] === "End Math") {
+        set_mathjax_display_div_settings();
+    }
+  });
+  function set_mathjax_display_div_settings() {
+    $('.MathJax_Display').each(function( index ) {
+      this.setAttribute('tabindex', '0');
+      this.setAttribute('aria-live', 'off');
+      this.removeAttribute('role');
+      this.removeAttribute('aria-readonly');
+    });
+  }
+</script>
+
+<script type="text/javascript">
+    // Activating Mathjax accessibility files
+    window.MathJax = {
+        menuSettings: {
+            collapsible: true,
+            autocollapse: true,
+            explorer: true
+        }
+    };
+</script>
+
+<!-- This must appear after all mathjax-config blocks, so it is after the imports from the other templates.
+     It can't be run through static.url because MathJax uses crazy url introspection to do lazy loading of
+     MathJax extension libraries -->
+<script type="text/javascript" src="./2_files/MathJax.js.descarga"></script>
+
+
+    
+    
+      <script type="text/javascript" src="./2_files/course_search_factory.26a9d7197c46.js.descarga"></script>
+    <script type="text/javascript">
+        (function (require) {
+            require(['course_search/js/course_search_factory'], function (CourseSearchFactory) {
+                
+        var courseId = $('.courseware-results').data('courseId');
+        CourseSearchFactory({
+            courseId: courseId,
+            searchHeader: $('.search-bar')
+        });
+    
+            });
+        }).call(this, require || RequireJS.require);
+    </script>
+
+
+  
+    
+      <script type="text/javascript" src="./2_files/courseware_factory.1504fc10caef.js.descarga"></script>
+    <script type="text/javascript">
+        (function (require) {
+            require(['js/courseware/courseware_factory'], function (CoursewareFactory) {
+                
+    CoursewareFactory();
+  
+            });
+        }).call(this, require || RequireJS.require);
+    </script>
+
+
+
+  <script type="text/javascript">
+    var $$course_id = "course\u002Dv1:LSI\u002DTEC+IOT101ES+2020_O1";
+  </script>
+
+
+<script src="./2_files/XModuleShim.7d541d71536fa73c719f.edc6eb43de19.js.descarga" type="application/javascript"></script>
+<script src="./2_files/HtmlModule.f49be45da3b421f4ff3a.645dc22ac629.js.descarga" type="application/javascript"></script>
+<script src="./2_files/VerticalStudentView.9b38798e0079e0e4c9dd.a8cf7cd152ff.js.descarga" type="application/javascript"></script>
+<script src="./2_files/VideoModule.445543cbf45955d6980f.6ae797ea7313.js.descarga" type="application/javascript"></script>
+<script src="./2_files/CapaModule.abbac1c40a6b67fec540.22998a2226fc.js.descarga" type="application/javascript"></script>
+<script src="./2_files/SequenceModule.4f88a12d14d3a9e3c7f4.f7ceb63d269b.js.descarga" type="application/javascript"></script>
+
+
+
+  
+
+
+
+  <script type="text/javascript" src="./2_files/noreferrer.aa62a3e70ffa.js.descarga" charset="utf-8"></script>
+  <script type="text/javascript" src="./2_files/navigation.08930e16ab3d.js.descarga" charset="utf-8"></script>
+  <script type="text/javascript" src="./2_files/header.309a1243e175.js.descarga"></script>
+  
+
+
+
+
+<div id="reader-feedback" class="sr" aria-live="polite"></div><div class="tooltip" style="display: none; opacity: 0;"></div></body></html>
