@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Documento sin título</title>
+		<link rel="stylesheet" type="text/css" href="../../../0 - styles/mystyles.css">
+		<script language="JavaScript" src="../../../0 - scripts/myscripts.js"></script>
+	</head>
+
+	<body>
+		<div class="Normal" style="text-align:justify">
+			<a id="Practicas con ThingSpeak IoT"></a>
+			<b>13.7.4 Prácticas con ThingSpeak IoT</b>
+			<br><br>
+			ThingSpeak es una plataforma  que permite la recolección y almacenamiento en la nube de datos de sensores para la creación de aplicaciones para Internet de las cosas (IoT).
+			<br><br>
+			<img src="../../img/13.7.4 Thingspeak_1.png" alt="" width="568" height="377">
+			<br><br>
+			Para enviar y recibir información con ThingSpeak, necesitaremos registrar una cuenta gratuita con los siguientes pasos:
+			<br><br>
+			Entrar en <a href="http://thingspeak.com" target="_blank">http://thingspeak.com</a> y hacer clic en "Get Started For Free".
+			<br><br>
+			<img src="../../img/13.7.4 Thingspeak_2.png" alt="" width="1000" height="450">
+			<br><br>
+			Si ya dispone de una cuenta, iniciar sesión. Si es la primera vez que utiliza ThingSpeak, hacer click en "Create one!"
+			<br><br>
+			<img src="../../img/13.7.4 Thingspeak_3.png" alt="" width="1000" height="571">
+			<br><br>
+			Diligenciar los campos de registro:
+			<br><br>
+			<img src="../../img/13.7.4 Thingspeak_4.png" alt="" width="1000" height="622">
+			<br><br>
+			Es necesario crear un canal en ThingSpeak para poder enviar y leer información.
+			<br><br>
+ 			Hacer clic en "New Channel".
+			<br><br>
+			<img src="../../img/13.7.4 Thingspeak_5.png" alt="" width="789" height="182">
+			<br><br>
+			Diligenciar los datos para asignar un nombre al canal y sus campos (cada canal puede tener hasta ocho campos).
+			<br><br>
+			Hacer click en "Save Channel".
+			<br><br>
+			<img src="../../img/13.7.4 Thingspeak_6.png" alt="" width="1000" height="1154">
+			<br><br>
+			Dirigirse a la pestaña "Sharing" y seleccionar la opción "Share chanel with everyone".
+			<br><br>
+			<img src="../../img/13.7.4 Thingspeak_7.png" alt="" width="1186" height="601">
+			<br><br>
+			Dirigirse a la pestaña "API Keys" para obtrener los datos de acceso al canal.
+			<br><br>
+			Estos datos son necesarios para programar el código en Arduino y para desarrollar la aplicación en App Inventor 2.
+			<br><br>
+			Channel ID (ID del canal): Lugar del espacio azul
+			<br>
+			Write API Key (Clave de escritura): Lugar del espacio verde
+			<br>
+			Read API Key (Clave de lectura): Lugar del espacio rojo
+			<br><br>
+		  <img src="../../img/13.7.4 Thingspeak_8.png" alt="" width="1000" height="698">
+			<br><br><br>
+			<b><i>Instalación de la librería ThingSpeak en Arduino</i></b>
+			<br><br>
+			Iniciar Arduino, abrir el menú <b><i>Herramientas--&gt;Administrar Bibliotecas</i></b>.
+			<br><br>
+		  <img src="../../img/13.7.4 Thingspeak_9.png" alt="" width="799" height="593">
+			<br><br>
+			Espere hasta que se actualice la información y luego busque en la lista la librería ThingSpeak.
+			<br><br>
+			Haga click en el botón <b><i>Instalar</i></b>.
+			<br><br>
+		  <img src="../../img/13.7.4 Thingspeak_10.png" alt="" width="786" height="443">
+			<br><br><br>
+			<a id="Comandar salida digital"></a>
+			<b><i>13.7.4.1 Comandar salida digital</i></b>
+			<br><br>
+		  <img src="../../img/13.7.4 Thingspeak_11.png" alt="" width="auto" height="auto">
+			<br><br>
+		  <img src="../../img/13.7.4 Thingspeak_12.png" alt="" width="960" height="555">
+			<br><br>
+			Modifique la variable <b><i>ssid (Nombre de la red WiFi) y password (Contraseña de la red)</i></b>
+			<br><br>
+			Modifique la variable channel por el ID de canal (espacio azul) obtenido en ThingSpeak.
+			<br><br>
+		  <img src="../../img/13.7.4 Thingspeak_13.png" alt="" width="405" height="1040">
+			<br><br>
+			Cargue el programa en la placa (verifique que haya seleccionado el puerto correspondiente)
+			<br><br>
+			Espere a que el programa indique que el sketch ha sido subido a la placa.
+			<br><br>
+			<b><i>Programa App Inventor 2</i></b>
+			<br><br>
+		  <img src="../../img/13.7.4 Thingspeak_14.png" alt="" width="359" height="604">
+			<br><br>
+		  <img src="../../img/13.7.4 Thingspeak_15.png" alt="" width="auto" height="auto">
+			<br><br>
+			Utilizar la clave "Write API Key para para inicializar la variable ClaveEscritura (espacio verde).
+			<br><br>
+		  <img src="../../img/13.7.4 Thingspeak_16.png" alt="" width="772" height="1157">
+			<br><br><br>
+			<a id="Leer sensor"></a>
+			<b><i>13.7.4.2 Leer sensor</i></b>
+			<br><br>
+	  	  <img src="../../img/13.7.4 Thingspeak_17.png" alt="" width="1000" height="326">
+			<br><br>
+		  <img src="../../img/13.7.4 Thingspeak_18.png" alt="" width="960" height="555">
+			<br><br>
+			Modifique la variable <b><i>ssid (Nombre de la red WiFi) y password (Contraseña de la red)</i></b>
+			<br><br>
+			Modifique la variable channel por el ID de canal (espacio azul) obtenido en ThingSpeak.
+			<br><br>
+		  <img src="../../img/13.7.4 Thingspeak_19.png" alt="" width="644" height="515">
+			<br><br>
+			Cargue el programa en la placa (verifique que haya seleccionado el puerto correspondiente)
+			<br><br>
+			Espere a que el programa indique que el sketch ha sido subido a la placa.
+			<br><br>
+			<b><i>Programa App Inventor 2</i></b>
+			<br><br>
+		  <img src="../../img/13.7.4 Thingspeak_20.png" alt="" width="auto" height="auto">
+			<br><br>
+		  <img src="../../img/13.7.4 Thingspeak_21.png" alt="" width="881" height="808">
+			<br><br>
+		  <img src="../../img/13.7.4 Thingspeak_22.png" alt="" width="653" height="682">
+		</div>
+	</body>
+</html>
