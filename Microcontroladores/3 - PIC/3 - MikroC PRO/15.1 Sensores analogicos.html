@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Documento sin título</title>
+		<link rel="stylesheet" type="text/css" href="../../../0 - styles/mystyles.css">
+		<script language="JavaScript" src="../../../0 - scripts/myscripts.js"></script>
+		<script>
+			setInterval(function() {
+				var x = document.getElementsByTagName("iframe");
+				for (var i = 0; i < x.length; i++) {
+					var ifrm = document.getElementById(x[i].id);
+					var doc = ifrm.contentDocument? ifrm.contentDocument:ifrm.contentWindow.document;
+					ifrm.style.height = getDocHeight( doc ) + "px";
+				}
+			},1000);
+		</script>
+	</head>
+
+	<body>
+		<div class="Normal" style="text-align:justify">
+			<a id="Sensores analogicos"></a>
+			<b>15.1 Sensores analógicos</b>
+			<br><br>
+			<a id="Sensor de distancia inductivo"></a>
+			<b><i>15.1.1 Sensor de distancia inductivo: 0.0mm a 20.0mm</i></b>
+			<br><br>
+			<video controls controlslist="nodownload" preload="preload" loop>
+				<source src="../video/15.1.1%20Sensor%20de%20distancia%20inductivo.webm" type="video/webm">
+			</video>
+			<br><br>
+			<img src="img/15.1.1%20Sensor%20de%20distancia%20inductivo.png" alt="" width="auto" height="auto">
+			<br><br><br>
+			<a id="Sensor de distancia ultrasonico"></a>
+			<b><i>15.1.2 Sensor de distancia ultrasónico: 5.0cm a 27.0cm</i></b>
+			<br><br>
+			<video controls controlslist="nodownload" preload="preload" loop>
+				<source src="../video/15.1.2%20Sensor%20de%20distancia%20ultrasonico.webm" type="video/webm">
+			</video>
+			<br><br>
+			<img src="img/15.1.2%20Sensor%20de%20distancia%20ultras%C3%B3nico.png" alt="" width="auto" height="auto">
+			<br><br><br>
+			<a id="Sensor de temperatura LM35"></a>
+			<b><i>15.1.3 Sensor de temperatura LM35: 0°C a 150°C</i></b>
+			<br><br>
+			<iframe class="pag" id="ifrm1" name="ifrm1" src="../../html/15.1.3 Sensor de temperatura LM35.html"></iframe>
+			<br><br>
+			<video controls controlslist="nodownload" preload="preload" loop>
+				<source src="../video/15.1.3%20Sensor%20de%20temperatura%20LM35.webm" type="video/webm">
+			</video>
+			<br><br>
+			<img src="img/15.1.3%20Sensor%20de%20temperatura%20LM35.png" alt="" width="auto" height="auto">
+			<br><br><br>
+			<a id="Sensor de temperatura Termocupla tipo J"></a>
+			<b><i>15.1.4 Sensor de temperatura Termocupla tipo J</i></b>
+			<br><br>
+			<iframe class="pag" id="ifrm2" name="ifrm2" src="../../html/15.1.4 Sensor de temperatura Termocupla tipo J.html"></iframe>
+			<br><br>
+			<video controls controlslist="nodownload" preload="preload" loop>
+				<source src="../video/15.1.4%20Sensor%20de%20temperatura%20Termocupla%20tipo%20J.webm" type="video/webm">
+			</video>
+			<br><br>
+			<img src="img/15.1.4%20Sensor%20de%20temperatura%20Termocupla%20tipo%20J.png" alt="" width="auto" height="auto">
+			<br><br><br>
+			<a id="Sensor de temperatura Termocupla tipo K"></a>
+			<b><i>15.1.5 Sensor de temperatura Termocupla tipo K</i></b>
+			<br><br>
+			<iframe class="pag" id="ifrm3" name="ifrm3" src="../../html/15.1.5 Sensor de temperatura Termocupla tipo K.html"></iframe>
+			<br><br>
+			<video controls controlslist="nodownload" preload="preload" loop>
+				<source src="../video/15.1.5%20Sensor%20de%20temperatura%20Termocupla%20tipo%20K.webm" type="video/webm">
+			</video>
+			<br><br>
+			<img src="img/15.1.5%20Sensor%20de%20temperatura%20Termocupla%20tipo%20K.png" alt="" width="auto" height="auto">
+			<br><br><br>
+			<a id="Sensor de temperatura RTD PT-100"></a>
+			<b><i>15.1.6 Sensor de temperatura RTD PT-100</i></b>
+			<br><br>
+			<iframe class="pag" id="ifrm4" name="ifrm4" src="../../html/15.1.6 Sensor de temperatura RTD PT-100.html"></iframe>
+			<br><br>
+			<video controls controlslist="nodownload" preload="preload" loop>
+				<source src="../video/15.1.6%20Sensor%20de%20temperatura%20RTD%20PT-100.webm" type="video/webm">
+			</video>
+			<br><br>
+			<img src="img/15.1.6%20Sensor%20de%20temperatura%20RTD%20PT-100.png" alt="" width="auto" height="auto">
+			<br><br><br>
+			<a id="Sensor de temperatura RTD PT-1000"></a>
+			<b><i>15.1.7 Sensor de temperatura RTD PT-1000</i></b>
+			<br><br>
+			<iframe class="pag" id="ifrm5" name="ifrm5" src="../../html/15.1.7 Sensor de temperatura RTD PT-1000.html"></iframe>
+			<br><br>
+			<video controls controlslist="nodownload" preload="preload" loop>
+				<source src="../video/15.1.7%20Sensor%20de%20temperatura%20RTD%20PT-1000.webm" type="video/webm">
+			</video>
+			<br><br>
+			<img src="img/15.1.7%20Sensor%20de%20temperatura%20RTD%20PT-1000.png" alt="" width="auto" height="auto">
+			<br><br><br>
+			<a id="Sensor de humedad relativa"></a>
+			<b><i>15.1.8 Sensor de humedad relativa: 0% - 100%</i></b>
+			<br><br>
+			<video controls controlslist="nodownload" preload="preload" loop>
+				<source src="../video/15.1.8%20Sensor%20de%20humedad%20relativa.webm" type="video/webm">
+			</video>
+			<br><br>
+			<img src="img/15.1.8%20Sensor%20de%20humedad%20relativa.png" alt="" width="auto" height="auto">
+		</div>
+	</body>
+</html>
