@@ -16,13 +16,13 @@ div.Normal {
 	font-size: 12pt;
 	font-weight: normal;
 	font-family: Arial, sans-serif;
-	width:1000px;
+	width: 1000px;
 }
 
 iframe.pag {
-	border:0px;
-	width:100%;
-	height:100%;
+	border: none;
+	width: 101%;
+	height: 100%;
 }
 
 img {
@@ -35,7 +35,7 @@ img:active {
 }
 
 input.ButtonMain {
-	cursor:pointer;
+	cursor: pointer;
 	border: rgb(255,255,255) 1px solid;
 	background-color: rgb(255,255,255);
 	color: rgb(0,0,0);
@@ -44,7 +44,7 @@ input.ButtonMain {
 	font-size: 12pt
 }
 input.ButtonSub {
-	cursor:pointer;
+	cursor: pointer;
 	border: rgb(255,255,255) 1px solid;
 	background-color: rgb(255,255,255);
 	color: rgb(0,64,255);
@@ -154,5 +154,5 @@ table.MsoNormalTable {
 }
 .fraction span.fdn {border-top: thin solid black;}
 .fraction span.bar {display: none;}
-.yui3-dial-value-string {visibility: hidden};
-.yui3-dial-north-mark {visibility: hidden};
+.yui3-dial-value-string {visibility: hidden;}
+.yui3-dial-north-mark {visibility: hidden;}
