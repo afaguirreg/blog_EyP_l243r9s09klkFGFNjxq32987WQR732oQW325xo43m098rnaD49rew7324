@@ -5,6 +5,8 @@
 		<title>Documento sin título</title>
 		<link rel="stylesheet" type="text/css" href="../0 - styles/mystyles.css">
 		<script language="JavaScript" src="../0 - scripts/myscripts.js"></script>
+		<script language="JavaScript" src="../0 - scripts/zoom/jquery-1.8.3.min.js"></script>	
+		<script language="JavaScript" src="../0 - scripts/zoom/jquery.elevatezoom.js"></script>
 	</head>
 
 	<body>
@@ -18,10 +20,18 @@
 			1 - Insertamos los componentes requeridos para elaborar el circuito de la fuente:
 			<br><br>
 			<div align="center"><img src="img/1.2_1.png" alt="" width="auto" height="auto"></div>
+			
 			<br><br>
 			2 - Realizamos las conexiones entre los componentes:
 			<br><br>
-			<div align="center"><img src="video/Fuente variable.png" alt="" width="1000" height="auto"></div>
+			<div align="center"><img id="img_zoom" src="video/Fuente variable.png" alt="" width="1000" height="auto"></div>
+			<script>
+				$('#img_zoom').elevateZoom({
+					zoomType : "lens",
+					lensShape : "round",
+					lensSize : 200
+				});
+			</script>
 			<br><br>
 			3 - Configuramos los componentes.
 			<br><br>
