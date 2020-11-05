@@ -17,39 +17,39 @@
 			<br><br>
 			Esquemático fuente DC variable, +12V, +5V. -12V y -5V
 			<br><br>
-			1 - Insertamos los componentes requeridos para elaborar el circuito de la fuente:
+			1 - Insertar los componentes requeridos para elaborar el circuito de la fuente:
 			<br><br>
 			<div align="center"><img src="img/1.2_1.png" alt="" width="auto" height="auto"></div>
-			
+		  <br><br>
+			2 - Realizar las conexiones entre los componentes:
 			<br><br>
-			2 - Realizamos las conexiones entre los componentes:
-			<br><br>
-			<div align="center"><img id="img_zoom" src="video/Fuente variable.png" alt="" width="1000" height="auto"></div>
+			<div align="center"><img id="img_zoom" src="img/1.2_2.png" alt="" width="1000" height="auto"></div>
 			<script>
 				$('#img_zoom').elevateZoom({
+					zoomLevel: 0,
 					zoomType : "lens",
 					lensShape : "round",
 					lensSize : 200
 				});
 			</script>
 			<br><br>
-			3 - Configuramos los componentes.
+			3 - Configurar los componentes.
 			<br><br>
 			Configuración de la fuente de voltaje AC
 			<br><br>
-			<div align="center"><img src="img/1.2_2.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/1.2_3.png" alt="" width="auto" height="auto"></div>
 			<br><br>
 			Configuración del transformador (se debe excluir de la PCB)
 			<br><br>
-			<div align="center"><img src="img/1.2_3.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/1.2_4.png" alt="" width="auto" height="auto"></div>
 			<br><br>
 			Configuración de los bornes (se deben excluir de la PCB)
 			<br><br>
-			<div align="center"><img src="img/1.2_4.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/1.2_5.png" alt="" width="auto" height="auto"></div>
 			<br><br>
 			Los filtros son capacitores de diferente valor, por lo tanto debemos configurarlos antes de generar el circuito impreso. C1 y C5 son un capacitores de 2200uF, por lo tanto su encapsulado ELEC-RAD30 es más grande.
 			<br><br>
-			<div align="center"><img src="img/1.2_5.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/1.2_6.png" alt="" width="auto" height="auto"></div>
 			<br><br>
 			Debemos asignar un encapsulado a los diodos LED, siguiendo el procedimiento mostrado a continuación:
 			<br><br>
@@ -59,17 +59,17 @@
 				</video>
 			</div>
 			<br><br>
-			Una vez finalizado el esquemático podemos pasar al diseño de la PCB con la herramienta ARES.
+			Una vez finalizado el esquemático podemos pasar al diseño de la PCB.
 			<br><br>
-			<div align="center"><img src="img/1.2_6.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/1.2_7.png" alt="" width="455" height="284"></div>
 			<br><br>
 			4 - Agregamos un polígono de la Toolbox “2D Graphics Box Mode”
 			<br><br>
-			<div align="center"><img src="img/1.2_7.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/1.2_8.png" alt="" width="auto" height="auto"></div>
 			<br><br>
 			Este polígono corresponderá al área de nuestro circuito, por lo tanto, debemos asociarlo con la capa “Board Edge” haciendo Click derecho sobre el polígono y modificando la opción en el menú “Change Layer”.
 			<br><br>
-			<div align="center"><img src="img/1.2_8.jpg" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/1.2_9.jpg" alt="" width="auto" height="auto"></div>
 			<br><br>
 			Muchas de las medidas que se utilizan en este programa están dadas en milésimas de pulgada.
 			<br><br>
@@ -117,15 +117,15 @@
 			6 - Una vez definido el borde de la placa, éste debe quedar como un marco de color amarillo.
 			Ahora vamos a ubicar los componentes requeridos para el circuito. Este es un proceso semi-automático que se ejecuta con la opción ”Auto-placer” del menú “Tools”.
 			<br><br>
-			<div align="center"><img src="img/1.2_9.jpg" alt="" height="auto" width="1000"></div>
+			<div align="center"><img src="img/1.2_10.jpg" alt="" height="auto" width="1000"></div>
 			<br><br>
-			Nos aseguramos de que todos los componentes estén marcados y hacemos Click en OK.
+			Asegurarse de que todos los componentes estén marcados y hacer Click en OK.
 			<br><br>
-			<div align="center"><img src="img/1.2_10.jpg" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/1.2_11.jpg" alt="" width="609" height="438"></div>
 			<br><br>
-			7 - Realizamos la redistribución de los componentes de manera manual y guiándonos por las líneas de conexión proporcionadas por el software, las cuales vienen definidas desde la creación del esquemático.
+			7 - Realizar la redistribución de los componentes de manera manual y guiándose por las líneas de conexión proporcionadas por el software, las cuales vienen definidas desde la creación del esquemático.
 			<br><br>
-			<div align="center"><img src="img/1.2_11.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/1.2_12.png" alt="" width="auto" height="auto"></div>
 			<br><br>
 			8 - Cuando los componentes hayan sido ubicados en su posición, verificamos si es necesario redimensionar el tamaño de la placa, de manera que todos los componentes cuenten con el espacio requerido dentro del perímetro del polígono amarillo.
 			<br><br>
@@ -140,18 +140,18 @@
 			<br><br>
 			Ahora podemos generar la capa “Power Plane” que servirá como blindaje de nuestro circuito.
 			<br><br>
-			<div align="center"><img src="img/1.2_12.jpg" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/1.2_13.jpg" alt="" width="auto" height="auto"></div>
 			<br><br>
 			Opciones recomendadas para crear la capa “Power Plane”
-			<div align="center"><img src="img/1.2_13.jpg" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/1.2_14.jpg" alt="" width="auto" height="auto"></div>
 			<br><br>
 			9)Buscamos el borde de la capa “Power Plane” (bloque azul), hacemos doble Click para modificar sus parámetros.
 			<br><br>
-			<div align="center"><img src="img/1.2_14.jpg" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/1.2_15.jpg" alt="" width="auto" height="auto"></div>
 			<br><br>
 			Parámetros recomendados para la capa “Power Plane”. En esta ventana puede también cambiar el color de su placa de circuito impreso.
 			<br><br>
-			<div align="center"><img src="img/1.2_15.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/1.2_16.png" alt="" width="auto" height="auto"></div>
 			<br><br>
 			10 - Ahora podemos generar la capa que contendrá las pistas de cobre que interconectarán nuestros componentes. Esto lo haremos mediante la opción “Auto-router” del menú Tools.
 			<br><br>
@@ -161,11 +161,11 @@
 				</video>
 			</div>
 			<br><br>
-			<div align="center"><img src="img/1.2_16.jpg" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/1.2_17.jpg" alt="" width="auto" height="auto"></div>
 			<br><br>
 			11 - Es posible que el software no haya podido generar una capa de pistas en la que todas ellas hayan quedado en la parte inferior de la placa (pistas de color rojo). Aquellas pistas que no tengan ningún obstáculo podrán ser transferidas a la capa “Bottom Copper” mediante la función “Change Layer”
 			<br><br>
-			<div align="center"><img src="img/1.2_17.jpg" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/1.2_18.jpg" alt="" width="auto" height="auto"></div>
 			<br><br>
 			12 - Un aspecto fundamental en el diseño de circuitos impresos es la dimensión de las pistas de cobre. En términos generales, una pista nunca será demasiado ancha para la función que habrá de cumplir en el circuito si puede conducir la cantidad de corriente necesaria para cumplir su función.
 			<br><br>
@@ -175,37 +175,37 @@
 			<br><br>
 			Esta utilidad calcula el ancho de una pista en el diseño de circuitos impresos de acuerdo a la curva de la norma IPC-2221 (Formalmente llamada IPC-D-275) tomando como base el valor de la corriente que va a circular por ella, así como el espesor del cobre utilizado.
 			<br><br>
-			<div align="center"><img src="img/1.2_18.jpg" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/1.2_19.jpg" alt="" width="auto" height="auto"></div>
 			<br><br>
 			Ejemplo: cálculo del ancho de una pista para conducir una corriente hasta de 1 Amperio.
 			<br><br>
-			<div align="center"><img src="img/1.2_19.jpg" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/1.2_20.jpg" alt="" width="auto" height="auto"></div>
 			El resultado arrojado por la calculadora es el siguiente:
 			<br><br>
-			<div align="center"><img src="img/1.2_20.png" alt="" width="auto" height="auto"></div>
-			<br><br>
 			<div align="center"><img src="img/1.2_21.png" alt="" width="auto" height="auto"></div>
+			<br><br>
+			<div align="center"><img src="img/1.2_22.png" alt="" width="auto" height="auto"></div>
 			Para modificar el ancho de una pista hacemos Click derecho sobre la misma y la modificamos con la opción “Change Trace Style”.
 			<br><br>
-			<div align="center"><img src="img/1.2_22.jpg" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/1.2_23.jpg" alt="" width="auto" height="auto"></div>
 			<br><br>
 			13 - Si quedan pistas por conectar, el programa lo notificará mostrando las líneas correspondientes a las conexiones faltantes y en la parte inferior llevará el conteo.
 			En la imagen – 2 conexiones faltantes (2 missing).
 			<br><br>
-			<div align="center"><img src="img/1.2_23.jpg" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/1.2_24.jpg" alt="" width="auto" height="auto"></div>
 			<br><br>
 			14 - Cuando no haya conexiones faltantes aparecerá una indicación en la parte inferior de la ventana (No CRC Errors)
-			<div align="center"><img src="img/1.2_24.jpg" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/1.2_25.jpg" alt="" width="auto" height="auto"></div>
 			<br><br>
 			Configuramos las dimensiones de los PAD para que los pines de los componentes a ensamblar en la tarjeta encajen con exactitud en las perforaciones y para tener un área de soldadura que permita una adherencia firme.
 			<br><br>
 			<br><br>
 			Para cambiar las dimensiones de un PAD: Hacer Click derecho sobre el PAD y seleccionar la opción “Edit Properties”
 			<br><br>
-			<div align="center"><img src="img/1.2_25.jpg" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/1.2_26.jpg" alt="" width="auto" height="auto"></div>
 			La opción “Style” nos permite seleccionar entre diferentes formas y dimensiones de PAD.
 			<br><br>
-			<div align="center"><img src="img/1.2_26.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/1.2_27.png" alt="" width="auto" height="auto"></div>
 			<br><br>
 			Los parámetros del PAD son su forma, dimensiones externas y dimensiones internas (diámetro de perforación).
 			<br><br>
@@ -213,11 +213,11 @@
 			<br><br>
 			Un PAD tipo C-80-40 es un PAD circular (Circle) con 80 th (milésimas de pulgada) de diámetro y 30 th de diámetro de perforación.
 			<br><br>
-			<div align="center"><img src="img/1.2_27.jpg" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/1.2_28.jpg" alt="" width="auto" height="auto"></div>
 			<br><br>
 			Dimensiones recomendadas para los PAD  de diferentes encapsulados.
 			<br><br>
-			<div align="center"><img src="img/1.2_28.jpg" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/1.2_29.jpg" alt="" width="auto" height="auto"></div>
 			<br><br>
 			15 - Finalmente, agregamos Pad’s de tamaño C250-M4 que servirán para la sujeción de la placa a la carcasa que la contendrá.
 			<br><br>
@@ -227,19 +227,19 @@
 				</video>
 			</div>
 			<br><br>
-			<div align="center"><img src="img/1.2_29.jpg" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/1.2_30.jpg" alt="" width="auto" height="auto"></div>
 			<br><br>
 			16 - En el menú tenemos la opción “3D visualizer” para conocer el aspecto que tendrá nuestra PCB una vez ensamblada.
 			<br><br>
-			<div align="center"><img src="img/1.2_30.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/1.2_31.png" alt="" width="auto" height="auto"></div>
 			<br><br>
 			Aspecto de la placa vista desde la parte superior (capa de componentes)
 			<br><br>
-			<div align="center"><img src="img/1.2_31.jpg" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/1.2_32.jpg" alt="" width="auto" height="auto"></div>
 			<br><br>
 			Aspecto de la placa vista desde la parte inferior (capa de pistas de cobre)
 			<br><br>
-			<div align="center"><img src="img/1.2_32.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/1.2_33.png" alt="" width="auto" height="auto"></div>
 		</div>
 	</body>
 </html>
