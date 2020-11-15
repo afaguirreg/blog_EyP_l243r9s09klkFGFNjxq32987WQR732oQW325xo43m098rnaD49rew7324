@@ -39,6 +39,10 @@ window.onload = function() {
 	element.scrollIntoView();
 }
 
+function resizeIframe(obj) {
+  obj.style.height = (obj.contentWindow.document.body.scrollHeight) + 'px';
+}
+
 function getDocHeight(doc) {
 	doc = doc || document;
 	// stackoverflow.com/questions/1145850/
