@@ -5,7 +5,8 @@
 		<title>Documento sin título</title>
 		<link rel="stylesheet" type="text/css" href="../../../0 - styles/mystyles.css">
 		<script language="JavaScript" src="../../../0 - scripts/myscripts.js"></script>
-		<script type="text/javascript" src="../../../0 - scripts/FrameManager.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../0 - scripts/iframeResizer.min.js"></script>
 	</head>
 
 	<body onBlur="myFunction()">
@@ -20,7 +21,7 @@
 				<source src="../video/1.1%20Salida%20digital%20pin.webm" type="video/webm">
 			</video>
 			<br><br>
-			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" src="src/1.1.html" onload="FrameManager.registerFrame(this)"></iframe>
+			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" src="src/1.1.html"></iframe>
 			<br><br><br>
 			<a id="Salida digital puerto"></a>
 			<b><i>1.2 Salida digital puerto</i></b>
@@ -48,6 +49,53 @@
 			</video>
 			<br><br>
 			<iframe class="pag" id="ifrm4" name="ifrm4" scrolling="no" frameborder="0" src="src/1.4.html"></iframe>
+			<script type="text/javascript">
+      /*
+       * If you do not understand what the code below does, then please just use the
+       * following call in your own code.
+       *
+       *   iFrameResize({log:true});
+       *
+       * Once you have it working, set the log option to false.
+       */
+
+      iFrameResize({
+        log: true, // Enable console logging
+        inPageLinks: true,
+        onResized: function(messageData) {
+          // Callback fn when resize is received
+          $('p#callback').html(
+            '<b>Frame ID:</b> ' +
+              messageData.iframe.id +
+              ' <b>Height:</b> ' +
+              messageData.height +
+              ' <b>Width:</b> ' +
+              messageData.width +
+              ' <b>Event type:</b> ' +
+              messageData.type
+          )
+        },
+        onMessage: function(messageData) {
+          // Callback fn when message is received
+          $('p#callback').html(
+            '<b>Frame ID:</b> ' +
+              messageData.iframe.id +
+              ' <b>Message:</b> ' +
+              messageData.message
+          )
+          alert(messageData.message)
+          document
+            .getElementsByTagName('iframe')[0]
+            .iFrameResizer.sendMessage('Hello back from parent page')
+        },
+        onClosed: function(id) {
+          // Callback fn when iFrame is closed
+          $('p#callback').html(
+            '<b>IFrame (</b>' + id + '<b>) removed from page.</b>'
+          )
+        }
+      })
+    </script>
 		</div>
 	</body>
 </html>
