@@ -17,11 +17,9 @@ function publishHeight() {
         hostUrl += '&';
         hostUrl += 'height=' + actualHeight.toString();
 
-	top.location = hostUrl;
-	document.documentElement.style.display = 'block'; 
-	if(self != top) {
-       	   
-   	}
+	window.top.location = hostUrl;
+	document.documentElement.style.display = 'block';
+
     }
 }
 
