@@ -17,8 +17,7 @@ function publishHeight() {
         hostUrl += '&';
         hostUrl += 'height=' + actualHeight.toString();
 
-        
-	window.top.location = hostUrl;
+	top.location = hostUrl;
 	document.documentElement.style.display = 'block'; 
 	if(self != top) {
        	   
