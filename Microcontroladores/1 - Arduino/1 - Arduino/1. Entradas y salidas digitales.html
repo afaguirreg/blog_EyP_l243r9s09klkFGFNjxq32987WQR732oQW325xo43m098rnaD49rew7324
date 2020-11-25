@@ -5,16 +5,7 @@
 		<title>Documento sin título</title>
 		<link rel="stylesheet" type="text/css" href="../../../0 - styles/mystyles.css">
 		<script language="JavaScript" src="../../../0 - scripts/myscripts.js"></script>
-		<script>
-			setInterval(function() {
-				var x = document.getElementsByTagName("iframe");
-				for (var i = 0; i < x.length; i++) {
-					var ifrm = document.getElementById(x[i].id);
-					var doc = ifrm.contentDocument? ifrm.contentDocument:ifrm.contentWindow.document;
-					ifrm.style.height = getDocHeight( doc ) + "px";
-				}
-			},1000);
-		</script>
+		<script type="text/javascript" src="../../../0 - scripts/FrameManager.js"></script>
 	</head>
 
 	<body onBlur="myFunction()">
@@ -29,7 +20,7 @@
 				<source src="../video/1.1%20Salida%20digital%20pin.webm" type="video/webm">
 			</video>
 			<br><br>
-			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" frameborder="0" src="src/1.1.html"></iframe>
+			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" src="src/1.1.html" onload="FrameManager.registerFrame(this)"></iframe>
 			<br><br><br>
 			<a id="Salida digital puerto"></a>
 			<b><i>1.2 Salida digital puerto</i></b>

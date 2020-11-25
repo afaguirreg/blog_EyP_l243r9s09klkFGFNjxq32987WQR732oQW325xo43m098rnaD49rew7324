@@ -9,6 +9,27 @@
 		<script language="JavaScript" src="../../../../0 - scripts/myscripts.js"></script>
 		<link rel="stylesheet" href="../../../0 - styles/style.css">
 		<script src="../../../0 - scripts/jquery-1.10.1.min.js"></script>
+		<script type="text/javascript" src="../../../../0 - scripts/frame.js"></script>
+		<script type="text/javascript">
+			window.onload = function(event) {
+				window.setInterval(publishHeight, 300);
+			}
+			$(function() {
+				var $content = $("#content");
+				function toggleFontSize() {
+					if ($content.css("font-size") == "22px") {
+						$("#content").animate({
+							fontSize: "15px"
+						});
+					} else {
+						$("#content").animate({
+							fontSize: "22px"
+						});
+					}
+				}
+				var int = setInterval(toggleFontSize, 5000);
+			});
+		</script>
 	</head>
 
 	<body>
