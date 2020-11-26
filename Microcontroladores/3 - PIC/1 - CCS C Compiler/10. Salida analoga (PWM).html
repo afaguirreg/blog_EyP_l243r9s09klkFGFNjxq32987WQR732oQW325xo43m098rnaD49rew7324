@@ -6,12 +6,28 @@
 		<link rel="stylesheet" type="text/css" href="../../../0 - styles/mystyles.css">
 		<script language="JavaScript" src="../../../0 - scripts/myscripts.js"></script>
 		<script type="text/javascript" src="../../../0 - scripts/iframe/iframeResizer.min.js"></script>
+		<script>
+			setInterval(function() {
+				var x = document.getElementsByTagName("iframe");
+				for (var i = 0; i < x.length; i++) {
+					var ifrm = document.getElementById(x[i].id);
+					if (ifrm.style.width == "101%")
+						ifrm.style.width = "102%";
+					else
+						ifrm.style.width = "101%";
+				}
+			},1000);
+		</script>
 	</head>
 
 	<body>
 		<div class="Normal" style="text-align:justify">
 			<a id="Salida analoga (PWM)"></a>
-			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" src="../html/10.%20Salida%20analoga%20(PWM).html"></iframe>
+			<b>10. Salida análoga (PWM)</b>
+			<br><br>
+			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" src="../../html/10.%20Salida%20analoga%20(PWM).html"></iframe>
+			<br>
+			<iframe class="pag" id="ifrm2" name="ifrm2" scrolling="no" src="../html/10.%20Salida%20analoga%20(PWM).html"></iframe>
 			<br><br>
 			<a id="PWM Motor 12VDC"></a>
 			<b><i>10.1 PWM Motor 12VDC</i></b>

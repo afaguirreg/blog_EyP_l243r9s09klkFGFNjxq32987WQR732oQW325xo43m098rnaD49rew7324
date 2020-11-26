@@ -6,6 +6,18 @@
 		<link rel="stylesheet" type="text/css" href="../../../0 - styles/mystyles.css">
 		<script language="JavaScript" src="../../../0 - scripts/myscripts.js"></script>
 		<script type="text/javascript" src="../../../0 - scripts/iframe/iframeResizer.min.js"></script>
+		<script>
+			setInterval(function() {
+				var x = document.getElementsByTagName("iframe");
+				for (var i = 0; i < x.length; i++) {
+					var ifrm = document.getElementById(x[i].id);
+					if (ifrm.style.width == "101%")
+						ifrm.style.width = "102%";
+					else
+						ifrm.style.width = "101%";
+				}
+			},1000);
+		</script>
 	</head>
 
 	<body>

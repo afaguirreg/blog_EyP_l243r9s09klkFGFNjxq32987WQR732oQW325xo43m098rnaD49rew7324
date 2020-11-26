@@ -10,22 +10,21 @@
 		<link rel="stylesheet" href="../../../0 - styles/style.css">
 		<script src="../../../0 - scripts/jquery-1.10.1.min.js"></script>
 		<script type="text/javascript" src="../../../../0 - scripts/iframe/iframeResizer.contentWindow.min.js" defer></script>
+		<script>
+		
+		</script>
 	</head>
 
 	<body>
 		<div id="body">
-			<script>
-				var xhr = new XMLHttpRequest();
-				xhr.open("get", "Salida_digital_pin.ino", true);
-				xhr.onreadystatechange = function(){
-					if(this.readyState != 4)return;
-					document.getElementById("input").innerHTML = this.responseText;
-				}
-				xhr.send(null)
-			</script>
+			<div id="source"></div>
+<div id="show"></div>
+			<input type="file" id="fileInput">
+			<br>
+			<iframe id="data" height="100" type="text/plain"></iframe>
 			<script src="../../../0 - scripts/main.js"></script>
 			<div id="main">
-				<div class="input" style="visibility: hidden;display: none">
+				<div class="input">
 					<textarea id="input" placeholder="Input"></textarea>
 				</div>
 				<div class="submit" style="visibility: hidden;display: none">
@@ -40,6 +39,30 @@
 				<script src="../../../0 - scripts/highlight.pack.js"></script>
 				<link rel="alternate stylesheet" title="Arduino Light" href="../../../0 - styles/arduino-light.css">
 			</div>
+		<script>
+			setInterval(function() {
+				//var fr = new FileReader();
+				//fr.onload = function(event) {
+    			//	alert(event.target.result);
+				//};
+				//inputElement.onchange = function(event) {
+    			//fr.readAsText(event.target.files[0]);
+				//alert(document.getElementById('data').src);
+				//document.getElementById('fileInput').fileName = document.getElementById('data').src;
+				//document.getElementById('fileInput').files[0] = document.getElementById('data').src;
+ 				//document.getElementById('fileInput').change();
+ 				//var x = fr.result;
+				//document.getElementById('input').textContent = fr.result;
+				var ifrm = document.getElementById('data');
+				ifrm.style.width = '400px'; // set width
+				ifrm.src = 'Salida_digital_puerto.ino'; // set src to new url
+				// using reference to iframe (ifrm) obtained above
+				var iframeContent = ifrm.contentWindow.document;
+				//document.getElementById('input').textContent = window.frames['data'].document.getElementsByTagName('body')[0].innerHTML;
+				document.getElementById('input').textContent = $("#data").val;
+
+			},2000);
+		</script>
 			<script src="../../../0 - scripts/syntax-highlight.js"></script>
 			<script>method = highlight;</script>
 		</div>

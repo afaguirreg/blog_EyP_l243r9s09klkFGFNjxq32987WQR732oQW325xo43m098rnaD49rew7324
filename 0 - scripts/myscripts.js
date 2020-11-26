@@ -38,15 +38,3 @@ window.onload = function() {
 	var element = document.getElementById(valor);
 	element.scrollIntoView();
 }
-
-function resizeIframe(obj) {
-  obj.style.height = (obj.contentWindow.document.body.scrollHeight) + 'px';
-}
-
-function getDocHeight(doc) {
-	doc = doc || document;
-	// stackoverflow.com/questions/1145850/
-	var body = doc.body, html = doc.documentElement;
-	var height = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight );
-	return height;
-}
