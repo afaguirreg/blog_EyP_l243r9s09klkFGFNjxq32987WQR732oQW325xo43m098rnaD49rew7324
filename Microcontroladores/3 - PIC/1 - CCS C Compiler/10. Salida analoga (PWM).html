@@ -75,51 +75,32 @@
 			Es recomendable utilizar frecuencias de pwm por lo menos 20 veces mas alta que la frecuencia de corte. De hecho, generalmente empezaremos viendo cual es la frecuencia máxima de pwm que podemos tener en el timer/pwm y de allí propondremos la frecuencia de corte. Al final la velocidad del 	microcontrolador es nuestro limite.
 		</div>
 		<script type="text/javascript">
-      /*
-       * If you do not understand what the code below does, then please just use the
-       * following call in your own code.
-       *
-       *   iFrameResize({log:true});
-       *
-       * Once you have it working, set the log option to false.
-       */
-
-      iFrameResize({
-        log: true, // Enable console logging
-        inPageLinks: true,
-        onResized: function(messageData) {
-          // Callback fn when resize is received
-          $('p#callback').html(
-            '<b>Frame ID:</b> ' +
-              messageData.iframe.id +
-              ' <b>Height:</b> ' +
-              messageData.height +
-              ' <b>Width:</b> ' +
-              messageData.width +
-              ' <b>Event type:</b> ' +
-              messageData.type
-          )
-        },
-        onMessage: function(messageData) {
-          // Callback fn when message is received
-          $('p#callback').html(
-            '<b>Frame ID:</b> ' +
-              messageData.iframe.id +
-              ' <b>Message:</b> ' +
-              messageData.message
-          )
-          alert(messageData.message)
-          document
-            .getElementsByTagName('iframe')[0]
-            .iFrameResizer.sendMessage('Hello back from parent page')
-        },
-        onClosed: function(id) {
-          // Callback fn when iFrame is closed
-          $('p#callback').html(
-            '<b>IFrame (</b>' + id + '<b>) removed from page.</b>'
-          )
-        }
-      })
-    </script>
+			/*
+			* If you do not understand what the code below does, then please just use the
+			* following call in your own code.
+			*
+			*iFrameResize({log:true});
+			*
+			* Once you have it working, set the log option to false.
+			*/
+			iFrameResize({
+				log: true, // Enable console logging
+				inPageLinks: true,
+				onResized: function(messageData) {
+					// Callback fn when resize is received
+					$('p#callback').html('<b>Frame ID:</b> ' + messageData.iframe.id + ' <b>Height:</b> ' + messageData.height + ' <b>Width:</b> ' + messageData.width + ' <b>Event type:</b> ' + messageData.type)
+				},
+				onMessage: function(messageData) {
+					// Callback fn when message is received
+					$('p#callback').html('<b>Frame ID:</b> ' + messageData.iframe.id + ' <b>Message:</b> ' + messageData.message)
+					alert(messageData.message)
+					document.getElementsByTagName('iframe')[0].iFrameResizer.sendMessage('Hello back from parent page')
+				},
+				onClosed: function(id) {
+					// Callback fn when iFrame is closed
+					$('p#callback').html('<b>IFrame (</b>' + id + '<b>) removed from page.</b>')
+				}
+			})
+		</script>
 	</body>
 </html>
