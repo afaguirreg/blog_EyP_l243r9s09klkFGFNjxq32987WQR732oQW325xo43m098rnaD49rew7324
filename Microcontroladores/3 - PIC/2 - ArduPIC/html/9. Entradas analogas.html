@@ -23,6 +23,18 @@
 			Imaginemos ahora un dispositivo analógico que varía su tensión de salida entre 0V y 1V. Si le aplicamos la conversión A/D con 10 bits de precisión entonces los valores que vamos a obtener son entre 0 y 204 (1*1024/5V) con lo que desperdiciamos una parte muy importante del rango posible de conversión entre 204 y 1023.
 			<br><br>
 			Entonces, la solución está en poner a 1V la patilla VRef+ del dispositivo con lo que la conversión A/D a realizar a la señal presente en el pin a leer se va a efectuar en 1024 pasos entre GND y VRef+, no entre GND y Vcc como antes, con lo que obtenemos un resultado 5 veces más preciso: 1V dividido en 1024 partes con lo que cada número corresponde con 0,0009765V.
+			<br><br>
+			Ahora,imaginemos que nuestro dispositivo analógico varía su tensión de salida entre 1V y 2V. Si utilizamos el primer ejemplo que vimos, conversión A/D entre 0V y5V con 8 bits de precisión, entonces solo obtendremos números entre 51 y 102,perdiendo todos los valores inferiores y superiores a éstos.
+			<br><br>
+			Si utilizamos el ejemplo anterior, pero colocando el VRef+ a 2V entonces tendremos valores entre 512 y 1023 pero ninguno inferior a 512 ya que nuestra señal analógica no baja de 1V...
+			<br><br>
+			Así que la solución está en utilizar otro pin del PIC, en este caso para VRef- para ponerle la referencia de tensión mínima a partir de la cual vamos a convertir valores, que junto con la VRef+ tenemos el margen o rango de tensiones a convertir a gusto.
+			<br><br>
+			En este segundo ejemplo pondríamos VRef- a 1V y VRef+a 2V con lo que tendríamos una conversión de 8 bits en la que el 0 correspondería a los 1V y el 10323 a los 2V.
+			<br><br>
+			Todo esto se puede ver en el siguiente diagrama de bloques del conversor A/D de los PIC's de la familia 16F87X:
+			<br><br>
+			<div align="center"><img src="../img/Microcontroladores%20PIC%20-%20CCS_clip_image001_0000.png" alt="" width="auto" height="auto"></div>
 		</div>
 	</body>
 </html>
