@@ -5,16 +5,7 @@
 		<title>Documento sin título</title>
 		<link rel="stylesheet" type="text/css" href="../../../0 - styles/mystyles.css">
 		<script language="JavaScript" src="../../../0 - scripts/myscripts.js"></script>
-		<script>
-			setInterval(function() {
-				var x = document.getElementsByTagName("iframe");
-				for (var i = 0; i < x.length; i++) {
-					var ifrm = document.getElementById(x[i].id);
-					var doc = ifrm.contentDocument? ifrm.contentDocument:ifrm.contentWindow.document;
-					ifrm.style.height = getDocHeight( doc ) + "px";
-				}
-			},1000);
-		</script>
+		<script type="text/javascript" src="../../../0 - scripts/iframe/iframeResizer.min.js"></script>
 	</head>
 
 	<body>
@@ -22,7 +13,7 @@
 			<a id="Interrupción externa INT"></a>
 			<b>5. Interrupción externa INT</b>
 			<br><br>
-			<iframe class="pag" id="ifrm1" name="ifrm1" src="../html/5.%20Interrupcion%20externa%20INT.html"></iframe>
+			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" src="../html/5.%20Interrupcion%20externa%20INT.html"></iframe>
 		</div>
 	</body>
 </html>

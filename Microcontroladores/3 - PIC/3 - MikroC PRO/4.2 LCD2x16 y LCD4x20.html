@@ -5,16 +5,7 @@
 		<title>Documento sin título</title>
 		<link rel="stylesheet" type="text/css" href="../../../0 - styles/mystyles.css">
 		<script language="JavaScript" src="../../../0 - scripts/myscripts.js"></script>
-		<script>
-			setInterval(function() {
-				var x = document.getElementsByTagName("iframe");
-				for (var i = 0; i < x.length; i++) {
-					var ifrm = document.getElementById(x[i].id);
-					var doc = ifrm.contentDocument? ifrm.contentDocument:ifrm.contentWindow.document;
-					ifrm.style.height = getDocHeight( doc ) + "px";
-				}
-			},1000);
-		</script>
+		<script type="text/javascript" src="../../../0 - scripts/iframe/iframeResizer.min.js"></script>
 	</head>
 
 	<body>
@@ -22,7 +13,7 @@
 			<a id="LCD2x16 y LCD4x20"></a>
 			<b>4.2 LCD2x16 y LCD4x20</b>
 			<br><br>
-			<iframe class="pag" id="ifrm1" name="ifrm1" src="../../html/4.2%20LCD2x16%20y%20LCD4x20.html"></iframe>
+			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" src="../../html/4.2%20LCD2x16%20y%20LCD4x20.html"></iframe>
 			<br><br>
 			<a id="Driver LCD2x16 y LCD4x20"></a>
  			<b><i>4.2.1 Driver LCD2x16 y LCD4x20</i></b>
@@ -42,5 +33,33 @@
 			<br><br>
 			<img src="img/4.2.2%20Contador%200%20a%20100%20LCD2x16.png" alt="" width="auto" height="auto">
 		</div>
+		<script type="text/javascript">
+			/*
+			* If you do not understand what the code below does, then please just use the
+			* following call in your own code.
+			*
+			*iFrameResize({log:true});
+			*
+			* Once you have it working, set the log option to false.
+			*/
+			iFrameResize({
+				log: true, // Enable console logging
+				inPageLinks: true,
+				onResized: function(messageData) {
+					// Callback fn when resize is received
+					$('p#callback').html('<b>Frame ID:</b> ' + messageData.iframe.id + ' <b>Height:</b> ' + messageData.height + ' <b>Width:</b> ' + messageData.width + ' <b>Event type:</b> ' + messageData.type)
+				},
+				onMessage: function(messageData) {
+					// Callback fn when message is received
+					$('p#callback').html('<b>Frame ID:</b> ' + messageData.iframe.id + ' <b>Message:</b> ' + messageData.message)
+					alert(messageData.message)
+					document.getElementsByTagName('iframe')[0].iFrameResizer.sendMessage('Hello back from parent page')
+				},
+				onClosed: function(id) {
+					// Callback fn when iFrame is closed
+					$('p#callback').html('<b>IFrame (</b>' + id + '<b>) removed from page.</b>')
+				}
+			})
+		</script>
 	</body>
 </html>

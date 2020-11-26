@@ -5,16 +5,8 @@
 		<title>Documento sin título</title>
 		<link rel="stylesheet" type="text/css" href="../../../0 - styles/mystyles.css">
 		<script language="JavaScript" src="../../../0 - scripts/myscripts.js"></script>
-		<script>
-			setInterval(function() {
-				var x = document.getElementsByTagName("iframe");
-				for (var i = 0; i < x.length; i++) {
-					var ifrm = document.getElementById(x[i].id);
-					var doc = ifrm.contentDocument? ifrm.contentDocument:ifrm.contentWindow.document;
-					ifrm.style.height = getDocHeight( doc ) + "px";
-				}
-			},1000);
-		</script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../0 - scripts/iframe/iframeResizer.min.js"></script>
 	</head>
 
 	<body>
@@ -43,7 +35,7 @@
 			<a id="Sensor de temperatura LM35"></a>
 			<b><i>15.1.3 Sensor de temperatura LM35: 0°C a 150°C</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm1" name="ifrm1" src="../../html/15.1.3 Sensor de temperatura LM35.html"></iframe>
+			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" src="../../html/15.1.3 Sensor de temperatura LM35.html"></iframe>	
 			<br><br>
 			<video controls controlslist="nodownload" preload="preload" loop>
 				<source src="../video/15.1.3%20Sensor%20de%20temperatura%20LM35.webm" type="video/webm">
@@ -54,7 +46,7 @@
 			<a id="Sensor de temperatura Termocupla tipo J"></a>
 			<b><i>15.1.4 Sensor de temperatura Termocupla tipo J</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm2" name="ifrm2" src="../../html/15.1.4 Sensor de temperatura Termocupla tipo J.html"></iframe>
+			<iframe class="pag" id="ifrm2" name="ifrm2" scrolling="no" src="../../html/15.1.4 Sensor de temperatura Termocupla tipo J.html"></iframe>
 			<br><br>
 			<video controls controlslist="nodownload" preload="preload" loop>
 				<source src="../video/15.1.4%20Sensor%20de%20temperatura%20Termocupla%20tipo%20J.webm" type="video/webm">
@@ -65,7 +57,7 @@
 			<a id="Sensor de temperatura Termocupla tipo K"></a>
 			<b><i>15.1.5 Sensor de temperatura Termocupla tipo K</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm3" name="ifrm3" src="../../html/15.1.5 Sensor de temperatura Termocupla tipo K.html"></iframe>
+			<iframe class="pag" id="ifrm3" name="ifrm3" scrolling="no" src="../../html/15.1.5 Sensor de temperatura Termocupla tipo K.html"></iframe>
 			<br><br>
 			<video controls controlslist="nodownload" preload="preload" loop>
 				<source src="../video/15.1.5%20Sensor%20de%20temperatura%20Termocupla%20tipo%20K.webm" type="video/webm">
@@ -76,7 +68,7 @@
 			<a id="Sensor de temperatura RTD PT-100"></a>
 			<b><i>15.1.6 Sensor de temperatura RTD PT-100</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm4" name="ifrm4" src="../../html/15.1.6 Sensor de temperatura RTD PT-100.html"></iframe>
+			<iframe class="pag" id="ifrm4" name="ifrm4" scrolling="no" src="../../html/15.1.6 Sensor de temperatura RTD PT-100.html"></iframe>
 			<br><br>
 			<video controls controlslist="nodownload" preload="preload" loop>
 				<source src="../video/15.1.6%20Sensor%20de%20temperatura%20RTD%20PT-100.webm" type="video/webm">
@@ -87,7 +79,7 @@
 			<a id="Sensor de temperatura RTD PT-1000"></a>
 			<b><i>15.1.7 Sensor de temperatura RTD PT-1000</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm5" name="ifrm5" src="../../html/15.1.7 Sensor de temperatura RTD PT-1000.html"></iframe>
+			<iframe class="pag" id="ifrm5" name="ifrm5" scrolling="no" src="../../html/15.1.7 Sensor de temperatura RTD PT-1000.html"></iframe>
 			<br><br>
 			<video controls controlslist="nodownload" preload="preload" loop>
 				<source src="../video/15.1.7%20Sensor%20de%20temperatura%20RTD%20PT-1000.webm" type="video/webm">
@@ -103,6 +95,53 @@
 			</video>
 			<br><br>
 			<img src="img/15.1.8%20Sensor%20de%20humedad%20relativa.png" alt="" width="auto" height="auto">
+			<script type="text/javascript">
+      /*
+       * If you do not understand what the code below does, then please just use the
+       * following call in your own code.
+       *
+       *   iFrameResize({log:true});
+       *
+       * Once you have it working, set the log option to false.
+       */
+
+      iFrameResize({
+        log: true, // Enable console logging
+        inPageLinks: true,
+        onResized: function(messageData) {
+          // Callback fn when resize is received
+          $('p#callback').html(
+            '<b>Frame ID:</b> ' +
+              messageData.iframe.id +
+              ' <b>Height:</b> ' +
+              messageData.height +
+              ' <b>Width:</b> ' +
+              messageData.width +
+              ' <b>Event type:</b> ' +
+              messageData.type
+          )
+        },
+        onMessage: function(messageData) {
+          // Callback fn when message is received
+          $('p#callback').html(
+            '<b>Frame ID:</b> ' +
+              messageData.iframe.id +
+              ' <b>Message:</b> ' +
+              messageData.message
+          )
+          alert(messageData.message)
+          document
+            .getElementsByTagName('iframe')[0]
+            .iFrameResizer.sendMessage('Hello back from parent page')
+        },
+        onClosed: function(id) {
+          // Callback fn when iFrame is closed
+          $('p#callback').html(
+            '<b>IFrame (</b>' + id + '<b>) removed from page.</b>'
+          )
+        }
+      })
+    </script>
 		</div>
 	</body>
 </html>

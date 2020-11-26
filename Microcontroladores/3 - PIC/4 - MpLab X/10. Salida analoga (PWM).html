@@ -5,22 +5,13 @@
 		<title>Documento sin título</title>
 		<link rel="stylesheet" type="text/css" href="../../../0 - styles/mystyles.css">
 		<script language="JavaScript" src="../../../0 - scripts/myscripts.js"></script>
-		<script>
-			setInterval(function() {
-				var x = document.getElementsByTagName("iframe");
-				for (var i = 0; i < x.length; i++) {
-					var ifrm = document.getElementById(x[i].id);
-					var doc = ifrm.contentDocument? ifrm.contentDocument:ifrm.contentWindow.document;
-					ifrm.style.height = getDocHeight( doc ) + "px";
-				}
-			},1000);
-		</script>
+		<script type="text/javascript" src="../../../0 - scripts/iframe/iframeResizer.min.js"></script>
 	</head>
 
 	<body>
 		<div class="Normal" style="text-align:justify">
 			<a id="Salida analoga (PWM)"></a>
-			<iframe class="pag" id="ifrm1" name="ifrm1" src="../html/10.%20Salida%20analoga%20(PWM).html"></iframe>
+			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" src="../html/10.%20Salida%20analoga%20(PWM).html"></iframe>
 			<br><br>
 			<a id="PWM Motor 12VDC"></a>
 			<b><i>10.1 PWM Motor 12VDC</i></b>
@@ -83,5 +74,52 @@
 			<br><br>
 			Es recomendable utilizar frecuencias de pwm por lo menos 20 veces mas alta que la frecuencia de corte. De hecho, generalmente empezaremos viendo cual es la frecuencia máxima de pwm que podemos tener en el timer/pwm y de allí propondremos la frecuencia de corte. Al final la velocidad del 	microcontrolador es nuestro limite.
 		</div>
+		<script type="text/javascript">
+      /*
+       * If you do not understand what the code below does, then please just use the
+       * following call in your own code.
+       *
+       *   iFrameResize({log:true});
+       *
+       * Once you have it working, set the log option to false.
+       */
+
+      iFrameResize({
+        log: true, // Enable console logging
+        inPageLinks: true,
+        onResized: function(messageData) {
+          // Callback fn when resize is received
+          $('p#callback').html(
+            '<b>Frame ID:</b> ' +
+              messageData.iframe.id +
+              ' <b>Height:</b> ' +
+              messageData.height +
+              ' <b>Width:</b> ' +
+              messageData.width +
+              ' <b>Event type:</b> ' +
+              messageData.type
+          )
+        },
+        onMessage: function(messageData) {
+          // Callback fn when message is received
+          $('p#callback').html(
+            '<b>Frame ID:</b> ' +
+              messageData.iframe.id +
+              ' <b>Message:</b> ' +
+              messageData.message
+          )
+          alert(messageData.message)
+          document
+            .getElementsByTagName('iframe')[0]
+            .iFrameResizer.sendMessage('Hello back from parent page')
+        },
+        onClosed: function(id) {
+          // Callback fn when iFrame is closed
+          $('p#callback').html(
+            '<b>IFrame (</b>' + id + '<b>) removed from page.</b>'
+          )
+        }
+      })
+    </script>
 	</body>
 </html>
