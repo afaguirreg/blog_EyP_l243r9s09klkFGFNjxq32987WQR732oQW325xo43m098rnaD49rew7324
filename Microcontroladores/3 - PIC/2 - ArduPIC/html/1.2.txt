@@ -1,0 +1,13 @@
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(A0, INPUT);
+  pinMode(PIN_B0, OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  if (digitalRead(A0)==1)
+    digitalWrite(PIN_B0, HIGH);
+  else
+    digitalWrite(PIN_B0, LOW);
+}

@@ -1,0 +1,12 @@
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(PIN_B0, OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  digitalWrite(PIN_B0, HIGH);
+  delay(1000);
+  digitalWrite(PIN_B0, LOW);
+  delay(1000);
+}
