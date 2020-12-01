@@ -11,7 +11,7 @@ Arduino® Light Theme - Stefania Mellai <s.mellai@arduino.cc>
 
 .hljs,
 .hljs-subst {
-  color: #434f54;
+  color: #000000;
   font-size: 11pt;
 }
 
@@ -81,7 +81,7 @@ Arduino® Light Theme - Stefania Mellai <s.mellai@arduino.cc>
 }
 
 .hljs-function {
-  color: #728E00;
+  color: #000000;
 }
 
 .hljs-number {

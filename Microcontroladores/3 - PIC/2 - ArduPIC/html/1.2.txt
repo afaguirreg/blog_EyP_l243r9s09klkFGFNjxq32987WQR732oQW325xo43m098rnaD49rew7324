@@ -1,13 +1,32 @@
+//#device PIC16F84A
+//#device PIC16F628A
+//#device PIC16F818
+//#device PIC16F873A
+//#device PIC16F883
+//#device PIC16F877A
+#device PIC16F887
+//#device PIC18F2550
+//#device PIC18F4455
+//#device PIC18F4550
+
+#define clock_12Mhz
+
+#include <Arduino.h.encrypted>
+
 void setup() {
-  // put your setup code here, to run once:
-  pinMode(A0, INPUT);
-  pinMode(PIN_B0, OUTPUT);
+   DDRB = 255;       //Configura todos los pines del puerto B como salidas
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  if (digitalRead(A0)==1)
-    digitalWrite(PIN_B0, HIGH);
-  else
-    digitalWrite(PIN_B0, LOW);
+   //Bucle infinito que mantendrá el programa en ejecución
+   PORTB = 255;      //PORTB = 0xFF; PORTB = 0b11111111;
+   delay(1000);
+   PORTB = 0;        //PORTB = 0x00; PORTB = 0b00000000;
+   delay(1000);
+   PORTB = 170;      //PORTB = 0xAA; PORTB = 0b10101010;
+   delay(1000);
+   PORTB = 85;       //PORTB = 0x55; PORTB = 0b01010101;
+   delay(1000);
+   PORTB = 0;        //PORTB = 0x00; PORTB = 0b00000000;
+   delay(1000);
 }

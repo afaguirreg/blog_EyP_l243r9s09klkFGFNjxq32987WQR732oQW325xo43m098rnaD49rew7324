@@ -1,12 +1,26 @@
+//#device PIC16F84A
+//#device PIC16F628A
+//#device PIC16F818
+//#device PIC16F873A
+//#device PIC16F883
+//#device PIC16F877A
+#device PIC16F887
+//#device PIC18F2550
+//#device PIC18F4455
+//#device PIC18F4550
+
+#define clock_12Mhz
+
+#include <Arduino.h.encrypted>
+
 void setup() {
-  // put your setup code here, to run once:
-  pinMode(PIN_B0, OUTPUT);
+   pinMode(PIN_B0, OUTPUT_);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  digitalWrite(PIN_B0, HIGH);
-  delay(1000);
-  digitalWrite(PIN_B0, LOW);
-  delay(1000);
+   //Bucle infinito que mantendrá el programa en ejecución
+   digitalWrite(PIN_B0, HIGH);
+   delay(1000);
+   digitalWrite(PIN_B0, LOW);
+   delay(1000);
 }
