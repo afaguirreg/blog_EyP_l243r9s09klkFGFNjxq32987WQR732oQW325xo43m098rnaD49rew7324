@@ -1,0 +1,25 @@
+//#device PIC16F84A
+//#device PIC16F628A
+//#device PIC16F818
+//#device PIC16F873A
+//#device PIC16F883
+//#device PIC16F877A
+#device PIC16F887
+//#device PIC18F2550
+//#device PIC18F4455
+//#device PIC18F4550
+
+#define clock_12Mhz
+
+#include <Arduino.h.encrypted>
+     
+void setup() {
+   pinMode(PIN_A0, INPUT_);
+   pinMode(PIN_A1, INPUT_);
+   pinMode(PIN_B0, OUTPUT_);
+}
+
+void loop() {
+   //Bucle infinito que mantendrá el programa en ejecución
+   digitalWrite(PIN_B0, digitalRead(PIN_A0) && digitalRead(PIN_A1));
+}
