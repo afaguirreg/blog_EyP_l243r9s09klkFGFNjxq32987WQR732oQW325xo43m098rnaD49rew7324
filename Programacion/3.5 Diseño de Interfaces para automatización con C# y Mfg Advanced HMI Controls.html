@@ -45,6 +45,16 @@
 			<br><br>
 			<b><i>Eventos</i></b>
 			<br><br>
+			Un evento es un mensaje que envía un objeto cuando ocurre una acción. La acción podría ser causada por la interacción del usuario, como un clic del botón, o podría ser iniciado por otra lógica de programa, como cambiar un valor de propiedad.
+			<br>
+			El uso más habitual para los eventos se produce en las interfaces gráficas; normalmente, las clases que representan controles de la interfaz disponen de eventos que se notifican cuando el usuario hace algo con el control (por ejemplo, hacer clic en un botón).
+			<br><br>
+			El objeto que provoca el evento se conoce como <b><i>emisor del evento</i></b>. El evento normalmente es un miembro del emisor del evento; por ejemplo, el evento <b><i>Click</i></b> es un miembro de la clase <b><i>Button</i></b>.
+			<br><br>
+			Los eventos, sin embargo, no sólo se utilizan para interfaces gráficas. Los eventos proporcionan un medio apropiado para que los objetos puedan señalizar cambios de estado que pueden resultar útiles para los clientes de ese objeto. Los eventos constituyen unidades importantes para crear clases que se pueden reutilizar en diferentes programas.
+			<br><br>
+			En una aplicación de formularios Windows Forms en C# típica, se suscribe a eventos generados por controles como botones, cajas de texto y cuadros de lista. Puede utilizar el entorno de desarrollo integrado (IDE) de C# para examinar los eventos que publica un control y seleccionar los que desea controlar. El IDE agrega automáticamente un método de control de eventos vacío y el código para suscribirse al evento.
+			<br><br>
 			Para acceder a la lista de eventos de un control se debe seleccionar y hacer click en el ícono <b><i>events</i></b> de la ventana <b><i>Properties</i></b>.
 			<br><br>
 			<div align="center">
@@ -53,9 +63,11 @@
 				</video>
 			</div>
 			<br><br>
-			<div align="center"><img src="img/C%23Mfg2.png" alt="" width="auto" height="auto"></div>
+			La palabra al lado del nombre del objeto nos indica cual es el evento. El evento <b><i>Click</i></b> ocurre cuando el control Button detecta que se ha pulsado el botón izquierdo del mouse sobre él. Para éste caso se ha programado que se active el control waterPump1, lo cual hará que cambie de color.
 			<br><br>
-			En el código anterior, podemos observar que los tres eventos están relacionados con los botones y el control Form, pero se diferencian en que cada uno de ellos tiene instrucciones de lo que debe suceder en determinada situación (<b><i>evento</i></b>).
+		  <div align="center"><img src="img/C%23Mfg2.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Como puede ver, el uso de los eventos es muy intuitivo. Para lograr que el programa se comporte tal y como usted desea, debe haber definido claramente cuando y como desea que ocurran las acciones de control sobre las variables y objetos sobre la ventana.
 			<br><br>
 			Explorar las propiedades de los controles ubicados en la interfaz gráfica de la aplicación y programar el evento Click de los botones para lograr un funcionamiento de la aplicación como el mostrado:
 			<br><br>

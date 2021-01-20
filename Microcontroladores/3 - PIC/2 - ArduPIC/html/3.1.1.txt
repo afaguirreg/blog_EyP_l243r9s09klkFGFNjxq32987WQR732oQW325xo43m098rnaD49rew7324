@@ -1,0 +1,38 @@
+//#device PIC16F84A
+//#device PIC16F628A
+//#device PIC16F818
+//#device PIC16F873A
+//#device PIC16F883
+//#device PIC16F877A
+#device PIC16F887
+//#device PIC18F2550
+//#device PIC18F4455
+//#device PIC18F4550
+
+#define clock_12Mhz
+
+#include <Arduino.h.encrypted>
+
+#define boton_start PIN_A0
+#define boton_stop PIN_A1
+#define salida PIN_B0
+
+#define estado_boton_start digitalRead(boton_start)
+#define estado_boton_stop digitalRead(boton_stop)
+#define salida_ON digitalWrite(salida, HIGH)
+#define salida_OFF digitalWrite(salida, LOW)
+
+void setup() {
+   pinMode(boton_start, INPUT_);
+   pinMode(boton_stop, INPUT_);
+   pinMode(salida, OUTPUT_);
+}
+
+void loop() {
+   //Bucle infinito que mantendrá el programa en ejecución
+   if (estado_boton_start==1 && estado_boton_stop==0)
+      salida_ON;
+   if (estado_boton_stop==1)
+      salida_OFF;
+   delay(50);
+}

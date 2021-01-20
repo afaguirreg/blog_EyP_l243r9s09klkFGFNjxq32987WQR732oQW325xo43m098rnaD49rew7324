@@ -1,0 +1,57 @@
+//#device PIC16F84A
+//#device PIC16F628A
+//#device PIC16F818
+//#device PIC16F873A
+//#device PIC16F883
+//#device PIC16F877A
+#device PIC16F887
+//#device PIC18F2550
+//#device PIC18F4455
+//#device PIC18F4550
+
+#define clock_12Mhz
+
+#include <Arduino.h.encrypted>
+
+#define boton_izquierda PIN_A0
+#define boton_derecha PIN_A1
+#define boton_stop PIN_A2
+#define salida_izquierda PIN_B0
+#define salida_derecha PIN_B1
+
+#define estado_boton_izquierda digitalRead(boton_izquierda)
+#define estado_boton_derecha digitalRead(boton_derecha)
+#define estado_boton_stop digitalRead(boton_stop)
+#define salida_izquierda_ON digitalWrite(salida_izquierda, HIGH)
+#define salida_izquierda_OFF digitalWrite(salida_izquierda, LOW)
+#define salida_derecha_ON digitalWrite(salida_derecha, HIGH)
+#define salida_derecha_OFF digitalWrite(salida_derecha, LOW)
+
+boolean estado_motor = 0; //0:detenido 1:rotando
+
+void setup() {
+   pinMode(boton_izquierda, INPUT_);
+   pinMode(boton_derecha, INPUT_);
+   pinMode(boton_stop, INPUT_);
+   pinMode(salida_izquierda, OUTPUT_);
+   pinMode(salida_derecha, OUTPUT_);
+}
+
+void loop() {
+   //Bucle infinito que mantendrá el programa en ejecución
+   if (estado_boton_izquierda==1 && estado_boton_derecha==0 && estado_motor==0)
+   {
+      estado_motor = 1;
+      salida_derecha_OFF;
+      salida_izquierda_ON;
+   }
+
+   //Programar acción boton_derecha
+
+   if (estado_boton_stop==1)
+   {
+      estado_motor = 0;
+      salida_izquierda_OFF;
+      salida_derecha_OFF;
+   }
+}

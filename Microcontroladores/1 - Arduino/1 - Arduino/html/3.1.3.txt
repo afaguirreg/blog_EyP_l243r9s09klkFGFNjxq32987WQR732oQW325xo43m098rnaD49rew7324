@@ -1,0 +1,50 @@
+#define boton_izquierda A0
+#define boton_derecha A1
+#define boton_stop A2
+#define salida_izquierda 8
+#define salida_derecha 9
+
+#define estado_boton_izquierda digitalRead(boton_izquierda)
+#define estado_boton_derecha digitalRead(boton_derecha)
+#define estado_boton_stop digitalRead(boton_stop)
+#define salida_izquierda_ON digitalWrite(salida_izquierda, HIGH)
+#define salida_izquierda_OFF digitalWrite(salida_izquierda, LOW)
+#define salida_derecha_ON digitalWrite(salida_derecha, HIGH)
+#define salida_derecha_OFF digitalWrite(salida_derecha, LOW)
+
+boolean estado_motor = 0; //0:detenido 1:rotando
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(boton_izquierda, INPUT);
+  pinMode(boton_derecha, INPUT);
+  pinMode(boton_stop, INPUT);
+  pinMode(salida_izquierda, OUTPUT);
+  pinMode(salida_derecha, OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  if (estado_boton_izquierda==1 && estado_boton_derecha==0 && estado_motor==0)
+  {
+    estado_motor = 1;
+    salida_derecha_OFF;
+    salida_izquierda_ON;
+  }
+
+  //Programar acciÃ³n boton_derecha
+
+  if (estado_boton_derecha==1 && estado_boton_izquierda==0 && estado_motor==0)
+  {
+    estado_motor = 1;
+    salida_izquierda_OFF;
+    salida_derecha_ON;
+  }
+
+  if (estado_boton_stop==1)
+  {
+    estado_motor = 0;
+    salida_izquierda_OFF;
+    salida_derecha_OFF;
+  }
+}
