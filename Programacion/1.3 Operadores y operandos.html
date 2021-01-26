@@ -58,25 +58,18 @@
 				<li>Los operadores en una misma expresión con igual nivel de prioridad se evalúan de izquierda a derecha.</li>
 			</ol>
 			<br>
-			Ejemplos:
+			Desarrollar los siguientes ejercicios aritméticos teniendo en cuenta su orden de prioridad::
 			<br><br>
-                    4 + 2 * 5 = 14
+                    4 + 2 * 5
 			<br>
-                    23 * 2 / 5 = 9.2
+                    23 * 2 / 5
 			<br>
-                    46 / 5 = 9.2
+                    3 + 5 * (10 - (2+4))
 			<br>
-                    3 + 5 * (10 - (2 + 4)) = 23
+                    12 - 5 * (10 - 73 mod 8)
 			<br>
-                    3 + 5 * (10 - 6) = 3 + 5 * 4 = 3 + 20 = 23
-			<br>
-                    3.5 + 5.09 - 140 / 40 = 5.09
-			<br>
-                    3.5 + 5.09 - 3.5 = 8.59 - 3.5 = 5.09
-			<br>
-                    2.1 * (1.5 + 3.0 * 4.1) = 28.98
-			<br>
-                    2.1 * (1.5 + 12.3) = 2.1 * 13.8 = 28.98
+                    4 * (7 + 12) – 11 + 3 * 2 ^ (15 mod 10)
+
 			<br><br><br>
 			<b><i>Operadores Relacionales:</i></b>
 			<br><br>
@@ -103,14 +96,15 @@
 			- Los operadores relacionales tienen menor prioridad que los aritméticos.
 			<br><br>
 			Ejemplos:
-			<br><br>
+			<br>
+			<br>
                     Si         a =       10                      b = 20                  c = 30
 			<br><br>
                                    a      + b &gt; c                Falso
 			<br>
-                                   a      - b &lt; c Verdadero
+                                   a      - b &lt; c                 Verdadero
 			<br>
-                                   a      - b = c Falso
+                                   a      - b = c                 Falso
 			<br>
                                    a      * b &lt; &gt; c            Verdadero
 			<br><br>
@@ -121,7 +115,69 @@
                                    10      &lt; 20 &lt; 30
 			<br>
                                    T    &lt; 30            (no es lógico porque tiene diferentes operandos)
-			<br><br><br>
+			<br><br>
+			Desarrollar los siguientes ejercicios relacionales:
+			<br><br>
+				                a = 11   b = 12   c = 13   d = 10
+			<br><br>
+                a)	( a – b ) > c
+			<br>
+                b)	( c >= d )
+			<br>
+                c)	 a = ( d – b )
+			<br>
+                d)	( a <> c )
+			<br>
+                e)	( c – a ) >= d
+			<br>
+                f)	a = ( d + b )
+			<br>
+                g)	(b <= c )
+			<br>
+                h)	( c >= d )
+			<br>
+                i)	a – d + b = c – a
+			<br><br>
+	                a = 22   b = 91   c = 31   d = 23
+			<br><br>
+                a)	( a – b ) > c
+			<br>
+                b)	( c >= d )
+			<br>
+                c)	 a = ( d – b )
+			<br>
+                d)	( a <> c )
+			<br>
+                e)	( c – a ) >= d
+			<br>
+                f)	a = ( d + b )
+			<br>
+                g)	(b <= c )
+			<br>
+                h)	( c >= d )
+			<br>
+                i)	a – d + b = c – a
+			<br><br>
+                a = 12   b = 9   c = 11   d = 13
+			<br><br>
+                a)	( a – b ) > c
+			<br>
+                b)	( c >= d )
+			<br>
+                c)	 a = ( d – b )
+			<br>
+                d)	( a <> c )
+			<br>
+                e)	( c – a ) >= d
+			<br>
+                f)	a = ( d + b )
+			<br>
+                g)	(b <= c )
+			<br>
+                h)	( c >= d )
+			<br>
+                i)	a – d + b = c – a
+			<br><br>
 			<b><i>Operadores lógicos:</i></b>
 			<br><br>
                                    And        Y
@@ -195,6 +251,21 @@
 			<div align="center"><img src="img/image019.jpg" alt="" width="auto" height="auto"></div>
 			<br><br>
 			<div align="center"><img src="img/image020.jpg" alt="" width="auto" height="auto"></div>
+			<br>
+			Desarrollar los siguientes ejercicios lógicos teniendo en cuenta su orden de prioridad:
+			<br><br>
+                a = 11   b = 12   c = 13   d = 10
+			<br><br>
+                (( a – b ) > c) or ( c >= d ) or ( a = ( d – b ))
+			<br><br><br>
+                a = 22   b = 91   c = 31   d = 23
+			<br><br>
+                ( a <> c ) and (( c – a ) >= d ) or ( a = ( d + b ))
+			<br><br><br>
+                a = 12   b = 9   c = 11   d = 13
+			<br><br>
+                ( b <= c ) and ( c >= d ) and ( a – d + b = c – a )
+
 		</div>
 	</body>
 </html>
