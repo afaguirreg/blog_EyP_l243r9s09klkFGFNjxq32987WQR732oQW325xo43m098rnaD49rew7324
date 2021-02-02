@@ -16,7 +16,7 @@
 			<br><br>
 			Típica señal analógica:
 			<br><br>
-			<img src="../img/9.%20Entrada%20analogica.png" alt="" width="auto" height="auto">
+			<div align="center"><img src="../img/9_1.png" alt="" width="auto" height="auto"></div>
 			<br><br>
 			Digital vs. analógico
 			<br><br>
@@ -79,10 +79,32 @@
 			- Variación del ancho de un pulso.
 			<br>
 			- Envío de los datos de forma serial.
-			<br>
-			- Cambios en la resistencia, el divisor de voltaje.
+			<br><br>
+			Cambios en la resistencia, el divisor de voltaje.
 			<br><br>
 			Muchos de los sensores descritos anteriormente (FSR'S Force Sensing Resistors) cambian su resistencia al ser manipulados. Para poder leer estos cambios en la resistencia, los pondremos en un circuito (divisor de voltaje) y pasaremos una corriente a través de ellos de tal forma que podemos medir el cambio de voltaje resultante sobre el sensor, ya hecha la medición tendremos que convertir ese voltaje a un valor digital, para este trabajo se utiliza el componente electrónico llamado conversor analógico digital (ADC).
+			<br><br>
+			Divisor de voltaje:
+			<br><br>
+			<div align="center"><img src="../img/9_2.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Potenciómetro:
+			<br><br>
+			<div align="center"><img src="../img/9_3.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Circuito de fotorresistencia:
+			<br><br>
+			<div align="center"><img src="../img/9_4.png" alt="" width="auto" height="auto"></div>
+			<br><br>
+			Una entrada analógica - a diferencia de una entrada digital - permite leer un rango de valores. Estos valores representan voltaje, pero dentro del microcontrolador pueden ser representados por un rango de valores enteros, los cuales pueden ir de 0 a 255 (8bits) o de 0 a 1024 (10 bits) etc., esto depende del tipo de procesador que estemos utilizando, por eso es muy útil obtener las especificaciones del micro y las funciones asociadas (en el lenguaje que escogiéramos) a la lectura de un puerto analógico.
+			<br><br>
+			La idea de un puerto analógico es leer de un puerto diferentes valores, lo cual permite tomar decisiones más amplias o interactuar con rangos que permiten realizar tareas diferentes.
+			<br>
+			Cuando pensemos en una entrada digital imaginemos un switch on/off, y cuando pensemos en una entrada analógica asociémoslo a un potenciómetro, o cualquier dispositivo cuya salida oscile entre un rango de valores (0V y 5V).
+			<br><br>
+			Estos dispositivos (ejemplo un lm35 - termómetro digital) alimentándolos con 5V, pueden entregar al puerto en donde se conecten un rango de valores de acuerdo a las características con las cuales el dispositivo está diseñado.
+			<br><br>
+			Por ejemplo, un potenciómetro permite entregar al micro un rango de voltaje que depende del voltaje con el cual esté alimentado. Un termómetro digital, entregará un voltaje de acuerdo a la alimentación del mismo y a las condiciones de temperatura a la cual esté expuesto. En cualquier caso, siempre se obtiene un voltaje asociado a la lectura del dispositivo, y a través de este voltaje podemos tomar decisiones y ejecutar tareas. 
 		</div>
 	</body>
 </html>
