@@ -34,13 +34,6 @@ void loop() {
 
   //Programar acciÃ³n boton_derecha
 
-  if (estado_boton_derecha==1 && estado_boton_izquierda==0 && estado_motor==0)
-  {
-    estado_motor = 1;
-    salida_izquierda_OFF;
-    salida_derecha_ON;
-  }
-
   if (estado_boton_stop==1)
   {
     estado_motor = 0;
