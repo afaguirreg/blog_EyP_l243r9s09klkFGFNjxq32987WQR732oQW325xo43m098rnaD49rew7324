@@ -32,7 +32,7 @@ void loop() {
     salida_izquierda_ON;
   }
 
-  //Programar acciÃ³n boton_derecha
+  //Programar acción boton_derecha
 
   if (estado_boton_stop==1)
   {
