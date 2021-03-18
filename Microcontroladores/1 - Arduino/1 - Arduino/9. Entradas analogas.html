@@ -6,6 +6,7 @@
 		<link rel="stylesheet" type="text/css" href="../../../0 - styles/mystyles.css">
 		<script language="JavaScript" src="../../../0 - scripts/myscripts.js"></script>
 		<script language="JavaScript" src="https://yui-s.yahooapis.com/3.18.1/build/yui/yui-min.js"></script>
+		<script type="text/javascript" src="../../../0 - scripts/jquery/jquery.min.js"></script>
 		<script type="text/javascript" src="../../../0 - scripts/iframe/iframeResizer.min.js"></script>
 	</head>
 
@@ -23,12 +24,60 @@
 			<br><br>
 			Como ejemplo del uso del conversor ADC del microcontrolador vamos a utilizar las funciones para leer el dato proveniente de un sensor en el rango de 0 a 5V y representar en un display LCD el valor leído por el convertidor ADC en el rango de 0 a 1023.
 			<br><br>
+			<div align="center">
+				<table width="512" style="border-radius: 25px;border: 6px solid #000000;background: #0080FF;">
+					<tbody>
+						<tr>
+							<td width="200"><div align="center" id="demo1"></div></td>
+							<td>
+								<div align="center">Voltaje</div>
+								<div align="center"><input style="width:96px" class="panel" id="voltaje1" value="0.000 V" disabled></div>
+								<div><br></div>
+								<div align="center">ADC</div>
+								<div align="center"><input style="width:96px" class="panel" id="ADC1" value="0" disabled></div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<script>
+				YUI().use('dial', function(Y) {
+					var dial = new Y.Dial( {
+						min: -2.5,
+						max: 2.5,
+						minorStep: 0.001,
+						majorStep: 0.001,
+						stepsPerRevolution: 6,
+						value: -2.5,
+						decimalPlaces: 3,
+						strings: {label:'', resetStr:'Reset', tooltipHandle:''},
+					});
+					dial.render('#demo1');
+
+					// Function to update the text input value from the Dial value
+					function updateInput( e ) {
+						var val = e.newVal;
+						if (isNaN(val)) {
+							// Not a valid number.
+							return;
+						}
+						this.set("value", parseFloat(val + 2.5).toFixed(3) + " V");
+						document.getElementById("ADC1").value = parseInt((val + 2.5) * 1023 / 5) ;
+					}
+
+					var theInput = Y.one( "#voltaje1" );
+
+					// Subscribe to the Dial's valueChange event, passing the input as the 'this'
+					dial.on("valueChange", updateInput, theInput);
+				});
+			</script>
+			<br>
 			<video controls controlslist="nodownload" preload="preload" loop>
 				<source src="../video/9.1%20Lectura%20convertidor%20An%C3%A1logo_Digital.webm" type="video/webm">
 			</video>
-			<br><br>
-			<img src="img/9.1%20Lectura%20convertidor%20An%C3%A1logo_Digital.png" alt="" width="auto" height="auto">
-			<br><br>
+			<br>
+			<iframe class="pag" id="ifrm3" name="ifrm3" scrolling="no" src="html/9.1.html"></iframe>
+			<br>
 			Comentarios del programa:
 			<br><br>
 			El ejemplo está debidamente documentado, por lo cual su comprensión no reviste mayor dificultad.
@@ -50,20 +99,22 @@
 			<a id="Escalamiento de lectura analogica (Formula)"></a>
 			<strong><em>9.2 Escalamiento de lectura analógica (Fórmula)</em></strong>
 			<br><br>
+			<div align="center">
 			<table width="512" style="border-radius: 25px;border: 6px solid #000000;background: #0080FF;">
 				<tbody>
 					<tr>
-						<td width="200"><div align="center" id="demo"></div></td>
+						<td width="200"><div align="center" id="demo2"></div></td>
 						<td>
 							<div align="center">Voltaje</div>
-							<div align="center"><input style="width:96px" class="panel" id="voltaje" value="0.000 V" disabled></div>
+							<div align="center"><input style="width:96px" class="panel" id="voltaje2" value="0.000 V" disabled></div>
 							<div><br></div>
 							<div align="center">ADC</div>
-							<div align="center"><input style="width:96px" class="panel" id="ADC" value="0" disabled></div>
+							<div align="center"><input style="width:96px" class="panel" id="ADC2" value="0" disabled></div>
 						</td>
 					</tr>
 				</tbody>
 			</table>
+			</div>
 			<script>
 				YUI().use('dial', function(Y) {
 					var dial = new Y.Dial( {
@@ -76,7 +127,7 @@
 						decimalPlaces: 3,
 						strings: {label:'', resetStr:'Reset', tooltipHandle:''},
 					});
-					dial.render('#demo');
+					dial.render('#demo2');
 
 					// Function to update the text input value from the Dial value
 					function updateInput( e ) {
@@ -86,18 +137,18 @@
 							return;
 						}
 						this.set("value", parseFloat(val + 2.5).toFixed(3) + " V");
-						document.getElementById("ADC").value = parseInt((val + 2.5) * 1023 / 5) ;
+						document.getElementById("ADC2").value = parseInt((val + 2.5) * 1023 / 5) ;
 					}
 
-					var theInput = Y.one( "#voltaje" );
+					var theInput = Y.one( "#voltaje2" );
 
 					// Subscribe to the Dial's valueChange event, passing the input as the 'this'
 					dial.on("valueChange", updateInput, theInput);
 				});
 			</script>
-			<br><br>
+			<br>
 			Ingresar Smax: <input type="number" id="max" name="max" max="99999" min="-99999" value="1023" onchange="capturar();">
-			<br><br>
+			<br>
 			Ingresar Smin: <input type="number" id="min" name="min" max="99999" min="-99999" value="0" onchange="capturar();">
 			<br><br>
 			<input type="submit" value="Recalcular" onclick="capturar();">
@@ -245,18 +296,32 @@
 				<span class="fdn">1023</span>
 			</div>
 			<span id="Ymin2"></span>
+			<br><br><br>
+			<a id="Escalamiento sin desplazamiento de cero. Rango 0 a 100"></a>
+			<b><i>9.2.1 Escalamiento sin desplazamiento de cero. Rango 0 a 100</i></b>
 			<br><br>
-			<a id="Escalamiento sin desplazamiento. Rango 0 a 100"></a>
-			<b><i>9.2.1 Escalamiento sin desplazamiento. Rango 0 a 100</i></b>
+			<a id="Representación con cifra entera"></a>
+			<b><i>9.2.1.1 Representación con cifra entera</i></b>
 			<br><br>
 			En el siguiente ejemplo haremos que el programa lea una entrada entre 0 y 5V de manera que para 0V representará 0 unidades y 5V representará 100 unidades.
 			<br><br>
 			<video controls controlslist="nodownload" preload="preload" loop>
-				<source src="../video/9.2.1%20Escalamiento%20sin%20desplazamiento_0_100.webm" type="video/webm">
+				<source src="../video/9.2.1.1 Representación con cifra entera.webm" type="video/webm">
 			</video>
+			<br>
+			<iframe class="pag" id="ifrm4" name="ifrm4" scrolling="no" src="html/9.2.1.1.html"></iframe>
 			<br><br>
-			<img src="img/9.2%20Escalamiento%20de%20lectura%20analogica%20Formula_0_100.png" alt="" width="auto" height="auto">
-			<br><br><br>
+			<a id="Representación con dígitos decimales"></a>
+			<b><i>9.2.1.2 Representación con dígitos decimales</i></b>
+			<br><br>
+			En el siguiente ejemplo haremos que el programa lea una entrada entre 0 y 5V de manera que para 0V representará 0 unidadesy 5V representará 100 unidades (con dígitos decimales).
+			<br><br>
+			<video controls controlslist="nodownload" preload="preload" loop>
+				<source src="../video/9.2.1.2 Representación con dígitos decimales.webm" type="video/webm">
+			</video>
+			<br>
+			<iframe class="pag" id="ifrm5" name="ifrm5" scrolling="no" src="html/9.2.1.2.html"></iframe>
+			<br><br>
 			<a id="Escalamiento con desplazamiento positivo. Rango 20 a 80"></a>
 			<b><i>9.2.2 Escalamiento con desplazamiento positivo. Rango 20 a 80</i></b>
 			<br><br>
@@ -265,9 +330,9 @@
 			<video controls controlslist="nodownload" preload="preload" loop>
 				<source src="../video/9.2.2%20Escalamiento%20con%20desplazamiento%20positivo_20_80.webm" type="video/webm">
 			</video>
+			<br>
+			<iframe class="pag" id="ifrm6" name="ifrm6" scrolling="no" src="html/9.2.2.html"></iframe>
 			<br><br>
-			<img src="img/9.2%20Escalamiento%20de%20lectura%20analogica%20Formula_20_80.png" alt="" width="auto" height="auto">
-			<br><br><br>
 			<a id="Escalamiento con desplazamiento negativo. Rango -50 a 150"></a>
 			<b><i>9.2.3 Escalamiento con desplazamiento negativo. Rango -50 a 150</i></b>
 			<br><br>
@@ -276,27 +341,17 @@
 			<video controls controlslist="nodownload" preload="preload" loop>
 				<source src="../video/9.2.3%20Escalamiento%20con%20desplazamiento%20negativo_-50_150.webm" type="video/webm">
 			</video>
+			<br>
+			<iframe class="pag" id="ifrm7" name="ifrm7" scrolling="no" src="html/9.2.3.html"></iframe>
 			<br><br>
-			<img src="img/9.2%20Escalamiento%20de%20lectura%20analogica%20Formula_-50_150.png" alt="" width="auto" height="auto">
-			<br><br><br>
-			<b><i>Rango 0 a 100 con decimales</i></b>
-			<br><br>
-			En el siguiente ejemplo haremos que el programa lea una entrada entre 0 y 5V de manera que para 0V representará 0 unidadesy 5V representará 100 unidades (con dígitos decimales).
-			<br><br>
-			<video controls controlslist="nodownload" preload="preload" loop>
-				<source src="../video/9.2%20Decimales.webm" type="video/webm">
-			</video>
-			<br><br>
-			<img src="img/9.2%20Decimales.png" alt="" width="auto" height="auto">
-			<br><br><br>
 			<a id="Funcion map para escalamiento de lectura analogica"></a>
 			<b><i>9.3 Función map para escalamiento de lectura analógica</i></b>
 			<br><br>
 			<video controls controlslist="nodownload" preload="preload" loop>
-				<source src="../video/9.3%20Funcion%20map%20para%20escalamiento%20de%20lectura%20analogica.webm" type="video/webm">
+				<source src="../video/9.3 Funcion map para escalamiento de lectura analogica.webm" type="video/webm">
 			</video>
-			<br><br>
-			<img src="img/9.3%20Funcion%20map%20para%20escalamiento%20de%20lectura%20analogica.png" alt="" width="auto" height="auto">
+			<br>
+			<iframe class="pag" id="ifrm8" name="ifrm8" scrolling="no" src="html/9.3.html"></iframe>
 		</div>
 		<script type="text/javascript">
 			/*
