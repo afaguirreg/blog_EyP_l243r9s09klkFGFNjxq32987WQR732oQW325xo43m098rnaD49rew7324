@@ -28,12 +28,17 @@
 				<table width="512" style="border-radius: 25px;border: 6px solid #000000;background: #0080FF;">
 					<tbody>
 						<tr>
-							<td width="200"><div align="center" id="demo1"></div></td>
-							<td>
-								<div align="center">Voltaje</div>
-								<div align="center"><input style="width:96px" class="panel" id="voltaje1" value="0.000 V" disabled></div>
+							<td width="200">
+								<div align="center" id="demo1"></div>
 								<div><br></div>
-								<div align="center">ADC</div>
+								<div><br></div>
+							</td>
+							<td>
+								<div align="center"><b>Voltaje</b></div>
+								<div align="center"><input style="width:96px" class="panel" id="voltaje1" value="0.000 V" disabled></div>
+							</td>
+							<td>
+								<div align="center"><b>ADC</b></div>
 								<div align="center"><input style="width:96px" class="panel" id="ADC1" value="0" disabled></div>
 							</td>
 						</tr>
@@ -103,13 +108,31 @@
 			<table width="512" style="border-radius: 25px;border: 6px solid #000000;background: #0080FF;">
 				<tbody>
 					<tr>
-						<td width="200"><div align="center" id="demo2"></div></td>
+						<td width="200">
+							<div align="center" id="demo2"></div>
+							<div><br></div>
+							<div><br></div>
+						</td>
 						<td>
-							<div align="center">Voltaje</div>
+							<div><br></div>
+							<div align="center"><b>Voltaje</b></div>
 							<div align="center"><input style="width:96px" class="panel" id="voltaje2" value="0.000 V" disabled></div>
 							<div><br></div>
-							<div align="center">ADC</div>
+							<div align="center"><b>Smax</b></div>
+							<div align="center"><input type="number" style="width:96px" class="panel" id="Smax" value="1023"></div>
+							<div><br></div>
+							<div align="center"><b>Smin</b></div>
+							<div align="center"><input type="number" style="width:96px" class="panel" id="Smin" value="0"></div>
+							<div><br></div>
+						</td>
+						<td>
+							<div><br></div>
+							<div align="center"><b>ADC</b></div>
 							<div align="center"><input style="width:96px" class="panel" id="ADC2" value="0" disabled></div>
+							<div><br></div>
+							<div align="center"><b>Salida</b></div>
+							<div align="center"><input style="width:96px" class="panel" id="Salida" value="0" disabled></div>
+							<div><br></div>
 						</td>
 					</tr>
 				</tbody>
@@ -138,6 +161,9 @@
 						}
 						this.set("value", parseFloat(val + 2.5).toFixed(3) + " V");
 						document.getElementById("ADC2").value = parseInt((val + 2.5) * 1023 / 5) ;
+						var Smax = parseFloat(document.getElementById("Smax").value) ;
+						var Smin = parseFloat(document.getElementById("Smin").value) ;
+						document.getElementById("Salida").value = parseFloat((val + 2.5) * (Smax - Smin) / 5 + Smin).toFixed(1) ;
 					}
 
 					var theInput = Y.one( "#voltaje2" );
@@ -152,8 +178,8 @@
 			Ingresar Smin: <input type="number" id="min" name="min" max="99999" min="-99999" value="0" onchange="capturar();">
 			<br><br>
 			<input type="submit" value="Recalcular" onclick="capturar();">
-			<br><br>
-			<div class="dibujo-canvas">
+			<br><br><br>
+			<div class="dibujo-canvas" align="center">
 			<canvas id="lienzo1" display="block" color="blue" width="700" height="512"></canvas>
 			<script type="text/javascript">
 				ejercicio1(0,0);
@@ -266,6 +292,7 @@
 				function capturar() {
 					var Smax=document.getElementById("max").value
 					var Smin=document.getElementById("min").value
+					
 					ejercicio1(Smin, Smax);
 					if (Smin>=0) {
 						document.getElementById("Ymin1").innerHTML = " - " + Smin;
