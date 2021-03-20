@@ -10,7 +10,7 @@
 		<script type="text/javascript" src="../../../0 - scripts/iframe/iframeResizer.min.js"></script>
 	</head>
 
-	<body class="yui3-skin-sam">
+	<body class="yui3-skin-sam" onload="capturar();">
 		<div class="Normal" style="text-align:justify">
 			<a id="Entradas analogas"></a>
 			<b>9. Entradas análogas</b>
@@ -18,7 +18,7 @@
 			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" src="../../html/9.%20Entradas%20analogas.html"></iframe>
 			<br>
 			<iframe class="pag" id="ifrm2" name="ifrm2" scrolling="no" src="../html/9.%20Entradas%20analogas.html"></iframe>
-			<br><br>
+			<br><br><br>
 			<a id="Lectura convertidor Analogo / Digital"></a>
 			<b><i>9.1 Lectura convertidor Análogo / Digital</i></b>
 			<br><br>
@@ -119,10 +119,10 @@
 							<div align="center"><input style="width:96px" class="panel" id="voltaje2" value="0.000 V" disabled></div>
 							<div><br></div>
 							<div align="center"><b>Smax</b></div>
-							<div align="center"><input type="number" style="width:96px" class="panel" id="Smax" value="1023"></div>
+							<div align="center"><input type="number" style="width:96px" class="panel" id="Smax" value="1023" min="-9999" max="9999" onchange="capturar();"></div>
 							<div><br></div>
 							<div align="center"><b>Smin</b></div>
-							<div align="center"><input type="number" style="width:96px" class="panel" id="Smin" value="0"></div>
+							<div align="center"><input type="number" style="width:96px" class="panel" id="Smin" value="0" min="-9999" max="9999" onchange="capturar();"></div>
 							<div><br></div>
 						</td>
 						<td>
@@ -173,127 +173,57 @@
 				});
 			</script>
 			<br>
-			Ingresar Smax: <input type="number" id="max" name="max" max="99999" min="-99999" value="1023" onchange="capturar();">
-			<br>
-			Ingresar Smin: <input type="number" id="min" name="min" max="99999" min="-99999" value="0" onchange="capturar();">
+			<i>ADC</i> = <i>Voltaje</i> *
+			<div class="fraction">
+				<span class="fup">1023</span>
+				<span class="bar">/</span>
+				<span class="fdn">Vdd (5V)</span>
+			</div>
 			<br><br>
-			<input type="submit" value="Recalcular" onclick="capturar();">
+			<i>Salida</i> = <i>ADC</i> *
+			<div class="fraction">
+				<span class="fup">(Smax - Smin)</span>
+				<span class="bar">/</span>
+				<span class="fdn">1023</span>
+			</div> + Smin
+			<br><br>
+			<i>Salida</i> = <i>ADC</i> *
+			<div class="fraction">
+				<span class="fup">(<span id="Ymax"></span><span id="Ymin1"></span>)</span>
+				<span class="bar">/</span>
+				<span class="fdn">1023</span>
+			</div>
+			<span id="Ymin2"></span>
 			<br><br><br>
-			<div class="dibujo-canvas" align="center">
-			<canvas id="lienzo1" display="block" color="blue" width="700" height="512"></canvas>
-			<script type="text/javascript">
-				ejercicio1(0,0);
-				function ejercicio1(y1, y2) {
-					ej1=document.getElementById("lienzo1");
-					lienzo1=ej1.getContext("2d");
-					lienzo1.clearRect(0,0,700,512);
-					lienzo1.fillStyle = "#CCCCCC";
-					lienzo1.fillRect(0, 0, 512, 512);
-					lienzo1.lineWidth=2;
-					lienzo1.strokeStyle = '#000';
-					//EJE X
-					lienzo1.beginPath();
-					lienzo1.moveTo(0,256);
-					lienzo1.lineTo(512,256);
-					lienzo1.stroke();
-					lienzo1.closePath();
-					//EJEY
-					lienzo1.beginPath();
-					lienzo1.moveTo(96,0);
-					lienzo1.lineTo(96,512);
-					lienzo1.stroke();
-					lienzo1.closePath();
-					//DRAW SCALE
-					lienzo1.lineWidth=1;
-					lienzo1.strokeStyle = '#BBBBBB';
-					lienzo1.beginPath(); 
-					for (var i=0;i<=512;i+=32) {
-						lienzo1.moveTo(i,0);
-						lienzo1.lineTo(i,512);
-					}
-					for (var i=0;i<=512;i+=32) {
-						lienzo1.moveTo(0,i);
-						lienzo1.lineTo(512,i);
-					}
-					lienzo1.stroke();
-					lienzo1.closePath();
-					lienzo1.strokeStyle = '#000000';
-					lienzo1.beginPath(); 
-					for (var i=0;i<=512;i+=32) {
-						lienzo1.moveTo(i,250);
-						lienzo1.lineTo(i,262);
-					}
-					for (var i=0;i<=512;i+=32) {
-						lienzo1.moveTo(90,i);
-						lienzo1.lineTo(102,i);
-					}
-					lienzo1.stroke();
-					lienzo1.closePath();
-					//DRAW 0 - 1023
-					lienzo1.lineWidth=1;
-					lienzo1.strokeStyle = '#0000FF';
-					lienzo1.beginPath();
-					if (y2<=1023) {
-						lienzo1.moveTo(96,256);
-						lienzo1.lineTo(512,0);
-						lienzo1.stroke();
-						lienzo1.closePath();
-						lienzo1.font = "13px Arial";
-						lienzo1.fillStyle = '#0000FF';
-						lienzo1.beginPath();
-						lienzo1.fillText("x:0 y:0", 48, 274);
-						lienzo1.fillText("x:5 y:1023", 518, 10);
-						lienzo1.stroke();
-						lienzo1.closePath();
-					}
-					else {
-						lienzo1.moveTo(96,256);
-						lienzo1.lineTo(512,256-1023/y2*256);
-						lienzo1.stroke();
-						lienzo1.closePath();
-						lienzo1.font = "13px Arial";
-						lienzo1.fillStyle = '#0000FF';
-						lienzo1.beginPath();
-						lienzo1.fillText("x:0 y:0", 48, 274);
-						lienzo1.fillText("x:5 y:1023", 518, 266-1023/y2*256);
-						lienzo1.stroke();
-						lienzo1.closePath();
-					}
-					//DRAW X,Y
-					lienzo1.strokeStyle = '#FF0000';
-					lienzo1.beginPath();
-					if (y2<=1023) {
-						lienzo1.moveTo(96,256-y1/1023*256);
-						lienzo1.lineTo(512,256-y2/1023*256);
-						lienzo1.stroke();
-						lienzo1.closePath();
-						lienzo1.fillStyle = '#FF0000';
-						lienzo1.font = "13px Arial";
-						lienzo1.fillText("x:0" + " y:" + y1, 1, 274-y1/1023*256);
-						lienzo1.fillText("x:5" + " y:" + y2, 600, 266-y2/1023*256);
-						lienzo1.stroke();
-						lienzo1.closePath();
-					}
-					else {
-						lienzo1.moveTo(96,256-y1/y2*256);
-						lienzo1.lineTo(512,0);
-						lienzo1.stroke();
-						lienzo1.closePath();
-						lienzo1.fillStyle = '#FF0000';
-						lienzo1.font = "13px Arial";
-						lienzo1.fillText("x:0" + " y:" + y1, 1, 274-y1/y2*256);
-						lienzo1.fillText("x:5" + " y:" + y2, 600, 10);
-						lienzo1.stroke();
-						lienzo1.closePath();
-					}
-				}
-			</script>
+			Línea de código Arduino
+			<br><br>
+			<i>Salida</i> = <i>analogRead(A0)</i><span id="Por"></span>
+			<div class="fraction">
+				<span class="fup"><span id="Rango"></span></span>
+				<span class="bar"><span id="Barra"></span></span>
+				<span class="fdn"><span id="Denominador"></span></span>
+			</div>
+			<span id="span"></span>
 			<script>
 				function capturar() {
-					var Smax=document.getElementById("max").value
-					var Smin=document.getElementById("min").value
-					
+					var Smax=document.getElementById("Smax").value
+					var Smin=document.getElementById("Smin").value
 					ejercicio1(Smin, Smax);
+					var rango = Smax - Smin;
+					if (Smax==1023 && Smin==0) {
+						document.getElementById("Por").innerHTML = " ;";
+						document.getElementById("Rango").innerHTML = "";
+						document.getElementById("Barra").innerHTML = "";
+						document.getElementById("Denominador").innerHTML = "";
+						document.getElementById("span").innerHTML = "";
+					}
+					else
+					{
+						document.getElementById("Por").innerHTML = " * ";
+						document.getElementById("Rango").innerHTML = rango;
+						document.getElementById("Barra").innerHTML = "/";
+						document.getElementById("Denominador").innerHTML = "1023";
+					}
 					if (Smin>=0) {
 						document.getElementById("Ymin1").innerHTML = " - " + Smin;
 						document.getElementById("Ymin2").innerHTML = " + " + Smin;
@@ -302,28 +232,158 @@
 						document.getElementById("Ymin1").innerHTML = " + " + -Smin;
 						document.getElementById("Ymin2").innerHTML = " - " + -Smin;
 					}
+					if (Smin==0 && Smax!=1023) {
+						document.getElementById("span").innerHTML = ";";
+					}
+					if (Smin>0) {
+						document.getElementById("span").innerHTML = " + " + Smin + ";";
+					}
+					if (Smin<0) {
+						document.getElementById("span").innerHTML = " - " + -Smin + ";";
+					}
 					document.getElementById("Ymax").innerHTML = Smax;
+				}
+			</script>
+			<br><br>
+			<div class="dibujo-canvas" align="center">
+				<canvas id="lienzo1" display="block" color="blue" width="1000" height="512"></canvas>
+					<script type="text/javascript">
+						ejercicio1(0,1023);
+						function ejercicio1(y1, y2) {
+							ej1=document.getElementById("lienzo1");
+							lienzo1=ej1.getContext("2d");
+							lienzo1.clearRect(0,0,1000,512);
+							lienzo1.fillStyle = "#EEEEEE";
+							lienzo1.fillRect(200, 0, 600, 512);
+							lienzo1.lineWidth=2;
+							lienzo1.strokeStyle = '#000';
+							//EJE X
+							lienzo1.beginPath();
+							lienzo1.moveTo(200,256);
+					lienzo1.lineTo(800,256);
+					lienzo1.stroke();
+					lienzo1.closePath();
+					//EJEY
+					lienzo1.beginPath();
+					lienzo1.moveTo(200,0);
+					lienzo1.lineTo(200,512);
+					lienzo1.stroke();
+					lienzo1.closePath();
+					//DRAW SCALE
+					lienzo1.lineWidth=1;
+					lienzo1.strokeStyle = '#BBBBBB';
+					lienzo1.beginPath(); 
+					for (var i=200;i<=800;i+=120) {
+						lienzo1.moveTo(i,0);
+						lienzo1.lineTo(i,512);
+					}
+					for (var i=0;i<=512;i+=128) {
+						lienzo1.moveTo(200,i);
+						lienzo1.lineTo(800,i);
+					}
+					lienzo1.stroke();
+					lienzo1.closePath();
+					lienzo1.strokeStyle = '#000000';
+					lienzo1.beginPath(); 
+					for (var i=200;i<=800;i+=60) {
+						lienzo1.moveTo(i,250);
+						lienzo1.lineTo(i,262);
+					}
+					for (var i=0;i<=512;i+=64) {
+						lienzo1.moveTo(194,i);
+						lienzo1.lineTo(206,i);
+					}
+					lienzo1.stroke();
+					lienzo1.closePath();
+					//DRAW 0 - 1023
+					if (Math.abs(y1)<=1023 && y2<=1023) {
+						lienzo1.lineWidth=1;
+						lienzo1.strokeStyle = '#FF0000';
+						lienzo1.beginPath();
+						lienzo1.moveTo(200,256);
+						lienzo1.lineTo(800,0);
+						lienzo1.stroke();
+						lienzo1.closePath();
+						lienzo1.font = "15px Arial";
+						lienzo1.fillStyle = '#FF0000';
+						lienzo1.beginPath();
+						lienzo1.fillText("x:0 y:0", 135, 260);
+						lienzo1.fillText("x:5 y:1023", 820, 12);
+						lienzo1.stroke();
+						lienzo1.closePath();
+						lienzo1.strokeStyle = '#0000FF';
+						lienzo1.beginPath();
+						lienzo1.moveTo(200,256-y1/1023*256);
+						lienzo1.lineTo(800,256-y2/1023*256);
+						lienzo1.stroke();
+						lienzo1.closePath();
+						lienzo1.fillStyle = '#0000FF';
+						lienzo1.font = "15px Arial";
+						lienzo1.fillText("x:0" + " y:" + y1, 60, 260-y1/1023*244);
+						lienzo1.fillText("x:5" + " y:" + y2, 910, 268-y2/1023*256);
+						lienzo1.stroke();
+						lienzo1.closePath();
+					}
+					else if (Math.abs(y1)<=y2) {
+						lienzo1.lineWidth=1;
+						lienzo1.strokeStyle = '#FF0000';
+						lienzo1.beginPath();
+						lienzo1.moveTo(200,256);
+						lienzo1.lineTo(800,256-1023/y2*256);
+						lienzo1.stroke();
+						lienzo1.closePath();
+						lienzo1.font = "15px Arial";
+						lienzo1.fillStyle = '#FF0000';
+						lienzo1.beginPath();
+						lienzo1.fillText("x:0 y:0", 135, 260);
+						lienzo1.fillText("x:5 y:1023", 820, 268-1023/y2*256);
+						lienzo1.stroke();
+						lienzo1.closePath();
+						lienzo1.lineWidth=1;
+						lienzo1.strokeStyle = '#0000FF';
+						lienzo1.moveTo(200,256-y1/y2*256);
+						lienzo1.lineTo(800,0);
+						lienzo1.stroke();
+						lienzo1.closePath();
+						lienzo1.fillStyle = '#0000FF';
+						lienzo1.font = "15px Arial";
+						lienzo1.fillText("x:0" + " y:" + y1, 60, 260-y1/y2*244);
+						lienzo1.fillText("x:5" + " y:" + y2, 910, 12);
+						lienzo1.stroke();
+						lienzo1.closePath();
+					}
+					else if (Math.abs(y1)>y2) {
+						lienzo1.lineWidth=1;
+						lienzo1.strokeStyle = '#FF0000';
+						lienzo1.beginPath();
+						lienzo1.moveTo(200,256);
+						lienzo1.lineTo(800,256-1023/Math.abs(y1)*256);
+						lienzo1.stroke();
+						lienzo1.closePath();
+						lienzo1.font = "15px Arial";
+						lienzo1.fillStyle = '#FF0000';
+						lienzo1.beginPath();
+						lienzo1.fillText("x:0 y:0", 135, 260);
+						lienzo1.fillText("x:5 y:1023", 820, 268-1023/-y1*256);
+						lienzo1.stroke();
+						lienzo1.closePath();
+						lienzo1.lineWidth=1;
+						lienzo1.strokeStyle = '#0000FF';
+						lienzo1.moveTo(200,512);
+						lienzo1.lineTo(800,256+y2/y1*256);
+						lienzo1.stroke();
+						lienzo1.closePath();
+						lienzo1.fillStyle = '#0000FF';
+						lienzo1.font = "15px Arial";
+						lienzo1.fillText("x:0" + " y:" + y1, 60, 504);
+						lienzo1.fillText("x:5" + " y:" + y2, 910, 268+y2/y1*256);
+						lienzo1.stroke();
+						lienzo1.closePath();
+					}
 				}
 			</script>
 			</div>
 			<br><br>
-			<i>S</i> = <i>E</i> *
-			<div class="fraction">
-				<span class="fup">(Smax - Smin)</span>
-				<span class="bar">/</span>
-				<span class="fdn">1023</span>
-			</div> + Smin
-			<br><br>
-			<div id="resultado"></div>
-			<br><br>
-			<i>S</i> = <i>E</i> *
-			<div class="fraction">
-				<span class="fup">(<span id="Ymax"></span><span id="Ymin1"></span>)</span>
-				<span class="bar">/</span>
-				<span class="fdn">1023</span>
-			</div>
-			<span id="Ymin2"></span>
-			<br><br><br>
 			<a id="Escalamiento sin desplazamiento de cero. Rango 0 a 100"></a>
 			<b><i>9.2.1 Escalamiento sin desplazamiento de cero. Rango 0 a 100</i></b>
 			<br><br>
@@ -337,7 +397,7 @@
 			</video>
 			<br>
 			<iframe class="pag" id="ifrm4" name="ifrm4" scrolling="no" src="html/9.2.1.1.html"></iframe>
-			<br><br>
+			<br>
 			<a id="Representación con dígitos decimales"></a>
 			<b><i>9.2.1.2 Representación con dígitos decimales</i></b>
 			<br><br>
@@ -359,7 +419,7 @@
 			</video>
 			<br>
 			<iframe class="pag" id="ifrm6" name="ifrm6" scrolling="no" src="html/9.2.2.html"></iframe>
-			<br><br>
+			<br>
 			<a id="Escalamiento con desplazamiento negativo. Rango -50 a 150"></a>
 			<b><i>9.2.3 Escalamiento con desplazamiento negativo. Rango -50 a 150</i></b>
 			<br><br>
