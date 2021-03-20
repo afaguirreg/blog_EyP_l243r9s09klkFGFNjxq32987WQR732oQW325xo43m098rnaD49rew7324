@@ -241,6 +241,20 @@
 					if (Smin<0) {
 						document.getElementById("span").innerHTML = " - " + -Smin + ";";
 					}
+					if (rango==1023 && Smin>0) {
+						document.getElementById("Por").innerHTML = " + " + Smin + ";"
+						document.getElementById("Rango").innerHTML = "";
+						document.getElementById("Barra").innerHTML = "";
+						document.getElementById("Denominador").innerHTML = "";
+						document.getElementById("span").innerHTML = "";
+					}
+					if (rango==1023 && Smin<0) {
+						document.getElementById("Por").innerHTML = " - " + -Smin + ";";
+						document.getElementById("Rango").innerHTML = "";
+						document.getElementById("Barra").innerHTML = "";
+						document.getElementById("Denominador").innerHTML = "";
+						document.getElementById("span").innerHTML = "";
+					}
 					document.getElementById("Ymax").innerHTML = Smax;
 				}
 			</script>
