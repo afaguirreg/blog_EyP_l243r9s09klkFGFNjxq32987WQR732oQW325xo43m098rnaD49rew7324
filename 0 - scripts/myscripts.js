@@ -52,6 +52,7 @@ function getDocHeight(doc) {
 }
 
 setInterval(function() {
+				iFrameResize();
 				var x = document.getElementsByTagName("iframe");
 				for (var i = 0; i < x.length; i++) {
 					var ifrm = document.getElementById(x[i].id);

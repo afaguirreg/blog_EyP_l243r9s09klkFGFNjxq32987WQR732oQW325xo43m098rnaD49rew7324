@@ -197,13 +197,15 @@
 			<br><br><br>
 			Línea de código Arduino
 			<br><br>
-			<i>Salida</i> = <i>analogRead(A0)</i><span id="Por"></span>
+			sensor = <i>analogRead(A0);</i>
+			<br><br>
+			<span id="Sensor"></span><span id="Por"></span>
 			<div class="fraction">
 				<span class="fup"><span id="Rango"></span></span>
 				<span class="bar"><span id="Barra"></span></span>
 				<span class="fdn"><span id="Denominador"></span></span>
 			</div>
-			<span id="span"></span>
+			<span id="Span"></span>
 			<script>
 				function capturar() {
 					var Smax=document.getElementById("Smax").value
@@ -211,14 +213,16 @@
 					ejercicio1(Smin, Smax);
 					var rango = Smax - Smin;
 					if (Smax==1023 && Smin==0) {
-						document.getElementById("Por").innerHTML = " ;";
+						document.getElementById("Sensor").innerHTML = "";
+						document.getElementById("Por").innerHTML = "";
 						document.getElementById("Rango").innerHTML = "";
 						document.getElementById("Barra").innerHTML = "";
 						document.getElementById("Denominador").innerHTML = "";
-						document.getElementById("span").innerHTML = "";
+						document.getElementById("Span").innerHTML = "";
 					}
 					else
 					{
+						document.getElementById("Sensor").innerHTML = "sensor = sensor ";
 						document.getElementById("Por").innerHTML = " * ";
 						document.getElementById("Rango").innerHTML = rango;
 						document.getElementById("Barra").innerHTML = "/";
@@ -233,27 +237,28 @@
 						document.getElementById("Ymin2").innerHTML = " - " + -Smin;
 					}
 					if (Smin==0 && Smax!=1023) {
-						document.getElementById("span").innerHTML = ";";
+						document.getElementById("Span").innerHTML = ";";
 					}
 					if (Smin>0) {
-						document.getElementById("span").innerHTML = " + " + Smin + ";";
+						document.getElementById("Span").innerHTML = " + " + Smin + ";";
 					}
 					if (Smin<0) {
-						document.getElementById("span").innerHTML = " - " + -Smin + ";";
+						document.getElementById("Span").innerHTML = " - " + -Smin + ";";
 					}
 					if (rango==1023 && Smin>0) {
 						document.getElementById("Por").innerHTML = " + " + Smin + ";"
 						document.getElementById("Rango").innerHTML = "";
 						document.getElementById("Barra").innerHTML = "";
 						document.getElementById("Denominador").innerHTML = "";
-						document.getElementById("span").innerHTML = "";
+						document.getElementById("Span").innerHTML = "";
 					}
 					if (rango==1023 && Smin<0) {
+						document.getElementById("Sensor").innerHTML = "sensor = sensor ";
 						document.getElementById("Por").innerHTML = " - " + -Smin + ";";
 						document.getElementById("Rango").innerHTML = "";
 						document.getElementById("Barra").innerHTML = "";
 						document.getElementById("Denominador").innerHTML = "";
-						document.getElementById("span").innerHTML = "";
+						document.getElementById("Span").innerHTML = "";
 					}
 					document.getElementById("Ymax").innerHTML = Smax;
 				}
