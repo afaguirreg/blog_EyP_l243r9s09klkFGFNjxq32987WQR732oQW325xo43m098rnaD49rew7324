@@ -58,4 +58,9 @@ setInterval(function() {
 					var doc = ifrm.contentDocument? ifrm.contentDocument:ifrm.contentWindow.document;
 					ifrm.style.height = getDocHeight( doc ) + "px";
 				}
+				var y = document.getElementsByTagName("img");
+				for (var j = 0; i < y.length; j++) {
+					var iimg = document.getElementById(y[i].id);
+					iimg.size = iimg.size;
+				}
 			},1000);
