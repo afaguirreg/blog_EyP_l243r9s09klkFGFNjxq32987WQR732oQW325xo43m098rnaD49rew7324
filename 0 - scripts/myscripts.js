@@ -56,7 +56,6 @@ setInterval(function() {
 				for (var i = 0; i < x.length; i++) {
 					var ifrm = document.getElementById(x[i].id);
 					var doc = ifrm.contentDocument? ifrm.contentDocument:ifrm.contentWindow.document;
-					ifrm.style.height = parseInt(getDocHeight( doc ) + 1) + "px";
-					ifrm.style.height = parseInt(getDocHeight( doc )) + "px";
+					ifrm.style.height = getDocHeight( doc ) + "px";
 				}
 			},1000);

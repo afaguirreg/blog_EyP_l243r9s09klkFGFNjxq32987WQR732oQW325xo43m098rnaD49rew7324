@@ -5,9 +5,7 @@
 		<title>Documento sin título</title>
 		<link rel="stylesheet" type="text/css" href="../../../0 - styles/mystyles.css">
 		<script language="JavaScript" src="../../../0 - scripts/myscripts.js"></script>
-		<!--<link rel="stylesheet" href="../../../0 - styles/style.css">-->
-		<script src="../../../../0 - scripts/highlight/jquery-1.10.1.min.js"></script>
-		<script type="text/javascript" src="../../../../0 - scripts/iframe/iframeResizer.contentWindow.min.js" defer></script>
+		<script type="text/javascript" src="../../../0 - scripts/iframe/iframeResizer.contentWindow.min.js" defer></script>
 	</head>
 
 	<body>
@@ -25,36 +23,6 @@
 			Imaginemos ahora un dispositivo analógico que varía su tensión de salida entre 0V y 1V. Si le aplicamos la conversión A/D con 10 bits de precisión entonces los valores que vamos a obtener son entre 0 y 204 (1*1024/5V) con lo que desperdiciamos una parte muy importante del rango posible de conversión entre 204 y 1023.
 			<br><br>
 			Entonces, la solución está en poner a 1V la patilla VRef+ del dispositivo con lo que la conversión A/D a realizar a la señal presente en el pin a leer se va a efectuar en 1024 pasos entre GND y VRef+, no entre GND y Vcc como antes, con lo que obtenemos un resultado 5 veces más preciso: 1V dividido en 1024 partes con lo que cada número corresponde con 0,0009765V.
-		</div>
-		<div>
-			<script>
-				var xhr = new XMLHttpRequest();
-				xhr.open("get", ".txt", true);
-				xhr.onreadystatechange = function(){
-					if(this.readyState != 4)return;
-					document.getElementById("input").innerHTML = this.responseText;
-				}
-				xhr.send(null)
-			</script>
-			<script src="../../../../0 - scripts/highlight/main.js"></script>
-			<div id="main">
-				<div class="input" style="visibility: hidden;display: none">
-					<textarea id="input" placeholder="Input"></textarea>
-				</div>
-				<div class="submit" style="visibility: hidden;display: none">
-					<input id="execute" type="button" value="Highlight" class="btn btn-default">
-					<label>
-						<input id="auto-update" type="checkbox" value="1" checked="checked">Auto Update
-					</label>
-				</div>
-				<div class="output" style="visibility: hidden;display: none">
-					<textarea id="output" placeholder="Output"></textarea>
-				</div>
-				<script src="../../../../0 - scripts/highlight/highlight.pack.js"></script>
-				<link rel="alternate stylesheet" title="Arduino Light" href="../0 - styles/code-light.css">
-			</div>
-			<script src="../../../../0 - scripts/highlight/syntax-highlight.js"></script>
-			<script>method = highlight;</script>
 		</div>
 	</body>
 </html>
