@@ -8,17 +8,14 @@
 		<script language="JavaScript" src="https://yui-s.yahooapis.com/3.18.1/build/yui/yui-min.js"></script>
 		<script type="text/javascript" src="../../../0 - scripts/jquery/jquery.min.js"></script>
 		<script type="text/javascript" src="../../../0 - scripts/iframe/iframeResizer.min.js"></script>
-		<script type="text/javascript">
-			setInterval(function() {
-				iFrameResize();
-			},1000);
-		</script>
 	</head>
 
 	<body class="yui3-skin-sam" onload="capturar(); iFrameResize();">
 		<div class="Normal" style="text-align:justify">
 			<a id="Entradas analogas"></a>
 			<b>9. Entradas análogas</b>
+			<br><br>
+			Un sistema analógico es aquel que tiene la capacidad de generar, transmitir, procesar o almacenar señales analógicas. Se dice que una señal es analógica cuando las magnitudes de la misma se representan mediante variables continuas, análogas (relación de semejanza entre cosas distintas.) a las magnitudes que dan lugar a la generación de esta señal. Referido a un aparato o a un instrumento de medida, decimos que es analógico cuando el resultado de la medida se representa mediante variables continuas, análogas a las magnitudes que estamos midiendo. 
 			<br><br>
 			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" src="../../html/9.%20Entradas%20analogas.html"></iframe>
 			<br>
@@ -271,141 +268,141 @@
 			<br><br>
 			<div class="dibujo-canvas" align="center">
 				<canvas id="lienzo1" display="block" color="blue" width="1000" height="512"></canvas>
-					<script type="text/javascript">
-						ejercicio1(0,1023);
-						function ejercicio1(y1, y2) {
-							ej1=document.getElementById("lienzo1");
-							lienzo1=ej1.getContext("2d");
-							lienzo1.clearRect(0,0,1000,512);
-							lienzo1.fillStyle = "#EEEEEE";
-							lienzo1.fillRect(200, 0, 600, 512);
-							lienzo1.lineWidth=2;
-							lienzo1.strokeStyle = '#000';
-							//EJE X
+				<script type="text/javascript">
+					ejercicio1(0,1023);
+					function ejercicio1(y1, y2) {
+						ej1=document.getElementById("lienzo1");
+						lienzo1=ej1.getContext("2d");
+						lienzo1.clearRect(0,0,1000,512);
+						lienzo1.fillStyle = "#EEEEEE";
+						lienzo1.fillRect(200, 0, 600, 512);
+						lienzo1.lineWidth=2;
+						lienzo1.strokeStyle = '#000';
+						//EJE X
+						lienzo1.beginPath();
+						lienzo1.moveTo(200,256);
+						lienzo1.lineTo(800,256);
+						lienzo1.stroke();
+						lienzo1.closePath();
+						//EJEY
+						lienzo1.beginPath();
+						lienzo1.moveTo(200,0);
+						lienzo1.lineTo(200,512);
+						lienzo1.stroke();
+						lienzo1.closePath();
+						//DRAW SCALE
+						lienzo1.lineWidth=1;
+						lienzo1.strokeStyle = '#BBBBBB';
+						lienzo1.beginPath(); 
+						for (var i=200;i<=800;i+=120) {
+							lienzo1.moveTo(i,0);
+							lienzo1.lineTo(i,512);
+						}
+						for (var i=0;i<=512;i+=128) {
+							lienzo1.moveTo(200,i);
+							lienzo1.lineTo(800,i);
+						}
+						lienzo1.stroke();
+						lienzo1.closePath();
+						lienzo1.strokeStyle = '#000000';
+						lienzo1.beginPath(); 
+						for (var i=200;i<=800;i+=60) {
+							lienzo1.moveTo(i,250);
+							lienzo1.lineTo(i,262);
+						}
+						for (var i=0;i<=512;i+=64) {
+							lienzo1.moveTo(194,i);
+							lienzo1.lineTo(206,i);
+						}
+						lienzo1.stroke();
+						lienzo1.closePath();
+						//DRAW 0 - 1023
+						if (Math.abs(y1)<=1023 && y2<=1023) {
+							lienzo1.lineWidth=1;
+							lienzo1.strokeStyle = '#FF0000';
 							lienzo1.beginPath();
 							lienzo1.moveTo(200,256);
-					lienzo1.lineTo(800,256);
-					lienzo1.stroke();
-					lienzo1.closePath();
-					//EJEY
-					lienzo1.beginPath();
-					lienzo1.moveTo(200,0);
-					lienzo1.lineTo(200,512);
-					lienzo1.stroke();
-					lienzo1.closePath();
-					//DRAW SCALE
-					lienzo1.lineWidth=1;
-					lienzo1.strokeStyle = '#BBBBBB';
-					lienzo1.beginPath(); 
-					for (var i=200;i<=800;i+=120) {
-						lienzo1.moveTo(i,0);
-						lienzo1.lineTo(i,512);
+							lienzo1.lineTo(800,0);
+							lienzo1.stroke();
+							lienzo1.closePath();
+							lienzo1.font = "15px Arial";
+							lienzo1.fillStyle = '#FF0000';
+							lienzo1.beginPath();
+							lienzo1.fillText("x:0 y:0", 135, 260);
+							lienzo1.fillText("x:5 y:1023", 820, 12);
+							lienzo1.stroke();
+							lienzo1.closePath();
+							lienzo1.strokeStyle = '#0000FF';
+							lienzo1.beginPath();
+							lienzo1.moveTo(200,256-y1/1023*256);
+							lienzo1.lineTo(800,256-y2/1023*256);
+							lienzo1.stroke();
+							lienzo1.closePath();
+							lienzo1.fillStyle = '#0000FF';
+							lienzo1.font = "15px Arial";
+							lienzo1.fillText("x:0" + " y:" + y1, 60, 260-y1/1023*244);
+							lienzo1.fillText("x:5" + " y:" + y2, 910, 268-y2/1023*256);
+							lienzo1.stroke();
+							lienzo1.closePath();
+						}
+						else if (Math.abs(y1)<=y2) {
+							lienzo1.lineWidth=1;
+							lienzo1.strokeStyle = '#FF0000';
+							lienzo1.beginPath();
+							lienzo1.moveTo(200,256);
+							lienzo1.lineTo(800,256-1023/y2*256);
+							lienzo1.stroke();
+							lienzo1.closePath();
+							lienzo1.font = "15px Arial";
+							lienzo1.fillStyle = '#FF0000';
+							lienzo1.beginPath();
+							lienzo1.fillText("x:0 y:0", 135, 260);
+							lienzo1.fillText("x:5 y:1023", 820, 268-1023/y2*256);
+							lienzo1.stroke();
+							lienzo1.closePath();
+							lienzo1.lineWidth=1;
+							lienzo1.strokeStyle = '#0000FF';
+							lienzo1.moveTo(200,256-y1/y2*256);
+							lienzo1.lineTo(800,0);
+							lienzo1.stroke();
+							lienzo1.closePath();
+							lienzo1.fillStyle = '#0000FF';
+							lienzo1.font = "15px Arial";
+							lienzo1.fillText("x:0" + " y:" + y1, 60, 260-y1/y2*244);
+							lienzo1.fillText("x:5" + " y:" + y2, 910, 12);
+							lienzo1.stroke();
+							lienzo1.closePath();
+						}
+						else if (Math.abs(y1)>y2) {
+							lienzo1.lineWidth=1;
+							lienzo1.strokeStyle = '#FF0000';
+							lienzo1.beginPath();
+							lienzo1.moveTo(200,256);
+							lienzo1.lineTo(800,256-1023/Math.abs(y1)*256);
+							lienzo1.stroke();
+							lienzo1.closePath();
+							lienzo1.font = "15px Arial";
+							lienzo1.fillStyle = '#FF0000';
+							lienzo1.beginPath();
+							lienzo1.fillText("x:0 y:0", 135, 260);
+							lienzo1.fillText("x:5 y:1023", 820, 268-1023/-y1*256);
+							lienzo1.stroke();
+							lienzo1.closePath();
+							lienzo1.lineWidth=1;
+							lienzo1.strokeStyle = '#0000FF';
+							lienzo1.moveTo(200,512);
+							lienzo1.lineTo(800,256+y2/y1*256);
+							lienzo1.stroke();
+							lienzo1.closePath();
+							lienzo1.fillStyle = '#0000FF';
+							lienzo1.font = "15px Arial";
+							lienzo1.fillText("x:0" + " y:" + y1, 60, 504);
+							lienzo1.fillText("x:5" + " y:" + y2, 910, 268+y2/y1*256);
+							lienzo1.stroke();
+							lienzo1.closePath();
+						}
 					}
-					for (var i=0;i<=512;i+=128) {
-						lienzo1.moveTo(200,i);
-						lienzo1.lineTo(800,i);
-					}
-					lienzo1.stroke();
-					lienzo1.closePath();
-					lienzo1.strokeStyle = '#000000';
-					lienzo1.beginPath(); 
-					for (var i=200;i<=800;i+=60) {
-						lienzo1.moveTo(i,250);
-						lienzo1.lineTo(i,262);
-					}
-					for (var i=0;i<=512;i+=64) {
-						lienzo1.moveTo(194,i);
-						lienzo1.lineTo(206,i);
-					}
-					lienzo1.stroke();
-					lienzo1.closePath();
-					//DRAW 0 - 1023
-					if (Math.abs(y1)<=1023 && y2<=1023) {
-						lienzo1.lineWidth=1;
-						lienzo1.strokeStyle = '#FF0000';
-						lienzo1.beginPath();
-						lienzo1.moveTo(200,256);
-						lienzo1.lineTo(800,0);
-						lienzo1.stroke();
-						lienzo1.closePath();
-						lienzo1.font = "15px Arial";
-						lienzo1.fillStyle = '#FF0000';
-						lienzo1.beginPath();
-						lienzo1.fillText("x:0 y:0", 135, 260);
-						lienzo1.fillText("x:5 y:1023", 820, 12);
-						lienzo1.stroke();
-						lienzo1.closePath();
-						lienzo1.strokeStyle = '#0000FF';
-						lienzo1.beginPath();
-						lienzo1.moveTo(200,256-y1/1023*256);
-						lienzo1.lineTo(800,256-y2/1023*256);
-						lienzo1.stroke();
-						lienzo1.closePath();
-						lienzo1.fillStyle = '#0000FF';
-						lienzo1.font = "15px Arial";
-						lienzo1.fillText("x:0" + " y:" + y1, 60, 260-y1/1023*244);
-						lienzo1.fillText("x:5" + " y:" + y2, 910, 268-y2/1023*256);
-						lienzo1.stroke();
-						lienzo1.closePath();
-					}
-					else if (Math.abs(y1)<=y2) {
-						lienzo1.lineWidth=1;
-						lienzo1.strokeStyle = '#FF0000';
-						lienzo1.beginPath();
-						lienzo1.moveTo(200,256);
-						lienzo1.lineTo(800,256-1023/y2*256);
-						lienzo1.stroke();
-						lienzo1.closePath();
-						lienzo1.font = "15px Arial";
-						lienzo1.fillStyle = '#FF0000';
-						lienzo1.beginPath();
-						lienzo1.fillText("x:0 y:0", 135, 260);
-						lienzo1.fillText("x:5 y:1023", 820, 268-1023/y2*256);
-						lienzo1.stroke();
-						lienzo1.closePath();
-						lienzo1.lineWidth=1;
-						lienzo1.strokeStyle = '#0000FF';
-						lienzo1.moveTo(200,256-y1/y2*256);
-						lienzo1.lineTo(800,0);
-						lienzo1.stroke();
-						lienzo1.closePath();
-						lienzo1.fillStyle = '#0000FF';
-						lienzo1.font = "15px Arial";
-						lienzo1.fillText("x:0" + " y:" + y1, 60, 260-y1/y2*244);
-						lienzo1.fillText("x:5" + " y:" + y2, 910, 12);
-						lienzo1.stroke();
-						lienzo1.closePath();
-					}
-					else if (Math.abs(y1)>y2) {
-						lienzo1.lineWidth=1;
-						lienzo1.strokeStyle = '#FF0000';
-						lienzo1.beginPath();
-						lienzo1.moveTo(200,256);
-						lienzo1.lineTo(800,256-1023/Math.abs(y1)*256);
-						lienzo1.stroke();
-						lienzo1.closePath();
-						lienzo1.font = "15px Arial";
-						lienzo1.fillStyle = '#FF0000';
-						lienzo1.beginPath();
-						lienzo1.fillText("x:0 y:0", 135, 260);
-						lienzo1.fillText("x:5 y:1023", 820, 268-1023/-y1*256);
-						lienzo1.stroke();
-						lienzo1.closePath();
-						lienzo1.lineWidth=1;
-						lienzo1.strokeStyle = '#0000FF';
-						lienzo1.moveTo(200,512);
-						lienzo1.lineTo(800,256+y2/y1*256);
-						lienzo1.stroke();
-						lienzo1.closePath();
-						lienzo1.fillStyle = '#0000FF';
-						lienzo1.font = "15px Arial";
-						lienzo1.fillText("x:0" + " y:" + y1, 60, 504);
-						lienzo1.fillText("x:5" + " y:" + y2, 910, 268+y2/y1*256);
-						lienzo1.stroke();
-						lienzo1.closePath();
-					}
-				}
-			</script>
+				</script>
 			</div>
 			<br><br>
 			<a id="Escalamiento sin desplazamiento de cero. Rango 0 a 100"></a>
