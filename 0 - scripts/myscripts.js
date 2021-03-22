@@ -62,6 +62,5 @@ setInterval(function() {
 				for (var j = 0; j < y.length; j++) {
 					var iimg = document.getElementById(y[j].id);
 					iimg.width = iimg.width + 1;
-					iimg.width = iimg.width - 1;
 				}
 			},1000);
