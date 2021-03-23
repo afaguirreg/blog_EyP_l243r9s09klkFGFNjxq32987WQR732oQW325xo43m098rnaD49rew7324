@@ -57,7 +57,8 @@ setInterval(function() {
 					var ifrm = document.getElementById(x[i].id);
 					var doc = ifrm.contentDocument? ifrm.contentDocument:ifrm.contentWindow.document;
 					var docheight = getDocHeight( doc );
-					ifrm.style.height = parseInt( docheight + parseInt(docheight)%2) + "px";
-					ifrm.style.height = parseInt(docheight - parseInt(docheight + 1)%2) + "px";
+					var suma = docheight % 2;
+					var resta = (docheight + 1) % 2;
+					ifrm.style.height = parseInt( docheight + suma - (resta)) + "px";
 				}
 			},1000);
