@@ -51,15 +51,26 @@ function getDocHeight(doc) {
 	return height;
 }
 
+function getDocWidth(doc) {
+	doc = doc || document;
+	// stackoverflow.com/questions/1145850/
+	var body = doc.body, html = doc.documentElement;
+	var height = Math.max( body.scrollWidth, body.offsetWidth, html.clientWidth, html.scrollWidth, html.offsetWidth );
+	return height;
+}
+
 setInterval(function() {
 				var x = document.getElementsByTagName("iframe");
 				for (var i = 0; i < x.length; i++) {
 					var ifrm = document.getElementById(x[i].id);
 					var doc = ifrm.contentDocument? ifrm.contentDocument:ifrm.contentWindow.document;
 					var docheight = getDocHeight( doc );
+					var docwidth = getDocWidth( doc );
+					
 					var suma = docheight % 2;
 					var resta = (docheight + 1) % 2;
-					ifrm.style.height = parseInt( docheight + 1) + "px";
-					ifrm.style.height = parseInt( docheight - 1) + "px";
+					var suma1 = docwidth % 2;
+					var resta1 = (docwidth + 1) % 2;
+					ifrm.style.width = parseInt( docwidth + suma1 - resta1) + "px";
 				}
 			},1000);
