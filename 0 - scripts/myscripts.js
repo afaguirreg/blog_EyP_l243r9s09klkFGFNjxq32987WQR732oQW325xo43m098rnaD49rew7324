@@ -37,6 +37,7 @@ window.onload = function() {
 	var valor = obtener_valor("verinfo");
 	var element = document.getElementById(valor);
 	element.scrollIntoView();
+	capturar();
 }
 
 function resizeIframe(obj) {
@@ -64,13 +65,10 @@ setInterval(function() {
 				for (var i = 0; i < x.length; i++) {
 					var ifrm = document.getElementById(x[i].id);
 					var doc = ifrm.contentDocument? ifrm.contentDocument:ifrm.contentWindow.document;
-					var docheight = getDocHeight( doc );
+					ifrm.style.height = getDocHeight( doc );
 					var docwidth = getDocWidth( doc );
-					
-					var suma = docheight % 2;
-					var resta = (docheight + 1) % 2;
-					var suma1 = docwidth % 2;
-					var resta1 = (docwidth + 1) % 2;
-					ifrm.style.width = parseInt( docwidth + suma1 - resta1) + "px";
+					var suma = docwidth % 2;
+					var resta = (docwidth + 1) % 2;
+					ifrm.style.width = parseInt( docwidth + suma - resta) + "px";
 				}
 			},1000);
