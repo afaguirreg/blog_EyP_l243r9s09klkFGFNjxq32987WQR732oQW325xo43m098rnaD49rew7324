@@ -59,6 +59,7 @@ setInterval(function() {
 					var docheight = getDocHeight( doc );
 					var suma = docheight % 2;
 					var resta = (docheight + 1) % 2;
-					ifrm.style.height = parseInt( docheight + suma - (resta)) + "px";
+					ifrm.style.height = parseInt( docheight + 1) + "px";
+					ifrm.style.height = parseInt( docheight - 1) + "px";
 				}
 			},1000);
