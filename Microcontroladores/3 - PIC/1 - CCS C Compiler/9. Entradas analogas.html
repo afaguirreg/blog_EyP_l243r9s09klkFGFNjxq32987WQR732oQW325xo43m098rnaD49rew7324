@@ -10,14 +10,14 @@
 		<script type="text/javascript" src="../../../0 - scripts/iframe/iframeResizer.min.js"></script>
 	</head>
 
-	<body class="yui3-skin-sam" onload="capturar();">
+	<body class="yui3-skin-sam">
 		<div class="Normal" style="text-align:justify">
 			<a id="Entradas analogas"></a>
 			<b>9. Entradas análogas</b>
 			<br><br>
-			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" src="../../html/9.%20Entradas%20analogas.html"></iframe>
+			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" marginwidth="0" src="../../html/9. Entradas analogas.html"></iframe>
 			<br>
-			<iframe class="pag" id="ifrm2" name="ifrm2" scrolling="no" src="../html/9.%20Entradas%20analogas.html"></iframe>
+			<iframe class="pag" id="ifrm2" name="ifrm2" scrolling="no" marginwidth="0" src="../html/9. Entradas analogas.html"></iframe>
 			<br><br><br>
 			<a id="Lectura convertidor Analogo / Digital"></a>
 			<b><i>9.1 Lectura convertidor Análogo / Digital</i></b>
@@ -81,7 +81,7 @@
 				<source src="../video/9.1%20Lectura%20convertidor%20An%C3%A1logo_Digital.webm" type="video/webm">
 			</video>
 			<br>
-			<iframe class="pag" id="ifrm3" name="ifrm3" scrolling="no" src="html/9.1.html"></iframe>
+			<iframe class="pag" id="ifrm3" name="ifrm3" scrolling="no" marginwidth="0" src="html/9.1.html"></iframe>
 			<br>
 			Comentarios del programa:
 			<br><br>
@@ -197,13 +197,15 @@
 			<br><br><br>
 			Línea de código Arduino
 			<br><br>
-			<i>Salida</i> = <i>analogRead(A0)</i><span id="Por"></span>
+			sensor = <i>analogRead(A0);</i>
+			<br><br>
+			<span id="Sensor"></span><span id="Por"></span>
 			<div class="fraction">
 				<span class="fup"><span id="Rango"></span></span>
 				<span class="bar"><span id="Barra"></span></span>
 				<span class="fdn"><span id="Denominador"></span></span>
 			</div>
-			<span id="span"></span>
+			<span id="Span"></span>
 			<script>
 				function capturar() {
 					var Smax=document.getElementById("Smax").value
@@ -211,14 +213,16 @@
 					ejercicio1(Smin, Smax);
 					var rango = Smax - Smin;
 					if (Smax==1023 && Smin==0) {
-						document.getElementById("Por").innerHTML = " ;";
+						document.getElementById("Sensor").innerHTML = "";
+						document.getElementById("Por").innerHTML = "";
 						document.getElementById("Rango").innerHTML = "";
 						document.getElementById("Barra").innerHTML = "";
 						document.getElementById("Denominador").innerHTML = "";
-						document.getElementById("span").innerHTML = "";
+						document.getElementById("Span").innerHTML = "";
 					}
 					else
 					{
+						document.getElementById("Sensor").innerHTML = "sensor = sensor ";
 						document.getElementById("Por").innerHTML = " * ";
 						document.getElementById("Rango").innerHTML = rango;
 						document.getElementById("Barra").innerHTML = "/";
@@ -233,27 +237,28 @@
 						document.getElementById("Ymin2").innerHTML = " - " + -Smin;
 					}
 					if (Smin==0 && Smax!=1023) {
-						document.getElementById("span").innerHTML = ";";
+						document.getElementById("Span").innerHTML = ";";
 					}
 					if (Smin>0) {
-						document.getElementById("span").innerHTML = " + " + Smin + ";";
+						document.getElementById("Span").innerHTML = " + " + Smin + ";";
 					}
 					if (Smin<0) {
-						document.getElementById("span").innerHTML = " - " + -Smin + ";";
+						document.getElementById("Span").innerHTML = " - " + -Smin + ";";
 					}
 					if (rango==1023 && Smin>0) {
 						document.getElementById("Por").innerHTML = " + " + Smin + ";"
 						document.getElementById("Rango").innerHTML = "";
 						document.getElementById("Barra").innerHTML = "";
 						document.getElementById("Denominador").innerHTML = "";
-						document.getElementById("span").innerHTML = "";
+						document.getElementById("Span").innerHTML = "";
 					}
 					if (rango==1023 && Smin<0) {
+						document.getElementById("Sensor").innerHTML = "sensor = sensor ";
 						document.getElementById("Por").innerHTML = " - " + -Smin + ";";
 						document.getElementById("Rango").innerHTML = "";
 						document.getElementById("Barra").innerHTML = "";
 						document.getElementById("Denominador").innerHTML = "";
-						document.getElementById("span").innerHTML = "";
+						document.getElementById("Span").innerHTML = "";
 					}
 					document.getElementById("Ymax").innerHTML = Smax;
 				}
@@ -261,147 +266,147 @@
 			<br><br>
 			<div class="dibujo-canvas" align="center">
 				<canvas id="lienzo1" display="block" color="blue" width="1000" height="512"></canvas>
-					<script type="text/javascript">
-						ejercicio1(0,1023);
-						function ejercicio1(y1, y2) {
-							ej1=document.getElementById("lienzo1");
-							lienzo1=ej1.getContext("2d");
-							lienzo1.clearRect(0,0,1000,512);
-							lienzo1.fillStyle = "#EEEEEE";
-							lienzo1.fillRect(200, 0, 600, 512);
-							lienzo1.lineWidth=2;
-							lienzo1.strokeStyle = '#000';
-							//EJE X
+				<script type="text/javascript">
+					ejercicio1(0,1023);
+					function ejercicio1(y1, y2) {
+						ej1=document.getElementById("lienzo1");
+						lienzo1=ej1.getContext("2d");
+						lienzo1.clearRect(0,0,1000,512);
+						lienzo1.fillStyle = "#EEEEEE";
+						lienzo1.fillRect(200, 0, 600, 512);
+						lienzo1.lineWidth=2;
+						lienzo1.strokeStyle = '#000';
+						//EJE X
+						lienzo1.beginPath();
+						lienzo1.moveTo(200,256);
+						lienzo1.lineTo(800,256);
+						lienzo1.stroke();
+						lienzo1.closePath();
+						//EJEY
+						lienzo1.beginPath();
+						lienzo1.moveTo(200,0);
+						lienzo1.lineTo(200,512);
+						lienzo1.stroke();
+						lienzo1.closePath();
+						//DRAW SCALE
+						lienzo1.lineWidth=1;
+						lienzo1.strokeStyle = '#BBBBBB';
+						lienzo1.beginPath(); 
+						for (var i=200;i<=800;i+=120) {
+							lienzo1.moveTo(i,0);
+							lienzo1.lineTo(i,512);
+						}
+						for (var i=0;i<=512;i+=128) {
+							lienzo1.moveTo(200,i);
+							lienzo1.lineTo(800,i);
+						}
+						lienzo1.stroke();
+						lienzo1.closePath();
+						lienzo1.strokeStyle = '#000000';
+						lienzo1.beginPath(); 
+						for (var i=200;i<=800;i+=60) {
+							lienzo1.moveTo(i,250);
+							lienzo1.lineTo(i,262);
+						}
+						for (var i=0;i<=512;i+=64) {
+							lienzo1.moveTo(194,i);
+							lienzo1.lineTo(206,i);
+						}
+						lienzo1.stroke();
+						lienzo1.closePath();
+						//DRAW 0 - 1023
+						if (Math.abs(y1)<=1023 && y2<=1023) {
+							lienzo1.lineWidth=1;
+							lienzo1.strokeStyle = '#FF0000';
 							lienzo1.beginPath();
 							lienzo1.moveTo(200,256);
-					lienzo1.lineTo(800,256);
-					lienzo1.stroke();
-					lienzo1.closePath();
-					//EJEY
-					lienzo1.beginPath();
-					lienzo1.moveTo(200,0);
-					lienzo1.lineTo(200,512);
-					lienzo1.stroke();
-					lienzo1.closePath();
-					//DRAW SCALE
-					lienzo1.lineWidth=1;
-					lienzo1.strokeStyle = '#BBBBBB';
-					lienzo1.beginPath(); 
-					for (var i=200;i<=800;i+=120) {
-						lienzo1.moveTo(i,0);
-						lienzo1.lineTo(i,512);
+							lienzo1.lineTo(800,0);
+							lienzo1.stroke();
+							lienzo1.closePath();
+							lienzo1.font = "15px Arial";
+							lienzo1.fillStyle = '#FF0000';
+							lienzo1.beginPath();
+							lienzo1.fillText("x:0 y:0", 135, 260);
+							lienzo1.fillText("x:5 y:1023", 820, 12);
+							lienzo1.stroke();
+							lienzo1.closePath();
+							lienzo1.strokeStyle = '#0000FF';
+							lienzo1.beginPath();
+							lienzo1.moveTo(200,256-y1/1023*256);
+							lienzo1.lineTo(800,256-y2/1023*256);
+							lienzo1.stroke();
+							lienzo1.closePath();
+							lienzo1.fillStyle = '#0000FF';
+							lienzo1.font = "15px Arial";
+							lienzo1.fillText("x:0" + " y:" + y1, 60, 260-y1/1023*244);
+							lienzo1.fillText("x:5" + " y:" + y2, 910, 268-y2/1023*256);
+							lienzo1.stroke();
+							lienzo1.closePath();
+						}
+						else if (Math.abs(y1)<=y2) {
+							lienzo1.lineWidth=1;
+							lienzo1.strokeStyle = '#FF0000';
+							lienzo1.beginPath();
+							lienzo1.moveTo(200,256);
+							lienzo1.lineTo(800,256-1023/y2*256);
+							lienzo1.stroke();
+							lienzo1.closePath();
+							lienzo1.font = "15px Arial";
+							lienzo1.fillStyle = '#FF0000';
+							lienzo1.beginPath();
+							lienzo1.fillText("x:0 y:0", 135, 260);
+							lienzo1.fillText("x:5 y:1023", 820, 268-1023/y2*256);
+							lienzo1.stroke();
+							lienzo1.closePath();
+							lienzo1.lineWidth=1;
+							lienzo1.strokeStyle = '#0000FF';
+							lienzo1.moveTo(200,256-y1/y2*256);
+							lienzo1.lineTo(800,0);
+							lienzo1.stroke();
+							lienzo1.closePath();
+							lienzo1.fillStyle = '#0000FF';
+							lienzo1.font = "15px Arial";
+							lienzo1.fillText("x:0" + " y:" + y1, 60, 260-y1/y2*244);
+							lienzo1.fillText("x:5" + " y:" + y2, 910, 12);
+							lienzo1.stroke();
+							lienzo1.closePath();
+						}
+						else if (Math.abs(y1)>y2) {
+							lienzo1.lineWidth=1;
+							lienzo1.strokeStyle = '#FF0000';
+							lienzo1.beginPath();
+							lienzo1.moveTo(200,256);
+							lienzo1.lineTo(800,256-1023/Math.abs(y1)*256);
+							lienzo1.stroke();
+							lienzo1.closePath();
+							lienzo1.font = "15px Arial";
+							lienzo1.fillStyle = '#FF0000';
+							lienzo1.beginPath();
+							lienzo1.fillText("x:0 y:0", 135, 260);
+							lienzo1.fillText("x:5 y:1023", 820, 268-1023/-y1*256);
+							lienzo1.stroke();
+							lienzo1.closePath();
+							lienzo1.lineWidth=1;
+							lienzo1.strokeStyle = '#0000FF';
+							lienzo1.moveTo(200,512);
+							lienzo1.lineTo(800,256+y2/y1*256);
+							lienzo1.stroke();
+							lienzo1.closePath();
+							lienzo1.fillStyle = '#0000FF';
+							lienzo1.font = "15px Arial";
+							lienzo1.fillText("x:0" + " y:" + y1, 60, 504);
+							lienzo1.fillText("x:5" + " y:" + y2, 910, 268+y2/y1*256);
+							lienzo1.stroke();
+							lienzo1.closePath();
+						}
 					}
-					for (var i=0;i<=512;i+=128) {
-						lienzo1.moveTo(200,i);
-						lienzo1.lineTo(800,i);
-					}
-					lienzo1.stroke();
-					lienzo1.closePath();
-					lienzo1.strokeStyle = '#000000';
-					lienzo1.beginPath(); 
-					for (var i=200;i<=800;i+=60) {
-						lienzo1.moveTo(i,250);
-						lienzo1.lineTo(i,262);
-					}
-					for (var i=0;i<=512;i+=64) {
-						lienzo1.moveTo(194,i);
-						lienzo1.lineTo(206,i);
-					}
-					lienzo1.stroke();
-					lienzo1.closePath();
-					//DRAW 0 - 1023
-					if (Math.abs(y1)<=1023 && y2<=1023) {
-						lienzo1.lineWidth=1;
-						lienzo1.strokeStyle = '#FF0000';
-						lienzo1.beginPath();
-						lienzo1.moveTo(200,256);
-						lienzo1.lineTo(800,0);
-						lienzo1.stroke();
-						lienzo1.closePath();
-						lienzo1.font = "15px Arial";
-						lienzo1.fillStyle = '#FF0000';
-						lienzo1.beginPath();
-						lienzo1.fillText("x:0 y:0", 135, 260);
-						lienzo1.fillText("x:5 y:1023", 820, 12);
-						lienzo1.stroke();
-						lienzo1.closePath();
-						lienzo1.strokeStyle = '#0000FF';
-						lienzo1.beginPath();
-						lienzo1.moveTo(200,256-y1/1023*256);
-						lienzo1.lineTo(800,256-y2/1023*256);
-						lienzo1.stroke();
-						lienzo1.closePath();
-						lienzo1.fillStyle = '#0000FF';
-						lienzo1.font = "15px Arial";
-						lienzo1.fillText("x:0" + " y:" + y1, 60, 260-y1/1023*244);
-						lienzo1.fillText("x:5" + " y:" + y2, 910, 268-y2/1023*256);
-						lienzo1.stroke();
-						lienzo1.closePath();
-					}
-					else if (Math.abs(y1)<=y2) {
-						lienzo1.lineWidth=1;
-						lienzo1.strokeStyle = '#FF0000';
-						lienzo1.beginPath();
-						lienzo1.moveTo(200,256);
-						lienzo1.lineTo(800,256-1023/y2*256);
-						lienzo1.stroke();
-						lienzo1.closePath();
-						lienzo1.font = "15px Arial";
-						lienzo1.fillStyle = '#FF0000';
-						lienzo1.beginPath();
-						lienzo1.fillText("x:0 y:0", 135, 260);
-						lienzo1.fillText("x:5 y:1023", 820, 268-1023/y2*256);
-						lienzo1.stroke();
-						lienzo1.closePath();
-						lienzo1.lineWidth=1;
-						lienzo1.strokeStyle = '#0000FF';
-						lienzo1.moveTo(200,256-y1/y2*256);
-						lienzo1.lineTo(800,0);
-						lienzo1.stroke();
-						lienzo1.closePath();
-						lienzo1.fillStyle = '#0000FF';
-						lienzo1.font = "15px Arial";
-						lienzo1.fillText("x:0" + " y:" + y1, 60, 260-y1/y2*244);
-						lienzo1.fillText("x:5" + " y:" + y2, 910, 12);
-						lienzo1.stroke();
-						lienzo1.closePath();
-					}
-					else if (Math.abs(y1)>y2) {
-						lienzo1.lineWidth=1;
-						lienzo1.strokeStyle = '#FF0000';
-						lienzo1.beginPath();
-						lienzo1.moveTo(200,256);
-						lienzo1.lineTo(800,256-1023/Math.abs(y1)*256);
-						lienzo1.stroke();
-						lienzo1.closePath();
-						lienzo1.font = "15px Arial";
-						lienzo1.fillStyle = '#FF0000';
-						lienzo1.beginPath();
-						lienzo1.fillText("x:0 y:0", 135, 260);
-						lienzo1.fillText("x:5 y:1023", 820, 268-1023/-y1*256);
-						lienzo1.stroke();
-						lienzo1.closePath();
-						lienzo1.lineWidth=1;
-						lienzo1.strokeStyle = '#0000FF';
-						lienzo1.moveTo(200,512);
-						lienzo1.lineTo(800,256+y2/y1*256);
-						lienzo1.stroke();
-						lienzo1.closePath();
-						lienzo1.fillStyle = '#0000FF';
-						lienzo1.font = "15px Arial";
-						lienzo1.fillText("x:0" + " y:" + y1, 60, 504);
-						lienzo1.fillText("x:5" + " y:" + y2, 910, 268+y2/y1*256);
-						lienzo1.stroke();
-						lienzo1.closePath();
-					}
-				}
-			</script>
+				</script>
 			</div>
 			<br><br>
 			<a id="Escalamiento sin desplazamiento de cero. Rango 0 a 100"></a>
 			<b><i>9.2.1 Escalamiento sin desplazamiento de cero. Rango 0 a 100</i></b>
 			<br><br>
-			<a id="Representación con cifra entera"></a>
+			<a id="Representacion con cifra entera"></a>
 			<b><i>9.2.1.1 Representación con cifra entera</i></b>
 			<br><br>
 			En el siguiente ejemplo haremos que el programa lea una entrada entre 0 y 5V de manera que para 0V representará 0 unidades y 5V representará 100 unidades.
@@ -410,9 +415,9 @@
 				<source src="../video/9.2.1.1 Representación con cifra entera.webm" type="video/webm">
 			</video>
 			<br>
-			<iframe class="pag" id="ifrm4" name="ifrm4" scrolling="no" src="html/9.2.1.1.html"></iframe>
+			<iframe class="pag" id="ifrm4" name="ifrm4" scrolling="no" marginwidth="0" src="html/9.2.1.1.html"></iframe>
 			<br>
-			<a id="Representación con dígitos decimales"></a>
+			<a id="Representacion con digitos decimales"></a>
 			<b><i>9.2.1.2 Representación con dígitos decimales</i></b>
 			<br><br>
 			En el siguiente ejemplo haremos que el programa lea una entrada entre 0 y 5V de manera que para 0V representará 0 unidadesy 5V representará 100 unidades (con dígitos decimales).
@@ -421,7 +426,7 @@
 				<source src="../video/9.2.1.2 Representación con dígitos decimales.webm" type="video/webm">
 			</video>
 			<br>
-			<iframe class="pag" id="ifrm5" name="ifrm5" scrolling="no" src="html/9.2.1.2.html"></iframe>
+			<iframe class="pag" id="ifrm5" name="ifrm5" scrolling="no" marginwidth="0" src="html/9.2.1.2.html"></iframe>
 			<br><br>
 			<a id="Escalamiento con desplazamiento positivo. Rango 20 a 80"></a>
 			<b><i>9.2.2 Escalamiento con desplazamiento positivo. Rango 20 a 80</i></b>
@@ -432,7 +437,7 @@
 				<source src="../video/9.2.2%20Escalamiento%20con%20desplazamiento%20positivo_20_80.webm" type="video/webm">
 			</video>
 			<br>
-			<iframe class="pag" id="ifrm6" name="ifrm6" scrolling="no" src="html/9.2.2.html"></iframe>
+			<iframe class="pag" id="ifrm6" name="ifrm6" scrolling="no" marginwidth="0" src="html/9.2.2.html"></iframe>
 			<br>
 			<a id="Escalamiento con desplazamiento negativo. Rango -50 a 150"></a>
 			<b><i>9.2.3 Escalamiento con desplazamiento negativo. Rango -50 a 150</i></b>
@@ -443,7 +448,7 @@
 				<source src="../video/9.2.3%20Escalamiento%20con%20desplazamiento%20negativo_-50_150.webm" type="video/webm">
 			</video>
 			<br>
-			<iframe class="pag" id="ifrm7" name="ifrm7" scrolling="no" src="html/9.2.3.html"></iframe>
+			<iframe class="pag" id="ifrm7" name="ifrm7" scrolling="no" marginwidth="0" src="html/9.2.3.html"></iframe>
 			<br><br>
 			<a id="Funcion map para escalamiento de lectura analogica"></a>
 			<b><i>9.3 Función map para escalamiento de lectura analógica</i></b>
@@ -452,7 +457,7 @@
 				<source src="../video/9.3 Funcion map para escalamiento de lectura analogica.webm" type="video/webm">
 			</video>
 			<br>
-			<iframe class="pag" id="ifrm8" name="ifrm8" scrolling="no" src="html/9.3.html"></iframe>
+			<iframe class="pag" id="ifrm8" name="ifrm8" scrolling="no" marginwidth="0" src="html/9.3.html"></iframe>
 		</div>
 		<script type="text/javascript">
 			/*
