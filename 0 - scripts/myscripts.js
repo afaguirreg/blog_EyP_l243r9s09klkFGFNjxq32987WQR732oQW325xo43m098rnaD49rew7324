@@ -65,6 +65,7 @@ setInterval(function() {
 				for (var i = 0; i < x.length; i++) {
 					var ifrm = document.getElementById(x[i].id);
 					var doc = ifrm.contentDocument? ifrm.contentDocument:ifrm.contentWindow.document;
+					var docwidth = getDocWidth( doc );
 					var suma = docwidth % 2;
 					var resta = (docwidth + 1) % 2;
 					ifrm.style.width = parseInt( docwidth + suma - resta) + "px";
