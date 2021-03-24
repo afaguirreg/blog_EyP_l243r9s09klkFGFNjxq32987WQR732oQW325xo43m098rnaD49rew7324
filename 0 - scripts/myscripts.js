@@ -71,4 +71,4 @@ setInterval(function() {
 					ifrm.style.width = parseInt( docwidth + suma - resta) + "px";
 					ifrm.style.height = getDocHeight( doc ) + "px";
 				}
-			},1000);
+			},100);
