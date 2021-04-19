@@ -5,6 +5,7 @@
 		<title>Documento sin título</title>
 		<link rel="stylesheet" type="text/css" href="../../../0 - styles/mystyles.css">
 		<script language="JavaScript" src="../../../0 - scripts/myscripts.js"></script>
+		<script type="text/javascript" src="../../../0 - scripts/jquery/jquery.min.js"></script>
 		<script type="text/javascript" src="../../../0 - scripts/iframe/iframeResizer.min.js"></script>
 	</head>
 
@@ -37,18 +38,21 @@
 			Se debe tener especial atención al asignar el ciclo de trabajo al PWM, el cual debe ser un número entero comprendido entre 0 (0V) y 1000 (5V), es decir, el incremento en una unidad en el contador se verá reflejado como una variación de 0,005V a la salida del pin C2 del microcontrolador.
 			<br><br>
 			Extraído parcialmente de: <a href="http://www.dtic.upf.edu/%7Ejlozano/interfaces/interfaces5.html">http://www.dtic.upf.edu/~jlozano/interfaces/interfaces5.html</a>
-			<br><br><br>
-			<a id="PWM Motor DC industrial"></a>
-			<b><i>10.2 PWM Motor DC industrial</i></b>
+			<br><br>
+			También se puede generar el valor para aplicar a la señal PWM mediante un potenciómetro conectado a la entrada análoga del Arduino.
 			<br><br>
 			<img src="../img/PWM%20motor%20DC%20industrial_1.png" alt="" width="auto" height="auto">
 			<br><br>
-			<video controlslist="nodownload" preload="auto" loop>
-				<source src="../../img/10.2%20PWM%20motor%20DC%20industrial.webm" type="video/webm">
-			</video>
-			<br><br>
 			<img src="img/10.2%20PWM%20motor%20DC%20industrial.png" alt="" width="auto" height="auto">
 			<br><br><br>
+			<a id="PWM Motor DC industrial"></a> <b><i>10.2 PWM Motor DC industrial</i></b>
+			<br><br>
+			Cualquiera de los circuitos anteriores se puede adaptar a la etapa de potencia de la siguiente imagen para controlar un motor de industrial de corriente continua.
+			<br><br>
+			<video controlslist="nodownload" preload="auto" loop>
+			  <source src="../../img/10.2%20PWM%20motor%20DC%20industrial.webm" type="video/webm">
+		  	</video>
+			<br><br>
 			<a id="Convertidor D/A con PWM"></a>
 			<b><i>10.3 Convertidor D/A con PWM</i></b>
 			<br><br>
