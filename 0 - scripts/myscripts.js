@@ -56,8 +56,8 @@ function getDocWidth(doc) {
 	doc = doc || document;
 	// stackoverflow.com/questions/1145850/
 	var body = doc.body, html = doc.documentElement;
-	var height = Math.max( body.scrollWidth, body.offsetWidth, html.clientWidth, html.scrollWidth, html.offsetWidth );
-	return height;
+	var width = Math.max( body.scrollWidth, body.offsetWidth, html.clientWidth, html.scrollWidth, html.offsetWidth );
+	return width;
 }
 
 setInterval(function() {
