@@ -40,9 +40,16 @@ window.onload = function() {
 	capturar();
 }
 
-function resizeIframe(obj) {
-  obj.style.height = (obj.contentWindow.document.body.scrollHeight) + 'px';
-}
+document.getElementsByTagName('iframe').onscroll = function(){
+	var y = document.getElementsByTagName("img");
+				for (var j = 0; j < y.length; j++) {
+					var iimg = document.getElementById(y[j].id);
+					var imgwidth = iimg.width;
+					var imgsuma = imgwidth % 2;
+					var imgresta = (imgwidth + 1) % 2;
+					iimg.style.width = parseInt( imgwidth + imgsuma - imgresta) + "px";
+				}
+};
 
 function getDocHeight(doc) {
 	doc = doc || document;
