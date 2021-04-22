@@ -77,5 +77,7 @@ setInterval(function() {
 					var resta = (docwidth + 1) % 2;
 					ifrm.style.width = parseInt( docwidth + suma - resta) + "px";
 					ifrm.style.height = getDocHeight( doc ) + "px";
+					var style = document.getElementById(x[i].id).style;
+					style.webkitTransform = style.webkitTransform ? "" : "scale(1)";
 				}
 			},100);
