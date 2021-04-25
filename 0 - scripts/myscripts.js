@@ -65,5 +65,7 @@ setInterval(function() {
 					var ifrm = document.getElementById(x[i].id);
 					var doc = ifrm.contentDocument ? ifrm.contentDocument:ifrm.contentWindow.document;
 					ifrm.style.height = getDocHeight( doc ) + "px";
+					var style = document.getElementById(x[i].id).style;
+					style.webkitTransform = style.webkitTransform ? "" : "scale(1)";
 				}
 			},500);
