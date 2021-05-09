@@ -1,0 +1,29 @@
+// include the library code:
+#include <LiquidCrystal.h>
+
+const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
+LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
+
+float sensor;
+char grados = 223;
+
+void setup()
+{
+  pinMode(10, OUTPUT);
+  digitalWrite(10, HIGH);
+  lcd.begin(16, 2);
+  delay(200);
+  lcd.setCursor(0,0);
+  lcd.print("Temp:");
+}
+
+void loop()
+{
+  sensor = analogRead(A0);
+  sensor = sensor * 350 / 1017 - 50;
+  lcd.setCursor(6,0);
+  lcd.print(sensor,0);
+  lcd.print(grados);
+  lcd.print("F ");
+  delay(100);
+}
