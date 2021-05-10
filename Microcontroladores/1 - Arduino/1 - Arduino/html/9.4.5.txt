@@ -20,7 +20,7 @@ void setup()
 void loop()
 {
   sensor = analogRead(A0);
-  sensor = (sensor - 28) * 175 / 995 - 50;
+  sensor = (sensor - 23) * 175 / 994 - 50;
   lcd.setCursor(6,0);
   lcd.print(sensor,0);
   lcd.print(grados);
