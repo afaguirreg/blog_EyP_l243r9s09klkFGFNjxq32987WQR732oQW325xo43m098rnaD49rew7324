@@ -7,18 +7,17 @@ LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 float sensor;
 char grados = 223;
 
-void setup()
-{
+void setup() {
+  // put your setup code here, to run once:
   pinMode(10, OUTPUT);
   digitalWrite(10, HIGH);
   lcd.begin(16, 2);
   delay(200);
-  lcd.setCursor(0,0);
   lcd.print("Temp:");
 }
 
-void loop()
-{
+void loop() {
+  // put your main code here, to run repeatedly:
   sensor = analogRead(A0);
   sensor = sensor * 205 / 1023 - 55;
   lcd.setCursor(6,0);

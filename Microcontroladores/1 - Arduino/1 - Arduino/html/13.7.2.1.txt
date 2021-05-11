@@ -16,6 +16,7 @@ uint8_t LEDpin = 2;
 bool LEDstatus = LOW;
 
 void setup() {
+  // put your setup code here, to run once:
   Serial.begin(115200);
   delay(1000);
   pinMode(LEDpin, OUTPUT);
@@ -34,6 +35,7 @@ void setup() {
 }
 
 void loop() {
+  // put your main code here, to run repeatedly:
   server.handleClient();
   if(LEDstatus)
   {digitalWrite(LEDpin, HIGH);}
