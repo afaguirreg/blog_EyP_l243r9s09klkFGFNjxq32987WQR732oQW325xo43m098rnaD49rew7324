@@ -12,15 +12,15 @@ void setup() {
   digitalWrite(10, HIGH);
   lcd.begin(16, 2);
   delay(200);
-  lcd.print("Dist:");
+  lcd.print("Humedad:");
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
   sensor = analogRead(A0);
-  sensor = (sensor - 24) * 10 / 999;
-  lcd.setCursor(6,0);
-  lcd.print(sensor,1);
-  lcd.print(" mm");
+  sensor = sensor * 100 / 1023;
+  lcd.setCursor(9,0);
+  lcd.print(sensor,0);
+  lcd.print("%  ");
   delay(100);
 }

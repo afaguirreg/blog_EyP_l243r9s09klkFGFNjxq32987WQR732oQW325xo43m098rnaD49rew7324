@@ -8,8 +8,8 @@ float sensor;
 
 void setup() {
   // put your setup code here, to run once:
-  pinMode(10, OUTPUT);
-  digitalWrite(10, HIGH);
+  pinMode(8, OUTPUT);
+  digitalWrite(8, HIGH);
   lcd.begin(16, 2);
   delay(200);
   lcd.print("Dist:");
@@ -18,7 +18,7 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   sensor = analogRead(A0);
-  sensor = (sensor - 24) * 10 / 999;
+  sensor = sensor * 6 / 1023;
   lcd.setCursor(6,0);
   lcd.print(sensor,1);
   lcd.print(" mm");
