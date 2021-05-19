@@ -19,10 +19,10 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   sensor = analogRead(A0);
-  sensor = sensor * 175 / 1023 - 50;
+  sensor = sensor * 165 / 1023 - 40;
   lcd.setCursor(6,0);
   lcd.print(sensor,0);
   lcd.print(grados);
-  lcd.print("C ");
+  lcd.print("C  ");
   delay(100);
 }

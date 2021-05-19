@@ -7,6 +7,7 @@
 		<script language="JavaScript" src="../../../0 - scripts/myscripts.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script type="text/javascript" src="../../../0 - scripts/iframe/iframeResizer.min.js"></script>
+		<script language="JavaScript" src="../../../0 - scripts/zoom/jquery.elevatezoom.js"></script>
 	</head>
 
 	<body>
@@ -19,8 +20,8 @@
 			<br><br>
 			<iframe class="pag" id="ifrm1" scrolling="no" marginwidth="0" src="../../html/9.4.1 Sensor de temperatura AD592.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.4.1 Sensor de temperatura AD592.jpg" alt="" width="auto" height="auto"></div>
-			<br><br>
+			<div align="center"><img id="img_zoom_1" src="../video/9.4.1 Sensor de temperatura AD592.jpg" alt="" width="1000" height="auto"></div>
+			<br>
 			<iframe class="pag" id="ifrm2" scrolling="no" marginwidth="0" src="html/9.4.1.html"></iframe>
 			<br><br><br>
 			<a id="Sensor de temperatura LM20"></a>
@@ -28,8 +29,8 @@
 			<br><br>
 			<iframe class="pag" id="ifrm3" scrolling="no" marginwidth="0" src="../../html/9.4.2 Sensor de temperatura LM20.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.4.2 Sensor de temperatura LM20.jpg" alt="" width="auto" height="auto"></div>
-			<br><br>
+			<div align="center"><img id="img_zoom_2" src="../video/9.4.2 Sensor de temperatura LM20.jpg" alt="" width="1000" height="auto"></div>
+			<br>
 			<iframe class="pag" id="ifrm4" scrolling="no" marginwidth="0" src="html/9.4.2.html"></iframe>
 			<br><br><br>
 			<a id="Sensor de temperatura LM34"></a>
@@ -37,8 +38,8 @@
 			<br><br>
 			<iframe class="pag" id="ifrm5" scrolling="no" marginwidth="0" src="../../html/9.4.3 Sensor de temperatura LM34.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.4.3 Sensor de temperatura LM34.jpg" alt="" width="auto" height="auto"></div>
-			<br><br>
+			<div align="center"><img id="img_zoom_3" src="../video/9.4.3 Sensor de temperatura LM34.jpg" alt="" width="1000" height="auto"></div>
+			<br>
 			<iframe class="pag" id="ifrm6" scrolling="no" marginwidth="0" src="html/9.4.3.html"></iframe>
 			<br><br><br>
 			<a id="Sensor de temperatura LM35"></a>
@@ -46,8 +47,8 @@
 			<br><br>
 			<iframe class="pag" id="ifrm7" scrolling="no" marginwidth="0" src="../../html/9.4.4 Sensor de temperatura LM35.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.4.4 Sensor de temperatura LM35.jpg" alt="" width="auto" height="auto"></div>
-			<br><br>
+			<div align="center"><img id="img_zoom_4" src="../video/9.4.4 Sensor de temperatura LM35.jpg" alt="" width="1000" height="auto"></div>
+			<br>
 			<iframe class="pag" id="ifrm8" scrolling="no" marginwidth="0" src="html/9.4.4.html"></iframe>
 			<br><br><br>
 			<a id="Sensor de temperatura LM335"></a>
@@ -55,147 +56,174 @@
 			<br><br>
 			<iframe class="pag" id="ifrm9" scrolling="no" marginwidth="0" src="../../html/9.4.5 Sensor de temperatura LM335.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.4.5 Sensor de temperatura LM335.jpg" alt="" width="auto" height="auto"></div>
-			<br><br>
+			<div align="center"><img id="img_zoom_5" src="../video/9.4.5 Sensor de temperatura LM335.jpg" alt="" width="1000" height="auto"></div>
+			<br>
 			<iframe class="pag" id="ifrm10" scrolling="no" marginwidth="0" src="html/9.4.5.html"></iframe>
 			<br><br><br>
-			<a id="Sensor de temperatura MSP9701"></a>
-			<b><i>9.4.6 Sensor de temperatura MSP9701: -40°C a 125°C</i></b>
+			<a id="Sensor de temperatura MCP9700"></a>
+			<b><i>9.4.6 Sensor de temperatura MCP9700: -40°C a 125°C</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm11" scrolling="no" marginwidth="0" src="../../html/9.4.6 Sensor de temperatura MSP9701.html"></iframe>
+			<iframe class="pag" id="ifrm11" scrolling="no" marginwidth="0" src="../../html/9.4.6 Sensor de temperatura MCP9700.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.4.6 Sensor de temperatura MSP9701.jpg" alt="" width="auto" height="auto"></div>
-			<br><br>
+			<div align="center"><img id="img_zoom_6" src="../video/9.4.6 Sensor de temperatura MCP9700.jpg" alt="" width="1000" height="auto"></div>
+			<br>
 			<iframe class="pag" id="ifrm12" scrolling="no" marginwidth="0" src="html/9.4.6.html"></iframe>
 			<br><br><br>
-			<a id="Sensor de temperatura TC1047"></a>
-			<b><i>9.4.7 Sensor de temperatura TC1047: -40°C a 125°C</i></b>
+			<a id="Sensor de temperatura MCP9701"></a>
+			<b><i>9.4.7 Sensor de temperatura MCP9701: -40°C a 125°C</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm13" scrolling="no" marginwidth="0" src="../../html/9.4.7 Sensor de temperatura TC1047.html"></iframe>
+			<iframe class="pag" id="ifrm13" scrolling="no" marginwidth="0" src="../../html/9.4.7 Sensor de temperatura MCP9701.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.4.7 Sensor de temperatura TC1047.jpg" alt="" width="auto" height="auto"></div>
-			<br><br>
-			<iframe class="pag" id="ifrm14" scrolling="no" marginwidth="0" src="html/9.4.4.html"></iframe>
+			<div align="center"><img id="img_zoom_7" src="../video/9.4.7 Sensor de temperatura MCP9701.jpg" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm14" scrolling="no" marginwidth="0" src="html/9.4.7.html"></iframe>
 			<br><br><br>
-			<a id="Sensor de temperatura TMP36"></a>
-			<b><i>9.4.3 Sensor de temperatura TMP36: 0°C a 150°C</i></b>
+			<a id="Sensor de temperatura TC1047A"></a>
+			<b><i>9.4.8 Sensor de temperatura TC1047A: -40°C a 125°C</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm15" scrolling="no" marginwidth="0" src="../../html/9.4.8 Sensor de temperatura TMP36.html"></iframe>
+			<iframe class="pag" id="ifrm15" scrolling="no" marginwidth="0" src="../../html/9.4.8 Sensor de temperatura TC1047A.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.4.8 Sensor de temperatura TMP36.jpg" alt="" width="auto" height="auto"></div>
-			<br><br>
+			<div align="center"><img id="img_zoom_8" src="../video/9.4.8 Sensor de temperatura TC1047A.jpg" alt="" width="1000" height="auto"></div>
+			<br>
 			<iframe class="pag" id="ifrm16" scrolling="no" marginwidth="0" src="html/9.4.8.html"></iframe>
 			<br><br><br>
-			<a id="Sensor de temperatura Termocupla tipo B"></a>
-			<b><i>9.4.9 Sensor de temperatura Termocupla tipo B</i></b>
+			<a id="Sensor de temperatura TMP36"></a>
+			<b><i>9.4.9 Sensor de temperatura TMP36: 0°C a 150°C</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm17" scrolling="no" marginwidth="0" src="../../html/9.4.9 Sensor de temperatura Termocupla tipo B.html"></iframe>
+			<iframe class="pag" id="ifrm17" scrolling="no" marginwidth="0" src="../../html/9.4.9 Sensor de temperatura TMP36.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.4.9 Sensor de temperatura Termocupla tipo B.jpg" alt="" width="auto" height="auto"></div>
-			<br><br>
+			<div align="center"><img id="img_zoom_9" src="../video/9.4.9 Sensor de temperatura TMP36.jpg" alt="" width="1000" height="auto"></div>
+			<br>
 			<iframe class="pag" id="ifrm18" scrolling="no" marginwidth="0" src="html/9.4.9.html"></iframe>
 			<br><br><br>
-			<a id="Sensor de temperatura Termocupla tipo E"></a>
-			<b><i>9.4.10 Sensor de temperatura Termocupla tipo E</i></b>
+			<a id="Sensor de temperatura Termocupla tipo B"></a>
+			<b><i>9.4.10 Sensor de temperatura Termocupla tipo B</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm19" scrolling="no" marginwidth="0" src="../../html/9.4.10 Sensor de temperatura Termocupla tipo E.html"></iframe>
+			<iframe class="pag" id="ifrm19" scrolling="no" marginwidth="0" src="../../html/9.4.10 Sensor de temperatura Termocupla tipo B.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.4.10 Sensor de temperatura Termocupla tipo E.jpg" alt="" width="auto" height="auto"></div>
-			<br><br>
+			<div align="center"><img id="img_zoom_10" src="../video/9.4.10 Sensor de temperatura Termocupla tipo B.jpg" alt="" width="1000" height="auto"></div>
+			<br>
 			<iframe class="pag" id="ifrm20" scrolling="no" marginwidth="0" src="html/9.4.10.html"></iframe>
 			<br><br><br>
-			<a id="Sensor de temperatura Termocupla tipo J"></a>
-			<b><i>9.4.11 Sensor de temperatura Termocupla tipo J</i></b>
+			<a id="Sensor de temperatura Termocupla tipo E"></a>
+			<b><i>9.4.11 Sensor de temperatura Termocupla tipo E</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm21" scrolling="no" marginwidth="0" src="../../html/9.4.11 Sensor de temperatura Termocupla tipo J.html"></iframe>
+			<iframe class="pag" id="ifrm21" scrolling="no" marginwidth="0" src="../../html/9.4.11 Sensor de temperatura Termocupla tipo E.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.4.11 Sensor de temperatura Termocupla tipo J.jpg" alt="" width="auto" height="auto"></div>
-			<br><br>
+			<div align="center"><img id="img_zoom_11" src="../video/9.4.11 Sensor de temperatura Termocupla tipo E.jpg" alt="" width="1000" height="auto"></div>
+			<br>
 			<iframe class="pag" id="ifrm22" scrolling="no" marginwidth="0" src="html/9.4.11.html"></iframe>
 			<br><br><br>
-			<a id="Sensor de temperatura Termocupla tipo K"></a>
-			<b><i>9.4.12 Sensor de temperatura Termocupla tipo K</i></b>
+			<a id="Sensor de temperatura Termocupla tipo J"></a>
+			<b><i>9.4.12 Sensor de temperatura Termocupla tipo J</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm23" scrolling="no" marginwidth="0" src="../../html/9.4.12 Sensor de temperatura Termocupla tipo K.html"></iframe>
+			<iframe class="pag" id="ifrm23" scrolling="no" marginwidth="0" src="../../html/9.4.12 Sensor de temperatura Termocupla tipo J.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.4.12 Sensor de temperatura Termocupla tipo K.jpg" alt="" width="auto" height="auto"></div>
-			<br><br>
+			<div align="center"><img id="img_zoom_12" src="../video/9.4.12 Sensor de temperatura Termocupla tipo J.jpg" alt="" width="1000" height="auto"></div>
+			<br>
 			<iframe class="pag" id="ifrm24" scrolling="no" marginwidth="0" src="html/9.4.12.html"></iframe>
 			<br><br><br>
-			<a id="Sensor de temperatura Termocupla tipo N"></a>
-			<b><i>9.4.13 Sensor de temperatura Termocupla tipo N</i></b>
+			<a id="Sensor de temperatura Termocupla tipo K"></a>
+			<b><i>9.4.13 Sensor de temperatura Termocupla tipo K</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm25" scrolling="no" marginwidth="0" src="../../html/9.4.13 Sensor de temperatura Termocupla tipo N.html"></iframe>
+			<iframe class="pag" id="ifrm25" scrolling="no" marginwidth="0" src="../../html/9.4.13 Sensor de temperatura Termocupla tipo K.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.4.13 Sensor de temperatura Termocupla tipo N.jpg" alt="" width="auto" height="auto"></div>
-			<br><br>
+			<div align="center"><img id="img_zoom_13" src="../video/9.4.13 Sensor de temperatura Termocupla tipo K.jpg" alt="" width="1000" height="auto"></div>
+			<br>
 			<iframe class="pag" id="ifrm26" scrolling="no" marginwidth="0" src="html/9.4.13.html"></iframe>
 			<br><br><br>
-			<a id="Sensor de temperatura Termocupla tipo R"></a>
-			<b><i>9.4.14 Sensor de temperatura Termocupla tipo R</i></b>
+			<a id="Sensor de temperatura Termocupla tipo N"></a>
+			<b><i>9.4.14 Sensor de temperatura Termocupla tipo N</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm27" scrolling="no" marginwidth="0" src="../../html/9.4.14 Sensor de temperatura Termocupla tipo R.html"></iframe>
+			<iframe class="pag" id="ifrm27" scrolling="no" marginwidth="0" src="../../html/9.4.14 Sensor de temperatura Termocupla tipo N.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.4.14 Sensor de temperatura Termocupla tipo R.jpg" alt="" width="auto" height="auto"></div>
-			<br><br>
+			<div align="center"><img id="img_zoom_14" src="../video/9.4.14 Sensor de temperatura Termocupla tipo N.jpg" alt="" width="1000" height="auto"></div>
+			<br>
 			<iframe class="pag" id="ifrm28" scrolling="no" marginwidth="0" src="html/9.4.14.html"></iframe>
 			<br><br><br>
-			<a id="Sensor de temperatura Termocupla tipo S"></a>
-			<b><i>9.4.15 Sensor de temperatura Termocupla tipo S</i></b>
+			<a id="Sensor de temperatura Termocupla tipo R"></a>
+			<b><i>9.4.15 Sensor de temperatura Termocupla tipo R</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm29" scrolling="no" marginwidth="0" src="../../html/9.4.15 Sensor de temperatura Termocupla tipo S.html"></iframe>
+			<iframe class="pag" id="ifrm29" scrolling="no" marginwidth="0" src="../../html/9.4.15 Sensor de temperatura Termocupla tipo R.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.4.15 Sensor de temperatura Termocupla tipo S.jpg" alt="" width="auto" height="auto"></div>
-			<br><br>
+			<div align="center"><img id="img_zoom_15" src="../video/9.4.15 Sensor de temperatura Termocupla tipo R.jpg" alt="" width="1000" height="auto"></div>
+			<br>
 			<iframe class="pag" id="ifrm30" scrolling="no" marginwidth="0" src="html/9.4.15.html"></iframe>
 			<br><br><br>
-			<a id="Sensor de temperatura Termocupla tipo T"></a>
-			<b><i>9.4.16 Sensor de temperatura Termocupla tipo T</i></b>
+			<a id="Sensor de temperatura Termocupla tipo S"></a>
+			<b><i>9.4.16 Sensor de temperatura Termocupla tipo S</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm31" scrolling="no" marginwidth="0" src="../../html/9.4.16 Sensor de temperatura Termocupla tipo T.html"></iframe>
+			<iframe class="pag" id="ifrm31" scrolling="no" marginwidth="0" src="../../html/9.4.16 Sensor de temperatura Termocupla tipo S.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.4.16 Sensor de temperatura Termocupla tipo T.jpg" alt="" width="auto" height="auto"></div>
-			<br><br>
+			<div align="center"><img id="img_zoom_16" src="../video/9.4.16 Sensor de temperatura Termocupla tipo S.jpg" alt="" width="1000" height="auto"></div>
+			<br>
 			<iframe class="pag" id="ifrm32" scrolling="no" marginwidth="0" src="html/9.4.16.html"></iframe>
 			<br><br><br>
-			<a id="Sensor de temperatura RTD PT-100"></a>
-			<b><i>9.4.17 Sensor de temperatura RTD PT-100</i></b>
+			<a id="Sensor de temperatura Termocupla tipo T"></a>
+			<b><i>9.4.17 Sensor de temperatura Termocupla tipo T</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm33" scrolling="no" marginwidth="0" src="../../html/9.4.17 Sensor de temperatura RTD PT-100.html"></iframe>
+			<iframe class="pag" id="ifrm33" scrolling="no" marginwidth="0" src="../../html/9.4.17 Sensor de temperatura Termocupla tipo T.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.4.17 Sensor de temperatura RTD PT-100.jpg" alt="" width="auto" height="auto"></div>
-			<br><br>
+			<div align="center"><img id="img_zoom_17" src="../video/9.4.17 Sensor de temperatura Termocupla tipo T.jpg" alt="" width="1000" height="auto"></div>
+			<br>
 			<iframe class="pag" id="ifrm34" scrolling="no" marginwidth="0" src="html/9.4.17.html"></iframe>
 			<br><br><br>
-			<a id="Sensor de temperatura RTD PT-1000"></a>
-			<b><i>9.4.18 Sensor de temperatura RTD PT-1000</i></b>
+			<a id="Sensor de temperatura RTD PT-100"></a>
+			<b><i>9.4.18 Sensor de temperatura RTD PT-100</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm35" scrolling="no" marginwidth="0" src="../../html/9.4.18 Sensor de temperatura RTD PT-1000.html"></iframe>
+			<iframe class="pag" id="ifrm35" scrolling="no" marginwidth="0" src="../../html/9.4.18 Sensor de temperatura RTD PT-100.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.4.18 Sensor de temperatura RTD PT-1000.jpg" alt="" width="auto" height="auto"></div>
-			<br><br>
+			<div align="center"><img id="img_zoom_18" src="../video/9.4.18 Sensor de temperatura RTD PT-100.jpg" alt="" width="1000" height="auto"></div>
+			<br>
 			<iframe class="pag" id="ifrm36" scrolling="no" marginwidth="0" src="html/9.4.18.html"></iframe>
+			<br><br><br>
+			<a id="Sensor de temperatura RTD PT-1000"></a>
+			<b><i>9.4.19 Sensor de temperatura RTD PT-1000</i></b>
+			<br><br>
+			<iframe class="pag" id="ifrm37" scrolling="no" marginwidth="0" src="../../html/9.4.19 Sensor de temperatura RTD PT-1000.html"></iframe>
+			<br><br>
+			<div align="center"><img id="img_zoom_19" src="../video/9.4.19 Sensor de temperatura RTD PT-1000.jpg" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm38" scrolling="no" marginwidth="0" src="html/9.4.19.html"></iframe>
+			<br><br><br>
+			<a id="Termistor NTC"></a>
+			<b><i>9.4.20 Termistor NTC</i></b>
+			<br><br>
+			<iframe class="pag" id="ifrm39" scrolling="no" marginwidth="0" src="../../html/9.4.20 Termistor NTC.html"></iframe>
+			<br><br>
+			<div align="center"><img id="img_zoom_20" src="../video/9.4.20 Termistor NTC.jpg" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm40" scrolling="no" marginwidth="0" src="html/9.4.20.html"></iframe>
+			<br><br><br>
+			<a id="Termistor PTC"></a>
+			<b><i>9.4.21 Termistor PTC</i></b>
+			<br><br>
+			<iframe class="pag" id="ifrm41" scrolling="no" marginwidth="0" src="../../html/9.4.21 Termistor PTC.html"></iframe>
+			<br><br>
+			<div align="center"><img id="img_zoom_21" src="../video/9.4.21 Termistor PTC.jpg" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm42" scrolling="no" marginwidth="0" src="html/9.4.21.html"></iframe>
 			<br><br><br>
 			<a id="Sensores de humedad"></a>
 			<b>9.5 Sensores de humedad</b>
 			<br><br>
-			<a id="Sensor de humedad relativa"></a>
-			<b><i>9.5.1 Sensor de humedad relativa: 0% - 100%</i></b>
+			<a id="Sensor de humedad HIH4030"></a>
+			<b><i>9.5.1 Sensor de humedad HIH4030: 0% - 100%</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm37" scrolling="no" marginwidth="0" src="../../html/9.5.1 Sensor de humedad relativa.html"></iframe>
+			<iframe class="pag" id="ifrm43" scrolling="no" marginwidth="0" src="../../html/9.5.1 Sensor de humedad HIH4030.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.5.1 Sensor de humedad relativa.jpg" alt="" width="auto" height="auto"></div>
-			<br><br>
-			<iframe class="pag" id="ifrm38" scrolling="no" marginwidth="0" src="html/9.5.1.html"></iframe>
+			<div align="center"><img id="img_zoom_22" src="../video/9.5.1 Sensor de humedad HIH4030.jpg" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm44" scrolling="no" marginwidth="0" src="html/9.5.1.html"></iframe>
 			<br><br><br>
 			<a id="Sensor de humedad HIH5030"></a>
-			<b><i>9.5.2 Sensor de humedad HIH-5030: 0% - 100%</i></b>
+			<b><i>9.5.2 Sensor de humedad HIH5030: 0% - 100%</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm39" scrolling="no" marginwidth="0" src="../../html/9.5.2 Sensor de humedad HIH-5030.html"></iframe>
+			<iframe class="pag" id="ifrm45" scrolling="no" marginwidth="0" src="../../html/9.5.2 Sensor de humedad HIH5030.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.5.2 Sensor de humedad HIH-5030.jpg" alt="" width="auto" height="auto"></div>
-			<br><br>
-			<iframe class="pag" id="ifrm40" scrolling="no" marginwidth="0" src="html/9.5.2.html"></iframe>
+			<div align="center"><img id="img_zoom_23" src="../video/9.5.2 Sensor de humedad HIH5030.jpg" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm46" scrolling="no" marginwidth="0" src="html/9.5.2.html"></iframe>
 			<br><br><br>
 			<a id="Sensores de distancia"></a>
 			<b>9.6 Sensores de distancia</b>
@@ -203,168 +231,261 @@
 			<a id="Sensor CNY70"></a>
 			<b><i>9.6.1 Sensor CNY70</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm41" scrolling="no" marginwidth="0" src="../../html/9.6.1 Sensor CNY70.html"></iframe>
+			<iframe class="pag" id="ifrm47" scrolling="no" marginwidth="0" src="../../html/9.6.1 Sensor CNY70.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.6.1 Sensor CNY70.jpg" alt="" width="auto" height="auto"></div>
-			<br><br>
-			<iframe class="pag" id="ifrm42" scrolling="no" marginwidth="0" src="html/9.6.1.html"></iframe>
+			<div align="center"><img id="img_zoom_24" src="../video/9.6.1 Sensor CNY70.jpg" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm48" scrolling="no" marginwidth="0" src="html/9.6.1.html"></iframe>
 			<br><br><br>
 			<a id="Sensor QTR-1A"></a>
 			<b><i>9.6.2 Sensor QTR-1A</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm43" scrolling="no" marginwidth="0" src="../../html/9.6.2 Sensor QTR-1A.html"></iframe>
+			<iframe class="pag" id="ifrm49" scrolling="no" marginwidth="0" src="../../html/9.6.2 Sensor QTR-1A.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.6.2 Sensor QTR-1A.jpg" alt="" width="auto" height="auto"></div>
+			<div align="center"><img id="img_zoom_25" src="../video/9.6.2 Sensor QTR-1A.jpg" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm50" scrolling="no" marginwidth="0" src="html/9.6.2.html"></iframe>
+			<br><br><br>
+			<a id="Sensor GP2D12"></a>
+			<b><i>9.6.3 Sensor GP2D12: 10 mm - 80 mm</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm44" scrolling="no" marginwidth="0" src="html/9.6.2.html"></iframe>
+			<iframe class="pag" id="ifrm51" scrolling="no" marginwidth="0" src="../../html/9.6.3 Sensor GP2D12.html"></iframe>
+			<br><br>
+			<div align="center"><img id="img_zoom_26" src="../video/9.6.3 Sensor GP2D12.jpg" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm52" scrolling="no" marginwidth="0" src="html/9.6.3.html"></iframe>
+			<br><br><br>
+			<a id="Sensor GP2D120"></a>
+			<b><i>9.6.4 Sensor GP2D120: 4 mm - 30 mm</i></b>
+			<br><br>
+			<iframe class="pag" id="ifrm53" scrolling="no" marginwidth="0" src="../../html/9.6.4 Sensor GP2D120.html"></iframe>
+			<br><br>
+			<div align="center"><img id="img_zoom_27" src="../video/9.6.4 Sensor GP2D120.jpg" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm54" scrolling="no" marginwidth="0" src="html/9.6.4.html"></iframe>
+			<br><br><br>
+			<a id="Sensor GP2Y0A02YK"></a>
+			<b><i>9.6.5 Sensor GP2Y0A02YK: 20 mm - 150 mm</i></b>
+			<br><br>
+			<iframe class="pag" id="ifrm55" scrolling="no" marginwidth="0" src="../../html/9.6.5 Sensor GP2Y0A02YK.html"></iframe>
+			<br><br>
+			<div align="center"><img id="img_zoom_28" src="../video/9.6.5 Sensor GP2Y0A02YK.jpg" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm56" scrolling="no" marginwidth="0" src="html/9.6.5.html"></iframe>
 			<br><br><br>
 			<a id="Sensor GP2Y0A21YKF0"></a>
-			<b><i>9.6.3 Sensor GP2Y0A21YK0F</i></b>
+			<b><i>9.6.3 Sensor GP2Y0A21YK0F: 10 mm - 80 mm</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm45" scrolling="no" marginwidth="0" src="../../html/9.6.3 Sensor GP2Y0A21YK0F.html"></iframe>
+			<iframe class="pag" id="ifrm57" scrolling="no" marginwidth="0" src="../../html/9.6.3 Sensor GP2Y0A21YK0F.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.6.3 Sensor GP2Y0A21YK0F.jpg" alt="" width="auto" height="auto"></div>
+			<div align="center"><img id="img_zoom_29" src="../video/9.6.3 Sensor GP2Y0A21YK0F.jpg" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm58" scrolling="no" marginwidth="0" src="html/9.6.3.html"></iframe>
+			<br><br><br>
+			<a id="Sensor GP2Y0A700K0F"></a>
+			<b><i>9.6.4 Sensor GP2Y0A700K0F: 100 cm - 550 cm</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm46" scrolling="no" marginwidth="0" src="html/9.6.3.html"></iframe>
+			<iframe class="pag" id="ifrm59" scrolling="no" marginwidth="0" src="../../html/9.6.4 Sensor GP2Y0A700K0F.html"></iframe>
+			<br><br>
+			<div align="center"><img id="img_zoom_30" src="../video/9.6.4 Sensor GP2Y0A700K0F.jpg" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm60" scrolling="no" marginwidth="0" src="html/9.6.4.html"></iframe>
 			<br><br><br>
 			<a id="Sensor ultrasonico HC-SR04"></a>
-			<b><i>9.6.4 Sensor ultrasónico HC-SR04</i></b>
+			<b><i>9.6.5 Sensor ultrasónico HC-SR04</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm47" scrolling="no" marginwidth="0" src="../../html/9.6.4 Sensor ultrasonico HC-SR04.html"></iframe>
+			<iframe class="pag" id="ifrm61" scrolling="no" marginwidth="0" src="../../html/9.6.5 Sensor ultrasonico HC-SR04.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.6.4 Sensor ultrasonico HC-SR04.jpg" alt="" width="auto" height="auto"></div>
-			<br><br>
-			<iframe class="pag" id="ifrm48" scrolling="no" marginwidth="0" src="html/9.6.4.html"></iframe>
+			<div align="center"><img id="img_zoom_31" src="../video/9.6.5 Sensor ultrasonico HC-SR04.jpg" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm62" scrolling="no" marginwidth="0" src="html/9.6.5.html"></iframe>
 			<br><br>
 			<a id="Sensor de distancia inductivo"></a>
-			<b><i>9.6.5 Sensor de distancia inductivo: 0.0mm a 20.0mm</i></b>
+			<b><i>9.6.6 Sensor de distancia inductivo: 0.0mm a 20.0mm</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm49" scrolling="no" marginwidth="0" src="../../html/9.6.5 Sensor de distancia inductivo.html"></iframe>
+			<iframe class="pag" id="ifrm63" scrolling="no" marginwidth="0" src="../../html/9.6.6 Sensor de distancia inductivo.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.6.5 Sensor de distancia inductivo.jpg" alt="" width="auto" height="auto"></div>
-			<br><br>
-			<iframe class="pag" id="ifrm50" scrolling="no" marginwidth="0" src="html/9.6.5.html"></iframe>
+			<div align="center"><img id="img_zoom_32" src="../video/9.6.6 Sensor de distancia inductivo.jpg" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm64" scrolling="no" marginwidth="0" src="html/9.6.6.html"></iframe>
 			<br><br><br>
 			<a id="Sensor de distancia ultrasonico"></a>
 			<b><i>9.6.6 Sensor de distancia ultrasónico: 5.0cm a 27.0cm</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm51" scrolling="no" marginwidth="0" src="../../html/9.6.6 Sensor de distancia ultrasonico.html"></iframe>
+			<iframe class="pag" id="ifrm65" scrolling="no" marginwidth="0" src="../../html/9.6.6 Sensor de distancia ultrasonico.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.6.6 Sensor de distancia ultrasonico.jpg" alt="" width="auto" height="auto"></div>
-			<br><br>
-			<iframe class="pag" id="ifrm52" scrolling="no" marginwidth="0" src="html/9.6.6.html"></iframe>
+			<div align="center"><img id="img_zoom_33" src="../video/9.6.6 Sensor de distancia ultrasonico.jpg" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm66" scrolling="no" marginwidth="0" src="html/9.6.6.html"></iframe>
 			<br><br><br>
 			<a id="Sensor de luz"></a>
 			<b><i>9.7 Sensores de luz</i></b>
 			<br><br>
-			<a id="Sensor LDR"></a>
-			<b><i>9.7.1 Sensor LDR</i></b>
+			<a id="Sensor TEMT6000"></a>
+			<b><i>9.7.1 Sensor TEMT6000</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm53" scrolling="no" marginwidth="0" src="../../html/9.7.1 Sensor LDR.html"></iframe>
+			<iframe class="pag" id="ifrm67" scrolling="no" marginwidth="0" src="../../html/9.7.1 Sensor TEMT6000.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.7.1 Sensor LDR.jpg" alt="" width="auto" height="auto"></div>
-			<br><br>
-			<iframe class="pag" id="ifrm54" scrolling="no" marginwidth="0" src="html/9.7.1.html"></iframe>
+			<div align="center"><img id="img_zoom_34" src="../video/9.7.1 Sensor TEMT6000.jpg" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm68" scrolling="no" marginwidth="0" src="html/9.7.1.html"></iframe>
 			<br><br><br>
 			<a id="Sensor optico TSL251RD"></a>
 			<b><i>9.7.2 Sensor óptico TSL251RD</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm55" scrolling="no" marginwidth="0" src="../../html/9.7.2 Sensor de luz.html"></iframe>
+			<iframe class="pag" id="ifrm69" scrolling="no" marginwidth="0" src="../../html/9.7.2 Sensor de luz.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.7.2 Sensor de luz.jpg" alt="" width="auto" height="auto"></div>
+			<div align="center"><img id="img_zoom_35" src="../video/9.7.2 Sensor de luz.jpg" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm70" scrolling="no" marginwidth="0" src="html/9.7.2.html"></iframe>
+			<br><br><br>
+			<a id="Sensor LDR"></a>
+			<b><i>9.7.3 Sensor LDR</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm56" scrolling="no" marginwidth="0" src="html/9.7.2.html"></iframe>
+			<iframe class="pag" id="ifrm71" scrolling="no" marginwidth="0" src="../../html/9.7.3 Sensor LDR.html"></iframe>
+			<br><br>
+			<div align="center"><img id="img_zoom_36" src="../video/9.7.1 Sensor LDR.jpg" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm72" scrolling="no" marginwidth="0" src="html/9.7.3.html"></iframe>
 			<br><br><br>
 			<a id="Sensor PIR"></a>
 			<b><i>9.8 Sensor PIR</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm57" scrolling="no" marginwidth="0" src="../../html/9.8 Sensor PIR.html"></iframe>
+			<iframe class="pag" id="ifrm73" scrolling="no" marginwidth="0" src="../../html/9.8 Sensor PIR.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.8 Sensor PIR.jpg" alt="" width="auto" height="auto"></div>
-			<br><br>
-			<iframe class="pag" id="ifrm58" scrolling="no" marginwidth="0" src="html/9.8.html"></iframe>
+			<div align="center"><img id="img_zoom_37" src="../video/9.8 Sensor PIR.jpg" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm74" scrolling="no" marginwidth="0" src="html/9.8.html"></iframe>
 			<br><br><br>
 			<a id="Sensor de llama"></a>
 			<b><i>9.9 Sensor de llama</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm59" scrolling="no" marginwidth="0" src="../../html/9.9 Sensor de llama.html"></iframe>
+			<iframe class="pag" id="ifrm75" scrolling="no" marginwidth="0" src="../../html/9.9 Sensor de llama.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.9 Sensor de llama.jpg" alt="" width="auto" height="auto"></div>
-			<br><br>
-			<iframe class="pag" id="ifrm60" scrolling="no" marginwidth="0" src="html/9.9.html"></iframe>
+			<div align="center"><img id="img_zoom_38" src="../video/9.9 Sensor de llama.jpg" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm76" scrolling="no" marginwidth="0" src="html/9.9.html"></iframe>
 			<br><br><br>
 			<a id="Sensor de flexion"></a>
 			<b><i>9.10 Sensor de flexión</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm61" scrolling="no" marginwidth="0" src="../../html/9.10 Sensor de flexion.html"></iframe>
+			<iframe class="pag" id="ifrm77" scrolling="no" marginwidth="0" src="../../html/9.10 Sensor de flexion.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.10 Sensor de flexion.jpg" alt="" width="auto" height="auto"></div>
-			<br><br>
-			<iframe class="pag" id="ifrm62" scrolling="no" marginwidth="0" src="html/9.10.html"></iframe>
+			<div align="center"><img id="img_zoom_39" src="../video/9.10 Sensor de flexion.jpg" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm78" scrolling="no" marginwidth="0" src="html/9.10.html"></iframe>
 			<br><br><br>
 			<a id="Sensor de gas"></a>
 			<b><i>9.11 Sensor de gas</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm63" scrolling="no" marginwidth="0" src="../../html/9.11 Sensor de gas.html"></iframe>
+			<iframe class="pag" id="ifrm79" scrolling="no" marginwidth="0" src="../../html/9.11 Sensor de gas.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.11 Sensor de gas.jpg" alt="" width="auto" height="auto"></div>
-			<br><br>
-			<iframe class="pag" id="ifrm64" scrolling="no" marginwidth="0" src="html/9.11.html"></iframe>
+			<div align="center"><img id="img_zoom_40" src="../video/9.11 Sensor de gas.jpg" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm80" scrolling="no" marginwidth="0" src="html/9.11.html"></iframe>
 			<br><br><br>
 			<a id="Sensor de lluvia"></a>
 			<b><i>9.12 Sensor de lluvia</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm65" scrolling="no" marginwidth="0" src="../../html/9.12 Sensor de lluvia.html"></iframe>
+			<iframe class="pag" id="ifrm81" scrolling="no" marginwidth="0" src="../../html/9.12 Sensor de lluvia.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.12 Sensor de lluvia.jpg" alt="" width="auto" height="auto"></div>
-			<br><br>
-			<iframe class="pag" id="ifrm66" scrolling="no" marginwidth="0" src="html/9.12.html"></iframe>
+			<div align="center"><img id="img_zoom_41" src="../video/9.12 Sensor de lluvia.jpg" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm82" scrolling="no" marginwidth="0" src="html/9.12.html"></iframe>
 			<br><br><br>
 			<a id="Sensor de humedad del suelo"></a>
 			<b><i>9.13 Sensor de humedad del suelo</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm67" scrolling="no" marginwidth="0" src="../../html/9.13 Sensor de humedad del suelo.html"></iframe>
+			<iframe class="pag" id="ifrm83" scrolling="no" marginwidth="0" src="../../html/9.13 Sensor de humedad del suelo.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.13 Sensor de humedad del suelo.jpg" alt="" width="auto" height="auto"></div>
-			<br><br>
-			<iframe class="pag" id="ifrm68" scrolling="no" marginwidth="0" src="html/9.13.html"></iframe>
+			<div align="center"><img id="img_zoom_42" src="../video/9.13 Sensor de humedad del suelo.jpg" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm84" scrolling="no" marginwidth="0" src="html/9.13.html"></iframe>
 			<br><br><br>
 			<a id="Sensor de vibracion"></a>
 			<b><i>9.14 Sensor de vibración</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm69" scrolling="no" marginwidth="0" src="../../html/9.14 Sensor de vibracion.html"></iframe>
+			<iframe class="pag" id="ifrm85" scrolling="no" marginwidth="0" src="../../html/9.14 Sensor de vibracion.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.14 Sensor de vibracion.jpg" alt="" width="auto" height="auto"></div>
-			<br><br>
-			<iframe class="pag" id="ifrm70" scrolling="no" marginwidth="0" src="html/9.14.html"></iframe>
+			<div align="center"><img id="img_zoom_43" src="../video/9.14 Sensor de vibracion.jpg" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm86" scrolling="no" marginwidth="0" src="html/9.14.html"></iframe>
 			<br><br><br>
 			<a id="Sensor de ritmo cardiaco"></a>
 			<b><i>9.15 Sensor de ritmo cardíaco</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm71" scrolling="no" marginwidth="0" src="../../html/9.15 Sensor de ritmo cardiaco.html"></iframe>
+			<iframe class="pag" id="ifrm87" scrolling="no" marginwidth="0" src="../../html/9.15 Sensor de ritmo cardiaco.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.15 Sensor de ritmo cardiaco.jpg" alt="" width="auto" height="auto"></div>
-			<br><br>
-			<iframe class="pag" id="ifrm72" scrolling="no" marginwidth="0" src="html/9.15.html"></iframe>
+			<div align="center"><img id="img_zoom_44" src="../video/9.15 Sensor de ritmo cardiaco.jpg" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm88" scrolling="no" marginwidth="0" src="html/9.15.html"></iframe>
 			<br><br><br>
 			<a id="Sensor de corriente ACS712"></a>
 			<b><i>9.16 Sensor de corriente ACS712</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm73" scrolling="no" marginwidth="0" src="../../html/9.16 Sensor de corriente ACS712.html"></iframe>
+			<iframe class="pag" id="ifrm89" scrolling="no" marginwidth="0" src="../../html/9.16 Sensor de corriente ACS712.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.16 Sensor de corriente ACS712.jpg" alt="" width="auto" height="auto"></div>
-			<br><br>
-			<iframe class="pag" id="ifrm74" scrolling="no" marginwidth="0" src="html/9.16.html"></iframe>
+			<div align="center"><img id="img_zoom_45" src="../video/9.16 Sensor de corriente ACS712.jpg" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm90" scrolling="no" marginwidth="0" src="html/9.16.html"></iframe>
 			<br><br><br>
 			<a id="Sensor de presion MPX5010DP"></a>
 			<b><i>9.17 Sensor de presión MPX5010DP</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm75" scrolling="no" marginwidth="0" src="../../html/9.17 Sensor de presión MPX5010DP.html"></iframe>
+			<iframe class="pag" id="ifrm91" scrolling="no" marginwidth="0" src="../../html/9.17 Sensor de presión MPX5010DP.html"></iframe>
 			<br><br>
-			<div align="center"><img src="../video/9.17 Sensor de presión MPX5010DP.jpg" alt="" width="auto" height="auto"></div>
-			<br><br>
-			<iframe class="pag" id="ifrm76" scrolling="no" marginwidth="0" src="html/9.17.html"></iframe>
+			<div align="center"><img id="img_zoom_46" src="../video/9.17 Sensor de presión MPX5010DP.jpg" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm92" scrolling="no" marginwidth="0" src="html/9.17.html"></iframe>
 		</div>
+		<script>
+			$('#img_zoom_1').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_2').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_3').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_4').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_5').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_6').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_7').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_8').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_9').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_10').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_11').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_12').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_13').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_14').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_15').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_16').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_17').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_18').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_19').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_20').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_21').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_22').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_23').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_24').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_25').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_26').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_27').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_28').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_29').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_30').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_31').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_32').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_33').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_34').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_35').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_36').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_37').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_38').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_39').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_40').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_41').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_42').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_43').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_44').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_45').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			$('#img_zoom_46').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+		</script>
 		<script type="text/javascript">
 			/*
 			* If you do not understand what the code below does, then please just use the
