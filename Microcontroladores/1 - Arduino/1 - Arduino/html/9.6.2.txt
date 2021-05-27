@@ -18,7 +18,7 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   sensor = analogRead(A0);
-  sensor = sensor * 6 / 1023;
+  sensor = sensor * 10 / 1023;
   lcd.setCursor(6,0);
   lcd.print(sensor,1);
   lcd.print(" mm");
