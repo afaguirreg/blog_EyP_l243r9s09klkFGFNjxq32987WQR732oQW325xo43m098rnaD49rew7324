@@ -34,6 +34,6 @@ void loop() {
   
   lcd.setCursor(6,0);
   lcd.print(d);
-  lcd.print(" cm");
+  lcd.print(" cm   ");
   delay(100);
 }
