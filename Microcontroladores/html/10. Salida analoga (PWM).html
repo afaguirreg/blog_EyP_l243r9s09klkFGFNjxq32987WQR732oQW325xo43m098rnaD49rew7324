@@ -13,8 +13,84 @@
 			Muchas veces nos gustaría controlar la cantidad física de una acción: qué tan brillantes sonlas luces, qué tan rápido se mueve un motor, cuantos grados girar, etc. En este caso estaremos hablando de salidas de tipo analógico, con este tipo de salidas podemos tener un grado de control sobre la salida, donde el resultado no solo se limitará a ON-OFF.
 			<br><br>
 			Como la mayoría de los microcontroladores no pueden generar un voltaje (real) variable en sus pines de salida, una de las soluciones para resolver esta carencia es utilizar un truco electrónico que se basa en la modulación del ancho del pulso – Pulse Width Modulation - (PWM para abreviar).
+			<br><br>
+			La conversión digital a analógico que realiza el microcontrolador consiste en convertir un valor discreto en el ciclo de trabajo del PWM proporcional al valor de tensión (voltaje) que deseamos producir en un PIN habilitado para ello.
+			<br><br>
+			<div align="center"><input type="number" style="width:96px" class="panel" id="PWM" value="0" min="0" max="100" onchange="capturar();"></div>
 			<br>
-			<div align="center"><img id="img1" src="../img/10_1.png" alt="" width="auto" height="auto"></div>
+			<div class="dibujo-canvas" align="center">
+				<canvas id="lienzo1" display="block" color="blue" width="1000" height="600"></canvas>
+				<script type="text/javascript">
+					ejercicio1(0);
+					function ejercicio1(PWM) {
+						ej1=document.getElementById("lienzo1");
+						lienzo1=ej1.getContext("2d");
+						lienzo1.clearRect(0,0,1000,600);
+						lienzo1.fillStyle = "#000000";
+						lienzo1.fillRect(200, 0, 600, 600);
+						//DRAW SCALE
+						lienzo1.lineWidth=0.25;
+						lienzo1.strokeStyle = '#00FF80';
+						lienzo1.beginPath(); 
+						for (var i=200;i<=800;i+=30) {
+							lienzo1.moveTo(i,0);
+							lienzo1.lineTo(i,600);
+						}
+						for (var i=0;i<=600;i+=30) {
+							lienzo1.moveTo(200,i);
+							lienzo1.lineTo(800,i);
+						}
+						lienzo1.stroke();
+						lienzo1.closePath();
+						if (PWM==0) {
+							lienzo1.lineWidth=0.75;
+							lienzo1.strokeStyle = '#FFFF00';
+							lienzo1.beginPath();
+							lienzo1.moveTo(200,300);
+							lienzo1.lineTo(800,300);
+							lienzo1.stroke();
+							lienzo1.closePath();
+						}
+						if (PWM==100) {
+							lienzo1.lineWidth=0.75;
+							lienzo1.strokeStyle = '#FFFF00';
+							lienzo1.beginPath();
+							lienzo1.moveTo(200,150);
+							lienzo1.lineTo(800,150);
+							lienzo1.stroke();
+							lienzo1.closePath();
+						}
+						if (PWM>0 && PWM<100) {
+							lienzo1.lineWidth=0.75;
+							lienzo1.strokeStyle = '#FFFF00';
+							lienzo1.beginPath();
+							lienzo1.moveTo(200,300);
+							lienzo1.lineTo(500-PWM*3,300);
+							lienzo1.moveTo(500-PWM*3,150);
+							lienzo1.lineTo(500-PWM*3,300);
+							lienzo1.moveTo(500-PWM*3,150);
+							lienzo1.lineTo(500,150);
+							lienzo1.moveTo(500,150);
+							lienzo1.lineTo(500,300);
+							lienzo1.moveTo(500,300);
+							lienzo1.lineTo(800-PWM*3,300);
+							lienzo1.moveTo(800-PWM*3,150);
+							lienzo1.lineTo(800-PWM*3,300);
+							lienzo1.moveTo(800-PWM*3,150);
+							lienzo1.lineTo(800,150);
+							lienzo1.stroke();
+							lienzo1.closePath();
+						}
+					}
+				</script>
+				<script>
+				function capturar() {
+					var PWM=document.getElementById("PWM").value;
+					ejercicio1(PWM);
+				}
+			</script>
+			</div>
+			<br><br>
 		</div>
 	</body>
 </html>
