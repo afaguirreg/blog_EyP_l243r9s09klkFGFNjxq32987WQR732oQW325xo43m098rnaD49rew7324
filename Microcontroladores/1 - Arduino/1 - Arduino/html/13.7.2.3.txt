@@ -1,0 +1,24 @@
+#define boton_start 16
+#define boton_stop 14
+#define salida 9
+
+#define estado_boton_start digitalRead(boton_start)
+#define estado_boton_stop digitalRead(boton_stop)
+#define salida_ON digitalWrite(salida, HIGH)
+#define salida_OFF digitalWrite(salida, LOW)
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(boton_start, INPUT);
+  pinMode(boton_stop, INPUT);
+  pinMode(salida, OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  if (estado_boton_start==1 && estado_boton_stop==0)
+    salida_ON;
+  if (estado_boton_stop==1)
+    salida_OFF;
+  delay(50);
+}

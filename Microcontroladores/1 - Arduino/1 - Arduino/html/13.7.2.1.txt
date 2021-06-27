@@ -9,7 +9,7 @@ void setup() {
   pinMode(Q2, OUTPUT);
 }
 
-void loop(){
+void loop() {
   // put your main code here, to run repeatedly:
   digitalWrite(Q0, HIGH);
   digitalWrite(Q1, LOW);
