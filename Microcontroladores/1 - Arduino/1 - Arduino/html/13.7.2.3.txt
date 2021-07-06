@@ -1,11 +1,11 @@
-#define boton_start 16
-#define boton_stop 14
-#define salida 9
+#define boton_start_I0 16
+#define boton_stop_I1 14
+#define salida_Q0 9
 
-#define estado_boton_start digitalRead(boton_start)
-#define estado_boton_stop digitalRead(boton_stop)
-#define salida_ON digitalWrite(salida, HIGH)
-#define salida_OFF digitalWrite(salida, LOW)
+#define estado_boton_start digitalRead(boton_start_I0)
+#define estado_boton_stop digitalRead(boton_stop_I1)
+#define salida_ON digitalWrite(salida_Q0, HIGH)
+#define salida_OFF digitalWrite(salida_Q0, LOW)
 
 void setup() {
   // put your setup code here, to run once:
