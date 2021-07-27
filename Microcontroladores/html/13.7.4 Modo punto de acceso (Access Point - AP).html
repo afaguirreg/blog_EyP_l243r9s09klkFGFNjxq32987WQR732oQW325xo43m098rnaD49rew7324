@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Documento sin título</title>
+		<link rel="stylesheet" type="text/css" href="../../0 - styles/mystyles.css">
+		<script language="JavaScript" src="../../0 - scripts/myscripts.js"></script>
+		<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
+		<script type="text/javascript" src="../../0 - scripts/jquery/jquery.min.js"></script>
+		<script type="text/javascript" src="../../0 - scripts/iframe/iframeResizer.min.js"></script>
+	</head>
+
+	<body>
+		<div class="Normal" style="text-align:justify">
+			<a id="Modo punto de acceso (Access Point - AP)"></a>
+			<b><i>13.7.4 Modo punto de acceso (Access Point - AP)</i></b>
+			<br><br>
+			En este modo de funcionamiento se creará una red WiFi en la que una placa NodeMCU cumplirá la función de servidor al cual se podrán conectar dispositivos como PC/Laptop, tablet, móviles, otras placas NodeMCU o cualquier otro dispositivo con capacidad de conexión WiFi.
+			<br><br>
+			<div align="center"><img src="../img/13.7.4 Modo AP.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm13" name="ifrm13" scrolling="no" marginwidth="0" src="../1 - Arduino/1 - Arduino/html/13.7.4.html"></iframe>
+			<br><br>
+			<a id="Modo estacion (STATION - STA)"></a>
+			<b><i>13.7.5 Modo estación (STATION - STA)</i></b>
+			<br><br>
+			En este modo de funcionamiento la placa NodeMCU se conecta a una red WiFi existente. Dentro de ésta red la placa se podrá conectar con dispositivos como PC/Laptop, tablet, móviles, otras placas NodeMCU o cualquier otro dispositivo con capacidad de conexión WiFi.
+			<br><br>
+			<div align="center"><img src="../img/13.7.5 Modo ST_1.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Abrir el menú <b><i>Archivo--&gt;Ejemplos--&gt;ESP8266WiFi</i></b> y seleccionar el proyecto ejemplo <b><i>WiFiManualWebServer</i></b>
+			<br><br>
+			<div align="center"><img src="../img/13.7.5 Modo ST_2.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Modificar las variables <b><i>STSSID (Nombre de la red WiFi) y STAPSK (Contraseña de la red)</i></b>
+			<br><br>
+			<div align="center"><img src="../img/13.7.5 Modo ST_3.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Cargar el programa en la placa NodeMCU (verificar que haya seleccionado el puerto correspondiente)
+			<br><br>
+			Esperar a que el programa indique que el sketch ha sido subido a la placa NodeMCU
+			<br><br>
+			<div align="center"><img src="../img/13.7.5 Modo ST_4.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Abrir el menú <b><i>Herramientas--&gt;Monitor Serie</i></b>
+			<br><br>
+			<div align="center"><img src="../img/13.7.5 Modo ST_5.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Asegurarse de que la velocidad de comunicación es de 115200 baudios.
+			<br><br>
+			Pulsar el botón RST de la placa NodeMCU. El dispositivo intentará conectarse a la red inalámbrica configurada y mostrará la dirección IP asignada que le corresponde dentro de la red.
+			<br><br>
+			<div align="center"><img src="../img/13.7.5 Modo ST_6.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Abrir el navegador web y dirigirse la dirección IP de la placa.
+			<br><br>
+			<div align="center"><img src="../img/13.7.5 Modo ST_7.png" alt="" width="auto" height="auto"></div>
+			<br><br>
+			<b><i>Programa App Inventor 2</i></b>
+			<br><br>
+			<div align="center"><img src="../img/13.7.5 Modo ST_8.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<div align="center"><img src="../img/13.7.5 Modo ST_9.png" alt="" width="auto" height="852"></div>
+			<br>
+			<div align="center"><img src="../img/13.7.5 Modo ST_10.png" alt="" width="auto" height="auto"></div>
+		</div>
+		<script type="text/javascript">
+			/*
+			* If you do not understand what the code below does, then please just use the
+			* following call in your own code.
+			*
+			*iFrameResize({log:true});
+			*
+			* Once you have it working, set the log option to false.
+			*/
+			iFrameResize({
+				log: true, // Enable console logging
+				inPageLinks: true,
+				onResized: function(messageData) {
+					// Callback fn when resize is received
+					$('p#callback').html('<b>Frame ID:</b> ' + messageData.iframe.id + ' <b>Height:</b> ' + messageData.height + ' <b>Width:</b> ' + messageData.width + ' <b>Event type:</b> ' + messageData.type)
+				},
+				onMessage: function(messageData) {
+					// Callback fn when message is received
+					$('p#callback').html('<b>Frame ID:</b> ' + messageData.iframe.id + ' <b>Message:</b> ' + messageData.message)
+					alert(messageData.message)
+					document.getElementsByTagName('iframe')[0].iFrameResizer.sendMessage('Hello back from parent page')
+				},
+				onClosed: function(id) {
+					// Callback fn when iFrame is closed
+					$('p#callback').html('<b>IFrame (</b>' + id + '<b>) removed from page.</b>')
+				}
+			})
+		</script>
+	</body>
+</html>
