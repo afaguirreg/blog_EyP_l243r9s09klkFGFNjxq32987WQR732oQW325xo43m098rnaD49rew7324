@@ -9,9 +9,9 @@
 
 void setup() {
   // put your setup code here, to run once:
-  pinMode(boton_start, INPUT);
-  pinMode(boton_stop, INPUT);
-  pinMode(salida, OUTPUT);
+  pinMode(boton_start_I0, INPUT);
+  pinMode(boton_stop_I1, INPUT);
+  pinMode(salida_Q0, OUTPUT);
 }
 
 void loop() {
