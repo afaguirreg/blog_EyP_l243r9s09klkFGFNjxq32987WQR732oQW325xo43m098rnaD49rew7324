@@ -1,0 +1,67 @@
+// include the library code:
+#include <LiquidCrystal.h>
+
+const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
+LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
+
+String inputString = "";
+boolean stringComplete;
+char strPWM[5];
+int intPWM = 0;
+float floatPWM = 0;
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(6, OUTPUT);
+  pinMode(10, OUTPUT);
+  digitalWrite(10, HIGH);
+  lcd.begin(16,2);
+  delay(200);
+  lcd.print("PWM: 0%");
+  Serial.begin(9600);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  if (stringComplete==true)
+  {
+    if (inputString[0]=='$')
+    {
+      strPWM[0] = inputString[1];
+      strPWM[1] = inputString[2];
+      strPWM[2] = inputString[3];
+      strPWM[3] = inputString[4];
+      strPWM[4] = '\0';
+      intPWM = atol(strPWM);
+      floatPWM = intPWM / 10.0;
+      intPWM = map(intPWM,0,1000,0,255);
+      analogWrite(9,intPWM);
+
+      lcd.setCursor(5,0);
+      lcd.print(floatPWM,1);
+      lcd.print("%  ");
+    }
+    // clear the string:
+    inputString = "";
+    stringComplete = false;
+  }
+}
+
+/*
+  SerialEvent occurs whenever a new data comes in the hardware serial RX. This
+  routine is run between each time loop() runs, so using delay inside loop can
+  delay response. Multiple bytes of data may be available.
+*/
+void serialEvent() {
+  while (Serial.available()) {
+    // get the new byte:
+    char inChar = (char)Serial.read();
+    // add it to the inputString:
+    inputString += inChar;
+    // if the incoming character is a newline, set a flag so the main loop can
+    // do something about it:
+    if (inChar == '\n') {
+      stringComplete = true;
+    }
+  }
+}

@@ -3,94 +3,23 @@
 
 LiquidCrystal_PCF8574 lcd(0x27); // set the LCD address to 0x27 for a 16 chars and 2 line display
 
-#define PIN_I0 16
-#define PIN_I1 14
-#define PIN_I2 12
-
-#define I0 digitalRead(PIN_I0)
-#define I1 digitalRead(PIN_I1)
-#define I2 digitalRead(PIN_I2)
-
-#define Q0 9
-#define Q1 15
-#define Q2 13
-
-char texto[] = "I/O digitales";
-
-byte alto[] = {
-  B11111,
-  B11111,
-  B11111,
-  B11111,
-  B11111,
-  B11111,
-  B11111,
-  B00000,
-};
-
-byte bajo[] = {
-  B11111,
-  B10001,
-  B10001,
-  B10001,
-  B10001,
-  B10001,
-  B11111,
-  B00000,
-};
-
-void estados() {
-  lcd.setCursor(0,0);
-  lcd.print(texto);
-  lcd.setCursor(0,1);
-  lcd.print("I: ");
-  lcd.write(I0);
-  lcd.print(" ");
-  lcd.write(I1);
-  lcd.print(" ");
-  lcd.write(I2);
-  lcd.setCursor(0,2);
-  lcd.print("   0 1 2");
-  lcd.setCursor(0,3);
-  lcd.print("Q: ");
-  lcd.write(digitalRead(Q0));
-  lcd.print(" ");
-  lcd.write(digitalRead(Q1));
-  lcd.print(" ");
-  lcd.write(digitalRead(Q2)); 
-}
+int Valor_ADC;
+float sensor;
 
 void setup() {
   // put your setup code here, to run once:
-  pinMode(PIN_I0, INPUT);
-  pinMode(PIN_I1, INPUT);
-  pinMode(PIN_I2, INPUT);
-  pinMode(Q0, OUTPUT);
-  pinMode(Q1, OUTPUT);
-  pinMode(Q2, OUTPUT);
-
   lcd.begin(20, 4); // initialize the lcd
-  lcd.createChar(0, bajo);
-  lcd.createChar(1, alto);
   delay(200);
   lcd.setBacklight(255);
+  lcd.print("Sensor:");
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  digitalWrite(Q0, HIGH);
-  digitalWrite(Q1, LOW);
-  digitalWrite(Q2, LOW);
-  estados();
-  delay(1000);
-  digitalWrite(Q0, LOW);
-  digitalWrite(Q1, HIGH);
-  digitalWrite(Q2, LOW);
-  estados();
-  delay(1000);
-  digitalWrite(Q0, LOW);
-  digitalWrite(Q1, LOW);
-  digitalWrite(Q2, HIGH);
-  estados();
-  delay(1000);
+  Valor_ADC = analogRead(A0);
+  sensor = (float)Valor_ADC * 100 / 1023;
+  lcd.setCursor(8,0);
+  lcd.print(sensor,1);
+  lcd.print("   ");
+  delay(100);
 }
