@@ -115,17 +115,17 @@ void loop() {
   // put your main code here, to run repeatedly:
   server.handleClient();
 
-  if(estado_Q0)
+  if (estado_Q0)
     digitalWrite(Q0, HIGH);
   else
     digitalWrite(Q0, LOW);
 
-  if(estado_Q1)
+  if (estado_Q1)
     digitalWrite(Q1, HIGH);
   else
     digitalWrite(Q1, LOW);
 
-  if(estado_Q2)
+  if (estado_Q2)
     digitalWrite(Q2, HIGH);
   else
     digitalWrite(Q2, LOW);
@@ -193,20 +193,20 @@ String SendHTML(uint8_t Q0_stat, uint8_t Q1_stat, uint8_t Q2_stat){
   ptr +="<h1>ESP8266 Web Server</h1>\n";
   ptr +="<h3>Using Access Point(AP) Mode</h3>\n";
   
-  if(Q0_stat)
-  {ptr +="<p>Q0 Status: ON</p><a class=\"button button-off\" href=\"/Q0_off\">OFF</a>\n";}
+  if (Q0_stat)
+    ptr +="<p>Q0 Status: ON</p><a class=\"button button-off\" href=\"/Q0_off\">OFF</a>\n";
   else
-  {ptr +="<p>Q0 Status: OFF</p><a class=\"button button-on\" href=\"/Q0_on\">ON</a>\n";}
+    ptr +="<p>Q0 Status: OFF</p><a class=\"button button-on\" href=\"/Q0_on\">ON</a>\n";
 
-  if(Q1_stat)
-  {ptr +="<p>Q1 Status: ON</p><a class=\"button button-off\" href=\"/Q1_off\">OFF</a>\n";}
+  if (Q1_stat)
+    ptr +="<p>Q1 Status: ON</p><a class=\"button button-off\" href=\"/Q1_off\">OFF</a>\n";
   else
-  {ptr +="<p>Q1 Status: OFF</p><a class=\"button button-on\" href=\"/Q1_on\">ON</a>\n";}
+    ptr +="<p>Q1 Status: OFF</p><a class=\"button button-on\" href=\"/Q1_on\">ON</a>\n";
 
-  if(Q2_stat)
-  {ptr +="<p>Q2 Status: ON</p><a class=\"button button-off\" href=\"/Q2_off\">OFF</a>\n";}
+  if (Q2_stat)
+    ptr +="<p>Q2 Status: ON</p><a class=\"button button-off\" href=\"/Q2_off\">OFF</a>\n";
   else
-  {ptr +="<p>Q2 Status: OFF</p><a class=\"button button-on\" href=\"/Q2_on\">ON</a>\n";}
+    ptr +="<p>Q2 Status: OFF</p><a class=\"button button-on\" href=\"/Q2_on\">ON</a>\n";
 
   ptr +="</body>\n";
   ptr +="</html>\n";
