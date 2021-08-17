@@ -137,7 +137,6 @@ void handle_OnConnect() {
   estado_Q0 = LOW;
   estado_Q1 = LOW;
   estado_Q2 = LOW;
-  Serial.println("LED Status: OFF");
   server.send(200, "text/html", SendHTML(estado_Q0, estado_Q1, estado_Q2)); 
 }
 
