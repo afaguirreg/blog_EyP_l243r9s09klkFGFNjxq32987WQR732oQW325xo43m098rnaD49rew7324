@@ -6,7 +6,6 @@ LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 
 float Valor_ADC;
 float sensor;
-char grados = 223;
 
 void setup() {
   // put your setup code here, to run once:
@@ -14,17 +13,16 @@ void setup() {
   digitalWrite(10, HIGH);
   lcd.begin(16, 2);
   delay(200);
-  lcd.print("Temp:");
+  lcd.print("Luz:");
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
   Valor_ADC = analogRead(A0);
-  sensor = Valor_ADC * 205 / 1023 - 55;
+  sensor = 100 - (Valor_ADC - 25) / 9.79;
 
-  lcd.setCursor(6,0);
+  lcd.setCursor(5,0);
   lcd.print(sensor,0);
-  lcd.print(grados);
-  lcd.print("C  ");
+  lcd.print("   ");
   delay(100);
 }
