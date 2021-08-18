@@ -3,7 +3,7 @@
 
 LiquidCrystal_PCF8574 lcd(0x27); // set the LCD address to 0x27 for a 16 chars and 2 line display
 
-int Valor_ADC;
+float Valor_ADC;
 float sensor;
 
 void setup() {
@@ -17,7 +17,8 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   Valor_ADC = analogRead(A0);
-  sensor = (float)Valor_ADC * 100 / 1023;
+  sensor = Valor_ADC * 100 / 1023;
+
   lcd.setCursor(8,0);
   lcd.print(sensor,1);
   lcd.print("   ");

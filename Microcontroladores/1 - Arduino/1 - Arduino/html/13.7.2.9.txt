@@ -3,6 +3,8 @@
 
 LiquidCrystal_PCF8574 lcd(0x27); // set the LCD address to 0x27 for a 16 chars and 2 line display
 
+#define Q0 9
+
 int Valor_ADC;
 long PWM;
 
@@ -18,9 +20,10 @@ void loop() {
   // put your main code here, to run repeatedly:
   Valor_ADC = analogRead(A0);
   PWM = Valor_ADC * 255 / 1023;
+
   lcd.setCursor(5,0);
-  lcd.print(PWM,1);
+  lcd.print(PWM);
   lcd.print("   ");
-  analogWrite(9,PWM);
+  analogWrite(Q0,PWM);
   delay(100);
 }
