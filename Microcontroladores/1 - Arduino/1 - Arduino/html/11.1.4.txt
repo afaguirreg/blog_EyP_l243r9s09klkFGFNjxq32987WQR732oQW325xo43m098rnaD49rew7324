@@ -5,15 +5,9 @@ const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 
 #define salida_LED 6
-#define salida_motor 7
-#define salida_bombillo 8
 
 #define salida_LED_ON digitalWrite(salida_LED, HIGH)
 #define salida_LED_OFF digitalWrite(salida_LED, LOW)
-#define salida_motor_ON digitalWrite(salida_motor, HIGH)
-#define salida_motor_OFF digitalWrite(salida_motor, LOW)
-#define salida_bombillo_ON digitalWrite(salida_bombillo, HIGH)
-#define salida_bombillo_OFF digitalWrite(salida_bombillo, LOW)
 
 String inputString = "";
 boolean stringComplete;
@@ -21,18 +15,17 @@ boolean stringComplete;
 void setup() {
   // put your setup code here, to run once:
   pinMode(salida_LED, OUTPUT);
-  pinMode(salida_motor, OUTPUT);
-  pinMode(salida_bombillo, OUTPUT);
   pinMode(10, OUTPUT);
   digitalWrite(10, HIGH);
   lcd.begin(16,2);
   delay(200);
-  lcd.print("LED:   M:   B:");
+  lcd.print("LED: ");
   Serial.begin(9600);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
+  
   if (stringComplete==true)
   {
     if (inputString[0]=='$')
@@ -44,23 +37,8 @@ void loop() {
         default: break;
       }
 
-      switch (inputString[2])
-      {
-        case '0': salida_motor_OFF; break;
-        case '1': salida_motor_ON; break;
-        default: break;
-      }
-      
-      //Programar acción inputString[3]
-      
       lcd.setCursor(4,0);
       lcd.print(inputString[1]);
-
-      lcd.setCursor(9,0);
-      lcd.print(inputString[2]);
-
-      //Programar visualización inputString[3]
-
     }
     // clear the string:
     inputString = "";
