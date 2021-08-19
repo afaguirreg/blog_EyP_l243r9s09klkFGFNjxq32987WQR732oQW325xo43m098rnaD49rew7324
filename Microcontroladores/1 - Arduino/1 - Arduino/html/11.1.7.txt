@@ -12,16 +12,16 @@ LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 #define estado_boton_dec digitalRead(boton_dec)
 #define estado_boton_reset digitalRead(boton_reset)
 
-#define salida_LED 6
-#define salida_motor 7
-#define salida_bombillo 8
+#define salida_LED1 6
+#define salida_LED2 7
+#define salida_LED3 8
 
-#define salida_LED_ON digitalWrite(salida_LED, HIGH)
-#define salida_LED_OFF digitalWrite(salida_LED, LOW)
-#define salida_motor_ON digitalWrite(salida_motor, HIGH)
-#define salida_motor_OFF digitalWrite(salida_motor, LOW)
-#define salida_bombillo_ON digitalWrite(salida_bombillo, HIGH)
-#define salida_bombillo_OFF digitalWrite(salida_bombillo, LOW)
+#define salida_LED1_ON digitalWrite(salida_LED1, HIGH)
+#define salida_LED1_OFF digitalWrite(salida_LED1, LOW)
+#define salida_LED2_ON digitalWrite(salida_LED2, HIGH)
+#define salida_LED2_OFF digitalWrite(salida_LED2, LOW)
+#define salida_LED3_ON digitalWrite(salida_LED3, HIGH)
+#define salida_LED3_OFF digitalWrite(salida_LED3, LOW)
 
 boolean estado_boton_inc_ant;
 boolean estado_boton_dec_ant;
@@ -40,9 +40,9 @@ void setup() {
   pinMode(boton_inc, INPUT);
   pinMode(boton_dec, INPUT);
   pinMode(boton_reset, INPUT);
-  pinMode(salida_LED, OUTPUT);
-  pinMode(salida_motor, OUTPUT);
-  pinMode(salida_bombillo, OUTPUT);
+  pinMode(salida_LED1, OUTPUT);
+  pinMode(salida_LED2, OUTPUT);
+  pinMode(salida_LED3, OUTPUT);
   pinMode(10, OUTPUT);
   digitalWrite(10, HIGH);
   lcd.begin(20,4);
@@ -71,6 +71,16 @@ void loop() {
 
   //Programar acción boton_dec
 
+  if (estado_boton_dec!=estado_boton_dec_ant)
+  {
+    if (estado_boton_dec==1 && contador>0)
+    {
+      contador--;
+    }
+    estado_boton_dec_ant = estado_boton_dec;
+    delay(5);
+  }
+
   if (estado_boton_reset==1)
   {
     contador = 0;
@@ -83,6 +93,9 @@ void loop() {
   lcd.print(estado_boton_inc);
 
   //Programar visualización estado_boton_dec
+
+  lcd.setCursor(6,0);
+  lcd.print(estado_boton_dec);
 
   lcd.setCursor(10,0);
   lcd.print(estado_boton_reset);
@@ -112,15 +125,15 @@ void loop() {
     {
       switch (inputString[1])
       {
-        case '0': salida_LED_OFF; break;
-        case '1': salida_LED_ON; break;
+        case '0': salida_LED1_OFF; break;
+        case '1': salida_LED1_ON; break;
         default: break;
       }
 
       switch (inputString[2])
       {
-        case '0': salida_motor_OFF; break;
-        case '1': salida_motor_ON; break;
+        case '0': salida_LED2_OFF; break;
+        case '1': salida_LED2_ON; break;
         default: break;
       }
 
