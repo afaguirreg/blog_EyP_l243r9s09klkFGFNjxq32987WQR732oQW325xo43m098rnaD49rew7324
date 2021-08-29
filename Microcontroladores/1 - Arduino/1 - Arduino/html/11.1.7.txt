@@ -51,7 +51,7 @@ void setup() {
   lcd.setCursor(0,1);
   lcd.print("Sensor: ");
   lcd.setCursor(0,2);
-  lcd.print("L:  M:  B: ");
+  lcd.print("LED1:  LED2:  LED3: ");
   lcd.setCursor(0,3);
   lcd.print("PWM: ");
   Serial.begin(9600);
