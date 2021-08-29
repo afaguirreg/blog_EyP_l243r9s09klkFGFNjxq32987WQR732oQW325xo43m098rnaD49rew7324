@@ -149,10 +149,10 @@ void loop() {
       intPWM = map(intPWM,0,1000,0,255);
       analogWrite(9,intPWM);
 
-      lcd.setCursor(2,2);
+      lcd.setCursor(5,2);
       lcd.print(inputString[1]);
 
-      lcd.setCursor(6,2);
+      lcd.setCursor(12,2);
       lcd.print(inputString[2]);
 
       //Programar visualización inputString[3]
