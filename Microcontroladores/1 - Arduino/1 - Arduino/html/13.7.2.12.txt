@@ -20,7 +20,7 @@ ESP8266WebServer server(80);
 #define I1 14
 #define I2 12
 
-#define Q0 9
+#define Q0 3
 #define Q1 15
 #define Q2 13
 

@@ -6,7 +6,7 @@ LiquidCrystal_PCF8574 lcd(0x27); // set the LCD address to 0x27 for a 16 chars a
 #define I1 14
 #define I2 12
 
-#define Q0 9
+#define Q0 3
 #define Q1 15
 #define Q2 13
 
