@@ -1,0 +1,58 @@
+// include the library code:
+#include <LiquidCrystal.h>
+
+const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
+LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
+
+#define boton_inc A0      //Boton incremento
+#define boton_dec A1      //Boton decremento
+#define boton_reset A2    //Boton reset
+
+#define estado_boton_inc digitalRead(boton_inc)
+#define estado_boton_dec digitalRead(boton_dec)
+#define estado_boton_reset digitalRead(boton_reset)
+
+byte contador = 0;
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(boton_inc, INPUT);
+  pinMode(boton_dec, INPUT);
+  pinMode(boton_reset, INPUT);
+  pinMode(10, OUTPUT);
+  digitalWrite(10, HIGH);
+  lcd.begin(16,2);
+  delay(200);
+  lcd.print("PWM:");
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  if (estado_boton_inc==1)
+  {
+    if (contador<255)
+    {
+      contador++;
+    }
+  }
+
+  if (estado_boton_dec==1)
+  {
+    if (contador>0)
+    {
+      contador--;
+    }
+  }
+
+  if (estado_boton_reset==1)
+  {
+    contador = 0;
+  }
+
+  lcd.setCursor(5,0);
+  lcd.print(contador);
+  lcd.print("   ");
+
+  analogWrite(9, contador);
+  delay(50);
+}
