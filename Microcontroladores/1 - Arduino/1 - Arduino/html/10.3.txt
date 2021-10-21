@@ -9,6 +9,7 @@ void setup() {
   // put your setup code here, to run once:
    myservo.attach(pin);  // vincula el servo al pin digital
 }
+
 void loop() {
   // put your main code here, to run repeatedly:
 

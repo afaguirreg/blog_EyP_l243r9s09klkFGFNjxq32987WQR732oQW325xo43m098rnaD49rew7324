@@ -21,10 +21,20 @@
 			También existen servos de rotación continua, en cuyo caso se puede variar la velocidad y cambiar el sentido de rotación.
 			<br>
 			<br>
-			El punto de referencia o setpoint — que es el valor de posición deseada para el motor — se indica mediante una señal de control cuadrada. El ancho de pulso de la señal indica el ángulo de la posición: una señal con pulsos más anchos (es decir, de mayor duración) ubicará al motor en un ángulo mayor, y viceversa. En el caso del motor servo 360º el cambio del ancho del pulso viaría la velocidad o cambia el sentido de rotación de éste.
+			El punto de referencia o setpoint — que es el valor de posición deseada para el motor — se indica mediante una señal de control pulsadnte con periodo de 20ms. El ancho de pulso de la señal indica el ángulo de la posición: una señal con pulsos más anchos (es decir, de mayor duración) ubicará al motor en un ángulo mayor, y viceversa. En el caso del motor servo 360º el cambio del ancho del pulso viaría la velocidad o cambia el sentido de rotación de éste.
 			<br><br>
 			<div align="center"><img src="../img/10.3 Servo motores_2.png" alt="" width="auto" height="auto"></div>
 			<br>
+			La relación entre el ancho del pulso y el ángulo depende del modelo del motor. Por ejemplo, algunos modelos responden con 0º a un pulso de 500 ms, y otros a un pulso de 1000 ms.
+			<br><br>
+			En general, en todos los modelos:
+			<br><br>
+			- Un pulso entre 500-1000 us corresponde con 0º
+			<br><br>
+			- Un pulso de 1500 ms corresponde con 90º (punto neutro)
+			<br><br>
+			- Un pulso entre 2000-2500us corresponde con 180º
+			<br><br>
 			El servo motor se debe conectar a una fuente de alimentación externa. Los pines de salida del microcontrolador pueden entregar hasta 40 mA, sin embargo, los motores pueden tener picos de consumo de alrededor de 700mA.
 			<br><br>
 			El cable de señal del servo motor se conecta a una de las salidas PWM del microcontrolador.
