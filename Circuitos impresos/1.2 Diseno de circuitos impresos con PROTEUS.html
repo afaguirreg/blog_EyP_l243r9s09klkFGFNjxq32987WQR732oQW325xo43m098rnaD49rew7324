@@ -17,11 +17,11 @@
 			<br><br>
 			Esquemático fuente DC dual +12V, +5V. -12V y -5V.
 			<br><br>
-			1 - Insertar los componentes requeridos para elaborar el circuito de la fuente:
+			<b>1</b> - Insertar los componentes requeridos para elaborar el circuito de la fuente:
 			<br><br>
 			<div align="center"><img src="img/1.2_1.png" alt="" width="auto" height="auto"></div>
-		  <br><br>
-			2 - Realizar las conexiones entre los componentes:
+		  	<br><br>
+			<b>2</b> - Realizar las conexiones entre los componentes:
 			<br><br>
 			<div align="center"><img id="img_zoom" src="img/1.2_2.png" alt="" width="1000" height="auto"></div>
 			<script>
@@ -33,7 +33,7 @@
 				});
 			</script>
 			<br><br>
-			3 - Configurar los componentes.
+			<b>3</b> - Configurar los componentes.
 			<br><br>
 			Configuración de la fuente de voltaje AC
 			<br><br>
@@ -68,13 +68,38 @@
 			<br><br>
 			<div align="center"><img src="img/1.2_8.png" alt="" width="auto" height="auto"></div>
 			<br><br>
-			4 - Agregamos un polígono de la Toolbox “2D Graphics Box Mode”
+			<b>4</b> - Agregar un polígono de la Toolbox “2D Graphics Box Mode”
 			<br><br>
 			<div align="center"><img src="img/1.2_9.png" alt="" width="auto" height="auto"></div>
 			<br><br>
 			Este polígono corresponderá al área de nuestro circuito, por lo tanto, debemos asociarlo con la capa “Board Edge” haciendo Click derecho sobre el polígono y modificando la opción en el menú “Change Layer”.
 			<br><br>
 			<div align="center"><img src="img/1.2_10.png" alt="" width="auto" height="auto"></div>
+			<br><br>
+						<b>5</b> - Una vez definido el borde de la placa, éste debe quedar como un marco de color amarillo.
+			Ahora vamos a ubicar los componentes requeridos para el circuito. Este es un proceso semi-automático que se ejecuta con la opción ”Auto-placer” del menú “Tools”.
+			<br><br>
+			<div align="center"><img src="img/1.2_11.png" alt="" height="auto" width="1000"></div>
+			<br><br>
+			Asegurarse de que todos los componentes estén marcados y hacer Click en OK.
+			<br><br>
+			<div align="center"><img src="img/1.2_12.png" alt="" width="auto" height="auto"></div>
+			<br><br>
+			<b>6</b> - Realizar la redistribución de los componentes de manera manual y guiándose por las líneas de conexión proporcionadas por el software, las cuales vienen definidas desde la creación del esquemático.
+			<br><br>
+			<div align="center"><img src="img/1.2_13.png" alt="" width="auto" height="auto"></div>
+			<br><br>
+			<b>7</b> - Cuando los componentes hayan sido ubicados en su posición, verificar si es necesario redimensionar el tamaño de la placa, de manera que todos los componentes cuenten con el espacio requerido dentro del perímetro del polígono amarillo.
+			<br><br>
+			<div align="center"><img src="img/1.2_14.png" alt="" width="auto" height="auto"></div>
+		  	<br><br>
+			Para medir las dimensiones de la placa siga el procedimiento que se muestra a continuación:
+			<br><br>
+			<div align="center">
+				<video controls controlslist="nodownload" preload="preload" loop>
+					<source src="video/Dimension.webm" type="video/webm">
+				</video>
+			</div>
 			<br><br>
 			Muchas de las medidas que se utilizan en este programa están dadas en milésimas de pulgada.
 			<br><br>
@@ -119,40 +144,15 @@
 			<br><br>
 			Para cambiar entre sistema métrico y sistema imperial solamente pulse la letra m en el teclado.
 			<br><br>
-			6 - Una vez definido el borde de la placa, éste debe quedar como un marco de color amarillo.
-			Ahora vamos a ubicar los componentes requeridos para el circuito. Este es un proceso semi-automático que se ejecuta con la opción ”Auto-placer” del menú “Tools”.
-			<br><br>
-			<div align="center"><img src="img/1.2_11.png" alt="" height="auto" width="1000"></div>
-			<br><br>
-			Asegurarse de que todos los componentes estén marcados y hacer Click en OK.
-			<br><br>
-			<div align="center"><img src="img/1.2_12.png" alt="" width="auto" height="auto"></div>
-			<br><br>
-			7 - Realizar la redistribución de los componentes de manera manual y guiándose por las líneas de conexión proporcionadas por el software, las cuales vienen definidas desde la creación del esquemático.
-			<br><br>
-			<div align="center"><img src="img/1.2_13.png" alt="" width="auto" height="auto"></div>
-			<br><br>
-			8 - Cuando los componentes hayan sido ubicados en su posición, verificamos si es necesario redimensionar el tamaño de la placa, de manera que todos los componentes cuenten con el espacio requerido dentro del perímetro del polígono amarillo.
-			<br><br>
-			<div align="center"><img src="img/1.2_14.png" alt="" width="auto" height="auto"></div>
-		  <br><br>
-			Para medir las dimensiones de la placa siga el procedimiento que se muestra a continuación:
-			<br><br>
-			<div align="center">
-				<video controls controlslist="nodownload" preload="preload" loop>
-					<source src="video/Dimension.webm" type="video/webm">
-				</video>
-			</div>
-			<br><br>
-			Ahora podemos generar la capa “Power Plane” que servirá como blindaje de nuestro circuito.
+			<b>8</b> - Ahora podemos generar la capa “Power Plane” que servirá como blindaje de nuestro circuito.
 			<br><br>
 			<div align="center"><img src="img/1.2_15.png" alt="" width="auto" height="auto"></div>
 			<br><br>
 			Opciones recomendadas para crear la capa “Power Plane”
 			<br><br>
-		  <div align="center"><img src="img/1.2_16.png" alt="" width="auto" height="auto"></div>
+		  	<div align="center"><img src="img/1.2_16.png" alt="" width="auto" height="auto"></div>
 			<br><br>
-			9)Buscamos el borde de la capa “Power Plane” (bloque azul), hacemos doble Click para modificar sus parámetros.
+			Buscar el borde de la capa “Power Plane” (bloque azul), hacemos doble Click para modificar sus parámetros.
 			<br><br>
 			<div align="center"><img src="img/1.2_17.png" alt="" width="auto" height="auto"></div>
 			<br><br>
