@@ -10,38 +10,41 @@
 
 	<body>
 		<div class="Normal" style="text-align:justify">
-			<img src="../img/9.7.1 ACS712_1.png" alt="" width="auto" height="auto">
+			<img src="../img/9.8 ZMPT101B_1.png" alt="" width="auto" height="auto">
 			<br><br>
-			El CI ACS712 es un sensor de corriente por efecto hall, que provee una solución económica y precisa para medir corriente en AC o DC, ya sea en ambientes industriales o comerciales. Este sensor funciona transformando un campo magnético surgido del paso de la corriente por un alambre de cobre interno en el sensor y convirtiendo este campo en un voltaje variable. Esto significa que a mayor corriente a través del circuito de la carga, mayor voltaje generado en el pin de salida analógica.
+			El ZMPT101B es un módulo sensor de voltaje monofásico activo desarrollado con base en un transformador de voltaje de alta precisión. Este dispositivo se puede utilizar para monitorea fácilmente el voltaje de la red, por lo que se puede utilizar en instalaciones industriales y domésticas para detectar, medir y proteger el equipo contra daños por sobretensión, por baja tensión, etc.
+			<br><br>
+			El modulo ZMPT101B permite medir voltaje alterno entre 120 VAC ~ 220 VAC, este voltaje AC no puede ser medido directamente por una entrada análoga ADC del microcontrolador pues su valor está muy sobre al rango de entrada permitido (0V a 5V). El módulo ZMPT101B soluciona el problema reduciendo el voltaje AC de entrada a un voltaje menor que pueda ser leído por el microcontrolador.
+			<br><br>
+			El modulo está integrado por un transformador que cumple la función de aislamiento galvanico para mayor seguridad en el uso. El lado primario del transformador se conecta al voltaje alterno que deseamos medir, por ejemplo: la red eléctrica de nuestro hogar. En el lado secundario del transformador se encuentra un divisor de tensión y un circuito con amplificador operacional LM358 para adicionar un desplazamiento (offset) a la salida análoga.
+			<br><br>
+			La entrada soporta voltajes de hasta 250VAC y la salida entrega una onda senoidal de amplitud regulable por un potenciómetro incorporado en la placa. La onda senoidal de salida está desplazada positivamente para que la onda no tenga voltajes negativos y así poder leer la onda completamente con la aentrada análoga del microcontrolador. El desplazamiento depende del voltaje con el que alimentemos el módulo: si el voltaje de alimentación es de 5V el desplazamiento será de 2.5V y si alimentamos el módulo con 3.3V el desplazamiento será de 1.65V. El circuito de acondicionamiento de señal permite que el voltaje de salida del módulo pueda ser leído por cualquier microcontrolador con entrada Analoga a Digital (ADC), de esta forma es posible leer el voltaje instantáneo y realizar cálculos de energía, como: Voltaje pico a pico (Vpp) y Voltaje Eficaz (Vrms).
 			<br><br>
 			<b><i>Características</i></b>
 			<br><br>
-			- Sensor lineal de efecto hall de bajo offset.
+			- Voltaje de alimentación: 5V a 30V.
 			<br><br>
-			- Alta precisión de medida debido a la cercanía del sensor de efecto hall al elemento de paso (ambos se encuentran dentro del IC).
+			- Voltaje de medición maximo: 250 voltios.
 			<br><br>
-			- Baja resistencia del elemento de paso para una baja disipación de potencia (1.2 mΩ típico)
+			- Corriente nominal de entrada y salida: 2mA
 			<br><br>
-			- Capacidad de sobrevivir a picos de corriente de hasta 5 veces la corriente nominal de operación.
+			- Diferencia de fase < 30º (50 Ω)
 			<br><br>
-			- Las terminales del elemento conductor se encuentran aisladas electricamente (Hasta 2.1KV) por lo que evita la necesidad de aislamiento externo (optoacopladores).
+			- Rango linear 0 ~ 3mA (50 Ω)
 			<br><br>
-			- Voltaje de salida:   66mV / A
+			- Linealidad 1%
 			<br><br>
-			- Voltaje de operación: 4.5V ~ 5.5V
+			- Aislamiento eléctrico: hasta 3000V
 			<br><br>
-			- Salida de voltaje sin corriente: VCC / 2
+			- Circuito de amplificación integrado.
+			<br><br>
+			- Temperatura de funcionamiento: 40ºC ∼ + 70ºC.
+			<br><br>
+			- Dimensiones: 49.5 mm x 19.4 mm.
 			<br><br>
 			- Dimensiones PCB: 31 (mm) x14 (mm)
 			<br><br>
-			- 5 μs output rise time in response to step input current
-			- Ancho de banda 80 kHz
-			- Error Total Salida: 1.5% at TA = 25°C
-			- Resistencia interna: 1.2 mΩ
-			- Mínimo voltaje de aislamiento entre pines 1-4 a pines 5-8: 2.1 kVRMS
-			- Sensitividad de salida: 66 to 185 mV/A
-			<br><br>
-			Especificaciones: <a href="https://www.sparkfun.com/datasheets/BreakoutBoards/0712.pdf" target="_blank">https://www.sparkfun.com/datasheets/BreakoutBoards/0712.pdf</a>
+			Especificaciones: <a href="https://cdn.shopify.com/s/files/1/2267/1961/files/Hoja_Tecnica_del_Transfortmador_ZMPT101B.pdf?v=1592909853" target="_blank">https://cdn.shopify.com/s/files/1/2267/1961/files/Hoja_Tecnica_del_Transfortmador_ZMPT101B.pdf?v=1592909853</a>
 		</div>
 	</body>
 </html>
