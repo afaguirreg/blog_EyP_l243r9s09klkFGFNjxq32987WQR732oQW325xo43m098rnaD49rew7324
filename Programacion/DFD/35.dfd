@@ -1,0 +1,68 @@
+ Dfd (c)
+1
+1
+1
+0
+0
+4
+1
+26
+"Escriba el primer número"
+5
+1
+4
+num1
+4
+1
+27
+"Escriba el segundo número"
+5
+1
+4
+num2
+4
+1
+26
+"Escriba el tercer número"
+5
+1
+4
+num3
+7
+0
+1
+18
+num1 = num2 + num3
+7
+0
+1
+18
+num2 = num1 + num3
+7
+0
+1
+18
+num3 = num1 + num2
+4
+1
+66
+"Ninguno de los números es equivalente a la suma de los otros dos"
+13
+4
+1
+61
+"El tercer número: ", num3, " es igual a ", num1, " + ", num2
+13
+13
+4
+1
+62
+"El segundo número: ", num2, " es igual a ", num1, " + ", num3
+13
+13
+4
+1
+61
+"El primer número: ", num1, " es igual a ", num2, " + ", num3
+13
+1

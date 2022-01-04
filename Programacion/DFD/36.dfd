@@ -1,0 +1,47 @@
+ Dfd (c)
+1
+1
+1
+0
+0
+4
+1
+19
+"Escriba un número"
+5
+1
+3
+num
+6
+1
+6
+modulo
+9
+num mod 3
+7
+0
+1
+10
+modulo = 0
+4
+1
+41
+"El número ", num, " NO es múltiplo de 3"
+13
+7
+0
+1
+21
+num>=100 AND num<=200
+4
+1
+67
+"El número ", num, " SI es múltiplo de 3 y NO está entre 100 y 200"
+13
+4
+1
+64
+"El número ", num, " SI es múltiplo de 3 y está entre 100 y 200"
+13
+13
+1
