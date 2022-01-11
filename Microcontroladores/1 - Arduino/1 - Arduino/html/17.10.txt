@@ -1,0 +1,98 @@
+#define pin_sensor A0
+
+#define sensor digitalRead(pin_sensor)
+#define salida_motor1_adelante A2
+#define salida_motor1_atras A1
+#define salida_motor2_adelante A3
+#define salida_motor2_atras A4
+
+#define salida_motor1_adelante_ON digitalWrite(salida_motor1_adelante, HIGH)
+#define salida_motor1_adelante_OFF digitalWrite(salida_motor1_adelante, LOW)
+#define salida_motor1_atras_ON digitalWrite(salida_motor1_atras, HIGH)
+#define salida_motor1_atras_OFF digitalWrite(salida_motor1_atras, LOW)
+#define salida_motor2_adelante_ON digitalWrite(salida_motor2_adelante, HIGH)
+#define salida_motor2_adelante_OFF digitalWrite(salida_motor2_adelante, LOW)
+#define salida_motor2_atras_ON digitalWrite(salida_motor2_atras, HIGH)
+#define salida_motor2_atras_OFF digitalWrite(salida_motor2_atras, LOW)
+
+String inputString = "";
+bool stringComplete = false;
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(pin_sensor, INPUT);
+  pinMode(salida_motor1_adelante, OUTPUT);
+  pinMode(salida_motor1_atras, OUTPUT);
+  pinMode(salida_motor2_adelante, OUTPUT);
+  pinMode(salida_motor2_atras, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  Serial.println(sensor);
+  if (stringComplete==true) {
+    if (inputString[0]=='A' && sensor==0) {
+      salida_motor1_atras_OFF;
+      salida_motor2_atras_OFF;
+      salida_motor1_adelante_ON;
+      salida_motor2_adelante_ON;
+    }
+    if (sensor==1) {
+      salida_motor1_atras_OFF;
+      salida_motor2_atras_OFF;
+      salida_motor1_adelante_OFF;
+      salida_motor2_adelante_OFF;
+    }
+    if (inputString[0]=='R') {
+      salida_motor1_adelante_OFF;
+      salida_motor2_adelante_OFF;
+      salida_motor1_atras_ON;
+      salida_motor2_atras_ON;
+    }
+
+    //Programar acciones 'Girar a la izquierda y a la derecha'
+
+    if (inputString[0]=='D') {
+      salida_motor1_atras_OFF;
+      salida_motor2_adelante_OFF;
+      salida_motor1_adelante_ON;
+      salida_motor2_atras_ON;
+    }
+    if (inputString[0]=='L') {
+      salida_motor1_adelante_OFF;
+      salida_motor2_atras_OFF;
+      salida_motor1_atras_ON;
+      salida_motor2_adelante_ON;
+    }
+    if (inputString[0]=='X') {
+      salida_motor1_adelante_OFF;
+      salida_motor2_atras_OFF;
+      salida_motor1_atras_OFF;
+      salida_motor2_adelante_OFF;
+    }
+    // clear the string:
+    inputString = "";
+    stringComplete = false;
+  }
+  delay(100);
+}
+
+/*
+  SerialEvent occurs whenever a new data comes in the hardware serial RX. This
+  routine is run between each time loop() runs, so using delay inside loop can
+  delay response. Multiple bytes of data may be available.
+*/
+void serialEvent() {
+  while (Serial.available()) {
+    // get the new byte:
+    char inChar = (char)Serial.read();
+    // add it to the inputString:
+    inputString += inChar;
+    // if the incoming character is a newline, set a flag so the main loop can
+    // do something about it:
+    if (inChar == '\n' || inChar == '\r') {
+      stringComplete = true;
+    }
+  }
+}

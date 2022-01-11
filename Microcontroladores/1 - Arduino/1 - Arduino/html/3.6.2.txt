@@ -1,0 +1,57 @@
+#define boton_start A0
+#define boton_stop A1
+#define salida_K1_PPAL 8
+#define salida_K2_ESTRELLA 9
+#define salida_K3_TRIANGULO 10
+
+#define estado_boton_start digitalRead(boton_start)
+#define estado_boton_stop digitalRead(boton_stop)
+#define salida_K1_PPAL_ON digitalWrite(salida_K1_PPAL, HIGH)
+#define salida_K1_PPAL_OFF digitalWrite(salida_K1_PPAL, LOW)
+#define salida_K2_ESTRELLA_ON digitalWrite(salida_K2_ESTRELLA, HIGH)
+#define salida_K2_ESTRELLA_OFF digitalWrite(salida_K2_ESTRELLA, LOW)
+#define salida_K3_TRIANGULO_ON digitalWrite(salida_K3_TRIANGULO, HIGH)
+#define salida_K3_TRIANGULO_OFF digitalWrite(salida_K3_TRIANGULO, LOW)
+
+boolean estado_motor = 0;
+
+void apagar() {
+  estado_motor = 0;
+  salida_K1_PPAL_OFF;
+  salida_K2_ESTRELLA_OFF;
+  salida_K3_TRIANGULO_OFF;
+}
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(boton_start, INPUT);
+  pinMode(boton_stop, INPUT);
+  pinMode(salida_K1_PPAL, OUTPUT);
+  pinMode(salida_K2_ESTRELLA, OUTPUT);
+  pinMode(salida_K3_TRIANGULO, OUTPUT);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  if (estado_boton_start==1 && estado_boton_stop==0 && estado_motor==0)
+  {
+    estado_motor = 1;
+    salida_K3_TRIANGULO_OFF;
+    salida_K1_PPAL_ON;
+    salida_K2_ESTRELLA_ON;
+    for (int i=0; i<1000;++i)
+    {
+      if (estado_boton_stop==1)
+      {
+        apagar();
+        break;
+      }
+      delay(5);
+    }
+    salida_K2_ESTRELLA_OFF;
+    salida_K3_TRIANGULO_ON;
+  }
+
+  if (estado_boton_stop==1)
+    apagar();
+}
