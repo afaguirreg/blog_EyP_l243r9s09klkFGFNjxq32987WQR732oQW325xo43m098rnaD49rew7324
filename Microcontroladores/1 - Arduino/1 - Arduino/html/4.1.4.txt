@@ -1,0 +1,64 @@
+#define boton_inc A0      //Boton incremento
+#define boton_dec A1      //Boton decremento
+#define boton_reset A2    //Boton reset
+
+#define estado_boton_inc digitalRead(boton_inc)
+#define estado_boton_dec digitalRead(boton_dec)
+#define estado_boton_reset digitalRead(boton_reset)
+
+boolean estado_boton_inc_ant;
+boolean estado_boton_dec_ant;
+
+byte unidades = 0;
+byte decenas = 0;
+
+int pins_contador[8] = {0, 1, 2, 3, 4, 5, 6, 7};
+
+void write_digit(byte decenas, byte unidades) {
+  byte i;
+  for (i=0; i<4; i++)
+  {
+    digitalWrite(pins_contador[i], (unidades>>i)&1);
+    digitalWrite(pins_contador[i+4], (decenas>>i)&1);
+  }
+}
+
+void setup() {
+  // put your setup code here, to run once:
+  byte i;
+  pinMode(boton_inc, INPUT);
+  pinMode(boton_dec, INPUT);
+  pinMode(boton_reset, INPUT);
+  for (i=0; i<8; i++)
+  {
+    pinMode(pins_contador[i], OUTPUT);
+  }
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  if (estado_boton_inc!=estado_boton_inc_ant)                 //Rutina de conteo ascendente
+  {
+    if ((estado_boton_inc==1) && (decenas*10+unidades<99))
+    {
+      unidades++;
+      if (unidades>9)
+      {
+        unidades = 0;
+        decenas++;
+      }
+    }
+    estado_boton_inc_ant = estado_boton_inc;
+    delay(5);
+  }
+
+  //Programar acción boton_dec
+
+  if (estado_boton_reset==1)                                  //Rutina de reset
+  {
+    unidades = 0;
+    decenas = 0;
+  }
+
+  write_digit(decenas, unidades);
+}
