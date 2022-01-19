@@ -206,7 +206,7 @@
 			<br><br>
 			Blynk es una plataforma  que permite la recolección y almacenamiento en la nube de datos de sensores para la creación de aplicaciones para Internet de las cosas (IoT).
 			<br><br>
-			<div align="center"><img src="../img/13.7.8 Blynk_1.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="../img/13.7.2.16 Blynk_1.png" alt="" width="auto" height="auto"></div>
 			<br>
 			Para enviar y recibir información con Blynk es necesario registrar una cuenta gratuita con los siguientes pasos:
 			<br><br>
@@ -214,190 +214,102 @@
 			<br><br>
 			Si ya dispone de una cuenta, hacer click en LOG IN para iniciar sesión. Si es la primera vez que utiliza Blynk, hacer click en "START FREE"
 			<br><br>
-			<div align="center"><img src="../img/13.7.8 Blynk_2.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="../img/13.7.2.16 Blynk_2.png" alt="" width="auto" height="auto"></div>
 		  	<br>
-			<div align="center"><img src="../img/13.7.8 Blynk_3.png" alt="" width="auto" height="auto"></div>
-			<br>
 			Registrarse con una cuenta de correo electrónico (debe abrir el enlace de verificación enviado a la cuenta de correo electrónico registrada):
 			<br><br>
-			<div align="center"><img src="../img/13.7.8 Blynk_4.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="../img/13.7.2.16 Blynk_3.png" alt="" width="auto" height="auto"></div>
 			<br><br>
 			<b><i>Instalación de la librería Blynk en Arduino</i></b>
 			<br><br>
-			Iniciar Arduino, abrir el menú <b><i>Herramientas--&gt;Administrar Bibliotecas...</i></b>
-			<br><br>
-			<div align="center"><img src="../img/13.7.8 ThingSpeak_9.png" alt="" width="auto" height="auto"></div>
-			<br>
-			Espere hasta que se actualice la información y luego busque en la lista la librería ThingSpeak.
-			<br><br>
-			Haga click en el botón <b><i>Instalar</i></b>.
-			<br><br>
-			<div align="center"><img src="../img/13.7.8 Blynk_10.png" alt="" width="auto" height="auto"></div>
+			Acceder al Administrador de bibliotecas, buscar e instalar la librería <b><i>Blynk</i></b>
+		  <br><br>
+			<div align="center"><img src="../img/13.7.2.16 Blynk_4.png" alt="" width="auto" height="auto"></div>
 			<br><br>
 			<a id="Escribir salida digital"></a>
 			<b><i>Escribir salida digital</i></b>
 			<br><br>
-			<div align="center"><img src="../img/13.7.8 Thingspeak_11.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="../img/13.7.2.16 Blynk_5.png" alt="" width="auto" height="auto"></div>
 			<br>
-			<div align="center"><img src="../img/13.7.8 Blynk_12.png" alt="" width="auto" height="auto"></div>
-			<br>
-			Es necesario crear un canal en ThingSpeak para poder enviar y leer información.
+			<div align="center"><img src="../img/13.7.2.16 Blynk_6.png" alt="" width="auto" height="auto"></div>
 			<br><br>
- 			Hacer clic en <b><i>"New Channel"</i></b>.
-			<br><br>
-			<div align="center"><img src="../img/13.7.8 Blynk_5.png" alt="" width="auto" height="auto"></div>
-			<br>
-			Diligenciar los datos para asignar un nombre al canal y sus campos (cada canal puede tener hasta ocho campos).
-			<br><br>
-			Hacer click en <b><i>"Save Channel"</i></b>.
-			<br><br>
-			<div align="center"><img src="../img/13.7.8 Blynk_6.png" alt="" width="auto" height="auto"></div>
-			<br>
-			Dirigirse a la pestaña "Sharing" y seleccionar la opción "Share chanel with everyone".
-			<br><br>
-			<div align="center"><img src="../img/13.7.8 Blynk_7.png" alt="" width="auto" height="auto"></div>
-			<br>
-			Dirigirse a la pestaña "API Keys" para obtrener los datos de acceso al canal.
-			<br><br>
-			Estos datos son necesarios para programar el código en Arduino y para desarrollar la aplicación en App Inventor 2.
-			<br><br>
-			<b><i>Channel ID</i></b> (ID del canal): Lugar del espacio azul
-			<br>
-			<b><i>Write API Key</i></b> (Clave de escritura): Lugar del espacio verde
-			<br>
-			<b><i>Read API Key</i></b> (Clave de lectura): Lugar del espacio rojo
-			<br><br>
-			<div align="center"><img src="../img/13.7.8 Blynk_8.png" alt="" width="auto" height="auto"></div>
-			<br>
 			Modificar las variables <b><i>ssid (Nombre de la red WiFi) y password (Contraseña de la red)</i></b>
 			<br><br>
-			Modificar la variable channel por el ID del canal creado en ThingSpeak.
+			Modificar la variable BLYNK_TEMPLATE_ID del dashboard creado en Blynk.
 			<br><br>
-			<iframe class="pag" id="ifrm10" name="ifrm10" scrolling="no" marginwidth="0" src="../1 - Arduino/1 - Arduino/html/13.7.8.1.html"></iframe>
+			<iframe class="pag" id="ifrm10" name="ifrm10" scrolling="no" marginwidth="0" src="../1 - Arduino/1 - Arduino/html/13.7.2.16_1.html"></iframe>
 			<br>
 			Cargar el programa en la placa (verificar que haya seleccionado el puerto correspondiente)
 			<br><br>
 			Esperar a que el programa indique que el sketch ha sido subido a la placa.
 			<br><br><br>
-			<b><i>Programa App Inventor 2</i></b>
-			<br><br>
-			<div align="center"><img src="../img/13.7.8 Blynk_14.png" alt="" width="auto" height="auto"></div>
-			<br><br>
-			<div align="center"><img src="../img/13.7.8 Blynk_15.png" alt="" width="auto" height="auto"></div>
-			<br>
-			Utilizar la clave "Write API Key para para inicializar la variable ClaveEscritura (espacio verde).
-			<br><br>
-			<div align="center"><img src="../img/13.7.8 Blynk_16.png" alt="" width="auto" height="auto"></div>
-			<br><br>
 			<a id="Leer sensor"></a>
 			<b><i>Leer sensor</i></b>
 			<br><br>
-			<div align="center"><img src="../img/13.7.8 Thingspeak_17.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="../img/13.7.2.16 Blynk_7.png" alt="" width="auto" height="auto"></div>
 			<br><br>
-			<div align="center"><img src="../img/13.7.8 Blynk_18.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="../img/13.7.2.16 Blynk_8.png" alt="" width="auto" height="auto"></div>
 			<br><br>
-			Es necesario crear un canal en ThingSpeak para poder enviar y leer información.
-			<br><br>
- 			Hacer clic en <b><i>"New Channel"</i></b>.
-			<br><br>
-			<div align="center"><img src="../img/13.7.8 Blynk_5.png" alt="" width="auto" height="auto"></div>
-			<br>
-			Diligenciar los datos para asignar un nombre al canal y sus campos (cada canal puede tener hasta ocho campos).
-			<br><br>
-			Hacer click en <b><i>"Save Channel"</i></b>.
-			<br><br>
-			<div align="center"><img src="../img/13.7.8 Blynk_6.png" alt="" width="auto" height="auto"></div>
-			<br>
-			Dirigirse a la pestaña "Sharing" y seleccionar la opción "Share chanel with everyone".
-			<br><br>
-			<div align="center"><img src="../img/13.7.8 Blynk_7.png" alt="" width="auto" height="auto"></div>
-			<br>
-			Dirigirse a la pestaña "API Keys" para obtrener los datos de acceso al canal.
-			<br><br>
-			Estos datos son necesarios para programar el código en Arduino y para desarrollar la aplicación en App Inventor 2.
-			<br><br>
-			<b><i>Channel ID</i></b> (ID del canal): Lugar del espacio azul
-			<br>
-			<b><i>Write API Key</i></b> (Clave de escritura): Lugar del espacio verde
-			<br>
-			<b><i>Read API Key</i></b> (Clave de lectura): Lugar del espacio rojo
-			<br><br>
-			<div align="center"><img src="../img/13.7.8 Blynk_8.png" alt="" width="auto" height="auto"></div>
-			<br>
 			Modificar la variable <b><i>ssid (Nombre de la red WiFi) y password (Contraseña de la red)</i></b>
 			<br>
 			<br>
-			Modificar la variable channel por el ID del canal creado en ThingSpeak.
+			Modificar la variable BLYNK_TEMPLATE_ID del dashboard creado en Blynk.
 			<br><br>
-			<iframe class="pag" id="ifrm11" name="ifrm11" scrolling="no" marginwidth="0" src="../1 - Arduino/1 - Arduino/html/13.7.8.2.html"></iframe>
+		  <iframe class="pag" id="ifrm11" name="ifrm11" scrolling="no" marginwidth="0" src="../1 - Arduino/1 - Arduino/html/13.7.2.16_2.html"></iframe>
 			<br>
 			Cargar el programa en la placa (verifique que haya seleccionado el puerto correspondiente)
 			<br><br>
 			Esperar a que el programa indique que el sketch ha sido subido a la placa.
 			<br><br><br>
-			<b><i>Programa App Inventor 2</i></b>
-			<br><br>
-			<div align="center"><img src="../img/13.7.8 Blynk_20.png" alt="" width="auto" height="auto"></div>
-			<br><br>
-			<div align="center"><img src="../img/13.7.8 Blynk_21.png" alt="" width="auto" height="auto"></div>
-			<br>
-			<div align="center"><img src="../img/13.7.8 Blynk_22.png" alt="" width="auto" height="auto"></div>
-			<br><br>
 			<a id="ThingSpeak IoT"></a>
 			<b>ThingSpeak IoT</b>
 			<br><br>
 			ThingSpeak es una plataforma  que permite la recolección y almacenamiento en la nube de datos de sensores para la creación de aplicaciones para Internet de las cosas (IoT).
 			<br><br>
-			<div align="center"><img src="../img/13.7.8 Thingspeak_1.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="../img/13.7.2.21 Thingspeak_1.png" alt="" width="auto" height="auto"></div>
 			<br>
 			Para enviar y recibir información con ThingSpeak es necesario registrar una cuenta gratuita con los siguientes pasos:
 			<br><br>
 			Entrar en <a href="http://thingspeak.com" target="_blank">http://thingspeak.com</a> y hacer clic en "Get Started For Free".
 			<br><br>
-			<div align="center"><img src="../img/13.7.8 Thingspeak_2.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="../img/13.7.2.21 Thingspeak_2.png" alt="" width="auto" height="auto"></div>
 			<br>
 			Si ya dispone de una cuenta, iniciar sesión. Si es la primera vez que utiliza ThingSpeak, hacer click en "Create one!"
 			<br><br>
-			<div align="center"><img src="../img/13.7.8 Thingspeak_3.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="../img/13.7.2.21 Thingspeak_3.png" alt="" width="auto" height="auto"></div>
 			<br>
 			Diligenciar los campos de registro:
 			<br><br>
-			<div align="center"><img src="../img/13.7.8 Thingspeak_4.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="../img/13.7.2.21 Thingspeak_4.png" alt="" width="auto" height="auto"></div>
 			<br><br>
 			<b><i>Instalación de la librería ThingSpeak en Arduino</i></b>
 			<br><br>
-			Iniciar Arduino, abrir el menú <b><i>Herramientas--&gt;Administrar Bibliotecas...</i></b>
+			Acceder al Administrador de bibliotecas, buscar e instalar la librería <b><i>ThingSpeak</i></b>
 			<br><br>
-			<div align="center"><img src="../img/13.7.8 Thingspeak_9.png" alt="" width="auto" height="auto"></div>
-			<br>
-			Espere hasta que se actualice la información y luego busque en la lista la librería ThingSpeak.
-			<br><br>
-			Haga click en el botón <b><i>Instalar</i></b>.
-			<br><br>
-			<div align="center"><img src="../img/13.7.8 Thingspeak_10.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="../img/13.7.2.21 Thingspeak_5.png" alt="" width="auto" height="auto"></div>
 			<br><br>
 			<a id="Escribir salida digital"></a>
 			<b><i>Escribir salida digital</i></b>
 			<br><br>
-			<div align="center"><img src="../img/13.7.8 Thingspeak_11.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="../img/13.7.2.21 Thingspeak_6.png" alt="" width="auto" height="auto"></div>
 			<br>
-			<div align="center"><img src="../img/13.7.8 Thingspeak_12.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="../img/13.7.2.21 Thingspeak_7.png" alt="" width="auto" height="auto"></div>
 			<br>
 			Es necesario crear un canal en ThingSpeak para poder enviar y leer información.
 			<br><br>
  			Hacer clic en <b><i>"New Channel"</i></b>.
 			<br><br>
-			<div align="center"><img src="../img/13.7.8 Thingspeak_5.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="../img/13.7.2.21 Thingspeak_8.png" alt="" width="auto" height="auto"></div>
 			<br>
 			Diligenciar los datos para asignar un nombre al canal y sus campos (cada canal puede tener hasta ocho campos).
 			<br><br>
 			Hacer click en <b><i>"Save Channel"</i></b>.
 			<br><br>
-			<div align="center"><img src="../img/13.7.8 Thingspeak_6.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="../img/13.7.2.21 Thingspeak_9.png" alt="" width="auto" height="auto"></div>
 			<br>
 			Dirigirse a la pestaña "Sharing" y seleccionar la opción "Share chanel with everyone".
 			<br><br>
-			<div align="center"><img src="../img/13.7.8 Thingspeak_7.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="../img/13.7.2.21 Thingspeak_10.png" alt="" width="auto" height="auto"></div>
 			<br>
 			Dirigirse a la pestaña "API Keys" para obtrener los datos de acceso al canal.
 			<br><br>
@@ -409,13 +321,13 @@
 			<br>
 			<b><i>Read API Key</i></b> (Clave de lectura): Lugar del espacio rojo
 			<br><br>
-			<div align="center"><img src="../img/13.7.8 Thingspeak_8.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="../img/13.7.2.21 Thingspeak_11.png" alt="" width="auto" height="auto"></div>
 			<br>
 			Modificar las variables <b><i>ssid (Nombre de la red WiFi) y password (Contraseña de la red)</i></b>
 			<br><br>
 			Modificar la variable channel por el ID del canal creado en ThingSpeak.
 			<br><br>
-			<iframe class="pag" id="ifrm12" name="ifrm12" scrolling="no" marginwidth="0" src="../1 - Arduino/1 - Arduino/html/13.7.8.1.html"></iframe>
+			<iframe class="pag" id="ifrm12" name="ifrm12" scrolling="no" marginwidth="0" src="../1 - Arduino/1 - Arduino/html/13.7.2.21_1.html"></iframe>
 			<br>
 			Cargar el programa en la placa (verificar que haya seleccionado el puerto correspondiente)
 			<br><br>
@@ -423,36 +335,36 @@
 			<br><br><br>
 			<b><i>Programa App Inventor 2</i></b>
 			<br><br>
-			<div align="center"><img src="../img/13.7.8 Thingspeak_14.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="../img/13.7.2.21 Thingspeak_12.png" alt="" width="auto" height="auto"></div>
 			<br><br>
-			<div align="center"><img src="../img/13.7.8 Thingspeak_15.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="../img/13.7.2.21 Thingspeak_13.png" alt="" width="auto" height="auto"></div>
 			<br>
 			Utilizar la clave "Write API Key para para inicializar la variable ClaveEscritura (espacio verde).
 			<br><br>
-			<div align="center"><img src="../img/13.7.8 Thingspeak_16.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="../img/13.7.2.21 Thingspeak_14.png" alt="" width="auto" height="auto"></div>
 			<br><br>
 			<a id="Leer sensor"></a>
 			<b><i>Leer sensor</i></b>
 			<br><br>
-			<div align="center"><img src="../img/13.7.8 Thingspeak_17.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="../img/13.7.2.21 Thingspeak_15.png" alt="" width="auto" height="auto"></div>
 			<br><br>
-			<div align="center"><img src="../img/13.7.8 Thingspeak_18.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="../img/13.7.2.21 Thingspeak_16.png" alt="" width="auto" height="auto"></div>
 			<br><br>
 			Es necesario crear un canal en ThingSpeak para poder enviar y leer información.
 			<br><br>
  			Hacer clic en <b><i>"New Channel"</i></b>.
 			<br><br>
-			<div align="center"><img src="../img/13.7.8 Thingspeak_5.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="../img/13.7.2.21 Thingspeak_8.png" alt="" width="auto" height="auto"></div>
 			<br>
 			Diligenciar los datos para asignar un nombre al canal y sus campos (cada canal puede tener hasta ocho campos).
 			<br><br>
 			Hacer click en <b><i>"Save Channel"</i></b>.
 			<br><br>
-			<div align="center"><img src="../img/13.7.8 Thingspeak_6.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="../img/13.7.2.21 Thingspeak_9.png" alt="" width="auto" height="auto"></div>
 			<br>
 			Dirigirse a la pestaña "Sharing" y seleccionar la opción "Share chanel with everyone".
 			<br><br>
-			<div align="center"><img src="../img/13.7.8 Thingspeak_7.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="../img/13.7.2.21 Thingspeak_10.png" alt="" width="auto" height="auto"></div>
 			<br>
 			Dirigirse a la pestaña "API Keys" para obtrener los datos de acceso al canal.
 			<br><br>
@@ -464,14 +376,14 @@
 			<br>
 			<b><i>Read API Key</i></b> (Clave de lectura): Lugar del espacio rojo
 			<br><br>
-			<div align="center"><img src="../img/13.7.8 Thingspeak_8.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="../img/13.7.2.21 Thingspeak_11.png" alt="" width="auto" height="auto"></div>
 			<br>
 			Modificar la variable <b><i>ssid (Nombre de la red WiFi) y password (Contraseña de la red)</i></b>
 			<br>
 			<br>
 			Modificar la variable channel por el ID del canal creado en ThingSpeak.
 			<br><br>
-			<iframe class="pag" id="ifrm13" name="ifrm13" scrolling="no" marginwidth="0" src="../1 - Arduino/1 - Arduino/html/13.7.8.2.html"></iframe>
+			<iframe class="pag" id="ifrm13" name="ifrm13" scrolling="no" marginwidth="0" src="../1 - Arduino/1 - Arduino/html/13.7.2.21_2.html"></iframe>
 			<br>
 			Cargar el programa en la placa (verifique que haya seleccionado el puerto correspondiente)
 			<br><br>
@@ -479,11 +391,11 @@
 			<br><br><br>
 			<b><i>Programa App Inventor 2</i></b>
 			<br><br>
-			<div align="center"><img src="../img/13.7.8 Thingspeak_20.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="../img/13.7.2.21 Thingspeak_17.png" alt="" width="auto" height="auto"></div>
 			<br><br>
-			<div align="center"><img src="../img/13.7.8 Thingspeak_21.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="../img/13.7.2.21 Thingspeak_18.png" alt="" width="auto" height="auto"></div>
 			<br>
-			<div align="center"><img src="../img/13.7.8 Thingspeak_22.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="../img/13.7.2.21 Thingspeak_19.png" alt="" width="auto" height="auto"></div>
 		</div>
 	    <script type="text/javascript">
 			/*
