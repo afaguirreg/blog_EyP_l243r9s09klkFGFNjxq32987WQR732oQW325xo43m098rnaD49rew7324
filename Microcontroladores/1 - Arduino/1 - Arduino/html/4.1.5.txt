@@ -68,23 +68,7 @@ void loop() {
     delay(5);
   }
 
-  if (estado_boton_dec!=estado_boton_dec_ant)                 //Rutina de conteo descendente
-  {
-    if ((estado_boton_dec==1) && (decenas*10+unidades>0))
-    {
-      if (unidades>0)
-      {
-        unidades--;
-      }
-      else if (unidades==0)
-      {
-        unidades = 9;
-        decenas--;
-      }
-    }
-    estado_boton_dec_ant = estado_boton_dec;
-    delay(5);
-  }
+  //Programar acción boton_dec
 
   if (estado_boton_reset==1)                                  //Rutina de reset
   {
