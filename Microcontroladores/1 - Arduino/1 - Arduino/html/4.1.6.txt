@@ -94,7 +94,7 @@ void loop() {
     delay(5);
   }
 
-  //Programas acción boton_dec
+  //Programar acción boton_dec
 
   if (estado_boton_reset==1)                                  //Rutina de reset
   {
