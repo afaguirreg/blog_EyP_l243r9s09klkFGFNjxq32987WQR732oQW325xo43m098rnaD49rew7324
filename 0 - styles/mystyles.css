@@ -24,6 +24,12 @@ iframe.pag {
 	width: 100%;
 }
 
+iframe.ext {
+	border: none;
+	height: 4500px;
+	width: 100%;
+}
+
 img {
 	transition: -webkit-transform 0.25s ease;
 	transition: transform 0.25s ease;
