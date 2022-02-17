@@ -106,21 +106,21 @@
 				});
 			</script>
 			<br>
-			<i>Valor_ADC</i> = <i>Voltaje</i> *
+			<i>valor_ADC</i> = <i>voltaje</i> *
 			<div class="fraction">
 				<span class="fup">1023</span>
 				<span class="bar">/</span>
 				<span class="fdn">5V</span>
 			</div>
 			<br><br>
-			<i>Sensor</i> = <i>Valor_ADC</i> *
+			<i>sensor</i> = <i>valor_ADC</i> *
 			<div class="fraction">
 				<span class="fup">(Smax - Smin)</span>
 				<span class="bar">/</span>
 				<span class="fdn">1023</span>
 			</div> + Smin
 			<br><br>
-			<i>Sensor</i> = <i>Valor_ADC</i> *
+			<i>sensor</i> = <i>valor_ADC</i> *
 			<div class="fraction">
 				<span class="fup">(<span id="Ymax">1023 - 0</span><span id="Ymin1"></span>)</span>
 				<span class="bar">/</span>
@@ -274,7 +274,7 @@
 <font color="#00979c">const</font> <font color="#00979c">int</font> <font color="#000000">rs</font> <font color="#434f54">=</font> <font color="#000000">12</font><font color="#434f54">,</font> <font color="#000000">en</font> <font color="#434f54">=</font> <font color="#000000">11</font><font color="#434f54">,</font> <font color="#000000">d4</font> <font color="#434f54">=</font> <font color="#000000">5</font><font color="#434f54">,</font> <font color="#000000">d5</font> <font color="#434f54">=</font> <font color="#000000">4</font><font color="#434f54">,</font> <font color="#000000">d6</font> <font color="#434f54">=</font> <font color="#000000">3</font><font color="#434f54">,</font> <font color="#000000">d7</font> <font color="#434f54">=</font> <font color="#000000">2</font><font color="#000000">;</font>
 <font color="#d35400">LiquidCrystal</font> <font color="#000000">lcd</font><font color="#000000">(</font><font color="#000000">rs</font><font color="#434f54">,</font> <font color="#000000">en</font><font color="#434f54">,</font> <font color="#000000">d4</font><font color="#434f54">,</font> <font color="#000000">d5</font><font color="#434f54">,</font> <font color="#000000">d6</font><font color="#434f54">,</font> <font color="#000000">d7</font><font color="#000000">)</font><font color="#000000">;</font>
 
-<font color="#00979c">float</font> <font color="#000000">Valor_ADC</font><font color="#000000">;</font>
+<font color="#00979c">float</font> <font color="#000000">valor_ADC</font><font color="#000000">;</font>
 <font color="#00979c">float</font> <font color="#000000">sensor</font><font color="#000000">;</font>
 
 <font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
@@ -288,7 +288,7 @@
 
 <font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
  &nbsp;<font color="#434f54">&#47;&#47; put your main code here, to run repeatedly:</font>
- &nbsp;<font color="#000000">Valor_ADC</font> <font color="#434f54">=</font> <font color="#d35400">analogRead</font><font color="#000000">(</font><font color="#000000">A0</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">valor_ADC</font> <font color="#434f54">=</font> <font color="#d35400">analogRead</font><font color="#000000">(</font><font color="#000000">A0</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font id="Sensor1"></font><font id="Por"></font><font id="Rango"></font><font id="Barra"></font><font id="Denominador"></font><font id="Span"></font>
  
  &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">setCursor</font><font color="#000000">(</font><font color="#000000">8</font><font color="#434f54">,</font><font color="#000000">0</font><font color="#000000">)</font><font color="#000000">;</font>
@@ -324,7 +324,7 @@
 <font color="#00979c">const</font> <font color="#00979c">int</font> <font color="#000000">rs</font> <font color="#434f54">=</font> <font color="#000000">12</font><font color="#434f54">,</font> <font color="#000000">en</font> <font color="#434f54">=</font> <font color="#000000">11</font><font color="#434f54">,</font> <font color="#000000">d4</font> <font color="#434f54">=</font> <font color="#000000">5</font><font color="#434f54">,</font> <font color="#000000">d5</font> <font color="#434f54">=</font> <font color="#000000">4</font><font color="#434f54">,</font> <font color="#000000">d6</font> <font color="#434f54">=</font> <font color="#000000">3</font><font color="#434f54">,</font> <font color="#000000">d7</font> <font color="#434f54">=</font> <font color="#000000">2</font><font color="#000000">;</font>
 <font color="#d35400">LiquidCrystal</font> <font color="#000000">lcd</font><font color="#000000">(</font><font color="#000000">rs</font><font color="#434f54">,</font> <font color="#000000">en</font><font color="#434f54">,</font> <font color="#000000">d4</font><font color="#434f54">,</font> <font color="#000000">d5</font><font color="#434f54">,</font> <font color="#000000">d6</font><font color="#434f54">,</font> <font color="#000000">d7</font><font color="#000000">)</font><font color="#000000">;</font>
 
-<font color="#00979c">float</font> <font color="#000000">Valor_ADC</font><font color="#000000">;</font>
+<font color="#00979c">float</font> <font color="#000000">valor_ADC</font><font color="#000000">;</font>
 <font color="#00979c">float</font> <font color="#000000">sensor</font><font color="#000000">;</font>
 
 <font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
@@ -338,7 +338,7 @@
 
 <font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
  &nbsp;<font color="#434f54">&#47;&#47; put your main code here, to run repeatedly:</font>
- &nbsp;<font color="#000000">Valor_ADC</font> <font color="#434f54">=</font> <font color="#d35400">analogRead</font><font color="#000000">(</font><font color="#000000">A0</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">valor_ADC</font> <font color="#434f54">=</font> <font color="#d35400">analogRead</font><font color="#000000">(</font><font color="#000000">A0</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font id="Sensor2"></font><font color="#d35400" id="Map"></font><font id="MapArgs"></font>
  
  &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">setCursor</font><font color="#000000">(</font><font color="#000000">8</font><font color="#434f54">,</font><font color="#000000">0</font><font color="#000000">)</font><font color="#000000">;</font>
@@ -354,8 +354,8 @@
 					ejercicio1(Smin, Smax);
 					var rango = Smax - Smin;
 					if (Smax==1023 && Smin==0) {
-						document.getElementById("Sensor1").innerHTML = "sensor = Valor_ADC;";
-						document.getElementById("Sensor2").innerHTML = "sensor = Valor_ADC;";
+						document.getElementById("Sensor1").innerHTML = "sensor = valor_ADC;";
+						document.getElementById("Sensor2").innerHTML = "sensor = valor_ADC;";
 						document.getElementById("Map").innerHTML = "";
 						document.getElementById("MapArgs").innerHTML = "";
 						document.getElementById("Por").innerHTML = "";
@@ -366,10 +366,10 @@
 					}
 					else
 					{
-						document.getElementById("Sensor1").innerHTML = "sensor = Valor_ADC";
+						document.getElementById("Sensor1").innerHTML = "sensor = valor_ADC";
 						document.getElementById("Sensor2").innerHTML = "sensor = ";
 						document.getElementById("Map").innerHTML = "map";
-						document.getElementById("MapArgs").innerHTML = "(Valor_ADC,0,1023," + Smin + "," + Smax + ");";
+						document.getElementById("MapArgs").innerHTML = "(valor_ADC,0,1023," + Smin + "," + Smax + ");";
 						document.getElementById("Por").innerHTML = " * ";
 						document.getElementById("Rango").innerHTML = rango;
 						document.getElementById("Barra").innerHTML = " / ";
@@ -400,7 +400,7 @@
 						document.getElementById("Span").innerHTML = "";
 					}
 					if (rango==1023 && Smin<0) {
-						document.getElementById("Sensor").innerHTML = "sensor = Valor_ADC; ";
+						document.getElementById("Sensor").innerHTML = "sensor = valor_ADC; ";
 						document.getElementById("Por").innerHTML = " - " + -Smin + ";";
 						document.getElementById("Rango").innerHTML = "";
 						document.getElementById("Barra").innerHTML = "";

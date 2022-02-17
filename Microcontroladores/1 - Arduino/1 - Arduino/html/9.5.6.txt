@@ -4,7 +4,7 @@
 const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 
-float Valor_ADC;
+float valor_ADC;
 float sensor;
 
 void setup() {
@@ -18,8 +18,8 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  Valor_ADC = analogRead(A0);
-  sensor = pow(3027.4 / Valor_ADC, 1.2134);
+  valor_ADC = analogRead(A0);
+  sensor = pow(3027.4 / valor_ADC, 1.2134);
 
   lcd.setCursor(6,0);
   lcd.print(sensor,0);
