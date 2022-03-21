@@ -19,7 +19,7 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   valor_ADC = analogRead(A0) * 0.0048828125;
-  sensor = 27.0 * pow(valor_ADC, -1.215);
+  sensor = 299.0 * pow(valor_ADC, -1.072);
 
   lcd.setCursor(6,0);
   lcd.print(sensor,0);
