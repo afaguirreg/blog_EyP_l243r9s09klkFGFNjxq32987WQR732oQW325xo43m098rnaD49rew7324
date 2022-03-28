@@ -1,0 +1,314 @@
+#include <LiquidCrystal_PCF8574.h>
+
+#include <WiFi.h>
+#include <WebServer.h>
+
+LiquidCrystal_PCF8574 lcd(0x27); // set the LCD address to 0x27 for a 16 chars and 2 line display
+
+/* Put your SSID & Password */
+const char* ssid = "ESP32";         // Enter SSID here
+const char* password = "12345678";    //Enter Password here
+
+/* Put IP Address details */
+IPAddress local_ip(192,168,1,1);
+IPAddress gateway(192,168,1,1);
+IPAddress subnet(255,255,255,0);
+
+WebServer server(80);
+
+#define I0 35
+#define I1 32
+#define I2 33
+#define I3 25
+#define I4 26
+#define I5 27
+#define I6 14
+
+#define Q0 13
+#define Q1 12
+#define Q2 15
+#define Q3 2
+#define Q4 4
+#define Q5 16
+#define Q6 17
+
+#define estado_I0 digitalRead(I0)
+#define estado_I1 digitalRead(I1)
+#define estado_I2 digitalRead(I2)
+#define estado_I3 digitalRead(I3)
+#define estado_I4 digitalRead(I4)
+#define estado_I5 digitalRead(I5)
+#define estado_I6 digitalRead(I6)
+
+boolean estado_Q0 = LOW;
+boolean estado_Q1 = LOW;
+boolean estado_Q2 = LOW;
+boolean estado_Q3 = LOW;
+boolean estado_Q4 = LOW;
+boolean estado_Q5 = LOW;
+boolean estado_Q6 = LOW;
+
+char texto[] = "I/O digitales";
+
+byte alto[] = {
+  B11111,
+  B11111,
+  B11111,
+  B11111,
+  B11111,
+  B11111,
+  B11111,
+  B00000,
+};
+
+byte bajo[] = {
+  B11111,
+  B10001,
+  B10001,
+  B10001,
+  B10001,
+  B10001,
+  B11111,
+  B00000,
+};
+
+void estados() {
+  lcd.setCursor(0,0);
+  lcd.print(texto);
+  lcd.setCursor(0,1);
+  lcd.print("I: ");
+  lcd.write(digitalRead(I0));
+  lcd.print(" ");
+  lcd.write(digitalRead(I1));
+  lcd.print(" ");
+  lcd.write(digitalRead(I2));
+  lcd.print(" ");
+  lcd.write(digitalRead(I3));
+  lcd.print(" ");
+  lcd.write(digitalRead(I4));
+  lcd.print(" ");
+  lcd.write(digitalRead(I5));
+  lcd.print(" ");
+  lcd.write(digitalRead(I6));
+  lcd.setCursor(0,2);
+  lcd.print("   0 1 2 3 4 5 6");
+  lcd.setCursor(0,3);
+  lcd.print("Q: ");
+  lcd.write(digitalRead(Q0));
+  lcd.print(" ");
+  lcd.write(digitalRead(Q1));
+  lcd.print(" ");
+  lcd.write(digitalRead(Q2)); 
+  lcd.print(" ");
+  lcd.write(digitalRead(Q3));
+  lcd.print(" ");
+  lcd.write(digitalRead(Q4));
+  lcd.print(" ");
+  lcd.write(digitalRead(Q5));
+  lcd.print(" ");
+  lcd.write(digitalRead(Q6));
+}
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(I0, INPUT);
+  pinMode(I1, INPUT);
+  pinMode(I2, INPUT);
+  pinMode(I3, INPUT);
+  pinMode(I4, INPUT);
+  pinMode(I5, INPUT);
+  pinMode(I6, INPUT);
+  pinMode(Q0, OUTPUT);
+  pinMode(Q1, OUTPUT);
+  pinMode(Q2, OUTPUT);
+  pinMode(Q3, OUTPUT);
+  pinMode(Q4, OUTPUT);
+  pinMode(Q5, OUTPUT);
+  pinMode(Q6, OUTPUT);
+
+  lcd.begin(20, 4); // initialize the lcd
+  lcd.createChar(0, bajo);
+  lcd.createChar(1, alto);
+  delay(200);
+  lcd.setBacklight(255);
+
+  Serial.begin(115200);
+  
+  WiFi.softAP(ssid, password);
+  WiFi.softAPConfig(local_ip, gateway, subnet);
+  delay(100);
+  
+  server.on("/", handle_OnConnect);
+  server.on("/Q0_on", handle_Q0_on);
+  server.on("/Q0_off", handle_Q0_off);
+  server.on("/Q1_on", handle_Q1_on);
+  server.on("/Q1_off", handle_Q1_off);
+  server.on("/Q2_on", handle_Q2_on);
+  server.on("/Q2_off", handle_Q2_off);
+  server.on("/Q3_on", handle_Q3_on);
+  server.on("/Q3_off", handle_Q3_off);
+  server.on("/Q4_on", handle_Q4_on);
+  server.on("/Q4_off", handle_Q4_off);
+  server.on("/Q5_on", handle_Q5_on);
+  server.on("/Q5_off", handle_Q5_off);
+  server.on("/Q6_on", handle_Q6_on);
+  server.on("/Q6_off", handle_Q6_off);
+  server.onNotFound(handle_NotFound);
+  
+  server.begin();
+  Serial.println("HTTP server started");
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  server.handleClient();
+
+  digitalWrite(Q0, estado_Q0);
+  digitalWrite(Q1, estado_Q1);
+  digitalWrite(Q2, estado_Q2);
+  digitalWrite(Q3, estado_Q3);
+  digitalWrite(Q4, estado_Q4);
+  digitalWrite(Q5, estado_Q5);
+  digitalWrite(Q6, estado_Q6);
+
+  estados();
+}
+
+void handle_OnConnect() {
+  estado_Q0 = LOW;
+  estado_Q1 = LOW;
+  estado_Q2 = LOW;
+  server.send(200, "text/html", SendHTML(estado_Q0, estado_Q1, estado_Q2, estado_Q3, estado_Q4, estado_Q5, estado_Q6)); 
+}
+
+void handle_Q0_on() {
+  estado_Q0 = HIGH;
+  server.send(200, "text/html", SendHTML(true, estado_Q1, estado_Q2, estado_Q3, estado_Q4, estado_Q5, estado_Q6)); 
+}
+
+void handle_Q0_off() {
+  estado_Q0 = LOW;
+  server.send(200, "text/html", SendHTML(false, estado_Q1, estado_Q2, estado_Q3, estado_Q4, estado_Q5, estado_Q6)); 
+}
+
+void handle_Q1_on() {
+  estado_Q1 = HIGH;
+  server.send(200, "text/html", SendHTML(estado_Q0, true, estado_Q2, estado_Q3, estado_Q4, estado_Q5, estado_Q6)); 
+}
+
+void handle_Q1_off() {
+  estado_Q1 = LOW;
+  server.send(200, "text/html", SendHTML(estado_Q0, false, estado_Q2, estado_Q3, estado_Q4, estado_Q5, estado_Q6)); 
+}
+
+void handle_Q2_on() {
+  estado_Q2 = HIGH;
+  server.send(200, "text/html", SendHTML(estado_Q0, estado_Q1, true, estado_Q3, estado_Q4, estado_Q5, estado_Q6)); 
+}
+
+void handle_Q2_off() {
+  estado_Q2 = LOW;
+  server.send(200, "text/html", SendHTML(estado_Q0, estado_Q1, false, estado_Q3, estado_Q4, estado_Q5, estado_Q6)); 
+}
+
+void handle_Q3_on() {
+  estado_Q3 = HIGH;
+  server.send(200, "text/html", SendHTML(estado_Q0, estado_Q1, estado_Q2, true, estado_Q4, estado_Q5, estado_Q6)); 
+}
+
+void handle_Q3_off() {
+  estado_Q3 = LOW;
+  server.send(200, "text/html", SendHTML(estado_Q0, estado_Q1, estado_Q2, false, estado_Q4, estado_Q5, estado_Q6)); 
+}
+
+void handle_Q4_on() {
+  estado_Q4 = HIGH;
+  server.send(200, "text/html", SendHTML(estado_Q0, estado_Q1, estado_Q2, estado_Q3, true, estado_Q5, estado_Q6)); 
+}
+
+void handle_Q4_off() {
+  estado_Q4 = LOW;
+  server.send(200, "text/html", SendHTML(estado_Q0, estado_Q1, estado_Q2, estado_Q3, false, estado_Q5, estado_Q6)); 
+}
+
+void handle_Q5_on() {
+  estado_Q5 = HIGH;
+  server.send(200, "text/html", SendHTML(estado_Q0, estado_Q1, estado_Q2, estado_Q3, estado_Q4, true, estado_Q6)); 
+}
+
+void handle_Q5_off() {
+  estado_Q5 = LOW;
+  server.send(200, "text/html", SendHTML(estado_Q0, estado_Q1, estado_Q2, estado_Q3, estado_Q4, false, estado_Q6)); 
+}
+
+void handle_Q6_on() {
+  estado_Q6 = HIGH;
+  server.send(200, "text/html", SendHTML(estado_Q0, estado_Q1, estado_Q2, estado_Q3, estado_Q4, estado_Q5, true)); 
+}
+
+void handle_Q6_off() {
+  estado_Q6 = LOW;
+  server.send(200, "text/html", SendHTML(estado_Q0, estado_Q1, estado_Q2, estado_Q3, estado_Q4, estado_Q5, false)); 
+}
+
+void handle_NotFound(){
+  server.send(404, "text/plain", "Not found");
+}
+
+String SendHTML(uint8_t Q0_stat, uint8_t Q1_stat, uint8_t Q2_stat, uint8_t Q3_stat, uint8_t Q4_stat, uint8_t Q5_stat, uint8_t Q6_stat){
+  String ptr = "<!DOCTYPE html> <html>\n";
+  ptr +="<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">\n";
+  ptr +="<title>LED Control</title>\n";
+  ptr +="<style>html { font-family: Helvetica; display: inline-block; margin: 0px auto; text-align: center;}\n";
+  ptr +="body{margin-top: 50px;} h1 {color: #444444;margin: 50px auto 30px;} h3 {color: #444444;margin-bottom: 50px;}\n";
+  ptr +=".button {display: block;width: 80px;background-color: #1abc9c;border: none;color: white;padding: 13px 30px;text-decoration: none;font-size: 25px;margin: 0px auto 35px;cursor: pointer;border-radius: 4px;}\n";
+  ptr +=".button-on {background-color: #1abc9c;}\n";
+  ptr +=".button-on:active {background-color: #16a085;}\n";
+  ptr +=".button-off {background-color: #34495e;}\n";
+  ptr +=".button-off:active {background-color: #2c3e50;}\n";
+  ptr +="p {font-size: 14px;color: #888;margin-bottom: 10px;}\n";
+  ptr +="</style>\n";
+  ptr +="</head>\n";
+  ptr +="<body>\n";
+  ptr +="<h1>ESP32 Web Server</h1>\n";
+  ptr +="<h3>Using Access Point(AP) Mode</h3>\n";
+  
+  if (Q0_stat)
+    ptr +="<p>Q0 Status: ON</p><a class=\"button button-off\" href=\"/Q0_off\">OFF</a>\n";
+  else
+    ptr +="<p>Q0 Status: OFF</p><a class=\"button button-on\" href=\"/Q0_on\">ON</a>\n";
+
+  if (Q1_stat)
+    ptr +="<p>Q1 Status: ON</p><a class=\"button button-off\" href=\"/Q1_off\">OFF</a>\n";
+  else
+    ptr +="<p>Q1 Status: OFF</p><a class=\"button button-on\" href=\"/Q1_on\">ON</a>\n";
+
+  if (Q2_stat)
+    ptr +="<p>Q2 Status: ON</p><a class=\"button button-off\" href=\"/Q2_off\">OFF</a>\n";
+  else
+    ptr +="<p>Q2 Status: OFF</p><a class=\"button button-on\" href=\"/Q2_on\">ON</a>\n";
+
+  if (Q3_stat)
+    ptr +="<p>Q3 Status: ON</p><a class=\"button button-off\" href=\"/Q3_off\">OFF</a>\n";
+  else
+    ptr +="<p>Q3 Status: OFF</p><a class=\"button button-on\" href=\"/Q3_on\">ON</a>\n";
+
+    if (Q4_stat)
+    ptr +="<p>Q4 Status: ON</p><a class=\"button button-off\" href=\"/Q4_off\">OFF</a>\n";
+  else
+    ptr +="<p>Q4 Status: OFF</p><a class=\"button button-on\" href=\"/Q4_on\">ON</a>\n";
+
+    if (Q5_stat)
+    ptr +="<p>Q5 Status: ON</p><a class=\"button button-off\" href=\"/Q5_off\">OFF</a>\n";
+  else
+    ptr +="<p>Q5 Status: OFF</p><a class=\"button button-on\" href=\"/Q5_on\">ON</a>\n";
+
+    if (Q6_stat)
+    ptr +="<p>Q6 Status: ON</p><a class=\"button button-off\" href=\"/Q6_off\">OFF</a>\n";
+  else
+    ptr +="<p>Q6 Status: OFF</p><a class=\"button button-on\" href=\"/Q6_on\">ON</a>\n";
+
+  ptr +="</body>\n";
+  ptr +="</html>\n";
+  return ptr;
+}
