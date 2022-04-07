@@ -1,213 +1,51 @@
+// Include the libraries we need
 #include <LiquidCrystal_PCF8574.h>
-
-#include <ESP8266WiFi.h>
-#include <ESP8266WebServer.h>
+#include <Wire.h>
+#include <OneWire.h>
+#include <DallasTemperature.h>
 
 LiquidCrystal_PCF8574 lcd(0x27); // set the LCD address to 0x27 for a 16 chars and 2 line display
 
-/* Put your SSID & Password */
-const char* ssid = "NodeMCU";         // Enter SSID here
-const char* password = "12345678";    //Enter Password here
+// DS18B20 data wire
+#define ONE_WIRE_BUS 4
 
-/* Put IP Address details */
-IPAddress local_ip(192,168,1,1);
-IPAddress gateway(192,168,1,1);
-IPAddress subnet(255,255,255,0);
+// Setup a oneWire instance to communicate with any OneWire devices (not just Maxim/Dallas temperature ICs)
+OneWire oneWire(ONE_WIRE_BUS);
 
-ESP8266WebServer server(80);
+// Pass our oneWire reference to Dallas Temperature. 
+DallasTemperature sensors(&oneWire);
 
-#define I0 16
-#define I1 14
-#define I2 12
-
-#define Q0 2
-#define Q1 15
-#define Q2 13
-
-#define estado_I0 digitalRead(I0)
-#define estado_I1 digitalRead(I1)
-#define estado_I2 digitalRead(I2)
-
-boolean estado_Q0 = LOW;
-boolean estado_Q1 = LOW;
-boolean estado_Q2 = LOW;
-
-char texto[] = "I/O digitales";
-
-byte alto[] = {
-  B11111,
-  B11111,
-  B11111,
-  B11111,
-  B11111,
-  B11111,
-  B11111,
-  B00000,
-};
-
-byte bajo[] = {
-  B11111,
-  B10001,
-  B10001,
-  B10001,
-  B10001,
-  B10001,
-  B11111,
-  B00000,
-};
-
-void estados() {
-  lcd.setCursor(0,0);
-  lcd.print(texto);
-  lcd.setCursor(0,1);
-  lcd.print("I: ");
-  lcd.write(digitalRead(I0));
-  lcd.print(" ");
-  lcd.write(digitalRead(I1));
-  lcd.print(" ");
-  lcd.write(digitalRead(I2));
-  lcd.setCursor(0,2);
-  lcd.print("   0 1 2");
-  lcd.setCursor(0,3);
-  lcd.print("Q: ");
-  lcd.write(digitalRead(Q0));
-  lcd.print(" ");
-  lcd.write(digitalRead(Q1));
-  lcd.print(" ");
-  lcd.write(digitalRead(Q2)); 
-}
+float tempC;
+char grados = 223;
 
 void setup() {
   // put your setup code here, to run once:
-  pinMode(I0, INPUT);
-  pinMode(I1, INPUT);
-  pinMode(I2, INPUT);
-  pinMode(Q0, OUTPUT);
-  pinMode(Q1, OUTPUT);
-  pinMode(Q2, OUTPUT);
+  int error;
 
-  lcd.begin(20, 4); // initialize the lcd
-  lcd.createChar(0, bajo);
-  lcd.createChar(1, alto);
+  Serial.begin(9600);
+  sensors.begin();
+
+  lcd.begin(20, 4);
   delay(200);
   lcd.setBacklight(255);
-
-  Serial.begin(115200);
-  
-  WiFi.softAP(ssid, password);
-  WiFi.softAPConfig(local_ip, gateway, subnet);
-  delay(100);
-  
-  server.on("/", handle_OnConnect);
-  server.on("/Q0_on", handle_Q0_on);
-  server.on("/Q0_off", handle_Q0_off);
-  server.on("/Q1_on", handle_Q1_on);
-  server.on("/Q1_off", handle_Q1_off);
-  server.on("/Q2_on", handle_Q2_on);
-  server.on("/Q2_off", handle_Q2_off);
-  server.onNotFound(handle_NotFound);
-  
-  server.begin();
-  Serial.println("HTTP server started");
+  lcd.print("Temperatura:");
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  server.handleClient();
+  sensors.requestTemperatures(); // Send the command to get temperatures
 
-  if (estado_Q0)
-    digitalWrite(Q0, HIGH);
+  tempC = sensors.getTempCByIndex(0);
+  if(tempC != DEVICE_DISCONNECTED_C) 
+  {
+    lcd.setCursor(13,0);
+    lcd.print(tempC,1);
+    lcd.print((char)grados);
+    lcd.print("C ");
+  } 
   else
-    digitalWrite(Q0, LOW);
-
-  if (estado_Q1)
-    digitalWrite(Q1, HIGH);
-  else
-    digitalWrite(Q1, LOW);
-
-  if (estado_Q2)
-    digitalWrite(Q2, HIGH);
-  else
-    digitalWrite(Q2, LOW);
-
-  estados();
-}
-
-void handle_OnConnect() {
-  estado_Q0 = LOW;
-  estado_Q1 = LOW;
-  estado_Q2 = LOW;
-  server.send(200, "text/html", SendHTML(estado_Q0, estado_Q1, estado_Q2)); 
-}
-
-void handle_Q0_on() {
-  estado_Q0 = HIGH;
-  server.send(200, "text/html", SendHTML(true, estado_Q1, estado_Q2)); 
-}
-
-void handle_Q0_off() {
-  estado_Q0 = LOW;
-  server.send(200, "text/html", SendHTML(false, estado_Q1, estado_Q2)); 
-}
-
-void handle_Q1_on() {
-  estado_Q1 = HIGH;
-  server.send(200, "text/html", SendHTML(estado_Q0, true, estado_Q2)); 
-}
-
-void handle_Q1_off() {
-  estado_Q1 = LOW;
-  server.send(200, "text/html", SendHTML(estado_Q0, false, estado_Q2)); 
-}
-
-void handle_Q2_on() {
-  estado_Q2 = HIGH;
-  server.send(200, "text/html", SendHTML(estado_Q0, estado_Q1, true)); 
-}
-
-void handle_Q2_off() {
-  estado_Q2 = LOW;
-  server.send(200, "text/html", SendHTML(estado_Q0, estado_Q1, false)); 
-}
-
-void handle_NotFound(){
-  server.send(404, "text/plain", "Not found");
-}
-
-String SendHTML(uint8_t Q0_stat, uint8_t Q1_stat, uint8_t Q2_stat){
-  String ptr = "<!DOCTYPE html> <html>\n";
-  ptr +="<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">\n";
-  ptr +="<title>LED Control</title>\n";
-  ptr +="<style>html { font-family: Helvetica; display: inline-block; margin: 0px auto; text-align: center;}\n";
-  ptr +="body{margin-top: 50px;} h1 {color: #444444;margin: 50px auto 30px;} h3 {color: #444444;margin-bottom: 50px;}\n";
-  ptr +=".button {display: block;width: 80px;background-color: #1abc9c;border: none;color: white;padding: 13px 30px;text-decoration: none;font-size: 25px;margin: 0px auto 35px;cursor: pointer;border-radius: 4px;}\n";
-  ptr +=".button-on {background-color: #1abc9c;}\n";
-  ptr +=".button-on:active {background-color: #16a085;}\n";
-  ptr +=".button-off {background-color: #34495e;}\n";
-  ptr +=".button-off:active {background-color: #2c3e50;}\n";
-  ptr +="p {font-size: 14px;color: #888;margin-bottom: 10px;}\n";
-  ptr +="</style>\n";
-  ptr +="</head>\n";
-  ptr +="<body>\n";
-  ptr +="<h1>ESP8266 Web Server</h1>\n";
-  ptr +="<h3>Using Access Point(AP) Mode</h3>\n";
-  
-  if (Q0_stat)
-    ptr +="<p>Q0 Status: ON</p><a class=\"button button-off\" href=\"/Q0_off\">OFF</a>\n";
-  else
-    ptr +="<p>Q0 Status: OFF</p><a class=\"button button-on\" href=\"/Q0_on\">ON</a>\n";
-
-  if (Q1_stat)
-    ptr +="<p>Q1 Status: ON</p><a class=\"button button-off\" href=\"/Q1_off\">OFF</a>\n";
-  else
-    ptr +="<p>Q1 Status: OFF</p><a class=\"button button-on\" href=\"/Q1_on\">ON</a>\n";
-
-  if (Q2_stat)
-    ptr +="<p>Q2 Status: ON</p><a class=\"button button-off\" href=\"/Q2_off\">OFF</a>\n";
-  else
-    ptr +="<p>Q2 Status: OFF</p><a class=\"button button-on\" href=\"/Q2_on\">ON</a>\n";
-
-  ptr +="</body>\n";
-  ptr +="</html>\n";
-  return ptr;
+  {
+    lcd.setCursor(13,0);
+    lcd.print("error!");
+  }
 }

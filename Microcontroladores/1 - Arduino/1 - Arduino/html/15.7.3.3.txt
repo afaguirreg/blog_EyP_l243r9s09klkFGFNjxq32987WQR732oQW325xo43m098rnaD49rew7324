@@ -18,10 +18,13 @@ LiquidCrystal_PCF8574 lcd(0x27); // set the LCD address to 0x27 for a 16 chars a
 #define Q5 16
 #define Q6 17
 
-#define estado_boton_start digitalRead(I0)
-#define estado_boton_stop digitalRead(I1)
-#define salida_ON digitalWrite(Q0, HIGH)
-#define salida_OFF digitalWrite(Q0, LOW)
+#define estado_I0 digitalRead(I0)
+#define estado_I1 digitalRead(I1)
+#define estado_I2 digitalRead(I2)
+#define estado_I3 digitalRead(I3)
+#define estado_I4 digitalRead(I4)
+#define estado_I5 digitalRead(I5)
+#define estado_I6 digitalRead(I6)
 
 char texto[] = "I/O digitales";
 
@@ -110,9 +113,12 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  if (estado_boton_start==1 && estado_boton_stop==0)
-    salida_ON;
-  if (estado_boton_stop==1)
-    salida_OFF;
+  digitalWrite(Q0, estado_I0);
+  digitalWrite(Q1, estado_I1);
+  digitalWrite(Q2, estado_I2);
+  digitalWrite(Q3, estado_I3);
+  digitalWrite(Q4, estado_I4);
+  digitalWrite(Q5, estado_I5);
+  digitalWrite(Q6, estado_I6);
   estados();
 }

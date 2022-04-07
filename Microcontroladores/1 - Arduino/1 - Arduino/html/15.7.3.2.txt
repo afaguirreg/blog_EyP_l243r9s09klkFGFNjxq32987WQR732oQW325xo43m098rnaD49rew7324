@@ -1,124 +1,105 @@
 #include <LiquidCrystal_PCF8574.h>
+#include <Wire.h>
 
 LiquidCrystal_PCF8574 lcd(0x27); // set the LCD address to 0x27 for a 16 chars and 2 line display
 
-#define I0 35
-#define I1 32
-#define I2 33
-#define I3 25
-#define I4 26
-#define I5 27
-#define I6 14
+int show = -1;
 
-#define Q0 13
-#define Q1 12
-#define Q2 15
-#define Q3 2
-#define Q4 4
-#define Q5 16
-#define Q6 17
+void setup()
+{
+  int error;
 
-#define estado_I0 digitalRead(I0)
-#define estado_I1 digitalRead(I1)
-#define estado_I2 digitalRead(I2)
-#define estado_I3 digitalRead(I3)
-#define estado_I4 digitalRead(I4)
-#define estado_I5 digitalRead(I5)
-#define estado_I6 digitalRead(I6)
+  Serial.begin(115200);
+  Serial.println("LCD...");
 
-char texto[] = "I/O digitales";
+  // wait on Serial to be available on Leonardo
+  while (!Serial)
+    ;
 
-byte alto[] = {
-  B11111,
-  B11111,
-  B11111,
-  B11111,
-  B11111,
-  B11111,
-  B11111,
-  B00000,
-};
+  Serial.println("Dose: check for LCD");
 
-byte bajo[] = {
-  B11111,
-  B10001,
-  B10001,
-  B10001,
-  B10001,
-  B10001,
-  B11111,
-  B00000,
-};
+  // See http://playground.arduino.cc/Main/I2cScanner how to test for a I2C device.
+  Wire.begin();
+  Wire.beginTransmission(0x27);
+  error = Wire.endTransmission();
+  Serial.print("Error: ");
+  Serial.print(error);
 
-void estados() {
-  lcd.setCursor(0,0);
-  lcd.print(texto);
-  lcd.setCursor(0,1);
-  lcd.print("I: ");
-  lcd.write(digitalRead(I0));
-  lcd.print(" ");
-  lcd.write(digitalRead(I1));
-  lcd.print(" ");
-  lcd.write(digitalRead(I2));
-  lcd.print(" ");
-  lcd.write(digitalRead(I3));
-  lcd.print(" ");
-  lcd.write(digitalRead(I4));
-  lcd.print(" ");
-  lcd.write(digitalRead(I5));
-  lcd.print(" ");
-  lcd.write(digitalRead(I6));
-  lcd.setCursor(0,2);
-  lcd.print("   0 1 2 3 4 5 6");
-  lcd.setCursor(0,3);
-  lcd.print("Q: ");
-  lcd.write(digitalRead(Q0));
-  lcd.print(" ");
-  lcd.write(digitalRead(Q1));
-  lcd.print(" ");
-  lcd.write(digitalRead(Q2)); 
-  lcd.print(" ");
-  lcd.write(digitalRead(Q3));
-  lcd.print(" ");
-  lcd.write(digitalRead(Q4));
-  lcd.print(" ");
-  lcd.write(digitalRead(Q5));
-  lcd.print(" ");
-  lcd.write(digitalRead(Q6));
-}
+  if (error == 0) {
+    Serial.println(": LCD found.");
+    show = 0;
+    lcd.begin(16, 2); // initialize the lcd
 
-void setup() {
-  // put your setup code here, to run once:
-  pinMode(I0, INPUT);
-  pinMode(I1, INPUT);
-  pinMode(I2, INPUT);
-  pinMode(I3, INPUT);
-  pinMode(I4, INPUT);
-  pinMode(I5, INPUT);
-  pinMode(I6, INPUT);
-  pinMode(Q0, OUTPUT);
-  pinMode(Q1, OUTPUT);
-  pinMode(Q2, OUTPUT);
-  pinMode(Q3, OUTPUT);
-  pinMode(Q4, OUTPUT);
-  pinMode(Q5, OUTPUT);
-  pinMode(Q6, OUTPUT);
+  } else {
+    Serial.println(": LCD not found.");
+  } // if
 
-  lcd.begin(20, 4); // initialize the lcd
-  lcd.createChar(0, bajo);
-  lcd.createChar(1, alto);
-  delay(200);
-  lcd.setBacklight(255);
-}
+} // setup()
 
-void loop() {
-  // put your main code here, to run repeatedly:
-  digitalWrite(Q0, estado_I0);
-  digitalWrite(Q1, estado_I1);
-  digitalWrite(Q2, estado_I2);
-  digitalWrite(Q3, estado_I3);
-  digitalWrite(Q4, estado_I4);
-  digitalWrite(Q5, estado_I5);
-  digitalWrite(Q6, estado_I6);
-  estados();
-}
+
+void loop()
+{
+  if (show == 0) {
+    lcd.setBacklight(255);
+    lcd.home();
+    lcd.clear();
+    lcd.print("Hello LCD");
+    delay(1000);
+
+    lcd.setBacklight(0);
+    delay(400);
+    lcd.setBacklight(255);
+
+  } else if (show == 1) {
+    lcd.clear();
+    lcd.print("Cursor On");
+    lcd.cursor();
+
+  } else if (show == 2) {
+    lcd.clear();
+    lcd.print("Cursor Blink");
+    lcd.blink();
+
+  } else if (show == 3) {
+    lcd.clear();
+    lcd.print("Cursor OFF");
+    lcd.noBlink();
+    lcd.noCursor();
+
+  } else if (show == 4) {
+    lcd.clear();
+    lcd.print("Display Off");
+    lcd.noDisplay();
+
+  } else if (show == 5) {
+    lcd.clear();
+    lcd.print("Display On");
+    lcd.display();
+
+  } else if (show == 7) {
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("*** first line.");
+    lcd.setCursor(0, 1);
+    lcd.print("*** second line.");
+
+  } else if (show == 8) {
+    lcd.scrollDisplayLeft();
+  } else if (show == 9) {
+    lcd.scrollDisplayLeft();
+  } else if (show == 10) {
+    lcd.scrollDisplayLeft();
+  } else if (show == 11) {
+    lcd.scrollDisplayRight();
+
+  } else if (show == 12) {
+    lcd.clear();
+    lcd.print("write-");
+
+  } else if (show > 12) {
+    lcd.print(show - 13);
+  } // if
+
+  delay(1400);
+  show = (show + 1) % 16;
+} // loop()

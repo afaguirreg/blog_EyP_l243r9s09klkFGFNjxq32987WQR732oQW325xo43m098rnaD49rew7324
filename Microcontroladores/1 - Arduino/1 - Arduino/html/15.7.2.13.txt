@@ -1,106 +1,208 @@
-/*
-    This sketch demonstrates how to set up a simple HTTP-like server.
-    The server will set a GPIO pin depending on the request
-      http://server_ip/gpio/0 will set the GPIO2 low,
-      http://server_ip/gpio/1 will set the GPIO2 high
-    server_ip is the IP address of the ESP8266 module, will be
-    printed to Serial when the module is connected.
-*/
+#include <LiquidCrystal_PCF8574.h>
 
 #include <ESP8266WiFi.h>
+#include <ESP8266WebServer.h>
 
-#ifndef STASSID
-#define STASSID "your-ssid"
-#define STAPSK  "your-password"
-#endif
+LiquidCrystal_PCF8574 lcd(0x27); // set the LCD address to 0x27 for a 16 chars and 2 line display
 
-const char* ssid = STASSID;
-const char* password = STAPSK;
+/* Put your SSID & Password */
+const char* ssid = "NodeMCU";         // Enter SSID here
+const char* password = "12345678";    //Enter Password here
 
-// Create an instance of the server
-// specify the port to listen on as an argument
-WiFiServer server(80);
+ESP8266WebServer server(80);
+
+#define I0 16
+#define I1 14
+#define I2 12
+
+#define Q0 2
+#define Q1 15
+#define Q2 13
+
+#define estado_I0 digitalRead(I0)
+#define estado_I1 digitalRead(I1)
+#define estado_I2 digitalRead(I2)
+
+boolean estado_Q0 = LOW;
+boolean estado_Q1 = LOW;
+boolean estado_Q2 = LOW;
+
+char texto[] = "I/O digitales";
+
+byte alto[] = {
+  B11111,
+  B11111,
+  B11111,
+  B11111,
+  B11111,
+  B11111,
+  B11111,
+  B00000,
+};
+
+byte bajo[] = {
+  B11111,
+  B10001,
+  B10001,
+  B10001,
+  B10001,
+  B10001,
+  B11111,
+  B00000,
+};
+
+void estados() {
+  lcd.setCursor(0,0);
+  lcd.print(texto);
+  lcd.setCursor(0,1);
+  lcd.print("I: ");
+  lcd.write(digitalRead(I0));
+  lcd.print(" ");
+  lcd.write(digitalRead(I1));
+  lcd.print(" ");
+  lcd.write(digitalRead(I2));
+  lcd.setCursor(0,2);
+  lcd.print("   0 1 2");
+  lcd.setCursor(0,3);
+  lcd.print("Q: ");
+  lcd.write(digitalRead(Q0));
+  lcd.print(" ");
+  lcd.write(digitalRead(Q1));
+  lcd.print(" ");
+  lcd.write(digitalRead(Q2)); 
+}
 
 void setup() {
+  // put your setup code here, to run once:
+  pinMode(I0, INPUT);
+  pinMode(I1, INPUT);
+  pinMode(I2, INPUT);
+  pinMode(Q0, OUTPUT);
+  pinMode(Q1, OUTPUT);
+  pinMode(Q2, OUTPUT);
+
+  lcd.begin(20, 4); // initialize the lcd
+  lcd.createChar(0, bajo);
+  lcd.createChar(1, alto);
+  delay(200);
+  lcd.setBacklight(255);
+
   Serial.begin(115200);
+  
+  WiFi.softAP(ssid, password);
 
-  // prepare LED
-  pinMode(LED_BUILTIN, OUTPUT);
-  digitalWrite(LED_BUILTIN, 0);
-
-  // Connect to WiFi network
-  Serial.println();
-  Serial.println();
-  Serial.print(F("Connecting to "));
-  Serial.println(ssid);
-
-  WiFi.mode(WIFI_STA);
-  WiFi.begin(ssid, password);
-
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-    Serial.print(F("."));
-  }
-  Serial.println();
-  Serial.println(F("WiFi connected"));
-
-  // Start the server
+  delay(100);
+  
+  server.on("/", handle_OnConnect);
+  server.on("/Q0_on", handle_Q0_on);
+  server.on("/Q0_off", handle_Q0_off);
+  server.on("/Q1_on", handle_Q1_on);
+  server.on("/Q1_off", handle_Q1_off);
+  server.on("/Q2_on", handle_Q2_on);
+  server.on("/Q2_off", handle_Q2_off);
+  server.onNotFound(handle_NotFound);
+  
   server.begin();
-  Serial.println(F("Server started"));
-
-  // Print the IP address
-  Serial.println(WiFi.localIP());
+  Serial.println("HTTP server started");
 }
 
 void loop() {
-  // Check if a client has connected
-  WiFiClient client = server.available();
-  if (!client) {
-    return;
-  }
-  Serial.println(F("new client"));
+  // put your main code here, to run repeatedly:
+  server.handleClient();
 
-  client.setTimeout(5000); // default is 1000
+  if (estado_Q0)
+    digitalWrite(Q0, HIGH);
+  else
+    digitalWrite(Q0, LOW);
 
-  // Read the first line of the request
-  String req = client.readStringUntil('\r');
-  Serial.println(F("request: "));
-  Serial.println(req);
+  if (estado_Q1)
+    digitalWrite(Q1, HIGH);
+  else
+    digitalWrite(Q1, LOW);
 
-  // Match the request
-  int val;
-  if (req.indexOf(F("/gpio/0")) != -1) {
-    val = 0;
-  } else if (req.indexOf(F("/gpio/1")) != -1) {
-    val = 1;
-  } else {
-    Serial.println(F("invalid request"));
-    val = digitalRead(LED_BUILTIN);
-  }
+  if (estado_Q2)
+    digitalWrite(Q2, HIGH);
+  else
+    digitalWrite(Q2, LOW);
 
-  // Set LED according to the request
-  digitalWrite(LED_BUILTIN, val);
+  estados();
+}
 
-  // read/ignore the rest of the request
-  // do not client.flush(): it is for output only, see below
-  while (client.available()) {
-    // byte by byte is not very efficient
-    client.read();
-  }
+void handle_OnConnect() {
+  estado_Q0 = LOW;
+  estado_Q1 = LOW;
+  estado_Q2 = LOW;
+  server.send(200, "text/html", SendHTML(estado_Q0, estado_Q1, estado_Q2)); 
+}
 
-  // Send the response to the client
-  // it is OK for multiple small client.print/write,
-  // because nagle algorithm will group them into one single packet
-  client.print(F("HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n<!DOCTYPE HTML>\r\n<html>\r\nGPIO is now "));
-  client.print((val) ? F("high") : F("low"));
-  client.print(F("<br><br>Click <a href='http://"));
-  client.print(WiFi.localIP());
-  client.print(F("/gpio/1'>here</a> to switch LED GPIO on, or <a href='http://"));
-  client.print(WiFi.localIP());
-  client.print(F("/gpio/0'>here</a> to switch LED GPIO off.</html>"));
+void handle_Q0_on() {
+  estado_Q0 = HIGH;
+  server.send(200, "text/html", SendHTML(true, estado_Q1, estado_Q2)); 
+}
 
-  // The client will actually be *flushed* then disconnected
-  // when the function returns and 'client' object is destroyed (out-of-scope)
-  // flush = ensure written data are received by the other side
-  Serial.println(F("Disconnecting from client"));
+void handle_Q0_off() {
+  estado_Q0 = LOW;
+  server.send(200, "text/html", SendHTML(false, estado_Q1, estado_Q2)); 
+}
+
+void handle_Q1_on() {
+  estado_Q1 = HIGH;
+  server.send(200, "text/html", SendHTML(estado_Q0, true, estado_Q2)); 
+}
+
+void handle_Q1_off() {
+  estado_Q1 = LOW;
+  server.send(200, "text/html", SendHTML(estado_Q0, false, estado_Q2)); 
+}
+
+void handle_Q2_on() {
+  estado_Q2 = HIGH;
+  server.send(200, "text/html", SendHTML(estado_Q0, estado_Q1, true)); 
+}
+
+void handle_Q2_off() {
+  estado_Q2 = LOW;
+  server.send(200, "text/html", SendHTML(estado_Q0, estado_Q1, false)); 
+}
+
+void handle_NotFound(){
+  server.send(404, "text/plain", "Not found");
+}
+
+String SendHTML(uint8_t Q0_stat, uint8_t Q1_stat, uint8_t Q2_stat){
+  String ptr = "<!DOCTYPE html> <html>\n";
+  ptr +="<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">\n";
+  ptr +="<title>LED Control</title>\n";
+  ptr +="<style>html { font-family: Helvetica; display: inline-block; margin: 0px auto; text-align: center;}\n";
+  ptr +="body{margin-top: 50px;} h1 {color: #444444;margin: 50px auto 30px;} h3 {color: #444444;margin-bottom: 50px;}\n";
+  ptr +=".button {display: block;width: 80px;background-color: #1abc9c;border: none;color: white;padding: 13px 30px;text-decoration: none;font-size: 25px;margin: 0px auto 35px;cursor: pointer;border-radius: 4px;}\n";
+  ptr +=".button-on {background-color: #1abc9c;}\n";
+  ptr +=".button-on:active {background-color: #16a085;}\n";
+  ptr +=".button-off {background-color: #34495e;}\n";
+  ptr +=".button-off:active {background-color: #2c3e50;}\n";
+  ptr +="p {font-size: 14px;color: #888;margin-bottom: 10px;}\n";
+  ptr +="</style>\n";
+  ptr +="</head>\n";
+  ptr +="<body>\n";
+  ptr +="<h1>ESP8266 Web Server</h1>\n";
+  ptr +="<h3>Using Access Point(AP) Mode</h3>\n";
+  
+  if (Q0_stat)
+    ptr +="<p>Q0 Status: ON</p><a class=\"button button-off\" href=\"/Q0_off\">OFF</a>\n";
+  else
+    ptr +="<p>Q0 Status: OFF</p><a class=\"button button-on\" href=\"/Q0_on\">ON</a>\n";
+
+  if (Q1_stat)
+    ptr +="<p>Q1 Status: ON</p><a class=\"button button-off\" href=\"/Q1_off\">OFF</a>\n";
+  else
+    ptr +="<p>Q1 Status: OFF</p><a class=\"button button-on\" href=\"/Q1_on\">ON</a>\n";
+
+  if (Q2_stat)
+    ptr +="<p>Q2 Status: ON</p><a class=\"button button-off\" href=\"/Q2_off\">OFF</a>\n";
+  else
+    ptr +="<p>Q2 Status: OFF</p><a class=\"button button-on\" href=\"/Q2_on\">ON</a>\n";
+
+  ptr +="</body>\n";
+  ptr +="</html>\n";
+  return ptr;
 }
