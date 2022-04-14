@@ -3,13 +3,15 @@
 
 LiquidCrystal_PCF8574 lcd(0x27); // set the LCD address to 0x27 for a 16 chars and 2 line display
 
-#define Q0 12
+#define Q0 13
 
 int Valor_ADC;
 long PWM;
 
 void setup() {
   // put your setup code here, to run once:
+  ledcAttachPin(Q0, 0);
+  ledcSetup(0, 10000, 8); // 10 kHz PWM, 8-bit resolution
   lcd.begin(20, 4); // initialize the lcd
   delay(200);
   lcd.setBacklight(255);
@@ -18,12 +20,12 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  Valor_ADC = analogRead(A0);
-  PWM = Valor_ADC * 255 / 1023;
+  Valor_ADC = analogRead(36);
+  PWM = Valor_ADC * 255 / 4095;
 
   lcd.setCursor(5,0);
   lcd.print(PWM);
   lcd.print("   ");
-  analogWrite(Q0, PWM);
+  ledcWrite(0, PWM);
   delay(100);
 }

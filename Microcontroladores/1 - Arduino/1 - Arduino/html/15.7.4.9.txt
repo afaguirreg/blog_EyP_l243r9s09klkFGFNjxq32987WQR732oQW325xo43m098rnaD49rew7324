@@ -24,13 +24,13 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  Valor_ADC_1 = analogRead(A0);
-  Valor_ADC_2 = analogRead(A1);
-  Valor_ADC_3 = analogRead(A2);
+  Valor_ADC_1 = analogRead(36);
+  Valor_ADC_2 = analogRead(39);
+  Valor_ADC_3 = analogRead(34);
 
-  sensor_1 = Valor_ADC_1 * 100 / 1023;
-  sensor_2 = Valor_ADC_2 * 100 / 1023;
-  sensor_3 = Valor_ADC_3 * 100 / 1023;
+  sensor_1 = Valor_ADC_1 * 100 / 4095;
+  sensor_2 = Valor_ADC_2 * 100 / 4095;
+  sensor_3 = Valor_ADC_3 * 100 / 4095;
 
   lcd.setCursor(10,0);
   lcd.print(sensor_1,1);

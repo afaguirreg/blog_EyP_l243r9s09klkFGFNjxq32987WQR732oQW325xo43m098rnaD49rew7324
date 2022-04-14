@@ -12,10 +12,6 @@ void setup()
   Serial.begin(115200);
   Serial.println("LCD...");
 
-  // wait on Serial to be available on Leonardo
-  while (!Serial)
-    ;
-
   Serial.println("Dose: check for LCD");
 
   // See http://playground.arduino.cc/Main/I2cScanner how to test for a I2C device.
