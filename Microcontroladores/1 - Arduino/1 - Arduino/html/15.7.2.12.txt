@@ -7,7 +7,7 @@
 LiquidCrystal_PCF8574 lcd(0x27); // set the LCD address to 0x27 for a 16 chars and 2 line display
 
 // DS18B20 data wire
-#define ONE_WIRE_BUS 4
+#define ONE_WIRE_BUS 0
 
 // Setup a oneWire instance to communicate with any OneWire devices (not just Maxim/Dallas temperature ICs)
 OneWire oneWire(ONE_WIRE_BUS);
@@ -36,7 +36,7 @@ void loop() {
   sensors.requestTemperatures(); // Send the command to get temperatures
 
   tempC = sensors.getTempCByIndex(0);
-  if(tempC != DEVICE_DISCONNECTED_C) 
+  if (tempC != DEVICE_DISCONNECTED_C) 
   {
     lcd.setCursor(13,0);
     lcd.print(tempC,1);

@@ -36,7 +36,7 @@ void loop() {
   sensors.requestTemperatures(); // Send the command to get temperatures
 
   tempC = sensors.getTempCByIndex(0);
-  if(tempC != DEVICE_DISCONNECTED_C) 
+  if (tempC != DEVICE_DISCONNECTED_C) 
   {
     lcd.setCursor(13,0);
     lcd.print(tempC,1);

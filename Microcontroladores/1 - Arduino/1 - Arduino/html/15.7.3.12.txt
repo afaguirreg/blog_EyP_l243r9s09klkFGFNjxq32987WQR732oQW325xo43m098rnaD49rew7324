@@ -50,7 +50,7 @@ void loop() {
   display.setCursor(0,0);
   display.print("Temperatura: ");
 
-  if(tempC != DEVICE_DISCONNECTED_C) 
+  if (tempC != DEVICE_DISCONNECTED_C) 
   {
     display.print(tempC,1);
     display.print((char)grados);
