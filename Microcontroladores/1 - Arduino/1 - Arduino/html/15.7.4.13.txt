@@ -7,7 +7,7 @@ LiquidCrystal_PCF8574 lcd(0x27); // set the LCD address to 0x27 for a 16 chars a
 
 /* Put your SSID & Password */
 const char* ssid = "ESP32";         // Enter SSID here
-const char* password = "12345678";    //Enter Password here
+const char* password = "123456789";    //Enter Password here
 
 /* Put IP Address details */
 IPAddress local_ip(192,168,1,1);
