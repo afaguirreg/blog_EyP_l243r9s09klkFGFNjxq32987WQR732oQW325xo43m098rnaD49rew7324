@@ -1,15 +1,35 @@
 #include <LiquidCrystal_PCF8574.h>
-
+#include <Wire.h>
+#include <OneWire.h>
+#include <DallasTemperature.h>
 #include <ESP8266WiFi.h>
-#include <ESP8266WebServer.h>
 
 LiquidCrystal_PCF8574 lcd(0x27); // set the LCD address to 0x27 for a 16 chars and 2 line display
 
-/* Put your SSID & Password */
-const char* ssid = "NodeMCU";         // Enter SSID here
-const char* password = "123456789";    //Enter Password here
+// DS18B20 data wire
+#define ONE_WIRE_BUS 0
 
-ESP8266WebServer server(80);
+// Setup a oneWire instance to communicate with any OneWire devices (not just Maxim/Dallas temperature ICs)
+OneWire oneWire(ONE_WIRE_BUS);
+
+// Pass our oneWire reference to Dallas Temperature. 
+DallasTemperature sensors(&oneWire);
+
+//Esta aplicación crea un nuevo punto de acceso WiFi.
+//Modificar las variables ssid y password y conectarse desde un móvil o PC utilizando estos parámetros.
+const char* ssid = "NodeMCU";
+const char* password = "123456789";
+
+String request;
+unsigned long currentTime = millis();
+unsigned long previousTime = 0; 
+const long timeoutTime = 2000;
+
+float sensor;
+float tempC;
+char grados = 223;
+
+WiFiServer server(80);
 
 #define I0 16
 #define I1 14
@@ -26,8 +46,6 @@ ESP8266WebServer server(80);
 boolean estado_Q0 = LOW;
 boolean estado_Q1 = LOW;
 boolean estado_Q2 = LOW;
-
-char texto[] = "I/O digitales";
 
 byte alto[] = {
   B11111,
@@ -53,7 +71,8 @@ byte bajo[] = {
 
 void estados() {
   lcd.setCursor(0,0);
-  lcd.print(texto);
+  lcd.print("IP: ");
+  lcd.print(WiFi.softAPIP());
   lcd.setCursor(0,1);
   lcd.print("I: ");
   lcd.write(digitalRead(I0));
@@ -81,128 +100,154 @@ void setup() {
   pinMode(Q1, OUTPUT);
   pinMode(Q2, OUTPUT);
 
-  lcd.begin(20, 4); // initialize the lcd
+  sensors.begin();
+
+  lcd.begin(20, 4);
   lcd.createChar(0, bajo);
   lcd.createChar(1, alto);
   delay(200);
   lcd.setBacklight(255);
 
-  Serial.begin(115200);
-  
   WiFi.softAP(ssid, password);
 
-  delay(100);
-  
-  server.on("/", handle_OnConnect);
-  server.on("/Q0_on", handle_Q0_on);
-  server.on("/Q0_off", handle_Q0_off);
-  server.on("/Q1_on", handle_Q1_on);
-  server.on("/Q1_off", handle_Q1_off);
-  server.on("/Q2_on", handle_Q2_on);
-  server.on("/Q2_off", handle_Q2_off);
-  server.onNotFound(handle_NotFound);
-  
   server.begin();
-  Serial.println("HTTP server started");
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  server.handleClient();
+  WiFiClient client = server.available();   // Listen for incoming clients
 
-  if (estado_Q0)
-    digitalWrite(Q0, HIGH);
-  else
-    digitalWrite(Q0, LOW);
+  sensor = analogRead(A0);
 
-  if (estado_Q1)
-    digitalWrite(Q1, HIGH);
-  else
-    digitalWrite(Q1, LOW);
+  sensors.requestTemperatures(); // Send the command to get temperatures
+  tempC = sensors.getTempCByIndex(0);
 
-  if (estado_Q2)
-    digitalWrite(Q2, HIGH);
-  else
-    digitalWrite(Q2, LOW);
+  digitalWrite(Q0, estado_Q0);
+  digitalWrite(Q1, estado_Q1);
+  digitalWrite(Q2, estado_Q2);
+
+  sensors.requestTemperatures(); // Send the command to get temperatures
+  tempC = sensors.getTempCByIndex(0);
 
   estados();
-}
 
-void handle_OnConnect() {
-  estado_Q0 = LOW;
-  estado_Q1 = LOW;
-  estado_Q2 = LOW;
-  server.send(200, "text/html", SendHTML(estado_Q0, estado_Q1, estado_Q2)); 
-}
+  if (client)                               // If a new client connects,
+  {
+    currentTime = millis();
+    previousTime = currentTime;
+    String currentLine = "";                // make a String to hold incoming data from the client
+    while (client.connected() && currentTime - previousTime <= timeoutTime)   // loop while the client's connected
+    {
+      currentTime = millis();
+      if (client.available())               // if there's bytes to read from the client,
+      {
+        char c = client.read();             // read a byte, then
+        request += c;
+        if (c == '\n')                      // if the byte is a newline character
+        {
+          // if the current line is blank, you got two newline characters in a row.
+          // that's the end of the client HTTP request, so send a response:
+          if (currentLine.length() == 0)
+          {
+            if (request.indexOf("/Q0_on") != -1)
+              estado_Q0 = HIGH;
+            if (request.indexOf("/Q0_off") != -1)
+              estado_Q0 = LOW;
 
-void handle_Q0_on() {
-  estado_Q0 = HIGH;
-  server.send(200, "text/html", SendHTML(true, estado_Q1, estado_Q2)); 
-}
+            if (request.indexOf("/Q1_on") != -1)
+              estado_Q1 = HIGH;
+            if (request.indexOf("/Q1_off") != -1)
+              estado_Q1 = LOW;
 
-void handle_Q0_off() {
-  estado_Q0 = LOW;
-  server.send(200, "text/html", SendHTML(false, estado_Q1, estado_Q2)); 
-}
+            if (request.indexOf("/Q2_on") != -1)
+              estado_Q2 = HIGH;
+            if (request.indexOf("/Q2_off") != -1)
+              estado_Q2 = LOW;
 
-void handle_Q1_on() {
-  estado_Q1 = HIGH;
-  server.send(200, "text/html", SendHTML(estado_Q0, true, estado_Q2)); 
-}
+            // HTTP Response in the form of HTML Web Page
+            client.println("HTTP/1.1 200 OK");
+            client.println("Content-type:text/html");
+            client.println("Connection: close");
+            client.println();
 
-void handle_Q1_off() {
-  estado_Q1 = LOW;
-  server.send(200, "text/html", SendHTML(estado_Q0, false, estado_Q2)); 
-}
+            // Display the HTML web page
+            client.println("<!DOCTYPE HTML>");
+            client.println("<html>");
+            client.println("<head>");
+            client.println("<META charset=\"utf-8\">");
+            client.println("<meta http-equiv=\"refresh\" content=\"0.5\">");
+            client.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">");
+            client.println("<link rel=\"icon\" href=\"data:,\">");
 
-void handle_Q2_on() {
-  estado_Q2 = HIGH;
-  server.send(200, "text/html", SendHTML(estado_Q0, estado_Q1, true)); 
-}
+            // CSS Styling for Buttons and Web Page
+            client.println("<style>");
+            client.println("html { font-family: Helvetica; display: inline-block; margin: 0px auto; text-align: center;}");
+            client.println("body {margin-top: 50px;} h1 {color: #444444;margin: 50px auto 30px;} h3 {color: #444444;margin-bottom: 50px;}");
+            client.println(".button {display: inline-table;width: 50px;background-color: #1abc9c;border: none;color: white;padding: 13px 30px;text-decoration: none;font-size: 20px;margin: 0px auto 35px;cursor: pointer;border-radius: 20px;}");
+            client.println(".button-on {background-color: #1abc9c;}");
+            client.println(".button-on:active {background-color: #16a085;}");
+            client.println(".button-off {background-color: #34495e;}");
+            client.println(".button-off:active {background-color: #2c3e50;}");
+            client.println("</style>");
+            client.println("</head>");
 
-void handle_Q2_off() {
-  estado_Q2 = LOW;
-  server.send(200, "text/html", SendHTML(estado_Q0, estado_Q1, false)); 
-}
+            // The main body of the Web Page
+            client.println("<body>");
+            client.println("<h1>ESP8266 Web Server</h1>\n");
+            client.println("<h3>Using Access Point (AP) Mode</h3>\n");
+            client.println("<h3>Sensor: ");
+            client.println(sensor,1);
+            client.println("</h3>\n");
+            client.println("<h3>Temperatura: ");
+            client.println(tempC,1);
+            client.println("°C");
+            client.println("</h3>\n");
 
-void handle_NotFound(){
-  server.send(404, "text/plain", "Not found");
-}
+            if (estado_I0)
+              client.println("<a class=\"button button-on\">I0: ON</a>");
+            else
+              client.println("<a class=\"button button-off\">I0: OFF</a>");
 
-String SendHTML(uint8_t Q0_stat, uint8_t Q1_stat, uint8_t Q2_stat){
-  String ptr = "<!DOCTYPE html> <html>\n";
-  ptr +="<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">\n";
-  ptr +="<title>LED Control</title>\n";
-  ptr +="<style>html { font-family: Helvetica; display: inline-block; margin: 0px auto; text-align: center;}\n";
-  ptr +="body{margin-top: 50px;} h1 {color: #444444;margin: 50px auto 30px;} h3 {color: #444444;margin-bottom: 50px;}\n";
-  ptr +=".button {display: block;width: 80px;background-color: #1abc9c;border: none;color: white;padding: 13px 30px;text-decoration: none;font-size: 25px;margin: 0px auto 35px;cursor: pointer;border-radius: 4px;}\n";
-  ptr +=".button-on {background-color: #1abc9c;}\n";
-  ptr +=".button-on:active {background-color: #16a085;}\n";
-  ptr +=".button-off {background-color: #34495e;}\n";
-  ptr +=".button-off:active {background-color: #2c3e50;}\n";
-  ptr +="p {font-size: 14px;color: #888;margin-bottom: 10px;}\n";
-  ptr +="</style>\n";
-  ptr +="</head>\n";
-  ptr +="<body>\n";
-  ptr +="<h1>ESP8266 Web Server</h1>\n";
-  ptr +="<h3>Using Access Point(AP) Mode</h3>\n";
-  
-  if (Q0_stat)
-    ptr +="<p>Q0 Status: ON</p><a class=\"button button-off\" href=\"/Q0_off\">OFF</a>\n";
-  else
-    ptr +="<p>Q0 Status: OFF</p><a class=\"button button-on\" href=\"/Q0_on\">ON</a>\n";
+            if (estado_I1)
+              client.println("<a class=\"button button-on\">I1: ON</a>");
+            else
+              client.println("<a class=\"button button-off\">I1: OFF</a>");
 
-  if (Q1_stat)
-    ptr +="<p>Q1 Status: ON</p><a class=\"button button-off\" href=\"/Q1_off\">OFF</a>\n";
-  else
-    ptr +="<p>Q1 Status: OFF</p><a class=\"button button-on\" href=\"/Q1_on\">ON</a>\n";
+            if (estado_I2)
+              client.println("<a class=\"button button-on\">I2: ON</a>");
+            else
+              client.println("<a class=\"button button-off\">I2: OFF</a>");
 
-  if (Q2_stat)
-    ptr +="<p>Q2 Status: ON</p><a class=\"button button-off\" href=\"/Q2_off\">OFF</a>\n";
-  else
-    ptr +="<p>Q2 Status: OFF</p><a class=\"button button-on\" href=\"/Q2_on\">ON</a>\n";
+            client.println("<br>");
 
-  ptr +="</body>\n";
-  ptr +="</html>\n";
-  return ptr;
+            if (estado_Q0)
+              client.println("<a class=\"button button-on\" href=\"/Q0_off\">Q0: ON</a>");
+            else
+              client.println("<a class=\"button button-off\" href=\"/Q0_on\">Q0: OFF</a>");
+
+            if (estado_Q1)
+              client.println("<a class=\"button button-on\" href=\"/Q1_off\">Q1: ON</a>");
+            else
+              client.println("<a class=\"button button-off\" href=\"/Q1_on\">Q1: OFF</a>");
+
+            if (estado_Q2)
+              client.println("<a class=\"button button-on\" href=\"/Q2_off\">Q2: ON</a>");
+            else
+              client.println("<a class=\"button button-off\" href=\"/Q2_on\">Q2: OFF</a>");
+
+            client.println("</body>");
+            client.println("</html>");
+            client.println("");
+            break;
+          }
+          else                              // if you got a newline, then clear currentLine
+            currentLine = "";
+        }
+        else if (c != '\r')                 // if you got anything else but a carriage return character,
+          currentLine += c;                 // add it to the end of the currentLine
+      }
+    }
+    request = "";
+    client.stop();
+  }
 }
