@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Documento sin título</title>
+		<link rel="stylesheet" type="text/css" href="../../../0 - styles/mystyles.css">
+		<script language="JavaScript" src="../../../0 - scripts/myscripts.js"></script>
+	</head>
+
+	<body>
+		<div class="Normal" style="text-align:justify">
+			<a id="EEPROM"></a>
+			<b>6. EEPROM</b>
+			<br><br>
+			<a id="Contador 0-99 Display 7 Segmentos"></a>
+			<b><i>6.1 Contador 0-99 Display 7 Segmentos</i></b>
+			<br><br>
+			El ejemplo es un contador. Como funcionalidades mínimas haremos que sea capaz de contar del 0 al 9 de manera ascendente y descendente, y que tenga un botón de RESET a cero.
+			<br><br>
+			Y por supuesto que si se corta el suministro de energía guarda en memoria el último valor.
+			<br><br>
+			<img src="../img/Microcontroladores PIC - CCS_clip_image002_0005.jpg" alt="" width="auto" height="auto">
+			<br><br>
+			Comentarios del programa:
+			<br><br>
+			El ejemplo básicamente es un contador ascendente/descendente de 0 a 9 que incrementa su valor cada vez que pulsamos &quot;INC&quot; (PIN B0) y decrementa el contador si se pulsa &ldquo;DEC&rdquo; (PIN B1) y además se puede restablecer a cero si se pulsa &ldquo;RESET&rdquo; (PIN B2). Para evitar que el contador se reinicie y empiece a contar desde cero cada vez que se interrumpa el suministro de energía, el valor actual del contador se almacenará en la memoria EEPROM del PIC en vez de en la memoria RAM. Como solo queremos guardar un valor que estará comprendido entre 0 y 99, solo utilizaremos el primer byte de la memoria EEPROM.
+			<br><br>
+			La primera vez que se ejecute el programa el valor dela EEPROM es 0xFF (viene así de fábrica) por lo que tendremos que sobrescribir su valor a 0 para iniciar el conteo, después de esto esta condición no secumplirá más.
+			<br><br>
+			contador = read_eeprom(dir_contador);
+			<br>
+			if ((contador&gt;9)||(contador&lt;0))
+			<br>
+			contador=0;
+			<br><br>
+			Proteus simula bastante bien el uso de la memoria EEPROM del PIC, si paramos la simulación y volvemos a iniciarla vemos como los valores de la EEPROM se mantienen.
+			<br><br>
+			Extraído parcialmente de: <a href="http://www.aquihayapuntes.com/indice-practicas-pic-en-c/memoria-eeprom-interna-del-pic.html">http://www.aquihayapuntes.com/indice-practicas-pic-en-c/memoria-eeprom-interna-del-pic.html</a>
+		</div>
+	</body>
+</html>

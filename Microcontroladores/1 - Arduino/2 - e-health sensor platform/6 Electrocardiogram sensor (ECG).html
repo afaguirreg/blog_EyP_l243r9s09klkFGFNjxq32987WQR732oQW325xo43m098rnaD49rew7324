@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+<style type="text/css">
+<!--
+p.MsoNormal {
+margin-top:0cm;
+margin-right:0cm;
+margin-bottom:10.0pt;
+margin-left:0cm;
+line-height:115%;
+font-size:11.0pt;
+font-family:"Calibri","sans-serif";
+}
+-->
+</style>
+<style type="text/css">
+<!--
+table.MsoNormalTable {
+font-size:10.0pt;
+font-family:"Calibri","sans-serif";
+}
+-->
+</style>
+<script type="text/javascript">
+	document.oncontextmenu = function(){return false;}
+    function disabletext(e){
+    return false
+    }
+    function reEnable(){
+    return true
+    }
+    document.onselectstart=new Function ("return false")
+    if (window.sidebar){
+    document.onmousedown=disabletext
+    document.onclick=reEnable
+    }
+</script>
+<style type="text/css">
+<!--
+p.MsoListParagraph {
+margin-top:0cm;
+margin-right:0cm;
+margin-bottom:10.0pt;
+margin-left:36.0pt;
+line-height:115%;
+font-size:11.0pt;
+font-family:"Calibri","sans-serif";
+}
+p.MsoNormal1 {	margin-top: 0cm;
+	margin-right: 0cm;
+	margin-bottom: 10.0pt;
+	margin-left: 0cm;
+	line-height: 115%;
+	font-size: 12pt;
+	font-family: Arial, sans-serif;
+}
+-->
+</style>
+</head>
+
+<body>
+<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:normal;background:white;"><strong><span class="MsoNormal" style="margin-bottom: .0001pt; text-align: justify; line-height: normal; background: white; font-size: 12pt; font-family: Arial, sans-serif;">Electrocardiogram sensor (ECG)</span></strong></p>
+<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:normal;background:white;">&nbsp;</p>
+<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:normal;background:white;"><img src="../img/e-health_10.png" width="843" height="594" alt=""/></p>
+<pre>
+<font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">115200</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;
+<font color="#000000">}</font>
+
+<font color="#434f54">&#47;&#47; The loop routine runs over and over again forever:</font>
+<font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+
+ &nbsp;<font color="#00979c">float</font> <font color="#000000">ECG</font> <font color="#434f54">=</font> <font color="#000000">eHealth</font><font color="#434f54">.</font><font color="#000000">getECG</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+
+ &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">ECG</font><font color="#434f54">,</font> <font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font> 
+ &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#005c5f">&#34;&#34;</font><font color="#000000">)</font><font color="#000000">;</font> 
+
+ &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">10</font><font color="#000000">)</font><font color="#000000">;</font>&#09;<font color="#434f54">&#47;&#47; wait for a millisecond</font>
+<font color="#000000">}</font></pre>
+<p class="MsoNormal1" style="margin-bottom:.0001pt;text-align:justify;line-height:normal;background:white;"><a href="https://www.dropbox.com/s/sc6pazb8cxa8y13/ECG.exe?dl=1" target="_self">Descargar  aplicación Electrocardiogram sensor (ECG)</a></p>
+</body>
+</html>

@@ -1,0 +1,62 @@
+#define rojoCarro 3
+#define amarilloCarro 4
+#define verdeCarro 5
+#define rojoPeaton 6
+#define verdePeaton 7
+#define boton A0
+
+#define tiempoCarro 5000
+#define tiempoPeaton 2000
+
+unsigned long tiempoCambio;
+
+void setup() {
+  // put your setup code here, to run once:
+
+  tiempoCambio = millis() + tiempoCarro;
+  
+  pinMode(rojoCarro, OUTPUT);
+  pinMode(amarilloCarro, OUTPUT);
+  pinMode(verdeCarro, OUTPUT);
+  pinMode(rojoPeaton, OUTPUT);
+  pinMode(verdePeaton, OUTPUT);
+  pinMode(boton, INPUT);
+
+  digitalWrite(rojoCarro, LOW);
+  digitalWrite(amarilloCarro, LOW);
+  digitalWrite(verdeCarro, HIGH);
+  digitalWrite(rojoPeaton, HIGH);
+  digitalWrite(verdePeaton, LOW);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  // si se presiona el boton y han pasado 5 segundos desde la última vez que fué pulsado
+  if (digitalRead(boton) == HIGH && (tiempoCambio) < millis()) {
+    // llamar la función para cambio de luces
+    cambioLuces();
+  }
+}
+
+void cambioLuces() {
+  digitalWrite(amarilloCarro, HIGH);  // amarillo carro encendido
+  digitalWrite(verdeCarro, LOW);      // verde carro apagado
+  delay(2000);
+  digitalWrite(rojoCarro, HIGH);      // rojo carro encendido
+  digitalWrite(amarilloCarro, LOW);   // amarillo carro apagado
+  digitalWrite(rojoPeaton, LOW);      // rojo peaton apagado
+  digitalWrite(verdePeaton, HIGH);    // verde peaton encendido
+  delay(tiempoPeaton);
+  // flash verde peaton
+  for (int x=0; x<10; x++) {
+    digitalWrite(verdePeaton, LOW);
+    delay(100);
+    digitalWrite(verdePeaton, HIGH);
+    delay(100);
+  }
+  digitalWrite(rojoCarro, LOW);
+  digitalWrite(verdeCarro, HIGH);
+  digitalWrite(rojoPeaton, HIGH);
+  digitalWrite(verdePeaton, LOW);
+  tiempoCambio = millis() + tiempoCarro;
+}

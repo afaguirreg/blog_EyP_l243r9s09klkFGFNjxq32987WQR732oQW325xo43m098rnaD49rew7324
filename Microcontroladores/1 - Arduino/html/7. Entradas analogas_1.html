@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Documento sin título</title>
+		<link rel="stylesheet" type="text/css" href="../../../0 - styles/mystyles.css">
+		<script language="JavaScript" src="../../../0 - scripts/myscripts.js"></script>
+		<script type="text/javascript" src="../../../0 - scripts/iframe/iframeResizer.contentWindow.min.js" defer></script>
+	</head>
+
+	<body>
+		<div class="Normal" style="text-align:justify">
+			La conversión Analógica a Digital que puede hacer Arduino consiste en convertir un valor de tensión (voltaje) que conectemos a un PIN habilitado para ello, en un valor numérico proporcional adicha tensión que podemos guardar en una variable y ser utilizado por nuestro programa.
+			<br><br>
+			Dicho de otra forma: Si en una entrada analógica del Arduino se aplica una tensión con respecto a GND, entre 0V y 5V y la conversión Analógico-Digital se realizará con una precisión de 10 bits, y entonces, el microcontrolador puede "leer" esa tensión en 1024 (2^10=1024) valores distintos que nos devuelve como resultado de la lectura, siendo el 0 el correspondiente a los 0V y el 1023 el correspondiente a los 5V, y todos los intermedios en "saltos" de 0,00488V (5V/1024).
+			<br><br>
+			<div align="center"><img id="img1" src="../img/7.1 Entradas analogas.png" alt="" width="auto" height="auto"></div>
+			<br><br>
+			En el caso descrito el valor de tensión mínimo que podemos convertir es 0V o tensión del nivel del Vss(GND) y 5V o tensión del nivel de alimentación Vcc.
+			<br><br>
+			Esto es así si no utilizamos los voltajes de referencia, porque si los utilizamos entonces las cosas pueden cambiar.... 
+			<br><br>
+			Imaginemos ahora un dispositivo analógico que varía su tensión de salida entre 0V y 1V. Si le aplicamos la conversión A/D con 10 bits de precisión entonces los valores que vamos a obtener son entre 0 y 204 (1*1024/5V) con lo que desperdiciamos una parte muy importante del rango posible de conversión entre 204 y 1023.
+			<br><br>
+			Entonces, la solución está en poner a 1V la patilla VRef+ del dispositivo con lo que la conversión A/D a realizar a la señal presente en el pin a leer se va a efectuar en 1024 pasos entre GND y VRef+, no entre GND y Vcc como antes, con lo que obtenemos un resultado 5 veces más preciso: 1V dividido en 1024 partes con lo que cada número corresponde con 0,0009765V.
+		</div>
+	</body>
+</html>

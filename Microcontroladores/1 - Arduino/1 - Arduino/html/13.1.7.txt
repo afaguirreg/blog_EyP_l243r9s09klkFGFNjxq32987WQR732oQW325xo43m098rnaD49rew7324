@@ -1,0 +1,188 @@
+// include the library code:
+#include <LiquidCrystal.h>
+
+const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
+LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
+
+#define boton_inc A1      //Boton incremento
+#define boton_dec A2      //Boton decremento
+#define boton_reset A3    //Boton reset
+
+#define estado_boton_inc digitalRead(boton_inc)
+#define estado_boton_dec digitalRead(boton_dec)
+#define estado_boton_reset digitalRead(boton_reset)
+
+#define salida_LED1 6
+#define salida_LED2 7
+#define salida_LED3 8
+
+#define salida_LED1_ON digitalWrite(salida_LED1, HIGH)
+#define salida_LED1_OFF digitalWrite(salida_LED1, LOW)
+#define salida_LED2_ON digitalWrite(salida_LED2, HIGH)
+#define salida_LED2_OFF digitalWrite(salida_LED2, LOW)
+#define salida_LED3_ON digitalWrite(salida_LED3, HIGH)
+#define salida_LED3_OFF digitalWrite(salida_LED3, LOW)
+
+boolean estado_boton_inc_ant;
+boolean estado_boton_dec_ant;
+
+byte contador = 0;
+float sensor;
+
+String inputString = "";
+boolean stringComplete;
+char strPWM[5];
+int intPWM = 0;
+float floatPWM = 0;
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(boton_inc, INPUT);
+  pinMode(boton_dec, INPUT);
+  pinMode(boton_reset, INPUT);
+  pinMode(salida_LED1, OUTPUT);
+  pinMode(salida_LED2, OUTPUT);
+  pinMode(salida_LED3, OUTPUT);
+  pinMode(10, OUTPUT);
+  digitalWrite(10, HIGH);
+  lcd.begin(20,4);
+  delay(200);
+  lcd.print("I:  D:  R:  C: ");
+  lcd.setCursor(0,1);
+  lcd.print("Sensor: ");
+  lcd.setCursor(0,2);
+  lcd.print("LED1:  LED2:  LED3: ");
+  lcd.setCursor(0,3);
+  lcd.print("PWM: ");
+  Serial.begin(9600);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  if (estado_boton_inc!=estado_boton_inc_ant)
+  {
+    if (estado_boton_inc==1 && contador<100)
+    {
+      contador++;
+    }
+    estado_boton_inc_ant = estado_boton_inc;
+    delay(5);
+  }
+
+  //Programar acción boton_dec
+
+  if (estado_boton_dec!=estado_boton_dec_ant)
+  {
+    if (estado_boton_dec==1 && contador>0)
+    {
+      contador--;
+    }
+    estado_boton_dec_ant = estado_boton_dec;
+    delay(5);
+  }
+
+  if (estado_boton_reset==1)
+  {
+    contador = 0;
+  }
+  
+  sensor = analogRead(A0);
+  sensor *= 100.0 / 1023.0;
+
+  lcd.setCursor(2,0);
+  lcd.print(estado_boton_inc);
+
+  //Programar visualización estado_boton_dec
+
+  lcd.setCursor(6,0);
+  lcd.print(estado_boton_dec);
+
+  lcd.setCursor(10,0);
+  lcd.print(estado_boton_reset);
+
+  lcd.setCursor(14,0);
+  lcd.print(contador);
+  lcd.print("  ");
+
+  lcd.setCursor(8,1);
+  lcd.print(sensor,1);
+  lcd.print("  ");
+
+  Serial.print("$");
+  Serial.print(estado_boton_inc);
+  Serial.print("/");
+  Serial.print(estado_boton_dec);
+  Serial.print("/");
+  Serial.print(estado_boton_reset);
+  Serial.print("/");
+  Serial.print(contador);
+  Serial.print("/");
+  Serial.println(sensor,1);
+
+  if (stringComplete==true)
+  {
+    if (inputString[0]=='$')
+    {
+      switch (inputString[1])
+      {
+        case '0': salida_LED1_OFF; break;
+        case '1': salida_LED1_ON; break;
+        default: break;
+      }
+
+      switch (inputString[2])
+      {
+        case '0': salida_LED2_OFF; break;
+        case '1': salida_LED2_ON; break;
+        default: break;
+      }
+
+      //Programar acción inputString[3]
+
+      strPWM[0] = inputString[4];
+      strPWM[1] = inputString[5];
+      strPWM[2] = inputString[6];
+      strPWM[3] = inputString[7];
+      strPWM[4] = '\0';
+      intPWM = atol(strPWM);
+      floatPWM = intPWM / 10.0;
+      intPWM = map(intPWM,0,1000,0,255);
+      analogWrite(9,intPWM);
+
+      lcd.setCursor(5,2);
+      lcd.print(inputString[1]);
+
+      lcd.setCursor(12,2);
+      lcd.print(inputString[2]);
+
+      //Programar visualización inputString[3]
+
+      lcd.setCursor(5,3);
+      lcd.print(floatPWM,1);
+      lcd.print("%  ");
+    }
+    // clear the string:
+    inputString = "";
+    stringComplete = false;
+  }
+  delay(100);
+}
+
+/*
+  SerialEvent occurs whenever a new data comes in the hardware serial RX. This
+  routine is run between each time loop() runs, so using delay inside loop can
+  delay response. Multiple bytes of data may be available.
+*/
+void serialEvent() {
+  while (Serial.available()) {
+    // get the new byte:
+    char inChar = (char)Serial.read();
+    // add it to the inputString:
+    inputString += inChar;
+    // if the incoming character is a newline, set a flag so the main loop can
+    // do something about it:
+    if (inChar == '\n') {
+      stringComplete = true;
+    }
+  }
+}

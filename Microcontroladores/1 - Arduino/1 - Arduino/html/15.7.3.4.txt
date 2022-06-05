@@ -1,0 +1,75 @@
+#include <SPI.h>
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+
+Adafruit_SSD1306 display = Adafruit_SSD1306(128, 32, &Wire);
+
+#define I0 16
+#define I1 14
+#define I2 12
+
+#define Q0 2
+#define Q1 15
+#define Q2 13
+
+#define estado_boton_start digitalRead(I0)
+#define estado_boton_stop digitalRead(I1)
+#define salida_ON digitalWrite(Q0, HIGH)
+#define salida_OFF digitalWrite(Q0, LOW)
+
+char texto[] = "I/O digitales";
+
+void estados() {
+  display.setTextSize(1);
+  display.setTextColor(SSD1306_WHITE);
+  //Activar página de código 437
+  display.cp437(true);
+  display.clearDisplay();
+  display.setCursor(0,0);
+  display.println(texto);
+  display.print("I: ");
+  display.write(digitalRead(I0)*43 + 176);
+  display.print(" ");
+  display.write(digitalRead(I1)*43 + 176);
+  display.print(" ");
+  display.write(digitalRead(I2)*43 + 176);
+  display.println("");
+  display.println("   0 1 2");
+  display.print("Q: ");
+  display.write(digitalRead(Q0)*43 + 176);
+  display.print(" ");
+  display.write(digitalRead(Q1)*43 + 176);
+  display.print(" ");
+  display.write(digitalRead(Q2)*43 + 176);
+  yield();
+  display.display();
+}
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(I0, INPUT);
+  pinMode(I1, INPUT);
+  pinMode(I2, INPUT);
+  pinMode(Q0, OUTPUT);
+  pinMode(Q1, OUTPUT);
+  pinMode(Q2, OUTPUT);
+
+  // SSD1306_SWITCHCAPVCC = generate display voltage from 3.3V internally
+  display.begin(SSD1306_SWITCHCAPVCC, 0x3C); // Address 0x3C for 128x32
+  display.display();
+  delay(2000);
+
+  // Clear the buffer.
+  display.clearDisplay();
+  display.display();
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  if (estado_boton_start==1 && estado_boton_stop==0)
+    salida_ON;
+  if (estado_boton_stop==1)
+    salida_OFF;
+  estados();
+}

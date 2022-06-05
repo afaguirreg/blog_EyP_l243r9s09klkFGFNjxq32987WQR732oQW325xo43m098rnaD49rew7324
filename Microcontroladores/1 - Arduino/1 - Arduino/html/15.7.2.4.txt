@@ -1,0 +1,86 @@
+#include <LiquidCrystal_PCF8574.h>
+
+LiquidCrystal_PCF8574 lcd(0x27); // set the LCD address to 0x27 for a 16 chars and 2 line display
+
+#define I0 16
+#define I1 14
+#define I2 12
+
+#define Q0 2
+#define Q1 15
+#define Q2 13
+
+#define estado_boton_start digitalRead(I0)
+#define estado_boton_stop digitalRead(I1)
+#define salida_ON digitalWrite(Q0, HIGH)
+#define salida_OFF digitalWrite(Q0, LOW)
+
+char texto[] = "I/O digitales";
+
+byte alto[] = {
+  B11111,
+  B11111,
+  B11111,
+  B11111,
+  B11111,
+  B11111,
+  B11111,
+  B00000,
+};
+
+byte bajo[] = {
+  B11111,
+  B10001,
+  B10001,
+  B10001,
+  B10001,
+  B10001,
+  B11111,
+  B00000,
+};
+
+void estados() {
+  lcd.setCursor(0,0);
+  lcd.print(texto);
+  lcd.setCursor(0,1);
+  lcd.print("I: ");
+  lcd.write(digitalRead(I0));
+  lcd.print(" ");
+  lcd.write(digitalRead(I1));
+  lcd.print(" ");
+  lcd.write(digitalRead(I2));
+  lcd.setCursor(0,2);
+  lcd.print("   0 1 2");
+  lcd.setCursor(0,3);
+  lcd.print("Q: ");
+  lcd.write(digitalRead(Q0));
+  lcd.print(" ");
+  lcd.write(digitalRead(Q1));
+  lcd.print(" ");
+  lcd.write(digitalRead(Q2)); 
+}
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(I0, INPUT);
+  pinMode(I1, INPUT);
+  pinMode(I2, INPUT);
+  pinMode(Q0, OUTPUT);
+  pinMode(Q1, OUTPUT);
+  pinMode(Q2, OUTPUT);
+
+  lcd.begin(20, 4); // initialize the lcd
+  lcd.createChar(0, bajo);
+  lcd.createChar(1, alto);
+  delay(200);
+  lcd.setBacklight(255);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  if (estado_boton_start==1 && estado_boton_stop==0)
+    salida_ON;
+  if (estado_boton_stop==1)
+    salida_OFF;
+  estados();
+}
