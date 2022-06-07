@@ -13,6 +13,19 @@ LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 #define estado_boton_reset digitalRead(boton_reset)
 
 byte contador = 0;
+byte pBar = 0; // progress bar
+byte i = 0;    // foor loop
+
+byte pBrick[8] = {
+  B11111,
+  B11111,
+  B11111,
+  B11111,
+  B11111,
+  B11111,
+  B11111,
+  B11111,
+};
 
 void setup() {
   // put your setup code here, to run once:
@@ -22,8 +35,8 @@ void setup() {
   pinMode(10, OUTPUT);
   digitalWrite(10, HIGH);
   lcd.begin(16,2);
+  lcd.createChar(0, pBrick);
   delay(200);
-  lcd.print("PWM:");
 }
 
 void loop() {
@@ -49,10 +62,24 @@ void loop() {
     contador = 0;
   }
 
-  lcd.setCursor(5,0);
+  lcd.setCursor(0,0);
+  lcd.print("PWM: ");
   lcd.print(contador);
   lcd.print("   ");
 
   analogWrite(9, contador);
+
+  pBar = map(contador, 0, 255, 0, 16);
+  lcd.setCursor(0,1);
+  for (i=1; i<=pBar; i++)
+  {
+    lcd.setCursor(i-1, 1);
+    lcd.write(byte(0));
+  }
+  for (i=pBar; i<=16; i++)
+  {
+    lcd.setCursor(i, 1);
+    lcd.print(" ");
+  }
   delay(50);
 }
