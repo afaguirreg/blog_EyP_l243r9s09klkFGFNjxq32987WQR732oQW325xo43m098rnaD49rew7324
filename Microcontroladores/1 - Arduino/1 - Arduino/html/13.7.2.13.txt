@@ -126,9 +126,6 @@ void loop() {
   digitalWrite(Q1, estado_Q1);
   digitalWrite(Q2, estado_Q2);
 
-  sensors.requestTemperatures(); // Send the command to get temperatures
-  tempC = sensors.getTempCByIndex(0);
-
   estados();
 
   if (client)                               // If a new client connects,
