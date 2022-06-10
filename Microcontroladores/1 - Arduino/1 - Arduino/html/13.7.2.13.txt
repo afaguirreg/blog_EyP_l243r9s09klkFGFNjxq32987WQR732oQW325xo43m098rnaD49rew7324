@@ -27,7 +27,6 @@ const long timeoutTime = 2000;
 
 float sensor;
 float tempC;
-char grados = 223;
 
 WiFiServer server(80);
 
