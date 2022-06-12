@@ -74,7 +74,7 @@ void estados() {
   {
     lcd.print("IP: ");
     lcd.print(WiFi.localIP());
-    lcd.print("     ");
+    lcd.print("    ");
   }
   else
     lcd.print("Conectando a red...");
@@ -115,10 +115,11 @@ void setup() {
 
   WiFi.begin(ssid, password);
 
-  estados();
-
   while (WiFi.status() != WL_CONNECTED)
+  {
+    estados();
     delay(500);
+  }
 
   server.begin();
 }

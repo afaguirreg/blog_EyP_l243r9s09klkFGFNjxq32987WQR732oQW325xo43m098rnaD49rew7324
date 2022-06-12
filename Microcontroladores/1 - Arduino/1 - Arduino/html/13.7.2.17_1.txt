@@ -1,0 +1,155 @@
+/* Comment this out to disable prints and save space */
+#define BLYNK_PRINT Serial
+
+/* Fill-in your Template ID (only if using Blynk.Cloud) */
+#define BLYNK_TEMPLATE_ID "your-template_id"
+#define BLYNK_DEVICE_NAME "your-device_name"
+#define BLYNK_AUTH_TOKEN "your-auth_token"
+
+#include <LiquidCrystal_PCF8574.h>
+#include <Wire.h>
+#include <OneWire.h>
+#include <DallasTemperature.h>
+#include <ESP8266WiFi.h>
+#include <BlynkSimpleEsp8266.h>
+
+LiquidCrystal_PCF8574 lcd(0x27); // set the LCD address to 0x27 for a 16 chars and 2 line display
+
+// DS18B20 data wire
+#define ONE_WIRE_BUS 0
+
+// Setup a oneWire instance to communicate with any OneWire devices (not just Maxim/Dallas temperature ICs)
+OneWire oneWire(ONE_WIRE_BUS);
+
+// Pass our oneWire reference to Dallas Temperature. 
+DallasTemperature sensors(&oneWire);
+
+// Your WiFi credentials.
+// Set password to "" for open networks.
+char ssid[] = "your-ssid";
+char pass[] = "your-password";
+
+float sensor; // Variable para almacenar el valor leído por el sensor
+float temp;
+
+#define I0 16
+#define I1 14
+#define I2 12
+
+#define Q0 2
+#define Q1 15
+#define Q2 13
+
+#define estado_I0 digitalRead(I0)
+#define estado_I1 digitalRead(I1)
+#define estado_I2 digitalRead(I2)
+
+byte alto[] = {
+  B11111,
+  B11111,
+  B11111,
+  B11111,
+  B11111,
+  B11111,
+  B11111,
+  B00000,
+};
+
+byte bajo[] = {
+  B11111,
+  B10001,
+  B10001,
+  B10001,
+  B10001,
+  B10001,
+  B11111,
+  B00000,
+};
+
+void estados() {
+  if (Blynk.connected() == true)
+  {
+    lcd.setCursor(0,0);
+    lcd.print("Conectado a Blynk   ");
+    lcd.setCursor(0,1);
+    lcd.print("I: ");
+    lcd.write(digitalRead(I0));
+    lcd.print(" ");
+    lcd.write(digitalRead(I1));
+    lcd.print(" ");
+    lcd.write(digitalRead(I2));
+    lcd.setCursor(0,2);
+    lcd.print("   0 1 2");
+    lcd.setCursor(0,3);
+    lcd.print("Q: ");
+    lcd.write(digitalRead(Q0));
+    lcd.print(" ");
+    lcd.write(digitalRead(Q1));
+    lcd.print(" ");
+    lcd.write(digitalRead(Q2));
+  }
+  else
+  {
+    lcd.clear();
+    delay(500);
+    lcd.print("Conectando a Blynk..");
+    delay(500);
+  }
+}
+
+BLYNK_WRITE(5){
+  digitalWrite(Q0, param.asInt());
+}
+
+BLYNK_WRITE(6){
+  digitalWrite(Q1, param.asInt());
+}
+
+BLYNK_WRITE(7){
+  digitalWrite(Q2, param.asInt());
+}
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(I0, INPUT);
+  pinMode(I1, INPUT);
+  pinMode(I2, INPUT);
+  pinMode(Q0, OUTPUT);
+  pinMode(Q1, OUTPUT);
+  pinMode(Q2, OUTPUT);
+
+  sensors.begin();
+  Serial.begin(9600);
+
+  lcd.begin(20, 4); // initialize the lcd
+  lcd.createChar(0, bajo);
+  lcd.createChar(1, alto);
+  delay(200);
+  lcd.setBacklight(255);
+
+  WiFi.begin(ssid, pass);
+
+  estados();
+
+  // Setup Blynk
+  Blynk.config(BLYNK_AUTH_TOKEN);
+  while (Blynk.connect() == false) {}
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  Blynk.run();
+
+  sensor = analogRead(A0);
+
+  sensors.requestTemperatures(); // Send the command to get temperatures
+  temp = sensors.getTempCByIndex(0);
+
+  Blynk.virtualWrite(0, sensor);
+  Blynk.virtualWrite(1, temp);
+  Blynk.virtualWrite(2, estado_I0);
+  Blynk.virtualWrite(3, estado_I1);
+  Blynk.virtualWrite(4, estado_I2);
+
+  estados();
+}
