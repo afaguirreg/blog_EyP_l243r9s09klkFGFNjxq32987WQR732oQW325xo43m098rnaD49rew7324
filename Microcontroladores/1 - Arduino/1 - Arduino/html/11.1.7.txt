@@ -71,16 +71,6 @@ void loop() {
 
   //Programar acción boton_dec
 
-  if (estado_boton_dec!=estado_boton_dec_ant)
-  {
-    if (estado_boton_dec==1 && contador>0)
-    {
-      contador--;
-    }
-    estado_boton_dec_ant = estado_boton_dec;
-    delay(5);
-  }
-
   if (estado_boton_reset==1)
   {
     contador = 0;
@@ -93,9 +83,6 @@ void loop() {
   lcd.print(estado_boton_inc);
 
   //Programar visualización estado_boton_dec
-
-  lcd.setCursor(6,0);
-  lcd.print(estado_boton_dec);
 
   lcd.setCursor(10,0);
   lcd.print(estado_boton_reset);
