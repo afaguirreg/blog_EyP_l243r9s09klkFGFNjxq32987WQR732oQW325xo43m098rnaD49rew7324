@@ -24,6 +24,7 @@ char grados = 223;
 void setup() {
   // put your setup code here, to run once:
   pinMode(10, OUTPUT);
+  digitalWrite(10, HIGH);
 
   sensors.begin();
   Serial.begin(9600);

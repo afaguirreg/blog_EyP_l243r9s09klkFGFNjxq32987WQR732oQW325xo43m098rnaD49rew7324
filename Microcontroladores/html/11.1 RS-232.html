@@ -12,7 +12,7 @@
 		<div class="Normal" style="text-align:justify">
 			<b><i>RS-232</i></b>
 			<br><br>
-			Algunas referencias de microcontroladores PIC incluyen módulos para comunicación dentro de su hardware. El módulo para comunicaciones RS-232 se conoce también como UART.
+			Algunas referencias de microcontroladores  incluyen módulos para comunicación dentro de su hardware. El módulo para comunicaciones RS-232 se conoce también como UART.
 			<br><br>
 			En general habrá que usar un conversor de niveles basado en el MAX232 o similar.
 			<br><br>
@@ -22,14 +22,12 @@
 			<br><br>
 			En el puerto serie de un PC (standard RS232) la relación lógica/voltajes está invertida. Un 0 lógico se representa con un voltaje entre 3 y 15V (12 es típico) y un 1 lógico por un voltaje negativo (entre -3 y -15V). Es por esto por lo que para comunicar PIC-PC necesitamos un Max232 o equivalente.
 			<br><br>
-			Las especificaciones de su tarjeta le dirán cuales son los voltajes asociados a su puerto serie. Si dice algo de RS232 tendrá que usar seguramente un buffer tipo MAX232.
+			Si nuestro microcontrolador no tiene UART o se requiere la conexión con más de un dispositivo que utilice este tipo de comunicación, se puede implementar la comunicación serie por software y de forma totalmente transparente para el programador. Sin embargo el utilizar dispositivo con UART nos permite disponer de una serie de funcionalidades adicionales, como el empleo de interrupciones para controlar el envío y recepción de datos.
 			<br><br>
-			Si nuestro PIC no tiene UART como es el caso del PIC 16f84A, CCS nos permite implementar la comunicación serie por software y de forma totalmente transparente para el programador. Sin embargo el utilizar un PIC con UART nos permite disponer de una serie de funcionalidades adicionales, como el empleo de interrupciones para controlar el envío y recepción de datos.
-			<br><br>
-			Si queremos realizar una comunicación serie utilizando la USART del PIC, las conexiones tendrán que ser a las siguientes: RC6 para la transmisión de datos y RC7 para la recepción de datos.
+			Si queremos realizar una comunicación serie utilizando UART, las conexiones tendrán que ser a las siguientes:
 			<br><br>
 			<div align="center"><img src="../img/11.1 RS232_1.png" alt="" width="auto" height="auto"></div>
-			<br><br>
+			<br>
 			Para implementar la comunicación entre el microcontrolador y una aplicación desarrollada en C# se debe agregar el control SerialPort al proyecto y configurar los parámetros del puerto.
 			<br><br>
 			<div align="center"><img src="../img/11.1 RS232_2.png" alt="" width="auto" height="auto"></div>
