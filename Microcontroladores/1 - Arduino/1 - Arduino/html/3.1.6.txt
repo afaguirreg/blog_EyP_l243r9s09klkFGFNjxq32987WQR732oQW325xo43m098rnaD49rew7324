@@ -104,15 +104,15 @@ void loop() {
   }
 
   write_digit(10);
-  select_digit(2);
+  select_digit(0);
   write_digit(unidades);
-  delay(60);
+  delay(5);
   write_digit(10);
   select_digit(1);
   write_digit(decenas);
-  delay(60);
+  delay(5);
   write_digit(10);
-  select_digit(0);
+  select_digit(2);
   write_digit(centenas);
-  delay(60);
+  delay(5);
 }

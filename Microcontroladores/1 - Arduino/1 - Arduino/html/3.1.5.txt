@@ -2,8 +2,6 @@
 #define boton_dec A1      //Boton decremento
 #define boton_reset A2    //Boton reset
 
-#define digito 7
-
 #define estado_boton_inc digitalRead(boton_inc)
 #define estado_boton_dec digitalRead(boton_dec)
 #define estado_boton_reset digitalRead(boton_reset)
@@ -29,6 +27,21 @@ byte seven_seg_digits[11][7] = {
                                };
 
 int pins_contador[7] = {0, 1, 2, 3, 4, 5, 6};
+int pins_digito[2] = {7, 8};
+
+void select_digit(byte digito) {
+  switch (digito) {
+    case 0:  digitalWrite(pins_digito[0], 0);
+             digitalWrite(pins_digito[1], 1);
+             digitalWrite(pins_digito[2], 1);
+             break;
+    case 1:  digitalWrite(pins_digito[0], 1);
+             digitalWrite(pins_digito[1], 0);
+             digitalWrite(pins_digito[2], 1);
+             break;
+    default: break;
+  }
+}
 
 void write_digit(byte cifra) {
   byte i;
@@ -48,7 +61,10 @@ void setup() {
   {
     pinMode(pins_contador[i], OUTPUT);
   }
-  pinMode(digito, OUTPUT);
+  for (i=0; i<2; i++)
+  {
+    pinMode(pins_digito[i], OUTPUT);
+  }
 }
 
 void loop() {
@@ -77,11 +93,11 @@ void loop() {
   }
 
   write_digit(10);
-  digitalWrite(digito, LOW);
+  select_digit(0);
   write_digit(unidades);
-  delay(60);
+  delay(5);
   write_digit(10);
-  digitalWrite(digito, HIGH);
+  select_digit(1);
   write_digit(decenas);
-  delay(60);
+  delay(5);
 }
