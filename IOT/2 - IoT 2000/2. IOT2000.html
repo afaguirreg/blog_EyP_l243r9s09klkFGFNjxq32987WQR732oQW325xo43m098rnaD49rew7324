@@ -11,7 +11,7 @@
 	</head>
 
 	<body>
-		<div class="Normal" style="text-align:justify">
+	<div class="Normal" style="text-align:justify">
 			<a id="NodeMCU"></a>
 			<b><i>IOT2000</i></b>
 			<br><br>
@@ -52,7 +52,7 @@
 			<br><br>
 			3. Insertar la tarjeta de memoria Micro SD en la ranura del lector del PC.
 			<br><br>
-			4. Escribir el sistema operativo en la tarjeta de memoria Micro SD utilizando Balena etcher
+			4. Escribir el sistema operativo en la tarjeta de memoria Micro SD utilizando balena Etcher
 			<br><br>
 			<video controls controlslist="nodownload" preload="preload" loop>
 				<source src="../img/IOT2000_3.mp4" type="video/webm">
@@ -60,40 +60,27 @@
 			<br>
 			5. Instalar la tarjeta de memoria Micro SD en el dispositivo IOT2000
 			<br><br>
-			Abrir el menú <b><i>Archivo--&gt;Ejemplos--&gt;0.1 Basics</i></b> y seleccionar el proyecto ejemplo <b><i>Blink</i></b>
+			6. Ejecutar la aplicación putty para configurar el dispositivo a través de una conexión SSH. La dirección IP predeterminada de la interface X1 es 192.168.200.1
 			<br><br>
-			<div align="center"><img src="../img/13.7.2 NodeMCU_8.png" alt="" width="auto" height="auto"></div>
-			<br><br>
-			Modificar el código. En este ejemplo el LED incorporado en la tarjeta cambiará de estado cada segundo (1000 ms).
+			<div align="center"><img src="../img/IOT2000_4.png" alt="" width="auto" height="auto"></div>
 			<br>
-			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" marginwidth="0" src="../1 - Arduino/1 - Arduino/html/13.7.2.1.html"></iframe>
+			7. Establecer la zona horaria del sistema operativo
+			<br><br>
+			<div align="center">
+				<video controls controlslist="nodownload" preload="preload" loop>
+					<source src="../img/IOT2000_5.mp4" type="video/webm">
+				</video>
+			</div>
 			<br>
-			Cargar el programa en la placa NodeMCU (verificar que haya seleccionado el puerto correspondiente).
+			8. Establecer aplicaciones de inicio
 			<br><br>
-			Esperar a que el programa indique que el sketch ha sido subido a la placa NodeMCU.
-			<br><br>
-			<div align="center"><img src="../img/13.7.2 NodeMCU_9.png" alt="" width="auto" height="auto"></div>
-			<br><br>
-			<a id="Visualizacion LCD20x4"></a>
-			<b><i>13.7.2.2 Visualización display</i></b>
-			<br><br>
-			<div align="center"><img src="../img/13.7.2 NodeMCU_10_1.png" alt="" width="auto" height="auto"></div>
-			<br>
-			Abrir el menú <b><i>Herramientas--&gt;Administrar Bibliotecas...</i></b>
-			<br><br>
-			<div align="center"><img src="../img/13.7.2 NodeMCU_11.png" alt="" width="auto" height="auto"></div>
-			<br>
-			Buscar e instalar la librería <b><i>LiquidCrystal_PCF8574</i></b>
-			<br><br>
-			<div align="center"><img src="../img/13.7.2 NodeMCU_12_1.png" alt="" width="auto" height="auto"></div>
-			<br>
-			Abrir el menú <b><i>Archivo--&gt;Ejemplos--&gt;LiquidCrystal_PCF8574</i></b> y seleccionar el proyecto ejemplo <b><i>LiquidCrystal_PCF8574_Test</i></b>
-			<br><br>
-			<div align="center"><img src="../img/13.7.2 NodeMCU_13_1.png" alt="" width="auto" height="auto"></div>
-			<br>
-			<iframe class="pag" id="ifrm2" name="ifrm2" scrolling="no" marginwidth="0" src="../1 - Arduino/1 - Arduino/html/13.7.2.2.html"></iframe>
-		</div>
-	    <script type="text/javascript">
+			<div align="center">
+				<video controls controlslist="nodownload" preload="preload" loop>
+					<source src="../img/IOT2000_6.mp4" type="video/webm">
+				</video>
+			</div>
+	  </div>
+	<script type="text/javascript">
 			/*
 			* If you do not understand what the code below does, then please just use the
 			* following call in your own code.
@@ -120,6 +107,6 @@
 					$('p#callback').html('<b>IFrame (</b>' + id + '<b>) removed from page.</b>')
 				}
 			})
-		</script>
+		    </script>
 	</body>
 </html>
