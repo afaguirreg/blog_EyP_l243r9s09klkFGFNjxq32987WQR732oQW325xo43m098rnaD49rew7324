@@ -103,6 +103,8 @@ void setup() {
   pinMode(Q1, OUTPUT);
   pinMode(Q2, OUTPUT);
 
+  sensors.begin();
+
   lcd.begin(20, 4); // initialize the lcd
   lcd.createChar(0, bajo);
   lcd.createChar(1, alto);
