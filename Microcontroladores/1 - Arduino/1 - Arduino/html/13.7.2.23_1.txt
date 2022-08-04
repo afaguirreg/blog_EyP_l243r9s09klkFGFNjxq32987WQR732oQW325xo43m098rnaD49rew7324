@@ -63,13 +63,10 @@ byte bajo[] = {
 };
 
 void estados() {
-  if (true)
+  if (WiFi.status() == WL_CONNECTED)
   {
     lcd.setCursor(0,0);
-    lcd.print("Temp: ");
-    lcd.print(temp,1);
-    lcd.print((char)223);
-    lcd.print("C ");
+    lcd.print("Conectado a Ubidots ");
     lcd.setCursor(0,1);
     lcd.print("I: ");
     lcd.write(digitalRead(I0));
@@ -86,6 +83,13 @@ void estados() {
     lcd.write(digitalRead(Q1));
     lcd.print(" ");
     lcd.write(digitalRead(Q2));
+  }
+  else
+  {
+    lcd.clear();
+    delay(500);
+    lcd.print("Conectando a Ubidots");
+    delay(500);
   }
 }
 
@@ -106,7 +110,13 @@ void setup() {
   delay(200);
   lcd.setBacklight(255);
 
-  ubidots.wifiConnect(WIFI_SSID, WIFI_PASS);
+  estados();
+
+  while (!ubidots.wifiConnect(WIFI_SSID, WIFI_PASS))
+  {
+    delay(500);
+  }
+
   // ubidots.setDebug(true);  // Uncomment this line for printing debug messages
 }
 
