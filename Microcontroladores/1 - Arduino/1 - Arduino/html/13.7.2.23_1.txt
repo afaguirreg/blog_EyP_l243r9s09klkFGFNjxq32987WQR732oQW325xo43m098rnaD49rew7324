@@ -126,6 +126,8 @@ void loop() {
   sensors.requestTemperatures(); // Send the command to get temperatures
   temp = sensors.getTempCByIndex(0);
 
+  estados();
+
   ubidots.add("sensor", sensor);  // Change for your variable name
   ubidots.add("temp", temp);
   ubidots.add("I0", estado_I0);
@@ -139,6 +141,4 @@ void loop() {
     // Do something if values were sent properly
     Serial.println("Values sent by the device");
   }
-  digitalWrite(2, digitalRead(16));
-  estados();
 }
