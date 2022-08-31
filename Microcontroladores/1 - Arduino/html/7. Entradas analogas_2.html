@@ -20,7 +20,7 @@
 							<div><br></div>
 						</td>
 						<td>
-							<label id="Salida" style="font-weight: bold; font-size: 18pt;"><b>Sensor: 0.0</b></label>
+							<label id="Salida" style="font-weight: bold; font-size: 18pt;"><b>Sensor: 0</b></label>
 						</td>
 					</tr>
 				</tbody>
@@ -96,7 +96,10 @@
 						this.set("value", " " + parseFloat(val + 2.5).toFixed(3));
 						var Smax = parseFloat(document.getElementById("Smax").value);
 						var Smin = parseFloat(document.getElementById("Smin").value);
-						document.getElementById("Salida").innerHTML = "Sensor: " + parseFloat((val + 2.5) * (Smax - Smin) / 5 + Smin).toFixed(1);
+						if (Smin == 0 && Smax == 1023)
+							document.getElementById("Salida").innerHTML = "Sensor: " + parseInt((val + 2.5) * (Smax - Smin) / 5 + Smin).toFixed(0);
+						else
+							document.getElementById("Salida").innerHTML = "Sensor: " + parseFloat((val + 2.5) * (Smax - Smin) / 5 + Smin).toFixed(1);
 					}
 
 					var theInput = Y.one( "#voltaje" );
