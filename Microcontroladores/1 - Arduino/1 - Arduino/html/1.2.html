@@ -3,42 +3,31 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 		<title>Documento sin título</title>
-		<!--<link rel="stylesheet" href="../../../0 - styles/style.css">-->
 		<script language="JavaScript" src="../../../../0 - scripts/myscripts.js"></script>
-		<script src="../../../../0 - scripts/highlight/jquery-1.10.1.min.js"></script>
 		<script type="text/javascript" src="../../../../0 - scripts/iframe/iframeResizer.contentWindow.min.js" defer></script>
 	</head>
 
 	<body>
-		<div>
-			<script>
-				var xhr = new XMLHttpRequest();
-				xhr.open("get", "1.2.txt", true);
-				xhr.onreadystatechange = function(){
-					if(this.readyState != 4)return;
-					document.getElementById("input").innerHTML = this.responseText;
-				}
-				xhr.send(null)
-			</script>
-			<script src="../../../../0 - scripts/highlight/main.js"></script>
-			<div id="main">
-				<div class="input" style="visibility: hidden;display: none">
-					<textarea id="input" placeholder="Input"></textarea>
-				</div>
-				<div class="submit" style="visibility: hidden;display: none">
-					<input id="execute" type="button" value="Highlight" class="btn btn-default">
-					<label>
-						<input id="auto-update" type="checkbox" value="1" checked="checked">Auto Update
-					</label>
-				</div>
-				<div class="output">
-					<textarea id="output" placeholder="Output"></textarea>
-				</div>
-				<script src="../../../../0 - scripts/highlight/highlight.pack.js"></script>
-				<link rel="alternate stylesheet" title="Arduino Light" href="../0 - styles/code-light.css">
-			</div>
-			<script src="../../../../0 - scripts/highlight/syntax-highlight.js"></script>
-			<script>method = highlight;</script>
-		</div>
+		<pre>
+<font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;<font color="#434f54">&#47;&#47; put your setup code here, to run once:</font>
+ &nbsp;<font color="#000000">DDRD</font> <font color="#434f54">=</font> <font color="#000000">0xFF</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;Configura todos los pines del puerto D como salidas</font>
+<font color="#000000">}</font>
+
+<font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;<font color="#434f54">&#47;&#47; put your main code here, to run repeatedly:</font>
+ &nbsp;<font color="#000000">PORTD</font> <font color="#434f54">=</font> <font color="#000000">255</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;PORTD = 0xFF; PORTD = 0b11111111;</font>
+ &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">1000</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">PORTD</font> <font color="#434f54">=</font> <font color="#000000">0</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;PORTD = 0x00; PORTD = 0b00000000;</font>
+ &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">1000</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">PORTD</font> <font color="#434f54">=</font> <font color="#000000">170</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;PORTD = 0xAA; PORTD = 0b10101010;</font>
+ &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">1000</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">PORTD</font> <font color="#434f54">=</font> <font color="#000000">85</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;PORTD = 0x55; PORTD = 0b01010101;</font>
+ &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">1000</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">PORTD</font> <font color="#434f54">=</font> <font color="#000000">0</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;PORTD = 0x00; PORTD = 0b00000000;</font>
+ &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">1000</font><font color="#000000">)</font><font color="#000000">;</font>
+<font color="#000000">}</font>
+
+</pre>
 	</body>
 </html>
