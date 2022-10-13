@@ -3,42 +3,109 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 		<title>Documento sin título</title>
-		<!--<link rel="stylesheet" href="../../../0 - styles/style.css">-->
 		<script language="JavaScript" src="../../../../0 - scripts/myscripts.js"></script>
-		<script src="../../../../0 - scripts/highlight/jquery-1.10.1.min.js"></script>
 		<script type="text/javascript" src="../../../../0 - scripts/iframe/iframeResizer.contentWindow.min.js" defer></script>
 	</head>
 
 	<body>
-		<div>
-			<script>
-				var xhr = new XMLHttpRequest();
-				xhr.open("get", "16.10.txt", true);
-				xhr.onreadystatechange = function(){
-					if(this.readyState != 4)return;
-					document.getElementById("input").innerHTML = this.responseText;
-				}
-				xhr.send(null)
-			</script>
-			<script src="../../../../0 - scripts/highlight/main.js"></script>
-			<div id="main">
-				<div class="input" style="visibility: hidden;display: none">
-					<textarea id="input" placeholder="Input"></textarea>
-				</div>
-				<div class="submit" style="visibility: hidden;display: none">
-					<input id="execute" type="button" value="Highlight" class="btn btn-default">
-					<label>
-						<input id="auto-update" type="checkbox" value="1" checked="checked">Auto Update
-					</label>
-				</div>
-				<div class="output">
-					<textarea id="output" placeholder="Output"></textarea>
-				</div>
-				<script src="../../../../0 - scripts/highlight/highlight.pack.js"></script>
-				<link rel="alternate stylesheet" title="Arduino Light" href="../0 - styles/code-light.css">
-			</div>
-			<script src="../../../../0 - scripts/highlight/syntax-highlight.js"></script>
-			<script>method = highlight;</script>
-		</div>
+		<pre>
+<font color="#5e6d03">#define</font> <font color="#000000">pin_sensor</font> <font color="#000000">A0</font>
+
+<font color="#5e6d03">#define</font> <font color="#000000">sensor</font> <font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">pin_sensor</font><font color="#000000">)</font>
+<font color="#5e6d03">#define</font> <font color="#000000">salida_motor1_adelante</font> <font color="#000000">A2</font>
+<font color="#5e6d03">#define</font> <font color="#000000">salida_motor1_atras</font> <font color="#000000">A1</font>
+<font color="#5e6d03">#define</font> <font color="#000000">salida_motor2_adelante</font> <font color="#000000">A3</font>
+<font color="#5e6d03">#define</font> <font color="#000000">salida_motor2_atras</font> <font color="#000000">A4</font>
+
+<font color="#5e6d03">#define</font> <font color="#000000">salida_motor1_adelante_ON</font> <font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">salida_motor1_adelante</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font>
+<font color="#5e6d03">#define</font> <font color="#000000">salida_motor1_adelante_OFF</font> <font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">salida_motor1_adelante</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font>
+<font color="#5e6d03">#define</font> <font color="#000000">salida_motor1_atras_ON</font> <font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">salida_motor1_atras</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font>
+<font color="#5e6d03">#define</font> <font color="#000000">salida_motor1_atras_OFF</font> <font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">salida_motor1_atras</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font>
+<font color="#5e6d03">#define</font> <font color="#000000">salida_motor2_adelante_ON</font> <font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">salida_motor2_adelante</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font>
+<font color="#5e6d03">#define</font> <font color="#000000">salida_motor2_adelante_OFF</font> <font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">salida_motor2_adelante</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font>
+<font color="#5e6d03">#define</font> <font color="#000000">salida_motor2_atras_ON</font> <font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">salida_motor2_atras</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font>
+<font color="#5e6d03">#define</font> <font color="#000000">salida_motor2_atras_OFF</font> <font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">salida_motor2_atras</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font>
+
+<font color="#00979c">String</font> <font color="#000000">inputString</font> <font color="#434f54">=</font> <font color="#005c5f">&#34;&#34;</font><font color="#000000">;</font>
+<font color="#00979c">bool</font> <font color="#000000">stringComplete</font> <font color="#434f54">=</font> <font color="#00979c">false</font><font color="#000000">;</font>
+
+<font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;<font color="#434f54">&#47;&#47; put your setup code here, to run once:</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">pin_sensor</font><font color="#434f54">,</font> <font color="#00979c">INPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">salida_motor1_adelante</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">salida_motor1_atras</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">salida_motor2_adelante</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">salida_motor2_atras</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">9600</font><font color="#000000">)</font><font color="#000000">;</font>
+<font color="#000000">}</font>
+
+<font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;<font color="#434f54">&#47;&#47; put your main code here, to run repeatedly:</font>
+ &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#000000">sensor</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">stringComplete</font><font color="#434f54">==</font><font color="#00979c">true</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">inputString</font><font color="#000000">[</font><font color="#000000">0</font><font color="#000000">]</font><font color="#434f54">==</font><font color="#00979c">&#39;A&#39;</font> <font color="#434f54">&amp;&amp;</font> <font color="#000000">sensor</font><font color="#434f54">==</font><font color="#000000">0</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">salida_motor1_atras_OFF</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">salida_motor2_atras_OFF</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">salida_motor1_adelante_ON</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">salida_motor2_adelante_ON</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">}</font>
+ &nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">sensor</font><font color="#434f54">==</font><font color="#000000">1</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">salida_motor1_atras_OFF</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">salida_motor2_atras_OFF</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">salida_motor1_adelante_OFF</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">salida_motor2_adelante_OFF</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">}</font>
+ &nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">inputString</font><font color="#000000">[</font><font color="#000000">0</font><font color="#000000">]</font><font color="#434f54">==</font><font color="#00979c">&#39;R&#39;</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">salida_motor1_adelante_OFF</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">salida_motor2_adelante_OFF</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">salida_motor1_atras_ON</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">salida_motor2_atras_ON</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">}</font>
+
+ &nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;Programar acciones &#39;Girar a la izquierda y a la derecha&#39;</font>
+
+ &nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">inputString</font><font color="#000000">[</font><font color="#000000">0</font><font color="#000000">]</font><font color="#434f54">==</font><font color="#00979c">&#39;D&#39;</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">salida_motor1_atras_OFF</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">salida_motor2_adelante_OFF</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">salida_motor1_adelante_ON</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">salida_motor2_atras_ON</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">}</font>
+ &nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">inputString</font><font color="#000000">[</font><font color="#000000">0</font><font color="#000000">]</font><font color="#434f54">==</font><font color="#00979c">&#39;L&#39;</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">salida_motor1_adelante_OFF</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">salida_motor2_atras_OFF</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">salida_motor1_atras_ON</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">salida_motor2_adelante_ON</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">}</font>
+ &nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">inputString</font><font color="#000000">[</font><font color="#000000">0</font><font color="#000000">]</font><font color="#434f54">==</font><font color="#00979c">&#39;X&#39;</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">salida_motor1_adelante_OFF</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">salida_motor2_atras_OFF</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">salida_motor1_atras_OFF</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">salida_motor2_adelante_OFF</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">}</font>
+ &nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47; clear the string:</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">inputString</font> <font color="#434f54">=</font> <font color="#005c5f">&#34;&#34;</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">stringComplete</font> <font color="#434f54">=</font> <font color="#00979c">false</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">}</font>
+ &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">100</font><font color="#000000">)</font><font color="#000000">;</font>
+<font color="#000000">}</font>
+
+<font color="#95a5a6">&#47;*</font>
+<font color="#95a5a6"> &nbsp;SerialEvent occurs whenever a new data comes in the hardware serial RX. This</font>
+<font color="#95a5a6"> &nbsp;routine is run between each time loop() runs, so using delay inside loop can</font>
+<font color="#95a5a6"> &nbsp;delay response. Multiple bytes of data may be available.</font>
+<font color="#95a5a6">*&#47;</font>
+<font color="#00979c">void</font> <font color="#000000">serialEvent</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;<font color="#5e6d03">while</font> <font color="#000000">(</font><b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">available</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47; get the new byte:</font>
+ &nbsp;&nbsp;&nbsp;<font color="#00979c">char</font> <font color="#000000">inChar</font> <font color="#434f54">=</font> <font color="#000000">(</font><font color="#00979c">char</font><font color="#000000">)</font><b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">read</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47; add it to the inputString:</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">inputString</font> <font color="#434f54">+=</font> <font color="#000000">inChar</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47; if the incoming character is a newline, set a flag so the main loop can</font>
+ &nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47; do something about it:</font>
+ &nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">inChar</font> <font color="#434f54">==</font> <font color="#00979c">&#39;\n&#39;</font> <font color="#434f54">||</font> <font color="#000000">inChar</font> <font color="#434f54">==</font> <font color="#00979c">&#39;\r&#39;</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">stringComplete</font> <font color="#434f54">=</font> <font color="#00979c">true</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">}</font>
+ &nbsp;<font color="#000000">}</font>
+<font color="#000000">}</font></pre>
 	</body>
 </html>
