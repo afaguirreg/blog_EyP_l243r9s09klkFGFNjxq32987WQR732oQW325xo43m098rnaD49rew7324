@@ -18,8 +18,8 @@
 <font color="#5e6d03">#define</font> <font color="#000000">DHTPIN</font> <font color="#000000">A0</font>
 
 <font color="#434f54">&#47;&#47; Uncomment whatever type you&#39;re using!</font>
-<font color="#5e6d03">#define</font> <font color="#000000">DHTTYPE</font> <font color="#000000">DHT11</font> &nbsp;&nbsp;<font color="#434f54">&#47;&#47; DHT 11</font>
-<font color="#434f54">&#47;&#47;#define DHTTYPE DHT22 &nbsp;&nbsp;&#47;&#47; DHT 22 &nbsp;(AM2302), AM2321</font>
+<font color="#434f54">&#47;&#47;#define DHTTYPE DHT11 &nbsp;&nbsp;&#47;&#47; DHT 11</font>
+<font color="#5e6d03">#define</font> <font color="#000000">DHTTYPE</font> <font color="#000000">DHT22</font> &nbsp;&nbsp;<font color="#434f54">&#47;&#47; DHT 22 &nbsp;(AM2302), AM2321</font>
 <font color="#434f54">&#47;&#47;#define DHTTYPE DHT21 &nbsp;&nbsp;&#47;&#47; DHT 21 (AM2301)</font>
 
 <b><font color="#d35400">DHT</font></b> <font color="#000000">dht</font><font color="#000000">(</font><font color="#000000">DHTPIN</font><font color="#434f54">,</font> <font color="#000000">DHTTYPE</font><font color="#000000">)</font><font color="#000000">;</font>
@@ -64,6 +64,7 @@
  &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">t</font><font color="#434f54">,</font><font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">(</font><font color="#00979c">char</font><font color="#000000">)</font><font color="#000000">grados</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;C &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">1000</font><font color="#000000">)</font><font color="#000000">;</font>
 <font color="#000000">}</font></pre>
 	</body>
 </html>
