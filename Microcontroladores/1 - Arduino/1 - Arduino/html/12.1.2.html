@@ -9,61 +9,6 @@
 
 	<body>
 		<pre>
-<font color="#434f54">&#47;&#47; Include the libraries we need</font>
-<font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><b><font color="#d35400">LiquidCrystal</font></b><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
-<font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><b><font color="#d35400">OneWire</font></b><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
-<font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><b><font color="#d35400">DallasTemperature</font></b><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
-
-<font color="#00979c">const</font> <font color="#00979c">int</font> <font color="#000000">rs</font> <font color="#434f54">=</font> <font color="#000000">12</font><font color="#434f54">,</font> <font color="#000000">en</font> <font color="#434f54">=</font> <font color="#000000">11</font><font color="#434f54">,</font> <font color="#000000">d4</font> <font color="#434f54">=</font> <font color="#000000">5</font><font color="#434f54">,</font> <font color="#000000">d5</font> <font color="#434f54">=</font> <font color="#000000">4</font><font color="#434f54">,</font> <font color="#000000">d6</font> <font color="#434f54">=</font> <font color="#000000">3</font><font color="#434f54">,</font> <font color="#000000">d7</font> <font color="#434f54">=</font> <font color="#000000">2</font><font color="#000000">;</font>
-<b><font color="#d35400">LiquidCrystal</font></b> <font color="#000000">lcd</font><font color="#000000">(</font><font color="#000000">rs</font><font color="#434f54">,</font> <font color="#000000">en</font><font color="#434f54">,</font> <font color="#000000">d4</font><font color="#434f54">,</font> <font color="#000000">d5</font><font color="#434f54">,</font> <font color="#000000">d6</font><font color="#434f54">,</font> <font color="#000000">d7</font><font color="#000000">)</font><font color="#000000">;</font>
-
-<font color="#434f54">&#47;&#47; Data wire is plugged into port 2 on the Arduino</font>
-<font color="#5e6d03">#define</font> <font color="#000000">ONE_WIRE_BUS</font> <font color="#000000">A0</font>
-
-<font color="#434f54">&#47;&#47; Setup a oneWire instance to communicate with any OneWire devices (not just Maxim&#47;Dallas temperature ICs)</font>
-<b><font color="#d35400">OneWire</font></b> <font color="#000000">oneWire</font><font color="#000000">(</font><font color="#000000">ONE_WIRE_BUS</font><font color="#000000">)</font><font color="#000000">;</font>
-
-<font color="#434f54">&#47;&#47; Pass our oneWire reference to Dallas Temperature. </font>
-<b><font color="#d35400">DallasTemperature</font></b> <font color="#000000">sensors</font><font color="#000000">(</font><font color="#434f54">&amp;</font><font color="#000000">oneWire</font><font color="#000000">)</font><font color="#000000">;</font>
-
-<font color="#434f54">&#47;&#47; arrays to hold device address</font>
-<b><font color="#d35400">DeviceAddress</font></b> <font color="#000000">insideThermometer</font><font color="#000000">;</font>
-
-<font color="#00979c">float</font> <font color="#000000">temp</font><font color="#000000">;</font>
-<font color="#00979c">char</font> <font color="#000000">grados</font> <font color="#434f54">=</font> <font color="#000000">223</font><font color="#000000">;</font>
-
-<font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
- &nbsp;<font color="#434f54">&#47;&#47; put your setup code here, to run once:</font>
- &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">10</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
-
- &nbsp;<font color="#000000">sensors</font><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">9600</font><font color="#000000">)</font><font color="#000000">;</font>
-
- &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">16</font><font color="#434f54">,</font> <font color="#000000">2</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">200</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;Temp:&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
-<font color="#000000">}</font>
-
-<font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
- &nbsp;<font color="#434f54">&#47;&#47; put your main code here, to run repeatedly:</font>
- &nbsp;<font color="#000000">sensors</font><font color="#434f54">.</font><font color="#d35400">requestTemperatures</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; Send the command to get temperatures</font>
- &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">100</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#000000">temp</font> <font color="#434f54">=</font> <font color="#000000">sensors</font><font color="#434f54">.</font><font color="#d35400">getTempCByIndex</font><font color="#000000">(</font><font color="#000000">0</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#000000">temp</font><font color="#434f54">,</font><font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font>
-
- &nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">temp</font> <font color="#434f54">!=</font> <font color="#00979c">DEVICE_DISCONNECTED_C</font><font color="#000000">)</font> 
- &nbsp;<font color="#000000">{</font>
- &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">setCursor</font><font color="#000000">(</font><font color="#000000">6</font><font color="#434f54">,</font><font color="#000000">0</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">temp</font><font color="#434f54">,</font><font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">(</font><font color="#00979c">char</font><font color="#000000">)</font><font color="#000000">grados</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;C &nbsp;&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#000000">}</font> 
- &nbsp;<font color="#5e6d03">else</font>
- &nbsp;<font color="#000000">{</font>
- &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">setCursor</font><font color="#000000">(</font><font color="#000000">6</font><font color="#434f54">,</font><font color="#000000">0</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;error!&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#000000">}</font>
- &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">500</font><font color="#000000">)</font><font color="#000000">;</font>
-<font color="#000000">}</font></pre>
+		</pre>
 	</body>
 </html>
