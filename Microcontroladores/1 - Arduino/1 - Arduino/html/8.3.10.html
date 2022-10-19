@@ -3,42 +3,50 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 		<title>Documento sin título</title>
-		<!--<link rel="stylesheet" href="../../../0 - styles/style.css">-->
 		<script language="JavaScript" src="../../../../0 - scripts/myscripts.js"></script>
-		<script src="../../../../0 - scripts/highlight/jquery-1.10.1.min.js"></script>
 		<script type="text/javascript" src="../../../../0 - scripts/iframe/iframeResizer.contentWindow.min.js" defer></script>
 	</head>
 
 	<body>
-		<div>
-			<script>
-				var xhr = new XMLHttpRequest();
-				xhr.open("get", "8.3.10.txt", true);
-				xhr.onreadystatechange = function(){
-					if(this.readyState != 4)return;
-					document.getElementById("input").innerHTML = this.responseText;
-				}
-				xhr.send(null)
-			</script>
-			<script src="../../../../0 - scripts/highlight/main.js"></script>
-			<div id="main">
-				<div class="input" style="visibility: hidden;display: none">
-					<textarea id="input" placeholder="Input"></textarea>
-				</div>
-				<div class="submit" style="visibility: hidden;display: none">
-					<input id="execute" type="button" value="Highlight" class="btn btn-default">
-					<label>
-						<input id="auto-update" type="checkbox" value="1" checked="checked">Auto Update
-					</label>
-				</div>
-				<div class="output">
-					<textarea id="output" placeholder="Output"></textarea>
-				</div>
-				<script src="../../../../0 - scripts/highlight/highlight.pack.js"></script>
-				<link rel="alternate stylesheet" title="Arduino Light" href="../0 - styles/code-light.css">
-			</div>
-			<script src="../../../../0 - scripts/highlight/syntax-highlight.js"></script>
-			<script>method = highlight;</script>
-		</div>
+		<pre>
+<font color="#434f54">&#47;&#47; include the library code:</font>
+<font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><b><font color="#d35400">LiquidCrystal</font></b><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
+
+<font color="#00979c">const</font> <font color="#00979c">int</font> <font color="#000000">rs</font> <font color="#434f54">=</font> <font color="#000000">12</font><font color="#434f54">,</font> <font color="#000000">en</font> <font color="#434f54">=</font> <font color="#000000">11</font><font color="#434f54">,</font> <font color="#000000">d4</font> <font color="#434f54">=</font> <font color="#000000">5</font><font color="#434f54">,</font> <font color="#000000">d5</font> <font color="#434f54">=</font> <font color="#000000">4</font><font color="#434f54">,</font> <font color="#000000">d6</font> <font color="#434f54">=</font> <font color="#000000">3</font><font color="#434f54">,</font> <font color="#000000">d7</font> <font color="#434f54">=</font> <font color="#000000">2</font><font color="#000000">;</font>
+<b><font color="#d35400">LiquidCrystal</font></b> <font color="#000000">lcd</font><font color="#000000">(</font><font color="#000000">rs</font><font color="#434f54">,</font> <font color="#000000">en</font><font color="#434f54">,</font> <font color="#000000">d4</font><font color="#434f54">,</font> <font color="#000000">d5</font><font color="#434f54">,</font> <font color="#000000">d6</font><font color="#434f54">,</font> <font color="#000000">d7</font><font color="#000000">)</font><font color="#000000">;</font>
+
+<font color="#00979c">const</font> <font color="#00979c">int</font> <font color="#000000">Trigger</font> <font color="#434f54">=</font> <font color="#000000">A1</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;Pin digital 2 para el Trigger del sensor</font>
+<font color="#00979c">const</font> <font color="#00979c">int</font> <font color="#000000">Echo</font> <font color="#434f54">=</font> <font color="#000000">A0</font><font color="#000000">;</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;Pin digital 3 para el Echo del sensor</font>
+
+<font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;<font color="#434f54">&#47;&#47; put your setup code here, to run once:</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">10</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">10</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">Trigger</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47;pin como salida</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">Echo</font><font color="#434f54">,</font> <font color="#00979c">INPUT</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;<font color="#434f54">&#47;&#47;pin como entrada</font>
+ &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">Trigger</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font><font color="#434f54">&#47;&#47;Inicializamos el pin con 0</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">16</font><font color="#434f54">,</font> <font color="#000000">2</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">200</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;Dist:&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+<font color="#000000">}</font>
+
+<font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;<font color="#434f54">&#47;&#47; put your main code here, to run repeatedly:</font>
+
+ &nbsp;<font color="#00979c">long</font> <font color="#000000">t</font><font color="#000000">;</font> &nbsp;&nbsp;<font color="#434f54">&#47;&#47;timepo que demora en llegar el eco</font>
+ &nbsp;<font color="#00979c">long</font> <font color="#000000">d</font><font color="#000000">;</font> &nbsp;&nbsp;<font color="#434f54">&#47;&#47;distancia en centimetros</font>
+
+ &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">Trigger</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">delayMicroseconds</font><font color="#000000">(</font><font color="#000000">10</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">Trigger</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;
+ &nbsp;<font color="#000000">t</font> <font color="#434f54">=</font> <font color="#d35400">pulseIn</font><font color="#000000">(</font><font color="#000000">Echo</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">d</font> <font color="#434f54">=</font> <font color="#000000">t</font> <font color="#434f54">&#47;</font> <font color="#000000">59</font><font color="#000000">;</font>
+ &nbsp;
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">setCursor</font><font color="#000000">(</font><font color="#000000">6</font><font color="#434f54">,</font><font color="#000000">0</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">d</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34; cm &nbsp;&nbsp;&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">100</font><font color="#000000">)</font><font color="#000000">;</font>
+<font color="#000000">}</font></pre>
 	</body>
 </html>
