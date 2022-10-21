@@ -17,7 +17,7 @@
 			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" marginwidth="0" src="../../html/9. Salida analoga (PWM).html"></iframe>
 			<br>
 			<iframe class="pag" id="ifrm2" name="ifrm2" scrolling="no" marginwidth="0" src="../html/9. Salida analoga (PWM).html"></iframe>
-			<br><br><br>
+			<br><br>
 			<a id="PWM Motor 12VDC"></a>
 			<b><i>9.1 PWM Motor 12VDC</i></b>
 			<br><br>
@@ -30,7 +30,7 @@
 			</video>
 			<br>
 			<iframe class="pag" id="ifrm3" name="ifrm3" scrolling="no" marginwidth="0" src="html/9.1_1.html"></iframe>
-			<br>
+			<br><br>
 			Comentarios del programa:
 			<br><br>
 			La variable PWM se ha programado que su valor aumente o disminuya 10 unidades por cada pulsación. Se ha limitado el valor máximo del parámetro PWM a 1000 y el mínimo a 0 y que nunca rebase estos límites. .
@@ -41,28 +41,43 @@
 			<br><br>
 			También se puede generar el valor para aplicar a la señal PWM mediante un potenciómetro conectado a la entrada análoga del Arduino.
 			<br><br>
-			<img src="../video/9.2 PWM motor DC 12V.png" alt="" width="auto" height="auto">
+			<img src="../video/9.1 PWM motor DC 12V.png" alt="" width="auto" height="auto">
 			<br>
 			<iframe class="pag" id="ifrm4" name="ifrm4" scrolling="no" marginwidth="0" src="html/9.1_2.html"></iframe>
 			<br><br>
+			<a id="Puente H PWM"></a>
+			<b><i>9.2 Puente H PWM</i></b>
+			<br><br>
+			<img src="../video/9.2 Puente H PWM.png" alt="" width="auto" height="auto">
+			<br>
+			<iframe class="pag" id="ifrm5" name="ifrm5" scrolling="no" marginwidth="0" src="html/9.2.html"></iframe>
+			<br><br>
 			<a id="PWM Motor DC industrial"></a>
-			<b><i>9.2 PWM Motor DC industrial</i></b>
+			<b><i>9.3 PWM Motor DC industrial</i></b>
 			<br><br>
 			Cualquiera de los circuitos anteriores se puede adaptar a la etapa de potencia de la siguiente imagen para controlar un motor industrial de corriente continua.
 			<br><br>
 			<video controlslist="nodownload" preload="auto" loop>
-			  <source src="../../img/9.2 PWM motor DC industrial.webm" type="video/webm">
+			  <source src="../../img/9.3 PWM motor DC industrial.webm" type="video/webm">
 		  	</video>
-			<br><br><br>
-			<a id="Control de servo motores"></a>
-			<b><i>9.3 Control de servo motores</i></b>
 			<br><br>
-			<iframe class="pag" id="ifrm5" name="ifrm5" scrolling="no" marginwidth="0" src="../../html/9.3 Servo motores.html"></iframe>
+			<a id="Control de servo motores"></a>
+			<b><i>9.4 Control de servo motores</i></b>
+			<br><br>
+			<iframe class="pag" id="ifrm6" name="ifrm6" scrolling="no" marginwidth="0" src="../../html/9.4 Servo motores.html"></iframe>
 			<br>
-			<iframe class="pag" id="ifrm6" name="ifrm6" scrolling="no" marginwidth="0" src="html/9.3.html"></iframe>
+			<img src="../video/9.4.1 Servo_wtite_1.png" alt="" width="auto" height="auto">
+			<br>
+			<div align="center"><img src="../video/9.4.1 Servo_wtite_2.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm7" name="ifrm7" scrolling="no" marginwidth="0" src="html/9.4.1.html"></iframe>
+			<br>
+			<img src="../video/9.4.2 Servo_wtite_button.png" alt="" width="auto" height="auto">
+			<br>
+			<img src="../video/9.4.3 Servo_wtite_pot.png" alt="" width="auto" height="auto">		
 			<br><br>
 			<a id="Convertidor D/A con PWM y filtro"></a>
-			<b><i>9.4 Convertidor D/A con PWM y filtro</i></b>
+			<b><i>9.5 Convertidor D/A con PWM y filtro</i></b>
 			<br><br>
 			Hay proyectos en los que tenemos que controlar el nivel de voltaje como: la referencia de una fuente regulada, la salida de audio, o bien queremos hacer nuestro generador de funciones. Pero estas señales son analógicas y la mayoría de los microcontroladores de gama baja y media (PICs, AVRs, etc) no tienen un convertidor DAC.
 			<br><br>
@@ -70,15 +85,15 @@
 			<br><br>
 			Pero todos los microcontroladores tienen por lo menos un timer y en la mayoria de los casos se puede usar como un modulador de ancho de pulso (PWM) En el caso de que se cuente con estos recursos. se puede usar el timer/PWM para hacer conversiones de digital a analogico usando un arreglo de una resistencia, un capacitor y un amplificador operacional.
 			<br><br>
-			<img src="../../img/9.3 PWM DAC_1.png" alt="" width="auto" height="auto">
+			<img src="../../img/9.4 PWM DAC_1.png" alt="" width="auto" height="auto">
 			<br><br>
 			El circuito es un filtro pasabaja de primer orden y el amplificador operacional sirve para evitar que se caiga el voltaje de salida debido a la carga que le coloquemos.
 			<br><br>
 			Sin adentrarnos mucho en el tema, los filtros pasabaja dejan pasar las señales con frecuencia menor a la frecuencia de corte. En pocas palabras, de la frecuencia de corte para abajo. Para calcular la frecuencia de corte, en este caso se puede usar la siguiente formula:
 			<br><br>
-			<img src="../../img/9.3 PWM DAC_2.png" alt="" width="auto" height="auto">
+			<img src="../../img/9.4 PWM DAC_2.png" alt="" width="auto" height="auto">
 			<br><br>
-			<img src="../../img/9.3 PWM DAC_3.png" alt="" width="auto" height="auto">
+			<img src="../../img/9.4 PWM DAC_3.png" alt="" width="auto" height="auto">
 			<br><br>
 			Esta frecuencia de corte es importante, ya que nos da la pauta de las frecuencias que podemos suministrar como señal de salida analógica. Es decir, si nuestra frecuencia de corte es de 1000Hz, con nuestro dac pwm podemos sacar frecuencias menores de 1000Hz, por ejemplo podemos sacar senoidales a 600Hz sin problema.
 			<br><br>
