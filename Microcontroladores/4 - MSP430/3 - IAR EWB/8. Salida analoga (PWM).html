@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Documento sin título</title>
+		<link rel="stylesheet" type="text/css" href="../../../0 - styles/mystyles.css">
+		<script language="JavaScript" src="../../../0 - scripts/myscripts.js"></script>
+		<script type="text/javascript" src="../../../0 - scripts/jquery/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../0 - scripts/iframe/iframeResizer.min.js"></script>
+	</head>
+
+	<body>
+		<div class="Normal" style="text-align:justify">
+			<a id="Salida analoga (PWM)"></a>
+			<b>8. Salida análoga (PWM)</b>
+			<br><br>
+			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" marginwidth="0" src="../../html/8. Salida analoga (PWM).html"></iframe>
+			<br>
+			<iframe class="pag" id="ifrm2" name="ifrm2" scrolling="no" marginwidth="0" src="../html/8. Salida analoga (PWM).html"></iframe>
+			<br><br>
+			<a id="PWM Motor 12VDC"></a>
+			<b><i>8.1 PWM Motor 12VDC</i></b>
+			<br><br>
+			Como ejemplo del uso de la señal PWM vamos a utilizar las funciones para controlar la velociidad de un motor de corriente continua conectado al colector de un transistor bipolar NPN (TIP41).
+			<br><br>
+			Haremos que nuestro circuito sea capaz de realizar un conteo ascendente/descendente entre 0 y 1000 y que éste valor sea asignado al ciclo de trabajo del PWM para manipular el voltaje aplicado a la base del transistor.
+			<br><br>
+			<video controls controlslist="nodownload" preload="preload" loop>
+				<source src="../video/8.1 PWM motor DC 12V.webm" type="video/webm">
+			</video>
+			<br>
+			<iframe class="pag" id="ifrm3" name="ifrm3" scrolling="no" marginwidth="0" src="html/8.1_1.html"></iframe>
+			<br><br>
+			Comentarios del programa:
+			<br><br>
+			La variable PWM se ha programado que su valor aumente o disminuya 10 unidades por cada pulsación. Se ha limitado el valor máximo del parámetro PWM a 1000 y el mínimo a 0 y que nunca rebase estos límites. .
+			<br><br>
+			Se debe tener especial atención al asignar el ciclo de trabajo al PWM, el cual debe ser un número entero comprendido entre 0 (0V) y 1000 (5V), es decir, el incremento en una unidad en el contador se verá reflejado como una variación de 0,005V a la salida del pin C2 del microcontrolador.
+			<br><br>
+			Extraído parcialmente de: <a href="http://www.dtic.upf.edu/%7Ejlozano/interfaces/interfaces5.html">http://www.dtic.upf.edu/~jlozano/interfaces/interfaces5.html</a>
+			<br><br>
+			También se puede generar el valor para aplicar a la señal PWM mediante un potenciómetro conectado a la entrada análoga del Arduino.
+			<br><br>
+			<img src="../video/8.1 PWM motor DC 12V.png" alt="" width="auto" height="auto">
+			<br>
+			<iframe class="pag" id="ifrm4" name="ifrm4" scrolling="no" marginwidth="0" src="html/8.1_2.html"></iframe>
+			<br><br>
+			<a id="Puente H PWM"></a>
+			<b><i>8.2 Puente H PWM</i></b>
+			<br><br>
+			<img src="../video/8.2 Puente H PWM.png" alt="" width="auto" height="auto">
+			<br>
+			<iframe class="pag" id="ifrm5" name="ifrm5" scrolling="no" marginwidth="0" src="html/8.2.html"></iframe>
+			<br><br>
+			<a id="PWM Motor DC industrial"></a>
+			<b><i>8.3 PWM Motor DC industrial</i></b>
+			<br><br>
+			Cualquiera de los circuitos anteriores se puede adaptar a la etapa de potencia de la siguiente imagen para controlar un motor industrial de corriente continua.
+			<br><br>
+			<video controlslist="nodownload" preload="auto" loop>
+			  <source src="../../img/8.3 PWM motor DC industrial.webm" type="video/webm">
+		  	</video>
+			<br><br>
+			<a id="Control de servo motores"></a>
+			<b><i>8.4 Control de servo motores</i></b>
+			<br><br>
+			<iframe class="pag" id="ifrm6" name="ifrm6" scrolling="no" marginwidth="0" src="../../html/8.4 Servo motores.html"></iframe>
+			<br>
+			<img src="../video/8.4.1 Servo_wtite_1.png" alt="" width="auto" height="auto">
+			<br>
+			<div align="center"><img src="../video/8.4.1 Servo_wtite_2.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm7" name="ifrm7" scrolling="no" marginwidth="0" src="html/8.4.1.html"></iframe>
+			<br>
+			<img src="../video/8.4.2 Servo_wtite_button.png" alt="" width="auto" height="auto">
+			<br>
+			<img src="../video/8.4.3 Servo_wtite_pot.png" alt="" width="auto" height="auto">		
+			<br><br>
+			<a id="Convertidor D/A con PWM y filtro"></a>
+			<b><i>8.5 Convertidor D/A con PWM y filtro</i></b>
+			<br><br>
+			Hay proyectos en los que tenemos que controlar el nivel de voltaje como: la referencia de una fuente regulada, la salida de audio, o bien queremos hacer nuestro generador de funciones. Pero estas señales son analógicas y la mayoría de los microcontroladores de gama baja y media (PICs, AVRs, etc) no tienen un convertidor DAC.
+			<br><br>
+			Una solución muy frecuente es usar un circuito DAC (convertidor digital analógico) aparte del micro controlador, lo que es muy útil, pero tiene dos inconvenientes: es un circuito mas, lo que es mas espacio y costo, aparte de que puede requerir muchas lineas de señales por parte de nuestro procesador, en el caso de que la interfaz sea paralela.
+			<br><br>
+			Pero todos los microcontroladores tienen por lo menos un timer y en la mayoria de los casos se puede usar como un modulador de ancho de pulso (PWM) En el caso de que se cuente con estos recursos. se puede usar el timer/PWM para hacer conversiones de digital a analogico usando un arreglo de una resistencia, un capacitor y un amplificador operacional.
+			<br><br>
+			<img src="../../img/8.4 PWM DAC_1.png" alt="" width="auto" height="auto">
+			<br><br>
+			El circuito es un filtro pasabaja de primer orden y el amplificador operacional sirve para evitar que se caiga el voltaje de salida debido a la carga que le coloquemos.
+			<br><br>
+			Sin adentrarnos mucho en el tema, los filtros pasabaja dejan pasar las señales con frecuencia menor a la frecuencia de corte. En pocas palabras, de la frecuencia de corte para abajo. Para calcular la frecuencia de corte, en este caso se puede usar la siguiente formula:
+			<br><br>
+			<img src="../../img/8.4 PWM DAC_2.png" alt="" width="auto" height="auto">
+			<br><br>
+			<img src="../../img/8.4 PWM DAC_3.png" alt="" width="auto" height="auto">
+			<br><br>
+			Esta frecuencia de corte es importante, ya que nos da la pauta de las frecuencias que podemos suministrar como señal de salida analógica. Es decir, si nuestra frecuencia de corte es de 1000Hz, con nuestro dac pwm podemos sacar frecuencias menores de 1000Hz, por ejemplo podemos sacar senoidales a 600Hz sin problema.
+			<br><br>
+			Ahora bien, ya tenemos la frecuencia de corte, pero hace falta otra frecuencia importante a considerar, que es la frecuencia del PWM. La frecuencia del pwm es la que usara el timer para generar la señal de salida analógica. No podemos elegir una frecuencia de pwm menor que la frecuencia de corte del filtro, ya que prácticamente solo veríamos la señal del timer. Tampoco podemos igualarla con la de corte ya que la señal de salida presentaría mucho ruido debido a que la atenuación empieza en la frecuencia de corte, es decir, todavía veríamos la señal del timer en la salida analógica.
+			<br><br>
+			Debemos elegir una frecuencia de pwm mucho mayor que la frecuencia de corte, para asegurar que la frecuencia del timer no llegue a la salida de nuestro convertidor ya que estaría muy atenuada según nuestro filtro.
+			<br><br>
+			Es recomendable utilizar frecuencias de pwm por lo menos 20 veces mas alta que la frecuencia de corte. De hecho, generalmente empezaremos viendo cual es la frecuencia máxima de pwm que podemos tener en el timer/pwm y de allí propondremos la frecuencia de corte. Al final la velocidad del 	microcontrolador es nuestro limite.
+		</div>
+		<script type="text/javascript">
+			/*
+			* If you do not understand what the code below does, then please just use the
+			* following call in your own code.
+			*
+			*iFrameResize({log:true});
+			*
+			* Once you have it working, set the log option to false.
+			*/
+			iFrameResize({
+				log: true, // Enable console logging
+				inPageLinks: true,
+				onResized: function(messageData) {
+					// Callback fn when resize is received
+					$('p#callback').html('<b>Frame ID:</b> ' + messageData.iframe.id + ' <b>Height:</b> ' + messageData.height + ' <b>Width:</b> ' + messageData.width + ' <b>Event type:</b> ' + messageData.type)
+				},
+				onMessage: function(messageData) {
+					// Callback fn when message is received
+					$('p#callback').html('<b>Frame ID:</b> ' + messageData.iframe.id + ' <b>Message:</b> ' + messageData.message)
+					alert(messageData.message)
+					document.getElementsByTagName('iframe')[0].iFrameResizer.sendMessage('Hello back from parent page')
+				},
+				onClosed: function(id) {
+					// Callback fn when iFrame is closed
+					$('p#callback').html('<b>IFrame (</b>' + id + '<b>) removed from page.</b>')
+				}
+			})
+		</script>
+	</body>
+</html>
