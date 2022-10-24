@@ -5,11 +5,14 @@
 		<title>Documento sin título</title>
 		<link rel="stylesheet" type="text/css" href="../../0 - styles/mystyles.css">
 		<script language="JavaScript" src="../../0 - scripts/myscripts.js"></script>
-		<script type="text/javascript" src="../../0 - scripts/iframe/iframeResizer.contentWindow.min.js" defer></script>
+		<script type="text/javascript" src="../../0 - scripts/iframe/iframeResizer.min.js"></script>
 	</head>
 
 	<body>
 		<div class="Normal" style="text-align:justify">
+			<a id="Teclado"></a>
+			<b>5. Teclado</b>
+			<br><br>
 			El teclado 4x4 es el más utilizado en el desarrollo de proyectos con microcontroladores y tienen su aplicación en el ingreso de datos de forma manual por parte del usuario, en aquellos casos en que el empleo de pulsadores simples no es lo más apropiado,ya sea por la presentación final del producto o por la restricción del númerode líneas de entrada del microcontrolador.
 			<br><br>
 			El teclado 4x4 está constituido por una matriz de pulsadores dispuestos en filas (A,B,C,D) y columnas (1,2,3,4), con la intención de reducir el número de pines necesarios para su conexión. Las 16 teclas necesitan sólo 8 pines del microcontrolador, en lugar de los 16 pines que se requerirían para la conexión de 16 teclas independientes.
@@ -29,6 +32,36 @@
 			La función kbd_getc() devuelve un caracter ASCII que corresponde a la tecla pulsada o cero (0) si no se ha pulsado ninguna tecla.
 			<br><br>
 			Extraído parcialmente de: <a href="http://www.programarpicenc.com/libro/cap08-teclado-matricial-4x4-microcontroladores-pic.html">http://www.programarpicenc.com/libro/cap08-teclado-matricial-4x4-microcontroladores-pic.html</a>
+			<br><br>
+			
 		</div>
+		<script type="text/javascript">
+			/*
+			* If you do not understand what the code below does, then please just use the
+			* following call in your own code.
+			*
+			*iFrameResize({log:true});
+			*
+			* Once you have it working, set the log option to false.
+			*/
+			iFrameResize({
+				log: true, // Enable console logging
+				inPageLinks: true,
+				onResized: function(messageData) {
+					// Callback fn when resize is received
+					$('p#callback').html('<b>Frame ID:</b> ' + messageData.iframe.id + ' <b>Height:</b> ' + messageData.height + ' <b>Width:</b> ' + messageData.width + ' <b>Event type:</b> ' + messageData.type)
+				},
+				onMessage: function(messageData) {
+					// Callback fn when message is received
+					$('p#callback').html('<b>Frame ID:</b> ' + messageData.iframe.id + ' <b>Message:</b> ' + messageData.message)
+					alert(messageData.message)
+					document.getElementsByTagName('iframe')[0].iFrameResizer.sendMessage('Hello back from parent page')
+				},
+				onClosed: function(id) {
+					// Callback fn when iFrame is closed
+					$('p#callback').html('<b>IFrame (</b>' + id + '<b>) removed from page.</b>')
+				}
+			})
+		</script>
 	</body>
 </html>
