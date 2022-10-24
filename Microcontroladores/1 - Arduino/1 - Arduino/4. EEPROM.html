@@ -12,30 +12,40 @@
 			<a id="EEPROM"></a>
 			<b>4. EEPROM</b>
 			<br><br>
+			<a id="Memorizar el estado de una salida"></a>
+			<b><i>4.1 Memorizar el estado de una salida</i></b>
+			<br><br>
+			<div align="center"><img src="../video/4.1 Memorizar el estado de una salida.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" marginwidth="0" src="html/4.1.html"></iframe>
+			<br><br>
+			<a id="Contador 0-9 Display 7 Segmentos"></a>
+			<b><i>4.2 Contador 0-9 Display 7 Segmentos</i></b>
+			<br><br>
+			<div align="center"><img src="../video/4.2 Contador 0-9 Display 7 Segmentos.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm2" name="ifrm2" scrolling="no" marginwidth="0" src="html/4.2.html"></iframe>
+			<br>
+			El ejemplo es un contador ascendente/descendente de 0 a 9 que incrementa su valor cada vez que pulsamos &quot;INC&quot;  y decrementa el contador si se pulsa &ldquo;DEC&rdquo;  y además se puede restablecer a cero si se pulsa &ldquo;RESET&rdquo;. Para evitar que el contador se reinicie y empiece a contar desde cero cada vez que se interrumpa el suministro de energía, el valor actual del contador se almacenará en la memoria EEPROM del microcontrolador en vez de en la memoria RAM. Como solo queremos guardar un valor que estará comprendido entre 0 y 99, solo utilizaremos el primer byte de la memoria EEPROM.
+			<br><br>
+			La primera vez que se ejecute el programa el valor dela EEPROM es 0xFF (viene así de fábrica) por lo que tendremos que sobrescribir su valor a 0 para iniciar el conteo.
+		  	<br><br>
+			Proteus simula bastante bien el uso de la memoria EEPROM del microcontrolador, si paramos la simulación y volvemos a iniciarla vemos como los valores de la EEPROM se mantienen.
+			<br><br>
 			<a id="Contador 0-99 Display 7 Segmentos"></a>
-			<b><i>4.1 Contador 0-99 Display 7 Segmentos</i></b>
+			<b><i>4.3 Contador 0-99 Display 7 Segmentos</i></b>
 			<br><br>
-			El ejemplo es un contador. Como funcionalidades mínimas haremos que sea capaz de contar del 0 al 9 de manera ascendente y descendente, y que tenga un botón de RESET a cero.
-			<br><br>
-			Y por supuesto que si se corta el suministro de energía guarda en memoria el último valor.
-			<br><br>
-			<img src="../img/Microcontroladores PIC - CCS_clip_image002_0005.jpg" alt="" width="auto" height="auto">
-			<br><br>
-			Comentarios del programa:
-			<br><br>
-			El ejemplo básicamente es un contador ascendente/descendente de 0 a 9 que incrementa su valor cada vez que pulsamos &quot;INC&quot; (PIN B0) y decrementa el contador si se pulsa &ldquo;DEC&rdquo; (PIN B1) y además se puede restablecer a cero si se pulsa &ldquo;RESET&rdquo; (PIN B2). Para evitar que el contador se reinicie y empiece a contar desde cero cada vez que se interrumpa el suministro de energía, el valor actual del contador se almacenará en la memoria EEPROM del PIC en vez de en la memoria RAM. Como solo queremos guardar un valor que estará comprendido entre 0 y 99, solo utilizaremos el primer byte de la memoria EEPROM.
-			<br><br>
-			La primera vez que se ejecute el programa el valor dela EEPROM es 0xFF (viene así de fábrica) por lo que tendremos que sobrescribir su valor a 0 para iniciar el conteo, después de esto esta condición no secumplirá más.
-			<br><br>
-			contador = read_eeprom(dir_contador);
+			<div align="center"><img src="../video/4.3 Contador 0-99 Display 7 Segmentos.png" alt="" width="auto" height="auto"></div>
 			<br>
-			if ((contador&gt;9)||(contador&lt;0))
+			<iframe class="pag" id="ifrm3" name="ifrm3" scrolling="no" marginwidth="0" src="html/4.3.html"></iframe>
 			<br>
-			contador=0;
+			<a id="Contador 0-100 Display LCD"></a>
+			<b><i>4.4 Contador 0-100 Display LCD</i></b>
 			<br><br>
-			Proteus simula bastante bien el uso de la memoria EEPROM del PIC, si paramos la simulación y volvemos a iniciarla vemos como los valores de la EEPROM se mantienen.
-			<br><br>
-			Extraído parcialmente de: <a href="http://www.aquihayapuntes.com/indice-practicas-pic-en-c/memoria-eeprom-interna-del-pic.html">http://www.aquihayapuntes.com/indice-practicas-pic-en-c/memoria-eeprom-interna-del-pic.html</a>
+			<div align="center"><img src="../video/4.4 Contador 0-100 Display LCD.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm4" name="ifrm4" scrolling="no" marginwidth="0" src="html/4.4.html"></iframe>
+			<br>
 		</div>
 	</body>
 </html>
