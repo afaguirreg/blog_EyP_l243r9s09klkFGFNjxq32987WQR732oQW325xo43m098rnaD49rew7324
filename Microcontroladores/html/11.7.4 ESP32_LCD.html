@@ -5,6 +5,9 @@
 		<title>Documento sin título</title>
 		<link rel="stylesheet" type="text/css" href="../../0 - styles/mystyles.css">
 		<script language="JavaScript" src="../../0 - scripts/myscripts.js"></script>
+		<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
+		<script type="text/javascript" src="../../0 - scripts/jquery/jquery.min.js"></script>
+		<script type="text/javascript" src="../../0 - scripts/iframe/iframeResizer.min.js"></script>
 	</head>
 
 	<body>
@@ -438,5 +441,33 @@
 			<br>
 			<div align="center"><img src="../img/11.7.2.21 Thingspeak_19.png" alt="" width="auto" height="auto"></div>
 		</div>
+		<script type="text/javascript">
+			/*
+			* If you do not understand what the code below does, then please just use the
+			* following call in your own code.
+			*
+			*iFrameResize({log:true});
+			*
+			* Once you have it working, set the log option to false.
+			*/
+			iFrameResize({
+				log: true, // Enable console logging
+				inPageLinks: true,
+				onResized: function(messageData) {
+					// Callback fn when resize is received
+					$('p#callback').html('<b>Frame ID:</b> ' + messageData.iframe.id + ' <b>Height:</b> ' + messageData.height + ' <b>Width:</b> ' + messageData.width + ' <b>Event type:</b> ' + messageData.type)
+				},
+				onMessage: function(messageData) {
+					// Callback fn when message is received
+					$('p#callback').html('<b>Frame ID:</b> ' + messageData.iframe.id + ' <b>Message:</b> ' + messageData.message)
+					alert(messageData.message)
+					document.getElementsByTagName('iframe')[0].iFrameResizer.sendMessage('Hello back from parent page')
+				},
+				onClosed: function(id) {
+					// Callback fn when iFrame is closed
+					$('p#callback').html('<b>IFrame (</b>' + id + '<b>) removed from page.</b>')
+				}
+			})
+		</script>
 	</body>
 </html>
