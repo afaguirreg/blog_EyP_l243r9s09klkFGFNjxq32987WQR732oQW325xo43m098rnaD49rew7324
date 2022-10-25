@@ -7,6 +7,13 @@ body{
     user-select: none;
 }
 
+@media print {
+html,body {
+	visibility: hidden;
+	display: none; /* this code will hide whole pages */
+}
+}
+
 div.Normal {
 	margin-top: 0cm;
 	margin-right: 0cm;
