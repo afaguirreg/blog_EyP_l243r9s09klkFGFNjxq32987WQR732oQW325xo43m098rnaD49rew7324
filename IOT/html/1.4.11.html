@@ -28,8 +28,8 @@
 
 <font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
  &nbsp;<font color="#434f54">&#47;&#47; put your main code here, to run repeatedly:</font>
- &nbsp;<font color="#000000">Valor_ADC</font> <font color="#434f54">=</font> <font color="#d35400">analogRead</font><font color="#000000">(</font><font color="#000000">A0</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#000000">sensor</font> <font color="#434f54">=</font> <font color="#000000">Valor_ADC</font> <font color="#434f54">*</font> <font color="#000000">100</font> <font color="#434f54">&#47;</font> <font color="#000000">1023</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">Valor_ADC</font> <font color="#434f54">=</font> <font color="#d35400">analogRead</font><font color="#000000">(</font><font color="#000000">36</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">sensor</font> <font color="#434f54">=</font> <font color="#000000">Valor_ADC</font> <font color="#434f54">*</font> <font color="#000000">100</font> <font color="#434f54">&#47;</font> <font color="#000000">4095</font><font color="#000000">;</font>
 
  &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">setCursor</font><font color="#000000">(</font><font color="#000000">8</font><font color="#434f54">,</font><font color="#000000">0</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">sensor</font><font color="#434f54">,</font><font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font>

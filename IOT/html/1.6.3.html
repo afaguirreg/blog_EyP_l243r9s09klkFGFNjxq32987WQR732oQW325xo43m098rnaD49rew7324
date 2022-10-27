@@ -13,18 +13,26 @@
 
 <b><font color="#d35400">LiquidCrystal_PCF8574</font></b> <font color="#000000">lcd</font><font color="#000000">(</font><font color="#000000">0x27</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; set the LCD address to 0x27 for a 16 chars and 2 line display</font>
 
-<font color="#5e6d03">#define</font> <font color="#000000">I0</font> <font color="#000000">16</font>
-<font color="#5e6d03">#define</font> <font color="#000000">I1</font> <font color="#000000">14</font>
-<font color="#5e6d03">#define</font> <font color="#000000">I2</font> <font color="#000000">12</font>
+<font color="#5e6d03">#define</font> <font color="#000000">I0</font> <font color="#000000">2</font>
+<font color="#5e6d03">#define</font> <font color="#000000">I1</font> <font color="#000000">3</font>
+<font color="#5e6d03">#define</font> <font color="#000000">I2</font> <font color="#000000">4</font>
+<font color="#5e6d03">#define</font> <font color="#000000">I3</font> <font color="#000000">5</font>
+<font color="#5e6d03">#define</font> <font color="#000000">I4</font> <font color="#000000">6</font>
+<font color="#5e6d03">#define</font> <font color="#000000">I5</font> <font color="#000000">7</font>
 
-<font color="#5e6d03">#define</font> <font color="#000000">Q0</font> <font color="#000000">2</font>
-<font color="#5e6d03">#define</font> <font color="#000000">Q1</font> <font color="#000000">15</font>
-<font color="#5e6d03">#define</font> <font color="#000000">Q2</font> <font color="#000000">13</font>
+<font color="#5e6d03">#define</font> <font color="#000000">Q0</font> <font color="#000000">13</font>
+<font color="#5e6d03">#define</font> <font color="#000000">Q1</font> <font color="#000000">12</font>
+<font color="#5e6d03">#define</font> <font color="#000000">Q2</font> <font color="#000000">11</font>
+<font color="#5e6d03">#define</font> <font color="#000000">Q3</font> <font color="#000000">10</font>
+<font color="#5e6d03">#define</font> <font color="#000000">Q4</font> <font color="#000000">9</font>
+<font color="#5e6d03">#define</font> <font color="#000000">Q5</font> <font color="#000000">8</font>
 
-<font color="#5e6d03">#define</font> <font color="#000000">estado_boton_start</font> <font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">I0</font><font color="#000000">)</font>
-<font color="#5e6d03">#define</font> <font color="#000000">estado_boton_stop</font> <font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">I1</font><font color="#000000">)</font>
-<font color="#5e6d03">#define</font> <font color="#000000">salida_ON</font> <font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">Q0</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font>
-<font color="#5e6d03">#define</font> <font color="#000000">salida_OFF</font> <font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">Q0</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font>
+<font color="#5e6d03">#define</font> <font color="#000000">estado_I0</font> <font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">I0</font><font color="#000000">)</font>
+<font color="#5e6d03">#define</font> <font color="#000000">estado_I1</font> <font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">I1</font><font color="#000000">)</font>
+<font color="#5e6d03">#define</font> <font color="#000000">estado_I2</font> <font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">I2</font><font color="#000000">)</font>
+<font color="#5e6d03">#define</font> <font color="#000000">estado_I3</font> <font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">I3</font><font color="#000000">)</font>
+<font color="#5e6d03">#define</font> <font color="#000000">estado_I4</font> <font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">I4</font><font color="#000000">)</font>
+<font color="#5e6d03">#define</font> <font color="#000000">estado_I5</font> <font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">I5</font><font color="#000000">)</font>
 
 <font color="#00979c">char</font> <font color="#000000">texto</font><font color="#000000">[</font><font color="#000000">]</font> <font color="#434f54">=</font> <font color="#005c5f">&#34;I&#47;O digitales&#34;</font><font color="#000000">;</font>
 
@@ -60,8 +68,14 @@
  &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">write</font><font color="#000000">(</font><font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">I1</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34; &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">write</font><font color="#000000">(</font><font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">I2</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34; &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">write</font><font color="#000000">(</font><font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">I3</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34; &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">write</font><font color="#000000">(</font><font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">I4</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34; &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">write</font><font color="#000000">(</font><font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">I5</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">setCursor</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font><font color="#000000">2</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34; &nbsp;&nbsp;0 1 2&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34; &nbsp;&nbsp;0 1 2 3 4 5&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">setCursor</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font><font color="#000000">3</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;Q: &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">write</font><font color="#000000">(</font><font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">Q0</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
@@ -69,6 +83,12 @@
  &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">write</font><font color="#000000">(</font><font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">Q1</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34; &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">write</font><font color="#000000">(</font><font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">Q2</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font> 
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34; &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">write</font><font color="#000000">(</font><font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">Q3</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34; &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">write</font><font color="#000000">(</font><font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">Q4</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34; &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">write</font><font color="#000000">(</font><font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">Q5</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
 <font color="#000000">}</font>
 
 <font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
@@ -76,9 +96,15 @@
  &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">I0</font><font color="#434f54">,</font> <font color="#00979c">INPUT</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">I1</font><font color="#434f54">,</font> <font color="#00979c">INPUT</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">I2</font><font color="#434f54">,</font> <font color="#00979c">INPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">I3</font><font color="#434f54">,</font> <font color="#00979c">INPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">I4</font><font color="#434f54">,</font> <font color="#00979c">INPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">I5</font><font color="#434f54">,</font> <font color="#00979c">INPUT</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">Q0</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">Q1</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">Q2</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">Q3</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">Q4</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">Q5</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
 
  &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">20</font><font color="#434f54">,</font> <font color="#000000">4</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; initialize the lcd</font>
  &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">createChar</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font> <font color="#000000">bajo</font><font color="#000000">)</font><font color="#000000">;</font>
@@ -89,10 +115,12 @@
 
 <font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
  &nbsp;<font color="#434f54">&#47;&#47; put your main code here, to run repeatedly:</font>
- &nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">estado_boton_start</font><font color="#434f54">==</font><font color="#000000">1</font> <font color="#434f54">&amp;&amp;</font> <font color="#000000">estado_boton_stop</font><font color="#434f54">==</font><font color="#000000">0</font><font color="#000000">)</font>
- &nbsp;&nbsp;&nbsp;<font color="#000000">salida_ON</font><font color="#000000">;</font>
- &nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">estado_boton_stop</font><font color="#434f54">==</font><font color="#000000">1</font><font color="#000000">)</font>
- &nbsp;&nbsp;&nbsp;<font color="#000000">salida_OFF</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">Q0</font><font color="#434f54">,</font> <font color="#000000">estado_I0</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">Q1</font><font color="#434f54">,</font> <font color="#000000">estado_I1</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">Q2</font><font color="#434f54">,</font> <font color="#000000">estado_I2</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">Q3</font><font color="#434f54">,</font> <font color="#000000">estado_I3</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">Q4</font><font color="#434f54">,</font> <font color="#000000">estado_I4</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">Q5</font><font color="#434f54">,</font> <font color="#000000">estado_I5</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#000000">estados</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
 <font color="#000000">}</font></pre>
 	</body>
