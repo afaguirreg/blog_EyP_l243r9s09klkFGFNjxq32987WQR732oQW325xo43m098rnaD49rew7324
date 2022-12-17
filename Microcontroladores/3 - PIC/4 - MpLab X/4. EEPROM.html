@@ -5,6 +5,7 @@
 		<title>Documento sin título</title>
 		<link rel="stylesheet" type="text/css" href="../../../0 - styles/mystyles.css">
 		<script language="JavaScript" src="../../../0 - scripts/myscripts.js"></script>
+		<script type="text/javascript" src="../../../0 - scripts/iframe/iframeResizer.min.js"></script>
 	</head>
 
 	<body>
@@ -12,30 +13,63 @@
 			<a id="EEPROM"></a>
 			<b>4. EEPROM</b>
 			<br><br>
-			<a id="Contador 0-99 Display 7 Segmentos"></a>
-			<b><i>4.1 Contador 0-99 Display 7 Segmentos</i></b>
+			<a id="Memorizar el estado de una salida"></a>
+			<b><i>4.1 Memorizar el estado de una salida</i></b>
 			<br><br>
-			El ejemplo es un contador. Como funcionalidades mínimas haremos que sea capaz de contar del 0 al 9 de manera ascendente y descendente, y que tenga un botón de RESET a cero.
-			<br><br>
-			Y por supuesto que si se corta el suministro de energía guarda en memoria el último valor.
-			<br><br>
-			<img src="../img/Microcontroladores PIC - CCS_clip_image002_0005.jpg" alt="" width="auto" height="auto">
-			<br><br>
-			Comentarios del programa:
-			<br><br>
-			El ejemplo básicamente es un contador ascendente/descendente de 0 a 9 que incrementa su valor cada vez que pulsamos &quot;INC&quot; (PIN B0) y decrementa el contador si se pulsa &ldquo;DEC&rdquo; (PIN B1) y además se puede restablecer a cero si se pulsa &ldquo;RESET&rdquo; (PIN B2). Para evitar que el contador se reinicie y empiece a contar desde cero cada vez que se interrumpa el suministro de energía, el valor actual del contador se almacenará en la memoria EEPROM del PIC en vez de en la memoria RAM. Como solo queremos guardar un valor que estará comprendido entre 0 y 99, solo utilizaremos el primer byte de la memoria EEPROM.
-			<br><br>
-			La primera vez que se ejecute el programa el valor dela EEPROM es 0xFF (viene así de fábrica) por lo que tendremos que sobrescribir su valor a 0 para iniciar el conteo, después de esto esta condición no secumplirá más.
-			<br><br>
-			contador = read_eeprom(dir_contador);
+			<div align="center"><img src="../video/4.1 Memorizar estado salida.png" alt="" width="auto" height="auto"></div>
 			<br>
-			if ((contador&gt;9)||(contador&lt;0))
+			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" marginwidth="0" src="html/4.1.html"></iframe>
+			<br><br>
+			<a id="Contador 0 - 9 Display 7 segmentos"></a>
+			<b><i>4.2 Contador 0 - 9 Display 7 segmentos</i></b>
+			<br><br>
+			El ejemplo es un contador ascendente/descendente de 0 a 9 que incrementa su valor cada vez que pulsamos &quot;INC&quot;  y decrementa el contador si se pulsa &ldquo;DEC&rdquo;  y además se puede restablecer a cero si se pulsa &ldquo;RESET&rdquo;. Para evitar que el contador se reinicie y empiece a contar desde cero cada vez que se interrumpa el suministro de energía, el valor actual del contador se almacenará en la memoria EEPROM del microcontrolador en vez de en la memoria RAM. Como solo queremos guardar un valor que estará comprendido entre 0 y 99, solo utilizaremos el primer byte de la memoria EEPROM.
+			<br><br>
+			La primera vez que se ejecute el programa el valor dela EEPROM es 0xFF (viene así de fábrica) por lo que tendremos que sobrescribir su valor a 0 para iniciar el conteo.
+		  	<br><br>
+			Proteus simula bastante bien el uso de la memoria EEPROM del microcontrolador, si detenemos la simulación y volvemos a iniciarla vemos como los valores de la EEPROM se mantienen.
+			<br><br>
+			<div align="center"><img src="../video/4.2 Contador 0-9 Display 7 segmentos.png" alt="" width="auto" height="auto"></div>
 			<br>
-			contador=0;
+			<iframe class="pag" id="ifrm2" name="ifrm2" scrolling="no" marginwidth="0" src="html/4.2.html"></iframe>
 			<br><br>
-			Proteus simula bastante bien el uso de la memoria EEPROM del PIC, si paramos la simulación y volvemos a iniciarla vemos como los valores de la EEPROM se mantienen.
+			<a id="Contador 0 - 99 Display 7 segmentos"></a>
+			<b><i>4.3 Contador 0 - 99 Display 7 segmentos</i></b>
 			<br><br>
-			Extraído parcialmente de: <a href="http://www.aquihayapuntes.com/indice-practicas-pic-en-c/memoria-eeprom-interna-del-pic.html">http://www.aquihayapuntes.com/indice-practicas-pic-en-c/memoria-eeprom-interna-del-pic.html</a>
+			<div align="center"><img src="../video/4.3 Contador 0-99 Display 7 segmentos.png" alt="" width="1000" height="auto"></div>
+			<br>
+			<a id="Contador 0 - 100 Display LCD"></a>
+			<b><i>4.4 Contador 0 - 100 Display LCD</i></b>
+			<br><br>
+			<div align="center"><img src="../video/4.4 Contador 0-100 Display LCD.png" alt="" width="auto" height="auto"></div>
 		</div>
+		<script type="text/javascript">
+			/*
+			* If you do not understand what the code below does, then please just use the
+			* following call in your own code.
+			*
+			*iFrameResize({log:true});
+			*
+			* Once you have it working, set the log option to false.
+			*/
+			iFrameResize({
+				log: true, // Enable console logging
+				inPageLinks: true,
+				onResized: function(messageData) {
+					// Callback fn when resize is received
+					$('p#callback').html('<b>Frame ID:</b> ' + messageData.iframe.id + ' <b>Height:</b> ' + messageData.height + ' <b>Width:</b> ' + messageData.width + ' <b>Event type:</b> ' + messageData.type)
+				},
+				onMessage: function(messageData) {
+					// Callback fn when message is received
+					$('p#callback').html('<b>Frame ID:</b> ' + messageData.iframe.id + ' <b>Message:</b> ' + messageData.message)
+					alert(messageData.message)
+					document.getElementsByTagName('iframe')[0].iFrameResizer.sendMessage('Hello back from parent page')
+				},
+				onClosed: function(id) {
+					// Callback fn when iFrame is closed
+					$('p#callback').html('<b>IFrame (</b>' + id + '<b>) removed from page.</b>')
+				}
+			})
+		</script>
 	</body>
 </html>
