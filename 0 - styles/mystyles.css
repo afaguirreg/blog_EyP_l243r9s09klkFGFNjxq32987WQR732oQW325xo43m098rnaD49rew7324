@@ -48,6 +48,7 @@ iframe.ext {
 img {
 	transition: -webkit-transform 0.25s ease;
 	transition: transform 0.25s ease;
+	pointer-events: none;
 }
 img:active {
 	-webkit-transform: scale(2);
