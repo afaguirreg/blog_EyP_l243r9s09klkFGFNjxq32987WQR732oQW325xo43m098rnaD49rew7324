@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Documento sin título</title>
+		<link rel="stylesheet" type="text/css" href="../0 - styles/mystyles.css">
+		<script language="JavaScript" src="../0 - scripts/myscripts.js"></script>
+	</head>
+
+	<body>
+		<div class="Normal" style="text-align:justify">
+			<b><i>3. ESP32 CAM</i></b>
+			<br><br>
+			<img id="img1" src="img/3. ESP32 CAM_1.png" alt="" width="auto" height="auto">
+			<br><br>
+			ESP32-CAM es un dispositivo con conectividad Wifi y Bluetooth y pines GPIO que, además, lleva integrada una cámara de video (2 MPx) y una ranura para tarjeta MicroSD (hasta 4Gb), donde se pueden almacenar fotos o videos.
+			<br><br>
+			Aplicaciones típicas:
+			<br><br>
+			. Tomar de fotografías.
+			<br>
+			. Streaming de video.
+			<br>
+			. Reconocimiento facial.
+			<br>
+			. Detector de movimiento.
+			<br><br>
+			El ESP32 CAM tiene menos pines GPIO que un módulo ESP32 convencional, ya que muchos de esos pines se utilizan para la gestión de la cámara y el conector microSD, aun así hay 9 pines GPIO disponibles.
+			<br><br>
+			Además, este dispositivo no cuenta con puerto USB, que comúnmente es la vía utilizada para cargar los programas a los distintos dispositivos ESPxx, Arduino, etc.
+			<br>
+			Al no contar con puerto USB debemos utilizar 6 pines para poder trabajar con el ESP32 CAM, dos pines para establecer el modo de funcionamiento del ESP32 CAM, dos para transmitir datos TX/RX entre ordenador y ESP32 CAM, y dos para alimentar la placa.
+			<br><br>
+			<img id="img2" src="img/3. ESP32 CAM_2.png" alt="" width="auto" height="auto">
+			<br><br>
+			CARACTERÍSTICAS
+			<br><br>
+			- Módulo ESP32-S
+			<br>
+			- Wi-Fi: 802.11b/g/n/e/i
+			<br>
+			- Seguridad: WPA/WPA2/WPA2-Enterprise/WPS
+			<br>
+			- CPU: 32-bit CPU de bajo consumo (2 cores).
+			<br>
+			- Velocidad de reloj: hasta 160 MHz.
+			<br>
+			- Bluetooth: Bluetooth 4.2 con BLE.
+			<br>
+			- Interfaces: UART, SPI, I2C and PWM. Hasta 9 pines GPIO
+			<br>
+			- RAM: 520 KB SRAM, externa 4 MB PSRAM
+			<br>
+			- Soporte microSD: hasta 4GB
+			<br>
+			- Múltiples modos de reposo (sleep modes):
+			<br>
+				- Deep-sleep: máximo bajo consumo que puede alcanzar 6mA@5V.
+			<br>
+				- Moderm-sleep: hasta 20mA@5V.
+			<br>
+				- Light-sleep: hasta 6.7mA@5V.
+			<br>
+			- Firmware actualizable a través de OTA (Over-The-Air).
+			<br>
+			- Flash incorporado.
+			<br>
+			- Voltaje de alimentación: 5 V.
+			<br>
+			- Conector de antena externa: en situación de comunicaciones poco estables se puede añadir una antena externa.
+			<br>
+			- Cámara:
+			<br>
+				- Soporte para cámaras OV2640 y OV7670.
+			<br>
+				- JPEG (OV2640 soportada), BMP, GRAYSCALE.
+			<br>
+				- Sensor 2 Megapixel.
+			<br>
+				- Resolución UXGA 1622×1200 px.
+			<br>
+				- Transferencia de imagen entre 15 y 60 FPS.
+		</div>
+	</body>
+</html>
