@@ -5,6 +5,9 @@
 		<title>Documento sin título</title>
 		<link rel="stylesheet" type="text/css" href="../0 - styles/mystyles.css">
 		<script language="JavaScript" src="../0 - scripts/myscripts.js"></script>
+		<script type="text/javascript" src="../0 - scripts/jquery/jquery.min.js"></script>
+		<script language="JavaScript" src="../0 - scripts/zoom/jquery.elevatezoom.js"></script>
+		<script type="text/javascript" src="../0 - scripts/iframe/iframeResizer.min.js"></script>
 	</head>
 
 	<body>
@@ -80,6 +83,66 @@
 				- Resolución UXGA 1622×1200 px.
 			<br>
 				- Transferencia de imagen entre 15 y 60 FPS.
+			<br><br>
+			Antes de comenzar a programar se debe configurar el entorno Arduino para poder compilar y cargar los programas adecuadamente en el ESP32.
+			<br><br>
+			Iniciar  Arduino, abrir el menú <b><i>Archivo--&gt;Preferencias</i></b>.
+			<br><br>
+			<div align="center"><img src="img/2.1 NodeMCU_2.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Escribir la siguiente URL en la caja de texto Gestor de URLs Adicionales de Tarjetas: <b><i>https://dl.espressif.com/dl/package_esp32_index.json</i></b>
+			<br><br>
+			<div align="center"><img src="img/2.3 ESP32_3.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Abrir el menú <b><i>Herramientas--&gt;Placa</i></b> y luego hacer click en <b><i>Gestor de tarjetas...</i></b>
+			<br><br>
+			<div align="center"><img src="img/2.1 NodeMCU_4.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Esperar hasta que se actualice la información y luego buscar en la lista el gestor del módulo ESP32.
+			<br><br>
+			Hacer click en el botón <b><i>Instalar</i></b>.
+			<br><br>
+			<div align="center"><img src="img/2.3 ESP32_5.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Una vez completa la instalación, cerrar Arduino IDE y  abrir nuevamente. Las librerías y ejemplos instalados estarán disponibles.
+			<br><br>
+			Abrir el menú <b><i>Herramientas--&gt;Placa</i></b> y seleccione la placa <b><i>AI Thinker ESP32-CAM.</i></b>
+			<br><br>
+			<div align="center"><img src="img/3. ESP32 CAM_3.png" alt="" width="1000" height="auto"></div>
+			<br><br>
+			<a id="CameraWebServer"></a>
+			<b><i>3.1 Ejemplo CameraWebServer</i></b>
+			<br><br>
+			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" marginwidth="0" src="html/3.1.html"></iframe>
+			<br><br>
 		</div>
+		<script type="text/javascript">
+			/*
+			* If you do not understand what the code below does, then please just use the
+			* following call in your own code.
+			*
+			*iFrameResize({log:true});
+			*
+			* Once you have it working, set the log option to false.
+			*/
+			iFrameResize({
+				log: true, // Enable console logging
+				inPageLinks: true,
+				onResized: function(messageData) {
+					// Callback fn when resize is received
+					$('p#callback').html('<b>Frame ID:</b> ' + messageData.iframe.id + ' <b>Height:</b> ' + messageData.height + ' <b>Width:</b> ' + messageData.width + ' <b>Event type:</b> ' + messageData.type)
+				},
+				onMessage: function(messageData) {
+					// Callback fn when message is received
+					$('p#callback').html('<b>Frame ID:</b> ' + messageData.iframe.id + ' <b>Message:</b> ' + messageData.message)
+					alert(messageData.message)
+					document.getElementsByTagName('iframe')[0].iFrameResizer.sendMessage('Hello back from parent page')
+				},
+				onClosed: function(id) {
+					// Callback fn when iFrame is closed
+					$('p#callback').html('<b>IFrame (</b>' + id + '<b>) removed from page.</b>')
+				}
+			})
+		</script>
 	</body>
 </html>

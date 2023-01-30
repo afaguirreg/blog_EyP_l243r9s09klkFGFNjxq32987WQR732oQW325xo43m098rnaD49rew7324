@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Documento sin título</title>
+		<link rel="stylesheet" type="text/css" href="../../0 - styles/mystyles.css">
+		<script language="JavaScript" src="../../0 - scripts/myscripts.js"></script>
+		<script type="text/javascript" src="../../0 - scripts/iframe/iframeResizer.contentWindow.min.js" defer></script>
+	</head>
+
+	<body>
+		<div>
+			<pre>
+<font color="#5e6d03">#include</font> <font color="#005c5f">&#34;esp_camera.h&#34;</font>
+<font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><b><font color="#d35400">WiFi</font></b><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
+
+<font color="#434f54">&#47;&#47;</font>
+<font color="#434f54">&#47;&#47; WARNING!!! PSRAM IC required for UXGA resolution and high JPEG quality</font>
+<font color="#434f54">&#47;&#47; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ensure ESP32 Wrover Module or other board with PSRAM is selected</font>
+<font color="#434f54">&#47;&#47; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Partial images will be transmitted if image exceeds buffer size</font>
+<font color="#434f54">&#47;&#47;</font>
+
+<font color="#434f54">&#47;&#47; Select camera model</font>
+<font color="#5e6d03">#define</font> <font color="#000000">CAMERA_MODEL_WROVER_KIT</font> <font color="#434f54">&#47;&#47; Has PSRAM</font>
+<font color="#434f54">&#47;&#47;#define CAMERA_MODEL_ESP_EYE &#47;&#47; Has PSRAM</font>
+<font color="#434f54">&#47;&#47;#define CAMERA_MODEL_M5STACK_PSRAM &#47;&#47; Has PSRAM</font>
+<font color="#434f54">&#47;&#47;#define CAMERA_MODEL_M5STACK_V2_PSRAM &#47;&#47; M5Camera version B Has PSRAM</font>
+<font color="#434f54">&#47;&#47;#define CAMERA_MODEL_M5STACK_WIDE &#47;&#47; Has PSRAM</font>
+<font color="#434f54">&#47;&#47;#define CAMERA_MODEL_M5STACK_ESP32CAM &#47;&#47; No PSRAM</font>
+<font color="#434f54">&#47;&#47;#define CAMERA_MODEL_AI_THINKER &#47;&#47; Has PSRAM</font>
+<font color="#434f54">&#47;&#47;#define CAMERA_MODEL_TTGO_T_JOURNAL &#47;&#47; No PSRAM</font>
+
+<font color="#5e6d03">#include</font> <font color="#005c5f">&#34;camera_pins.h&#34;</font>
+
+<font color="#00979c">const</font> <font color="#00979c">char</font><font color="#434f54">*</font> <font color="#000000">ssid</font> <font color="#434f54">=</font> <font color="#005c5f">&#34;*********&#34;</font><font color="#000000">;</font>
+<font color="#00979c">const</font> <font color="#00979c">char</font><font color="#434f54">*</font> <font color="#000000">password</font> <font color="#434f54">=</font> <font color="#005c5f">&#34;*********&#34;</font><font color="#000000">;</font>
+
+<font color="#00979c">void</font> <font color="#000000">startCameraServer</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+
+<font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">115200</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#000000">setDebugOutput</font><font color="#000000">(</font><font color="#00979c">true</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+
+ &nbsp;<font color="#000000">camera_config_t</font> <font color="#d35400">config</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">config</font><font color="#434f54">.</font><font color="#000000">ledc_channel</font> <font color="#434f54">=</font> <font color="#000000">LEDC_CHANNEL_0</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">config</font><font color="#434f54">.</font><font color="#000000">ledc_timer</font> <font color="#434f54">=</font> <font color="#000000">LEDC_TIMER_0</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">config</font><font color="#434f54">.</font><font color="#000000">pin_d0</font> <font color="#434f54">=</font> <font color="#000000">Y2_GPIO_NUM</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">config</font><font color="#434f54">.</font><font color="#000000">pin_d1</font> <font color="#434f54">=</font> <font color="#000000">Y3_GPIO_NUM</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">config</font><font color="#434f54">.</font><font color="#000000">pin_d2</font> <font color="#434f54">=</font> <font color="#000000">Y4_GPIO_NUM</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">config</font><font color="#434f54">.</font><font color="#000000">pin_d3</font> <font color="#434f54">=</font> <font color="#000000">Y5_GPIO_NUM</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">config</font><font color="#434f54">.</font><font color="#000000">pin_d4</font> <font color="#434f54">=</font> <font color="#000000">Y6_GPIO_NUM</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">config</font><font color="#434f54">.</font><font color="#000000">pin_d5</font> <font color="#434f54">=</font> <font color="#000000">Y7_GPIO_NUM</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">config</font><font color="#434f54">.</font><font color="#000000">pin_d6</font> <font color="#434f54">=</font> <font color="#000000">Y8_GPIO_NUM</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">config</font><font color="#434f54">.</font><font color="#000000">pin_d7</font> <font color="#434f54">=</font> <font color="#000000">Y9_GPIO_NUM</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">config</font><font color="#434f54">.</font><font color="#000000">pin_xclk</font> <font color="#434f54">=</font> <font color="#000000">XCLK_GPIO_NUM</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">config</font><font color="#434f54">.</font><font color="#000000">pin_pclk</font> <font color="#434f54">=</font> <font color="#000000">PCLK_GPIO_NUM</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">config</font><font color="#434f54">.</font><font color="#000000">pin_vsync</font> <font color="#434f54">=</font> <font color="#000000">VSYNC_GPIO_NUM</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">config</font><font color="#434f54">.</font><font color="#000000">pin_href</font> <font color="#434f54">=</font> <font color="#000000">HREF_GPIO_NUM</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">config</font><font color="#434f54">.</font><font color="#000000">pin_sscb_sda</font> <font color="#434f54">=</font> <font color="#000000">SIOD_GPIO_NUM</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">config</font><font color="#434f54">.</font><font color="#000000">pin_sscb_scl</font> <font color="#434f54">=</font> <font color="#000000">SIOC_GPIO_NUM</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">config</font><font color="#434f54">.</font><font color="#000000">pin_pwdn</font> <font color="#434f54">=</font> <font color="#000000">PWDN_GPIO_NUM</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">config</font><font color="#434f54">.</font><font color="#000000">pin_reset</font> <font color="#434f54">=</font> <font color="#000000">RESET_GPIO_NUM</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">config</font><font color="#434f54">.</font><font color="#000000">xclk_freq_hz</font> <font color="#434f54">=</font> <font color="#000000">20000000</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">config</font><font color="#434f54">.</font><font color="#000000">pixel_format</font> <font color="#434f54">=</font> <font color="#000000">PIXFORMAT_JPEG</font><font color="#000000">;</font>
+ &nbsp;
+ &nbsp;<font color="#434f54">&#47;&#47; if PSRAM IC present, init with UXGA resolution and higher JPEG quality</font>
+ &nbsp;<font color="#434f54">&#47;&#47; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for larger pre-allocated frame buffer.</font>
+ &nbsp;<font color="#5e6d03">if</font><font color="#000000">(</font><font color="#000000">psramFound</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">config</font><font color="#434f54">.</font><font color="#000000">frame_size</font> <font color="#434f54">=</font> <font color="#000000">FRAMESIZE_UXGA</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">config</font><font color="#434f54">.</font><font color="#000000">jpeg_quality</font> <font color="#434f54">=</font> <font color="#000000">10</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">config</font><font color="#434f54">.</font><font color="#000000">fb_count</font> <font color="#434f54">=</font> <font color="#000000">2</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">}</font> <font color="#5e6d03">else</font> <font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">config</font><font color="#434f54">.</font><font color="#000000">frame_size</font> <font color="#434f54">=</font> <font color="#000000">FRAMESIZE_SVGA</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">config</font><font color="#434f54">.</font><font color="#000000">jpeg_quality</font> <font color="#434f54">=</font> <font color="#000000">12</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">config</font><font color="#434f54">.</font><font color="#000000">fb_count</font> <font color="#434f54">=</font> <font color="#000000">1</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">}</font>
+
+<font color="#5e6d03">#if</font> <font color="#000000">defined</font><font color="#000000">(</font><font color="#000000">CAMERA_MODEL_ESP_EYE</font><font color="#000000">)</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">13</font><font color="#434f54">,</font> <font color="#00979c">INPUT_PULLUP</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">14</font><font color="#434f54">,</font> <font color="#00979c">INPUT_PULLUP</font><font color="#000000">)</font><font color="#000000">;</font>
+<font color="#5e6d03">#endif</font>
+
+ &nbsp;<font color="#434f54">&#47;&#47; camera init</font>
+ &nbsp;<font color="#000000">esp_err_t</font> <font color="#000000">err</font> <font color="#434f54">=</font> <font color="#000000">esp_camera_init</font><font color="#000000">(</font><font color="#434f54">&amp;</font><font color="#d35400">config</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">err</font> <font color="#434f54">!=</font> <font color="#000000">ESP_OK</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">printf</font><font color="#000000">(</font><font color="#005c5f">&#34;Camera init failed with error 0x%x&#34;</font><font color="#434f54">,</font> <font color="#000000">err</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#5e6d03">return</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">}</font>
+
+ &nbsp;<font color="#000000">sensor_t</font> <font color="#434f54">*</font> <font color="#000000">s</font> <font color="#434f54">=</font> <font color="#000000">esp_camera_sensor_get</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#434f54">&#47;&#47; initial sensors are flipped vertically and colors are a bit saturated</font>
+ &nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">s</font><font color="#434f54">-</font><font color="#434f54">&gt;</font><font color="#000000">id</font><font color="#434f54">.</font><font color="#000000">PID</font> <font color="#434f54">==</font> <font color="#000000">OV3660_PID</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">s</font><font color="#434f54">-</font><font color="#434f54">&gt;</font><font color="#000000">set_vflip</font><font color="#000000">(</font><font color="#000000">s</font><font color="#434f54">,</font> <font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; flip it back</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">s</font><font color="#434f54">-</font><font color="#434f54">&gt;</font><font color="#000000">set_brightness</font><font color="#000000">(</font><font color="#000000">s</font><font color="#434f54">,</font> <font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; up the brightness just a bit</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">s</font><font color="#434f54">-</font><font color="#434f54">&gt;</font><font color="#000000">set_saturation</font><font color="#000000">(</font><font color="#000000">s</font><font color="#434f54">,</font> <font color="#434f54">-</font><font color="#000000">2</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; lower the saturation</font>
+ &nbsp;<font color="#000000">}</font>
+ &nbsp;<font color="#434f54">&#47;&#47; drop down frame size for higher initial frame rate</font>
+ &nbsp;<font color="#000000">s</font><font color="#434f54">-</font><font color="#434f54">&gt;</font><font color="#000000">set_framesize</font><font color="#000000">(</font><font color="#000000">s</font><font color="#434f54">,</font> <font color="#000000">FRAMESIZE_QVGA</font><font color="#000000">)</font><font color="#000000">;</font>
+
+<font color="#5e6d03">#if</font> <font color="#000000">defined</font><font color="#000000">(</font><font color="#000000">CAMERA_MODEL_M5STACK_WIDE</font><font color="#000000">)</font> <font color="#434f54">||</font> <font color="#000000">defined</font><font color="#000000">(</font><font color="#000000">CAMERA_MODEL_M5STACK_ESP32CAM</font><font color="#000000">)</font>
+ &nbsp;<font color="#000000">s</font><font color="#434f54">-</font><font color="#434f54">&gt;</font><font color="#000000">set_vflip</font><font color="#000000">(</font><font color="#000000">s</font><font color="#434f54">,</font> <font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">s</font><font color="#434f54">-</font><font color="#434f54">&gt;</font><font color="#000000">set_hmirror</font><font color="#000000">(</font><font color="#000000">s</font><font color="#434f54">,</font> <font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font>
+<font color="#5e6d03">#endif</font>
+
+ &nbsp;<b><font color="#d35400">WiFi</font></b><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">ssid</font><font color="#434f54">,</font> <font color="#000000">password</font><font color="#000000">)</font><font color="#000000">;</font>
+
+ &nbsp;<font color="#5e6d03">while</font> <font color="#000000">(</font><b><font color="#d35400">WiFi</font></b><font color="#434f54">.</font><font color="#d35400">status</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#434f54">!=</font> <font color="#000000">WL_CONNECTED</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">500</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;.&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">}</font>
+ &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#005c5f">&#34;&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#005c5f">&#34;WiFi connected&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+
+ &nbsp;<font color="#000000">startCameraServer</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+
+ &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;Camera Ready! Use &#39;http:&#47;&#47;&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><b><font color="#d35400">WiFi</font></b><font color="#434f54">.</font><font color="#d35400">localIP</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#005c5f">&#34;&#39; to connect&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+<font color="#000000">}</font>
+
+<font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;<font color="#434f54">&#47;&#47; put your main code here, to run repeatedly:</font>
+ &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">10000</font><font color="#000000">)</font><font color="#000000">;</font>
+<font color="#000000">}</font></pre>
+		</div>
+	</body>
+</html>
