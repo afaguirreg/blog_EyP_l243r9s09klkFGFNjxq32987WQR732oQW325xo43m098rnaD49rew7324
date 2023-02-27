@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Documento sin título</title>
+		<link rel="stylesheet" type="text/css" href="../../../0 - styles/mystyles.css">
+		<script language="JavaScript" src="../../../0 - scripts/myscripts.js"></script>
+		<script language="JavaScript" src="https://yui-s.yahooapis.com/3.18.1/build/yui/yui-min.js"></script>
+		<script type="text/javascript" src="../../../0 - scripts/jquery/jquery.min.js"></script>
+		<script type="text/javascript" src="../../../0 - scripts/iframe/iframeResizer.contentWindow.min.js" defer></script>
+	</head>
+
+	<body class="yui3-skin-sam" style="background-repeat:no-repeat; background-position: 0px 0px; background-image:url('../video/6. Entrada analoga.png');" onload="capturar();">
+		<div class="Normal" style="text-align:justify">
+			<br><br><br><br><br>
+			<table>
+				<tbody>
+					<tr>
+						<td width="445">
+							<div><br></div>
+						</td>
+						<td>
+							<label id="Salida" style="font-weight: bold; font-size: 18pt;"><b>Sensor: 0</b></label>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<br><br><br><br><br>
+			<br><br><br><br><br>
+			<br><br><br><br><br>
+			<br><br><br><br><br>
+			<br><br><br><br><br><br>
+		  <table>
+				<tbody>
+					<tr>
+						<td width="117">
+							<div align="center"><b>Smax</b></div>
+							<div align="center"><input type="number" style="width:96px" class="panel" id="Smax" value="1023" min="-9999" max="9999" onchange="capturar();"></div>
+						</td>
+						<td>
+							<div><br></div>
+						</td>
+						<td>
+							<div><br></div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div><br></div>
+						</td>
+						<td>
+							<div><br></div>
+							<div id="demo"></div>
+						</td>
+						<td width="22">
+						</td>
+						<td>
+							<div><br><br><br><br><br></div>
+							<div><br><br><br><br><br></div>
+							<div align="right"><input style="color: greenyellow; background-color: #064202; width:50px; text-align: left; font-family: Arial, sans-serif;	font-weight: bold; font-size: 12pt; padding: 1px 1px; margin: 0px 0; box-sizing: border-box; border: none;" id="voltaje" value=" 0.000" disabled></div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div align="center"><b>Smin</b></div>
+							<div align="center"><input type="number" style="width:96px" class="panel" id="Smin" value="0" min="-9999" max="9999" onchange="capturar();"></div>
+						</td>
+						<td>
+							<div><br></div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<br><br><br>
+			<script>
+				YUI().use('dial', function(Y) {
+					var dial = new Y.Dial( {
+						min: -2.5,
+						max: 2.5,
+						minorStep: 0.001,
+						majorStep: 0.001,
+						stepsPerRevolution: 6,
+						value: -2.5,
+						decimalPlaces: 3,
+						strings: {label:'', resetStr:'Reset', tooltipHandle:''},
+					});
+					dial.render('#demo');
+
+					// Function to update the text input value from the Dial value
+					function updateInput( e ) {
+						var val = e.newVal;
+						if (isNaN(val)) {
+							// Not a valid number.
+							return;
+						}
+						this.set("value", " " + parseFloat(val + 2.5).toFixed(3));
+						var Smax = parseFloat(document.getElementById("Smax").value);
+						var Smin = parseFloat(document.getElementById("Smin").value);
+						if (Smin == 0 && Smax == 1023)
+							document.getElementById("Salida").innerHTML = "Sensor: " + parseInt((val + 2.5) * (Smax - Smin) / 5 + Smin).toFixed(0);
+						else
+							document.getElementById("Salida").innerHTML = "Sensor: " + parseFloat((val + 2.5) * (Smax - Smin) / 5 + Smin).toFixed(1);
+					}
+
+					var theInput = Y.one( "#voltaje" );
+
+					// Subscribe to the Dial's valueChange event, passing the input as the 'this'
+					dial.on("valueChange", updateInput, theInput);
+				});
+			</script>
+			<br>
+			<i>valor_ADC</i> = <i>voltaje</i> *
+			<div class="fraction">
+				<span class="fup">1023</span>
+				<span class="bar">/</span>
+				<span class="fdn">5V</span>
+			</div>
+			<br><br>
+			<i>sensor</i> = <i>valor_ADC</i> *
+			<div class="fraction">
+				<span class="fup">(Smax - Smin)</span>
+				<span class="bar">/</span>
+				<span class="fdn">1023</span>
+			</div> + Smin
+			<br><br>
+			<i>sensor</i> = <i>valor_ADC</i> *
+			<div class="fraction">
+				<span class="fup">(<span id="Ymax">1023 - 0</span><span id="Ymin1"></span>)</span>
+				<span class="bar">/</span>
+				<span class="fdn">1023</span>
+			</div>
+			<span id="Ymin2"></span>
+			<br><br>
+			<div class="dibujo-canvas" align="center">
+				<canvas id="lienzo1" display="block" color="blue" width="1000" height="512"></canvas>
+				<script type="text/javascript">
+					ejercicio1(0,1023);
+					function ejercicio1(y1, y2) {
+						ej1=document.getElementById("lienzo1");
+						lienzo1=ej1.getContext("2d");
+						lienzo1.clearRect(0,0,1000,512);
+						lienzo1.fillStyle = "#EEEEEE";
+						lienzo1.fillRect(200, 0, 600, 512);
+						lienzo1.lineWidth=2;
+						lienzo1.strokeStyle = '#000';
+						//EJE X
+						lienzo1.beginPath();
+						lienzo1.moveTo(200,256);
+						lienzo1.lineTo(800,256);
+						lienzo1.stroke();
+						lienzo1.closePath();
+						//EJEY
+						lienzo1.beginPath();
+						lienzo1.moveTo(200,0);
+						lienzo1.lineTo(200,512);
+						lienzo1.stroke();
+						lienzo1.closePath();
+						//DRAW SCALE
+						lienzo1.lineWidth=1;
+						lienzo1.strokeStyle = '#BBBBBB';
+						lienzo1.beginPath(); 
+						for (var i=200;i<=800;i+=120) {
+							lienzo1.moveTo(i,0);
+							lienzo1.lineTo(i,512);
+						}
+						for (var i=0;i<=512;i+=128) {
+							lienzo1.moveTo(200,i);
+							lienzo1.lineTo(800,i);
+						}
+						lienzo1.stroke();
+						lienzo1.closePath();
+						lienzo1.strokeStyle = '#000000';
+						lienzo1.beginPath(); 
+						for (var i=200;i<=800;i+=60) {
+							lienzo1.moveTo(i,250);
+							lienzo1.lineTo(i,262);
+						}
+						for (var i=0;i<=512;i+=64) {
+							lienzo1.moveTo(194,i);
+							lienzo1.lineTo(206,i);
+						}
+						lienzo1.stroke();
+						lienzo1.closePath();
+						//DRAW 0 - 1023
+						if (Math.abs(y1)<=1023 && y2<=1023) {
+							lienzo1.lineWidth=1;
+							lienzo1.strokeStyle = '#FF0000';
+							lienzo1.beginPath();
+							lienzo1.moveTo(200,256);
+							lienzo1.lineTo(800,0);
+							lienzo1.stroke();
+							lienzo1.closePath();
+							lienzo1.font = "15px Arial";
+							lienzo1.fillStyle = '#FF0000';
+							lienzo1.beginPath();
+							lienzo1.fillText("x:0 y:0", 135, 260);
+							lienzo1.fillText("x:5 y:1023", 820, 12);
+							lienzo1.stroke();
+							lienzo1.closePath();
+							lienzo1.strokeStyle = '#0000FF';
+							lienzo1.beginPath();
+							lienzo1.moveTo(200,256-y1/1023*256);
+							lienzo1.lineTo(800,256-y2/1023*256);
+							lienzo1.stroke();
+							lienzo1.closePath();
+							lienzo1.fillStyle = '#0000FF';
+							lienzo1.font = "15px Arial";
+							lienzo1.fillText("x:0" + " y:" + y1, 60, 260-y1/1023*244);
+							lienzo1.fillText("x:5" + " y:" + y2, 910, 268-y2/1023*256);
+							lienzo1.stroke();
+							lienzo1.closePath();
+						}
+						else if (Math.abs(y1)<=y2) {
+							lienzo1.lineWidth=1;
+							lienzo1.strokeStyle = '#FF0000';
+							lienzo1.beginPath();
+							lienzo1.moveTo(200,256);
+							lienzo1.lineTo(800,256-1023/y2*256);
+							lienzo1.stroke();
+							lienzo1.closePath();
+							lienzo1.font = "15px Arial";
+							lienzo1.fillStyle = '#FF0000';
+							lienzo1.beginPath();
+							lienzo1.fillText("x:0 y:0", 135, 260);
+							lienzo1.fillText("x:5 y:1023", 820, 268-1023/y2*256);
+							lienzo1.stroke();
+							lienzo1.closePath();
+							lienzo1.lineWidth=1;
+							lienzo1.strokeStyle = '#0000FF';
+							lienzo1.moveTo(200,256-y1/y2*256);
+							lienzo1.lineTo(800,0);
+							lienzo1.stroke();
+							lienzo1.closePath();
+							lienzo1.fillStyle = '#0000FF';
+							lienzo1.font = "15px Arial";
+							lienzo1.fillText("x:0" + " y:" + y1, 60, 260-y1/y2*244);
+							lienzo1.fillText("x:5" + " y:" + y2, 910, 12);
+							lienzo1.stroke();
+							lienzo1.closePath();
+						}
+						else if (Math.abs(y1)>y2) {
+							lienzo1.lineWidth=1;
+							lienzo1.strokeStyle = '#FF0000';
+							lienzo1.beginPath();
+							lienzo1.moveTo(200,256);
+							lienzo1.lineTo(800,256-1023/Math.abs(y1)*256);
+							lienzo1.stroke();
+							lienzo1.closePath();
+							lienzo1.font = "15px Arial";
+							lienzo1.fillStyle = '#FF0000';
+							lienzo1.beginPath();
+							lienzo1.fillText("x:0 y:0", 135, 260);
+							lienzo1.fillText("x:5 y:1023", 820, 268-1023/-y1*256);
+							lienzo1.stroke();
+							lienzo1.closePath();
+							lienzo1.lineWidth=1;
+							lienzo1.strokeStyle = '#0000FF';
+							lienzo1.moveTo(200,512);
+							lienzo1.lineTo(800,256+y2/y1*256);
+							lienzo1.stroke();
+							lienzo1.closePath();
+							lienzo1.fillStyle = '#0000FF';
+							lienzo1.font = "15px Arial";
+							lienzo1.fillText("x:0" + " y:" + y1, 60, 504);
+							lienzo1.fillText("x:5" + " y:" + y2, 910, 268+y2/y1*256);
+							lienzo1.stroke();
+							lienzo1.closePath();
+						}
+					}
+				</script>
+			</div>
+			<br>
+			<pre>
+<font color="#434f54">&#47;&#47; include the library code:</font>
+<font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><font color="#d35400">LiquidCrystal</font><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
+
+<font color="#00979c">const</font> <font color="#00979c">int</font> <font color="#000000">rs</font> <font color="#434f54">=</font> <font color="#000000">12</font><font color="#434f54">,</font> <font color="#000000">en</font> <font color="#434f54">=</font> <font color="#000000">11</font><font color="#434f54">,</font> <font color="#000000">d4</font> <font color="#434f54">=</font> <font color="#000000">5</font><font color="#434f54">,</font> <font color="#000000">d5</font> <font color="#434f54">=</font> <font color="#000000">4</font><font color="#434f54">,</font> <font color="#000000">d6</font> <font color="#434f54">=</font> <font color="#000000">3</font><font color="#434f54">,</font> <font color="#000000">d7</font> <font color="#434f54">=</font> <font color="#000000">2</font><font color="#000000">;</font>
+<font color="#d35400">LiquidCrystal</font> <font color="#000000">lcd</font><font color="#000000">(</font><font color="#000000">rs</font><font color="#434f54">,</font> <font color="#000000">en</font><font color="#434f54">,</font> <font color="#000000">d4</font><font color="#434f54">,</font> <font color="#000000">d5</font><font color="#434f54">,</font> <font color="#000000">d6</font><font color="#434f54">,</font> <font color="#000000">d7</font><font color="#000000">)</font><font color="#000000">;</font>
+
+<font color="#00979c">float</font> <font color="#000000">valor_ADC</font><font color="#000000">;</font>
+<font color="#00979c">float</font> <font color="#000000">sensor</font><font color="#000000">;</font>
+
+<font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;<font color="#434f54">&#47;&#47; put your setup code here, to run once:</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">10</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">10</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">16</font><font color="#434f54">,</font> <font color="#000000">2</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">200</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;Sensor:&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+<font color="#000000">}</font>
+
+<font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;<font color="#434f54">&#47;&#47; put your main code here, to run repeatedly:</font>
+ &nbsp;<font color="#000000">valor_ADC</font> <font color="#434f54">=</font> <font color="#d35400">analogRead</font><font color="#000000">(</font><font color="#000000">A0</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font id="Sensor1"></font><font id="Por"></font><font id="Rango"></font><font id="Barra"></font><font id="Denominador"></font><font id="Span"></font>
+ 
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">setCursor</font><font color="#000000">(</font><font color="#000000">8</font><font color="#434f54">,</font><font color="#000000">0</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">sensor,1</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34; &nbsp;&nbsp;&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">500</font><font color="#000000">)</font><font color="#000000">;</font>
+<font color="#000000">}</font>
+</pre>
+			<br>
+			Comentarios del programa:
+			<br><br>
+			El ejemplo está debidamente documentado, por lo cual su comprensión no reviste mayor dificultad.
+			<br><br>
+			Se debe tener especial atención al seleccionar elcanal a leer:
+			<br><br>
+			analogRead(A0); esta instrucción selecciona elcanal A0
+			<br>
+			analogRead(A1); esta instrucción selecciona elcanal A1
+			<br>
+			analogRead(A2); esta instrucción selecciona elcanal A2… etc…
+			<br><br>
+			Esta instrucción lee elvalor análogo en el canal seleccionado previamente
+			<br><br>
+			Para observar la variación de la unidad medida se hadispuesto un potenciómetro como sensor.
+			<br><br><br>
+			<a id="Funcion map para escalamiento de lectura analogica"></a>
+			<b><i>7.2 Función map para escalamiento de lectura analógica</i></b>
+			<br>
+			<pre>
+<font color="#434f54">&#47;&#47; include the library code:</font>
+<font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><font color="#d35400">LiquidCrystal</font><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
+
+<font color="#00979c">const</font> <font color="#00979c">int</font> <font color="#000000">rs</font> <font color="#434f54">=</font> <font color="#000000">12</font><font color="#434f54">,</font> <font color="#000000">en</font> <font color="#434f54">=</font> <font color="#000000">11</font><font color="#434f54">,</font> <font color="#000000">d4</font> <font color="#434f54">=</font> <font color="#000000">5</font><font color="#434f54">,</font> <font color="#000000">d5</font> <font color="#434f54">=</font> <font color="#000000">4</font><font color="#434f54">,</font> <font color="#000000">d6</font> <font color="#434f54">=</font> <font color="#000000">3</font><font color="#434f54">,</font> <font color="#000000">d7</font> <font color="#434f54">=</font> <font color="#000000">2</font><font color="#000000">;</font>
+<font color="#d35400">LiquidCrystal</font> <font color="#000000">lcd</font><font color="#000000">(</font><font color="#000000">rs</font><font color="#434f54">,</font> <font color="#000000">en</font><font color="#434f54">,</font> <font color="#000000">d4</font><font color="#434f54">,</font> <font color="#000000">d5</font><font color="#434f54">,</font> <font color="#000000">d6</font><font color="#434f54">,</font> <font color="#000000">d7</font><font color="#000000">)</font><font color="#000000">;</font>
+
+<font color="#00979c">float</font> <font color="#000000">valor_ADC</font><font color="#000000">;</font>
+<font color="#00979c">float</font> <font color="#000000">sensor</font><font color="#000000">;</font>
+
+<font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;<font color="#434f54">&#47;&#47; put your setup code here, to run once:</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">10</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">10</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">16</font><font color="#434f54">,</font> <font color="#000000">2</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">200</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;Sensor:&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+<font color="#000000">}</font>
+
+<font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;<font color="#434f54">&#47;&#47; put your main code here, to run repeatedly:</font>
+ &nbsp;<font color="#000000">valor_ADC</font> <font color="#434f54">=</font> <font color="#d35400">analogRead</font><font color="#000000">(</font><font color="#000000">A0</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font id="Sensor2"></font><font color="#d35400" id="Map"></font><font id="MapArgs"></font>
+ 
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">setCursor</font><font color="#000000">(</font><font color="#000000">8</font><font color="#434f54">,</font><font color="#000000">0</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">sensor,1</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34; &nbsp;&nbsp;&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">500</font><font color="#000000">)</font><font color="#000000">;</font>
+<font color="#000000">}</font>
+</pre>
+			<script>
+				function capturar() {
+					var Smax=document.getElementById("Smax").value
+					var Smin=document.getElementById("Smin").value
+					ejercicio1(Smin, Smax);
+					var rango = Smax - Smin;
+					if (Smax==1023 && Smin==0) {
+						document.getElementById("Sensor1").innerHTML = "sensor = valor_ADC;";
+						document.getElementById("Sensor2").innerHTML = "sensor = valor_ADC;";
+						document.getElementById("Map").innerHTML = "";
+						document.getElementById("MapArgs").innerHTML = "";
+						document.getElementById("Por").innerHTML = "";
+						document.getElementById("Rango").innerHTML = "";
+						document.getElementById("Barra").innerHTML = "";
+						document.getElementById("Denominador").innerHTML = "";
+						document.getElementById("Span").innerHTML = "";
+					}
+					else
+					{
+						document.getElementById("Sensor1").innerHTML = "sensor = valor_ADC";
+						document.getElementById("Sensor2").innerHTML = "sensor = ";
+						document.getElementById("Map").innerHTML = "map";
+						document.getElementById("MapArgs").innerHTML = "(valor_ADC,0,1023," + Smin + "," + Smax + ");";
+						document.getElementById("Por").innerHTML = " * ";
+						document.getElementById("Rango").innerHTML = rango;
+						document.getElementById("Barra").innerHTML = " / ";
+						document.getElementById("Denominador").innerHTML = "1023";
+					}
+					if (Smin>=0) {
+						document.getElementById("Ymin1").innerHTML = " - " + Smin;
+						document.getElementById("Ymin2").innerHTML = " + " + Smin;
+					}
+					else {
+						document.getElementById("Ymin1").innerHTML = " + " + -Smin;
+						document.getElementById("Ymin2").innerHTML = " - " + -Smin;
+					}
+					if (Smin==0 && Smax!=1023) {
+						document.getElementById("Span").innerHTML = ";";
+					}
+					if (Smin>0) {
+						document.getElementById("Span").innerHTML = " + " + Smin + ";";
+					}
+					if (Smin<0) {
+						document.getElementById("Span").innerHTML = " - " + -Smin + ";";
+					}
+					if (rango==1023 && Smin>0) {
+						document.getElementById("Por").innerHTML = " + " + Smin + ";"
+						document.getElementById("Rango").innerHTML = "";
+						document.getElementById("Barra").innerHTML = "";
+						document.getElementById("Denominador").innerHTML = "";
+						document.getElementById("Span").innerHTML = "";
+					}
+					if (rango==1023 && Smin<0) {
+						document.getElementById("Sensor").innerHTML = "sensor = valor_ADC; ";
+						document.getElementById("Por").innerHTML = " - " + -Smin + ";";
+						document.getElementById("Rango").innerHTML = "";
+						document.getElementById("Barra").innerHTML = "";
+						document.getElementById("Denominador").innerHTML = "";
+						document.getElementById("Span").innerHTML = "";
+					}
+					document.getElementById("Ymax").innerHTML = Smax;
+				}
+			</script>
+		</div>
+	</body>
+</html>
