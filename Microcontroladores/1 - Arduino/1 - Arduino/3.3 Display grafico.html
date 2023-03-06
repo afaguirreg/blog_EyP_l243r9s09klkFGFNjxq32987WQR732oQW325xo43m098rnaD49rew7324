@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Documento sin título</title>
+		<link rel="stylesheet" type="text/css" href="../../../0 - styles/mystyles.css">
+		<script language="JavaScript" src="../../../0 - scripts/myscripts.js"></script>
+		<script type="text/javascript" src="../../../0 - scripts/iframe/iframeResizer.min.js"></script>
+	</head>
+
+	<body>
+		<div class="Normal" style="text-align:justify">
+			<a id="Display grafico"></a>
+			<b>3.3 Display gráfico</b>
+			<br><br>
+			<a id="OLED 128x32 driver SSD1306"></a>
+			<b><i>3.3.1 OLED 128x32 driver SSD1306</i></b>
+			<br><br>
+			<div align="center">
+				<video controls controlslist="nodownload" preload="preload" loop>
+					<source src="../video/3.3.1 OLED 128x32.mp4" type="video/webm">
+				</video>
+			</div>
+			<br>
+			Abrir el menú <b><i>Herramientas--&gt;Administrar Bibliotecas...</i></b>
+			<br><br>
+			<div align="center"><img src="../../img/3.3 Display grafico_1.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Buscar e instalar la librería <b><i>ssd1306</i></b>
+			<br><br>
+			<div align="center"><img src="../../img/3.3 Display grafico_2.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Aceptar (Install all) la instalación de la librería adicional <b><i>Adafruit GFX Library</i></b>
+			<br><br>
+			<div align="center"><img src="../../img/3.3 Display grafico_3.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Abrir el menú <b><i>Archivo--&gt;Ejemplos--&gt;Adafruit SSD1306</i></b> y seleccionar el proyecto ejemplo <b><i>ssd1306_128x32_i2c</i></b>
+			<br><br>
+			<div align="center"><img src="../../img/3.3 Display grafico_4.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" marginwidth="0" src="html/3.3.1.html"></iframe>
+			<br><br>
+			<a id="OLED 128x64 driver SSD1306"></a>
+			<b><i>3.3.2 OLED 128x64 driver SSD1306</i></b>
+			<br><br>
+			<div align="center">
+				<video controls controlslist="nodownload" preload="preload" loop>
+					<source src="../video/3.3.2 OLED 128x64.mp4" type="video/webm">
+				</video>
+			</div>
+			<br>
+			Abrir el menú <b><i>Archivo--&gt;Ejemplos--&gt;Adafruit SSD1306</i></b> y seleccionar el proyecto ejemplo <b><i>ssd1306_128x64_i2c</i></b>
+			<br>
+			<br>
+			<div align="center"><img src="../../img/3.3 Display grafico_5.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm2" name="ifrm2" scrolling="no" marginwidth="0" src="html/3.3.2.html"></iframe>
+			<br><br>
+			<a id="Nokia 3310 driver PCD8544"></a>
+			<b><i>3.3.3 Nokia 3310 driver PCD8544</i></b>
+			<br><br>
+			<div align="center">
+				<video controls controlslist="nodownload" preload="preload" loop>
+					<source src="../video/3.3.3 Nokia 3110.mp4" type="video/webm">
+				</video>
+			</div>
+			<br>
+			Buscar e instalar la librería <b><i>Adafruit PCD8544 Nokia 5110 LCD library</i></b>
+			<br><br>
+			<div align="center"><img src="../../img/3.3 Display grafico_6.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Abrir el menú <b><i>Archivo--&gt;Ejemplos--&gt;Adafruit PCD8544 Nokia LCD library</i></b> y seleccionar el proyecto ejemplo <b><i>pcdtest</i></b>
+			<br>
+			<br>
+			<div align="center"><img src="../../img/3.3 Display grafico_7.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm3" name="ifrm3" scrolling="no" marginwidth="0" src="html/3.3.3.html"></iframe>
+			<br><br>
+			<a id="Nokia 5110 driver PCD8544"></a>
+			<b><i>3.3.4 Nokia 5110 driver PCD8544</i></b>
+			<br><br>
+			<div align="center">
+				<video controls controlslist="nodownload" preload="preload" loop>
+					<source src="../video/3.3.4 Nokia 5110.mp4" type="video/webm">
+				</video>
+			</div>
+			<br>
+			Nota: Este circuito funciona con el código del proyecto 3.3.3
+		</div>
+		<script type="text/javascript">
+			/*
+			* If you do not understand what the code below does, then please just use the
+			* following call in your own code.
+			*
+			*iFrameResize({log:true});
+			*
+			* Once you have it working, set the log option to false.
+			*/
+			iFrameResize({
+				log: true, // Enable console logging
+				inPageLinks: true,
+				onResized: function(messageData) {
+					// Callback fn when resize is received
+					$('p#callback').html('<b>Frame ID:</b> ' + messageData.iframe.id + ' <b>Height:</b> ' + messageData.height + ' <b>Width:</b> ' + messageData.width + ' <b>Event type:</b> ' + messageData.type)
+				},
+				onMessage: function(messageData) {
+					// Callback fn when message is received
+					$('p#callback').html('<b>Frame ID:</b> ' + messageData.iframe.id + ' <b>Message:</b> ' + messageData.message)
+					alert(messageData.message)
+					document.getElementsByTagName('iframe')[0].iFrameResizer.sendMessage('Hello back from parent page')
+				},
+				onClosed: function(id) {
+					// Callback fn when iFrame is closed
+					$('p#callback').html('<b>IFrame (</b>' + id + '<b>) removed from page.</b>')
+				}
+			})
+		</script>
+	</body>
+</html>
