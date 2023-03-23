@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Documento sin título</title>
+		<link rel="stylesheet" type="text/css" href="../../../0 - styles/mystyles.css">
+		<script language="JavaScript" src="../../../0 - scripts/myscripts.js"></script>
+		<script type="text/javascript" src="../../../0 - scripts/iframe/iframeResizer.contentWindow.min.js" defer></script>
+	</head>
+
+	<body>
+		<div class="Normal" style="text-align:justify">
+			Una interrupción es un evento que hace que el microcontrolador deje de ejecutar la tarea que está realizando para atender dicho acontecimiento y luego regrese y continúe la tarea que estaba realizando antes de que se presentara la interrupción.
+			<br><br>
+			Para entender la utilidad y necesidad de las interrupciones, supongamos que tenemos Arduino conectado a un sensor, por ejemplo encoder óptico que cuenta las revoluciones de un motor, un detector que emite una alarma de nivel de agua en un depósito, o un  pulsador de parada.
+			<br><br>
+			Si queremos detectar un cambio de estado en esta entrada, el método que hemos usado hasta ahora es emplear las entradas digitales para consultar repetidamente el valor de la entrada.
+			<br><br>
+			Este mecanismo se denomina “poll” y tiene tres claras desventajas.
+			<br><br>
+			- Suponer un continuo consumo de procesador y de energía, al tener que preguntar continuamente por el estado de la entrada.
+			<br><br>
+			- Si la acción necesita ser atendida inmediatamente, por ejemplo en una alerta de colisión, esperar hasta el punto de programa donde se realiza la consulta puede ser inaceptable.
+			- Si el pulso es muy corto, o si el procesador está ocupado haciendo otra tarea mientras se produce, es posible se omita el pulso y no se llegue a detectar.
+			<br><br>
+			Para resolver este tipo de problemas, los microprocesadores incorporan el concepto de interrupción, que es un mecanismo que permite asociar una función a la ocurrencia de un determinado evento. Esta función de callback asociada se denomina ISR (Interruption Service Rutine).
+			<br><br>
+			Cuando ocurre el evento el procesador “sale” inmediatamente del flujo normal del programa y ejecuta la función ISR asociada ignorando por completo cualquier otra tarea (por esto se llama interrupción). Al finalizar la función ISR asociada, el procesador vuelve al flujo principal, en el mismo punto donde había sido interrumpido.
+			<br><br>
+			Arduino dispone de dos tipos de eventos en los que definir interrupciones. Por un lado tenemos las interrupciones de timers (que veremos en su momento al hablar de temporizadores. Por otro lado, tenemos las interrupciones de hardware, que responden a eventos ocurridos en ciertos pines físicos.
+			<br><br>
+			Dentro de las interrupciones de hardware, que son las que nos ocupan en esta entrada, Arduino es capaz de detectar los siguientes eventos.
+			<br><br>
+			- RISING, ocurre en el flanco de subida de LOW a HIGH.
+			<br><br>
+			- FALLING, ocurre en el flanco de bajada de HIGH a LOW.
+			<br><br>
+			- CHANGING, ocurre cuando el pin cambia de estado (rising + falling).
+			<br><br>
+			- LOW, se ejecuta continuamente mientras está en estado LOW.
+			<br><br>
+			- LOW, se ejecuta continuamente mientras está en estado LOW.
+			<br><br>
+			<div align="center"><img src="../../img/1.6.png" alt="" width="auto" height="auto"></div>
+		</div>
+	</body>
+</html>
