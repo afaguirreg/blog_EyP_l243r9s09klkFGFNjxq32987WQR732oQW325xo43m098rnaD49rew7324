@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Documento sin título</title>
+		<link rel="stylesheet" type="text/css" href="../../../0 - styles/mystyles.css">
+		<script language="JavaScript" src="../../../0 - scripts/myscripts.js"></script>
+		<script type="text/javascript" src="../../../0 - scripts/iframe/iframeResizer.min.js"></script>
+	</head>
+
+	<body>
+		<div class="Normal" style="text-align:justify">
+			<a id="LCD Assistant"></a>
+			<b>3.5 LCD Assistant</b>
+			<br><br>
+			<div align="center">
+				<video controls controlslist="nodownload" preload="preload" loop>
+					<source src="../video/3.5.1 LCD Assistant.webm" type="video/webm">
+				</video>
+			</div>
+			<br><br>
+			LCD Assistant es un programa portable que permite convertir imagenes monocromáticas en código para utilizar con pantallas compatibles.
+			<br><br>
+			Descarga de LCD Assistant:
+			<br><br>
+			<a href="https://en.radzio.dxp.pl/bitmap_converter/LCDAssistant.zip">https://en.radzio.dxp.pl/bitmap_converter/LCDAssistant.zip</a>
+			<br><br>
+			Buscar y descargar la imagen deseada
+			<br><br>
+			<div align="center"><img src="../../img/3.5 LCD Assistant_1.png" alt="" width="1000" height="auto"></div>
+			<br>
+			Abrir la imagen con un editor (MS Paint)
+			<br><br>
+			<div align="center"><img src="../../img/3.5 LCD Assistant_2.png" alt="" width="1000" height="auto"></div>
+			<br>
+			Guardar la imagen en formato .bmp (Mapa de bits monocromático)
+			<br><br>
+			<div align="center"><img src="../../img/3.5 LCD Assistant_3.png" alt="" width="1000" height="auto"></div>
+			<br>
+			Abrir LCD Assistant y seleccionar el menu <b><i>File --&gt; Load image</i></b>
+			<br><br>
+			<div align="center"><img src="../../img/3.5 LCD Assistant_4.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Seleccionar el archivo de imagen en formato .bmp
+			<br><br>
+			<div align="center"><img src="../../img/3.5 LCD Assistant_5.png" alt="" width="1000" height="auto"></div>
+			<br>
+			Realizar las configuraciones necesarias y seleccionar el menu <b><i>File --&gt; Save output</i></b>
+			<br><br>
+			<div align="center"><img src="../../img/3.5 LCD Assistant_6.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Guardar con extensión .h en la carpeta del proyecto (archivo .ino)
+			<br><br>
+			<div align="center"><img src="../../img/3.5 LCD Assistant_7.png" alt="" width="1000" height="auto"></div>
+			<br>
+			Editar el archivo con extensión .h (Tipo de dato del vector)
+			<br><br>
+			<div align="center"><img src="../../img/3.5 LCD Assistant_8.png" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" marginwidth="0" src="html/3.5.1.html"></iframe>
+		</div>
+		<script type="text/javascript">
+			/*
+			* If you do not understand what the code below does, then please just use the
+			* following call in your own code.
+			*
+			*iFrameResize({log:true});
+			*
+			* Once you have it working, set the log option to false.
+			*/
+			iFrameResize({
+				log: true, // Enable console logging
+				inPageLinks: true,
+				onResized: function(messageData) {
+					// Callback fn when resize is received
+					$('p#callback').html('<b>Frame ID:</b> ' + messageData.iframe.id + ' <b>Height:</b> ' + messageData.height + ' <b>Width:</b> ' + messageData.width + ' <b>Event type:</b> ' + messageData.type)
+				},
+				onMessage: function(messageData) {
+					// Callback fn when message is received
+					$('p#callback').html('<b>Frame ID:</b> ' + messageData.iframe.id + ' <b>Message:</b> ' + messageData.message)
+					alert(messageData.message)
+					document.getElementsByTagName('iframe')[0].iFrameResizer.sendMessage('Hello back from parent page')
+				},
+				onClosed: function(id) {
+					// Callback fn when iFrame is closed
+					$('p#callback').html('<b>IFrame (</b>' + id + '<b>) removed from page.</b>')
+				}
+			})
+		</script>
+	</body>
+</html>
