@@ -19,7 +19,7 @@
 		  <br><br>
 			Puede descargar la librería de controles y utilizarlas para diseñar esta interfaz:
 			<br><br>
-			<a href="https://drive.google.com/uc?id=1SnwTyCkjbCGldzgo9pCmft6ogRuHhy6s&export=download&authuser=0" target="_blank">https://drive.google.com/uc?id=1SnwTyCkjbCGldzgo9pCmft6ogRuHhy6s&amp;export=download&amp;authuser=0</a>
+			<a href="https://drive.google.com/uc?id=1o19RIH7GxKLQsAuE4TOSZdqP4yhxpC-w&export=download&authuser=0" target="_blank">https://drive.google.com/uc?id=1o19RIH7GxKLQsAuE4TOSZdqP4yhxpC-w&amp;export=download&amp;authuser=0</a>
 			<br><br>
 			<b><i>Nota</i></b>: Copiar el archivo descargado <b><i>MfgControl.AdvancedHMI.Controls.dll</i></b> a la unidad C: \ del sistema.
 			<br><br>
@@ -65,12 +65,13 @@
 			<br><br>
 		  <div align="center"><img src="img/2.9_3.png" alt="" width="auto" height="auto"></div>
 			<br>
-			Como puede ver, el uso de los eventos es muy intuitivo. Para lograr que el programa se comporte tal y como usted desea, debe haber definido claramente cuando y como desea que ocurran las acciones de control sobre las variables y objetos.
+			Como puede ver, el uso de los eventos es muy intuitivo. Para lograr que el programa se comporte tal y como usted desea, debe definir claramente cuando y como desea que ocurran las acciones de control sobre las variables y objetos.
 			<br><br>
 			El evento <b><i>Click</i></b> ocurre cuando el objeto <b><i>pushButton</i></b> detecta que se ha pulsado el botón izquierdo del mouse sobre él.
 			<br><br>
-			Para éste caso se ha programado que el control <b><i>pushButton1</i></b> active <b><i>waterPump1</i></b> y <b><i>pneumaticValve1</i></b> y <b><i>pushButton2</i></b> activará <b><i>waterPump2</i></b> y <b><i>pneumaticValve2</i></b>, lo cual ejecutará una animación de cambio de color.
-			<br><br>
+			Para éste caso se ha programado que el control <b><i>pushButton1</i></b> active <b><i>waterPump1</i></b> y <b><i>pneumaticValve1</i></b> y <b><i>pushButton2</i></b> activará <b><i>waterPump2</i></b> y <b><i>pneumaticValve2</i></b>, lo cual ejecutará una animación de cambio de color en estos objetos.
+			<br>
+			<br>
 			<div align="center"><img src="img/2.9_4.png" alt="" width="auto" height="auto"></div>
 			<br>
 			Continuando con nuestro proyecto, vamos a declarar las variables que almacenarán el valor numérico del estado del proceso.
@@ -89,7 +90,7 @@
 			<br>
 			En las propiedades del control <b><i>timer1</i></b> hallaremos la propiedad <b><i>enabled</i></b> que permite habilitar el evento de ocurrencia a intervalos regulares y la propiedad <b><i>interval</i></b> que permite definir el tiempo de intervalo en milisegundos (100 ms = 0,1 segundo)
 			<br><br>
-			El objeto <b><i>timer1</i></b> se encargará de monitorear las variables durante el proceso de llenado del depósito y el proceso de vaciado corresponderá a <b><i>timer2</i></b>.
+			El objeto <b><i>timer1</i></b> se encargará de monitorear las variables durante el proceso de llenado del depósito y el proceso de vaciado corresponderá al objeto <b><i>timer2</i></b>.
 			<br><br>
 			La habilitación de estos objetos se programó en el evento <b><i>Click</i></b> de <b><i>pushButton1</i></b> y <b><i>pushButton2</i></b>.
 			<br><br>
@@ -99,20 +100,26 @@
 			<br><br>
 			<b><i>Estructura condicional if</i></b>
 			<br><br>
-			Esta estructura permite la ejecución de una instrucción o de un bloque de código si se cumple una condición (El resultado es Falso o Verdadero).
+			Esta estructura permite la ejecución de una instrucción o de un bloque de instrucciones si se cumple una condición (El resultado es Falso o Verdadero).
 			Generalmente se utilizan operaciones lógicas y relacionales para establecer el resultado de la condición.
 			<br><br>
 			Apliquemos su principio a nuestro proyecto.
 			<br><br>
 			<div align="center"><img src="img/2.9_8.png" alt="" width="auto" height="auto"></div>
 			<br>
-			
+			Proyecto en funcionamiento:
+			<br><br>
+			<div align="center">
+				<video controls controlslist="nodownload" preload="preload" loop>
+					<source src="video/Proyecto.webm" type="video/webm">
+				</video>
+			</div>
 			<br><br>
 			<b><i>Sonidos</i></b>
 			<br><br>
 			En ocasiones puede resultar útil reproducir sonidos en nuestra aplicación.
 			<br><br>
-			Adicionaremos a nuestro proyecto el código necesario para darle la capacidad de reproducir un sonido de alarma cuando la presión sobrepase un determinado valor.
+			Adicionaremos a nuestro proyecto el código necesario para darle la capacidad de reproducir un sonido de alarma cuando el nivel llegue a un valor determinado.
 			<br><br>
 			Agregar las siguientes líneas:
 			<br><br>
@@ -120,7 +127,7 @@
 			<br>
 			<div align="center"><img src="img/2.9_10.png" alt="" width="auto" height="auto"></div>
 			<br>
-			Programar el evento <b><i>Tick</i></b> del objeto <b><i>Timer1</i></b> con las siguientes líneas de código:
+			Programar el evento <b><i>Tick</i></b> del objeto <b><i>Timer3</i></b> con las siguientes líneas de código:
 			<br><br>
 			<div align="center"><img src="img/2.9_11.png" alt="" width="auto" height="auto"></div>
 			<br>
@@ -146,7 +153,7 @@
 			<br><br>
 			<div align="center"><img src="img/2.9_13.png" alt="" width="auto" height="auto"></div>
 			<br>
-			Insertar un control Timer adicional y programar el evento Tick.
+			Programar el evento <b><i>Tick</i></b> del objeto <b><i>Timer4</i></b> con las siguientes líneas de código:
 			<br><br>
 			<div align="center"><img src="img/2.9_14.png" alt="" width="1000" height="auto"></div>
 			<br>
@@ -187,17 +194,17 @@
 			<br><br>
 			<div align="center"><img src="img/2.9_19.png" alt="" width="auto" height="auto"></div>
 			<br>
-			Podemos configurar el aspecto de la ventana de acuerdo al proyecto desarrollado, definiendo imagen, color, texto, etc.
+			Podemos configurar el aspecto de la ventana de acuerdo con el proyecto desarrollado, definiendo imagen, color, texto, etc.
 			<br><br>
 			<div align="center"><img src="img/2.9_20.png" alt="" width="auto" height="auto"></div>
 			<br>
 			<div align="center"><img src="img/2.9_21.png" alt="" width="auto" height="auto"></div>
 			<br>
-			Finalmente, adicionamos código al evento Tick del control Timer1 para definir el comportamiento deseado (ocultar la ventana Splash Screen y mostrar la siguiente ventana cuando hayan transcurrido 3 segundos).
+			Finalmente, adicionamos código al evento <b><i>Tick</i></b> del control <b><i>Timer1</i></b> para definir el comportamiento deseado (ocultar la ventana Splash Screen y mostrar la siguiente ventana cuando hayan transcurrido 3 segundos).
 			<br><br>
 			<div align="center"><img src="img/2.9_22.png" alt="" width="auto" height="auto"></div>
 			<br>
-			Hacemos doble click en Program.cs, en el explorador de proyectos y nos aseguramos de que el objeto inicial del proyecto será la nueva ventana Splash Screen:
+			Hacer doble click en Program.cs, en el explorador de proyectos y nos aseguramos de que el objeto inicial del proyecto será la nueva ventana Splash Screen:
 			<br><br>
 			<div align="center"><img src="img/2.9_23.png" alt="" width="auto" height="auto"></div>
 			<br>
@@ -209,9 +216,7 @@
 			<br><br>
 			<div align="center"><img src="img/2.9_25.png" alt="" width="auto" height="auto"></div>
 			<br>
-			Cuando se ejecuta el evento Click del control Button1 y se comprueba que el usuario y la contraseña son válidos, nos lleva a una nueva ventana donde se verá la interfaz gráfica del proyecto.
-			<br><br>
-			Lla ventana de login de usuario se  cierra cuando se abra la ventana de interfaz gráfica.
+			Cuando se ejecuta el evento Click del control Button1 y se comprueba que el usuario y la contraseña son válidos, nos lleva a una nueva ventana donde se verá la interface gráfica del proyecto.
 		</div>
 	</body>
 </html>
