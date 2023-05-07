@@ -29,27 +29,8 @@
 
 <font color="#00979c">char</font> <font color="#000000">texto</font><font color="#000000">[</font><font color="#000000">]</font> <font color="#434f54">=</font> <font color="#005c5f">&#34;I&#47;O digitales&#34;</font><font color="#000000">;</font>
 
-<font color="#00979c">byte</font> <font color="#000000">alto</font><font color="#000000">[</font><font color="#000000">]</font> <font color="#434f54">=</font> <font color="#000000">{</font>
- &nbsp;<font color="#000000">B11111</font><font color="#434f54">,</font>
- &nbsp;<font color="#000000">B11111</font><font color="#434f54">,</font>
- &nbsp;<font color="#000000">B11111</font><font color="#434f54">,</font>
- &nbsp;<font color="#000000">B11111</font><font color="#434f54">,</font>
- &nbsp;<font color="#000000">B11111</font><font color="#434f54">,</font>
- &nbsp;<font color="#000000">B11111</font><font color="#434f54">,</font>
- &nbsp;<font color="#000000">B11111</font><font color="#434f54">,</font>
- &nbsp;<font color="#000000">B00000</font><font color="#434f54">,</font>
-<font color="#000000">}</font><font color="#000000">;</font>
-
-<font color="#00979c">byte</font> <font color="#000000">bajo</font><font color="#000000">[</font><font color="#000000">]</font> <font color="#434f54">=</font> <font color="#000000">{</font>
- &nbsp;<font color="#000000">B11111</font><font color="#434f54">,</font>
- &nbsp;<font color="#000000">B10001</font><font color="#434f54">,</font>
- &nbsp;<font color="#000000">B10001</font><font color="#434f54">,</font>
- &nbsp;<font color="#000000">B10001</font><font color="#434f54">,</font>
- &nbsp;<font color="#000000">B10001</font><font color="#434f54">,</font>
- &nbsp;<font color="#000000">B10001</font><font color="#434f54">,</font>
- &nbsp;<font color="#000000">B11111</font><font color="#434f54">,</font>
- &nbsp;<font color="#000000">B00000</font><font color="#434f54">,</font>
-<font color="#000000">}</font><font color="#000000">;</font>
+<font color="#00979c">byte</font> <font color="#000000">alto</font><font color="#000000">[</font><font color="#000000">]</font> <font color="#434f54">=</font> <font color="#000000">{</font><font color="#000000">0x00</font><font color="#434f54">,</font><font color="#000000">0x1F</font><font color="#434f54">,</font><font color="#000000">0x1F</font><font color="#434f54">,</font><font color="#000000">0x1F</font><font color="#434f54">,</font><font color="#000000">0x1F</font><font color="#434f54">,</font><font color="#000000">0x1F</font><font color="#434f54">,</font><font color="#000000">0x1F</font><font color="#434f54">,</font><font color="#000000">0x00</font><font color="#434f54">,</font><font color="#000000">}</font><font color="#000000">;</font>
+<font color="#00979c">byte</font> <font color="#000000">bajo</font><font color="#000000">[</font><font color="#000000">]</font> <font color="#434f54">=</font> <font color="#000000">{</font><font color="#000000">0x00</font><font color="#434f54">,</font><font color="#000000">0x1F</font><font color="#434f54">,</font><font color="#000000">0x11</font><font color="#434f54">,</font><font color="#000000">0x11</font><font color="#434f54">,</font><font color="#000000">0x11</font><font color="#434f54">,</font><font color="#000000">0x11</font><font color="#434f54">,</font><font color="#000000">0x1F</font><font color="#434f54">,</font><font color="#000000">0x00</font><font color="#434f54">,</font><font color="#000000">}</font><font color="#000000">;</font>
 
 <font color="#00979c">void</font> <font color="#000000">estados</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
  &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">setCursor</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font><font color="#000000">0</font><font color="#000000">)</font><font color="#000000">;</font>
@@ -86,11 +67,11 @@
 
 <font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
  &nbsp;<font color="#434f54">&#47;&#47; put your main code here, to run repeatedly:</font>
+ &nbsp;<font color="#000000">estados</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">estado_boton_start</font><font color="#434f54">==</font><font color="#000000">1</font> <font color="#434f54">&amp;&amp;</font> <font color="#000000">estado_boton_stop</font><font color="#434f54">==</font><font color="#000000">0</font><font color="#000000">)</font>
  &nbsp;&nbsp;&nbsp;<font color="#000000">salida_ON</font><font color="#000000">;</font>
  &nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">estado_boton_stop</font><font color="#434f54">==</font><font color="#000000">1</font><font color="#000000">)</font>
  &nbsp;&nbsp;&nbsp;<font color="#000000">salida_OFF</font><font color="#000000">;</font>
- &nbsp;<font color="#000000">estados</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
 <font color="#000000">}</font></pre>
 	</body>
 </html>
