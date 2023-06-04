@@ -17,47 +17,45 @@
 			<br><br>
 			<div align="center"><img src="img/2. IoT_1a.png" alt="" width="auto" height="auto"></div>
 			<br>
-			NodeMCU es un módulo que integra el dispositivo ESP8266 para obtener una plataforma de desarrollo compatible con Arduino, dotada de comunicación WiFi para el desarrollo de aplicaciones IOT.
-			<br>
+			NodeMCU es un módulo que integra el dispositivo ESP8266 para obtener una plataforma de desarrollo compatible con MicroPhyton, dotada de comunicación WiFi para el desarrollo de aplicaciones IOT.
+		  <br>
 			El ESP8266 que incorpora NodeMCU es un SoC (System on Chip), con capacidades de 2.4 GHz Wi-Fi (802.11 b / g / n, soporte WPA / WPA2), 16 GPIO de propósito general (entrada / salida), I²C, convertidor analógico-digital (ADC de 10 bits), SPI, I²S, UART y modulación de ancho de pulso (PWM), emplea un CPU RISC de 32 bits basado en el Tensilica Xtensa LX106 funcionando a 80 MHz (o overclocked a 160 MHz). Tiene una memoria ROM de inicio de 64 KB, memoria RAM de instrucciones de 64 KB y 96 KB de RAM de datos. Memoria flash externa de 4MB (puede varíar entre diferentes versiones de modulo).
 			<br><br>
-			Antes de comenzar a programar se debe configurar el entorno Arduino para poder compilar y cargar los programas adecuadamente en el NodeMCU.
-			<br><br>
-			Iniciar   Arduino, abrir el menú <b><i>Archivo--&gt;Preferencias</i></b>.
-			<br><br>
-			<div align="center"><img src="img/2. IoT_2.png" alt="" width="auto" height="auto"></div>
+			Antes de comenzar a programar se debe instalar el intérprete para poder cargar los programas adecuadamente en el NodeMCU.
+		  <br><br>
+			Iniciar Thonny, abrir el menú <b><i>Configure interpreter...</i></b>
+		  <br><br>
+			<div align="center"><img src="img/2. IoT_2_u.png" alt="" width="auto" height="auto"></div>
 			<br>
-			Escribir la siguiente URL en la caja de texto Gestor de URLs Adicionales de Tarjetas: <b><i>http://arduino.esp8266.com/stable/package_esp8266com_index.json</i></b>
+			Conectar La placa NodeMCU a un puerto USB del PC.
 			<br><br>
-			<div align="center"><img src="img/2. IoT_3a.png" alt="" width="auto" height="auto"></div>
+			Verificar que el interprete seleccionado corresponda al dispositivo a utilizar.
+			<br><br>
+			Seleccionar el puerto <b><i>COM</i></b> asignado a la placa por el sistema operativo.
+		  <br><br>
+			Hacer click en <b><i>Install or update MicroPhyton</i></b>.
+			<br><br>
+			<div align="center"><img src="img/2. IoT_3_u.png" alt="" width="auto" height="auto"></div>
 			<br>
-			Abrir el menú <b><i>Herramientas--&gt;Placa</i></b> y luego hacer click en <b><i>Gestor de tarjetas...</i></b>
+			Seleccionar el puerto <b><i>COM</i></b> asignado a la placa por el sistema operativo.
 			<br><br>
-			<div align="center"><img src="img/2. IoT_4.png" alt="" width="auto" height="auto"></div>
+			Ubicar y seleccionar el firmware para la placa adecuada. <a href="https://drive.google.com/uc?id=1WpnQ8uLvM-EQ-mvqC9Yw8_YXUUpJLYNo&amp;export=download&amp;authuser=0" target="_blank">firmware ESP8266</a>
+			<br><br>
+			Puede descargar otras versiones en: <a href="https://micropython.org/download/?mcu=esp8266" target="_blank">https://micropython.org/download/?mcu=esp8266</a>
+			<br><br>
+			Hacer click en el botón <b><i>Install</i></b>.
+		 	<br><br>
+			<div align="center"><img src="img/2. IoT_4_u.png" alt="" width="auto" height="auto"></div>
 			<br>
-			Esperar hasta que se actualice la información y luego buscar en la lista el gestor del módulo ESP8266.
-			<br><br>
-			Hacer click en el botón <b><i>Instalar</i></b>.
-			<br><br>
-			<div align="center"><img src="img/2. IoT_5a.png" alt="" width="auto" height="auto"></div>
-			<br>
-			Una vez completa la instalación, cerrar Arduino IDE y abrir nuevamente. Las librerías y ejemplos instalados estarán disponibles.
-			<br><br>
-			Abrir el menú <b><i>Herramientas--&gt;Placa</i></b> y seleccionar la placa <b><i>NodeMCU 1.0 (ESP-12E Module).</i></b>
-			<br><br>
-			<div align="center"><img src="img/2. IoT_6a.png" alt="" width="1000" height="auto"></div>
+			Al finalizar la instalación del firmware el dispositivo estará listo para ser programado con MicroPhyton.
 			<br><br>
 			<a id="Ejemplo Blink"></a>
 			<b><i>2.1.1 Ejemplo Blink</i></b>
 			<br><br>
 			<div align="center"><img id="img_zoom_1" src="img/2.1.1 NodeMCU.png" alt="" width="1000" height="auto"></div>
 			<br>
-			Abrir el menú <b><i>Archivo--&gt;Ejemplos--&gt;0.1 Basics</i></b> y seleccionar el proyecto ejemplo <b><i>Blink</i></b>
+			En este ejemplo el LED incorporado en la tarjeta cambiará de estado cada segundo (1000 ms).
 			<br><br>
-			<div align="center"><img src="img/2. IoT_7.png" alt="" width="auto" height="auto"></div>
-			<br>
-			Modificar el código. En este ejemplo el LED incorporado en la tarjeta cambiará de estado cada segundo (1000 ms).
-			<br>
 			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" marginwidth="0" src="html/2.1.1_u.html"></iframe>
 			<br><br>
 			Cargar el programa en la placa NodeMCU (verificar que haya seleccionado el puerto correspondiente).
@@ -82,10 +80,6 @@
 			Buscar e instalar la librería <b><i>LiquidCrystal_PCF8574</i></b>
 			<br><br>
 			<div align="center"><img src="img/2. IoT_10a.png" alt="" width="auto" height="auto"></div>
-			<br>
-			Abrir el menú <b><i>Archivo--&gt;Ejemplos--&gt;LiquidCrystal_PCF8574</i></b> y seleccionar el proyecto ejemplo <b><i>LiquidCrystal_PCF8574_Test</i></b>
-			<br><br>
-			<div align="center"><img src="img/2. IoT_11a.png" alt="" width="auto" height="auto"></div>
 			<br>
 			<iframe class="pag" id="ifrm2" name="ifrm2" scrolling="no" marginwidth="0" src="html/2.1.2_u.html"></iframe>
 			<br><br>
@@ -177,12 +171,6 @@
 			<br><br>
 			<div align="center"><img id="img_zoom_11" src="img/2.1.11 NodeMCU_a.png" alt="" width="auto" height="auto"></div>
 			<br>
-			Acceder al Administrador de bibliotecas, buscar e instalar las librerías <b><i>OneWire</i></b> y <b><i>DallasTemperature</i></b>
-			<br><br>
-			<div align="center"><img src="img/2. IoT_12.png" alt="" width="auto" height="auto"></div>
-			<br>
-			<div align="center"><img src="img/2. IoT_13.png" alt="" width="auto" height="auto"></div>
-			<br>
 			<iframe class="pag" id="ifrm7" name="ifrm7" scrolling="no" marginwidth="0" src="html/2.1.11_u.html"></iframe>
 			<br><br>
 			<a id="Comunicacion One Wire sensor DHT11"></a>
@@ -192,10 +180,6 @@
 			<input type="button" onClick="document.getElementById('img_zoom_12').src = './img/2.1.12 NodeMCU_b.png';" value="Ver NodeMCU">
 			<br><br>
 			<div align="center"><img id="img_zoom_12" src="img/2.1.12 NodeMCU_a.png" alt="" width="auto" height="auto"></div>
-			<br>
-			Acceder al Administrador de bibliotecas, buscar e instalar la librería <b><i>DHT sensor library</i></b>
-			<br><br>
-			<div align="center"><img src="img/2. IoT_14.png" alt="" width="auto" height="auto"></div>
 			<br>
 			<iframe class="pag" id="ifrm8" name="ifrm8" scrolling="no" marginwidth="0" src="html/2.1.12_u.html"></iframe>
 			<br><br>
