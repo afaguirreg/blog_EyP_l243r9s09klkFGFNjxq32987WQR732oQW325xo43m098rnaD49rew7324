@@ -9,7 +9,152 @@
 	</head>
 
 	<body>
-		<div>
-		</div>
+		<pre>
+<font color="#95a5a6">&#47;* Comment this out to disable prints and save space *&#47;</font>
+<font color="#5e6d03">#define</font> <font color="#d35400">BLYNK_PRINT</font> <b><font color="#d35400">Serial</font></b>
+
+<font color="#95a5a6">&#47;* Fill-in your Template ID (only if using Blynk.Cloud) *&#47;</font>
+<font color="#5e6d03">#define</font> <font color="#d35400">BLYNK_TEMPLATE_ID</font> <font color="#005c5f">&#34;your-template_id&#34;</font>
+<font color="#5e6d03">#define</font> <font color="#d35400">BLYNK_DEVICE_NAME</font> <font color="#005c5f">&#34;your-device_name&#34;</font>
+<font color="#5e6d03">#define</font> <font color="#d35400">BLYNK_AUTH_TOKEN</font> <font color="#005c5f">&#34;your-auth_token&#34;</font>
+
+<font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><b><font color="#d35400">SPI</font></b><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
+<font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><font color="#d35400">Wire</font><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
+<font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><b><font color="#d35400">OneWire</font></b><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
+<font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><b><font color="#d35400">DallasTemperature</font></b><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
+<font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><font color="#000000">Adafruit_GFX</font><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
+<font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><font color="#000000">Adafruit_SSD1306</font><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
+<font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><font color="#d35400">ESP8266WiFi</font><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
+<font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><font color="#000000">BlynkSimpleEsp8266</font><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
+
+<font color="#000000">Adafruit_SSD1306</font> <font color="#d35400">display</font> <font color="#434f54">=</font> <font color="#000000">Adafruit_SSD1306</font><font color="#000000">(</font><font color="#000000">128</font><font color="#434f54">,</font> <font color="#000000">32</font><font color="#434f54">,</font> <font color="#434f54">&amp;</font><font color="#d35400">Wire</font><font color="#000000">)</font><font color="#000000">;</font>
+
+<font color="#434f54">&#47;&#47; DS18B20 data wire</font>
+<font color="#5e6d03">#define</font> <font color="#000000">ONE_WIRE_BUS</font> <font color="#000000">0</font>
+
+<font color="#434f54">&#47;&#47; Setup a oneWire instance to communicate with any OneWire devices (not just Maxim&#47;Dallas temperature ICs)</font>
+<b><font color="#d35400">OneWire</font></b> <font color="#000000">oneWire</font><font color="#000000">(</font><font color="#000000">ONE_WIRE_BUS</font><font color="#000000">)</font><font color="#000000">;</font>
+
+<font color="#434f54">&#47;&#47; Pass our oneWire reference to Dallas Temperature. </font>
+<b><font color="#d35400">DallasTemperature</font></b> <font color="#000000">sensors</font><font color="#000000">(</font><font color="#434f54">&amp;</font><font color="#000000">oneWire</font><font color="#000000">)</font><font color="#000000">;</font>
+
+<font color="#434f54">&#47;&#47; Your WiFi credentials.</font>
+<font color="#434f54">&#47;&#47; Set password to &#34;&#34; for open networks.</font>
+<font color="#00979c">char</font> <font color="#000000">ssid</font><font color="#000000">[</font><font color="#000000">]</font> <font color="#434f54">=</font> <font color="#005c5f">&#34;your-ssid&#34;</font><font color="#000000">;</font>
+<font color="#00979c">char</font> <font color="#000000">pass</font><font color="#000000">[</font><font color="#000000">]</font> <font color="#434f54">=</font> <font color="#005c5f">&#34;your-password&#34;</font><font color="#000000">;</font>
+
+<font color="#00979c">int</font> <font color="#000000">sensor</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; Variable para almacenar el valor leído por el sensor</font>
+<font color="#00979c">float</font> <font color="#000000">tempC</font><font color="#000000">;</font>
+
+<font color="#5e6d03">#define</font> <font color="#000000">PIN_I0</font> <font color="#000000">16</font>
+<font color="#5e6d03">#define</font> <font color="#000000">PIN_I1</font> <font color="#000000">14</font>
+<font color="#5e6d03">#define</font> <font color="#000000">PIN_I2</font> <font color="#000000">12</font>
+
+<font color="#5e6d03">#define</font> <font color="#000000">I0</font> <font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">PIN_I0</font><font color="#000000">)</font>
+<font color="#5e6d03">#define</font> <font color="#000000">I1</font> <font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">PIN_I1</font><font color="#000000">)</font>
+<font color="#5e6d03">#define</font> <font color="#000000">I2</font> <font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">PIN_I2</font><font color="#000000">)</font>
+
+<font color="#5e6d03">#define</font> <font color="#000000">Q0</font> <font color="#000000">2</font>
+<font color="#5e6d03">#define</font> <font color="#000000">Q1</font> <font color="#000000">15</font>
+<font color="#5e6d03">#define</font> <font color="#000000">Q2</font> <font color="#000000">13</font>
+
+<font color="#00979c">void</font> <font color="#000000">estados</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#000000">setTextSize</font><font color="#000000">(</font><font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#000000">setTextColor</font><font color="#000000">(</font><font color="#000000">SSD1306_WHITE</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#434f54">&#47;&#47;Activar página de código 437</font>
+ &nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#000000">cp437</font><font color="#000000">(</font><font color="#00979c">true</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#000000">clearDisplay</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">setCursor</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font><font color="#000000">0</font><font color="#000000">)</font><font color="#000000">;</font>
+
+ &nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><b><font color="#d35400">Blynk</font></b><font color="#434f54">.</font><font color="#d35400">connected</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#434f54">==</font> <font color="#00979c">true</font><font color="#000000">)</font>
+ &nbsp;<font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#005c5f">&#34;Conectado a Blynk&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;I: &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">write</font><font color="#000000">(</font><font color="#000000">I0</font><font color="#434f54">*</font><font color="#000000">43</font> <font color="#434f54">+</font> <font color="#000000">176</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34; &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">write</font><font color="#000000">(</font><font color="#000000">I1</font><font color="#434f54">*</font><font color="#000000">43</font> <font color="#434f54">+</font> <font color="#000000">176</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34; &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">write</font><font color="#000000">(</font><font color="#000000">I2</font><font color="#434f54">*</font><font color="#000000">43</font> <font color="#434f54">+</font> <font color="#000000">176</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34; &nbsp;&nbsp;&nbsp;A0:&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#000000">sensor</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34; &nbsp;&nbsp;0 1 2 &nbsp;&nbsp;&nbsp;T&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">(</font><font color="#00979c">char</font><font color="#000000">)</font><font color="#000000">223</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;:&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">tempC</font> <font color="#434f54">==</font> <font color="#434f54">-</font><font color="#000000">127</font><font color="#000000">)</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#005c5f">&#34;Error&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#5e6d03">else</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#000000">tempC</font><font color="#434f54">,</font><font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;Q: &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">write</font><font color="#000000">(</font><font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">Q0</font><font color="#000000">)</font><font color="#434f54">*</font><font color="#000000">43</font> <font color="#434f54">+</font> <font color="#000000">176</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34; &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">write</font><font color="#000000">(</font><font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">Q1</font><font color="#000000">)</font><font color="#434f54">*</font><font color="#000000">43</font> <font color="#434f54">+</font> <font color="#000000">176</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34; &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">write</font><font color="#000000">(</font><font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">Q2</font><font color="#000000">)</font><font color="#434f54">*</font><font color="#000000">43</font> <font color="#434f54">+</font> <font color="#000000">176</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">}</font>
+ &nbsp;<font color="#5e6d03">else</font>
+ &nbsp;<font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;Conectando a Blynk..&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">}</font>
+ &nbsp;<font color="#d35400">yield</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">display</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font> 
+<font color="#000000">}</font>
+
+<font color="#d35400">BLYNK_WRITE</font><font color="#000000">(</font><font color="#000000">5</font><font color="#000000">)</font><font color="#000000">{</font>
+ &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">Q0</font><font color="#434f54">,</font> <font color="#000000">param</font><font color="#434f54">.</font><font color="#000000">asInt</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
+<font color="#000000">}</font>
+
+<font color="#d35400">BLYNK_WRITE</font><font color="#000000">(</font><font color="#000000">6</font><font color="#000000">)</font><font color="#000000">{</font>
+ &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">Q1</font><font color="#434f54">,</font> <font color="#000000">param</font><font color="#434f54">.</font><font color="#000000">asInt</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
+<font color="#000000">}</font>
+
+<font color="#d35400">BLYNK_WRITE</font><font color="#000000">(</font><font color="#000000">7</font><font color="#000000">)</font><font color="#000000">{</font>
+ &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">Q2</font><font color="#434f54">,</font> <font color="#000000">param</font><font color="#434f54">.</font><font color="#000000">asInt</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
+<font color="#000000">}</font>
+
+<font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;<font color="#434f54">&#47;&#47; put your setup code here, to run once:</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">PIN_I0</font><font color="#434f54">,</font> <font color="#00979c">INPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">PIN_I1</font><font color="#434f54">,</font> <font color="#00979c">INPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">PIN_I2</font><font color="#434f54">,</font> <font color="#00979c">INPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">Q0</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">Q1</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">Q2</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+
+ &nbsp;<font color="#000000">sensors</font><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">9600</font><font color="#000000">)</font><font color="#000000">;</font>
+
+ &nbsp;<font color="#434f54">&#47;&#47; SSD1306_SWITCHCAPVCC = generate display voltage from 3.3V internally</font>
+ &nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">SSD1306_SWITCHCAPVCC</font><font color="#434f54">,</font> <font color="#000000">0x3C</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; Address 0x3C for 128x32</font>
+ &nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">display</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">2000</font><font color="#000000">)</font><font color="#000000">;</font>
+
+ &nbsp;<font color="#434f54">&#47;&#47; Clear the buffer.</font>
+ &nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#000000">clearDisplay</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">display</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+
+ &nbsp;<font color="#000000">estados</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+
+ &nbsp;<font color="#434f54">&#47;&#47; Setup Blynk</font>
+ &nbsp;<b><font color="#d35400">Blynk</font></b><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#d35400">BLYNK_AUTH_TOKEN</font><font color="#434f54">,</font> <font color="#000000">ssid</font><font color="#434f54">,</font> <font color="#000000">pass</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#5e6d03">while</font> <font color="#000000">(</font><b><font color="#d35400">Blynk</font></b><font color="#434f54">.</font><font color="#d35400">connected</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#434f54">==</font> <font color="#00979c">false</font><font color="#000000">)</font> <font color="#000000">{</font><font color="#000000">}</font>
+<font color="#000000">}</font>
+
+<font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;<font color="#434f54">&#47;&#47; put your main code here, to run repeatedly:</font>
+ &nbsp;<b><font color="#d35400">Blynk</font></b><font color="#434f54">.</font><font color="#d35400">run</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+
+ &nbsp;<font color="#000000">sensor</font> <font color="#434f54">=</font> <font color="#d35400">analogRead</font><font color="#000000">(</font><font color="#000000">A0</font><font color="#000000">)</font><font color="#000000">;</font>
+
+ &nbsp;<font color="#000000">sensors</font><font color="#434f54">.</font><font color="#d35400">requestTemperatures</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; Send the command to get temperatures</font>
+ &nbsp;<font color="#000000">tempC</font> <font color="#434f54">=</font> <font color="#000000">sensors</font><font color="#434f54">.</font><font color="#d35400">getTempCByIndex</font><font color="#000000">(</font><font color="#000000">0</font><font color="#000000">)</font><font color="#000000">;</font>
+
+ &nbsp;<b><font color="#d35400">Blynk</font></b><font color="#434f54">.</font><font color="#d35400">virtualWrite</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font> <font color="#000000">sensor</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<b><font color="#d35400">Blynk</font></b><font color="#434f54">.</font><font color="#d35400">virtualWrite</font><font color="#000000">(</font><font color="#000000">1</font><font color="#434f54">,</font> <font color="#000000">tempC</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<b><font color="#d35400">Blynk</font></b><font color="#434f54">.</font><font color="#d35400">virtualWrite</font><font color="#000000">(</font><font color="#000000">2</font><font color="#434f54">,</font> <font color="#000000">I0</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<b><font color="#d35400">Blynk</font></b><font color="#434f54">.</font><font color="#d35400">virtualWrite</font><font color="#000000">(</font><font color="#000000">3</font><font color="#434f54">,</font> <font color="#000000">I1</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<b><font color="#d35400">Blynk</font></b><font color="#434f54">.</font><font color="#d35400">virtualWrite</font><font color="#000000">(</font><font color="#000000">4</font><font color="#434f54">,</font> <font color="#000000">I2</font><font color="#000000">)</font><font color="#000000">;</font>
+
+ &nbsp;<font color="#000000">estados</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+<font color="#000000">}</font></pre>
 	</body>
 </html>
