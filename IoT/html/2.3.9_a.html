@@ -15,12 +15,9 @@
 
 <b><font color="#d35400">LiquidCrystal_PCF8574</font></b> <font color="#000000">lcd</font><font color="#000000">(</font><font color="#000000">0x27</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; set the LCD address to 0x27 for a 16 chars and 2 line display</font>
 
-<font color="#00979c">float</font> <font color="#000000">Valor_ADC_1</font><font color="#000000">;</font>
-<font color="#00979c">float</font> <font color="#000000">Valor_ADC_2</font><font color="#000000">;</font>
-<font color="#00979c">float</font> <font color="#000000">Valor_ADC_3</font><font color="#000000">;</font>
-<font color="#00979c">float</font> <font color="#000000">sensor_1</font><font color="#000000">;</font>
-<font color="#00979c">float</font> <font color="#000000">sensor_2</font><font color="#000000">;</font>
-<font color="#00979c">float</font> <font color="#000000">sensor_3</font><font color="#000000">;</font>
+<font color="#00979c">int</font> <font color="#000000">Valor_ADC_1</font><font color="#000000">;</font>
+<font color="#00979c">int</font> <font color="#000000">Valor_ADC_2</font><font color="#000000">;</font>
+<font color="#00979c">int</font> <font color="#000000">Valor_ADC_3</font><font color="#000000">;</font>
 
 <font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
  &nbsp;<font color="#434f54">&#47;&#47; put your setup code here, to run once:</font>
@@ -40,18 +37,14 @@
  &nbsp;<font color="#000000">Valor_ADC_2</font> <font color="#434f54">=</font> <font color="#d35400">analogRead</font><font color="#000000">(</font><font color="#000000">39</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#000000">Valor_ADC_3</font> <font color="#434f54">=</font> <font color="#d35400">analogRead</font><font color="#000000">(</font><font color="#000000">34</font><font color="#000000">)</font><font color="#000000">;</font>
 
- &nbsp;<font color="#000000">sensor_1</font> <font color="#434f54">=</font> <font color="#000000">Valor_ADC_1</font> <font color="#434f54">*</font> <font color="#000000">100</font> <font color="#434f54">&#47;</font> <font color="#000000">4095</font><font color="#000000">;</font>
- &nbsp;<font color="#000000">sensor_2</font> <font color="#434f54">=</font> <font color="#000000">Valor_ADC_2</font> <font color="#434f54">*</font> <font color="#000000">100</font> <font color="#434f54">&#47;</font> <font color="#000000">4095</font><font color="#000000">;</font>
- &nbsp;<font color="#000000">sensor_3</font> <font color="#434f54">=</font> <font color="#000000">Valor_ADC_3</font> <font color="#434f54">*</font> <font color="#000000">100</font> <font color="#434f54">&#47;</font> <font color="#000000">4095</font><font color="#000000">;</font>
-
  &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">setCursor</font><font color="#000000">(</font><font color="#000000">10</font><font color="#434f54">,</font><font color="#000000">0</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">sensor_1</font><font color="#434f54">,</font><font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">Valor_ADC_1</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34; &nbsp;&nbsp;&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">setCursor</font><font color="#000000">(</font><font color="#000000">10</font><font color="#434f54">,</font><font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">sensor_2</font><font color="#434f54">,</font><font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">Valor_ADC_2</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34; &nbsp;&nbsp;&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">setCursor</font><font color="#000000">(</font><font color="#000000">10</font><font color="#434f54">,</font><font color="#000000">2</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">sensor_3</font><font color="#434f54">,</font><font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">Valor_ADC_3</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34; &nbsp;&nbsp;&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">100</font><font color="#000000">)</font><font color="#000000">;</font>
 <font color="#000000">}</font></pre>

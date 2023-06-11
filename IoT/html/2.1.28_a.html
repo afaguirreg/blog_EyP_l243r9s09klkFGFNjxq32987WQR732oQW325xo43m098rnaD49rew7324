@@ -37,42 +37,23 @@
 <font color="#434f54">&#47;&#47; Ubidots ubidots(UBIDOTS_TOKEN, UBI_TCP); &#47;&#47; Uncomment to use TCP</font>
 <font color="#434f54">&#47;&#47; Ubidots ubidots(UBIDOTS_TOKEN, UBI_UDP); &#47;&#47; Uncomment to use UDP</font>
 
-<font color="#00979c">float</font> <font color="#000000">sensor</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; Variable para almacenar el valor leído por el sensor</font>
-<font color="#00979c">float</font> <font color="#000000">temp</font><font color="#000000">;</font>
+<font color="#00979c">int</font> <font color="#000000">sensor</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; Variable para almacenar el valor leído por el sensor</font>
+<font color="#00979c">float</font> <font color="#000000">tempC</font><font color="#000000">;</font>
 
-<font color="#5e6d03">#define</font> <font color="#000000">I0</font> <font color="#000000">16</font>
-<font color="#5e6d03">#define</font> <font color="#000000">I1</font> <font color="#000000">14</font>
-<font color="#5e6d03">#define</font> <font color="#000000">I2</font> <font color="#000000">12</font>
+<font color="#5e6d03">#define</font> <font color="#000000">PIN_I0</font> <font color="#000000">16</font>
+<font color="#5e6d03">#define</font> <font color="#000000">PIN_I1</font> <font color="#000000">14</font>
+<font color="#5e6d03">#define</font> <font color="#000000">PIN_I2</font> <font color="#000000">12</font>
+
+<font color="#5e6d03">#define</font> <font color="#000000">I0</font> <font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">PIN_I0</font><font color="#000000">)</font>
+<font color="#5e6d03">#define</font> <font color="#000000">I1</font> <font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">PIN_I1</font><font color="#000000">)</font>
+<font color="#5e6d03">#define</font> <font color="#000000">I2</font> <font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">PIN_I2</font><font color="#000000">)</font>
 
 <font color="#5e6d03">#define</font> <font color="#000000">Q0</font> <font color="#000000">2</font>
 <font color="#5e6d03">#define</font> <font color="#000000">Q1</font> <font color="#000000">15</font>
 <font color="#5e6d03">#define</font> <font color="#000000">Q2</font> <font color="#000000">13</font>
 
-<font color="#5e6d03">#define</font> <font color="#000000">estado_I0</font> <font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">I0</font><font color="#000000">)</font>
-<font color="#5e6d03">#define</font> <font color="#000000">estado_I1</font> <font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">I1</font><font color="#000000">)</font>
-<font color="#5e6d03">#define</font> <font color="#000000">estado_I2</font> <font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">I2</font><font color="#000000">)</font>
-
-<font color="#00979c">byte</font> <font color="#000000">alto</font><font color="#000000">[</font><font color="#000000">]</font> <font color="#434f54">=</font> <font color="#000000">{</font>
- &nbsp;<font color="#000000">B11111</font><font color="#434f54">,</font>
- &nbsp;<font color="#000000">B11111</font><font color="#434f54">,</font>
- &nbsp;<font color="#000000">B11111</font><font color="#434f54">,</font>
- &nbsp;<font color="#000000">B11111</font><font color="#434f54">,</font>
- &nbsp;<font color="#000000">B11111</font><font color="#434f54">,</font>
- &nbsp;<font color="#000000">B11111</font><font color="#434f54">,</font>
- &nbsp;<font color="#000000">B11111</font><font color="#434f54">,</font>
- &nbsp;<font color="#000000">B00000</font><font color="#434f54">,</font>
-<font color="#000000">}</font><font color="#000000">;</font>
-
-<font color="#00979c">byte</font> <font color="#000000">bajo</font><font color="#000000">[</font><font color="#000000">]</font> <font color="#434f54">=</font> <font color="#000000">{</font>
- &nbsp;<font color="#000000">B11111</font><font color="#434f54">,</font>
- &nbsp;<font color="#000000">B10001</font><font color="#434f54">,</font>
- &nbsp;<font color="#000000">B10001</font><font color="#434f54">,</font>
- &nbsp;<font color="#000000">B10001</font><font color="#434f54">,</font>
- &nbsp;<font color="#000000">B10001</font><font color="#434f54">,</font>
- &nbsp;<font color="#000000">B10001</font><font color="#434f54">,</font>
- &nbsp;<font color="#000000">B11111</font><font color="#434f54">,</font>
- &nbsp;<font color="#000000">B00000</font><font color="#434f54">,</font>
-<font color="#000000">}</font><font color="#000000">;</font>
+<font color="#00979c">byte</font> <font color="#000000">alto</font><font color="#000000">[</font><font color="#000000">]</font> <font color="#434f54">=</font> <font color="#000000">{</font><font color="#000000">0x00</font><font color="#434f54">,</font><font color="#000000">0x1F</font><font color="#434f54">,</font><font color="#000000">0x1F</font><font color="#434f54">,</font><font color="#000000">0x1F</font><font color="#434f54">,</font><font color="#000000">0x1F</font><font color="#434f54">,</font><font color="#000000">0x1F</font><font color="#434f54">,</font><font color="#000000">0x1F</font><font color="#434f54">,</font><font color="#000000">0x00</font><font color="#434f54">,</font><font color="#000000">}</font><font color="#000000">;</font>
+<font color="#00979c">byte</font> <font color="#000000">bajo</font><font color="#000000">[</font><font color="#000000">]</font> <font color="#434f54">=</font> <font color="#000000">{</font><font color="#000000">0x00</font><font color="#434f54">,</font><font color="#000000">0x1F</font><font color="#434f54">,</font><font color="#000000">0x11</font><font color="#434f54">,</font><font color="#000000">0x11</font><font color="#434f54">,</font><font color="#000000">0x11</font><font color="#434f54">,</font><font color="#000000">0x11</font><font color="#434f54">,</font><font color="#000000">0x1F</font><font color="#434f54">,</font><font color="#000000">0x00</font><font color="#434f54">,</font><font color="#000000">}</font><font color="#000000">;</font>
 
 <font color="#00979c">void</font> <font color="#000000">estados</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
  &nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><b><font color="#d35400">WiFi</font></b><font color="#434f54">.</font><font color="#d35400">status</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#434f54">==</font> <font color="#000000">WL_CONNECTED</font><font color="#000000">)</font>
@@ -81,34 +62,44 @@
  &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;Conectado a Ubidots &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">setCursor</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font><font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;I: &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">write</font><font color="#000000">(</font><font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">I0</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34; &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">write</font><font color="#000000">(</font><font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">I1</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34; &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">write</font><font color="#000000">(</font><font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">I2</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">write</font><font color="#000000">(</font><font color="#000000">I0</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">write</font><font color="#000000">(</font><font color="#000000">I1</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">write</font><font color="#000000">(</font><font color="#000000">I2</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">setCursor</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font><font color="#000000">2</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34; &nbsp;&nbsp;0 1 2&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34; &nbsp;&nbsp;012&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">setCursor</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font><font color="#000000">3</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;Q: &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">write</font><font color="#000000">(</font><font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">Q0</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34; &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">write</font><font color="#000000">(</font><font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">Q1</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34; &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">write</font><font color="#000000">(</font><font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">Q2</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">setCursor</font><font color="#000000">(</font><font color="#000000">12</font><font color="#434f54">,</font><font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;A0: &nbsp;&nbsp;&nbsp;&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">setCursor</font><font color="#000000">(</font><font color="#000000">15</font><font color="#434f54">,</font><font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">sensor</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">setCursor</font><font color="#000000">(</font><font color="#000000">12</font><font color="#434f54">,</font><font color="#000000">2</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;T&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">(</font><font color="#00979c">char</font><font color="#000000">)</font><font color="#000000">223</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;: &nbsp;&nbsp;&nbsp;&nbsp;&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">setCursor</font><font color="#000000">(</font><font color="#000000">15</font><font color="#434f54">,</font><font color="#000000">2</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">tempC</font> <font color="#434f54">==</font> <font color="#434f54">-</font><font color="#000000">127</font><font color="#000000">)</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;Error&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#5e6d03">else</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">tempC</font><font color="#434f54">,</font><font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#000000">}</font>
  &nbsp;<font color="#5e6d03">else</font>
  &nbsp;<font color="#000000">{</font>
  &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">clear</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">500</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">1000</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;Conectando a Ubidots&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">500</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">1000</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#000000">}</font>
 <font color="#000000">}</font>
 
 <font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
- &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">I0</font><font color="#434f54">,</font> <font color="#00979c">INPUT</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">I1</font><font color="#434f54">,</font> <font color="#00979c">INPUT</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">I2</font><font color="#434f54">,</font> <font color="#00979c">INPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#434f54">&#47;&#47; put your setup code here, to run once:</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">PIN_I0</font><font color="#434f54">,</font> <font color="#00979c">INPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">PIN_I1</font><font color="#434f54">,</font> <font color="#00979c">INPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">PIN_I2</font><font color="#434f54">,</font> <font color="#00979c">INPUT</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">Q0</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">Q1</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">Q2</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
@@ -129,22 +120,23 @@
  &nbsp;&nbsp;&nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">500</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#000000">}</font>
 
- &nbsp;<font color="#434f54">&#47;&#47; ubidots.setDebug(true); &nbsp;&#47;&#47; Uncomment this line for printing debug messages</font>
+ &nbsp;<font color="#000000">ubidots</font><font color="#434f54">.</font><font color="#d35400">setDebug</font><font color="#000000">(</font><font color="#00979c">true</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;<font color="#434f54">&#47;&#47; Uncomment this line for printing debug messages</font>
 <font color="#000000">}</font>
 
 <font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;<font color="#434f54">&#47;&#47; put your main code here, to run repeatedly:</font>
  &nbsp;<font color="#000000">sensor</font> <font color="#434f54">=</font> <font color="#d35400">analogRead</font><font color="#000000">(</font><font color="#000000">A0</font><font color="#000000">)</font><font color="#000000">;</font>
 
  &nbsp;<font color="#000000">sensors</font><font color="#434f54">.</font><font color="#d35400">requestTemperatures</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; Send the command to get temperatures</font>
- &nbsp;<font color="#000000">temp</font> <font color="#434f54">=</font> <font color="#000000">sensors</font><font color="#434f54">.</font><font color="#d35400">getTempCByIndex</font><font color="#000000">(</font><font color="#000000">0</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">tempC</font> <font color="#434f54">=</font> <font color="#000000">sensors</font><font color="#434f54">.</font><font color="#d35400">getTempCByIndex</font><font color="#000000">(</font><font color="#000000">0</font><font color="#000000">)</font><font color="#000000">;</font>
 
  &nbsp;<font color="#000000">estados</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
 
  &nbsp;<font color="#000000">ubidots</font><font color="#434f54">.</font><font color="#d35400">add</font><font color="#000000">(</font><font color="#005c5f">&#34;sensor&#34;</font><font color="#434f54">,</font> <font color="#000000">sensor</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;<font color="#434f54">&#47;&#47; Change for your variable name</font>
- &nbsp;<font color="#000000">ubidots</font><font color="#434f54">.</font><font color="#d35400">add</font><font color="#000000">(</font><font color="#005c5f">&#34;temp&#34;</font><font color="#434f54">,</font> <font color="#000000">temp</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#000000">ubidots</font><font color="#434f54">.</font><font color="#d35400">add</font><font color="#000000">(</font><font color="#005c5f">&#34;I0&#34;</font><font color="#434f54">,</font> <font color="#000000">estado_I0</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#000000">ubidots</font><font color="#434f54">.</font><font color="#d35400">add</font><font color="#000000">(</font><font color="#005c5f">&#34;I1&#34;</font><font color="#434f54">,</font> <font color="#000000">estado_I1</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#000000">ubidots</font><font color="#434f54">.</font><font color="#d35400">add</font><font color="#000000">(</font><font color="#005c5f">&#34;I2&#34;</font><font color="#434f54">,</font> <font color="#000000">estado_I2</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">ubidots</font><font color="#434f54">.</font><font color="#d35400">add</font><font color="#000000">(</font><font color="#005c5f">&#34;temperatura&#34;</font><font color="#434f54">,</font> <font color="#000000">tempC</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">ubidots</font><font color="#434f54">.</font><font color="#d35400">add</font><font color="#000000">(</font><font color="#005c5f">&#34;i0&#34;</font><font color="#434f54">,</font> <font color="#000000">I0</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">ubidots</font><font color="#434f54">.</font><font color="#d35400">add</font><font color="#000000">(</font><font color="#005c5f">&#34;i1&#34;</font><font color="#434f54">,</font> <font color="#000000">I1</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">ubidots</font><font color="#434f54">.</font><font color="#d35400">add</font><font color="#000000">(</font><font color="#005c5f">&#34;i2&#34;</font><font color="#434f54">,</font> <font color="#000000">I2</font><font color="#000000">)</font><font color="#000000">;</font>
 
  &nbsp;<font color="#00979c">bool</font> <font color="#000000">bufferSent</font> <font color="#434f54">=</font> <font color="#00979c">false</font><font color="#000000">;</font>
  &nbsp;<font color="#000000">bufferSent</font> <font color="#434f54">=</font> <font color="#000000">ubidots</font><font color="#434f54">.</font><font color="#d35400">send</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;<font color="#434f54">&#47;&#47; Will send data to a device label that matches the device Id</font>
@@ -153,6 +145,14 @@
  &nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47; Do something if values were sent properly</font>
  &nbsp;&nbsp;&nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#005c5f">&#34;Values sent by the device&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#000000">}</font>
-<font color="#000000">}</font></pre>
+
+ &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">Q0</font><font color="#434f54">,</font> <font color="#000000">ubidots</font><font color="#434f54">.</font><font color="#d35400">get</font><font color="#000000">(</font><font color="#005c5f">&#34;your-device_label&#34;</font><font color="#434f54">,</font> <font color="#005c5f">&#34;q0&#34;</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">Q1</font><font color="#434f54">,</font> <font color="#000000">ubidots</font><font color="#434f54">.</font><font color="#d35400">get</font><font color="#000000">(</font><font color="#005c5f">&#34;your-device_label&#34;</font><font color="#434f54">,</font> <font color="#005c5f">&#34;q1&#34;</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">Q2</font><font color="#434f54">,</font> <font color="#000000">ubidots</font><font color="#434f54">.</font><font color="#d35400">get</font><font color="#000000">(</font><font color="#005c5f">&#34;your-device_label&#34;</font><font color="#434f54">,</font> <font color="#005c5f">&#34;q2&#34;</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
+
+ &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">1000</font><font color="#000000">)</font><font color="#000000">;</font>
+<font color="#000000">}</font>
+
+</pre>
 	</body>
 </html>
