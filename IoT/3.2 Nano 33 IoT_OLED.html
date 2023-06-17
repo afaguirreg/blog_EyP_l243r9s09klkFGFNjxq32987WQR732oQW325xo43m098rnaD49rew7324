@@ -17,7 +17,7 @@
 			<br><br>
 			<div align="center"><img src="img/2. IoT_1c.png" alt="" width="auto" height="auto"></div>
 			<br>
-			NANO 33 IoT es un módulo que integra el dispositivo ESP32 para obtener una plataforma de desarrollo compatible con Arduino, dotada de comunicación WiFi para el desarrollo de aplicaciones IOT.
+			NANO 33 IoT es un módulo que integra el dispositivo Arm® Cortex®-M0 de 32 bits SAMD21 para obtener una plataforma de desarrollo compatible con Arduino, dotada de comunicación WiFi para el desarrollo de aplicaciones IOT.
 			<br><br>
 			Antes de comenzar a programar se debe configurar el entorno Arduino para poder compilar y cargar los programas adecuadamente en el NANO 33 IoT.
 			<br><br>
@@ -84,10 +84,14 @@
 			<br><br>
 			<div align="center"><img src="img/2. IoT_10c.png" alt="" width="auto" height="auto"></div>
 			<br>
-			Abrir el menú <b><i>Archivo--&gt;Ejemplos--&gt;Adafruit SSD1306</i></b> y seleccionar el proyecto ejemplo <b><i>ssd1306_128x64_i2c</i></b>
+			Abrir el menú <b><i>Archivo--&gt;Ejemplos--&gt;Adafruit SSD1306</i></b> y seleccionar el proyecto ejemplo <b><i>ssd1306_128x32_i2c</i></b>
 			<br><br>
 			<div align="center"><img src="img/2. IoT_11b.png" alt="" width="auto" height="auto"></div>
 			<br>
+			Ubicar la constante SCREEN_HEIGHT y probar la calidad de la imagen con el parámetro original (32) y luego con el valor 64 como se muestra a continuación:<br>
+<pre>
+<font color="#5e6d03">#define</font> <font color="#000000">SCREEN_HEIGHT</font> <font color="#000000">64</font> <font color="#434f54">&#47;&#47; OLED display height, in pixels</font>
+</pre>
 			<iframe class="pag" id="ifrm2" name="ifrm2" scrolling="no" marginwidth="0" src="html/3.2.2.html"></iframe>
 			<br><br>
 			<a id="Entradas y salidas digitales"></a>
@@ -170,33 +174,33 @@
 			<br>
 			<iframe class="pag" id="ifrm6" name="ifrm6" scrolling="no" marginwidth="0" src="html/3.2.10.html"></iframe>
 			<br><br>
-			<a id="Comunicacion serial asincrona (UART)"></a>
-			<b><i>3.2.11 Comunicación serial asíncrona (UART)</i></b>
+			<a id="Comunicacion One Wire sensor DS18B20"></a>
+			<b><i>3.2.11 Comunicación One Wire sensor DS18B20</i></b>
 			<br><br>
 			<input type="button" onClick="document.getElementById('img_zoom_11').src = './img/3.2.11 Nano33_a.png'; LoadImages();" value="Ver dispositivo">
 			<input type="button" onClick="document.getElementById('img_zoom_11').src = './img/3.2.11 Nano33_b.png'; LoadImages();" value="Ver Nano 33 IoT">
 			<br><br>
 			<div align="center"><img id="img_zoom_11" src="img/3.2.11 Nano33_a.png" alt="" width="auto" height="auto"></div>
 			<br>
-			<div align="center"><img src="img/2. IoT_12c.png" alt="" width="auto" height="auto"></div>
+			Acceder al Administrador de bibliotecas, buscar e instalar las librerías <b><i>OneWire</i></b> y <b><i>DallasTemperature</i></b>
+			<br><br>
+			<div align="center"><img src="img/2. IoT_12.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<div align="center"><img src="img/2. IoT_13.png" alt="" width="auto" height="auto"></div>
 			<br>
 			<iframe class="pag" id="ifrm7" name="ifrm7" scrolling="no" marginwidth="0" src="html/3.2.11.html"></iframe>
 			<br><br>
-			<a id="Comunicacion One Wire sensor DS18B20"></a>
-			<b><i>3.2.12 Comunicación One Wire sensor DS18B20</i></b>
+			<a id="Comunicacion serial asincrona (UART)"></a>
+			<b><i>3.2.16 Comunicación serial asíncrona (UART)</i></b>
 			<br><br>
-			<input type="button" onClick="document.getElementById('img_zoom_12').src = './img/3.2.12 Nano33_a.png'; LoadImages();" value="Ver dispositivo">
-			<input type="button" onClick="document.getElementById('img_zoom_12').src = './img/3.2.12 Nano33_b.png'; LoadImages();" value="Ver Nano 33 IoT">
+			<input type="button" onClick="document.getElementById('img_zoom_16').src = './img/3.2.16 Nano33_a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_16').src = './img/3.2.16 Nano33_b.png'; LoadImages();" value="Ver Nano 33 IoT">
 			<br><br>
-			<div align="center"><img id="img_zoom_12" src="img/3.2.12 Nano33_a.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img id="img_zoom_16" src="img/3.2.16 Nano33_a.png" alt="" width="auto" height="auto"></div>
 			<br>
-			Acceder al Administrador de bibliotecas, buscar e instalar las librerías <b><i>OneWire</i></b> y <b><i>DallasTemperature</i></b>
-			<br><br>
-			<div align="center"><img src="img/2. IoT_13.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/2. IoT_12c.png" alt="" width="auto" height="auto"></div>
 			<br>
-			<div align="center"><img src="img/2. IoT_14.png" alt="" width="auto" height="auto"></div>
-			<br>
-			<iframe class="pag" id="ifrm8" name="ifrm8" scrolling="no" marginwidth="0" src="html/3.2.12.html"></iframe>
+			<iframe class="pag" id="ifrm12" name="ifrm12" scrolling="no" marginwidth="0" src="html/3.2.16.html"></iframe>
 			<br><br>
 		</div>
 		<script>

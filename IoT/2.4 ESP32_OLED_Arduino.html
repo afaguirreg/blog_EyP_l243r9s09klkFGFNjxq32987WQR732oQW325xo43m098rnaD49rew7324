@@ -58,7 +58,7 @@
 			<div align="center"><img src="img/2. IoT_7.png" alt="" width="auto" height="auto"></div>
 			<br>
 			Modificar el código. En este ejemplo el LED incorporado en la tarjeta cambiará de estado cada segundo (1000 ms).
-			<br>
+			<br><br>
 			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" marginwidth="0" src="html/2.4.1_a.html"></iframe>
 			<br><br>
 			Cargar el programa en la placa ESP32 (verificar que haya seleccionado el puerto correspondiente).
@@ -88,10 +88,14 @@
 			<br><br>
 			<div align="center"><img src="img/2. IoT_10c.png" alt="" width="auto" height="auto"></div>
 			<br>
-			Abrir el menú <b><i>Archivo--&gt;Ejemplos--&gt;Adafruit SSD1306</i></b> y seleccionar el proyecto ejemplo <b><i>ssd1306_128x64_i2c</i></b>
+			Abrir el menú <b><i>Archivo--&gt;Ejemplos--&gt;Adafruit SSD1306</i></b> y seleccionar el proyecto ejemplo <b><i>ssd1306_128x32_i2c</i></b>
 			<br><br>
 			<div align="center"><img src="img/2. IoT_11b.png" alt="" width="auto" height="auto"></div>
 			<br>
+			Ubicar la constante SCREEN_HEIGHT y probar la calidad de la imagen con el parámetro original (32) y luego con el valor 64 como se muestra a continuación:<br>
+<pre>
+<font color="#5e6d03">#define</font> <font color="#000000">SCREEN_HEIGHT</font> <font color="#000000">64</font> <font color="#434f54">&#47;&#47; OLED display height, in pixels</font>
+</pre>
 			<iframe class="pag" id="ifrm2" name="ifrm2" scrolling="no" marginwidth="0" src="html/2.4.2_a.html"></iframe>
 			<br><br>
 			<a id="Entradas y salidas digitales"></a>
