@@ -27,10 +27,6 @@
 <font color="#434f54">&#47;&#47; Pass our oneWire reference to Dallas Temperature. </font>
 <b><font color="#d35400">DallasTemperature</font></b> <font color="#000000">sensors</font><font color="#000000">(</font><font color="#434f54">&amp;</font><font color="#000000">oneWire</font><font color="#000000">)</font><font color="#000000">;</font>
 
-<font color="#00979c">int</font> <font color="#000000">sensor</font><font color="#000000">;</font>
-<font color="#00979c">float</font> <font color="#000000">tempC</font><font color="#000000">;</font>
-<font color="#00979c">char</font> <font color="#000000">grados</font> <font color="#434f54">=</font> <font color="#000000">223</font><font color="#000000">;</font>
-
 <font color="#5e6d03">#define</font> <font color="#000000">PIN_I0</font> <font color="#000000">16</font>
 <font color="#5e6d03">#define</font> <font color="#000000">PIN_I1</font> <font color="#000000">14</font>
 <font color="#5e6d03">#define</font> <font color="#000000">PIN_I2</font> <font color="#000000">12</font>
@@ -45,9 +41,16 @@
 
 <font color="#00979c">char</font> <font color="#000000">texto</font><font color="#000000">[</font><font color="#000000">]</font> <font color="#434f54">=</font> <font color="#005c5f">&#34;I&#47;O digitales&#34;</font><font color="#000000">;</font>
 
+<font color="#00979c">int</font> <font color="#000000">sensor</font><font color="#000000">;</font>
+<font color="#00979c">float</font> <font color="#000000">tempC</font><font color="#000000">;</font>
+<font color="#00979c">char</font> <font color="#000000">grados</font> <font color="#434f54">=</font> <font color="#000000">223</font><font color="#000000">;</font>
 <font color="#00979c">String</font> <font color="#000000">Json_recibir</font> <font color="#434f54">=</font> <font color="#005c5f">&#34;&#34;</font><font color="#000000">;</font>
 <font color="#00979c">boolean</font> <font color="#000000">stringComplete</font><font color="#000000">;</font>
 <font color="#00979c">byte</font> <font color="#000000">salidas</font><font color="#000000">;</font>
+
+<font color="#00979c">unsigned</font> <font color="#00979c">long</font> <font color="#000000">currentTime</font> <font color="#434f54">=</font> <font color="#d35400">millis</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+<font color="#00979c">unsigned</font> <font color="#00979c">long</font> <font color="#000000">previousTime</font> <font color="#434f54">=</font> <font color="#000000">0</font><font color="#000000">;</font> 
+<font color="#00979c">const</font> <font color="#00979c">long</font> <font color="#000000">timeoutTime</font> <font color="#434f54">=</font> <font color="#000000">1000</font><font color="#000000">;</font>
 
 <font color="#00979c">byte</font> <font color="#000000">alto</font><font color="#000000">[</font><font color="#000000">]</font> <font color="#434f54">=</font> <font color="#000000">{</font><font color="#000000">0x00</font><font color="#434f54">,</font><font color="#000000">0x1F</font><font color="#434f54">,</font><font color="#000000">0x1F</font><font color="#434f54">,</font><font color="#000000">0x1F</font><font color="#434f54">,</font><font color="#000000">0x1F</font><font color="#434f54">,</font><font color="#000000">0x1F</font><font color="#434f54">,</font><font color="#000000">0x1F</font><font color="#434f54">,</font><font color="#000000">0x00</font><font color="#000000">}</font><font color="#000000">;</font>
 <font color="#00979c">byte</font> <font color="#000000">bajo</font><font color="#000000">[</font><font color="#000000">]</font> <font color="#434f54">=</font> <font color="#000000">{</font><font color="#000000">0x00</font><font color="#434f54">,</font><font color="#000000">0x1F</font><font color="#434f54">,</font><font color="#000000">0x11</font><font color="#434f54">,</font><font color="#000000">0x11</font><font color="#434f54">,</font><font color="#000000">0x11</font><font color="#434f54">,</font><font color="#000000">0x11</font><font color="#434f54">,</font><font color="#000000">0x1F</font><font color="#434f54">,</font><font color="#000000">0x00</font><font color="#000000">}</font><font color="#000000">;</font>
@@ -106,16 +109,21 @@
  &nbsp;<font color="#434f54">&#47;&#47; put your main code here, to run repeatedly:</font>
  &nbsp;<font color="#000000">sensor</font> <font color="#434f54">=</font> <font color="#d35400">analogRead</font><font color="#000000">(</font><font color="#000000">A0</font><font color="#000000">)</font><font color="#000000">;</font>
 
- &nbsp;<font color="#000000">sensors</font><font color="#434f54">.</font><font color="#d35400">requestTemperatures</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; Send the command to get temperatures</font>
- &nbsp;<font color="#000000">tempC</font> <font color="#434f54">=</font> <font color="#000000">sensors</font><font color="#434f54">.</font><font color="#d35400">getTempCByIndex</font><font color="#000000">(</font><font color="#000000">0</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">currentTime</font> <font color="#434f54">=</font> <font color="#d35400">millis</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">currentTime</font> <font color="#434f54">-</font> <font color="#000000">previousTime</font> <font color="#434f54">&gt;=</font> <font color="#000000">timeoutTime</font><font color="#000000">)</font>
+ &nbsp;<font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">previousTime</font> <font color="#434f54">=</font> <font color="#000000">currentTime</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">sensors</font><font color="#434f54">.</font><font color="#d35400">requestTemperatures</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; Send the command to get temperatures</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">tempC</font> <font color="#434f54">=</font> <font color="#000000">sensors</font><font color="#434f54">.</font><font color="#d35400">getTempCByIndex</font><font color="#000000">(</font><font color="#000000">0</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">}</font>
 
  &nbsp;<font color="#000000">estados</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
 
  &nbsp;<font color="#434f54">&#47;&#47; Create the JSON document</font>
  &nbsp;<b><font color="#d35400">StaticJsonDocument</font></b><font color="#434f54">&lt;</font><font color="#000000">200</font><font color="#434f54">&gt;</font> <font color="#000000">Json_enviar</font><font color="#000000">;</font>
- &nbsp;<font color="#000000">Json_enviar</font><font color="#000000">[</font><font color="#005c5f">&#34;entradas&#34;</font><font color="#000000">]</font> <font color="#434f54">=</font> <font color="#000000">I0</font> <font color="#434f54">*</font> <font color="#000000">1</font> <font color="#434f54">+</font> <font color="#000000">I1</font> <font color="#434f54">*</font> <font color="#000000">2</font> <font color="#434f54">+</font> <font color="#000000">I2</font> <font color="#434f54">*</font> <font color="#000000">4</font><font color="#000000">;</font>
  &nbsp;<font color="#000000">Json_enviar</font><font color="#000000">[</font><font color="#005c5f">&#34;sensor&#34;</font><font color="#000000">]</font> <font color="#434f54">=</font> <font color="#000000">sensor</font><font color="#000000">;</font>
  &nbsp;<font color="#000000">Json_enviar</font><font color="#000000">[</font><font color="#005c5f">&#34;temperatura&#34;</font><font color="#000000">]</font> <font color="#434f54">=</font> <font color="#000000">tempC</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">Json_enviar</font><font color="#000000">[</font><font color="#005c5f">&#34;entradas&#34;</font><font color="#000000">]</font> <font color="#434f54">=</font> <font color="#000000">I0</font> <font color="#434f54">*</font> <font color="#000000">1</font> <font color="#434f54">+</font> <font color="#000000">I1</font> <font color="#434f54">*</font> <font color="#000000">2</font> <font color="#434f54">+</font> <font color="#000000">I2</font> <font color="#434f54">*</font> <font color="#000000">4</font><font color="#000000">;</font>
  &nbsp;<font color="#d35400">serializeJson</font><font color="#000000">(</font><font color="#000000">Json_enviar</font><font color="#434f54">,</font> <b><font color="#d35400">Serial</font></b><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
 
