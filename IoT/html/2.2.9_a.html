@@ -12,11 +12,11 @@
 		<pre>
 <font color="#434f54">&#47;&#47; Include the libraries we need</font>
 <font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><b><font color="#d35400">SPI</font></b><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
-<font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><b><font color="#d35400">Wire</font></b><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
+<font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><font color="#d35400">Wire</font><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
 <font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><font color="#000000">Adafruit_GFX</font><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
 <font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><font color="#000000">Adafruit_SSD1306</font><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
 
-<font color="#000000">Adafruit_SSD1306</font> <font color="#d35400">display</font> <font color="#434f54">=</font> <font color="#000000">Adafruit_SSD1306</font><font color="#000000">(</font><font color="#000000">128</font><font color="#434f54">,</font> <font color="#000000">32</font><font color="#434f54">,</font> <font color="#434f54">&amp;</font><b><font color="#d35400">Wire</font></b><font color="#000000">)</font><font color="#000000">;</font>
+<font color="#000000">Adafruit_SSD1306</font> <font color="#d35400">display</font> <font color="#434f54">=</font> <font color="#000000">Adafruit_SSD1306</font><font color="#000000">(</font><font color="#000000">128</font><font color="#434f54">,</font> <font color="#000000">32</font><font color="#434f54">,</font> <font color="#434f54">&amp;</font><font color="#d35400">Wire</font><font color="#000000">)</font><font color="#000000">;</font>
 
 <font color="#00979c">int</font> <font color="#000000">Valor_ADC</font><font color="#000000">;</font>
 
@@ -24,25 +24,22 @@
  &nbsp;<font color="#434f54">&#47;&#47; put your setup code here, to run once:</font>
  &nbsp;<font color="#434f54">&#47;&#47; SSD1306_SWITCHCAPVCC = generate display voltage from 3.3V internally</font>
  &nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">SSD1306_SWITCHCAPVCC</font><font color="#434f54">,</font> <font color="#000000">0x3C</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; Address 0x3C for 128x32</font>
+ &nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#000000">setTextSize</font><font color="#000000">(</font><font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#000000">setTextColor</font><font color="#000000">(</font><font color="#000000">SSD1306_WHITE</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#434f54">&#47;&#47;Activar página de código 437</font>
+ &nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#000000">cp437</font><font color="#000000">(</font><font color="#00979c">true</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">display</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">2000</font><font color="#000000">)</font><font color="#000000">;</font>
-
- &nbsp;<font color="#434f54">&#47;&#47; Clear the buffer.</font>
- &nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#000000">clearDisplay</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">display</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
 <font color="#000000">}</font>
 
 <font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
  &nbsp;<font color="#434f54">&#47;&#47; put your main code here, to run repeatedly:</font>
  &nbsp;<font color="#000000">Valor_ADC</font> <font color="#434f54">=</font> <font color="#d35400">analogRead</font><font color="#000000">(</font><font color="#000000">A0</font><font color="#000000">)</font><font color="#000000">;</font>
 
- &nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#000000">setTextSize</font><font color="#000000">(</font><font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#000000">setTextColor</font><font color="#000000">(</font><font color="#000000">SSD1306_WHITE</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#000000">clearDisplay</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">setCursor</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font><font color="#000000">0</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;Sensor: &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#000000">Valor_ADC</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#d35400">yield</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">display</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
 
  &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">100</font><font color="#000000">)</font><font color="#000000">;</font>
