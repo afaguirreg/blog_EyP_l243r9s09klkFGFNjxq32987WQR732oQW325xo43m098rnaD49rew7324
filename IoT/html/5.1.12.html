@@ -16,11 +16,11 @@
 
 <b><font color="#d35400">LiquidCrystal_PCF8574</font></b> <font color="#000000">lcd</font><font color="#000000">(</font><font color="#000000">0x27</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; set the LCD address to 0x27 for a 16 chars and 2 line display</font>
 
-<font color="#5e6d03">#define</font> <font color="#000000">DHTPIN</font> <font color="#000000">23</font>
+<font color="#5e6d03">#define</font> <font color="#000000">DHTPIN</font> <font color="#000000">A7</font>
 
 <font color="#434f54">&#47;&#47; Uncomment whatever type you&#39;re using!</font>
-<font color="#434f54">&#47;&#47;#define DHTTYPE DHT11 &nbsp;&nbsp;&#47;&#47; DHT 11</font>
-<font color="#5e6d03">#define</font> <font color="#000000">DHTTYPE</font> <font color="#00979c">DHT22</font> &nbsp;&nbsp;<font color="#434f54">&#47;&#47; DHT 22 &nbsp;(AM2302), AM2321</font>
+<font color="#5e6d03">#define</font> <font color="#000000">DHTTYPE</font> <font color="#00979c">DHT11</font> &nbsp;&nbsp;<font color="#434f54">&#47;&#47; DHT 11</font>
+<font color="#434f54">&#47;&#47;#define DHTTYPE DHT22 &nbsp;&nbsp;&#47;&#47; DHT 22 &nbsp;(AM2302), AM2321</font>
 <font color="#434f54">&#47;&#47;#define DHTTYPE DHT21 &nbsp;&nbsp;&#47;&#47; DHT 21 (AM2301)</font>
 
 <b><font color="#d35400">DHT</font></b> <font color="#000000">dht</font><font color="#000000">(</font><font color="#000000">DHTPIN</font><font color="#434f54">,</font> <font color="#000000">DHTTYPE</font><font color="#000000">)</font><font color="#000000">;</font>
