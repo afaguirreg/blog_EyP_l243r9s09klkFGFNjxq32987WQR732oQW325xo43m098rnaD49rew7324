@@ -12,7 +12,6 @@
 		<pre>
 <font color="#434f54">&#47;&#47; Include the libraries we need</font>
 <font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><b><font color="#d35400">LiquidCrystal_PCF8574</font></b><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
-<font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><b><font color="#d35400">Wire</font></b><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
 <font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><b><font color="#d35400">OneWire</font></b><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
 <font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><b><font color="#d35400">DallasTemperature</font></b><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
 
@@ -33,7 +32,7 @@
 <font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
  &nbsp;<font color="#434f54">&#47;&#47; put your setup code here, to run once:</font>
  &nbsp;<font color="#00979c">int</font> <font color="#000000">error</font><font color="#000000">;</font>
- &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">2</font><font color="#434f54">,</font><font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font>
+
  &nbsp;<font color="#000000">sensors</font><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
 
  &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">20</font><font color="#434f54">,</font> <font color="#000000">4</font><font color="#000000">)</font><font color="#000000">;</font>
@@ -51,7 +50,7 @@
  &nbsp;<font color="#000000">{</font>
  &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">setCursor</font><font color="#000000">(</font><font color="#000000">13</font><font color="#434f54">,</font><font color="#000000">0</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">tempC</font><font color="#434f54">,</font><font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">(</font><font color="#00979c">char</font><font color="#000000">)</font><font color="#000000">grados</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">(</font><font color="#00979c">char</font><font color="#000000">)</font> <font color="#000000">grados</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;C &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#000000">}</font> 
  &nbsp;<font color="#5e6d03">else</font>
@@ -59,11 +58,6 @@
  &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">setCursor</font><font color="#000000">(</font><font color="#000000">13</font><font color="#434f54">,</font><font color="#000000">0</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;error!&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#000000">}</font>
- &nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><font color="#000000">tempC</font> <font color="#434f54">&gt;</font> <font color="#000000">30</font><font color="#000000">)</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">2</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#5e6d03">else</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">2</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;
 <font color="#000000">}</font></pre>
 	</body>
 </html>
