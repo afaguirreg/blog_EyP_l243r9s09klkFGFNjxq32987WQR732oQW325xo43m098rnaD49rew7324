@@ -72,13 +72,10 @@
 <font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
  &nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">9600</font><font color="#000000">)</font><font color="#000000">;</font>
 
- &nbsp;<font color="#d35400">Wire</font><font color="#434f54">.</font><font color="#000000">setSDA</font><font color="#000000">(</font><font color="#000000">4</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#d35400">Wire</font><font color="#434f54">.</font><font color="#000000">setSCL</font><font color="#000000">(</font><font color="#000000">5</font><font color="#000000">)</font><font color="#000000">;</font>
-
  &nbsp;<font color="#434f54">&#47;&#47; SSD1306_SWITCHCAPVCC = generate display voltage from 3.3V internally</font>
- &nbsp;<font color="#5e6d03">if</font><font color="#000000">(</font><font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">SSD1306_SWITCHCAPVCC</font><font color="#434f54">,</font> <font color="#000000">SCREEN_ADDRESS</font><font color="#000000">)</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;<font color="#5e6d03">if</font><font color="#000000">(</font><font color="#434f54">!</font><font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">SSD1306_SWITCHCAPVCC</font><font color="#434f54">,</font> <font color="#000000">SCREEN_ADDRESS</font><font color="#000000">)</font><font color="#000000">)</font> <font color="#000000">{</font>
  &nbsp;&nbsp;&nbsp;<b><font color="#d35400">Serial</font></b><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#000000">F</font><font color="#000000">(</font><font color="#005c5f">&#34;SSD1306 allocation failed&#34;</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47;for(;;); &#47;&#47; Don&#39;t proceed, loop forever</font>
+ &nbsp;&nbsp;&nbsp;<font color="#5e6d03">for</font><font color="#000000">(</font><font color="#000000">;</font><font color="#000000">;</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; Don&#39;t proceed, loop forever</font>
  &nbsp;<font color="#000000">}</font>
 
  &nbsp;<font color="#434f54">&#47;&#47; Show initial display buffer contents on the screen --</font>
@@ -428,5 +425,5 @@
  &nbsp;&nbsp;&nbsp;<font color="#000000">}</font>
  &nbsp;<font color="#000000">}</font>
 <font color="#000000">}</font></pre>
-</body>
+	</body>
 </html>
