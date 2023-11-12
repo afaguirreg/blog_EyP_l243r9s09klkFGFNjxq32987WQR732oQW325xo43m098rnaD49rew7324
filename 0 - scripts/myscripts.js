@@ -27,17 +27,18 @@ function obtener_valor(variable) {
 			return url.substring(variable_pos + variable_may.length + 1, url.length);
 		}
 	}
-	else
-	{
-		return "CONTENIDO";
-	}
+	//else
+	//{
+		//return "CONTENIDO";
+	//}
 }
 
 window.onload = function() {
-	var valor = obtener_valor("verinfo");
-	var element = document.getElementById(valor);
-	element.scrollIntoView();
-	capturar();
+	document.getElementById("LED_BUILTIN_1").innerHTML = obtener_valor("LED_BUILTIN");
+	document.getElementById("LED_BUILTIN_2").innerHTML = obtener_valor("LED_BUILTIN");
+	document.getElementById("LED_BUILTIN_3").innerHTML = obtener_valor("LED_BUILTIN");
+	document.getElementById("pin_SCK").innerHTML = obtener_valor("pin_SCK");
+	document.getElementById("pin_SDA").innerHTML = obtener_valor("pin_SDA");
 }
 
 function getDocHeight(doc) {
