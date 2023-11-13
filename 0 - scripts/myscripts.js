@@ -27,18 +27,46 @@ function obtener_valor(variable) {
 			return url.substring(variable_pos + variable_may.length + 1, url.length);
 		}
 	}
-	//else
-	//{
-		//return "CONTENIDO";
-	//}
+	else
+	{
+		return "CONTENIDO";
+	}
 }
 
 window.onload = function() {
-	document.getElementById("LED_BUILTIN_1").innerHTML = obtener_valor("LED_BUILTIN");
-	document.getElementById("LED_BUILTIN_2").innerHTML = obtener_valor("LED_BUILTIN");
-	document.getElementById("LED_BUILTIN_3").innerHTML = obtener_valor("LED_BUILTIN");
-	document.getElementById("pin_SCK").innerHTML = obtener_valor("pin_SCK");
-	document.getElementById("pin_SDA").innerHTML = obtener_valor("pin_SDA");
+	var valor = obtener_valor("verinfo");
+	if (valor != "CONTENIDO") {
+		var element = document.getElementById(valor);
+		element.scrollIntoView();
+	}
+
+	var lbi = obtener_valor("LED_BUILTIN");
+	if (lbi != "CONTENIDO") {
+		document.getElementById("LED_BUILTIN_1").innerHTML = obtener_valor("LED_BUILTIN");
+		document.getElementById("LED_BUILTIN_2").innerHTML = obtener_valor("LED_BUILTIN");
+		document.getElementById("LED_BUILTIN_3").innerHTML = obtener_valor("LED_BUILTIN");
+	}
+
+	var wire = obtener_valor("wire");
+	if (wire != "CONTENIDO") {
+		document.getElementById("wire").innerHTML = obtener_valor("wire");
+	}
+
+	var pin_OneWire = obtener_valor("pin_OneWire");
+	if (pin_OneWire != "CONTENIDO") {
+		document.getElementById("pin_OneWire").innerHTML = obtener_valor("pin_OneWire");
+	}
+
+	var pin_DHT = obtener_valor("pin_DHT");
+	if (pin_DHT != "CONTENIDO") {
+		document.getElementById("pin_DHT").innerHTML = obtener_valor("pin_DHT");
+	}
+
+	var pin_SCK = obtener_valor("pin_SCK");
+	if (pin_SCK != "CONTENIDO") {
+		document.getElementById("pin_SCK").innerHTML = obtener_valor("pin_SCK");
+		document.getElementById("pin_SDA").innerHTML = obtener_valor("pin_SDA");
+	}
 }
 
 function getDocHeight(doc) {
@@ -50,12 +78,12 @@ function getDocHeight(doc) {
 }
 
 setInterval(function() {
-				var x = document.getElementsByTagName("iframe");
-				for (var i = 0; i < x.length; i++) {
-					var ifrm = document.getElementById(x[i].id);
-					var doc = ifrm.contentDocument ? ifrm.contentDocument:ifrm.contentWindow.document;
-					ifrm.style.height = getDocHeight( doc ) + "px";
-					var style = document.getElementById(x[i].id).style;
-					style.webkitTransform = style.webkitTransform ? "" : "scale(1)";
-				}
-			},500);
+	var x = document.getElementsByTagName("iframe");
+	for (var i = 0; i < x.length; i++) {
+		var ifrm = document.getElementById(x[i].id);
+		var doc = ifrm.contentDocument ? ifrm.contentDocument:ifrm.contentWindow.document;
+		ifrm.style.height = getDocHeight( doc ) + "px";
+		var style = document.getElementById(x[i].id).style;
+		style.webkitTransform = style.webkitTransform ? "" : "scale(1)";
+	}
+},500);
