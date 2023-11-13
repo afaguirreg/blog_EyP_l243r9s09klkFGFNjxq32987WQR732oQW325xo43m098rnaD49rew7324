@@ -18,8 +18,8 @@
 <b><font color="#d35400">LiquidCrystal_PCF8574</font></b> <font color="#000000">lcd</font><font color="#000000">(</font><font color="#000000">0x27</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; set the LCD address to 0x27 for a 16 chars and 2 line display</font>
 
 <font color="#434f54">&#47;&#47; Specify data and clock connections and instantiate SHT1x object</font>
-<font color="#5e6d03">#define</font> <font color="#000000">dataPin</font> &nbsp;<font color="#000000">0</font>
-<font color="#5e6d03">#define</font> <font color="#000000">clockPin</font> <font color="#000000">5</font>
+<font color="#5e6d03">#define</font> <font color="#000000">dataPin</font> &nbsp;<font id="pin_SDA" color="#000000">0</font>
+<font color="#5e6d03">#define</font> <font color="#000000">clockPin</font> <font id="pin_SCK" color="#000000">5</font>
 
 <font color="#434f54">&#47;&#47; default to 5.0v boards, e.g. Arduino UNO</font>
 <font color="#434f54">&#47;&#47;SHT1x sht1x(dataPin, clockPin);</font>
