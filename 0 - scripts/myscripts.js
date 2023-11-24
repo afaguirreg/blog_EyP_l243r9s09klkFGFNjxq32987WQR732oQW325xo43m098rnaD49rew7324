@@ -67,6 +67,11 @@ window.onload = function() {
 		document.getElementById("pin_SCK").innerHTML = obtener_valor("pin_SCK");
 		document.getElementById("pin_SDA").innerHTML = obtener_valor("pin_SDA");
 	}
+
+	var pin_A0 = obtener_valor("pin_A0");
+	if (pin_A0 != "CONTENIDO") {
+		document.getElementById("pin_A0").innerHTML = obtener_valor("pin_A0");
+	}
 }
 
 function getDocHeight(doc) {
