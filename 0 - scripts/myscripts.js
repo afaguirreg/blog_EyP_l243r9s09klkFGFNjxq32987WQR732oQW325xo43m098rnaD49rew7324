@@ -67,6 +67,11 @@ window.onload = function() {
 		document.getElementById("pin_A2").innerHTML = obtener_valor("pin_A2");
 	}
 
+	var pin_PWM = obtener_valor("pin_PWM");
+	if (pin_PWM != "CONTENIDO") {
+		document.getElementById("pin_PWM").innerHTML = obtener_valor("pin_PWM");
+	}
+
 	var pin_OneWire = obtener_valor("pin_OneWire");
 	if (pin_OneWire != "CONTENIDO") {
 		document.getElementById("pin_OneWire").innerHTML = obtener_valor("pin_OneWire");
