@@ -72,9 +72,9 @@ window.onload = function() {
 		document.getElementById("pin_PWM").innerHTML = obtener_valor("pin_PWM");
 	}
 
-	var pin_OneWire = obtener_valor("pin_OneWire");
-	if (pin_OneWire != "CONTENIDO") {
-		document.getElementById("pin_OneWire").innerHTML = obtener_valor("pin_OneWire");
+	var ONE_WIRE_BUS = obtener_valor("ONE_WIRE_BUS");
+	if (ONE_WIRE_BUS != "CONTENIDO") {
+		document.getElementById("ONE_WIRE_BUS").innerHTML = obtener_valor("ONE_WIRE_BUS");
 	}
 
 	var DHTPIN = obtener_valor("DHTPIN");
