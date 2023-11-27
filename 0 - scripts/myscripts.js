@@ -51,26 +51,36 @@ window.onload = function() {
 	if (wire != "CONTENIDO") {
 		document.getElementById("wire").innerHTML = obtener_valor("wire");
 	}
+	
+	var pin_A0 = obtener_valor("pin_A0");
+	if (pin_A0 != "CONTENIDO") {
+		document.getElementById("pin_A0").innerHTML = obtener_valor("pin_A0");
+	}
+
+	var pin_A1 = obtener_valor("pin_A1");
+	if (pin_A1 != "CONTENIDO") {
+		document.getElementById("pin_A1").innerHTML = obtener_valor("pin_A1");
+	}
+
+	var pin_A2 = obtener_valor("pin_A2");
+	if (pin_A2 != "CONTENIDO") {
+		document.getElementById("pin_A2").innerHTML = obtener_valor("pin_A2");
+	}
 
 	var pin_OneWire = obtener_valor("pin_OneWire");
 	if (pin_OneWire != "CONTENIDO") {
 		document.getElementById("pin_OneWire").innerHTML = obtener_valor("pin_OneWire");
 	}
 
-	var pin_DHT = obtener_valor("pin_DHT");
-	if (pin_DHT != "CONTENIDO") {
-		document.getElementById("pin_DHT").innerHTML = obtener_valor("pin_DHT");
+	var DHTPIN = obtener_valor("DHTPIN");
+	if (DHTPIN != "CONTENIDO") {
+		document.getElementById("DHTPIN").innerHTML = obtener_valor("DHTPIN");
 	}
 
-	var pin_SCK = obtener_valor("pin_SCK");
+	var pin_SCK = obtener_valor("dataPin");
 	if (pin_SCK != "CONTENIDO") {
-		document.getElementById("pin_SCK").innerHTML = obtener_valor("pin_SCK");
-		document.getElementById("pin_SDA").innerHTML = obtener_valor("pin_SDA");
-	}
-
-	var pin_A0 = obtener_valor("pin_A0");
-	if (pin_A0 != "CONTENIDO") {
-		document.getElementById("pin_A0").innerHTML = obtener_valor("pin_A0");
+		document.getElementById("dataPin").innerHTML = obtener_valor("dataPin");
+		document.getElementById("clockPin").innerHTML = obtener_valor("clockPin");
 	}
 }
 
