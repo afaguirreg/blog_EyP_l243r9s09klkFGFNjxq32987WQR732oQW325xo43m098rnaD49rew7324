@@ -39,6 +39,11 @@ window.onload = function() {
 		var element = document.getElementById(valor);
 		element.scrollIntoView();
 	}
+	
+	var tipo_7seg = obtener_valor("tipo_7seg");
+	if (tipo_7seg != "CONTENIDO") {
+		document.getElementById("tipo_7seg").innerHTML = obtener_valor("tipo_7seg");
+	}
 
 	var lbi = obtener_valor("LED_BUILTIN");
 	if (lbi != "CONTENIDO") {
