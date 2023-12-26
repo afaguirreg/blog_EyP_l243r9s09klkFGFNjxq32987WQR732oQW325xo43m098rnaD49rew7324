@@ -5,6 +5,7 @@
 		<title>Documento sin título</title>
 		<link rel="stylesheet" type="text/css" href="../../../0 - styles/mystyles.css">
 		<script language="JavaScript" src="../../../0 - scripts/myscripts.js"></script>
+		<script type="text/javascript" src="../../../0 - scripts/jquery/jquery.min.js"></script>
 		<script type="text/javascript" src="../../../0 - scripts/iframe/iframeResizer.min.js"></script>
 	</head>
 
@@ -29,19 +30,27 @@
 		  	<br><br>
 			Proteus simula bastante bien el uso de la memoria EEPROM del microcontrolador, si detenemos la simulación y volvemos a iniciarla vemos como los valores de la EEPROM se mantienen.
 			<br><br>
-			<div align="center"><img src="../video/4.2 Contador 0-9 Display 7 segmentos.png" alt="" width="auto" height="auto"></div>
+			<input type="button" onClick="document.getElementById('img_zoom_1').src = '../video/3.1.1 Contador 0 - 9 sin decodificador_1.png'; document.getElementById('ifrm2').src = 'html/4.2.html?tipo_7seg=1'; LoadImages();" value="Ver Anodo común">
+			<input type="button" onClick="document.getElementById('img_zoom_1').src = '../video/3.1.1 Contador 0 - 9 sin decodificador_2.png'; document.getElementById('ifrm2').src = 'html/4.2.html?tipo_7seg=0'; LoadImages();" value="Ver Cátodo común">
+			<div align="center"><img id="img_zoom_1" src="../video/3.1.1 Contador 0 - 9 sin decodificador_1.png" alt="" width="auto" height="auto"></div>
 			<br>
 			<iframe class="pag" id="ifrm2" name="ifrm2" scrolling="no" marginwidth="0" src="html/4.2.html"></iframe>
 			<br><br>
 			<a id="Contador 0 - 99 Display 7 segmentos"></a>
 			<b><i>4.3 Contador 0 - 99 Display 7 segmentos</i></b>
 			<br><br>
-			<div align="center"><img src="../video/4.3 Contador 0-99 Display 7 segmentos.png" alt="" width="1000" height="auto"></div>
+			<input type="button" onClick="document.getElementById('img_zoom_2').src = '../video/3.1.2 Contador 0 - 99 sin decodificador_1.png'; document.getElementById('ifrm3').src = 'html/4.3.html?tipo_7seg=1'; LoadImages();" value="Ver Anodo común">
+			<input type="button" onClick="document.getElementById('img_zoom_2').src = '../video/3.1.2 Contador 0 - 99 sin decodificador_2.png'; document.getElementById('ifrm3').src = 'html/4.3.html?tipo_7seg=0'; LoadImages();" value="Ver Cátodo común">
+			<div align="center"><img id="img_zoom_2" src="../video/3.1.2 Contador 0 - 99 sin decodificador_1.png" alt="" width="1000" height="auto"></div>
 			<br>
+			<iframe class="pag" id="ifrm3" name="ifrm3" scrolling="no" marginwidth="0" src="html/4.3.html"></iframe>
+			<br><br>
 			<a id="Contador 0 - 100 Display LCD"></a>
 			<b><i>4.4 Contador 0 - 100 Display LCD</i></b>
 			<br><br>
-			<div align="center"><img src="../video/4.4 Contador 0-100 Display LCD.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="../video/3.3.2 Contador 0 a 100.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm4" name="ifrm4" scrolling="no" marginwidth="0" src="html/4.4.html"></iframe>
 		</div>
 		<script type="text/javascript">
 			/*
