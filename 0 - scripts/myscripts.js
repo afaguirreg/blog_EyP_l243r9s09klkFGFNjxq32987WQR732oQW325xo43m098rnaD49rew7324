@@ -52,9 +52,11 @@ window.onload = function() {
 		document.getElementById("LED_BUILTIN_3").innerHTML = obtener_valor("LED_BUILTIN");
 	}
 
-	var wire = obtener_valor("wire");
-	if (wire != "CONTENIDO") {
-		document.getElementById("wire").innerHTML = obtener_valor("wire");
+	var Wire_SDA = obtener_valor("Wire_SDA");
+	if (Wire_SDA != "CONTENIDO") {
+		document.getElementById("Wire_SDA").innerHTML = obtener_valor("Wire_SDA");
+		document.getElementById("Wire_SCL").innerHTML = obtener_valor("Wire_SCL");
+		document.getElementById("br").innerHTML = obtener_valor("br");
 	}
 	
 	var pin_A0 = obtener_valor("pin_A0");

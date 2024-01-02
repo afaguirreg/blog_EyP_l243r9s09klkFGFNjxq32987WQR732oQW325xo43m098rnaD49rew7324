@@ -12,67 +12,65 @@
 
 	<body>
 		<div class="Normal" style="text-align:justify">
-			<a id="ESP32"></a>
-			<b><i>ESP32 + OLED</i></b>
+			<a id="NodeMCU"></a>
+			<b><i>ESP8266 NodeMCU + OLED</i></b>
 			<br><br>
-			<div align="center"><img src="img/2. IoT_1c.png" alt="" width="1000" height="auto"></div>
+			<div align="center"><img src="img/2. IoT_1a.png" alt="" width="auto" height="auto"></div>
 			<br>
-			Este módulo integra el dispositivo ESP32 para obtener una plataforma de desarrollo compatible con Arduino, dotada de comunicación WiFi para el desarrollo de aplicaciones IOT.
+			NodeMCU es un módulo que integra el dispositivo ESP8266 para obtener una plataforma de desarrollo compatible con Arduino, dotada de comunicación WiFi para el desarrollo de aplicaciones IOT.
+			<br>
+			El ESP8266 que incorpora NodeMCU es un SoC (System on Chip), con capacidades de 2.4 GHz Wi-Fi (802.11 b / g / n, soporte WPA / WPA2), 16 GPIO de propósito general (entrada / salida), I²C, convertidor analógico-digital (ADC de 10 bits), SPI, I²S, UART y modulación de ancho de pulso (PWM), emplea un CPU RISC de 32 bits basado en el Tensilica Xtensa LX106 funcionando a 80 MHz (o overclocked a 160 MHz). Tiene una memoria ROM de inicio de 64 KB, memoria RAM de instrucciones de 64 KB y 96 KB de RAM de datos. Memoria flash externa de 4MB (puede varíar entre diferentes versiones de modulo).
 			<br><br>
-			Antes de comenzar a programar se debe configurar el entorno Arduino para poder compilar y cargar los programas adecuadamente en el ESP32.
+			Antes de comenzar a programar se debe configurar el entorno Arduino para poder compilar y cargar los programas adecuadamente en el NodeMCU.
 			<br><br>
 			Iniciar Arduino IDE, abrir el menú <b><i>File--&gt;Preferences...</i></b>.
 			<br><br>
 			<div align="center"><img src="img/2. IoT_2.png" alt="" width="auto" height="auto"></div>
 			<br>
-			Escribir la siguiente URL en la caja de texto Gestor de URLs Adicionales de Tarjetas: <b><i><a href="https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json" target="_blank">https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json</a></i></b>
+			Escribir la siguiente URL en la caja de texto Gestor de URLs Adicionales de Tarjetas: <b><i><a href="http://arduino.esp8266.com/stable/package_esp8266com_index.json" target="_blank">http://arduino.esp8266.com/stable/package_esp8266com_index.json</a></i></b>
 			<br><br>
-			<div align="center"><img src="img/2. IoT_3b.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/2. IoT_3a.png" alt="" width="auto" height="auto"></div>
 			<br>
 			Abrir el menú de la izquierda <b><i>BOARDS MANAGER</i></b>
 			<br><br>
-			Buscar en la lista el gestor del módulo ESP32.
+			Buscar en la lista el gestor del módulo ESP8266.
 			<br><br>
 			Hacer click en el botón <b><i>INSTALL</i></b>.
 			<br><br>
-			<div align="center"><img src="img/2. IoT_4b.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/2. IoT_4a.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Una vez completa la instalación, cerrar Arduino IDE y abrir nuevamente. Las librerías y ejemplos instalados estarán disponibles.
 			<br><br>
-			Una vez completa la instalación, cerrar Arduino IDE y  abrir nuevamente. Las librerías y ejemplos instalados estarán disponibles.
+			Abrir el menú <b><i>Tools--&gt;Board:</i></b> y seleccionar la placa <b><i>NodeMCU 1.0 (ESP-12E Module).</i></b>
 			<br><br>
-			Abrir el menú <b><i>Tools--&gt;Board:</i></b> y seleccionar la placa <b><i>ESP32 Dev Module.</i></b>
-			<br><br>
-			<div align="center"><img src="img/2. IoT_5c.png" alt="" width="1000" height="auto"></div>
+			<div align="center"><img src="img/2. IoT_5a.png" alt="" width="1000" height="auto"></div>
 			<br><br>
 			<a id="Ejemplo Blink"></a>
 			<b><i>1 - Ejemplo Blink</i></b>
 			<br><br>
-			<input type="button" onClick="document.getElementById('img_zoom_1').src = 'img/4.1.1 ESP32_a.png'; LoadImages();" value="Ver ESP32 DEVKITV1">
-			<input type="button" onClick="document.getElementById('img_zoom_1').src = 'img/4.1.1 ESP32_b.png'; LoadImages();" value="Ver ESP32_DEVKITC_V4">
-			<br><br>
-			<div align="center"><img id="img_zoom_1" src="img/4.1.1 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<div align="center"><img id="img_zoom_1" src="img/2.1.1 NodeMCU.png" alt="" width="1000" height="auto"></div>
 			<br>
 			Abrir el menú <b><i>File--&gt;Examples--&gt;0.1 Basics</i></b> y seleccionar el proyecto ejemplo <b><i>Blink</i></b>
 			<br><br>
 			<div align="center"><img src="img/2. IoT_6.png" alt="" width="auto" height="auto"></div>
 			<br>
 			Modificar el código. En este ejemplo el LED incorporado en la tarjeta cambiará de estado cada segundo (1000 ms).
+			<br>
+			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" marginwidth="0" src="html/2.1.1_a.html?LED_BUILTIN=LED_BUILTIN"></iframe>
 			<br><br>
-			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" marginwidth="0" src="html/2.1.1_a.html?LED_BUILTIN=2"></iframe>
+			Cargar el programa en la placa NodeMCU (verificar que haya seleccionado el puerto correspondiente).
 			<br><br>
-			Cargar el programa en la placa ESP32 (verificar que haya seleccionado el puerto correspondiente).
+			Esperar a que el programa indique que el sketch ha sido subido a la placa NodeMCU.
 			<br><br>
-			Esperar a que el programa indique que el sketch ha sido subido a la placa ESP32.
-			<br><br>
-			<div align="center"><img src="img/2. IoT_7c.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/2. IoT_7a.png" alt="" width="auto" height="auto"></div>
 			<br><br>
 			<a id="Visualizacion display"></a>
 			<b><i>2 - Visualización display</i></b>
 			<br><br>
-			<input type="button" onClick="document.getElementById('img_zoom_2').src = 'img/4.2.2 ESP32_a.png'; LoadImages();" value="Ver dispositivo">
-			<input type="button" onClick="document.getElementById('img_zoom_2').src = 'img/4.2.2 ESP32_b.png'; LoadImages();" value="Ver ESP32 DEVKITV1">
-			<input type="button" onClick="document.getElementById('img_zoom_2').src = 'img/4.2.2 ESP32_c.png'; LoadImages();" value="Ver ESP32_DEVKITC_V4">
+			<input type="button" onClick="document.getElementById('img_zoom_2').src = './img/2.2.2 NodeMCU_a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_2').src = './img/2.2.2 NodeMCU_b.png'; LoadImages();" value="Ver NodeMCU">
 			<br><br>
-			<div align="center"><img id="img_zoom_2" src="img/4.2.2 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<div align="center"><img id="img_zoom_2" src="img/2.2.2 NodeMCU_a.png" alt="" width="1000" height="auto"></div>
 			<br>
 			Abrir el menú de la izquierda <b><i>LIBRARY MANAGER</i></b>
 			<br><br>
@@ -93,103 +91,94 @@
 <font color="#5e6d03">#define</font> <font color="#000000">SCREEN_HEIGHT</font> <font color="#000000">64</font> <font color="#434f54">&#47;&#47; OLED display height, in pixels</font>
 </pre>
 			<iframe class="pag" id="ifrm2" name="ifrm2" scrolling="no" marginwidth="0" src="html/2.2.2_a.html"></iframe>
-			<br><br>
+			<br><br><br>
 			<a id="Entradas y salidas digitales"></a>
 			<b><i>3 - Entradas y salidas digitales</i></b>
 			<br><br>
-			<input type="button" onClick="document.getElementById('img_zoom_3').src = 'img/4.2.3 ESP32_a.png'; LoadImages();" value="Ver dispositivo">
-			<input type="button" onClick="document.getElementById('img_zoom_3').src = 'img/4.2.3 ESP32_b.png'; LoadImages();" value="Ver ESP32 DEVKITV1">
-			<input type="button" onClick="document.getElementById('img_zoom_3').src = 'img/4.2.3 ESP32_c.png'; LoadImages();" value="Ver ESP32_DEVKITC_V4">
+			<input type="button" onClick="document.getElementById('img_zoom_3').src = './img/2.2.3 NodeMCU_a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_3').src = './img/2.2.3 NodeMCU_b.png'; LoadImages();" value="Ver NodeMCU">
 			<br><br>
-			<div align="center"><img id="img_zoom_3" src="img/4.2.3 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<div align="center"><img id="img_zoom_3" src="img/2.2.3 NodeMCU_a.png" alt="" width="1000" height="auto"></div>
 			<br>
-			<iframe class="pag" id="ifrm3" name="ifrm3" scrolling="no" marginwidth="0" src="html/4.2.3_a.html"></iframe>
+			<iframe class="pag" id="ifrm3" name="ifrm3" scrolling="no" marginwidth="0" src="html/3.2.3_a.html"></iframe>
 			<br><br>
 			<a id="Control motor DC"></a>
 			<b><i>4 - Control motor DC</i></b>
 			<br><br>
-			<input type="button" onClick="document.getElementById('img_zoom_4').src = 'img/4.2.4 ESP32_a.png'; LoadImages();" value="Ver dispositivo">
-			<input type="button" onClick="document.getElementById('img_zoom_4').src = 'img/4.2.4 ESP32_b.png'; LoadImages();" value="Ver ESP32 DEVKITV1">
-			<input type="button" onClick="document.getElementById('img_zoom_4').src = 'img/4.2.4 ESP32_c.png'; LoadImages();" value="Ver ESP32_DEVKITC_V4">
+			<input type="button" onClick="document.getElementById('img_zoom_4').src = './img/2.2.4 NodeMCU_a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_4').src = './img/2.4.4 NodeMCU_b.png'; LoadImages();" value="Ver NodeMCU">
 			<br><br>
-			<div align="center"><img id="img_zoom_4" src="img/4.2.4 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<div align="center"><img id="img_zoom_4" src="img/2.2.4 NodeMCU_a.png" alt="" width="1000" height="auto"></div>
 			<br>
-			<iframe class="pag" id="ifrm4" name="ifrm4" scrolling="no" marginwidth="0" src="html/4.2.4_a.html"></iframe>
+			<iframe class="pag" id="ifrm4" name="ifrm4" scrolling="no" marginwidth="0" src="html/3.2.4_a.html"></iframe>
 			<br><br>
 			<a id="Control rele electromecanico"></a>
 			<b><i>5 - Control relé electromecánico</i></b>
 			<br><br>
-			<input type="button" onClick="document.getElementById('img_zoom_5').src = 'img/4.2.5 ESP32_a.png'; LoadImages();" value="Ver dispositivo">
-			<input type="button" onClick="document.getElementById('img_zoom_5').src = 'img/4.2.5 ESP32_b.png'; LoadImages();" value="Ver ESP32 DEVKITV1">
-			<input type="button" onClick="document.getElementById('img_zoom_5').src = 'img/4.2.5 ESP32_c.png'; LoadImages();" value="Ver ESP32_DEVKITC_V4">
+			<input type="button" onClick="document.getElementById('img_zoom_5').src = './img/2.2.5 NodeMCU_a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_5').src = './img/2.2.5 NodeMCU_b.png'; LoadImages();" value="Ver NodeMCU">
 			<br><br>
-			<div align="center"><img id="img_zoom_5" src="img/4.2.5 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<div align="center"><img id="img_zoom_5" src="img/2.2.5 NodeMCU_a.png" alt="" width="1000" height="auto"></div>
 			<br>
 			Nota: Este circuito funciona con el código del proyecto 4
 			<br><br><br>
 			<a id="Control rele de estado solido"></a>
 			<b><i>6 - Control relé de estado sólido</i></b>
 			<br><br>
-			<input type="button" onClick="document.getElementById('img_zoom_6').src = 'img/4.2.6 ESP32_a.png'; LoadImages();" value="Ver dispositivo">
-			<input type="button" onClick="document.getElementById('img_zoom_6').src = 'img/4.2.6 ESP32_b.png'; LoadImages();" value="Ver ESP32 DEVKITV1">
-			<input type="button" onClick="document.getElementById('img_zoom_6').src = 'img/4.2.6 ESP32_c.png'; LoadImages();" value="Ver ESP32_DEVKITC_V4">
+			<input type="button" onClick="document.getElementById('img_zoom_6').src = './img/2.2.6 NodeMCU_a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_6').src = './img/2.2.6 NodeMCU_b.png'; LoadImages();" value="Ver NodeMCU">
 			<br><br>
-			<div align="center"><img id="img_zoom_6" src="img/4.2.6 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<div align="center"><img id="img_zoom_6" src="img/2.2.6 NodeMCU_a.png" alt="" width="1000" height="auto"></div>
 			<br>
 			Nota: Este circuito funciona con el código del proyecto 4
 			<br><br><br>
 			<a id="Control TRIAC"></a>
 			<b><i>7 - Control TRIAC</i></b>
 			<br><br>
-			<input type="button" onClick="document.getElementById('img_zoom_7').src = 'img/4.2.7 ESP32_a.png'; LoadImages();" value="Ver dispositivo">
-			<input type="button" onClick="document.getElementById('img_zoom_7').src = 'img/4.2.7 ESP32_b.png'; LoadImages();" value="Ver ESP32 DEVKITV1">
-			<input type="button" onClick="document.getElementById('img_zoom_7').src = 'img/4.2.7 ESP32_c.png'; LoadImages();" value="Ver ESP32_DEVKITC_V4">
+			<input type="button" onClick="document.getElementById('img_zoom_7').src = './img/2.2.7 NodeMCU_a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_7').src = './img/2.2.7 NodeMCU_b.png'; LoadImages();" value="Ver NodeMCU">
 			<br><br>
-			<div align="center"><img id="img_zoom_7" src="img/4.2.7 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<div align="center"><img id="img_zoom_7" src="img/2.2.7 NodeMCU_a.png" alt="" width="1000" height="auto"></div>
 			<br>
 			Nota: Este circuito funciona con el código del proyecto 4
 			<br><br><br>
 			<a id="Control contactor"></a>
 			<b><i>8 - Control contactor</i></b>
 			<br><br>
-			<input type="button" onClick="document.getElementById('img_zoom_8').src = 'img/4.2.8 ESP32_a.png'; LoadImages();" value="Ver dispositivo">
-			<input type="button" onClick="document.getElementById('img_zoom_8').src = 'img/4.2.8 ESP32_b.png'; LoadImages();" value="Ver ESP32 DEVKITV1">
-			<input type="button" onClick="document.getElementById('img_zoom_8').src = 'img/4.2.8 ESP32_c.png'; LoadImages();" value="Ver ESP32_DEVKITC_V4">
+			<input type="button" onClick="document.getElementById('img_zoom_8').src = './img/2.2.8 NodeMCU_a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_8').src = './img/2.2.8 NodeMCU_b.png'; LoadImages();" value="Ver NodeMCU">
 			<br><br>
-			<div align="center"><img id="img_zoom_8" src="img/4.2.8 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<div align="center"><img id="img_zoom_8" src="img/2.2.8 NodeMCU_a.png" alt="" width="1000" height="auto"></div>
 			<br>
 			Nota: Este circuito funciona con el código del proyecto 4
 			<br><br><br>
 			<a id="Entrada analoga"></a>
 			<b><i>9 - Entrada análoga</i></b>
 			<br><br>
-			<input type="button" onClick="document.getElementById('img_zoom_9').src = 'img/4.2.9 ESP32_a.png'; LoadImages();" value="Ver dispositivo">
-			<input type="button" onClick="document.getElementById('img_zoom_9').src = 'img/4.2.9 ESP32_b.png'; LoadImages();" value="Ver ESP32 DEVKITV1">
-			<input type="button" onClick="document.getElementById('img_zoom_9').src = 'img/4.2.9 ESP32_c.png'; LoadImages();" value="Ver ESP32_DEVKITC_V4">
+			<input type="button" onClick="document.getElementById('img_zoom_9').src = './img/2.2.9 NodeMCU_a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_9').src = './img/2.2.9 NodeMCU_b.png'; LoadImages();" value="Ver NodeMCU">
 			<br><br>
-			<div align="center"><img id="img_zoom_9" src="img/4.2.9 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<div align="center"><img id="img_zoom_9" src="img/2.2.9 NodeMCU_a.png" alt="" width="1000" height="auto"></div>
 			<br>
-			<iframe class="pag" id="ifrm5" name="ifrm5" scrolling="no" marginwidth="0" src="html/4.2.9_a.html?pin_A0=36&pin_A1=39&pin_A2=34"></iframe>
+			<iframe class="pag" id="ifrm5" name="ifrm5" scrolling="no" marginwidth="0" src="html/2.2.9_a.html?pin_A0=0"></iframe>
 			<br><br>
 			<a id="Salida analoga (PWM)"></a>
 			<b><i>10 - Salida análoga (PWM)</i></b>
 			<br><br>
-			<input type="button" onClick="document.getElementById('img_zoom_10').src = 'img/4.2.10 ESP32_a.png'; LoadImages();" value="Ver dispositivo">
-			<input type="button" onClick="document.getElementById('img_zoom_10').src = 'img/4.2.10 ESP32_b.png'; LoadImages();" value="Ver ESP32 DEVKITV1">
-			<input type="button" onClick="document.getElementById('img_zoom_10').src = 'img/4.2.10 ESP32_c.png'; LoadImages();" value="Ver ESP32_DEVKITC_V4">
+			<input type="button" onClick="document.getElementById('img_zoom_10').src = './img/2.2.10 NodeMCU_a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_10').src = './img/2.2.10 NodeMCU_b.png'; LoadImages();" value="Ver NodeMCU">
 			<br><br>
-			<div align="center"><img id="img_zoom_10" src="img/4.2.10 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<div align="center"><img id="img_zoom_10" src="img/2.2.10 NodeMCU_a.png" alt="" width="1000" height="auto"></div>
 			<br>
-			<iframe class="pag" id="ifrm6" name="ifrm6" scrolling="no" marginwidth="0" src="html/3.2.10_a.html?pin_A0=36&pin_PWM=13"></iframe>
+			<iframe class="pag" id="ifrm6" name="ifrm6" scrolling="no" marginwidth="0" src="html/2.2.10_a.html?pin_0=A0&pin_PWM=19"></iframe>
 			<br><br>
 			<a id="Comunicacion One Wire sensor DS18B20"></a>
 			<b><i>11 - Comunicación One Wire: sensor DS18B20</i></b>
 			<br><br>
-			<input type="button" onClick="document.getElementById('img_zoom_11').src = 'img/4.2.11 ESP32_a.png'; LoadImages();" value="Ver dispositivo">
-			<input type="button" onClick="document.getElementById('img_zoom_11').src = 'img/4.2.11 ESP32_b.png'; LoadImages();" value="Ver ESP32 DEVKITV1">
-			<input type="button" onClick="document.getElementById('img_zoom_11').src = 'img/4.2.11 ESP32_c.png'; LoadImages();" value="Ver ESP32_DEVKITC_V4">
+			<input type="button" onClick="document.getElementById('img_zoom_11').src = './img/2.2.11 NodeMCU_a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_11').src = './img/2.2.11 NodeMCU_b.png'; LoadImages();" value="Ver NodeMCU">
 			<br><br>
-			<div align="center"><img id="img_zoom_11" src="img/4.2.11 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<div align="center"><img id="img_zoom_11" src="img/2.2.11 NodeMCU_a.png" alt="" width="1000" height="auto"></div>
 			<br>
 			Acceder a <b><i>LIBRARY MANAGER</i></b>, buscar e instalar la librería <b><i>DallasTemperature</i></b>
 			<br><br>
@@ -199,16 +188,15 @@
 			<br><br>
 			<div align="center"><img src="img/2. IoT_10b.png" alt="" width="auto" height="auto"></div>
 			<br>
-			<iframe class="pag" id="ifrm7" name="ifrm7" scrolling="no" marginwidth="0" src="html/2.2.11_a.html?ONE_WIRE_BUS=23"></iframe>
+			<iframe class="pag" id="ifrm7" name="ifrm7" scrolling="no" marginwidth="0" src="html/2.2.11_a.html?ONE_WIRE_BUS=2"></iframe>
 			<br><br>
 			<a id="Comunicacion One Wire sensor DHT11"></a>
 			<b><i>12 - Comunicación One Wire: sensor DHT11</i></b>
 			<br><br>
-			<input type="button" onClick="document.getElementById('img_zoom_12').src = 'img/4.2.12 ESP32_a.png'; LoadImages();" value="Ver dispositivo">
-			<input type="button" onClick="document.getElementById('img_zoom_12').src = 'img/4.2.12 ESP32_b.png'; LoadImages();" value="Ver ESP32 DEVKITV1">
-			<input type="button" onClick="document.getElementById('img_zoom_12').src = 'img/4.2.12 ESP32_c.png'; LoadImages();" value="Ver ESP32_DEVKITC_V4">
+			<input type="button" onClick="document.getElementById('img_zoom_12').src = './img/2.2.12 NodeMCU_a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_12').src = './img/2.2.12 NodeMCU_b.png'; LoadImages();" value="Ver NodeMCU">
 			<br><br>
-			<div align="center"><img id="img_zoom_12" src="img/4.2.12 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<div align="center"><img id="img_zoom_12" src="img/2.2.12 NodeMCU_a.png" alt="" width="1000" height="auto"></div>
 			<br>
 			Acceder a <b><i>LIBRARY MANAGER</i></b>, buscar e instalar la librería <b><i>DHT sensor library</i></b>
 			<br><br>
@@ -218,83 +206,78 @@
 			<br><br>
 			<div align="center"><img src="img/2. IoT_11b.png" alt="" width="auto" height="auto"></div>
 			<br>
-			<iframe class="pag" id="ifrm8" name="ifrm8" scrolling="no" marginwidth="0" src="html/2.2.12_a.html?DHTPIN=23"></iframe>
+			<iframe class="pag" id="ifrm8" name="ifrm8" scrolling="no" marginwidth="0" src="html/2.2.12_a.html?DHTPIN=2"></iframe>
 			<br><br>
 			<a id="Comunicacion One Wire sensor DHT21"></a>
 			<b><i>13 - Comunicación One Wire: sensor DHT21</i></b>
 			<br><br>
-			<input type="button" onClick="document.getElementById('img_zoom_13').src = 'img/4.2.13 ESP32_a.png'; LoadImages();" value="Ver dispositivo">
-			<input type="button" onClick="document.getElementById('img_zoom_13').src = 'img/4.2.13 ESP32_b.png'; LoadImages();" value="Ver ESP32 DEVKITV1">
-			<input type="button" onClick="document.getElementById('img_zoom_13').src = 'img/4.2.13 ESP32_c.png'; LoadImages();" value="Ver ESP32_DEVKITC_V4">
+			<input type="button" onClick="document.getElementById('img_zoom_13').src = './img/2.2.13 NodeMCU_a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_13').src = './img/2.2.13 NodeMCU_b.png'; LoadImages();" value="Ver NodeMCU">
 			<br><br>
-			<div align="center"><img id="img_zoom_13" src="img/4.2.13 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<div align="center"><img id="img_zoom_13" src="img/2.2.13 NodeMCU_a.png" alt="" width="1000" height="auto"></div>
 			<br>
-			<iframe class="pag" id="ifrm9" name="ifrm9" scrolling="no" marginwidth="0" src="html/2.2.13_a.html?DHTPIN=23"></iframe>
+			<iframe class="pag" id="ifrm9" name="ifrm9" scrolling="no" marginwidth="0" src="html/2.2.13_a.html?DHTPIN=2"></iframe>
 			<br><br>
 			<a id="Comunicacion One Wire sensor DHT22"></a>
 			<b><i>14 - Comunicación One Wire: sensor DHT22</i></b>
 			<br><br>
-			<input type="button" onClick="document.getElementById('img_zoom_14').src = 'img/4.2.14 ESP32_a.png'; LoadImages();" value="Ver dispositivo">
-			<input type="button" onClick="document.getElementById('img_zoom_14').src = 'img/4.2.14 ESP32_b.png'; LoadImages();" value="Ver ESP32 DEVKITV1">
-			<input type="button" onClick="document.getElementById('img_zoom_14').src = 'img/4.2.14 ESP32_c.png'; LoadImages();" value="Ver ESP32_DEVKITC_V4">
+			<input type="button" onClick="document.getElementById('img_zoom_14').src = './img/2.2.14 NodeMCU_a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_14').src = './img/2.2.14 NodeMCU_b.png'; LoadImages();" value="Ver NodeMCU">
 			<br><br>
-			<div align="center"><img id="img_zoom_14" src="img/4.2.14 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<div align="center"><img id="img_zoom_14" src="img/2.2.14 NodeMCU_a.png" alt="" width="1000" height="auto"></div>
 			<br>
-			<iframe class="pag" id="ifrm10" name="ifrm10" scrolling="no" marginwidth="0" src="html/2.2.14_a.html?DHTPIN=23"></iframe>
+			<iframe class="pag" id="ifrm10" name="ifrm10" scrolling="no" marginwidth="0" src="html/2.2.14_a.html?DHTPIN=2"></iframe>
 			<br><br>
 			<a id="Comunicacion I2C sensor SHT1x"></a>
 			<b><i>15 - Comunicación I2C: sensor SHT1x</i></b>
 			<br><br>
-			<input type="button" onClick="document.getElementById('img_zoom_15').src = 'img/4.2.15 ESP32_32_2a.png'; LoadImages();" value="Ver dispositivo">
-			<input type="button" onClick="document.getElementById('img_zoom_15').src = 'img/4.2.15 ESP32_32_2b.png'; LoadImages();" value="Ver ESP32 DEVKITV1">
-			<input type="button" onClick="document.getElementById('img_zoom_15').src = 'img/4.2.15 ESP32_32_2c.png'; LoadImages();" value="Ver ESP32_DEVKITC_V4">
+			<input type="button" onClick="document.getElementById('img_zoom_15').src = './img/2.2.15 NodeMCU_a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_15').src = './img/2.2.15 NodeMCU_b.png'; LoadImages();" value="Ver NodeMCU">
 			<br><br>
-			<div align="center"><img id="img_zoom_15" src="img/2.1 ESP32_32_2a.png" alt="" width="1000" height="auto"></div>
+			<div align="center"><img id="img_zoom_15" src="img/2.2.15 NodeMCU_a.png" alt="" width="1000" height="auto"></div>
 			<br>
 			Acceder a <b><i>LIBRARY MANAGER</i></b>, buscar e instalar la librería <b><i>SHT1x sensor library for ESPx</i></b>
 			<br><br>
 			<div align="center"><img src="img/2. IoT_13.png" alt="" width="auto" height="auto"></div>
 			<br>
-			<iframe class="pag" id="ifrm11" name="ifrm11" scrolling="no" marginwidth="0" src="html/2.1.15_a.html?dataPin=23&clockPin=19"></iframe>
+			<iframe class="pag" id="ifrm11" name="ifrm11" scrolling="no" marginwidth="0" src="html/2.1.15_a.html?dataPin=2&clockPin=1"></iframe>
 			<br><br>
 			<a id="Comunicacion serial asincrona (UART)"></a>
 			<b><i>16 - Comunicación serial asíncrona (UART)</i></b>
 			<br><br>
-			<input type="button" onClick="document.getElementById('img_zoom_16').src = 'img/4.2.16 ESP32_a.png'; LoadImages();" value="Ver dispositivo">
-			<input type="button" onClick="document.getElementById('img_zoom_16').src = 'img/4.2.16 ESP32_b.png'; LoadImages();" value="Ver ESP32 DEVKITV1">
-			<input type="button" onClick="document.getElementById('img_zoom_16').src = 'img/4.2.16 ESP32_c.png'; LoadImages();" value="Ver ESP32_DEVKITC_V4">
+			<input type="button" onClick="document.getElementById('img_zoom_16').src = './img/2.2.9 NodeMCU_a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_16').src = './img/2.2.9 NodeMCU_b.png'; LoadImages();" value="Ver NodeMCU">
 			<br><br>
-			<div align="center"><img id="img_zoom_16" src="img/4.2.16 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<div align="center"><img id="img_zoom_16" src="img/2.2.9 NodeMCU_a.png" alt="" width="1000" height="auto"></div>
 			<br>
-			<iframe class="pag" id="ifrm12" name="ifrm12" scrolling="no" marginwidth="0" src="html/2.2.16_a.html?pin_A0=36"></iframe>
+			<iframe class="pag" id="ifrm12" name="ifrm12" scrolling="no" marginwidth="0" src="html/2.2.16_a.html?pin_A0=A0"></iframe>
 			<br>
 			Cargar el programa en el dispositivo y abrir el menú <b><i>Herramientas--&gt;Monitor Serie</i></b> para visualizar los datos enviados por el dispositivo.
 			<br><br>
-			<div align="center"><img src="img/2. IoT_14c.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/2. IoT_14a.png" alt="" width="auto" height="auto"></div>
 			<br>
 			<div align="center"><img src="img/2. IoT_15.png" alt="" width="auto" height="auto"></div>
 			<br>
 			Abrir el menú <b><i>Herramientas--&gt;Serial Plotter</i></b> para visualizar gráficamente la señal análoga medida por el dispositivo.
 			<br><br>
-			<div align="center"><img src="img/2. IoT_16c.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/2. IoT_16a.png" alt="" width="auto" height="auto"></div>
 			<br>
 			<div align="center"><img src="img/2. IoT_17.png" alt="" width="auto" height="auto"></div>
 			<br><br>
 			<a id="Comunicacion serial asincrona (UART)"></a>
 			<b><i>17 - Comunicación serial asíncrona (UART)</i></b>
 			<br><br>
-			<input type="button" onClick="document.getElementById('img_zoom_17').src = 'img/4.2.17 ESP32_a.png'; LoadImages();" value="Ver dispositivo">
-			<input type="button" onClick="document.getElementById('img_zoom_17').src = 'img/4.2.17 ESP32_b.png'; LoadImages();" value="Ver ESP32 DEVKITV1">
-			<input type="button" onClick="document.getElementById('img_zoom_17').src = 'img/4.2.17 ESP32_c.png'; LoadImages();" value="Ver ESP32_DEVKITC_V4">
+			<input type="button" onClick="document.getElementById('img_zoom_17').src = './img/2.2.17 NodeMCU_a.png';" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_17').src = './img/2.2.17 NodeMCU_b.png';" value="Ver NodeMCU">
 			<br><br>
-			<div align="center"><img id="img_zoom_17" src="img/4.2.17 ESP32a.png" alt="" width="1000" height="auto"></div>
+			<div align="center"><img id="img_zoom_17" src="img/2.2.17 NodeMCU_a.png" alt="" width="1000" height="auto"></div>
 			<br>
 			Acceder a <b><i>LIBRARY MANAGER</i></b>, buscar e instalar la librería <b><i>ArduinoJson</i></b>
 			<br><br>
 			<div align="center"><img src="img/2. IoT_18.png" alt="" width="auto" height="auto"></div>
 			<br>
-			<iframe class="pag" id="ifrm13" name="ifrm13" scrolling="no" marginwidth="0" src="html/4.2.17_a.html"></iframe>
-			<br><br>
+			<iframe class="pag" id="ifrm13" name="ifrm13" scrolling="no" marginwidth="0" src="html/2.2.17_a.html"></iframe>
+			<br>
 			Descargar y ejecutar el programa <a href="https://drive.google.com/uc?id=1i0-bVEYk3CcIkGLKkcrXb2NrFcA3auUW&amp;export=download&amp;authuser=0" target="_blank"><b><i>COM_TEST</i></b></a> para visualizar los datos enviados por el dispositivo.
 			<br><br>
 			<div align="center"><img src="img/2. IoT_19.png" alt="" width="1000" height="auto"></div>
@@ -302,99 +285,97 @@
 			<a id="Modo punto de acceso (Access Point - AP)"></a>
 			<b><i>18 - Modo punto de acceso (Access Point - AP)</i></b>
 			<br><br>
-			En este modo de funcionamiento se creará una red WiFi en la que una placa ESP32 cumplirá la función de servidor al cual se podrán conectar dispositivos como PC/Laptop, tablet, móviles, otras placas ESP32 o cualquier otro dispositivo con capacidad de conexión WiFi.
+			En este modo de funcionamiento se creará una red WiFi en la que una placa NodeMCU cumplirá la función de servidor al cual se podrán conectar dispositivos como PC/Laptop, tablet, móviles, otras placas NodeMCU o cualquier otro dispositivo con capacidad de conexión WiFi.
 			<br><br>
-			<div align="center"><img src="img/2. IoT_20b.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/2. IoT_20a.png" alt="" width="auto" height="auto"></div>
 			<br>
-			<input type="button" onClick="document.getElementById('img_zoom_18').src = 'img/4.2.18 ESP32_a.png'; LoadImages();" value="Ver dispositivo">
-			<input type="button" onClick="document.getElementById('img_zoom_18').src = 'img/4.2.18 ESP32_b.png'; LoadImages();" value="Ver ESP32 DEVKITV1">
-			<input type="button" onClick="document.getElementById('img_zoom_18').src = 'img/4.2.18 ESP32_c.png'; LoadImages();" value="Ver ESP32_DEVKITC_V4">
+			<input type="button" onClick="document.getElementById('img_zoom_18').src = './img/2.2.18 NodeMCU_a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_18').src = './img/2.2.18 NodeMCU_b.png'; LoadImages();" value="Ver NodeMCU">
 			<br><br>
-			<div align="center"><img id="img_zoom_18" src="img/4.2.18 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<div align="center"><img id="img_zoom_18" src="img/2.2.18 NodeMCU_a.png" alt="" width="1000" height="auto"></div>
 			<br>
 			Modificar los parámetros <b><i>ssid (Nombre de la red WiFi) y password</i></b><b><i> (Contraseña de la red WiFi)</i></b>. Estos parámetros corresponden a la nueva red WiFi que será creada por el dispositivo.
 			<br><br>
-			<iframe class="pag" id="ifrm14" name="ifrm14" scrolling="no" marginwidth="0" src="html/4.2.18_a.html"></iframe>
+			<iframe class="pag" id="ifrm14" name="ifrm14" scrolling="no" marginwidth="0" src="html/2.2.18_a.html"></iframe>
 			<br><br>
 			<b><i>Conexión desde dispositivo móvil</i></b>
 			<br><br>
-			Conectar el móvil al punto de acceso (red WiFi) difundida por el dispositivo
+			Conectar el móvil al punto de acceso (red WiFi) difundida por el dispositivo.
 			<br><br>
-			<div align="center"><img src="img/2. IoT_21b.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/2. IoT_21a.png" alt="" width="auto" height="auto"></div>
 			<br>
 			Abrir en el navegador web la dirección 192.168.4.1
 			<br><br>
-			<div align="center"><img src="img/2. IoT_22b.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/2. IoT_22a.png" alt="" width="auto" height="auto"></div>
 			<br>
 			<b><i>Conexión desde PC</i></b>
 			<br><br>
-			Conectar el PC al punto de acceso (red WiFi) difundida por el dispositivo
+			Conectar el PC al punto de acceso (red WiFi) difundida por el dispositivo.
 			<br><br>
-			<div align="center"><img src="img/2. IoT_23b.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/2. IoT_23a.png" alt="" width="auto" height="auto"></div>
 			<br>
 			Abrir en el navegador web la dirección 192.168.4.1
 			<br><br>
-			<div align="center"><img src="img/2. IoT_24b.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/2. IoT_24a.png" alt="" width="auto" height="auto"></div>
 			<br>
 			<b><i>Programa App Inventor 2</i></b>
 			<br><br>
-			<div align="center"><img src="img/2. IoT_25b.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/2. IoT_25a.png" alt="" width="auto" height="auto"></div>
 			<br>
-			<div align="center"><img src="img/2. IoT_26b.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/2. IoT_26a.png" alt="" width="auto" height="auto"></div>
 			<br>
-			<div align="center"><img src="img/2. IoT_27b.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/2. IoT_27a.png" alt="" width="auto" height="auto"></div>
 			<br>
-			<div align="center"><img src="img/2. IoT_28b.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/2. IoT_28a.png" alt="" width="auto" height="auto"></div>
 			<br><br>
 			<a id="Modo estacion (Station - STA)"></a>
 			<b><i>19 - Modo estación (Station - STA)</i></b>
 			<br><br>
-			En este modo de funcionamiento la placa ESP32 se conecta a una red WiFi existente. Dentro de ésta red la placa se podrá conectar con dispositivos como PC/Laptop, tablet, móviles, otras placas ESP32 o cualquier otro dispositivo con capacidad de conexión WiFi.
+			En este modo de funcionamiento la placa NodeMCU se conecta a una red WiFi existente. Dentro de ésta red la placa se podrá conectar con dispositivos como PC/Laptop, tablet, móviles, otras placas NodeMCU o cualquier otro dispositivo con capacidad de conexión WiFi.
 			<br><br>
-			<div align="center"><img src="img/2. IoT_29b.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/2. IoT_29a.png" alt="" width="auto" height="auto"></div>
 			<br>
-			<input type="button" onClick="document.getElementById('img_zoom_19').src = 'img/4.2.19 ESP32_a.png'; LoadImages();" value="Ver dispositivo">
-			<input type="button" onClick="document.getElementById('img_zoom_19').src = 'img/4.2.19 ESP32_b.png'; LoadImages();" value="Ver ESP32 DEVKITV1">
-			<input type="button" onClick="document.getElementById('img_zoom_19').src = 'img/4.2.19 ESP32_c.png'; LoadImages();" value="Ver ESP32_DEVKITC_V4">
+			<input type="button" onClick="document.getElementById('img_zoom_19').src = './img/2.2.19 NodeMCU_a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_19').src = './img/2.2.19 NodeMCU_b.png'; LoadImages();" value="Ver NodeMCU">
 			<br><br>
-			<div align="center"><img id="img_zoom_19" src="img/4.2.19 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<div align="center"><img id="img_zoom_19" src="img/2.2.19 NodeMCU_a.png" alt="" width="1000" height="auto"></div>
 			<br>
 			Modificar los parámetros <b><i>STASSID (Nombre de la red WiFi) y STAPSK (Contraseña de la red WiFi)</i></b>. Estos parámetros corresponden a una red WiFi existente a la que se conectará el dispositivo.
-			<br><br>
-			<iframe class="pag" id="ifrm15" name="ifrm15" scrolling="no" marginwidth="0" src="html/4.2.19_a.html"></iframe>
+		  	<br><br>
+			<iframe class="pag" id="ifrm15" name="ifrm15" scrolling="no" marginwidth="0" src="html/2.2.19_a.html"></iframe>
 			<br><br>
 			El dispositivo intentará conectarse a la red inalámbrica configurada y mostrará la dirección IP asignada que le corresponde dentro de la red.
 			<br><br>
 			<b><i>Conexión desde dispositivo móvil</i></b>
 			<br><br>
-			Conectar el móvil al mismo punto de acceso (red WiFi) al que está conectado el dispositivo
+			Conectar el PC al mismo punto de acceso (red WiFi) al que está conectado el dispositivo
 			<br><br>
-			<div align="center"><img src="img/2. IoT_30b.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/2. IoT_30.png" alt="" width="auto" height="auto"></div>
 			<br>
-			Abrir en el navegador web la dirección IP asignada al dispositivo
+			Abrir en el navegador web la dirección IP asignada al dispositivo.
 			<br><br>
-			<div align="center"><img src="img/2. IoT_31b.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/2. IoT_31a.png" alt="" width="auto" height="auto"></div>
 			<br>
 			<b><i>Conexión desde PC</i></b>
 			<br><br>
 			Conectar el PC al mismo punto de acceso (red WiFi) al que está conectado el dispositivo.
 			<br><br>
-			<div align="center"><img src="img/2. IoT_32b.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/2. IoT_32.png" alt="" width="auto" height="auto"></div>
 			<br>
 			Abrir en el navegador web la dirección IP asignada al dispositivo.
 			<br><br>
-			<div align="center"><img src="img/2. IoT_33b.png" alt="" width="auto" height="auto"></div>
-			<br>
+			<div align="center"><img src="img/2. IoT_33a.png" alt="" width="auto" height="auto"></div>
+		  	<br>
 			<b><i>Programa App Inventor 2</i></b>
 			<br><br>
-			Se puede utilizar la misma App del capítulo 2.4.18 (Utilizar la dirección IP asignada al dispositivo).
+			Se puede utilizar la misma App del capítulo 2.2.18 (Utilizar la dirección IP asignada al dispositivo).
 			<br><br><br>
 			<a id="Blynk IoT"></a>
 			<b>Blynk IoT</b>
 			<br><br>
 			Blynk es una plataforma  que permite la recolección y almacenamiento en la nube de datos de sensores para la creación de aplicaciones para Internet de las cosas (IoT).
 			<br><br>
-			<div align="center"><img src="img/Blynk/Blynk_1b.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/Blynk/Blynk_1a.png" alt="" width="auto" height="auto"></div>
 			<br>
 			Para enviar y recibir información con Blynk es necesario registrar una cuenta gratuita con los siguientes pasos:
 			<br><br>
@@ -405,7 +386,7 @@
 			<div align="center"><img src="img/Blynk/Blynk_2.png" alt="" width="auto" height="auto"></div>
 		  	<br>
 			Registrarse con una cuenta de correo electrónico (debe abrir el enlace de verificación enviado a la cuenta de correo electrónico registrada).
-		  	<br><br>
+			<br><br>
 			<div align="center"><img src="img/Blynk/Blynk_3.png" alt="" width="auto" height="auto"></div>
 			<br>
 			Iniciar sesión con la cuenta registrada.
@@ -422,7 +403,7 @@
 			<br>
 			Configurar el Web Dashboard asociado a las variables agregadas en el paso anterior.
 			<br><br>
-			<div align="center"><img src="img/Blynk/Blynk_7.png" alt="" width="1000" height="auto"></div>
+			<div align="center"><img src="img/Blynk/Blynk_7.png" alt="" width="auto" height="auto"></div>
 			<br>
 			Agregar un nuevo dispositivo a partir de la plantilla creada (template).
 			<br><br>
@@ -430,25 +411,24 @@
 			<br>
 			<div align="center"><img src="img/Blynk/Blynk_9.png" alt="" width="auto" height="auto"></div>
 			<br>
-			Obtener la información del dispositivo (necesaria para el código en Arduino).
+			Obtener la información del dispositivo (necesaria para el código en Arduino.
 			<br><br>
 			<div align="center"><img src="img/Blynk/Blynk_10.png" alt="" width="1000" height="auto"></div>
 			<br>
 			Visualizar el Dashboard Online (Cuando el dispositivo esté programado y conectado).
 			<br><br>
 			<div align="center"><img src="img/Blynk/Blynk_11.png" alt="" width="1000" height="auto"></div>
-			<br>
+			<br><br>
 			<b><i>Instalación de la librería Blynk en Arduino</i></b>
 			<br><br>
 			Acceder al Administrador de bibliotecas, buscar e instalar la librería <b><i>Blynk</i></b>
 			<br><br>
 			<div align="center"><img src="img/Blynk/Blynk_12.png" alt="" width="auto" height="auto"></div>
 			<br>
-			<input type="button" onClick="document.getElementById('img_zoom_19').src = './img/Blynk/Blynk_6_4a.png'; LoadImages();" value="Ver dispositivo">
-			<input type="button" onClick="document.getElementById('img_zoom_19').src = './img/Blynk/Blynk_6_4b.png'; LoadImages();" value="Ver ESP32 DEVKITV1">
-			<input type="button" onClick="document.getElementById('img_zoom_19').src = './img/Blynk/Blynk_6_4c.png'; LoadImages();" value="Ver ESP32_DEVKITC_V4">
+			<input type="button" onClick="document.getElementById('img_zoom_19').src = './img/Blynk/Blynk_6_2a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_19').src = './img/Blynk/Blynk_6_2b.png'; LoadImages();" value="Ver NodeMCU">
 			<br><br>
-			<div align="center"><img id="img_zoom_20" src="img/Blynk/Blynk_13_4a.png" alt="" width="1000" height="auto"></div>
+			<div align="center"><img id="img_zoom_20" src="img/Blynk/Blynk_13_2a.png" alt="" width="1000" height="auto"></div>
 			<br>
 			<b><i>Escribir salida digital</i></b>
 			<br><br>
@@ -470,14 +450,14 @@
 			<br><br>
 			puede obtener los valores en la sección <b><i>Device Info</i></b> del dashboard creado en Blynk.
 			<br><br>
-			<iframe class="pag" id="ifrm16" name="ifrm16" scrolling="no" marginwidth="0" src="html/4.2.22_a.html"></iframe>
+			<iframe class="pag" id="ifrm16" name="ifrm16" scrolling="no" marginwidth="0" src="html/2.2.22_a.html"></iframe>
 			<br><br>
 			<a id="ThingSpeak IoT"></a>
 			<b>ThingSpeak IoT</b>
 			<br><br>
 			ThingSpeak es una plataforma  que permite la recolección y almacenamiento en la nube de datos de sensores para la creación de aplicaciones para Internet de las cosas (IoT).
 			<br><br>
-			<div align="center"><img src="img/ThingSpeak/ThingSpeak_1b.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/ThingSpeak/ThingSpeak_1a.png" alt="" width="auto" height="auto"></div>
 			<br>
 			Para enviar y recibir información con ThingSpeak es necesario registrar una cuenta gratuita con los siguientes pasos:
 			<br><br>
@@ -487,7 +467,7 @@
 			<br>
 			Si ya dispone de una cuenta, iniciar sesión. Si es la primera vez que utiliza ThingSpeak, hacer click en "Create one!"
 			<br><br>
-			<div align="center"><img src="img/ThingSpeak/ThingSpeak_3.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/ThingSpeak/Thingspeak_3.png" alt="" width="auto" height="auto"></div>
 			<br>
 			Registrarse con una cuenta de correo electrónico (debe abrir el enlace de verificación enviado a la cuenta de correo electrónico registrada).
 			<br><br>
@@ -499,11 +479,10 @@
 			<br><br>
 			<div align="center"><img src="img/ThingSpeak/ThingSpeak_5.png" alt="" width="auto" height="auto"></div>
 			<br>
-			<input type="button" onClick="document.getElementById('img_zoom_20').src = './img/ThingSpeak/ThingSpeak_6_4a.png'; LoadImages();" value="Ver dispositivo">
-			<input type="button" onClick="document.getElementById('img_zoom_20').src = './img/ThingSpeak/ThingSpeak_6_4b.png'; LoadImages();" value="Ver ESP32 DEVKITV1">
-			<input type="button" onClick="document.getElementById('img_zoom_20').src = './img/ThingSpeak/ThingSpeak_6_4c.png'; LoadImages();" value="Ver ESP32_DEVKITC_V4">
+			<input type="button" onClick="document.getElementById('img_zoom_20').src = './img/ThingSpeak/ThingSpeak_6_2a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_20').src = './img/ThingSpeak/ThingSpeak_6_2b.png'; LoadImages();" value="Ver NodeMCU">
 			<br><br>
-			<div align="center"><img id="img_zoom_21" src="img/ThingSpeak/ThingSpeak_6_4a.png" alt="" width="1000" height="auto"></div>
+			<div align="center"><img id="img_zoom_21" src="img/ThingSpeak/ThingSpeak_6_2a.png" alt="" width="1000" height="auto"></div>
 			<br>
 			<b><i>Escribir salida digital</i></b>
 			<br><br>
@@ -530,8 +509,7 @@
 			<div align="center"><img src="img/ThingSpeak/ThingSpeak_11.png" alt="" width="auto" height="auto"></div>
 			<br>
 			Dirigirse a la pestaña "API Keys" para obtener los datos de acceso al canal.
-			<br>
-			<br>
+			<br><br>
 			Estos datos son necesarios para programar el código en Arduino y para desarrollar la aplicación en App Inventor 2.
 			<br><br>
 			<b><i>Channel ID</i></b> (ID del canal): Lugar del espacio azul
@@ -546,7 +524,7 @@
 			<br><br>
 			Modificar la variable channel por el ID del canal creado en ThingSpeak.
 			<br><br>
-			<iframe class="pag" id="ifrm17" name="ifrm17" scrolling="no" marginwidth="0" src="html/4.2.27_a.html"></iframe>
+			<iframe class="pag" id="ifrm17" name="ifrm17" scrolling="no" marginwidth="0" src="html/2.2.27_a.html"></iframe>
 			<br><br>
 			<b><i>Programa App Inventor 2</i></b>
 			<br><br>
@@ -567,7 +545,7 @@
 			<br><br>
 			Ubidots es una plataforma  que permite la recolección y almacenamiento en la nube de datos de sensores para la creación de aplicaciones para Internet de las cosas (IoT).
 			<br><br>
-			<div align="center"><img src="img/Ubidots/Ubidots_1b.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/Ubidots/Ubidots_1a.png" alt="" width="auto" height="auto"></div>
 			<br>
 			Para enviar y recibir información con Ubidots es necesario registrar una cuenta gratuita con los siguientes pasos:
 			<br><br>
@@ -595,13 +573,12 @@
 			<br><br>
 			Acceder al Administrador de bibliotecas, buscar e instalar la librería <b><i>ubidots-esp8266-master</i></b>
 			<br><br>
-			<div align="center"><img src="img/Ubidots_6.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/Ubidots/Ubidots_6.png" alt="" width="auto" height="auto"></div>
 			<br>
-			<input type="button" onClick="document.getElementById('img_zoom_21').src = './img/Ubidots/Ubidots_7_4a.png'; LoadImages();" value="Ver dispositivo">
-			<input type="button" onClick="document.getElementById('img_zoom_21').src = './img/Ubidots/Ubidots_7_4b.png'; LoadImages();" value="Ver ESP32 DEVKITV1">
-			<input type="button" onClick="document.getElementById('img_zoom_21').src = './img/Ubidots/Ubidots_7_4c.png'; LoadImages();" value="Ver ESP32_DEVKITC_V4">
+			<input type="button" onClick="document.getElementById('img_zoom_21').src = './img/Ubidots/Ubidots_7_2a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_21').src = './img/Ubidots/Ubidots_7_2b.png'; LoadImages();" value="Ver NodeMCU">
 			<br><br>
-			<div align="center"><img id="img_zoom_22" src="img/Ubidots/Ubidots_7_4a.png" alt="" width="1000" height="auto"></div>
+			<div align="center"><img id="img_zoom_22" src="img/Ubidots/Ubidots_7_2a.png" alt="" width="1000" height="auto"></div>
 			<br>
 			<b><i>Escribir salida digital</i></b>
 			<br><br>
@@ -610,7 +587,7 @@
 			<b><i>Leer sensor</i></b>
 			<br><br>
 			<div align="center"><img src="img/Ubidots/Ubidots_9.png" alt="" width="auto" height="auto"></div>
-			<br>
+			<br>			
 			Modificar los parámetros <b><i>ssid (Nombre de la red WiFi) y password (Contraseña de la red WiFi)</i></b>. Estos parámetros corresponden a una red WiFi existente a la que se conectará el dispositivo.
 			<br><br>
 			Modificar el parámetro:
@@ -619,18 +596,15 @@
 			<br><br>
 			puede obtener los valores en la sección <b><i>Device Info</i></b> del dashboard creado en UBIDOTS.
 			<br><br>
-			<iframe class="pag" id="ifrm18" name="ifrm18" scrolling="no" marginwidth="0" src="html/4.2.28_a.html"></iframe>
+			<iframe class="pag" id="ifrm18" name="ifrm18" scrolling="no" marginwidth="0" src="html/2.2.28_a.html"></iframe>
 			<br><br>
 		</div>
 		<script>
 			function LoadImages(){
-				$('#img_zoom_5').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
-				$('#img_zoom_6').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
 				$('#img_zoom_7').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
-				$('#img_zoom_8').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
 			}
 		</script>
-		<script type="text/javascript">
+	    <script type="text/javascript">
 			/*
 			* If you do not understand what the code below does, then please just use the
 			* following call in your own code.
