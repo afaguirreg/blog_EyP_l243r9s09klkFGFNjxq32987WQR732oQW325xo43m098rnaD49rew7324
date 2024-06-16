@@ -30,33 +30,18 @@ font-family:"Calibri",sans-serif;
 			<p>LiquidCrystal_PCF8574 lcd(0x27);</p>
 			<p>
 			#define pin_I0 16<br>
-			#define pin_I1 17<br>
-			#define pin_I2 18<br>
-			#define pin_I3 19<br>
-			#define pin_I4 20<br>
-			#define pin_I5 21<br>
-			#define pin_I6 15<br>
-			#define pin_I7 14
+			#define pin_I1 14<br>
+			#define pin_I2 12
 			</p>
 			<p>
 			#define I0 digitalRead(pin_I0)<br>
 	  		#define I1 digitalRead(pin_I1)<br>
-	  		#define I2 digitalRead(pin_I2)<br>
-	  		#define I3 digitalRead(pin_I3)<br>
-	  		#define I4 digitalRead(pin_I4)<br>
-	  		#define I5 digitalRead(pin_I5)<br>
-	  		#define I6 digitalRead(pin_I6)<br>
-	  		#define I7 digitalRead(pin_I7)
+	  		#define I2 digitalRead(pin_I2)
 			</p>
 			<p>
-			#define Q0 6<br>
-	  		#define Q1 7<br>
-	  		#define Q2 8<br>
-	  		#define Q3 9<br>
-	  		#define Q4 10<br>
-	  		#define Q5 11<br>
-	  		#define Q6 12<br>
-	  		#define Q7 13
+			#define Q0 2<br>
+	  		#define Q1 15<br>
+	  		#define Q2 13
 			</p>
 			<p>char texto[] = &quot;digital I/O&quot;;</p>
 			<p>
@@ -72,23 +57,13 @@ font-family:"Calibri",sans-serif;
 			&nbsp;&nbsp;lcd.write(I0);<br>
 			&nbsp;&nbsp;lcd.write(I1);<br>
 			&nbsp;&nbsp;lcd.write(I2);<br>
-			&nbsp;&nbsp;lcd.write(I3);<br>
-			&nbsp;&nbsp;lcd.write(I4);<br>
-			&nbsp;&nbsp;lcd.write(I5);<br>
-			&nbsp;&nbsp;lcd.write(I6);<br>
-			&nbsp;&nbsp;lcd.write(I7);<br>
 			&nbsp;&nbsp;lcd.setCursor(0, 2);<br>
-			&nbsp;&nbsp;lcd.print(&quot;   01234567&quot;);<br>
+			&nbsp;&nbsp;lcd.print(&quot;   012&quot;);<br>
 			&nbsp;&nbsp;lcd.setCursor(0, 3);<br>
 			&nbsp;&nbsp;lcd.print(&quot;Q: &quot;);<br>
 			&nbsp;&nbsp;lcd.write(digitalRead(Q0));<br>
 			&nbsp;&nbsp;lcd.write(digitalRead(Q1));<br>
 			&nbsp;&nbsp;lcd.write(digitalRead(Q2)); <br>
-			&nbsp;&nbsp;lcd.write(digitalRead(Q3));<br>
-			&nbsp;&nbsp;lcd.write(digitalRead(Q4));<br>
-			&nbsp;&nbsp;lcd.write(digitalRead(Q5));<br>
-			&nbsp;&nbsp;lcd.write(digitalRead(Q6));<br>
-			&nbsp;&nbsp;lcd.write(digitalRead(Q7));<br>
 			}
 			</p>
 			<p>
@@ -97,19 +72,9 @@ font-family:"Calibri",sans-serif;
 			&nbsp;&nbsp;pinMode(pin_I0, INPUT);<br>
 			&nbsp;&nbsp;pinMode(pin_I1, INPUT);<br>
 			&nbsp;&nbsp;pinMode(pin_I2, INPUT);<br>
-			&nbsp;&nbsp;pinMode(pin_I3, INPUT);<br>
-			&nbsp;&nbsp;pinMode(pin_I4, INPUT);<br>
-			&nbsp;&nbsp;pinMode(pin_I5, INPUT);<br>
-			&nbsp;&nbsp;pinMode(pin_I6, INPUT);<br>
-			&nbsp;&nbsp;pinMode(pin_I7, INPUT);<br>
 			&nbsp;&nbsp;pinMode(Q0, OUTPUT);<br>
 			&nbsp;&nbsp;pinMode(Q1, OUTPUT);<br>
-			&nbsp;&nbsp;pinMode(Q2, OUTPUT);<br>
-			&nbsp;&nbsp;pinMode(Q3, OUTPUT);<br>
-			&nbsp;&nbsp;pinMode(Q4, OUTPUT);<br>
-			&nbsp;&nbsp;pinMode(Q5, OUTPUT);<br>
-			&nbsp;&nbsp;pinMode(Q6, OUTPUT);<br>
-			&nbsp;&nbsp;pinMode(Q7, OUTPUT);<br><br>
+			&nbsp;&nbsp;pinMode(Q2, OUTPUT);<br><br>
 			&nbsp;&nbsp;lcd.begin(20, 4);<br>
 			&nbsp;&nbsp;lcd.createChar(0, pin_state_low);<br>
 			&nbsp;&nbsp;lcd.createChar(1, pin_state_high);<br>
