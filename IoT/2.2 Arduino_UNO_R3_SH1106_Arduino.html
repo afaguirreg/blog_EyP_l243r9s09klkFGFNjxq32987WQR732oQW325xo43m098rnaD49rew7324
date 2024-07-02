@@ -14,13 +14,13 @@
 	<body>
 		<div class="Normal" style="text-align:justify">
 			<a id="Arduino UNO R3"></a>
-			<b><i>Arduino UNO R3 + OLED</i></b>
+			<b><i>Arduino UNO R3 + OLED SH1106</i></b>
 			<br><br>
 			Este módulo integra el dispositivo Arduino UNO R3 para obtener una plataforma de desarrollo compatible con Arduino, dotada de comunicación WiFi para el desarrollo de aplicaciones IOT.
 			<br><br>
 			Abrir el menú <b><i>Tools--&gt;Board:</i></b> y seleccionar la placa <b><i>Arduino UNO.</i></b>
 			<br><br>
-			<div align="center"><img src="img/IoT/IoT_5c.png" alt="" width="1000" height="auto"></div>
+			<div align="center"><img src="img/IoT/IoT_5a.png" alt="" width="1000" height="auto"></div>
 			<br><br>
 			<a id="Ejemplo Blink"></a>
 			<b><i>1 - Ejemplo Blink</i></b>
@@ -51,7 +51,7 @@
 			<br>
 			Abrir el menú de la izquierda <b><i>LIBRARY MANAGER</i></b>
 			<br><br>
-			Buscar e instalar la librería <b><i>Adafruit SSD1306</i></b>
+			Buscar e instalar la librería <b><i>Adafruit SH1106</i></b>
 			<br><br>
 			<div align="center"><img src="img/IoT/IoT_8b.png" alt="" width="auto" height="auto"></div>
 			<br>
@@ -59,14 +59,10 @@
 			<br><br>
 			<div align="center"><img src="img/IoT/IoT_8c.png" alt="" width="auto" height="auto"></div>
 			<br>
-			Abrir el menú <b><i>Archivo--&gt;Ejemplos--&gt;Adafruit SSD1306</i></b> y seleccionar el proyecto ejemplo <b><i>ssd1306_128x32_i2c</i></b>
+			Abrir el menú <b><i>Archivo--&gt;Ejemplos--&gt;Adafruit SH1106--&gt;OLED_QTPY_SH1106</i></b> y seleccionar el proyecto ejemplo <b><i>SH1106_128x64_i2c_QTPY</i></b>
 			<br><br>
 			<div align="center"><img src="img/IoT/IoT_9b.png" alt="" width="auto" height="auto"></div>
 			<br>
-			Ubicar la constante SCREEN_HEIGHT y probar la calidad de la imagen con el parámetro original (32) y luego con el valor 64 como se muestra a continuación:<br>
-<pre>
-<font color="#5e6d03">#define</font> <font color="#000000">SCREEN_HEIGHT</font> <font color="#000000">64</font> <font color="#434f54">&#47;&#47; OLED display height, in pixels</font>
-</pre>
 			<iframe class="pag" id="ifrm2" name="ifrm2" scrolling="no" marginwidth="0" src="html/2.2.2_a.html"></iframe>
 			<br><br><br>
 			<a id="Entradas y salidas digitales"></a>
@@ -213,9 +209,11 @@
 			<br><br>
 			<div align="center"><img id="img_zoom_15" src="img/2.2.15 Arduino_UNO_R3_a.png" alt="" width="1000" height="auto"></div>
 			<br>
-			Acceder a <b><i>LIBRARY MANAGER</i></b>, buscar e instalar la librería <b><i>SHT1x sensor library for ESPx</i></b>
+			Descargar la librería <a target="_blank" href="https://drive.google.com/uc?id=1Uk9KE1W2iGx_usFCS-6Aw5P8KFQ85aL1&amp;export=download&amp;authuser=0"><b>SHT1X</b></a>
 			<br><br>
-			<div align="center"><img src="img/IoT/IoT_13.png" alt="" width="auto" height="auto"></div>
+			Instalar la librería <b><i>SHT1X</i></b> siguiendo el procedimiento mostrado en la imagen:
+			<br><br>
+			<div align="center"><img src="img/IoT/IoT_13a.png" alt="" width="auto" height="auto"></div>
 			<br>
 			<iframe class="pag" id="ifrm11" name="ifrm11" scrolling="no" marginwidth="0" src="html/2.2.15_a.html?dataPin=A3&clockPin=A2"></iframe>
 			<br><br>

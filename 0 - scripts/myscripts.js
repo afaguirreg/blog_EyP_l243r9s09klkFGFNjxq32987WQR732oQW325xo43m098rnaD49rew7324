@@ -37,7 +37,8 @@ window.onload = function() {
 	var valor = obtener_valor("verinfo");
 	if (valor != "CONTENIDO") {
 		var element = document.getElementById(valor);
-		element.scrollIntoView();
+		for (var z=0;z<5;z++)
+			element.scrollIntoView();
 	}
 	
 	var tipo_7seg = obtener_valor("tipo_7seg");
