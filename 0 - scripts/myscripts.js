@@ -1,7 +1,10 @@
 document.oncontextmenu = function(){return false;}
-document.onselectstart=new Function ("return false")
+document.onselectstart = new Function ("return false")
+
 function disabletext(e){return false}
+
 function reEnable(){return true}
+
 if (window.sidebar){
 	document.onmousedown=disabletext
 	document.onclick=reEnable
@@ -37,8 +40,7 @@ window.onload = function() {
 	var valor = obtener_valor("verinfo");
 	if (valor != "CONTENIDO") {
 		var element = document.getElementById(valor);
-		for (var z=0;z<5;z++)
-			element.scrollIntoView();
+		element.scrollIntoView();
 	}
 	
 	var tipo_7seg = obtener_valor("tipo_7seg");
@@ -115,3 +117,14 @@ setInterval(function() {
 		style.webkitTransform = style.webkitTransform ? "" : "scale(1)";
 	}
 },500);
+
+var interval = setInterval(function() {
+    if (document.readyState == 'complete') {
+        var valor = obtener_valor("verinfo");
+		if (valor != "CONTENIDO") {
+			var element = document.getElementById(valor);
+			element.scrollIntoView();
+			clearInterval(interval);
+		}
+    }    
+}, 1000);
