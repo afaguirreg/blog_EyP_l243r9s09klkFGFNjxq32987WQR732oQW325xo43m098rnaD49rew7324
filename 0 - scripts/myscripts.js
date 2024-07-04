@@ -40,7 +40,6 @@ window.onload = function() {
 	var valor = obtener_valor("verinfo");
 	if (valor != "CONTENIDO") {
 		var element = document.getElementById(valor);
-		element.scrollIntoView();
 	}
 	
 	var tipo_7seg = obtener_valor("tipo_7seg");
@@ -127,4 +126,4 @@ var interval = setInterval(function() {
 			clearInterval(interval);
 		}
     }    
-}, 1000);
+}, 1500);
