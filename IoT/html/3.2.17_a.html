@@ -10,7 +10,6 @@
 
 	<body>
 		<pre>
-<font color="#434f54">&#47;&#47; Include the libraries we need</font>
 <font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><b><font color="#d35400">SPI</font></b><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
 <font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><font color="#d35400">Wire</font><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
 <font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><font color="#000000">Adafruit_GFX</font><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
@@ -55,7 +54,7 @@
 <font color="#00979c">unsigned</font> <font color="#00979c">long</font> <font color="#000000">previousTime</font> <font color="#434f54">=</font> <font color="#000000">0</font><font color="#000000">;</font> 
 <font color="#00979c">const</font> <font color="#00979c">long</font> <font color="#000000">timeoutTime</font> <font color="#434f54">=</font> <font color="#000000">1000</font><font color="#000000">;</font>
 
-<font color="#00979c">void</font> <font color="#000000">estados</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+<font color="#00979c">void</font> <font color="#000000">display_update</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
  &nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#000000">clearDisplay</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">setCursor</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font><font color="#000000">0</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#000000">texto</font><font color="#000000">)</font><font color="#000000">;</font>
@@ -121,7 +120,7 @@
  &nbsp;&nbsp;&nbsp;<font color="#000000">tempC</font> <font color="#434f54">=</font> <font color="#000000">sensors</font><font color="#434f54">.</font><font color="#d35400">getTempCByIndex</font><font color="#000000">(</font><font color="#000000">0</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#000000">}</font>
 
- &nbsp;<font color="#000000">estados</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">display_update</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
 
  &nbsp;<font color="#434f54">&#47;&#47; Create the JSON document</font>
  &nbsp;<b><font color="#d35400">StaticJsonDocument</font></b><font color="#434f54">&lt;</font><font color="#000000">200</font><font color="#434f54">&gt;</font> <font color="#000000">Json_enviar</font><font color="#000000">;</font>

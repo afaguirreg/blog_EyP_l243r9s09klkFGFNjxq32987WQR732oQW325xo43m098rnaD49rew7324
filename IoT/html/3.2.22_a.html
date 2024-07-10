@@ -58,7 +58,7 @@
 <font color="#5e6d03">#define</font> <font color="#000000">Q1</font> <font color="#000000">15</font>
 <font color="#5e6d03">#define</font> <font color="#000000">Q2</font> <font color="#000000">13</font>
 
-<font color="#00979c">void</font> <font color="#000000">estados</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+<font color="#00979c">void</font> <font color="#000000">display_update</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
  &nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#000000">setTextSize</font><font color="#000000">(</font><font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#000000">setTextColor</font><font color="#000000">(</font><font color="#000000">SSD1306_WHITE</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#434f54">&#47;&#47;Activar página de código 437</font>
@@ -132,7 +132,7 @@
  &nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#000000">clearDisplay</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#d35400">display</font><font color="#434f54">.</font><font color="#d35400">display</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
 
- &nbsp;<font color="#000000">estados</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">display_update</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
 
  &nbsp;<font color="#434f54">&#47;&#47; Setup Blynk</font>
  &nbsp;<b><font color="#d35400">Blynk</font></b><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#d35400">BLYNK_AUTH_TOKEN</font><font color="#434f54">,</font> <font color="#000000">ssid</font><font color="#434f54">,</font> <font color="#000000">pass</font><font color="#000000">)</font><font color="#000000">;</font>
@@ -154,7 +154,7 @@
  &nbsp;<b><font color="#d35400">Blynk</font></b><font color="#434f54">.</font><font color="#d35400">virtualWrite</font><font color="#000000">(</font><font color="#000000">3</font><font color="#434f54">,</font> <font color="#000000">I1</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<b><font color="#d35400">Blynk</font></b><font color="#434f54">.</font><font color="#d35400">virtualWrite</font><font color="#000000">(</font><font color="#000000">4</font><font color="#434f54">,</font> <font color="#000000">I2</font><font color="#000000">)</font><font color="#000000">;</font>
 
- &nbsp;<font color="#000000">estados</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">display_update</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
 <font color="#000000">}</font></pre>
 	</body>
 </html>
