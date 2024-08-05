@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Documento sin título</title>
+		<link rel="stylesheet" type="text/css" href="../../0 - styles/mystyles.css">
+		<script language="JavaScript" src="../../0 - scripts/myscripts.js"></script>
+		<script type="text/javascript" src="../../0 - scripts/iframe/iframeResizer.contentWindow.min.js" defer></script>
+    <style type="text/css">
+	    <!--
+p.MsoNormal {
+margin-top:0cm;
+margin-right:0cm;
+margin-bottom:8.0pt;
+margin-left:0cm;
+line-height:107%;
+font-size:11.0pt;
+font-family:"Calibri",sans-serif;
+}
+-->
+	    </style>
+	</head>
+
+	<body>
+		<span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">
+			<p>
+			//////////////////////////////// sketch section ////////////////////////////////<br>
+			#include &lt;Adafruit_SSD1306.h&gt;
+			</p>
+			<p>Adafruit_SSD1306 display = Adafruit_SSD1306(128, 32, &Wire);</p>
+			<p>
+			#define pin_I0 35<br>
+			#define pin_I1 32<br>
+			#define pin_I2 33<br>
+			#define pin_I3 25<br>
+			#define pin_I4 26<br>
+			#define pin_I5 27<br>
+			#define pin_I6 14<br>
+			#define pin_I7 12
+			</p>
+			<p>
+			#define I0 digitalRead(pin_I0)<br>
+	  		#define I1 digitalRead(pin_I1)<br>
+	  		#define I2 digitalRead(pin_I2)<br>
+	  		#define I3 digitalRead(pin_I3)<br>
+	  		#define I4 digitalRead(pin_I4)<br>
+	  		#define I5 digitalRead(pin_I5)<br>
+	  		#define I6 digitalRead(pin_I6)<br>
+	  		#define I7 digitalRead(pin_I7)
+			</p>
+			<p>
+			#define Q0 13<br>
+	  		#define Q1 15<br>
+	  		#define Q2 2<br>
+	  		#define Q3 4<br>
+	  		#define Q4 16<br>
+	  		#define Q5 17<br>
+			#define Q6 5<br>
+			#define Q7 18
+			</p>
+			<p>char texto[] = &quot;digital I/O&quot;;</p>
+			<p>
+			void display_update() {<br>
+			&nbsp;&nbsp;display.clearDisplay();<br>
+			&nbsp;&nbsp;display.setCursor(0, 0);<br>
+			&nbsp;&nbsp;display.println(texto);<br>
+			&nbsp;&nbsp;display.print("I: ");<br>
+			&nbsp;&nbsp;display.write(I0*43 + 176);<br>
+			&nbsp;&nbsp;display.print(" ");<br>
+			&nbsp;&nbsp;display.write(I1*43 + 176);<br>
+			&nbsp;&nbsp;display.print(" ");<br>
+			&nbsp;&nbsp;display.write(I2*43 + 176);<br>
+			&nbsp;&nbsp;display.print(" ");<br>
+			&nbsp;&nbsp;display.write(I3*43 + 176);<br>
+			&nbsp;&nbsp;display.print(" ");<br>
+			&nbsp;&nbsp;display.write(I4*43 + 176);<br>
+			&nbsp;&nbsp;display.print(" ");<br>
+			&nbsp;&nbsp;display.write(I5*43 + 176);<br>
+			&nbsp;&nbsp;display.print(" ");<br>
+			&nbsp;&nbsp;display.write(I6*43 + 176);<br>
+			&nbsp;&nbsp;display.print(" ");<br>
+			&nbsp;&nbsp;display.write(I7*43 + 176);<br>
+			&nbsp;&nbsp;display.println("");<br>
+			&nbsp;&nbsp;display.println("   0 1 2 3 4 5 6 7");<br>
+			&nbsp;&nbsp;display.print("Q: ");<br>
+			&nbsp;&nbsp;display.write(digitalRead(Q0)*43 + 176);<br>
+			&nbsp;&nbsp;display.print(" ");<br>
+			&nbsp;&nbsp;display.write(digitalRead(Q1)*43 + 176);<br>
+			&nbsp;&nbsp;display.print(" ");<br>
+			&nbsp;&nbsp;display.write(digitalRead(Q2)*43 + 176);<br>
+			&nbsp;&nbsp;display.print(" ");<br>
+			&nbsp;&nbsp;display.write(digitalRead(Q3)*43 + 176);<br>
+			&nbsp;&nbsp;display.print(" ");<br>
+			&nbsp;&nbsp;display.write(digitalRead(Q4)*43 + 176);<br>
+			&nbsp;&nbsp;display.print(" ");<br>
+			&nbsp;&nbsp;display.write(digitalRead(Q5)*43 + 176);<br>
+			&nbsp;&nbsp;display.print(" ");<br>
+			&nbsp;&nbsp;display.write(digitalRead(Q6)*43 + 176);<br>
+			&nbsp;&nbsp;display.print(" ");<br>
+			&nbsp;&nbsp;display.write(digitalRead(Q7)*43 + 176);<br>
+			&nbsp;&nbsp;display.display();<br>
+			}
+			</p>
+			<p>
+			void sketch_setup()<br>
+			{<br>
+			&nbsp;&nbsp;pinMode(pin_I0, INPUT);<br>
+			&nbsp;&nbsp;pinMode(pin_I1, INPUT);<br>
+			&nbsp;&nbsp;pinMode(pin_I2, INPUT);<br>
+			&nbsp;&nbsp;pinMode(pin_I3, INPUT);<br>
+			&nbsp;&nbsp;pinMode(pin_I4, INPUT);<br>
+			&nbsp;&nbsp;pinMode(pin_I5, INPUT);<br>
+			&nbsp;&nbsp;pinMode(pin_I6, INPUT);<br>
+			&nbsp;&nbsp;pinMode(pin_I7, INPUT);<br>
+			&nbsp;&nbsp;pinMode(Q0, OUTPUT);<br>
+			&nbsp;&nbsp;pinMode(Q1, OUTPUT);<br>
+			&nbsp;&nbsp;pinMode(Q2, OUTPUT);<br>
+			&nbsp;&nbsp;pinMode(Q3, OUTPUT);<br>
+			&nbsp;&nbsp;pinMode(Q4, OUTPUT);<br>
+			&nbsp;&nbsp;pinMode(Q5, OUTPUT);<br>
+			&nbsp;&nbsp;pinMode(Q6, OUTPUT);<br>
+			&nbsp;&nbsp;pinMode(Q7, OUTPUT);<br><br>
+			&nbsp;&nbsp;// SSD1306_SWITCHCAPVCC = generate display voltage from 3.3V internally<br>
+			&nbsp;&nbsp;display.begin(SSD1306_SWITCHCAPVCC, 0x3C); // Address 0x3C for 128x32<br>
+			&nbsp;&nbsp;display.setTextSize(1);<br>
+			&nbsp;&nbsp;display.setTextColor(SSD1306_WHITE);<br>
+			&nbsp;&nbsp;display.cp437(true);<br>
+			&nbsp;&nbsp;display.display();<br>
+			&nbsp;&nbsp;delay(2000);<br>
+			}
+			</p>
+			<p>
+			void sketch_loop()<br>
+			{<br>
+			&nbsp;&nbsp;display_update();<br>
+			}
+			</p>
+		</span>
+    </body>
+</html>

@@ -25,9 +25,9 @@ font-family:"Calibri",sans-serif;
 		<span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">
 			<p>
 			//////////////////////////////// sketch section ////////////////////////////////<br>
-			#include &lt;LiquidCrystal_PCF8574.h&gt;
+			#include &lt;Adafruit_SSD1306.h&gt;
 			</p>
-			<p>LiquidCrystal_PCF8574 lcd(0x27);</p>
+			<p>Adafruit_SSD1306 display = Adafruit_SSD1306(128, 32, &Wire);</p>
 			<p>
 			#define pin_I0 4<br>
 			#define pin_I1 5<br>
@@ -48,27 +48,29 @@ font-family:"Calibri",sans-serif;
 			</p>
 			<p>char texto[] = &quot;digital I/O&quot;;</p>
 			<p>
-			byte pin_state_high[] = {0x00,0x1F,0x1F,0x1F,0x1F,0x1F,0x1F,0x00};<br>
-			byte pin_state_low[] = {0x00,0x1F,0x11,0x11,0x11,0x11,0x1F,0x00};
-			</p>
-			<p>
 			void display_update() {<br>
-			&nbsp;&nbsp;lcd.setCursor(0, 0);<br>
-			&nbsp;&nbsp;lcd.print(texto);<br>
-			&nbsp;&nbsp;lcd.setCursor(0, 1);<br>
-			&nbsp;&nbsp;lcd.print(&quot;I: &quot;);<br>
-			&nbsp;&nbsp;lcd.write(I0);<br>
-			&nbsp;&nbsp;lcd.write(I1);<br>
-			&nbsp;&nbsp;lcd.write(I2);<br>
-			&nbsp;&nbsp;lcd.write(I3);<br>
-			&nbsp;&nbsp;lcd.setCursor(0, 2);<br>
-			&nbsp;&nbsp;lcd.print(&quot;   0123&quot;);<br>
-			&nbsp;&nbsp;lcd.setCursor(0, 3);<br>
-			&nbsp;&nbsp;lcd.print(&quot;Q: &quot;);<br>
-			&nbsp;&nbsp;lcd.write(digitalRead(Q0));<br>
-			&nbsp;&nbsp;lcd.write(digitalRead(Q1));<br>
-			&nbsp;&nbsp;lcd.write(digitalRead(Q2)); <br>
-			&nbsp;&nbsp;lcd.write(digitalRead(Q3));<br>
+			&nbsp;&nbsp;display.clearDisplay();<br>
+			&nbsp;&nbsp;display.setCursor(0, 0);<br>
+			&nbsp;&nbsp;display.println(texto);<br>
+			&nbsp;&nbsp;display.print("I: ");<br>
+			&nbsp;&nbsp;display.write(I0*43 + 176);<br>
+			&nbsp;&nbsp;display.print(" ");<br>
+			&nbsp;&nbsp;display.write(I1*43 + 176);<br>
+			&nbsp;&nbsp;display.print(" ");<br>
+			&nbsp;&nbsp;display.write(I2*43 + 176);<br>
+			&nbsp;&nbsp;display.print(" ");<br>
+			&nbsp;&nbsp;display.write(I3*43 + 176);<br>
+			&nbsp;&nbsp;display.println("");<br>
+			&nbsp;&nbsp;display.println("   0 1 2 3");<br>
+			&nbsp;&nbsp;display.print("Q: ");<br>
+			&nbsp;&nbsp;display.write(digitalRead(Q0)*43 + 176);<br>
+			&nbsp;&nbsp;display.print(" ");<br>
+			&nbsp;&nbsp;display.write(digitalRead(Q1)*43 + 176);<br>
+			&nbsp;&nbsp;display.print(" ");<br>
+			&nbsp;&nbsp;display.write(digitalRead(Q2)*43 + 176);<br>
+			&nbsp;&nbsp;display.print(" ");<br>
+			&nbsp;&nbsp;display.write(digitalRead(Q3)*43 + 176);<br>
+			&nbsp;&nbsp;display.display();<br>
 			}
 			</p>
 			<p>
@@ -82,11 +84,13 @@ font-family:"Calibri",sans-serif;
 			&nbsp;&nbsp;pinMode(Q1, OUTPUT);<br>
 			&nbsp;&nbsp;pinMode(Q2, OUTPUT);<br>
 			&nbsp;&nbsp;pinMode(Q3, OUTPUT);<br><br>
-			&nbsp;&nbsp;lcd.begin(20, 4);<br>
-			&nbsp;&nbsp;lcd.createChar(0, pin_state_low);<br>
-			&nbsp;&nbsp;lcd.createChar(1, pin_state_high);<br>
-			&nbsp;&nbsp;delay(200);<br>
-			&nbsp;&nbsp;lcd.setBacklight(255);<br>
+			&nbsp;&nbsp;// SSD1306_SWITCHCAPVCC = generate display voltage from 3.3V internally<br>
+			&nbsp;&nbsp;display.begin(SSD1306_SWITCHCAPVCC, 0x3C); // Address 0x3C for 128x32<br>
+			&nbsp;&nbsp;display.setTextSize(1);<br>
+			&nbsp;&nbsp;display.setTextColor(SSD1306_WHITE);<br>
+			&nbsp;&nbsp;display.cp437(true);<br>
+			&nbsp;&nbsp;display.display();<br>
+			&nbsp;&nbsp;delay(2000);<br>
 			}
 			</p>
 			<p>
