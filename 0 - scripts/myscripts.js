@@ -91,10 +91,11 @@ window.onload = function() {
 		document.getElementById("DHTPIN").innerHTML = obtener_valor("DHTPIN");
 	}
 
-	var pin_SCK = obtener_valor("dataPin");
-	if (pin_SCK != "CONTENIDO") {
+	var dataPin = obtener_valor("dataPin");
+	if (dataPin != "CONTENIDO") {
 		document.getElementById("dataPin").innerHTML = obtener_valor("dataPin");
 		document.getElementById("clockPin").innerHTML = obtener_valor("clockPin");
+		document.getElementById("coma").innerHTML = obtener_valor("coma");
 	}
 }
 
