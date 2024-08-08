@@ -97,6 +97,12 @@ window.onload = function() {
 		document.getElementById("clockPin").innerHTML = obtener_valor("clockPin");
 		document.getElementById("coma").innerHTML = obtener_valor("coma");
 	}
+
+	var wireBegin = obtener_valor("wireBegin");
+	if (wireBegin != "CONTENIDO") {
+		document.getElementById("wireBegin").innerHTML = obtener_valor("wireBegin");
+		document.getElementById("br").innerHTML = obtener_valor("br");
+	}
 }
 
 function getDocHeight(doc) {
