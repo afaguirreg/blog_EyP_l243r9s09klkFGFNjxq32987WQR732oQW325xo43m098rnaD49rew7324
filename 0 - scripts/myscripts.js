@@ -95,6 +95,10 @@ window.onload = function() {
 	if (dataPin != "CONTENIDO") {
 		document.getElementById("dataPin").innerHTML = obtener_valor("dataPin");
 		document.getElementById("clockPin").innerHTML = obtener_valor("clockPin");
+	}
+
+	var coma = obtener_valor("coma");
+	if (coma != "CONTENIDO") {
 		document.getElementById("coma").innerHTML = obtener_valor("coma");
 	}
 
