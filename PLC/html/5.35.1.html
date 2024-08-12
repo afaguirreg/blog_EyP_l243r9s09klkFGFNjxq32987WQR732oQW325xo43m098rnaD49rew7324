@@ -29,13 +29,14 @@ font-family:"Calibri",sans-serif;
 			</p>
 			<p>Adafruit_SSD1306 display = Adafruit_SSD1306(128, 32, &Wire);</p>
 			<p>
-			#define pin_I0 2<br>
-			#define pin_I1 3<br>
-			#define pin_I2 4<br>
-			#define pin_I3 5<br>
-			#define pin_I4 6<br>
-			#define pin_I5 7<br>
-			#define pin_I6 8
+			#define pin_I0 16<br>
+			#define pin_I1 17<br>
+			#define pin_I2 18<br>
+			#define pin_I3 19<br>
+			#define pin_I4 20<br>
+			#define pin_I5 21<br>
+			#define pin_I6 15<br>
+			#define pin_I7 14
 			</p>
 			<p>
 			#define I0 digitalRead(pin_I0)<br>
@@ -44,16 +45,18 @@ font-family:"Calibri",sans-serif;
 	  		#define I3 digitalRead(pin_I3)<br>
 	  		#define I4 digitalRead(pin_I4)<br>
 	  		#define I5 digitalRead(pin_I5)<br>
-	  		#define I6 digitalRead(pin_I6)
+	  		#define I6 digitalRead(pin_I6)<br>
+	  		#define I7 digitalRead(pin_I7)
 			</p>
 			<p>
-			#define Q0 13<br>
-	  		#define Q1 A2<br>
-	  		#define Q2 A3<br>
-	  		#define Q3 12<br>
-	  		#define Q4 11<br>
-	  		#define Q5 10<br>
-			#define Q6 9
+			#define Q0 6<br>
+	  		#define Q1 7<br>
+	  		#define Q2 8<br>
+	  		#define Q3 9<br>
+	  		#define Q4 10<br>
+	  		#define Q5 11<br>
+	  		#define Q6 12<br>
+	  		#define Q7 13
 			</p>
 			<p>char texto[] = &quot;digital I/O&quot;;</p>
 			<p>
@@ -76,8 +79,10 @@ font-family:"Calibri",sans-serif;
 			&nbsp;&nbsp;display.write(I5*43 + 176);<br>
 			&nbsp;&nbsp;display.print(" ");<br>
 			&nbsp;&nbsp;display.write(I6*43 + 176);<br>
+			&nbsp;&nbsp;display.print(" ");<br>
+			&nbsp;&nbsp;display.write(I7*43 + 176);<br>
 			&nbsp;&nbsp;display.println("");<br>
-			&nbsp;&nbsp;display.println("   0 1 2 3 4 5 6");<br>
+			&nbsp;&nbsp;display.println("   0 1 2 3 4 5 6 7");<br>
 			&nbsp;&nbsp;display.print("Q: ");<br>
 			&nbsp;&nbsp;display.write(digitalRead(Q0)*43 + 176);<br>
 			&nbsp;&nbsp;display.print(" ");<br>
@@ -92,6 +97,8 @@ font-family:"Calibri",sans-serif;
 			&nbsp;&nbsp;display.write(digitalRead(Q5)*43 + 176);<br>
 			&nbsp;&nbsp;display.print(" ");<br>
 			&nbsp;&nbsp;display.write(digitalRead(Q6)*43 + 176);<br>
+			&nbsp;&nbsp;display.print(" ");<br>
+			&nbsp;&nbsp;display.write(digitalRead(Q7)*43 + 176);<br>
 			&nbsp;&nbsp;display.display();<br>
 			}
 			</p>
@@ -105,13 +112,15 @@ font-family:"Calibri",sans-serif;
 			&nbsp;&nbsp;pinMode(pin_I4, INPUT);<br>
 			&nbsp;&nbsp;pinMode(pin_I5, INPUT);<br>
 			&nbsp;&nbsp;pinMode(pin_I6, INPUT);<br>
+			&nbsp;&nbsp;pinMode(pin_I7, INPUT);<br>
 			&nbsp;&nbsp;pinMode(Q0, OUTPUT);<br>
 			&nbsp;&nbsp;pinMode(Q1, OUTPUT);<br>
 			&nbsp;&nbsp;pinMode(Q2, OUTPUT);<br>
 			&nbsp;&nbsp;pinMode(Q3, OUTPUT);<br>
 			&nbsp;&nbsp;pinMode(Q4, OUTPUT);<br>
 			&nbsp;&nbsp;pinMode(Q5, OUTPUT);<br>
-			&nbsp;&nbsp;pinMode(Q6, OUTPUT);<br><br>
+			&nbsp;&nbsp;pinMode(Q6, OUTPUT);<br>
+			&nbsp;&nbsp;pinMode(Q7, OUTPUT);<br><br>
 			&nbsp;&nbsp;// SSD1306_SWITCHCAPVCC = generate display voltage from 3.3V internally<br>
 			&nbsp;&nbsp;display.begin(SSD1306_SWITCHCAPVCC, 0x3C); // Address 0x3C for 128x32<br>
 			&nbsp;&nbsp;display.setTextSize(1);<br>
