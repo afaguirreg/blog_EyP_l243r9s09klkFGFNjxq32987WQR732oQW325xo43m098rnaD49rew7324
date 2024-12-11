@@ -61,6 +61,13 @@ window.onload = function() {
 		document.getElementById("br").innerHTML = obtener_valor("br");
 	}
 	
+	var boton_inc = obtener_valor("boton_inc");
+	if (boton_inc != "CONTENIDO") {
+		document.getElementById("boton_inc").innerHTML = obtener_valor("boton_inc");
+		document.getElementById("boton_dec").innerHTML = obtener_valor("boton_dec");
+		document.getElementById("boton_reset").innerHTML = obtener_valor("boton_reset");
+	}
+	
 	var pin_A0 = obtener_valor("pin_A0");
 	if (pin_A0 != "CONTENIDO") {
 		document.getElementById("pin_A0").innerHTML = obtener_valor("pin_A0");
