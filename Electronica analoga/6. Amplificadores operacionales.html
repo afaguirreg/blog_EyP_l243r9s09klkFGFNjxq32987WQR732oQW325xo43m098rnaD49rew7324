@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Documento sin título</title>
+		<link rel="stylesheet" type="text/css" href="../0 - styles/mystyles.css">
+		<script language="JavaScript" src="../0 - scripts/myscripts.js"></script>
+		<script language="JavaScript" src="https://yui-s.yahooapis.com/3.18.1/build/yui/yui-min.js"></script>
+		<script type="text/javascript" src="../0 - scripts/jquery/jquery.min.js"></script>
+		<script type="text/javascript" src="../0 - scripts/iframe/iframeResizer.contentWindow.min.js" defer></script>
+    <style type="text/css">
+	    <!--
+p.MsoNormal {
+margin-top:0cm;
+margin-right:0cm;
+margin-bottom:8.0pt;
+margin-left:0cm;
+line-height:107%;
+font-size:11.0pt;
+font-family:"Calibri",sans-serif;
+}
+-->
+	    </style>
+	</head>
+
+	<body class="yui3-skin-sam" style="background-repeat:no-repeat; background-position: 0px 0px; background-image:url('../video/5. Entrada analoga.png');" onload="capturar();">
+		<div class="Normal" style="text-align:justify">
+			<br><br><br>
+			<table>
+				<tbody>
+					<tr>
+						<td width="520">
+							<div><br></div>
+						</td>
+						<td>
+							<label id="Salida" style="font-weight: bold; font-size: 18pt;"><b>Sensor: 0</b></label>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<br><br><br><br><br>
+			<br><br><br><br><br>
+			<br><br><br><br><br>
+			<br><br><br><br>
+			<br><br><br><br>
+		  <table>
+				<tbody>
+					<tr>
+						<td width="187">
+							<div align="center"><b>Smax</b></div>
+							<div align="center"><input type="number" style="width:96px" class="panel" id="Smax" value="1023" min="-9999" max="9999" onchange="capturar();"></div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div><br></div>
+						</td>
+						<td>
+							<div><br></div>
+							<div id="demo"></div>
+						</td>
+						<td width="13">
+						</td>
+						<td>
+							<br><br><br><br><br>
+							<br><br><br><br><br>
+							<div align="center"><input style="color: greenyellow; background-color: #064202; width:45px; text-align: center; font-family: Arial, sans-serif;	font-weight: bold; font-size: 10pt; padding: 1px 1px; margin: 0px 0; box-sizing: border-box; border: none;" id="voltaje" value=" 0.000" disabled></div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div align="center"><b>Smin</b></div>
+							<div align="center"><input type="number" style="width:96px" class="panel" id="Smin" value="0" min="-9999" max="9999" onchange="capturar();"></div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<br><br><br>
+			<script>
+				YUI().use('dial', function(Y) {
+					var dial = new Y.Dial( {
+						min: -2.5,
+						max: 2.5,
+						minorStep: 0.001,
+						majorStep: 0.001,
+						stepsPerRevolution: 6,
+						value: -2.5,
+						decimalPlaces: 3,
+						strings: {label:'', resetStr:'Reset', tooltipHandle:''},
+					});
+					dial.render('#demo');
+
+					// Function to update the text input value from the Dial value
+					function updateInput( e ) {
+						var val = e.newVal;
+						if (isNaN(val)) {
+							// Not a valid number.
+							return;
+						}
+						this.set("value", " " + parseFloat(val + 2.5).toFixed(3));
+						var Smax = parseFloat(document.getElementById("Smax").value);
+						var Smin = parseFloat(document.getElementById("Smin").value);
+						if (Smin == 0 && Smax == 1023)
+							document.getElementById("Salida").innerHTML = "Sensor: " + parseInt((val + 2.5) * (Smax - Smin) / 5 + Smin).toFixed(0);
+						else
+							document.getElementById("Salida").innerHTML = "Sensor: " + parseFloat((val + 2.5) * (Smax - Smin) / 5 + Smin).toFixed(1);
+					}
+
+					var theInput = Y.one( "#voltaje" );
+
+					// Subscribe to the Dial's valueChange event, passing the input as the 'this'
+					dial.on("valueChange", updateInput, theInput);
+				});
+			</script>
+			<br>
+			<i>ADC_0</i> = <i>voltaje</i> *
+			<div class="fraction">
+				<span class="fup">1023</span>
+				<span class="bar">/</span>
+				<span class="fdn">5V</span>
+			</div>
+			<br><br>
+			<i>sensor</i> = <i>ADC_0</i> *
+			<div class="fraction">
+				<span class="fup">(Smax - Smin)</span>
+				<span class="bar">/</span>
+				<span class="fdn">1023</span>
+			</div> + Smin
+			<br><br>
+			<i>sensor</i> = <i>ADC_0</i> *
+			<div class="fraction">
+				<span class="fup">(<span id="Ymax">1023 - 0</span><span id="Ymin1"></span>)</span>
+				<span class="bar">/</span>
+				<span class="fdn">1023</span>
+			</div>
+			<span id="Ymin2"></span>
+			<br><br>
+			<div class="dibujo-canvas" align="center">
+				<canvas id="lienzo1" display="block" color="blue" width="1000" height="512"></canvas>
+				<script type="text/javascript">
+					ejercicio1(0,1023);
+					function ejercicio1(y1, y2) {
+						ej1=document.getElementById("lienzo1");
+						lienzo1=ej1.getContext("2d");
+						lienzo1.clearRect(0,0,1000,512);
+						lienzo1.fillStyle = "#EEEEEE";
+						lienzo1.fillRect(200, 0, 600, 512);
+						lienzo1.lineWidth=2;
+						lienzo1.strokeStyle = '#000';
+						//EJE X
+						lienzo1.beginPath();
+						lienzo1.moveTo(200,256);
+						lienzo1.lineTo(800,256);
+						lienzo1.stroke();
+						lienzo1.closePath();
+						//EJEY
+						lienzo1.beginPath();
+						lienzo1.moveTo(200,0);
+						lienzo1.lineTo(200,512);
+						lienzo1.stroke();
+						lienzo1.closePath();
+						//DRAW SCALE
+						lienzo1.lineWidth=1;
+						lienzo1.strokeStyle = '#BBBBBB';
+						lienzo1.beginPath(); 
+						for (var i=200;i<=800;i+=120) {
+							lienzo1.moveTo(i,0);
+							lienzo1.lineTo(i,512);
+						}
+						for (var i=0;i<=512;i+=128) {
+							lienzo1.moveTo(200,i);
+							lienzo1.lineTo(800,i);
+						}
+						lienzo1.stroke();
+						lienzo1.closePath();
+						lienzo1.strokeStyle = '#000000';
+						lienzo1.beginPath(); 
+						for (var i=200;i<=800;i+=60) {
+							lienzo1.moveTo(i,250);
+							lienzo1.lineTo(i,262);
+						}
+						for (var i=0;i<=512;i+=64) {
+							lienzo1.moveTo(194,i);
+							lienzo1.lineTo(206,i);
+						}
+						lienzo1.stroke();
+						lienzo1.closePath();
+						//DRAW 0 - 1023
+						if (Math.abs(y1)<=1023 && y2<=1023) {
+							lienzo1.lineWidth=1;
+							lienzo1.strokeStyle = '#FF0000';
+							lienzo1.beginPath();
+							lienzo1.moveTo(200,256);
+							lienzo1.lineTo(800,0);
+							lienzo1.stroke();
+							lienzo1.closePath();
+							lienzo1.font = "15px Arial";
+							lienzo1.fillStyle = '#FF0000';
+							lienzo1.beginPath();
+							lienzo1.fillText("x:0 y:0", 135, 260);
+							lienzo1.fillText("x:5 y:1023", 820, 12);
+							lienzo1.stroke();
+							lienzo1.closePath();
+							lienzo1.strokeStyle = '#0000FF';
+							lienzo1.beginPath();
+							lienzo1.moveTo(200,256-y1/1023*256);
+							lienzo1.lineTo(800,256-y2/1023*256);
+							lienzo1.stroke();
+							lienzo1.closePath();
+							lienzo1.fillStyle = '#0000FF';
+							lienzo1.font = "15px Arial";
+							lienzo1.fillText("x:0" + " y:" + y1, 60, 260-y1/1023*244);
+							lienzo1.fillText("x:5" + " y:" + y2, 910, 268-y2/1023*256);
+							lienzo1.stroke();
+							lienzo1.closePath();
+						}
+						else if (Math.abs(y1)<=y2) {
+							lienzo1.lineWidth=1;
+							lienzo1.strokeStyle = '#FF0000';
+							lienzo1.beginPath();
+							lienzo1.moveTo(200,256);
+							lienzo1.lineTo(800,256-1023/y2*256);
+							lienzo1.stroke();
+							lienzo1.closePath();
+							lienzo1.font = "15px Arial";
+							lienzo1.fillStyle = '#FF0000';
+							lienzo1.beginPath();
+							lienzo1.fillText("x:0 y:0", 135, 260);
+							lienzo1.fillText("x:5 y:1023", 820, 268-1023/y2*256);
+							lienzo1.stroke();
+							lienzo1.closePath();
+							lienzo1.lineWidth=1;
+							lienzo1.strokeStyle = '#0000FF';
+							lienzo1.moveTo(200,256-y1/y2*256);
+							lienzo1.lineTo(800,0);
+							lienzo1.stroke();
+							lienzo1.closePath();
+							lienzo1.fillStyle = '#0000FF';
+							lienzo1.font = "15px Arial";
+							lienzo1.fillText("x:0" + " y:" + y1, 60, 260-y1/y2*244);
+							lienzo1.fillText("x:5" + " y:" + y2, 910, 12);
+							lienzo1.stroke();
+							lienzo1.closePath();
+						}
+						else if (Math.abs(y1)>y2) {
+							lienzo1.lineWidth=1;
+							lienzo1.strokeStyle = '#FF0000';
+							lienzo1.beginPath();
+							lienzo1.moveTo(200,256);
+							lienzo1.lineTo(800,256-1023/Math.abs(y1)*256);
+							lienzo1.stroke();
+							lienzo1.closePath();
+							lienzo1.font = "15px Arial";
+							lienzo1.fillStyle = '#FF0000';
+							lienzo1.beginPath();
+							lienzo1.fillText("x:0 y:0", 135, 260);
+							lienzo1.fillText("x:5 y:1023", 820, 268-1023/-y1*256);
+							lienzo1.stroke();
+							lienzo1.closePath();
+							lienzo1.lineWidth=1;
+							lienzo1.strokeStyle = '#0000FF';
+							lienzo1.moveTo(200,512);
+							lienzo1.lineTo(800,256+y2/y1*256);
+							lienzo1.stroke();
+							lienzo1.closePath();
+							lienzo1.fillStyle = '#0000FF';
+							lienzo1.font = "15px Arial";
+							lienzo1.fillText("x:0" + " y:" + y1, 60, 504);
+							lienzo1.fillText("x:5" + " y:" + y2, 910, 268+y2/y1*256);
+							lienzo1.stroke();
+							lienzo1.closePath();
+						}
+					}
+				</script>
+			</div>
+			<br>
+			<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#728E00; ">#include</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "> </span><span style="font-family:Consolas; font-size:10.5pt; color:#005C5F; ">&lt;LiquidCrystal_PCF8574.h&gt;</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "> </span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">&nbsp;</span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">LiquidCrystal_PCF8574 </span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">lcd</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">(</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">0x</span><span style="font-family:Consolas; font-size:10.5pt; color:#005C5F; ">27</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">)</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">;</span><span style="font-family:Consolas; font-size:10.5pt; color:#95A5A6; "> &nbsp;// set the LCD address to 0x27 for a 16  chars and 2 line display</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "> </span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">&nbsp;</span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#00979D; ">float</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "> ADC_0;</span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#00979D; ">float</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "> sensor;</span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">&nbsp;</span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#00979D; ">void</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "> </span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">setup</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">()</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "> </span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">{</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "> </span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#95A5A6; ">&nbsp; // put your setup code here, to run once:</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "> </span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">&nbsp; </span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">lcd</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">.</span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">begin</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">(</span><span style="font-family:Consolas; font-size:10.5pt; color:#005C5F; ">16</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">, </span><span style="font-family:Consolas; font-size:10.5pt; color:#005C5F; ">2</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">)</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">;</span></p>
+			<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">&nbsp; </span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">delay</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">(</span><span style="font-family:Consolas; font-size:10.5pt; color:#005C5F; ">200</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">)</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">;</span></p>
+			<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">&nbsp; </span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">lcd</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">.</span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">setBacklight</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">(</span><span style="font-family:Consolas; font-size:10.5pt; color:#005C5F; ">255</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">)</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">;</span></p>
+			<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">&nbsp; </span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">lcd</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">.</span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">print</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">(</span><span style="font-family:Consolas; font-size:10.5pt; color:#005C5F; ">&quot;Sensor:&quot;</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">)</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">;</span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">}</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "> </span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">&nbsp;</span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#00979D; ">void</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "> </span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">loop</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">()</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "> </span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">{</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "> </span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#95A5A6; ">&nbsp; // put your main code here, to run repeatedly:</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "> </span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">&nbsp; ADC_0 = </span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">analogRead</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">(</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">A0</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">)</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">;</span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">&nbsp; <font id="Sensor1"></font><font id="Por"></font></span><span id="Rango" style="font-family:Consolas; font-size:10.5pt; color:#005C5F; "></span><span id="Barra" style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "></span><span id="Denominador" style="font-family:Consolas; font-size:10.5pt; color:#005C5F; "></span><span id="Mas" style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "></span><span id="Span" style="font-family:Consolas; font-size:10.5pt; color:#005C5F; "></span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">;</span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">&nbsp;</span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">&nbsp; </span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">lcd</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">.</span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">setCursor</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">(</span><span style="font-family:Consolas; font-size:10.5pt; color:#005C5F; ">8</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">, </span><span style="font-family:Consolas; font-size:10.5pt; color:#005C5F; ">0</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">)</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">;</span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">&nbsp; </span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">lcd</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">.</span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">print</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">(</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">sensor, </span><span style="font-family:Consolas; font-size:10.5pt; color:#005C5F; ">1</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">)</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">;</span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">&nbsp; </span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">lcd</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">.</span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">print</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">(</span><span style="font-family:Consolas; font-size:10.5pt; color:#005C5F; ">&quot; &nbsp; &quot;</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">)</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">;</span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">&nbsp; </span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">delay</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">(</span><span style="font-family:Consolas; font-size:10.5pt; color:#005C5F; ">500</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">)</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">;</span></p>
+ 		        <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">}</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "> </span></p>
+		  <br>
+			Comentarios del programa:
+			<br><br>
+			El ejemplo está debidamente documentado, por lo cual su comprensión no reviste mayor dificultad.
+			<br><br>
+			Se debe tener especial atención al seleccionar elcanal a leer:
+			<br><br>
+			analogRead(A0); esta instrucción selecciona elcanal A0
+			<br>
+			analogRead(A1); esta instrucción selecciona elcanal A1
+			<br>
+			analogRead(A2); esta instrucción selecciona elcanal A2… etc…
+			<br><br>
+			Esta instrucción lee elvalor análogo en el canal seleccionado previamente
+			<br><br>
+			Para observar la variación de la unidad medida se ha dispuesto un potenciómetro como sensor.
+			<br><br><br>
+			<a id="Funcion map para escalamiento de lectura analogica"></a>
+			<b><i>5.2 Función map para escalamiento de lectura analógica</i></b>
+			<br><br>
+			<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#728E00; ">#include</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "> </span><span style="font-family:Consolas; font-size:10.5pt; color:#005C5F; ">&lt;LiquidCrystal_PCF8574.h&gt;</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "> </span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">&nbsp;</span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">LiquidCrystal_PCF8574 </span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">lcd</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">(</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">0x</span><span style="font-family:Consolas; font-size:10.5pt; color:#005C5F; ">27</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">)</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">;</span><span style="font-family:Consolas; font-size:10.5pt; color:#95A5A6; "> &nbsp;// set the LCD address to 0x27 for a 16  chars and 2 line display</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "> </span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">&nbsp;</span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#00979D; ">float</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "> ADC_0;</span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#00979D; ">float</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "> sensor;</span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">&nbsp;</span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#00979D; ">void</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "> </span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">setup</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">()</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "> </span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">{</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "> </span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#95A5A6; ">&nbsp; // put your setup code here, to run once:</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "> </span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">&nbsp; </span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">lcd</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">.</span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">begin</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">(</span><span style="font-family:Consolas; font-size:10.5pt; color:#005C5F; ">16</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">, </span><span style="font-family:Consolas; font-size:10.5pt; color:#005C5F; ">2</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">)</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">;</span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">&nbsp; </span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">delay</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">(</span><span style="font-family:Consolas; font-size:10.5pt; color:#005C5F; ">200</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">)</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">;</span></p>
+			<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">&nbsp; </span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">lcd</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">.</span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">setBacklight</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">(</span><span style="font-family:Consolas; font-size:10.5pt; color:#005C5F; ">255</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">)</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">;</span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">&nbsp; </span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">lcd</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">.</span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">print</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">(</span><span style="font-family:Consolas; font-size:10.5pt; color:#005C5F; ">&quot;Sensor:&quot;</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">)</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">;</span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">}</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "> </span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">&nbsp;</span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#00979D; ">void</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "> </span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">loop</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">()</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "> </span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">{</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "> </span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#95A5A6; ">&nbsp; // put your main code here, to run repeatedly:</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "> </span></p>
+          	<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">&nbsp; ADC_0 = </span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">analogRead</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">(</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">A0</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">)</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">;</span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;">&nbsp;&nbsp;&nbsp;&nbsp;<span id="Sensor2" style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "></span><span id="Map" style="font-family:Consolas; font-size:10.5pt; color:#D35400; "></span><span id="POpen" style="font-family:Consolas; font-size:10.5pt; color:#434F54; "></span><span id="Var" style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "></span><span id="InMin" style="font-family:Consolas; font-size:10.5pt; color:#005C5F; "></span><span id="Coma2"  style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "></span><span id="InMax" style="font-family:Consolas; font-size:10.5pt; color:#005C5F; "></span><span id="Coma3" style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "></span><span id="OutMin" style="font-family:Consolas; font-size:10.5pt; color:#005C5F; "></span><span id="Coma4" style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "></span><span id="OutMax" style="font-family:Consolas; font-size:10.5pt; color:#005C5F; "></span><span id="PClose" style="font-family:Consolas; font-size:10.5pt; color:#434F54; "></span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">;</span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">&nbsp;</span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">&nbsp; </span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">lcd</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">.</span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">setCursor</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">(</span><span style="font-family:Consolas; font-size:10.5pt; color:#005C5F; ">8</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">, </span><span style="font-family:Consolas; font-size:10.5pt; color:#005C5F; ">0</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">)</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">;</span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">&nbsp; </span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">lcd</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">.</span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">print</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">(</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">sensor, </span><span style="font-family:Consolas; font-size:10.5pt; color:#005C5F; ">1</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">)</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">;</span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">&nbsp; </span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">lcd</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">.</span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">print</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">(</span><span style="font-family:Consolas; font-size:10.5pt; color:#005C5F; ">&quot; &nbsp; &quot;</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">)</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">;</span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">&nbsp; </span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">delay</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">(</span><span style="font-family:Consolas; font-size:10.5pt; color:#005C5F; ">500</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">)</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">;</span></p>
+            <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">}</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "> </span></p>
+<script>
+				function capturar() {
+					var Smax = document.getElementById("Smax").value;
+					var Smin = document.getElementById("Smin").value;
+					ejercicio1(Smin, Smax);
+					var rango = Smax - Smin;
+					if (Smax==1023 && Smin==0) {
+						document.getElementById("Sensor1").innerHTML = "sensor = ADC_0";
+						document.getElementById("Sensor2").innerHTML = "sensor = ADC_0";
+						document.getElementById("Map").innerHTML = "";
+						document.getElementById("POpen").innerHTML = "";
+						document.getElementById("Var").innerHTML = "";
+						document.getElementById("InMin").innerHTML = "";
+						document.getElementById("Coma2").innerHTML = "";
+						document.getElementById("InMax").innerHTML = "";
+						document.getElementById("Coma3").innerHTML = "";
+						document.getElementById("OutMin").innerHTML = "";
+						document.getElementById("Coma4").innerHTML = "";
+						document.getElementById("OutMax").innerHTML = "";
+						document.getElementById("PClose").innerHTML = "";
+						document.getElementById("Por").innerHTML = "";
+						document.getElementById("Rango").innerHTML = "";
+						document.getElementById("Barra").innerHTML = "";
+						document.getElementById("Denominador").innerHTML = "";
+						document.getElementById("Mas").innerHTML = "";
+						document.getElementById("Span").innerHTML = "";
+					}
+					else
+					{
+						document.getElementById("Sensor1").innerHTML = "sensor = ADC_0";
+						document.getElementById("Sensor2").innerHTML = "sensor = ";
+						document.getElementById("Map").innerHTML = "map";
+						document.getElementById("POpen").innerHTML = "(";
+						document.getElementById("Var").innerHTML = "ADC_0,";
+						document.getElementById("InMin").innerHTML = "0";
+						document.getElementById("Coma2").innerHTML = ",";
+						document.getElementById("InMax").innerHTML = "1023";
+						document.getElementById("Coma3").innerHTML = ",";
+						document.getElementById("OutMin").innerHTML = Smin;
+						document.getElementById("Coma4").innerHTML = ",";
+						document.getElementById("OutMax").innerHTML = Smax;
+						document.getElementById("PClose").innerHTML = ")";
+						document.getElementById("Por").innerHTML = " * ";
+						document.getElementById("Rango").innerHTML = rango;
+						document.getElementById("Barra").innerHTML = " / ";
+						document.getElementById("Denominador").innerHTML = "1023";
+					}
+					if (Smin>=0) {
+						document.getElementById("Ymin1").innerHTML = " - " + Smin;
+						document.getElementById("Ymin2").innerHTML = " + " + Smin;
+					}
+					else {
+						document.getElementById("Ymin1").innerHTML = " + " + -Smin;
+						document.getElementById("Ymin2").innerHTML = " - " + -Smin;
+					}
+					if (Smin==0 && Smax!=1023) {
+						document.getElementById("Mas").innerHTML = "";
+						document.getElementById("Span").innerHTML = "";
+					}
+					if (Smin>0) {
+						document.getElementById("Mas").innerHTML = " + ";
+						document.getElementById("Span").innerHTML = Smin;
+					}
+					if (Smin<0) {
+						document.getElementById("Mas").innerHTML = " - ";
+						document.getElementById("Span").innerHTML = -Smin;
+					}
+					if (rango==1023 && Smin>0) {
+						document.getElementById("Por").innerHTML = "";
+						document.getElementById("Rango").innerHTML = "";
+						document.getElementById("Barra").innerHTML = "";
+						document.getElementById("Denominador").innerHTML = "";
+						document.getElementById("Mas").innerHTML = " + ";
+						document.getElementById("Span").innerHTML = Smin;
+					}
+					if (rango==1023 && Smin<0) {
+						document.getElementById("Por").innerHTML = "";
+						document.getElementById("Rango").innerHTML = "";
+						document.getElementById("Barra").innerHTML = "";
+						document.getElementById("Denominador").innerHTML = "";
+						document.getElementById("Mas").innerHTML = " - ";
+						document.getElementById("Span").innerHTML = -Smin;
+					}
+					document.getElementById("Ymax").innerHTML = Smax;
+				}
+			</script>
+		</div>
+	</body>
+</html>
