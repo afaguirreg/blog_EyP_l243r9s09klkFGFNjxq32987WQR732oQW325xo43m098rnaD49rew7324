@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Documento sin título</title>
+		<link rel="stylesheet" type="text/css" href="../0 - styles/mystyles.css">
+		<script language="JavaScript" src="../0 - scripts/myscripts.js"></script>
+		<script type="text/javascript" src="../0 - scripts/jquery/jquery.min.js"></script>
+		<script language="JavaScript" src="../0 - scripts/zoom/jquery.elevatezoom.js"></script>
+		<script type="text/javascript" src="../0 - scripts/iframe/iframeResizer.min.js"></script>
+		<script type="text/javascript" src="../0 - scripts/iframe/iframeResizer.contentWindow.min.js" defer></script>
+	</head>
+
+	<body>
+		<div class="Normal" style="text-align:justify">
+			<a id="ESP32"></a>
+			<b><i>ESP32 + LCD20x4</i></b>
+			<br><br>
+			<a id="Ejemplo Blink"></a>
+			<b><i>1 - Ejemplo Blink</i></b>
+			<br><br>
+			<div align="center"><img id="img_zoom_1" src="img/3.9.1 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<br>
+			Abrir el menú <b><i>File--&gt;Examples--&gt;0.1 Basics</i></b> y seleccionar el proyecto ejemplo <b><i>Blink</i></b>
+			<br><br>
+			<div align="center"><img src="img/IoT/IoT_6.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Modificar el código. En este ejemplo el LED incorporado en la tarjeta cambiará de estado cada segundo (1000 ms).
+			<br>
+			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" marginwidth="0" src="html/2.1.1_a.html?LED_BUILTIN=2"></iframe>
+			<br><br>
+			Cargar el programa en la placa ESP32 (verificar que haya seleccionado el puerto correspondiente).
+			<br><br>
+			Esperar a que el programa indique que el sketch ha sido subido a la placa ESP32.
+			<br><br>
+			<div align="center"><img src="img/IoT/IoT_7c.png" alt="" width="auto" height="auto"></div>
+			<br><br>
+			<a id="Visualizacion display"></a>
+			<b><i>2 - Visualización display</i></b>
+			<br><br>
+			<input type="button" onClick="document.getElementById('img_zoom_2').src = 'img/3.5.2 ESP32_a.png';" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_2').src = 'img/3.5.2 ESP32_b.png';" value="Ver circuito Wokwi">
+			<br><br>
+			<div align="center"><img id="img_zoom_2" src="img/3.9.2 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<br>
+			Abrir el menú de la izquierda <b><i>LIBRARY MANAGER</i></b>
+			<br><br>
+			Buscar e instalar la librería <b><i>LiquidCrystal_PCF8574</i></b>
+			<br><br>
+			<div align="center"><img src="img/IoT/IoT_8a.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Abrir el menú <b><i>Archivo--&gt;Ejemplos--&gt;LiquidCrystal_PCF8574</i></b> y seleccionar el proyecto ejemplo <b><i>LiquidCrystal_PCF8574_Test</i></b>
+			<br><br>
+			<div align="center"><img src="img/IoT/IoT_9a.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm2" name="ifrm2" scrolling="no" marginwidth="0" src="html/2.1.2_a.html"></iframe>
+			<br><br>
+			<a id="Entradas y salidas digitales"></a>
+			<b><i>3 - Entradas y salidas digitales</i></b>
+			<br><br>
+			<input type="button" onClick="document.getElementById('img_zoom_3').src = 'img/3.5.3 ESP32_a.png';" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_3').src = 'img/3.5.3 ESP32_b.png';" value="Ver circuito Wokwi">
+			<br><br>
+			<div align="center"><img id="img_zoom_3" src="img/3.9.3 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm3" name="ifrm3" scrolling="no" marginwidth="0" src="html/3.9.3_a.html"></iframe>
+			<br><br>
+			<a id="Control motor DC"></a>
+			<b><i>4 - Control motor DC</i></b>
+			<br><br>
+			<input type="button" onClick="document.getElementById('img_zoom_4').src = 'img/3.5.4 ESP32_a.png';" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_4').src = 'img/3.5.4 ESP32_b.png';" value="Ver circuito Wokwi">
+			<br><br>
+			<div align="center"><img id="img_zoom_4" src="img/3.9.4 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm4" name="ifrm4" scrolling="no" marginwidth="0" src="html/3.9.4_a.html"></iframe>
+			<br><br>
+			<a id="Control rele electromecanico"></a>
+			<b><i>5 - Control relé electromecánico</i></b>
+			<br><br>
+			<input type="button" onClick="document.getElementById('img_zoom_5').src = 'img/3.5.5 ESP32_a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_5').src = 'img/3.5.5 ESP32_b.png'; LoadImages();" value="Ver circuito Wokwi">
+			<br><br>
+			<div align="center"><img id="img_zoom_5" src="img/3.9.5 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<br>
+			Nota: Este circuito funciona con el código del proyecto 4
+			<br><br><br>
+			<a id="Control rele de estado solido"></a>
+			<b><i>6 - Control relé de estado sólido</i></b>
+			<br><br>
+			<input type="button" onClick="document.getElementById('img_zoom_6').src = 'img/3.5.6 ESP32_a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_6').src = 'img/3.5.6 ESP32_b.png'; LoadImages();" value="Ver circuito Wokwi">
+			<br><br>
+			<div align="center"><img id="img_zoom_6" src="img/3.9.6 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<br>
+			Nota: Este circuito funciona con el código del proyecto 4
+			<br><br><br>
+			<a id="Control TRIAC"></a>
+			<b><i>7 - Control TRIAC</i></b>
+			<br><br>
+			<input type="button" onClick="document.getElementById('img_zoom_7').src = 'img/3.5.7 ESP32_a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_7').src = 'img/3.5.7 ESP32_b.png'; LoadImages();" value="Ver circuito Wokwi">
+			<br><br>
+			<div align="center"><img id="img_zoom_7" src="img/3.9.7 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<br>
+			Nota: Este circuito funciona con el código del proyecto 4
+			<br><br><br>
+			<a id="Control contactor"></a>
+			<b><i>8 - Control contactor</i></b>
+			<br><br>
+			<input type="button" onClick="document.getElementById('img_zoom_8').src = 'img/3.5.8 ESP32_a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_8').src = 'img/3.5.8 ESP32_b.png'; LoadImages();" value="Ver circuito Wokwi">
+			<br><br>
+			<div align="center"><img id="img_zoom_8" src="img/3.9.8 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<br>
+			Nota: Este circuito funciona con el código del proyecto 4
+			<br><br><br>
+			<a id="Contador"></a>
+			<b><i>9 - Contador</i></b>
+			<br><br>
+			<div align="center"><img id="img_zoom_9" src="img/3.9.9 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm9" name="ifrm9" scrolling="no" marginwidth="0" src="html/2.1.9_a.html?boton_inc=35&boton_dec=32&boton_reset=33"></iframe><br>
+			<br><br>
+			<a id="Entrada analoga"></a>
+			<b><i>10 - Entrada análoga</i></b>
+			<br><br>
+			<input type="button" onClick="document.getElementById('img_zoom_10').src = 'img/3.5.10 ESP32_a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_10').src = 'img/3.5.10 ESP32_b.png'; LoadImages();" value="Ver circuito Wokwi">
+			<br><br>
+			<div align="center"><img id="img_zoom_10" src="img/3.9.10 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm10" name="ifrm10" scrolling="no" marginwidth="0" src="html/3.9.10_a.html?pin_A0=36&pin_A1=39&pin_A2=34"></iframe>
+			<br><br>
+			<a id="Salida analoga (PWM)"></a>
+			<b><i>11 - Salida análoga (PWM)</i></b>
+			<br><br>
+			<input type="button" onClick="document.getElementById('img_zoom_11').src = 'img/3.5.11 ESP32_a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_11').src = 'img/3.5.11 ESP32_b.png'; LoadImages();" value="Ver circuito Wokwi">
+			<br><br>
+			<div align="center"><img id="img_zoom_11" src="img/3.9.11 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm11" name="ifrm11" scrolling="no" marginwidth="0" src="html/3.5.11_a.html?pin_A0=36&pin_PWM=13"></iframe>
+			<br><br>
+			<a id="Comunicacion One Wire sensor DS18B20"></a>
+			<b><i>12 - Comunicación One Wire: sensor DS18B20</i></b>
+			<br><br>
+			<input type="button" onClick="document.getElementById('img_zoom_12').src = 'img/3.5.12 ESP32_a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_12').src = 'img/3.5.12 ESP32_b.png'; LoadImages();" value="Ver circuito Wokwi">
+			<br><br>
+			<div align="center"><img id="img_zoom_12" src="img/3.9.12 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<br>
+			Acceder a <b><i>LIBRARY MANAGER</i></b>, buscar e instalar la librería <b><i>DallasTemperature</i></b>
+			<br><br>
+			<div align="center"><img src="img/IoT/IoT_10a.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Aceptar <b><i>INSTALL ALL</i></b> la instalación de la librería adicional <b><i>OneWire</i></b>
+			<br><br>
+			<div align="center"><img src="img/IoT/IoT_10b.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm12" name="ifrm12" scrolling="no" marginwidth="0" src="html/2.1.12_a.html?ONE_WIRE_BUS=23"></iframe>
+			<br><br>
+			<a id="Comunicacion One Wire sensor DHT11"></a>
+			<b><i>13 - Comunicación One Wire: sensor DHT11</i></b>
+			<br><br>
+			<input type="button" onClick="document.getElementById('img_zoom_13').src = 'img/3.5.13 ESP32_a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_13').src = 'img/3.5.13 ESP32_b.png'; LoadImages();" value="Ver circuito Wokwi">
+			<br><br>
+			<div align="center"><img id="img_zoom_13" src="img/3.9.13 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<br>
+			Acceder a <b><i>LIBRARY MANAGER</i></b>, buscar e instalar la librería <b><i>DHT sensor library</i></b>
+			<br><br>
+			<div align="center"><img src="img/IoT/IoT_11a.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Aceptar <b><i>INSTALL ALL</i></b> la instalación de la librería adicional <b><i>Adafruit Unified Sensor</i></b>
+			<br><br>
+			<div align="center"><img src="img/IoT/IoT_11b.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm13" name="ifrm13" scrolling="no" marginwidth="0" src="html/2.1.13_a.html?DHTPIN=23"></iframe>
+			<br><br>
+			<a id="Comunicacion One Wire sensor DHT21"></a>
+			<b><i>14 - Comunicación One Wire: sensor DHT21</i></b>
+			<br>
+			<br>
+			<input type="button" onClick="document.getElementById('img_zoom_14').src = 'img/3.5.14 ESP32_a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_14').src = 'img/3.5.14 ESP32_b.png'; LoadImages();" value="Ver circuito Wokwi">
+			<br><br>
+			<div align="center"><img id="img_zoom_14" src="img/3.9.14 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm14" name="ifrm14" scrolling="no" marginwidth="0" src="html/2.1.14_a.html?DHTPIN=23"></iframe>
+			<br><br>
+			<a id="Comunicacion One Wire sensor DHT22"></a>
+			<b><i>15 - Comunicación One Wire: sensor DHT22</i></b>
+			<br><br>
+			<input type="button" onClick="document.getElementById('img_zoom_15').src = 'img/3.5.15 ESP32_a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_15').src = 'img/3.5.15 ESP32_b.png'; LoadImages();" value="Ver circuito Wokwi">
+			<br><br>
+			<div align="center"><img id="img_zoom_15" src="img/3.9.15 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm15" name="ifrm15" scrolling="no" marginwidth="0" src="html/2.1.15_a.html?DHTPIN=23"></iframe>
+			<br><br>
+			<a id="Comunicacion I2C sensor SHT1x"></a>
+			<b><i>16 - Comunicación I2C: sensor SHT1x</i></b>
+			<br><br>
+			<input type="button" onClick="document.getElementById('img_zoom_16').src = 'img/3.5.16 ESP32_a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_16').src = 'img/3.5.16 ESP32_b.png'; LoadImages();" value="Ver circuito Wokwi">
+			<br><br>
+			<div align="center"><img id="img_zoom_16" src="img/3.9.16 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<br>
+			Acceder a <b><i>LIBRARY MANAGER</i></b>, buscar e instalar la librería <b><i>SHT1x sensor library for ESPx</i></b>
+			<br><br>
+			<div align="center"><img src="img/IoT/IoT_13b.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm16" name="ifrm16" scrolling="no" marginwidth="0" src="html/3.1.16_a.html?dataPin=23&clockPin=19"></iframe>
+			<br><br>
+			<a id="Comunicacion serial asincrona (UART)"></a>
+			<b><i>17 - Comunicación serial asíncrona (UART)</i></b>
+			<br><br>
+			<input type="button" onClick="document.getElementById('img_zoom_17').src = 'img/3.5.17 ESP32_a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_17').src = 'img/3.5.17 ESP32_b.png'; LoadImages();" value="Ver circuito Wokwi">
+			<br><br>
+			<div align="center"><img id="img_zoom_17" src="img/3.9.17 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm17" name="ifrm17" scrolling="no" marginwidth="0" src="html/2.1.16_a.html?pin_A0=36"></iframe>
+			<br>
+			Cargar el programa en el dispositivo y abrir el menú <b><i>Herramientas--&gt;Monitor Serie</i></b> para visualizar los datos enviados por el dispositivo.
+			<br><br>
+			<div align="center"><img src="img/IoT/IoT_14c.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<div align="center"><img src="img/IoT/IoT_15.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Abrir el menú <b><i>Herramientas--&gt;Serial Plotter</i></b> para visualizar gráficamente la señal análoga medida por el dispositivo.
+			<br><br>
+			<div align="center"><img src="img/IoT/IoT_16c.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<div align="center"><img src="img/IoT/IoT_17.png" alt="" width="auto" height="auto"></div>
+			<br><br>
+			<a id="Comunicacion serial asincrona (UART)"></a>
+			<b><i>18 - Comunicación serial asíncrona (UART)</i></b>
+			<br><br>
+			<input type="button" onClick="document.getElementById('img_zoom_18').src = 'img/3.5.18 ESP32_a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_18').src = 'img/3.5.18 ESP32_b.png'; LoadImages();" value="Ver circuito Wokwi">
+			<br><br>
+			<div align="center"><img id="img_zoom_18" src="img/3.9.18 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<br>
+			Acceder a <b><i>LIBRARY MANAGER</i></b>, buscar e instalar la librería <b><i>ArduinoJson</i></b>
+			<br><br>
+			<div align="center"><img src="img/IoT/IoT_18.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<iframe class="pag" id="ifrm18" name="ifrm18" scrolling="no" marginwidth="0" src="html/3.9.18_a.html"></iframe>
+			<br><br>
+			Descargar y ejecutar el programa <a href="https://drive.google.com/uc?id=1i0-bVEYk3CcIkGLKkcrXb2NrFcA3auUW&amp;export=download&amp;authuser=0" target="_blank"><b><i>COM_TEST</i></b></a> para visualizar los datos enviados por el dispositivo.
+			<br><br>
+			<div align="center"><img src="img/IoT/IoT_19.png" alt="" width="1000" height="auto"></div>
+			<br><br>
+			<a id="Modo punto de acceso (Access Point - AP)"></a>
+			<b><i>19 - Modo punto de acceso (Access Point - AP)</i></b>
+			<br><br>
+			En este modo de funcionamiento se creará una red WiFi en la que una placa ESP32 cumplirá la función de servidor al cual se podrán conectar dispositivos como PC/Laptop, tablet, móviles, otras placas ESP32 o cualquier otro dispositivo con capacidad de conexión WiFi.
+			<br><br>
+			<div align="center"><img src="img/IoT/IoT_20b.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<input type="button" onClick="document.getElementById('img_zoom_19').src = 'img/3.5.19 ESP32_a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_19').src = 'img/3.5.19 ESP32_b.png'; LoadImages();" value="Ver circuito Wokwi">
+			<br><br>
+			<div align="center"><img id="img_zoom_19" src="img/3.9.19 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<br>
+			Modificar los parámetros <b><i>ssid (Nombre de la red WiFi) y password</i></b><b><i> (Contraseña de la red WiFi)</i></b>. Estos parámetros corresponden a la nueva red WiFi que será creada por el dispositivo.
+			<br><br>
+			<iframe class="pag" id="ifrm19" name="ifrm19" scrolling="no" marginwidth="0" src="html/3.9.19_a.html"></iframe>
+			<br><br>
+			<b><i>Conexión desde dispositivo móvil</i></b>
+			<br><br>
+			Conectar el móvil al punto de acceso (red WiFi) difundida por el dispositivo
+			<br><br>
+			<div align="center"><img src="img/IoT/IoT_21b.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Abrir en el navegador web la dirección 192.168.4.1
+			<br><br>
+			<div align="center"><img src="img/IoT/IoT_22b.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<b><i>Conexión desde PC</i></b>
+			<br><br>
+			Conectar el PC al punto de acceso (red WiFi) difundida por el dispositivo
+			<br><br>
+			<div align="center"><img src="img/IoT/IoT_23b.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Abrir en el navegador web la dirección 192.168.4.1
+			<br><br>
+			<div align="center"><img src="img/IoT/IoT_24b.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<b><i>Programa App Inventor 2</i></b>
+			<br><br>
+			<div align="center"><img src="img/IoT/IoT_25b.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<div align="center"><img src="img/IoT/IoT_26b.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<div align="center"><img src="img/IoT/IoT_27b.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<div align="center"><img src="img/IoT/IoT_28b.png" alt="" width="auto" height="auto"></div>
+			<br><br>
+			<a id="Modo estacion (Station - STA)"></a>
+			<b><i>20 - Modo estación (Station - STA)</i></b>
+			<br><br>
+			En este modo de funcionamiento la placa ESP32 se conecta a una red WiFi existente. Dentro de ésta red la placa se podrá conectar con dispositivos como PC/Laptop, tablet, móviles, otras placas ESP32 o cualquier otro dispositivo con capacidad de conexión WiFi.
+			<br><br>
+			<div align="center"><img src="img/IoT/IoT_29b.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<input type="button" onClick="document.getElementById('img_zoom_20').src = 'img/3.5.20 ESP32_a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_20').src = 'img/3.5.20 ESP32_b.png'; LoadImages();" value="Ver circuito Wokwi">
+			<br><br>
+			<div align="center"><img id="img_zoom_20" src="img/3.9.20 ESP32_a.png" alt="" width="1000" height="auto"></div>
+			<br>
+			Modificar los parámetros <b><i>STASSID (Nombre de la red WiFi) y STAPSK (Contraseña de la red WiFi)</i></b>. Estos parámetros corresponden a una red WiFi existente a la que se conectará el dispositivo.
+			<br><br>
+			<iframe class="pag" id="ifrm20" name="ifrm20" scrolling="no" marginwidth="0" src="html/3.9.20_a.html"></iframe>
+			<br><br>
+			El dispositivo intentará conectarse a la red inalámbrica configurada y mostrará la dirección IP asignada que le corresponde dentro de la red.
+			<br><br>
+			<b><i>Conexión desde dispositivo móvil</i></b>
+			<br><br>
+			Conectar el móvil al mismo punto de acceso (red WiFi) al que está conectado el dispositivo
+			<br><br>
+			<div align="center"><img src="img/IoT/IoT_30b.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Abrir en el navegador web la dirección IP asignada al dispositivo
+			<br><br>
+			<div align="center"><img src="img/IoT/IoT_31b.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<b><i>Conexión desde PC</i></b>
+			<br><br>
+			Conectar el PC al mismo punto de acceso (red WiFi) al que está conectado el dispositivo.
+			<br><br>
+			<div align="center"><img src="img/IoT/IoT_32b.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Abrir en el navegador web la dirección IP asignada al dispositivo.
+			<br><br>
+			<div align="center"><img src="img/IoT/IoT_33b.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<b><i>Programa App Inventor 2</i></b>
+			<br><br>
+			Se puede utilizar la misma App del capítulo 2.3.18 (Utilizar la dirección IP asignada al dispositivo).
+			<br><br><br>
+			<a id="Blynk IoT"></a>
+			<b>Blynk IoT</b>
+			<br><br>
+			Blynk es una plataforma  que permite la recolección y almacenamiento en la nube de datos de sensores para la creación de aplicaciones para Internet de las cosas (IoT).
+			<br><br>
+			<div align="center"><img src="img/Blynk/Blynk_1b.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Para enviar y recibir información con Blynk es necesario registrar una cuenta gratuita con los siguientes pasos:
+			<br><br>
+			Entrar en <a href="https://blynk.io/" target="_blank">https://blynk.io/</a>.
+			<br><br>
+			Si ya dispone de una cuenta, hacer click en LOG IN para iniciar sesión. Si es la primera vez que utiliza Blynk, hacer click en "START FREE".
+			<br><br>
+			<div align="center"><img src="img/Blynk/Blynk_2.png" alt="" width="auto" height="auto"></div>
+		  	<br>
+			Registrarse con una cuenta de correo electrónico (debe abrir el enlace de verificación enviado a la cuenta de correo electrónico registrada).
+			<br><br>
+			<div align="center"><img src="img/Blynk/Blynk_3.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Iniciar sesión con la cuenta registrada.
+			<br><br>
+			<div align="center"><img src="img/Blynk/Blynk_4.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Crear una nueva plantilla (Template) con la configuración de hardware apropiada.
+			<br><br>
+			<div align="center"><img src="img/Blynk/Blynk_5.png" alt="" width="1000" height="auto"></div>
+			<br>
+			Crear las variables conectadas al dispositivo (Datastreams).
+			<br><br>
+			<div align="center"><img src="img/Blynk/Blynk_6.png" alt="" width="1000" height="auto"></div>
+			<br>
+			Configurar el Web Dashboard asociado a las variables agregadas en el paso anterior.
+			<br><br>
+			<div align="center"><img src="img/Blynk/Blynk_7.png" alt="" width="1000" height="auto"></div>
+			<br>
+			Agregar un nuevo dispositivo a partir de la plantilla creada (template).
+			<br><br>
+			<div align="center"><img src="img/Blynk/Blynk_8.png" alt="" width="1000" height="auto"></div>
+			<br>
+			<div align="center"><img src="img/Blynk/Blynk_9.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Obtener la información del dispositivo (necesaria para el código en Arduino).
+			<br><br>
+			<div align="center"><img src="img/Blynk/Blynk_10.png" alt="" width="1000" height="auto"></div>
+			<br>
+			Visualizar el Dashboard Online (Cuando el dispositivo esté programado y conectado).
+			<br><br>
+			<div align="center"><img src="img/Blynk/Blynk_11.png" alt="" width="1000" height="auto"></div>
+			<br>
+			<b><i>Instalación de la librería Blynk en Arduino</i></b>
+			<br><br>
+			Acceder al Administrador de bibliotecas, buscar e instalar la librería <b><i>Blynk</i></b>
+			<br><br>
+			<div align="center"><img src="img/Blynk/Blynk_12.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<input type="button" onClick="document.getElementById('img_zoom_22').src = 'img/Blynk/Blynk_6_3a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_22').src = 'img/Blynk/Blynk_6_3b.png'; LoadImages();" value="Ver circuito Wokwi">
+			<br><br>
+			<div align="center"><img id="img_zoom_22" src="img/Blynk/Blynk_13_3a.png" alt="" width="1000" height="auto"></div>
+			<br>
+			<b><i>Escribir salida digital</i></b>
+			<br><br>
+			<div align="center"><img src="img/Blynk/Blynk_14.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<b><i>Leer sensor</i></b>
+			<br><br>
+			<div align="center"><img src="img/Blynk/Blynk_15.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Modificar los parámetros <b><i>ssid (Nombre de la red WiFi) y password (Contraseña de la red WiFi)</i></b>. Estos parámetros corresponden a una red WiFi existente a la que se conectará el dispositivo.
+			<br><br>
+			Modificar los parámetros:
+			<br><br>
+			BLYNK_TEMPLATE_ID
+			<br>
+			BLYNK_DEVICE_NAME
+			<br>
+			BLYNK_AUTH_TOKEN
+			<br><br>
+			puede obtener los valores en la sección <b><i>Device Info</i></b> del dashboard creado en Blynk.
+			<br><br>
+			<iframe class="pag" id="ifrm22" name="ifrm22" scrolling="no" marginwidth="0" src="html/3.9.22_a.html"></iframe>
+			<br><br>
+			<a id="ThingSpeak IoT"></a>
+			<b>ThingSpeak IoT</b>
+			<br><br>
+			ThingSpeak es una plataforma  que permite la recolección y almacenamiento en la nube de datos de sensores para la creación de aplicaciones para Internet de las cosas (IoT).
+			<br><br>
+			<div align="center"><img src="img/ThingSpeak/ThingSpeak_1b.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Para enviar y recibir información con ThingSpeak es necesario registrar una cuenta gratuita con los siguientes pasos:
+			<br><br>
+			Entrar en <a href="http://thingspeak.com" target="_blank">http://thingspeak.com</a> y hacer clic en "Get Started For Free".
+			<br><br>
+			<div align="center"><img src="img/ThingSpeak/ThingSpeak_2.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Si ya dispone de una cuenta, iniciar sesión. Si es la primera vez que utiliza ThingSpeak, hacer click en "Create one!"
+			<br><br>
+			<div align="center"><img src="img/ThingSpeak/ThingSpeak_3.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Registrarse con una cuenta de correo electrónico (debe abrir el enlace de verificación enviado a la cuenta de correo electrónico registrada).
+			<br><br>
+			<div align="center"><img src="img/ThingSpeak/ThingSpeak_4.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<b><i>Instalación de la librería ThingSpeak en Arduino</i></b>
+			<br><br>
+			Acceder al Administrador de bibliotecas, buscar e instalar la librería <b><i>ThingSpeak</i></b>
+			<br><br>
+			<div align="center"><img src="img/ThingSpeak/ThingSpeak_5.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<input type="button" onClick="document.getElementById('img_zoom_27').src = 'img/ThingSpeak/Thingspeak_6_3a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_27').src = 'img/ThingSpeak/Thingspeak_6_3b.png'; LoadImages();" value="Ver circuito Wokwi">
+			<br><br>
+			<div align="center"><img id="img_zoom_27" src="img/ThingSpeak/ThingSpeak_6_3a.png" alt="" width="1000" height="auto"></div>
+			<br>
+			<b><i>Escribir salida digital</i></b>
+			<br><br>
+			<div align="center"><img src="img/ThingSpeak/ThingSpeak_7.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<b><i>Leer sensor</i></b>
+			<br><br>
+			<div align="center"><img src="img/ThingSpeak/ThingSpeak_8.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Es necesario crear un canal en ThingSpeak para poder enviar y leer información.
+			<br><br>
+ 			Hacer clic en <b><i>"New Channel"</i></b>.
+			<br><br>
+			<div align="center"><img src="img/ThingSpeak/ThingSpeak_9.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Diligenciar los datos para asignar un nombre al canal y sus campos (cada canal puede tener hasta ocho campos).
+			<br><br>
+			Hacer click en <b><i>"Save Channel"</i></b>.
+			<br><br>
+			<div align="center"><img src="img/ThingSpeak/ThingSpeak_10.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Dirigirse a la pestaña "Sharing" y seleccionar la opción "Share chanel with everyone".
+			<br><br>
+			<div align="center"><img src="img/ThingSpeak/ThingSpeak_11.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Dirigirse a la pestaña "API Keys" para obtener los datos de acceso al canal.
+			<br>
+			<br>
+			Estos datos son necesarios para programar el código en Arduino y para desarrollar la aplicación en App Inventor 2.
+			<br><br>
+			<b><i>Channel ID</i></b> (ID del canal): Lugar del espacio azul
+			<br>
+			<b><i>Write API Key</i></b> (Clave de escritura): Lugar del espacio verde
+			<br>
+			<b><i>Read API Key</i></b> (Clave de lectura): Lugar del espacio rojo
+			<br><br>
+			<div align="center"><img src="img/ThingSpeak/ThingSpeak_12.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Modificar las variables <b><i>ssid (Nombre de la red WiFi) y password (Contraseña de la red)</i></b>
+			<br><br>
+			Modificar la variable channel por el ID del canal creado en ThingSpeak.
+			<br><br>
+			<iframe class="pag" id="ifrm27" name="ifrm27" scrolling="no" marginwidth="0" src="html/3.9.27_a.html"></iframe>
+			<br><br>
+			<b><i>Programa App Inventor 2</i></b>
+			<br><br>
+			<div align="center"><img src="img/ThingSpeak/ThingSpeak_13.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<div align="center"><img src="img/ThingSpeak/ThingSpeak_14.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<div align="center"><img src="img/ThingSpeak/ThingSpeak_15.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Utilizar la clave "Write API Key para para inicializar la variable ClaveEscritura (espacio verde).
+			<br><br>
+			<div align="center"><img src="img/ThingSpeak/ThingSpeak_16.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<div align="center"><img src="img/ThingSpeak/ThingSpeak_17.png" alt="" width="auto" height="auto"></div>
+			<br><br>
+			<a id="Ubidots IoT"></a>
+			<b>Ubidots IoT</b>
+			<br><br>
+			Ubidots es una plataforma  que permite la recolección y almacenamiento en la nube de datos de sensores para la creación de aplicaciones para Internet de las cosas (IoT).
+			<br><br>
+			<div align="center"><img src="img/Ubidots/Ubidots_1b.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Para enviar y recibir información con Ubidots es necesario registrar una cuenta gratuita con los siguientes pasos:
+			<br><br>
+			Entrar en <a href="https://ubidots.com/" target="_blank">https://ubidots.com/</a>.
+			<br><br>
+			Si ya dispone de una cuenta, hacer click en LOG IN para iniciar sesión. Si es la primera vez que utiliza Ubidots, hacer click en "GET STARTED FOR FREE".
+			<br><br>
+			<div align="center"><img src="img/Ubidots/Ubidots_2.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Puede registrar una nueva cuenta para uso personal o educativo:
+			<br><br>
+			<div align="center"><img src="img/Ubidots/Ubidots_3.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Diligenciar los campos de registro:
+			<br><br>
+			<div align="center"><img src="img/Ubidots/Ubidots_4.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Iniciar sesión con la cuenta registrada.
+			<br><br>
+			<div align="center"><img src="img/Ubidots/Ubidots_5.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<b><i>Instalación de la librería Ubidots en Arduino</i></b>
+			<br><br>
+			Descargar la librería de Ubidots para ESP8266 <a href="https://github.com/ubidots/ubidots-esp8266/archive/master.zip">https://github.com/ubidots/ubidots-esp8266/archive/master.zip</a>
+			<br><br>
+			Acceder al Administrador de bibliotecas, buscar e instalar la librería <b><i>ubidots-esp8266-master</i></b>
+			<br><br>
+			<div align="center"><img src="img/Ubidots/Ubidots_6.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<input type="button" onClick="document.getElementById('img_zoom_27').src = 'img/Ubidots/Ubidots_7_3a.png'; LoadImages();" value="Ver dispositivo">
+			<input type="button" onClick="document.getElementById('img_zoom_27').src = 'img/Ubidots/Ubidots_7_3b.png'; LoadImages();" value="Ver circuito Wokwi">
+			<br><br>
+			<div align="center"><img id="img_zoom_28" src="img/Ubidots/Ubidots_7_3a.png" alt="" width="1000" height="auto"></div>
+			<br>
+			<b><i>Escribir salida digital</i></b>
+			<br><br>
+			<div align="center"><img src="img/Ubidots/Ubidots_8.png" alt="" width="auto" height="auto"></div>
+			<br>
+			<b><i>Leer sensor</i></b>
+			<br><br>
+			<div align="center"><img src="img/Ubidots/Ubidots_9.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Modificar los parámetros <b><i>ssid (Nombre de la red WiFi) y password (Contraseña de la red WiFi)</i></b>. Estos parámetros corresponden a una red WiFi existente a la que se conectará el dispositivo.
+			<br><br>
+			Modificar el parámetro:
+			<br><br>
+			UBIDOTS_TOKEN
+			<br><br>
+			puede obtener los valores en la sección <b><i>Device Info</i></b> del dashboard creado en UBIDOTS.
+			<br><br>
+			<iframe class="pag" id="ifrm28" name="ifrm28" scrolling="no" marginwidth="0" src="html/3.9.28_a.html"></iframe>
+			<br><br>
+		</div>
+		<script>
+			function LoadImages(){
+				$('#img_zoom_5').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+				$('#img_zoom_6').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+				$('#img_zoom_7').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+				$('#img_zoom_8').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+			}
+		</script>
+		<script type="text/javascript">
+			/*
+			* If you do not understand what the code below does, then please just use the
+			* following call in your own code.
+			*
+			*iFrameResize({log:true});
+			*
+			* Once you have it working, set the log option to false.
+			*/
+			iFrameResize({
+				log: true, // Enable console logging
+				inPageLinks: true,
+				onResized: function(messageData) {
+					// Callback fn when resize is received
+					$('p#callback').html('<b>Frame ID:</b> ' + messageData.iframe.id + ' <b>Height:</b> ' + messageData.height + ' <b>Width:</b> ' + messageData.width + ' <b>Event type:</b> ' + messageData.type)
+				},
+				onMessage: function(messageData) {
+					// Callback fn when message is received
+					$('p#callback').html('<b>Frame ID:</b> ' + messageData.iframe.id + ' <b>Message:</b> ' + messageData.message)
+					alert(messageData.message)
+					document.getElementsByTagName('iframe')[0].iFrameResizer.sendMessage('Hello back from parent page')
+				},
+				onClosed: function(id) {
+					// Callback fn when iFrame is closed
+					$('p#callback').html('<b>IFrame (</b>' + id + '<b>) removed from page.</b>')
+				}
+			})
+		</script>
+	</body>
+</html>
