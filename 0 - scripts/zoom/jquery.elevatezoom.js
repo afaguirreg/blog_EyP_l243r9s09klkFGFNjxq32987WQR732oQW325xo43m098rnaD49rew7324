@@ -107,7 +107,7 @@ if ( typeof Object.create !== 'function' ) {
 					//let caller know image has been loaded
 					self.options.onZoomedImageLoaded(self.$elem);
 				}
-				newImg.src = imgsrc; // this must be done AFTER setting onload
+				newImg.src=imgsrc; // this must be done AFTER setting onload
 
 				return;
 
@@ -1189,7 +1189,7 @@ if ( typeof Object.create !== 'function' ) {
 					self.swapAction(smallimage, largeimage);
 					return;              
 				}          
-				newImg.src = largeimage; // this must be done AFTER setting onload
+				newImg.src=largeimage; // this must be done AFTER setting onload
 
 			},
 			swapAction: function(smallimage, largeimage){
@@ -1207,7 +1207,7 @@ if ( typeof Object.create !== 'function' ) {
 					self.doneCallback();  
 					return;      
 				}          
-				newImg2.src = smallimage; 
+				newImg2.src=smallimage; 
 
 				//reset the zoomlevel to that initially set in options
 				self.currentZoomLevel = self.options.zoomLevel;
