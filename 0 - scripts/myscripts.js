@@ -98,10 +98,14 @@ window.onload = function() {
 		document.getElementById("DHTPIN").innerHTML = obtener_valor("DHTPIN");
 	}
 
-	var dataPin = obtener_valor("dataPin");
-	if (dataPin != "CONTENIDO") {
+	var include = obtener_valor("include");
+	if (include != "CONTENIDO") {
+		document.getElementById("include").innerHTML = obtener_valor("include");
 		document.getElementById("dataPin").innerHTML = obtener_valor("dataPin");
 		document.getElementById("clockPin").innerHTML = obtener_valor("clockPin");
+		document.getElementById("comment").innerHTML = obtener_valor("comment");
+		document.getElementById("coma").innerHTML = obtener_valor("coma");
+		document.getElementById("sht1x").innerHTML = obtener_valor("sht1x");
 	}
 
 	var coma = obtener_valor("coma");
