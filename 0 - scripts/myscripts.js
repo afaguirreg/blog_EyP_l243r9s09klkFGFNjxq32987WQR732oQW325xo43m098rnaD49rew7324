@@ -73,16 +73,6 @@ window.onload = function() {
 		document.getElementById("pin_A0").innerHTML = obtener_valor("pin_A0");
 	}
 
-	var pin_A1 = obtener_valor("pin_A1");
-	if (pin_A1 != "CONTENIDO") {
-		document.getElementById("pin_A1").innerHTML = obtener_valor("pin_A1");
-	}
-
-	var pin_A2 = obtener_valor("pin_A2");
-	if (pin_A2 != "CONTENIDO") {
-		document.getElementById("pin_A2").innerHTML = obtener_valor("pin_A2");
-	}
-
 	var pin_PWM = obtener_valor("pin_PWM");
 	if (pin_PWM != "CONTENIDO") {
 		document.getElementById("pin_PWM").innerHTML = obtener_valor("pin_PWM");
@@ -101,11 +91,15 @@ window.onload = function() {
 	var include = obtener_valor("include");
 	if (include != "CONTENIDO") {
 		document.getElementById("include").innerHTML = obtener_valor("include");
-		document.getElementById("dataPin").innerHTML = obtener_valor("dataPin");
-		document.getElementById("clockPin").innerHTML = obtener_valor("clockPin");
 		document.getElementById("comment").innerHTML = obtener_valor("comment");
 		document.getElementById("coma").innerHTML = obtener_valor("coma");
 		document.getElementById("sht1x").innerHTML = obtener_valor("sht1x");
+	}
+	
+	var dataPin = obtener_valor("dataPin");
+	if (dataPin != "CONTENIDO") {
+		document.getElementById("dataPin").innerHTML = obtener_valor("dataPin");
+		document.getElementById("clockPin").innerHTML = obtener_valor("clockPin");
 	}
 
 	var coma = obtener_valor("coma");
