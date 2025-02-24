@@ -46,19 +46,12 @@ window.onload = function() {
 	if (tipo_7seg != "CONTENIDO") {
 		document.getElementById("tipo_7seg").innerHTML = obtener_valor("tipo_7seg");
 	}
-
+	
 	var lbi = obtener_valor("LED_BUILTIN");
 	if (lbi != "CONTENIDO") {
 		document.getElementById("LED_BUILTIN_1").innerHTML = obtener_valor("LED_BUILTIN");
 		document.getElementById("LED_BUILTIN_2").innerHTML = obtener_valor("LED_BUILTIN");
 		document.getElementById("LED_BUILTIN_3").innerHTML = obtener_valor("LED_BUILTIN");
-	}
-
-	var Wire_SDA = obtener_valor("Wire_SDA");
-	if (Wire_SDA != "CONTENIDO") {
-		document.getElementById("Wire_SDA").innerHTML = obtener_valor("Wire_SDA");
-		document.getElementById("Wire_SCL").innerHTML = obtener_valor("Wire_SCL");
-		document.getElementById("br").innerHTML = obtener_valor("br");
 	}
 	
 	var boton_inc = obtener_valor("boton_inc");
@@ -106,7 +99,14 @@ window.onload = function() {
 	if (coma != "CONTENIDO") {
 		document.getElementById("coma").innerHTML = obtener_valor("coma");
 	}
-
+	
+	var Wire_SDA = obtener_valor("Wire_SDA");
+	if (Wire_SDA != "CONTENIDO") {
+		document.getElementById("Wire_SDA").innerHTML = obtener_valor("Wire_SDA");
+		document.getElementById("Wire_SCL").innerHTML = obtener_valor("Wire_SCL");
+		document.getElementById("br").innerHTML = obtener_valor("br");
+	}
+	
 	var wireBegin = obtener_valor("wireBegin");
 	if (wireBegin != "CONTENIDO") {
 		document.getElementById("wireBegin").innerHTML = obtener_valor("wireBegin");
