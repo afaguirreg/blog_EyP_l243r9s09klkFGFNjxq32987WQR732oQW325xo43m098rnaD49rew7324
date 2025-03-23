@@ -28,10 +28,10 @@
 <font color="#434f54">&#47;&#47; Pass our oneWire reference to Dallas Temperature. </font>
 <b><font color="#d35400">DallasTemperature</font></b> <font color="#000000">sensors</font><font color="#000000">(</font><font color="#434f54">&amp;</font><font color="#000000">oneWire</font><font color="#000000">)</font><font color="#000000">;</font>
 
-<font color="#434f54">&#47;&#47;Esta aplicación se conecta a un punto de acceso existente (red WiFi).</font>
-<font color="#434f54">&#47;&#47;Modificar las variables ssid y password y conectarse desde un móvil o PC conectado a la misma red.</font>
-<font color="#00979c">const</font> <font color="#00979c">char</font><font color="#434f54">*</font> <font color="#000000">ssid</font> <font color="#434f54">=</font> <font color="#005c5f">&#34;your-ssid&#34;</font><font color="#000000">;</font>
-<font color="#00979c">const</font> <font color="#00979c">char</font><font color="#434f54">*</font> <font color="#000000">password</font> <font color="#434f54">=</font> <font color="#005c5f">&#34;your-password&#34;</font><font color="#000000">;</font>
+<font color="#434f54">&#47;&#47;Esta aplicación crea un nuevo punto de acceso WiFi.</font>
+<font color="#434f54">&#47;&#47;Modificar las variables ssid y password y conectarse desde un móvil o PC utilizando estos parámetros.</font>
+<font color="#00979c">const</font> <font color="#00979c">char</font><font color="#434f54">*</font> <font color="#000000">ssid</font> <font color="#434f54">=</font> <font color="#005c5f">&#34;NodeMCU&#34;</font><font color="#000000">;</font>
+<font color="#00979c">const</font> <font color="#00979c">char</font><font color="#434f54">*</font> <font color="#000000">password</font> <font color="#434f54">=</font> <font color="#005c5f">&#34;123456789&#34;</font><font color="#000000">;</font>
 
 <font color="#00979c">String</font> <font color="#000000">request</font><font color="#000000">;</font>
 <font color="#00979c">unsigned</font> <font color="#00979c">long</font> <font color="#000000">currentTime</font> <font color="#434f54">=</font> <font color="#d35400">millis</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
@@ -83,14 +83,8 @@
 
 <font color="#00979c">void</font> <font color="#000000">estados</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
  &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">setCursor</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font><font color="#000000">0</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#5e6d03">if</font> <font color="#000000">(</font><b><font color="#d35400">WiFi</font></b><font color="#434f54">.</font><font color="#d35400">status</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#434f54">==</font> <font color="#000000">WL_CONNECTED</font><font color="#000000">)</font>
- &nbsp;<font color="#000000">{</font>
- &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;IP: &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><b><font color="#d35400">WiFi</font></b><font color="#434f54">.</font><font color="#d35400">localIP</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34; &nbsp;&nbsp;&nbsp;&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#000000">}</font>
- &nbsp;<font color="#5e6d03">else</font>
- &nbsp;&nbsp;&nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;Conectando a red...&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;IP: &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><b><font color="#d35400">WiFi</font></b><font color="#434f54">.</font><font color="#000000">softAPIP</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">setCursor</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font><font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;I: &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">write</font><font color="#000000">(</font><font color="#d35400">digitalRead</font><font color="#000000">(</font><font color="#000000">I0</font><font color="#000000">)</font><font color="#000000">)</font><font color="#000000">;</font>
@@ -126,13 +120,7 @@
  &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">200</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">setBacklight</font><font color="#000000">(</font><font color="#000000">255</font><font color="#000000">)</font><font color="#000000">;</font>
 
- &nbsp;<b><font color="#d35400">WiFi</font></b><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">ssid</font><font color="#434f54">,</font> <font color="#000000">password</font><font color="#000000">)</font><font color="#000000">;</font>
-
- &nbsp;<font color="#5e6d03">while</font> <font color="#000000">(</font><b><font color="#d35400">WiFi</font></b><font color="#434f54">.</font><font color="#d35400">status</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#434f54">!=</font> <font color="#000000">WL_CONNECTED</font><font color="#000000">)</font>
- &nbsp;<font color="#000000">{</font>
- &nbsp;&nbsp;&nbsp;<font color="#000000">estados</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">500</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;<font color="#000000">}</font>
+ &nbsp;<b><font color="#d35400">WiFi</font></b><font color="#434f54">.</font><font color="#000000">softAP</font><font color="#000000">(</font><font color="#000000">ssid</font><font color="#434f54">,</font> <font color="#000000">password</font><font color="#000000">)</font><font color="#000000">;</font>
 
  &nbsp;<font color="#000000">server</font><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
 <font color="#000000">}</font>
@@ -238,7 +226,7 @@
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47; The main body of the Web Page</font>
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">client</font><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#005c5f">&#34;&lt;body&gt;&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">client</font><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#005c5f">&#34;&lt;h1&gt;ESP8266 Web Server&lt;&#47;h1&gt;\n&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">client</font><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#005c5f">&#34;&lt;h3&gt;Using Station (ST) Mode&lt;&#47;h3&gt;\n&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">client</font><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#005c5f">&#34;&lt;h3&gt;Using Access Point (AP) Mode&lt;&#47;h3&gt;\n&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">client</font><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#005c5f">&#34;&lt;h3&gt;Sensor: &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">client</font><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#000000">sensor</font><font color="#434f54">,</font><font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font>
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#000000">client</font><font color="#434f54">.</font><font color="#d35400">println</font><font color="#000000">(</font><font color="#005c5f">&#34;&lt;&#47;h3&gt;\n&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
