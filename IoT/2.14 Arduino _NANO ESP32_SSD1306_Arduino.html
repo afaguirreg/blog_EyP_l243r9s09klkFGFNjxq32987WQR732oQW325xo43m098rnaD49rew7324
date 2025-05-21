@@ -13,7 +13,8 @@
 
 	<body>
 		<div class="Normal" style="text-align:justify">
-			<b><i>Arduino NANO 33 IoT + OLED SSD1306</i></b>
+			<a id="Arduino NANO ESP32"></a>
+			<b><i>Arduino NANO ESP32 + OLED SSD1306</i></b>
 			<br><br>
 			<a id="Ejemplo Blink"></a>
 			<b><i>1 - Ejemplo Blink</i></b>
@@ -28,9 +29,9 @@
 			<br>
 			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" marginwidth="0" src="html/2.1.1_a.html?LED_BUILTIN=13"></iframe>
 			<br><br>
-			Cargar el programa en la placa Nano 33 Iot (verificar que haya seleccionado el puerto correspondiente).
+			Cargar el programa al dispositivo Arduino NANO ESP32 (verificar que haya seleccionado el puerto correspondiente).
 			<br><br>
-			Esperar a que el programa indique que el sketch ha sido subido a la placa Nano 33 Iot.
+			Esperar a que el programa indique que el sketch ha sido subido al dispositivo Arduino NANO ESP32.
 			<br><br>
 			<div align="center"><img src="img/IoT/IoT_7e.png" alt="" width="auto" height="auto"></div>
 			<br><br>
@@ -64,14 +65,14 @@
 			<br><br>
 			<div align="center"><img id="img_zoom_3" src="img/2.10.3_a.png" alt="" width="1000" height="auto"></div>
 			<br>
-			<iframe class="pag" id="ifrm3" name="ifrm3" scrolling="no" marginwidth="0" src="html/2.10.3_a.html"></iframe>
+			<iframe class="pag" id="ifrm3" name="ifrm3" scrolling="no" marginwidth="0" src="html/2.9.3_a.html"></iframe>
 			<br><br>
 			<a id="Control motor DC"></a>
 			<b><i>4 - Control motor DC</i></b>
 			<br><br>
 			<div align="center"><img id="img_zoom_4" src="img/2.10.4_a.png" alt="" width="1000" height="auto"></div>
 			<br>
-			<iframe class="pag" id="ifrm4" name="ifrm4" scrolling="no" marginwidth="0" src="html/2.10.4_a.html"></iframe>
+			<iframe class="pag" id="ifrm4" name="ifrm4" scrolling="no" marginwidth="0" src="html/2.9.4_a.html"></iframe>
 			<br><br>
 			<a id="Control rele electromecanico"></a>
 			<b><i>5 - Control relé electromecánico</i></b>
@@ -120,7 +121,7 @@
 			<br><br>
 			<div align="center"><img id="img_zoom_11" src="img/2.10.11_a.png" alt="" width="1000" height="auto"></div>
 			<br>
-			<iframe class="pag" id="ifrm11" name="ifrm11" scrolling="no" marginwidth="0" src="html/2.2.11_a.html?pin_A0=A0&pin_PWM=A2"></iframe>
+			<iframe class="pag" id="ifrm11" name="ifrm11" scrolling="no" marginwidth="0" src="html/2.2.11_a.html?pin_A0=A0&pin_PWM=13"></iframe>
 			<br><br>
 			<a id="Comunicacion One Wire sensor DS18B20"></a>
 			<b><i>12 - Comunicación One Wire sensor DS18B20</i></b>
@@ -171,13 +172,11 @@
 			<br><br>
 			<div align="center"><img id="img_zoom_16" src="img/2.10.16_a.png" alt="" width="1000" height="auto"></div>
 			<br>
-			Descargar la librería <a target="_blank" href="https://drive.google.com/uc?id=1Uk9KE1W2iGx_usFCS-6Aw5P8KFQ85aL1&amp;export=download&amp;authuser=0"><b>SHT1X</b></a>
+			Acceder a <b><i>LIBRARY MANAGER</i></b>, buscar e instalar la librería <b><i>SHT1x sensor library for ESPx</i></b>
 			<br><br>
-			Instalar la librería <b><i>SHT1X</i></b> siguiendo el procedimiento mostrado en la imagen:
-			<br><br>
-			<div align="center"><img src="img/IoT/IoT_13a.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/IoT/IoT_13b.png" alt="" width="auto" height="auto"></div>
 			<br>
-			<iframe class="pag" id="ifrm16" name="ifrm16" scrolling="no" marginwidth="0" src="html/2.2.16_a.html?dataPin=3&clockPin=2"></iframe>
+			<iframe class="pag" id="ifrm16" name="ifrm16" scrolling="no" marginwidth="0" src="html/2.2.16_a.html?include=SHT1x-ESP.h&dataPin=3&clockPin=2&comment=// if 3.3v board is used&coma=, &sht1x=SHT1x::Voltage::DC_3_3v"></iframe>
 			<br><br>
 			<a id="Comunicacion serial asincrona (UART)"></a>
 			<b><i>17 - Comunicación serial asíncrona (UART)</i></b>
@@ -207,7 +206,7 @@
 			<br><br>
 			<div align="center"><img src="img/IoT/IoT_18.png" alt="" width="auto" height="auto"></div>
 			<br>
-			<iframe class="pag" id="ifrm18" name="ifrm18" scrolling="no" marginwidth="0" src="html/2.10.18_a.html"></iframe>
+			<iframe class="pag" id="ifrm18" name="ifrm18" scrolling="no" marginwidth="0" src="html/2.14.18_a.html"></iframe>
 			<br><br>
 			Descargar y ejecutar el programa <a href="https://drive.google.com/uc?id=1i0-bVEYk3CcIkGLKkcrXb2NrFcA3auUW&amp;export=download&amp;authuser=0" target="_blank"><b><i>COM_TEST</i></b></a> para visualizar los datos enviados por el dispositivo.
 			<br><br>
@@ -219,6 +218,7 @@
 			<div align="center"><img id="img_zoom_19" src="img/2.10.18_a.png" alt="" width="1000" height="auto"></div>
 			<br>
 			Nota: Este circuito funciona con el código del proyecto 18
+			<br><br>
 		</div>
 		<script>
 			function LoadImages(){
