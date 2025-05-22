@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Documento sin título</title>
+		<link rel="stylesheet" type="text/css" href="../0 - styles/mystyles.css">
+		<script language="JavaScript" src="../0 - scripts/myscripts.js"></script>
+		<script type="text/javascript" src="../0 - scripts/jquery/jquery.min.js"></script>
+		<script language="JavaScript" src="../0 - scripts/zoom/jquery.elevatezoom.js"></script>
+		<script type="text/javascript" src="../0 - scripts/iframe/iframeResizer.min.js"></script>
+		<script type="text/javascript" src="../0 - scripts/iframe/iframeResizer.contentWindow.min.js" defer></script>
+	</head>
+
+	<body>
+		<div class="Normal" style="text-align:justify">
+			<a id="Inicio"></a>
+			Este módulo integra un dispositivo ARM Cortex M0+ de doble núcleo y módulo inalámbrico basado en Infineon CYW43439 para obtener una plataforma de desarrollo compatible con MicroPhyton, dotada de comunicación WiFi y Bluetooth para el desarrollo de aplicaciones IoT.
+			<br><br>
+			Antes de comenzar a programar se debe instalar el intérprete para poder cargar los programas adecuadamente al dispositivo Raspberry Pi Pico W.
+			<br><br>
+			Iniciar Thonny, abrir el menú <b><i>Configure interpreter...</i></b>
+			<br><br>
+			<div align="center"><img src="img/IoT/IoT_2_u.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Conectar el dispositivo Raspberry Pi Pico W a un puerto USB del PC.
+			<br><br>
+			Verificar que el interprete seleccionado corresponda al dispositivo a utilizar.
+			<br><br>
+			Seleccionar el puerto <b><i>COM</i></b> asignado al dispositivo por el sistema operativo.
+			<br><br>
+			Hacer click en <b><i>Install or update MicroPhyton</i></b>.
+			<br><br>
+			<div align="center"><img src="img/IoT/IoT_3_u.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Seleccionar el puerto <b><i>COM</i></b> asignado a la placa por el sistema operativo.
+			<br><br>
+			Ubicar y seleccionar el firmware para el dispositivo adecuado. <a href="https://drive.google.com/uc?id=1WpnQ8uLvM-EQ-mvqC9Yw8_YXUUpJLYNo&amp;export=download&amp;authuser=0" target="_blank">firmware ESP8266</a>
+			<br><br>
+			Puede descargar otras versiones en: <a href="https://micropython.org/download/?mcu=esp8266" target="_blank">https://micropython.org/download/?mcu=esp8266</a>
+			<br><br>
+			Hacer click en el botón <b><i>Install</i></b>.
+			<br><br>
+			<div align="center"><img src="img/IoT/IoT_4_u.png" alt="" width="auto" height="auto"></div>
+		</div>
+	    <script type="text/javascript">
+			/*
+			* If you do not understand what the code below does, then please just use the
+			* following call in your own code.
+			*
+			*iFrameResize({log:true});
+			*
+			* Once you have it working, set the log option to false.
+			*/
+			iFrameResize({
+				log: true, // Enable console logging
+				inPageLinks: true,
+				onResized: function(messageData) {
+					// Callback fn when resize is received
+					$('p#callback').html('<b>Frame ID:</b> ' + messageData.iframe.id + ' <b>Height:</b> ' + messageData.height + ' <b>Width:</b> ' + messageData.width + ' <b>Event type:</b> ' + messageData.type)
+				},
+				onMessage: function(messageData) {
+					// Callback fn when message is received
+					$('p#callback').html('<b>Frame ID:</b> ' + messageData.iframe.id + ' <b>Message:</b> ' + messageData.message)
+					alert(messageData.message)
+					document.getElementsByTagName('iframe')[0].iFrameResizer.sendMessage('Hello back from parent page')
+				},
+				onClosed: function(id) {
+					// Callback fn when iFrame is closed
+					$('p#callback').html('<b>IFrame (</b>' + id + '<b>) removed from page.</b>')
+				}
+			})
+		    </script>
+	</body>
+</html>
