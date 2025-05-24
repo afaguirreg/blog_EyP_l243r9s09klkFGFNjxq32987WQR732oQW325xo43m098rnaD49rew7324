@@ -72,7 +72,7 @@ input.ButtonSub {
 	background-color: rgb(255,255,255);
 	color: rgb(0,64,255);
 	font-family: Arial, sans-serif;
-	font-weight: bold;
+	font-weight: normal;
 	font-size: 12pt
 }
 input.ButtonTab {
