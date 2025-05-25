@@ -58,7 +58,7 @@
                     ]
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.0.1",
                     "category": "Contributed",
@@ -109,7 +109,7 @@
                     ]
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.0.2",
                     "category": "Contributed",
@@ -160,7 +160,7 @@
                     ]
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.0.3-rc1",
                     "category": "Contributed",
@@ -211,7 +211,7 @@
                     ]
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.1",
                     "category": "Contributed",
@@ -244,7 +244,7 @@
                     ]
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.3",
                     "category": "Contributed",
@@ -277,7 +277,7 @@
                     ]
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.4",
                     "category": "Contributed",
@@ -310,7 +310,7 @@
                     ]
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.5",
                     "category": "Contributed",
@@ -343,7 +343,7 @@
                     ]
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.6",
                     "category": "Contributed",
@@ -376,7 +376,7 @@
                     ]
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.7",
                     "category": "Contributed",
@@ -409,7 +409,7 @@
                     ]
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.8",
                     "category": "Contributed",
@@ -442,7 +442,7 @@
                     ]
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.10",
                     "category": "Contributed",
@@ -475,7 +475,7 @@
                     ]
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.11",
                     "category": "Contributed",
@@ -508,7 +508,7 @@
                     ]
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.12",
                     "category": "Contributed",
@@ -541,7 +541,7 @@
                     ]
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.13",
                     "category": "Contributed",
@@ -574,7 +574,7 @@
                     ]
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.14",
                     "category": "Contributed",
@@ -607,7 +607,7 @@
                     ]
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.15",
                     "category": "Contributed",
@@ -687,7 +687,7 @@
                     "checksum": "SHA-256:877c62b7dcf675acbf006e96e686bc09dc572c6748eb7419da8e8b9d1faef3ca"
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.16",
                     "category": "Contributed",
@@ -732,7 +732,7 @@
                     "checksum": "SHA-256:d9d82c123eab76a6b752f1217190bb8790127597e54ebc7332caef9e4c70ee01"
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.17",
                     "category": "Contributed",
@@ -777,7 +777,7 @@
                     "checksum": "SHA-256:45043ba5c06a9b26c70c637c03a1bf1ed9089ce6ef370c75bd83978fc9289689"
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.18",
                     "category": "Contributed",
@@ -822,7 +822,7 @@
                     "checksum": "SHA-256:58f4e7ad22dc403cd838acebe9ff221c833379769795424f302c3c4605406e3c"
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.19",
                     "category": "Contributed",
@@ -867,7 +867,7 @@
                     "checksum": "SHA-256:0c10ddbe0ac649c369c498b52cbe0f603792bd0dd8c30880c8f1eeb5577f9f26"
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.20",
                     "category": "Contributed",
@@ -912,7 +912,7 @@
                     "checksum": "SHA-256:aae9f9664a006d331f70bc03e0aabdf8d3d50a23de8ca96acd4e9c9201d79757"
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.21",
                     "category": "Contributed",
@@ -957,7 +957,7 @@
                     "checksum": "SHA-256:93be91735c17861429600f551bbff4da9daa57900e3c4f6b4900241f393394ce"
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.22",
                     "category": "Contributed",
@@ -1002,7 +1002,7 @@
                     "checksum": "SHA-256:1ef7dafb0f71bc8c72098948f0d1ba078d0d110a7a3b73d87404d866b00c6db5"
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.23",
                     "category": "Contributed",
@@ -1053,7 +1053,7 @@
                     "checksum": "SHA-256:f0dfa16455f80ef8990b6bdd7e63d09fb6c562be97df8d9ae74643f5eb867cea"
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.24",
                     "category": "Contributed",
@@ -1107,7 +1107,7 @@
                     "checksum": "SHA-256:d4fd1e7e7f192fc8cdbf10293b200c4178f3afff0781a8e564ea174a1b7093f8"
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.25",
                     "category": "Contributed",
@@ -1164,7 +1164,7 @@
                     "checksum": "SHA-256:d4fd1e7e7f192fc8cdbf10293b200c4178f3afff0781a8e564ea174a1b7093f8"
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.26",
                     "category": "Contributed",
@@ -1224,7 +1224,7 @@
                     "checksum": "SHA-256:e841ec9c81241f360fdbdb88f70893e6cdd63829698e3a3549de9615e52d90c5"
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.27",
                     "category": "Contributed",
@@ -1284,7 +1284,7 @@
                     "checksum": "SHA-256:2d6f2a5ba4678d3ba7b38f7a7dff4ae58a13380787ad3eaf14c046199ef88ab1"
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.28",
                     "category": "Contributed",
@@ -1344,7 +1344,7 @@
                     "checksum": "SHA-256:aaf2cd8c1e49c0a3e73c9ee3c531e1e392d3c4bf22c91931d85841a5fff91636"
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.29",
                     "category": "Contributed",
@@ -1404,7 +1404,7 @@
                     "checksum": "SHA-256:1b21f6dac48e89982cdadb2ebf190bd7bd6e000f501a463efe6f975f29822f6c"
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.30",
                     "category": "Contributed",
@@ -1464,7 +1464,7 @@
                     "checksum": "SHA-256:8327eb26ff91b166f148a73558a782aa32860ffb532fe9ae1ef7446cabec3258"
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.31",
                     "category": "Contributed",
@@ -1676,7 +1676,7 @@
                     "checksum": "SHA-256:1b7d3127835002ef5c8d2cd1523f9478991b9a5b58e67ec0144f4f58a13c8082"
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.32",
                     "category": "Contributed",
@@ -1736,7 +1736,7 @@
                     "checksum": "SHA-256:7bfc429123537dab2afe9619727bccb2f486d4d0f8f341d91bfb3160eadd3a94"
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.33",
                     "category": "Contributed",
@@ -1837,7 +1837,7 @@
                     "checksum": "SHA-256:17b8a12dea634edf4d8a794d5e82d0804a2ebafd9a7558a248b40fbd657d0e02"
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.34",
                     "category": "Contributed",
@@ -2061,7 +2061,7 @@
                     "checksum": "SHA-256:187246dba4dcf93c3d44bb175b1957c542d0e5a915d4e59e4a8b54a3e73d4861"
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.35",
                     "category": "Contributed",
@@ -2285,7 +2285,7 @@
                     "checksum": "SHA-256:50bf93ccb6c778431c8abd17422e6b9d50061b2491964477f229d7356b765e79"
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.36",
                     "category": "Contributed",
@@ -2345,7 +2345,7 @@
                     "checksum": "SHA-256:7d39115f668d1466673e7f27a966820e8d2747356584f7a961e81f4a03b3fb05"
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.37",
                     "category": "Contributed",
@@ -2752,7 +2752,7 @@
                     "checksum": "SHA-256:593fd20f61f6f8509e73b3f82e6cb748ab222c8d7bdb047d5be9a8253ddc5b4e"
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.38",
                     "category": "Contributed",
@@ -3219,7 +3219,7 @@
                     "checksum": "SHA-256:17f72a8d4b022f34b26541bc9b702612e38afbd1550266c6f9b95689fec5a01c"
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.39",
                     "category": "Contributed",
@@ -3279,7 +3279,7 @@
                     "checksum": "SHA-256:3b5706c4a740a15911184e250d76f1ac2f2b5945e227e3a4329b3724ed84c6a4"
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.40",
                     "category": "Contributed",
@@ -3339,7 +3339,7 @@
                     "checksum": "SHA-256:dd911cfe9257b1bb0cba9429a061f3cdcdfea9209411fcfa0e39bc364d4f8641"
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.41",
                     "category": "Contributed",
@@ -3460,7 +3460,7 @@
                     "checksum": "SHA-256:c777f0c98da3f8e3e8f46a62c04863477c8150df45599c9f0bebe5edc40410a4"
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.42",
                     "category": "Contributed",
@@ -3680,7 +3680,7 @@
                     "checksum": "SHA-256:474f07c67405e91d51dc222143ae90de39e6441687c35d8c803a8f2f377165f7"
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.43",
                     "category": "Contributed",
@@ -3996,7 +3996,7 @@
                     "checksum": "SHA-256:264064a7d6293e2a9b8f6278cb1e81df67feb24b0605d4ab458a765adc491c0d"
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.44",
                     "category": "Contributed",
@@ -4056,7 +4056,7 @@
                     "checksum": "SHA-256:fd6fc2711416a7e52db92a43cbdf79d499147c4a105f11372bd8b4cd2fe4b9f8"
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.45",
                     "category": "Contributed",
@@ -4308,7 +4308,7 @@
                     "checksum": "SHA-256:79dcb0e17620f9740991f1e0854f82d25cf4a513911a527995fc66cb9aa74e33"
                 },
                 {
-                    "name": "everest IoT-avr",
+                    "name": "industrialshields-avr",
                     "architecture": "avr",
                     "version": "1.1.46",
                     "category": "Contributed",
