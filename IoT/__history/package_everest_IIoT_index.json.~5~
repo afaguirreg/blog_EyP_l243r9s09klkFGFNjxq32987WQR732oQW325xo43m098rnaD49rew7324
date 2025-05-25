@@ -67,6 +67,44 @@
                     "checksum": "SHA-256:7246a57193b9a0ca92a2059fbbe4f0af45ebe604b2ca4c821a9a55b0d969bc6d"
                 },
                 {
+                    "name": "everest IoT-esp32",
+                    "architecture": "esp32",
+                    "version": "1.0.2",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "WiFi/BT module"
+                        },
+                        {
+                            "name": "10 IOs PLC family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-esp32-1.0.2.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-esp32-1.0.2.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "version": "1.22.0-80-g6c4433a-5.2.0",
+                            "name": "xtensa-esp32-elf-gcc"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "version": "2.6.1",
+                            "name": "esptool_py"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "version": "0.2.3",
+                            "name": "mkspiffs"
+                        }
+                    ],
+                    "size": 29938978,
+                    "checksum": "SHA-256:04bf602bbae6b72df74c6e25f138d6d399b87dc715a1daa15a14c5b36ef06d55"
+                },
+                {
                     "name": "industrialshields-megaavr",
                     "architecture": "megaavr",
                     "version": "1.0.1",
@@ -2822,13 +2860,13 @@
                     },
                     "boards": [
                         {
-                            "name": "Everest IoT Arduino UNO"
+                            "name": "ARDBOX family"
                         },
                         {
-                            "name": "Everest IoT Arduino NANO"
+                            "name": "ARDBOX DALI family"
                         },
                         {
-                            "name": "Everest IoT Arduino MEGA2560"
+                            "name": "ARDBOX GPRS family"
                         },
                         {
                             "name": "ARDBOX LoRa family"

@@ -9,6 +9,1463 @@
                 {
                     "name": "everest IoT-avr",
                     "architecture": "avr",
+                    "version": "1.0.0",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com/"
+                    },
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.0.0.tar.bz2",
+                    "archiveFileName": "industrialshields-boards-avr-1.0.0.tar.bz2",
+                    "checksum": "SHA-256:78639d93534984472380b5bb795c2a4d3729172035e8a7c1d464eab90a338392",
+                    "size": 131398,
+                    "boards": [
+                        {
+                            "name": "ARDBOX Analog"
+                        },
+                        {
+                            "name": "ARDBOX Relay"
+                        },
+                        {
+                            "name": "M-Duino 21"
+                        },
+                        {
+                            "name": "M-Duino 42"
+                        },
+                        {
+                            "name": "M-Duino 58"
+                        },
+                        {
+                            "name": "M-Duino 19R"
+                        },
+                        {
+                            "name": "M-Duino 38R"
+                        },
+                        {
+                            "name": "M-Duino 51R"
+                        }
+                    ],
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "4.9.2-atmel3.5.3-arduino2"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino8"
+                        }
+                    ]
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.0.1",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com/"
+                    },
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.0.1.tar.bz2",
+                    "archiveFileName": "industrialshields-boards-avr-1.0.1.tar.bz2",
+                    "checksum": "SHA-256:aef24e04eaa23f4f72217b910b2ef84a20f54222d66b6b7ff9d53dc679029664",
+                    "size": 123287,
+                    "boards": [
+                        {
+                            "name": "ARDBOX Analog"
+                        },
+                        {
+                            "name": "ARDBOX Relay"
+                        },
+                        {
+                            "name": "M-Duino 21"
+                        },
+                        {
+                            "name": "M-Duino 42"
+                        },
+                        {
+                            "name": "M-Duino 58"
+                        },
+                        {
+                            "name": "M-Duino 19R"
+                        },
+                        {
+                            "name": "M-Duino 38R"
+                        },
+                        {
+                            "name": "M-Duino 51R"
+                        }
+                    ],
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "4.9.2-atmel3.5.3-arduino2"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino8"
+                        }
+                    ]
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.0.2",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com/"
+                    },
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.0.2.tar.bz2",
+                    "archiveFileName": "industrialshields-boards-avr-1.0.2.tar.bz2",
+                    "checksum": "SHA-256:a8cd9885791aa9dc83c6dd4d38c68c8c2a9302fdb89acd169128681d00cb635f",
+                    "size": 123221,
+                    "boards": [
+                        {
+                            "name": "ARDBOX Analog"
+                        },
+                        {
+                            "name": "ARDBOX Relay"
+                        },
+                        {
+                            "name": "M-Duino 21"
+                        },
+                        {
+                            "name": "M-Duino 42"
+                        },
+                        {
+                            "name": "M-Duino 58"
+                        },
+                        {
+                            "name": "M-Duino 19R"
+                        },
+                        {
+                            "name": "M-Duino 38R"
+                        },
+                        {
+                            "name": "M-Duino 51R"
+                        }
+                    ],
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "4.9.2-atmel3.5.3-arduino2"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino8"
+                        }
+                    ]
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.0.3-rc1",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com/"
+                    },
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.0.3-rc1.tar.bz2",
+                    "archiveFileName": "industrialshields-boards-avr-1.0.3-rc1.tar.bz2",
+                    "checksum": "SHA-256:d1f0083b9441bb62a9130dd020ca9f834c3b53ef00c0b52bd79cb03f61ef974e",
+                    "size": 122789,
+                    "boards": [
+                        {
+                            "name": "ARDBOX Analog"
+                        },
+                        {
+                            "name": "ARDBOX Relay"
+                        },
+                        {
+                            "name": "M-Duino 21"
+                        },
+                        {
+                            "name": "M-Duino 42"
+                        },
+                        {
+                            "name": "M-Duino 58"
+                        },
+                        {
+                            "name": "M-Duino 19R"
+                        },
+                        {
+                            "name": "M-Duino 38R"
+                        },
+                        {
+                            "name": "M-Duino 51R"
+                        }
+                    ],
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "4.9.2-atmel3.5.3-arduino2"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino8"
+                        }
+                    ]
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.1",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com/"
+                    },
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.1.tar.bz2",
+                    "archiveFileName": "industrialshields-boards-avr-1.1.1.tar.bz2",
+                    "checksum": "SHA-256:1f5ab21d87dbe77fdc2519a7d71081159f4ac2e5d2cf476a239eb790740a8afe",
+                    "size": 150026,
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        }
+                    ],
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "4.9.2-atmel3.5.3-arduino2"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino8"
+                        }
+                    ]
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.3",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com/"
+                    },
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.3.tar.bz2",
+                    "archiveFileName": "industrialshields-boards-avr-1.1.3.tar.bz2",
+                    "checksum": "SHA-256:f40897ff0a66eb1ed94646b15c54e7cf97e322f0cf262bbebac936f8a799ac71",
+                    "size": 149958,
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        }
+                    ],
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "4.9.2-atmel3.5.3-arduino2"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino8"
+                        }
+                    ]
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.4",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com/"
+                    },
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.4.tar.bz2",
+                    "archiveFileName": "industrialshields-boards-avr-1.1.4.tar.bz2",
+                    "checksum": "SHA-256:07b0cd20e117977d3c022ab9067f15c6b62411727e44d48d405cfed6a9273d64",
+                    "size": 151374,
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        }
+                    ],
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "4.9.2-atmel3.5.3-arduino2"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino8"
+                        }
+                    ]
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.5",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com/"
+                    },
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.5.tar.bz2",
+                    "archiveFileName": "industrialshields-boards-avr-1.1.5.tar.bz2",
+                    "checksum": "SHA-256:8b92d82b698d042fc48a21506dc6f47fdb2121c6cb6c8c1c7d7e85f50dad49b2",
+                    "size": 152563,
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        }
+                    ],
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "4.9.2-atmel3.5.3-arduino2"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino8"
+                        }
+                    ]
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.6",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com/"
+                    },
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.6.tar.bz2",
+                    "archiveFileName": "industrialshields-boards-avr-1.1.6.tar.bz2",
+                    "checksum": "SHA-256:504efbc1042b40cd0e77f1da9c2f9b70d5f774d3c596d3b11370eb9fccdba9a0",
+                    "size": 150965,
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        }
+                    ],
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "4.9.2-atmel3.5.3-arduino2"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino8"
+                        }
+                    ]
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.7",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com/"
+                    },
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.7.tar.bz2",
+                    "archiveFileName": "industrialshields-boards-avr-1.1.7.tar.bz2",
+                    "checksum": "SHA-256:98fccb0d47e2249fb0bac4c9fa534f4c78a77e7accfc6edb844f769a3953a227",
+                    "size": 150945,
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        }
+                    ],
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "4.9.2-atmel3.5.3-arduino2"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino8"
+                        }
+                    ]
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.8",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com/"
+                    },
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.8.tar.bz2",
+                    "archiveFileName": "industrialshields-boards-avr-1.1.8.tar.bz2",
+                    "checksum": "SHA-256:f95a20436a7304df14bdc1edc040c2d296771a2cdc634e4f26d04bd2f37c1a4d",
+                    "size": 151196,
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        }
+                    ],
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "4.9.2-atmel3.5.3-arduino2"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino8"
+                        }
+                    ]
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.10",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com/"
+                    },
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.10.tar.bz2",
+                    "archiveFileName": "industrialshields-boards-avr-1.1.10.tar.bz2",
+                    "checksum": "SHA-256:f3a5141170f613d5d83515b41b41be09e89f441231f1228882e98d8913720544",
+                    "size": 151465,
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        }
+                    ],
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "4.9.2-atmel3.5.3-arduino2"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino8"
+                        }
+                    ]
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.11",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com/"
+                    },
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.11.tar.bz2",
+                    "archiveFileName": "industrialshields-boards-avr-1.1.11.tar.bz2",
+                    "checksum": "SHA-256:ace6de2db6dd890685cdce286c282e1846aa94703d021c245b56b6fa1d49daa9",
+                    "size": 151517,
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        }
+                    ],
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "4.9.2-atmel3.5.3-arduino2"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino8"
+                        }
+                    ]
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.12",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com/"
+                    },
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.12.tar.bz2",
+                    "archiveFileName": "industrialshields-boards-avr-1.1.12.tar.bz2",
+                    "checksum": "SHA-256:7594906a0418e908940b9d22c5f694a93709ee71264bc3a2cc6d43da5c766bce",
+                    "size": 151500,
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        }
+                    ],
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "4.9.2-atmel3.5.3-arduino2"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino8"
+                        }
+                    ]
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.13",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com/"
+                    },
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.13.tar.bz2",
+                    "archiveFileName": "industrialshields-boards-avr-1.1.13.tar.bz2",
+                    "checksum": "SHA-256:9dce626cbe00a1689d573adf73c9c62c32ad920a14a7fa39accb3ecd63d0d242",
+                    "size": 151699,
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        }
+                    ],
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "4.9.2-atmel3.5.3-arduino2"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino8"
+                        }
+                    ]
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.14",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com/"
+                    },
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.14.tar.bz2",
+                    "archiveFileName": "industrialshields-boards-avr-1.1.14.tar.bz2",
+                    "checksum": "SHA-256:d1c2ebcabea56024ab235098e77ae5e78c08e61cc50b9f1955e593dfd6f3affc",
+                    "size": 151850,
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        }
+                    ],
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "4.9.2-atmel3.5.3-arduino2"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino8"
+                        }
+                    ]
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.15",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "ARDBOX GPRS family"
+                        },
+                        {
+                            "name": "ARDBOX WiFi/BT family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        },
+                        {
+                            "name": "M-Duino GPRS family"
+                        },
+                        {
+                            "name": "M-Duino WiFi/BT family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-avr-1.1.15.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.15.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "4.9.2-atmel3.5.3-arduino2"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino8"
+                        }
+                    ],
+                    "size": 163265,
+                    "checksum": "SHA-256:f1acfbe2f103b83619a296a6940c6da369716a51244fbda47eb52be834c11860"
+                },
+                {
+                    "name": "everest IoT-esp32",
+                    "architecture": "esp32",
+                    "version": "1.0.1",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "WiFi/BT module"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-esp32-1.0.1.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-esp32-1.0.1.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "version": "1.22.0-80-g6c4433a-5.2.0",
+                            "name": "xtensa-esp32-elf-gcc"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "version": "2.6.1",
+                            "name": "esptool_py"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "version": "0.2.3",
+                            "name": "mkspiffs"
+                        }
+                    ],
+                    "size": 27607272,
+                    "checksum": "SHA-256:877c62b7dcf675acbf006e96e686bc09dc572c6748eb7419da8e8b9d1faef3ca"
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.16",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "ARDBOX GPRS family"
+                        },
+                        {
+                            "name": "ARDBOX WiFi/BT family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        },
+                        {
+                            "name": "M-Duino GPRS family"
+                        },
+                        {
+                            "name": "M-Duino WiFi/BT family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-avr-1.1.16.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.16.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "4.9.2-atmel3.5.3-arduino2"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino8"
+                        }
+                    ],
+                    "size": 163586,
+                    "checksum": "SHA-256:d9d82c123eab76a6b752f1217190bb8790127597e54ebc7332caef9e4c70ee01"
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.17",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "ARDBOX GPRS family"
+                        },
+                        {
+                            "name": "ARDBOX WiFi/BT family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        },
+                        {
+                            "name": "M-Duino GPRS family"
+                        },
+                        {
+                            "name": "M-Duino WiFi/BT family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-avr-1.1.17.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.17.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "4.9.2-atmel3.5.3-arduino2"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino8"
+                        }
+                    ],
+                    "size": 180406,
+                    "checksum": "SHA-256:45043ba5c06a9b26c70c637c03a1bf1ed9089ce6ef370c75bd83978fc9289689"
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.18",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "ARDBOX GPRS family"
+                        },
+                        {
+                            "name": "ARDBOX WiFi/BT family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        },
+                        {
+                            "name": "M-Duino GPRS family"
+                        },
+                        {
+                            "name": "M-Duino WiFi/BT family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-avr-1.1.18.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.18.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "7.3.0-atmel3.6.1-arduino5"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino17"
+                        }
+                    ],
+                    "size": 180536,
+                    "checksum": "SHA-256:58f4e7ad22dc403cd838acebe9ff221c833379769795424f302c3c4605406e3c"
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.19",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "ARDBOX GPRS family"
+                        },
+                        {
+                            "name": "ARDBOX WiFi/BT family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        },
+                        {
+                            "name": "M-Duino GPRS family"
+                        },
+                        {
+                            "name": "M-Duino WiFi/BT family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-avr-1.1.19.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.19.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "7.3.0-atmel3.6.1-arduino5"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino17"
+                        }
+                    ],
+                    "size": 180507,
+                    "checksum": "SHA-256:0c10ddbe0ac649c369c498b52cbe0f603792bd0dd8c30880c8f1eeb5577f9f26"
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.20",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "ARDBOX GPRS family"
+                        },
+                        {
+                            "name": "ARDBOX WiFi/BT family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        },
+                        {
+                            "name": "M-Duino GPRS family"
+                        },
+                        {
+                            "name": "M-Duino WiFi/BT family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-avr-1.1.20.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.20.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "7.3.0-atmel3.6.1-arduino5"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino17"
+                        }
+                    ],
+                    "size": 180471,
+                    "checksum": "SHA-256:aae9f9664a006d331f70bc03e0aabdf8d3d50a23de8ca96acd4e9c9201d79757"
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.21",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "ARDBOX GPRS family"
+                        },
+                        {
+                            "name": "ARDBOX WiFi/BT family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        },
+                        {
+                            "name": "M-Duino GPRS family"
+                        },
+                        {
+                            "name": "M-Duino WiFi/BT family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-avr-1.1.21.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.21.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "7.3.0-atmel3.6.1-arduino5"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino17"
+                        }
+                    ],
+                    "size": 186315,
+                    "checksum": "SHA-256:93be91735c17861429600f551bbff4da9daa57900e3c4f6b4900241f393394ce"
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.22",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "ARDBOX GPRS family"
+                        },
+                        {
+                            "name": "ARDBOX WiFi/BT family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        },
+                        {
+                            "name": "M-Duino GPRS family"
+                        },
+                        {
+                            "name": "M-Duino WiFi/BT family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-avr-1.1.22.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.22.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "7.3.0-atmel3.6.1-arduino5"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino17"
+                        }
+                    ],
+                    "size": 185878,
+                    "checksum": "SHA-256:1ef7dafb0f71bc8c72098948f0d1ba078d0d110a7a3b73d87404d866b00c6db5"
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.23",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "ARDBOX GPRS family"
+                        },
+                        {
+                            "name": "ARDBOX LoRa family"
+                        },
+                        {
+                            "name": "ARDBOX WiFi/BT family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        },
+                        {
+                            "name": "M-Duino GPRS family"
+                        },
+                        {
+                            "name": "M-Duino LoRa family"
+                        },
+                        {
+                            "name": "M-Duino WiFi/BT family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-avr-1.1.23.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.23.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "7.3.0-atmel3.6.1-arduino5"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino17"
+                        }
+                    ],
+                    "size": 240698,
+                    "checksum": "SHA-256:f0dfa16455f80ef8990b6bdd7e63d09fb6c562be97df8d9ae74643f5eb867cea"
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.24",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "ARDBOX GPRS family"
+                        },
+                        {
+                            "name": "ARDBOX LoRa family"
+                        },
+                        {
+                            "name": "ARDBOX WiFi/BT family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        },
+                        {
+                            "name": "M-Duino DALI family"
+                        },
+                        {
+                            "name": "M-Duino GPRS family"
+                        },
+                        {
+                            "name": "M-Duino LoRa family"
+                        },
+                        {
+                            "name": "M-Duino WiFi/BT family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-avr-1.1.24.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.24.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "7.3.0-atmel3.6.1-arduino5"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino17"
+                        }
+                    ],
+                    "size": 243899,
+                    "checksum": "SHA-256:d4fd1e7e7f192fc8cdbf10293b200c4178f3afff0781a8e564ea174a1b7093f8"
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.25",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "ARDBOX DALI family"
+                        },
+                        {
+                            "name": "ARDBOX GPRS family"
+                        },
+                        {
+                            "name": "ARDBOX LoRa family"
+                        },
+                        {
+                            "name": "ARDBOX WiFi/BT family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        },
+                        {
+                            "name": "M-Duino DALI family"
+                        },
+                        {
+                            "name": "M-Duino GPRS family"
+                        },
+                        {
+                            "name": "M-Duino LoRa family"
+                        },
+                        {
+                            "name": "M-Duino WiFi/BT family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-avr-1.1.25.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.25.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "7.3.0-atmel3.6.1-arduino5"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino17"
+                        }
+                    ],
+                    "size": 244076,
+                    "checksum": "SHA-256:d4fd1e7e7f192fc8cdbf10293b200c4178f3afff0781a8e564ea174a1b7093f8"
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.26",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "ARDBOX DALI family"
+                        },
+                        {
+                            "name": "ARDBOX GPRS family"
+                        },
+                        {
+                            "name": "ARDBOX LoRa family"
+                        },
+                        {
+                            "name": "ARDBOX WiFi/BT family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        },
+                        {
+                            "name": "M-Duino DALI family"
+                        },
+                        {
+                            "name": "M-Duino GPRS family"
+                        },
+                        {
+                            "name": "M-Duino LoRa family"
+                        },
+                        {
+                            "name": "M-Duino WiFi/BT family"
+                        },
+                        {
+                            "name": "Spartan family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-avr-1.1.26.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.26.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "7.3.0-atmel3.6.1-arduino5"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino17"
+                        }
+                    ],
+                    "size": 244647,
+                    "checksum": "SHA-256:e841ec9c81241f360fdbdb88f70893e6cdd63829698e3a3549de9615e52d90c5"
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.27",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "ARDBOX DALI family"
+                        },
+                        {
+                            "name": "ARDBOX GPRS family"
+                        },
+                        {
+                            "name": "ARDBOX LoRa family"
+                        },
+                        {
+                            "name": "ARDBOX WiFi/BT family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        },
+                        {
+                            "name": "M-Duino DALI family"
+                        },
+                        {
+                            "name": "M-Duino GPRS family"
+                        },
+                        {
+                            "name": "M-Duino LoRa family"
+                        },
+                        {
+                            "name": "M-Duino WiFi/BT family"
+                        },
+                        {
+                            "name": "Spartan family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-avr-1.1.27.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.27.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "7.3.0-atmel3.6.1-arduino5"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino17"
+                        }
+                    ],
+                    "size": 244768,
+                    "checksum": "SHA-256:2d6f2a5ba4678d3ba7b38f7a7dff4ae58a13380787ad3eaf14c046199ef88ab1"
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.28",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "ARDBOX DALI family"
+                        },
+                        {
+                            "name": "ARDBOX GPRS family"
+                        },
+                        {
+                            "name": "ARDBOX LoRa family"
+                        },
+                        {
+                            "name": "ARDBOX WiFi/BT family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        },
+                        {
+                            "name": "M-Duino DALI family"
+                        },
+                        {
+                            "name": "M-Duino GPRS family"
+                        },
+                        {
+                            "name": "M-Duino LoRa family"
+                        },
+                        {
+                            "name": "M-Duino WiFi/BT family"
+                        },
+                        {
+                            "name": "Spartan family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-avr-1.1.28.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.28.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "7.3.0-atmel3.6.1-arduino5"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino17"
+                        }
+                    ],
+                    "size": 448650,
+                    "checksum": "SHA-256:aaf2cd8c1e49c0a3e73c9ee3c531e1e392d3c4bf22c91931d85841a5fff91636"
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.29",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "ARDBOX DALI family"
+                        },
+                        {
+                            "name": "ARDBOX GPRS family"
+                        },
+                        {
+                            "name": "ARDBOX LoRa family"
+                        },
+                        {
+                            "name": "ARDBOX WiFi/BT family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        },
+                        {
+                            "name": "M-Duino DALI family"
+                        },
+                        {
+                            "name": "M-Duino GPRS family"
+                        },
+                        {
+                            "name": "M-Duino LoRa family"
+                        },
+                        {
+                            "name": "M-Duino WiFi/BT family"
+                        },
+                        {
+                            "name": "Spartan family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-avr-1.1.29.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.29.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "7.3.0-atmel3.6.1-arduino5"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino17"
+                        }
+                    ],
+                    "size": 449315,
+                    "checksum": "SHA-256:1b21f6dac48e89982cdadb2ebf190bd7bd6e000f501a463efe6f975f29822f6c"
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.30",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "ARDBOX DALI family"
+                        },
+                        {
+                            "name": "ARDBOX GPRS family"
+                        },
+                        {
+                            "name": "ARDBOX LoRa family"
+                        },
+                        {
+                            "name": "ARDBOX WiFi/BT family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        },
+                        {
+                            "name": "M-Duino DALI family"
+                        },
+                        {
+                            "name": "M-Duino GPRS family"
+                        },
+                        {
+                            "name": "M-Duino LoRa family"
+                        },
+                        {
+                            "name": "M-Duino WiFi/BT family"
+                        },
+                        {
+                            "name": "Spartan family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-avr-1.1.30.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.30.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "7.3.0-atmel3.6.1-arduino5"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino17"
+                        }
+                    ],
+                    "size": 449395,
+                    "checksum": "SHA-256:8327eb26ff91b166f148a73558a782aa32860ffb532fe9ae1ef7446cabec3258"
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
                     "version": "1.1.31",
                     "category": "Contributed",
                     "help": {
@@ -65,6 +1522,44 @@
                     ],
                     "size": 449644,
                     "checksum": "SHA-256:7246a57193b9a0ca92a2059fbbe4f0af45ebe604b2ca4c821a9a55b0d969bc6d"
+                },
+                {
+                    "name": "everest IoT-esp32",
+                    "architecture": "esp32",
+                    "version": "1.0.2",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "WiFi/BT module"
+                        },
+                        {
+                            "name": "10 IOs PLC family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-esp32-1.0.2.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-esp32-1.0.2.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "version": "1.22.0-80-g6c4433a-5.2.0",
+                            "name": "xtensa-esp32-elf-gcc"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "version": "2.6.1",
+                            "name": "esptool_py"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "version": "0.2.3",
+                            "name": "mkspiffs"
+                        }
+                    ],
+                    "size": 29938978,
+                    "checksum": "SHA-256:04bf602bbae6b72df74c6e25f138d6d399b87dc715a1daa15a14c5b36ef06d55"
                 },
                 {
                     "name": "industrialshields-megaavr",
@@ -2822,13 +4317,13 @@
                     },
                     "boards": [
                         {
-                            "name": "Everest IoT Arduino UNO"
+                            "name": "ARDBOX family"
                         },
                         {
-                            "name": "Everest IoT Arduino NANO"
+                            "name": "ARDBOX DALI family"
                         },
                         {
-                            "name": "Everest IoT Arduino MEGA2560"
+                            "name": "ARDBOX GPRS family"
                         },
                         {
                             "name": "ARDBOX LoRa family"
