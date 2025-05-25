@@ -76,24 +76,16 @@
                     },
                     "boards": [
                         {
-                            "name": "Everest IoT ESP32 C3"
+                            "name": "WiFi/BT module"
                         },
                         {
-                            "name": "Everest IoT ESP32 C6"
+                            "name": "10 IOs PLC family"
                         },
                         {
-                            "name": "Everest IoT ESP32"
+                            "name": "ESP32 PLC family"
                         },
                         {
-                            "name": "Everest IoT Heltec WiFI LoRa 32(V2)"
-                        }
-                        ,
-                        {
-                            "name": "Everest IoT Heltec WiFI LoRa 32(V3)"
-                        }
-                        ,
-                        {
-                            "name": "Everest IoT Heltec Wireless stick Lite(V3)"
+                            "name": "14 IOs PLC family"
                         }
                     ],
                     "archiveFileName": "industrialshields-boards-esp32-2.4.0.tar.bz2",
@@ -139,7 +131,7 @@
                     "checksum": "SHA-256:b841615ac5cf94fddb3fad507448c8171bbdc6937da89d9965d5f4633e57cc97"
                 },
                 {
-                    "name": "everest IoT-raspberry pi pico",
+                    "name": "industrialshields-megaavr",
                     "architecture": "megaavr",
                     "version": "1.0.2",
                     "category": "Contributed",
@@ -148,7 +140,7 @@
                     },
                     "boards": [
                         {
-                            "name": "Everest IoT Raspberry Pi Pico W"
+                            "name": "10 IOS PLC (Nano Every)"
                         }
                     ],
                     "archiveFileName": "industrialshields-boards-megaavr-1.0.2.tar.bz2",
