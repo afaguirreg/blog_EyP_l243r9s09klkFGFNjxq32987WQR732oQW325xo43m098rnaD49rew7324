@@ -652,7 +652,7 @@
                     "checksum": "SHA-256:f1acfbe2f103b83619a296a6940c6da369716a51244fbda47eb52be834c11860"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "1.0.1",
                     "category": "Contributed",
@@ -1524,7 +1524,7 @@
                     "checksum": "SHA-256:7246a57193b9a0ca92a2059fbbe4f0af45ebe604b2ca4c821a9a55b0d969bc6d"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "1.0.2",
                     "category": "Contributed",
@@ -1597,7 +1597,7 @@
                     "checksum": "SHA-256:444b0bb80f70ca772c4fe7e1110c19c04cf6df0a5dc10700500dbf04bcdb845d"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "1.0.3",
                     "category": "Contributed",
@@ -1635,7 +1635,7 @@
                     "checksum": "SHA-256:c35628178737adee6e44a423788c8ee71eba5dedd2bb069e0ea87e04b6a70aea"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "1.0.4",
                     "category": "Contributed",
@@ -1796,7 +1796,7 @@
                     "checksum": "SHA-256:d1d1696916ce8e6684a4e41cb061e312d5d0ad960875cbafe24f18b2c61872bd"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "1.0.5",
                     "category": "Contributed",
@@ -1897,7 +1897,7 @@
                     "checksum": "SHA-256:7209c127b50a41dce249a29e3fb08e19d7b32b74dc16f8ae398f444622a56f7e"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "1.0.6",
                     "category": "Contributed",
@@ -1938,7 +1938,7 @@
                     "checksum": "SHA-256:4f4e6d7fe7b61549ce54ed2595fcdc89bd39d24fd1cc7de2202659e74149ba1d"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "1.0.7",
                     "category": "Contributed",
@@ -1979,7 +1979,7 @@
                     "checksum": "SHA-256:b7b3781e62a588a2b87a6b3cdefa1694a92132e03c03886d73af28122a4b8815"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "1.0.8",
                     "category": "Contributed",
@@ -2020,7 +2020,7 @@
                     "checksum": "SHA-256:7e9e2d0901acd6a5f7430c41ae1b18f22435b421b0ced9f6aa5dc865a0010bd6"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "1.1.0",
                     "category": "Contributed",
@@ -2121,7 +2121,7 @@
                     "checksum": "SHA-256:fc2f2aa1f1ff883ed8689910499cd5b9cce494f6f525b36dd31525c3476b230b"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "1.1.1",
                     "category": "Contributed",
@@ -2162,7 +2162,7 @@
                     "checksum": "SHA-256:63fb5b2bc790af2ceacb815e20af1f1389a5a65949a56adfafb3dbab4e443c34"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "1.1.2",
                     "category": "Contributed",
@@ -2203,7 +2203,7 @@
                     "checksum": "SHA-256:194a01fff43f355949246fb24e33263ce454daf1ad4078ccbdffad58844d1bcb"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "1.1.3",
                     "category": "Contributed",
@@ -2244,7 +2244,7 @@
                     "checksum": "SHA-256:1dd4c2cc5cf1a4beaad9c42b4b06d87701df24410d6b92a18ad899b5dca4528e"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "1.1.4",
                     "category": "Contributed",
@@ -2446,7 +2446,7 @@
                     "checksum": "SHA-256:6219673f3a449dce2dcfd1114f9f03287386c430aa788a94b1c5852b527907dd"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "1.1.6",
                     "category": "Contributed",
@@ -2487,7 +2487,7 @@
                     "checksum": "SHA-256:d8cd6c63820913fa6afa28073cc060debaf7ee6c93c47bdb6700ef4814581e52"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "1.1.7",
                     "category": "Contributed",
@@ -2528,7 +2528,7 @@
                     "checksum": "SHA-256:d9927e8e352f6beff7f8d76149b406380e52fb3cc94fb7a424a5c1fb18885ace"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "2.0.0",
                     "category": "Contributed",
@@ -2584,7 +2584,7 @@
                     "checksum": "SHA-256:6fabaee4120b8ee7647393fe5d0c054d299ff1daa262ecdce0a06e4185b7750b"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "2.0.1",
                     "category": "Contributed",
@@ -2640,7 +2640,7 @@
                     "checksum": "SHA-256:54bd3ce2c6286851d3c8aa36b47ce7f6375dd9aa282c81aae8d80b77dc850e6b"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "2.0.2",
                     "category": "Contributed",
@@ -2696,7 +2696,7 @@
                     "checksum": "SHA-256:2d0dd80ff752532e9b6ccc6564fbcd7f15f7244919fc3c02a5f873b3c0c145ff"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "2.0.3",
                     "category": "Contributed",
@@ -2812,7 +2812,7 @@
                     "checksum": "SHA-256:5ffc634ddd7e3db3146ef452001f9667a8efa81f70f8286532b0a655bd5c7847"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "2.0.4",
                     "category": "Contributed",
@@ -2868,7 +2868,7 @@
                     "checksum": "SHA-256:5a9eadddc267ae932b618e46c042530332fe95f8ba3746a273624a2f5892186a"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "2.0.5",
                     "category": "Contributed",
@@ -2924,7 +2924,7 @@
                     "checksum": "SHA-256:2022bbcee4c091e476cad48a1710642ec666e0bcba392bf5d8ab96ea90a66eb5"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "2.0.6",
                     "category": "Contributed",
@@ -2980,7 +2980,7 @@
                     "checksum": "SHA-256:31cfa93ea2a7eca82f7ccc3b9b435aa08d374b360e1d853fc6db98afe3ef7b33"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "2.0.7",
                     "category": "Contributed",
@@ -3036,7 +3036,7 @@
                     "checksum": "SHA-256:e81409cb108f1d753b20040a6bfd798b3098c9fd9b640ee437f47b03423441d7"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "2.1.2",
                     "category": "Contributed",
@@ -3097,7 +3097,7 @@
                     "checksum": "SHA-256:6e063af3d63292d5a6c732066f9bd98a67652ca21627fbb3b597f7f645cfc95e"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "2.1.3",
                     "category": "Contributed",
@@ -3158,7 +3158,7 @@
                     "checksum": "SHA-256:0316522fa904c8afdc470567e0001fe1f30656f367b642100867b4fb24811e2c"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "2.1.4",
                     "category": "Contributed",
@@ -3399,7 +3399,7 @@
                     "checksum": "SHA-256:57c5e0be6101f55ee0eaeef8034081ce370966ef6f8c1b6daa90ee01a728879a"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "2.1.5",
                     "category": "Contributed",
@@ -3520,7 +3520,7 @@
                     "checksum": "SHA-256:024bc13bdb5707e32fee05ffd9e3a810f476278f956a19ee5f95fd8d6b0b354b"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "2.1.6",
                     "category": "Contributed",
@@ -3616,7 +3616,7 @@
                     "checksum": "SHA-256:5854d5b10b4e3b1a964401f109e5da082e9dfd5e9f8dcb80022a334ca4162b8b"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "2.2.0",
                     "category": "Contributed",
@@ -3740,7 +3740,7 @@
                     "checksum": "SHA-256:729c1a19b467386c058bbcab5f7a7994a426b8f5e9630724b5ad288de3224e7f"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "2.2.1",
                     "category": "Contributed",
@@ -3804,7 +3804,7 @@
                     "checksum": "SHA-256:ed1b8652d093bf6edbb1740f66e4eeebfe88059deb0ab4de971dbfe04c9b674b"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "2.2.2",
                     "category": "Contributed",
@@ -3868,7 +3868,7 @@
                     "checksum": "SHA-256:70e286d91fe77d955f8347ebc76f469c70bdda3fc5b2a0901ac7ed6efc257fe1"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "2.2.3",
                     "category": "Contributed",
@@ -3932,7 +3932,7 @@
                     "checksum": "SHA-256:91b23c24210cd5425f9e13c62500e7d47b8c2bb359764840f00482f2ce7571d8"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "2.2.4",
                     "category": "Contributed",
@@ -4116,7 +4116,7 @@
                     "checksum": "SHA-256:1f5f5ef23cb842c352dc6332a3dde8f49e7f833a95c42e1c5fd3e8b8756cefe1"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "2.3.0",
                     "category": "Contributed",
@@ -4180,7 +4180,7 @@
                     "checksum": "SHA-256:ed68dffe91f0c9d9aba17ccf622a125190bbd5d7c16acfc613cb0183f522e362"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "2.3.1",
                     "category": "Contributed",
@@ -4244,7 +4244,7 @@
                     "checksum": "SHA-256:63eb68f3bc7cbe4fcaf0fb3ea83974e4e1b14823de0af491be4edd7ed988fed8"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "2.3.1-hf",
                     "category": "Contributed",
@@ -4368,7 +4368,7 @@
                     "checksum": "SHA-256:93e4e4bf25307091f39ad97cf05dea64e0bc7f471f4796bd75355ae261d7804a"
                 },
                 {
-                    "name": "everest IoT-esp32",
+                    "name": "industrialshields-esp32",
                     "architecture": "esp32",
                     "version": "2.4.0",
                     "category": "Contributed",
