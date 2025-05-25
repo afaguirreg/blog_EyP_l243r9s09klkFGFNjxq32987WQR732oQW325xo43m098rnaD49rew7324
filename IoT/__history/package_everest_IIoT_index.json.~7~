@@ -301,6 +301,1242 @@
                     "checksum": "SHA-256:d1d1696916ce8e6684a4e41cb061e312d5d0ad960875cbafe24f18b2c61872bd"
                 },
                 {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.37",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "ARDBOX DALI family"
+                        },
+                        {
+                            "name": "ARDBOX GPRS family"
+                        },
+                        {
+                            "name": "ARDBOX LoRa family"
+                        },
+                        {
+                            "name": "ARDBOX WiFi/BT family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        },
+                        {
+                            "name": "M-Duino DALI family"
+                        },
+                        {
+                            "name": "M-Duino GPRS family"
+                        },
+                        {
+                            "name": "M-Duino LoRa family"
+                        },
+                        {
+                            "name": "M-Duino WiFi/BT family"
+                        },
+                        {
+                            "name": "Spartan family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-avr-1.1.37.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.37.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "7.3.0-atmel3.6.1-arduino5"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino17"
+                        }
+                    ],
+                    "size": 450838,
+                    "checksum": "SHA-256:ef770980a0190eccdea418c99f1e7c2d52668eec1074d95909abc20595c549b1"
+                },
+                {
+                    "name": "everest IoT-esp32",
+                    "architecture": "esp32",
+                    "version": "1.1.5",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "WiFi/BT module"
+                        },
+                        {
+                            "name": "10 IOs PLC family"
+                        },
+                        {
+                            "name": "ESP32 PLC family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-esp32-1.1.5.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-esp32-1.1.5.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "version": "1.22.0-80-g6c4433a-5.2.0",
+                            "name": "xtensa-esp32-elf-gcc"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "version": "2.6.1",
+                            "name": "esptool_py"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "version": "0.2.3",
+                            "name": "mkspiffs"
+                        }
+                    ],
+                    "size": 30020455,
+                    "checksum": "SHA-256:6219673f3a449dce2dcfd1114f9f03287386c430aa788a94b1c5852b527907dd"
+                },
+                {
+                    "name": "everest IoT-esp32",
+                    "architecture": "esp32",
+                    "version": "1.1.6",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "WiFi/BT module"
+                        },
+                        {
+                            "name": "10 IOs PLC family"
+                        },
+                        {
+                            "name": "ESP32 PLC family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-esp32-1.1.6.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-esp32-1.1.6.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "version": "1.22.0-80-g6c4433a-5.2.0",
+                            "name": "xtensa-esp32-elf-gcc"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "version": "2.6.1",
+                            "name": "esptool_py"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "version": "0.2.3",
+                            "name": "mkspiffs"
+                        }
+                    ],
+                    "size": 30020439,
+                    "checksum": "SHA-256:d8cd6c63820913fa6afa28073cc060debaf7ee6c93c47bdb6700ef4814581e52"
+                },
+                {
+                    "name": "everest IoT-esp32",
+                    "architecture": "esp32",
+                    "version": "1.1.7",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "WiFi/BT module"
+                        },
+                        {
+                            "name": "10 IOs PLC family"
+                        },
+                        {
+                            "name": "ESP32 PLC family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-esp32-1.1.7.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-esp32-1.1.7.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "version": "1.22.0-80-g6c4433a-5.2.0",
+                            "name": "xtensa-esp32-elf-gcc"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "version": "2.6.1",
+                            "name": "esptool_py"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "version": "0.2.3",
+                            "name": "mkspiffs"
+                        }
+                    ],
+                    "size": 30022712,
+                    "checksum": "SHA-256:d9927e8e352f6beff7f8d76149b406380e52fb3cc94fb7a424a5c1fb18885ace"
+                },
+                {
+                    "name": "everest IoT-esp32",
+                    "architecture": "esp32",
+                    "version": "2.0.0",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "WiFi/BT module"
+                        },
+                        {
+                            "name": "10 IOs PLC family"
+                        },
+                        {
+                            "name": "ESP32 PLC family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-esp32-2.0.0.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-esp32-2.0.0.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "riscv32-esp-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r1"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r1"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32s2-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r1"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "esptool_py",
+                            "version": "3.1.0"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "mkspiffs",
+                            "version": "0.2.3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "mklittlefs",
+                            "version": "3.0.0-gnu12-dc7f933"
+                        }
+                    ],
+                    "size": 111653071,
+                    "checksum": "SHA-256:6fabaee4120b8ee7647393fe5d0c054d299ff1daa262ecdce0a06e4185b7750b"
+                },
+                {
+                    "name": "everest IoT-esp32",
+                    "architecture": "esp32",
+                    "version": "2.0.1",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "WiFi/BT module"
+                        },
+                        {
+                            "name": "10 IOs PLC family"
+                        },
+                        {
+                            "name": "ESP32 PLC family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-esp32-2.0.1.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-esp32-2.0.1.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "riscv32-esp-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r1"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r1"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32s2-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r1"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "esptool_py",
+                            "version": "3.1.0"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "mkspiffs",
+                            "version": "0.2.3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "mklittlefs",
+                            "version": "3.0.0-gnu12-dc7f933"
+                        }
+                    ],
+                    "size": 111651282,
+                    "checksum": "SHA-256:54bd3ce2c6286851d3c8aa36b47ce7f6375dd9aa282c81aae8d80b77dc850e6b"
+                },
+                {
+                    "name": "everest IoT-esp32",
+                    "architecture": "esp32",
+                    "version": "2.0.2",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "WiFi/BT module"
+                        },
+                        {
+                            "name": "10 IOs PLC family"
+                        },
+                        {
+                            "name": "ESP32 PLC family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-esp32-2.0.2.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-esp32-2.0.2.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "riscv32-esp-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r1"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r1"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32s2-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r1"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "esptool_py",
+                            "version": "3.1.0"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "mkspiffs",
+                            "version": "0.2.3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "mklittlefs",
+                            "version": "3.0.0-gnu12-dc7f933"
+                        }
+                    ],
+                    "size": 111651754,
+                    "checksum": "SHA-256:2d0dd80ff752532e9b6ccc6564fbcd7f15f7244919fc3c02a5f873b3c0c145ff"
+                },
+                {
+                    "name": "everest IoT-esp32",
+                    "architecture": "esp32",
+                    "version": "2.0.3",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "WiFi/BT module"
+                        },
+                        {
+                            "name": "10 IOs PLC family"
+                        },
+                        {
+                            "name": "ESP32 PLC family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-esp32-2.0.3.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-esp32-2.0.3.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "riscv32-esp-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r1"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r1"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32s2-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r1"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "esptool_py",
+                            "version": "3.1.0"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "mkspiffs",
+                            "version": "0.2.3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "mklittlefs",
+                            "version": "3.0.0-gnu12-dc7f933"
+                        }
+                    ],
+                    "size": 111651922,
+                    "checksum": "SHA-256:593fd20f61f6f8509e73b3f82e6cb748ab222c8d7bdb047d5be9a8253ddc5b4e"
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.38",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "ARDBOX DALI family"
+                        },
+                        {
+                            "name": "ARDBOX GPRS family"
+                        },
+                        {
+                            "name": "ARDBOX LoRa family"
+                        },
+                        {
+                            "name": "ARDBOX WiFi/BT family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        },
+                        {
+                            "name": "M-Duino DALI family"
+                        },
+                        {
+                            "name": "M-Duino GPRS family"
+                        },
+                        {
+                            "name": "M-Duino LoRa family"
+                        },
+                        {
+                            "name": "M-Duino WiFi/BT family"
+                        },
+                        {
+                            "name": "Spartan family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-avr-1.1.38.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.38.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "7.3.0-atmel3.6.1-arduino5"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino17"
+                        }
+                    ],
+                    "size": 415991,
+                    "checksum": "SHA-256:5ffc634ddd7e3db3146ef452001f9667a8efa81f70f8286532b0a655bd5c7847"
+                },
+                {
+                    "name": "everest IoT-esp32",
+                    "architecture": "esp32",
+                    "version": "2.0.4",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "WiFi/BT module"
+                        },
+                        {
+                            "name": "10 IOs PLC family"
+                        },
+                        {
+                            "name": "ESP32 PLC family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-esp32-2.0.4.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-esp32-2.0.4.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "riscv32-esp-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r1"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r1"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32s2-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r1"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "esptool_py",
+                            "version": "3.1.0"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "mkspiffs",
+                            "version": "0.2.3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "mklittlefs",
+                            "version": "3.0.0-gnu12-dc7f933"
+                        }
+                    ],
+                    "size": 111648479,
+                    "checksum": "SHA-256:5a9eadddc267ae932b618e46c042530332fe95f8ba3746a273624a2f5892186a"
+                },
+                {
+                    "name": "everest IoT-esp32",
+                    "architecture": "esp32",
+                    "version": "2.0.5",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "WiFi/BT module"
+                        },
+                        {
+                            "name": "10 IOs PLC family"
+                        },
+                        {
+                            "name": "ESP32 PLC family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-esp32-2.0.5.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-esp32-2.0.5.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "riscv32-esp-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r1"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r1"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32s2-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r1"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "esptool_py",
+                            "version": "3.1.0"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "mkspiffs",
+                            "version": "0.2.3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "mklittlefs",
+                            "version": "3.0.0-gnu12-dc7f933"
+                        }
+                    ],
+                    "size": 111648320,
+                    "checksum": "SHA-256:2022bbcee4c091e476cad48a1710642ec666e0bcba392bf5d8ab96ea90a66eb5"
+                },
+                {
+                    "name": "everest IoT-esp32",
+                    "architecture": "esp32",
+                    "version": "2.0.6",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "WiFi/BT module"
+                        },
+                        {
+                            "name": "10 IOs PLC family"
+                        },
+                        {
+                            "name": "ESP32 PLC family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-esp32-2.0.6.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-esp32-2.0.6.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "riscv32-esp-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r1"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r1"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32s2-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r1"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "esptool_py",
+                            "version": "3.1.0"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "mkspiffs",
+                            "version": "0.2.3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "mklittlefs",
+                            "version": "3.0.0-gnu12-dc7f933"
+                        }
+                    ],
+                    "size": 111648693,
+                    "checksum": "SHA-256:31cfa93ea2a7eca82f7ccc3b9b435aa08d374b360e1d853fc6db98afe3ef7b33"
+                },
+                {
+                    "name": "everest IoT-esp32",
+                    "architecture": "esp32",
+                    "version": "2.0.7",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "WiFi/BT module"
+                        },
+                        {
+                            "name": "10 IOs PLC family"
+                        },
+                        {
+                            "name": "ESP32 PLC family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-esp32-2.0.7.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-esp32-2.0.7.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "riscv32-esp-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r1"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r1"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32s2-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r1"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "esptool_py",
+                            "version": "3.1.0"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "mkspiffs",
+                            "version": "0.2.3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "mklittlefs",
+                            "version": "3.0.0-gnu12-dc7f933"
+                        }
+                    ],
+                    "size": 111648768,
+                    "checksum": "SHA-256:e81409cb108f1d753b20040a6bfd798b3098c9fd9b640ee437f47b03423441d7"
+                },
+                {
+                    "name": "everest IoT-esp32",
+                    "architecture": "esp32",
+                    "version": "2.1.2",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "WiFi/BT module"
+                        },
+                        {
+                            "name": "10 IOs PLC family"
+                        },
+                        {
+                            "name": "ESP32 PLC family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-esp32-2.1.2.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-esp32-2.1.2.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "riscv32-esp-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32s2-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32s3-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "esptool_py",
+                            "version": "4.2.1"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "mkspiffs",
+                            "version": "0.2.3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "mklittlefs",
+                            "version": "3.0.0-gnu12-dc7f933"
+                        }
+                    ],
+                    "size": 238813480,
+                    "checksum": "SHA-256:6e063af3d63292d5a6c732066f9bd98a67652ca21627fbb3b597f7f645cfc95e"
+                },
+                {
+                    "name": "everest IoT-esp32",
+                    "architecture": "esp32",
+                    "version": "2.1.3",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "WiFi/BT module"
+                        },
+                        {
+                            "name": "10 IOs PLC family"
+                        },
+                        {
+                            "name": "ESP32 PLC family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-esp32-2.1.3.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-esp32-2.1.3.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "riscv32-esp-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32s2-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32s3-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "esptool_py",
+                            "version": "4.2.1"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "mkspiffs",
+                            "version": "0.2.3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "mklittlefs",
+                            "version": "3.0.0-gnu12-dc7f933"
+                        }
+                    ],
+                    "size": 239015375,
+                    "checksum": "SHA-256:0316522fa904c8afdc470567e0001fe1f30656f367b642100867b4fb24811e2c"
+                },
+                {
+                    "name": "everest IoT-esp32",
+                    "architecture": "esp32",
+                    "version": "2.1.4",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "WiFi/BT module"
+                        },
+                        {
+                            "name": "10 IOs PLC family"
+                        },
+                        {
+                            "name": "ESP32 PLC family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-esp32-2.1.4.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-esp32-2.1.4.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "riscv32-esp-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32s2-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32s3-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "esptool_py",
+                            "version": "4.2.1"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "mkspiffs",
+                            "version": "0.2.3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "mklittlefs",
+                            "version": "3.0.0-gnu12-dc7f933"
+                        }
+                    ],
+                    "size": 238855107,
+                    "checksum": "SHA-256:17f72a8d4b022f34b26541bc9b702612e38afbd1550266c6f9b95689fec5a01c"
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.39",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "ARDBOX DALI family"
+                        },
+                        {
+                            "name": "ARDBOX GPRS family"
+                        },
+                        {
+                            "name": "ARDBOX LoRa family"
+                        },
+                        {
+                            "name": "ARDBOX WiFi/BT family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        },
+                        {
+                            "name": "M-Duino DALI family"
+                        },
+                        {
+                            "name": "M-Duino GPRS family"
+                        },
+                        {
+                            "name": "M-Duino LoRa family"
+                        },
+                        {
+                            "name": "M-Duino WiFi/BT family"
+                        },
+                        {
+                            "name": "Spartan family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-avr-1.1.39.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.39.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "7.3.0-atmel3.6.1-arduino5"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino17"
+                        }
+                    ],
+                    "size": 434910,
+                    "checksum": "SHA-256:3b5706c4a740a15911184e250d76f1ac2f2b5945e227e3a4329b3724ed84c6a4"
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.40",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "ARDBOX DALI family"
+                        },
+                        {
+                            "name": "ARDBOX GPRS family"
+                        },
+                        {
+                            "name": "ARDBOX LoRa family"
+                        },
+                        {
+                            "name": "ARDBOX WiFi/BT family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        },
+                        {
+                            "name": "M-Duino DALI family"
+                        },
+                        {
+                            "name": "M-Duino GPRS family"
+                        },
+                        {
+                            "name": "M-Duino LoRa family"
+                        },
+                        {
+                            "name": "M-Duino WiFi/BT family"
+                        },
+                        {
+                            "name": "Spartan family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-avr-1.1.40.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.40.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "7.3.0-atmel3.6.1-arduino5"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino17"
+                        }
+                    ],
+                    "size": 418148,
+                    "checksum": "SHA-256:dd911cfe9257b1bb0cba9429a061f3cdcdfea9209411fcfa0e39bc364d4f8641"
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.41",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "ARDBOX DALI family"
+                        },
+                        {
+                            "name": "ARDBOX GPRS family"
+                        },
+                        {
+                            "name": "ARDBOX LoRa family"
+                        },
+                        {
+                            "name": "ARDBOX WiFi/BT family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        },
+                        {
+                            "name": "M-Duino DALI family"
+                        },
+                        {
+                            "name": "M-Duino GPRS family"
+                        },
+                        {
+                            "name": "M-Duino LoRa family"
+                        },
+                        {
+                            "name": "M-Duino WiFi/BT family"
+                        },
+                        {
+                            "name": "Spartan family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-avr-1.1.41.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.41.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "7.3.0-atmel3.6.1-arduino5"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino17"
+                        }
+                    ],
+                    "size": 419927,
+                    "checksum": "SHA-256:57c5e0be6101f55ee0eaeef8034081ce370966ef6f8c1b6daa90ee01a728879a"
+                },
+                {
+                    "name": "everest IoT-esp32",
+                    "architecture": "esp32",
+                    "version": "2.1.5",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "WiFi/BT module"
+                        },
+                        {
+                            "name": "10 IOs PLC family"
+                        },
+                        {
+                            "name": "ESP32 PLC family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-esp32-2.1.5.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-esp32-2.1.5.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "riscv32-esp-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32s2-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32s3-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "esptool_py",
+                            "version": "4.2.1"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "mkspiffs",
+                            "version": "0.2.3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "mklittlefs",
+                            "version": "3.0.0-gnu12-dc7f933"
+                        }
+                    ],
+                    "size": 238848207,
+                    "checksum": "SHA-256:c777f0c98da3f8e3e8f46a62c04863477c8150df45599c9f0bebe5edc40410a4"
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.42",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "ARDBOX DALI family"
+                        },
+                        {
+                            "name": "ARDBOX GPRS family"
+                        },
+                        {
+                            "name": "ARDBOX LoRa family"
+                        },
+                        {
+                            "name": "ARDBOX WiFi/BT family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        },
+                        {
+                            "name": "M-Duino DALI family"
+                        },
+                        {
+                            "name": "M-Duino GPRS family"
+                        },
+                        {
+                            "name": "M-Duino LoRa family"
+                        },
+                        {
+                            "name": "M-Duino WiFi/BT family"
+                        },
+                        {
+                            "name": "Spartan family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-avr-1.1.42.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.42.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "7.3.0-atmel3.6.1-arduino5"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino17"
+                        }
+                    ],
+                    "size": 420155,
+                    "checksum": "SHA-256:024bc13bdb5707e32fee05ffd9e3a810f476278f956a19ee5f95fd8d6b0b354b"
+                },
+                {
+                    "name": "everest IoT-esp32",
+                    "architecture": "esp32",
+                    "version": "2.1.6",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "WiFi/BT module"
+                        },
+                        {
+                            "name": "10 IOs PLC family"
+                        },
+                        {
+                            "name": "ESP32 PLC family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-esp32-2.1.6.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-esp32-2.1.6.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "riscv32-esp-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32s2-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32s3-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "esptool_py",
+                            "version": "4.2.1"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "mkspiffs",
+                            "version": "0.2.3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "mklittlefs",
+                            "version": "3.0.0-gnu12-dc7f933"
+                        }
+                    ],
+                    "size": 238848304,
+                    "checksum": "SHA-256:6a8d4bad99bb636843b69bcb2827bd80f3e0f4bffe444f1ce27f1a04d712c449"
+                },
+                {
                     "name": "industrialshields-megaavr",
                     "architecture": "megaavr",
                     "version": "1.0.2",
@@ -334,6 +1570,322 @@
                     ],
                     "size": 899009,
                     "checksum": "SHA-256:5854d5b10b4e3b1a964401f109e5da082e9dfd5e9f8dcb80022a334ca4162b8b"
+                },
+                {
+                    "name": "everest IoT-esp32",
+                    "architecture": "esp32",
+                    "version": "2.2.0",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "WiFi/BT module"
+                        },
+                        {
+                            "name": "10 IOs PLC family"
+                        },
+                        {
+                            "name": "ESP32 PLC family"
+                        },
+                        {
+                            "name": "14 IOs PLC family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-esp32-2.2.0.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-esp32-2.2.0.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "riscv32-esp-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32s2-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32s3-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "esptool_py",
+                            "version": "4.2.1"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "mkspiffs",
+                            "version": "0.2.3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "mklittlefs",
+                            "version": "3.0.0-gnu12-dc7f933"
+                        }
+                    ],
+                    "size": 238880061,
+                    "checksum": "SHA-256:474f07c67405e91d51dc222143ae90de39e6441687c35d8c803a8f2f377165f7"
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.43",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "ARDBOX DALI family"
+                        },
+                        {
+                            "name": "ARDBOX GPRS family"
+                        },
+                        {
+                            "name": "ARDBOX LoRa family"
+                        },
+                        {
+                            "name": "ARDBOX WiFi/BT family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        },
+                        {
+                            "name": "M-Duino DALI family"
+                        },
+                        {
+                            "name": "M-Duino GPRS family"
+                        },
+                        {
+                            "name": "M-Duino LoRa family"
+                        },
+                        {
+                            "name": "M-Duino WiFi/BT family"
+                        },
+                        {
+                            "name": "Spartan family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-avr-1.1.43.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.43.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "7.3.0-atmel3.6.1-arduino5"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino17"
+                        }
+                    ],
+                    "size": 502142,
+                    "checksum": "SHA-256:729c1a19b467386c058bbcab5f7a7994a426b8f5e9630724b5ad288de3224e7f"
+                },
+                {
+                    "name": "everest IoT-esp32",
+                    "architecture": "esp32",
+                    "version": "2.2.1",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "WiFi/BT module"
+                        },
+                        {
+                            "name": "10 IOs PLC family"
+                        },
+                        {
+                            "name": "ESP32 PLC family"
+                        },
+                        {
+                            "name": "14 IOs PLC family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-esp32-2.2.1.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-esp32-2.2.1.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "riscv32-esp-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32s2-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32s3-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "esptool_py",
+                            "version": "4.2.1"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "mkspiffs",
+                            "version": "0.2.3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "mklittlefs",
+                            "version": "3.0.0-gnu12-dc7f933"
+                        }
+                    ],
+                    "size": 238843613,
+                    "checksum": "SHA-256:ed1b8652d093bf6edbb1740f66e4eeebfe88059deb0ab4de971dbfe04c9b674b"
+                },
+                {
+                    "name": "everest IoT-esp32",
+                    "architecture": "esp32",
+                    "version": "2.2.2",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "WiFi/BT module"
+                        },
+                        {
+                            "name": "10 IOs PLC family"
+                        },
+                        {
+                            "name": "ESP32 PLC family"
+                        },
+                        {
+                            "name": "14 IOs PLC family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-esp32-2.2.2.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-esp32-2.2.2.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "riscv32-esp-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32s2-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32s3-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "esptool_py",
+                            "version": "4.2.1"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "mkspiffs",
+                            "version": "0.2.3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "mklittlefs",
+                            "version": "3.0.0-gnu12-dc7f933"
+                        }
+                    ],
+                    "size": 238855347,
+                    "checksum": "SHA-256:70e286d91fe77d955f8347ebc76f469c70bdda3fc5b2a0901ac7ed6efc257fe1"
+                },
+                {
+                    "name": "everest IoT-esp32",
+                    "architecture": "esp32",
+                    "version": "2.2.3",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "WiFi/BT module"
+                        },
+                        {
+                            "name": "10 IOs PLC family"
+                        },
+                        {
+                            "name": "ESP32 PLC family"
+                        },
+                        {
+                            "name": "14 IOs PLC family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-esp32-2.2.3.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-esp32-2.2.3.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "riscv32-esp-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32s2-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32s3-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "esptool_py",
+                            "version": "4.2.1"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "mkspiffs",
+                            "version": "0.2.3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "mklittlefs",
+                            "version": "3.0.0-gnu12-dc7f933"
+                        }
+                    ],
+                    "size": 238850703,
+                    "checksum": "SHA-256:91b23c24210cd5425f9e13c62500e7d47b8c2bb359764840f00482f2ce7571d8"
                 },
                 {
                     "name": "everest IoT-esp32",
