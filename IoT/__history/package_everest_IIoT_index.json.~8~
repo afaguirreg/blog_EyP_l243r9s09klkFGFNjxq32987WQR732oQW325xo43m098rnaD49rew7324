@@ -9,6 +9,399 @@
                 {
                     "name": "everest IoT-avr",
                     "architecture": "avr",
+                    "version": "1.1.31",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "ARDBOX DALI family"
+                        },
+                        {
+                            "name": "ARDBOX GPRS family"
+                        },
+                        {
+                            "name": "ARDBOX LoRa family"
+                        },
+                        {
+                            "name": "ARDBOX WiFi/BT family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        },
+                        {
+                            "name": "M-Duino DALI family"
+                        },
+                        {
+                            "name": "M-Duino GPRS family"
+                        },
+                        {
+                            "name": "M-Duino LoRa family"
+                        },
+                        {
+                            "name": "M-Duino WiFi/BT family"
+                        },
+                        {
+                            "name": "Spartan family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-avr-1.1.31.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.31.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "7.3.0-atmel3.6.1-arduino5"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino17"
+                        }
+                    ],
+                    "size": 449644,
+                    "checksum": "SHA-256:7246a57193b9a0ca92a2059fbbe4f0af45ebe604b2ca4c821a9a55b0d969bc6d"
+                },
+                {
+                    "name": "industrialshields-megaavr",
+                    "architecture": "megaavr",
+                    "version": "1.0.1",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "10 IOS PLC (Nano Every)"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-megaavr-1.0.1.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-megaavr-1.0.1.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "7.3.0-atmel3.6.1-arduino5"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino17"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "arduinoOTA",
+                            "version": "1.3.0"
+                        }
+                    ],
+                    "size": 891161,
+                    "checksum": "SHA-256:444b0bb80f70ca772c4fe7e1110c19c04cf6df0a5dc10700500dbf04bcdb845d"
+                },
+                {
+                    "name": "everest IoT-esp32",
+                    "architecture": "esp32",
+                    "version": "1.0.3",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "WiFi/BT module"
+                        },
+                        {
+                            "name": "10 IOs PLC family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-esp32-1.0.3.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-esp32-1.0.3.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "version": "1.22.0-80-g6c4433a-5.2.0",
+                            "name": "xtensa-esp32-elf-gcc"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "version": "2.6.1",
+                            "name": "esptool_py"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "version": "0.2.3",
+                            "name": "mkspiffs"
+                        }
+                    ],
+                    "size": 29938968,
+                    "checksum": "SHA-256:c35628178737adee6e44a423788c8ee71eba5dedd2bb069e0ea87e04b6a70aea"
+                },
+                {
+                    "name": "everest IoT-esp32",
+                    "architecture": "esp32",
+                    "version": "1.0.4",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "WiFi/BT module"
+                        },
+                        {
+                            "name": "10 IOs PLC family"
+                        },
+                        {
+                            "name": "ESP32 PLC family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-esp32-1.0.4.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-esp32-1.0.4.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "version": "1.22.0-80-g6c4433a-5.2.0",
+                            "name": "xtensa-esp32-elf-gcc"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "version": "2.6.1",
+                            "name": "esptool_py"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "version": "0.2.3",
+                            "name": "mkspiffs"
+                        }
+                    ],
+                    "size": 29941426,
+                    "checksum": "SHA-256:1b7d3127835002ef5c8d2cd1523f9478991b9a5b58e67ec0144f4f58a13c8082"
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.32",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "ARDBOX DALI family"
+                        },
+                        {
+                            "name": "ARDBOX GPRS family"
+                        },
+                        {
+                            "name": "ARDBOX LoRa family"
+                        },
+                        {
+                            "name": "ARDBOX WiFi/BT family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        },
+                        {
+                            "name": "M-Duino DALI family"
+                        },
+                        {
+                            "name": "M-Duino GPRS family"
+                        },
+                        {
+                            "name": "M-Duino LoRa family"
+                        },
+                        {
+                            "name": "M-Duino WiFi/BT family"
+                        },
+                        {
+                            "name": "Spartan family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-avr-1.1.32.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.32.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "7.3.0-atmel3.6.1-arduino5"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino17"
+                        }
+                    ],
+                    "size": 450898,
+                    "checksum": "SHA-256:7bfc429123537dab2afe9619727bccb2f486d4d0f8f341d91bfb3160eadd3a94"
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
+                    "version": "1.1.33",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "ARDBOX family"
+                        },
+                        {
+                            "name": "ARDBOX DALI family"
+                        },
+                        {
+                            "name": "ARDBOX GPRS family"
+                        },
+                        {
+                            "name": "ARDBOX LoRa family"
+                        },
+                        {
+                            "name": "ARDBOX WiFi/BT family"
+                        },
+                        {
+                            "name": "M-Duino family"
+                        },
+                        {
+                            "name": "M-Duino DALI family"
+                        },
+                        {
+                            "name": "M-Duino GPRS family"
+                        },
+                        {
+                            "name": "M-Duino LoRa family"
+                        },
+                        {
+                            "name": "M-Duino WiFi/BT family"
+                        },
+                        {
+                            "name": "Spartan family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-avr-1.1.33.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-avr-1.1.33.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "7.3.0-atmel3.6.1-arduino5"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino17"
+                        }
+                    ],
+                    "size": 450846,
+                    "checksum": "SHA-256:d1d1696916ce8e6684a4e41cb061e312d5d0ad960875cbafe24f18b2c61872bd"
+                },
+                {
+                    "name": "industrialshields-megaavr",
+                    "architecture": "megaavr",
+                    "version": "1.0.2",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "10 IOS PLC (Nano Every)"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-megaavr-1.0.2.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-megaavr-1.0.2.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "7.3.0-atmel3.6.1-arduino5"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino17"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "arduinoOTA",
+                            "version": "1.3.0"
+                        }
+                    ],
+                    "size": 899009,
+                    "checksum": "SHA-256:5854d5b10b4e3b1a964401f109e5da082e9dfd5e9f8dcb80022a334ca4162b8b"
+                },
+                {
+                    "name": "everest IoT-esp32",
+                    "architecture": "esp32",
+                    "version": "2.2.4",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "WiFi/BT module"
+                        },
+                        {
+                            "name": "10 IOs PLC family"
+                        },
+                        {
+                            "name": "ESP32 PLC family"
+                        },
+                        {
+                            "name": "14 IOs PLC family"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-esp32-2.2.4.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-esp32-2.2.4.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "riscv32-esp-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32s2-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "xtensa-esp32s3-elf-gcc",
+                            "version": "gcc8_4_0-esp-2021r2-patch3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "esptool_py",
+                            "version": "4.2.1"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "mkspiffs",
+                            "version": "0.2.3"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "mklittlefs",
+                            "version": "3.0.0-gnu12-dc7f933"
+                        }
+                    ],
+                    "size": 238800213,
+                    "checksum": "SHA-256:264064a7d6293e2a9b8f6278cb1e81df67feb24b0605d4ab458a765adc491c0d"
+                },
+                {
+                    "name": "everest IoT-avr",
+                    "architecture": "avr",
                     "version": "1.1.46",
                     "category": "Contributed",
                     "help": {
@@ -129,41 +522,6 @@
                     ],
                     "size": 239329558,
                     "checksum": "SHA-256:b841615ac5cf94fddb3fad507448c8171bbdc6937da89d9965d5f4633e57cc97"
-                },
-                {
-                    "name": "industrialshields-megaavr",
-                    "architecture": "megaavr",
-                    "version": "1.0.2",
-                    "category": "Contributed",
-                    "help": {
-                        "online": "https://www.industrialshields.com"
-                    },
-                    "boards": [
-                        {
-                            "name": "10 IOS PLC (Nano Every)"
-                        }
-                    ],
-                    "archiveFileName": "industrialshields-boards-megaavr-1.0.2.tar.bz2",
-                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-megaavr-1.0.2.tar.bz2",
-                    "toolsDependencies": [
-                        {
-                            "packager": "industrialshields",
-                            "name": "avr-gcc",
-                            "version": "7.3.0-atmel3.6.1-arduino5"
-                        },
-                        {
-                            "packager": "industrialshields",
-                            "name": "avrdude",
-                            "version": "6.3.0-arduino17"
-                        },
-                        {
-                            "packager": "industrialshields",
-                            "name": "arduinoOTA",
-                            "version": "1.3.0"
-                        }
-                    ],
-                    "size": 899009,
-                    "checksum": "SHA-256:5854d5b10b4e3b1a964401f109e5da082e9dfd5e9f8dcb80022a334ca4162b8b"
                 }
             ],
             "tools": [
