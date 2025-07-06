@@ -12,7 +12,7 @@ if (window.sidebar){
 
 function obtener_valor(variable) {
 	var remplaza = /\+/gi; 
-	var url = window.location.href;
+	var url = document.getElementById('ifrm1').src.href;
 	url = unescape(url);
 	url = url.replace(remplaza, " ");
 	var variable_may = variable;
