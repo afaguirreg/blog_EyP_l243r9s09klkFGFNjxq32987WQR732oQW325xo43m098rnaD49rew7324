@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Documento sin título</title>
+		<link rel="stylesheet" type="text/css" href="../0 - styles/mystyles.css">
+		<script language="JavaScript" src="../0 - scripts/myscripts.js"></script>
+		<script language="JavaScript" src="../0 - scripts/zoom/jquery-1.8.3.min.js"></script>	
+		<script language="JavaScript" src="../0 - scripts/zoom/jquery.elevatezoom.js"></script>
+	</head>
+
+	<body>
+		<div class="Normal" style="text-align:justify">
+			<b><i>Motores CA trifasicos</i></b>
+			<br><br>
+			<b><i>4.1 Conexión estrella</i></b>
+			<br><br>
+			<div align="center"><img src="img/4.1.png" alt="" width="auto" height="auto"></div>
+			<br><br>
+			<b><i>4.2 Conexión triángulo</i></b>
+			<br><br>
+			<div align="center"><img src="img/4.2.png" alt="" width="auto" height="auto"></div>
+			<br><br>
+			<b><i>4.3 Conexión estrella - triángulo</i></b>
+			<br><br>
+			<div align="center"><img id="img_zoom_1" src="img/4.3.png" alt="" width="1000" height="auto"></div>
+			<br><br>
+			<b><i>4.4 Conexión estrella - triángulo con inversión de giro</i></b>
+			<br><br>
+			<div align="center"><img id="img_zoom_2" src="img/4.4.png" alt="" width="1000" height="auto"></div>
+			<script>
+				$('#img_zoom_1').elevateZoom({
+					zoomLevel: 0,
+					zoomType : "lens",
+					lensShape : "round",
+					lensSize : 200
+				});
+				$('#img_zoom_2').elevateZoom({
+					zoomLevel: 0,
+					zoomType : "lens",
+					lensShape : "round",
+					lensSize : 200
+				});
+			</script>
+		</div>
+	</body>
+</html>
