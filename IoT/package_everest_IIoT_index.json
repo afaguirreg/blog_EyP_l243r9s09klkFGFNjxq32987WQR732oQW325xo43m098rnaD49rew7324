@@ -189,7 +189,7 @@
                 {
                     "name": "everest IoT-raspberry pi pico W",
                     "architecture": "megaavr",
-                    "version": "1.0.2",
+                    "version": "0.0.1",
                     "category": "Contributed",
                     "help": {
                         "online": "https://www.industrialshields.com"
@@ -199,8 +199,8 @@
                             "name": "Everest IoT Raspberry Pi Pico W"
                         }
                     ],
-                    "archiveFileName": "industrialshields-boards-megaavr-1.0.2.tar.bz2",
-                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-megaavr-1.0.2.tar.bz2",
+                    "archiveFileName": "rp2040-5.4.4.zip",
+                    "url": "https://github.com/earlephilhower/arduino-pico/releases/download/5.4.4/rp2040-5.4.4.zip",
                     "toolsDependencies": [
                         {
                             "packager": "industrialshields",
@@ -218,13 +218,13 @@
                             "version": "1.3.0"
                         }
                     ],
-                    "size": 899009,
-                    "checksum": "SHA-256:5854d5b10b4e3b1a964401f109e5da082e9dfd5e9f8dcb80022a334ca4162b8b"
+                    "size": 110156863,
+                    "checksum": "SHA-256:41d3ce2bbe5fa859e35fda64c48f6f6b895f51f965018c11aacfa5f4e5df517a"
                 },
                 {
                     "name": "everest IoT-LoRa32 U4 II",
                     "architecture": "megaavr",
-                    "version": "1.0.2",
+                    "version": "0.0.1",
                     "category": "Contributed",
                     "help": {
                         "online": "https://www.industrialshields.com"
