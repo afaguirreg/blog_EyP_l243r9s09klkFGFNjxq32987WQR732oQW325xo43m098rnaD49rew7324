@@ -9,7 +9,7 @@
                 {
                     "name": "everest IoT-avr",
                     "architecture": "avr",
-                    "version": "1.1.46",
+                    "version": "0.0.1",
                     "category": "Contributed",
                     "help": {
                         "online": "https://www.industrialshields.com"
@@ -23,30 +23,6 @@
                         },
                         {
                             "name": "Everest IoT Arduino MEGA2560"
-                        },
-                        {
-                            "name": "ARDBOX LoRa family"
-                        },
-                        {
-                            "name": "ARDBOX WiFi/BT family"
-                        },
-                        {
-                            "name": "M-Duino family"
-                        },
-                        {
-                            "name": "M-Duino DALI family"
-                        },
-                        {
-                            "name": "M-Duino GPRS family"
-                        },
-                        {
-                            "name": "M-Duino LoRa family"
-                        },
-                        {
-                            "name": "M-Duino WiFi/BT family"
-                        },
-                        {
-                            "name": "Spartan family"
                         }
                     ],
                     "archiveFileName": "industrialshields-boards-avr-1.1.46.tar.bz2",
@@ -69,7 +45,7 @@
                 {
                     "name": "everest IoT-esp32",
                     "architecture": "esp32",
-                    "version": "2.4.0",
+                    "version": "0.0.1",
                     "category": "Contributed",
                     "help": {
                         "online": "https://www.industrialshields.com"
