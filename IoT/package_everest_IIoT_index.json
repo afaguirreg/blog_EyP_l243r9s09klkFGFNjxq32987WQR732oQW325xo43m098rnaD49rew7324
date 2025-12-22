@@ -220,6 +220,41 @@
                     ],
                     "size": 899009,
                     "checksum": "SHA-256:5854d5b10b4e3b1a964401f109e5da082e9dfd5e9f8dcb80022a334ca4162b8b"
+                },
+                {
+                    "name": "everest IoT-LoRa32 U4 II",
+                    "architecture": "megaavr",
+                    "version": "1.0.2",
+                    "category": "Contributed",
+                    "help": {
+                        "online": "https://www.industrialshields.com"
+                    },
+                    "boards": [
+                        {
+                            "name": "Everest IoT Raspberry Pi Pico W"
+                        }
+                    ],
+                    "archiveFileName": "industrialshields-boards-megaavr-1.0.2.tar.bz2",
+                    "url": "https://apps.industrialshields.com/main/arduino/boards/industrialshields-boards-megaavr-1.0.2.tar.bz2",
+                    "toolsDependencies": [
+                        {
+                            "packager": "industrialshields",
+                            "name": "avr-gcc",
+                            "version": "7.3.0-atmel3.6.1-arduino5"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "avrdude",
+                            "version": "6.3.0-arduino17"
+                        },
+                        {
+                            "packager": "industrialshields",
+                            "name": "arduinoOTA",
+                            "version": "1.3.0"
+                        }
+                    ],
+                    "size": 899009,
+                    "checksum": "SHA-256:5854d5b10b4e3b1a964401f109e5da082e9dfd5e9f8dcb80022a334ca4162b8b"
                 }
             ],
             "tools": [
