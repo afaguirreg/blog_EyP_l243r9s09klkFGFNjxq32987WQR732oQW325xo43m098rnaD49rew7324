@@ -480,17 +480,41 @@
 			<a id="Inicio"></a>
 			Este módulo integra el dispositivo ESP32 para obtener una plataforma de desarrollo compatible con OpenPLC, dotada de comunicación WiFi para el desarrollo de aplicaciones IoT.
 			<br><br>
-			Descargar e instalar: <a href="https://autonomylogic.com/wp-content/uploads/files/OpenPLC%20Editor%20for%20Windows.exe" target="_blank">Open PLC Editor para Windows</a>
+			Descargar e instalar: <a href="https://github.com/Autonomy-Logic/openplc-editor/releases/download/v4.1.0/OpenPLC.Editor_4.1.0.exe" target="_blank">Open PLC Editor para Windows</a>
 			<br><br>
 			<iframe class="pag" scrolling="no" marginwidth="0" height="840" src="https://autonomylogic.com/"></iframe>
 			<br><br>
-			Iniciar OpenPLC y crear un nuevo proyecto desde el menú <b><i>Archivo--&gt;Nuevo</i></b>.
+			Iniciar OpenPLC Editor y crear un nuevo proyecto desde el menú <b><i>+ New Project</i></b>.
 			<br><br>
 			<div align="center"><img src="img/OpenPLC/OpenPLC_1.png" alt="" width="1000" height="auto"></div>
 			<br>
-			Seleccionar el lenguaje de programación del nuevo proyecto.
+			Seleccionar el tipo de proyecto <b><i>PLC Project</i></b>.
 			<br><br>
 			<div align="center"><img src="img/OpenPLC/OpenPLC_2.png" alt="" width="1000" height="auto"></div>
+			<br>
+			Nombrar y asignar la ruta de almacenamiento del proyecto.
+			<br><br>
+			<div align="center"><img src="img/OpenPLC/OpenPLC_3.png" alt="" width="1000" height="auto"></div>
+			<br>
+			Seleccionar el lenguaje de programación y el periodo de ejecución del programa principal.
+			<br><br>
+			<div align="center"><img src="img/OpenPLC/OpenPLC_4.png" alt="" width="1000" height="auto"></div>
+			<br>
+			Se debe configurar el entorno OpenPLC para poder compilar y cargar los programas adecuadamente al dispositivo Arduino Nano 33 IoT.
+			<br><br>
+			- Ir al menú <b><i>Device --&gt; Configuration</i></b>.
+			<br><br>
+			- Desmarcar la opción <b><i>Compile Only</i></b>.
+			<br><br>
+			- Seleccionar el dispositivo controlador en el menú <b><i>Device</i></b> y el puerto de comunicación USB en el menú <b><i>Communication Port</i></b>.
+			<br><br>
+			<div align="center"><img src="img/OpenPLC/OpenPLC_5_j.png" alt="" width="1000" height="auto"></div>
+			<br>
+			- Mapear los pines correspondientes a las entradas y las salidas del controlador.
+			<br><br>
+			- Habilitar comunicación Modbus RTU para monitoreo del controlador.
+			<br><br>
+			<div align="center"><img src="img/OpenPLC/OpenPLC_6_j.png" alt="" width="1000" height="auto"></div>
 			<br>
 			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" marginwidth="0" src="5.25 Heltec WiFi LoRa 32 V2_LCD_OpenPLC.html"></iframe>
 		</div>
