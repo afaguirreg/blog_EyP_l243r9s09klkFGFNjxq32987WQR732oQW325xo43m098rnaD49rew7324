@@ -1,7 +1,0 @@
-Adafruit IO
-Amazon Web Services
-Arduino IoT Cloud
-Firebase IoT
-Google Sheets
-Microsoft Azure
-My Devices IoT
