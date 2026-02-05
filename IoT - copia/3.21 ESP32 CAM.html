@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Documento sin título</title>
+		<link rel="stylesheet" type="text/css" href="../0 - styles/mystyles.css">
+		<script language="JavaScript" src="../0 - scripts/myscripts.js"></script>
+		<script type="text/javascript" src="../0 - scripts/jquery/jquery.min.js"></script>
+		<script language="JavaScript" src="../0 - scripts/zoom/jquery.elevatezoom.js"></script>
+		<script type="text/javascript" src="../0 - scripts/iframe/iframeResizer.min.js"></script>
+	</head>
+
+	<body>
+		<div class="Normal" style="text-align:justify">
+			<b><i>ESP32 CAM</i></b>
+			<br><br>
+			<img id="img1" src="img/IoT/IoT_1j2.png" alt="" width="auto" height="auto">
+			<br><br>
+			ESP32-CAM es un dispositivo con conectividad Wifi y Bluetooth y pines GPIO que, además, lleva integrada una cámara de video (2 MPx) y una ranura para tarjeta MicroSD (hasta 4Gb), donde se pueden almacenar fotos o videos.
+			<br><br>
+			Aplicaciones típicas:
+			<br><br>
+			. Tomar de fotografías.
+			<br>
+			. Streaming de video.
+			<br>
+			. Reconocimiento facial.
+			<br>
+			. Detector de movimiento.
+			<br><br>
+			El ESP32 CAM tiene menos pines GPIO que un módulo ESP32 convencional, ya que muchos de esos pines se utilizan para la gestión de la cámara y el conector microSD, aun así hay 9 pines GPIO disponibles.
+			<br><br>
+			Además, este dispositivo no cuenta con puerto USB, que comúnmente es la vía utilizada para cargar los programas a los distintos dispositivos ESPxx, Arduino, etc.
+			<br>
+			Al no contar con puerto USB debemos utilizar 6 pines para poder trabajar con el ESP32-CAM, dos pines para establecer el modo de funcionamiento del ESP32 CAM, dos para transmitir datos TX/RX entre ordenador y ESP32-CAM, y dos para alimentar la placa.
+			<br><br>
+			<img id="img2" src="img/3.17 ESP32 CAM_1.png" alt="" width="auto" height="auto">
+			<br><br>
+			CARACTERÍSTICAS
+			<br><br>
+			- Módulo ESP32-S
+			<br>
+			- Wi-Fi: 802.11b/g/n/e/i
+			<br>
+			- Seguridad: WPA/WPA2/WPA2-Enterprise/WPS
+			<br>
+			- CPU: 32-bit CPU de bajo consumo (2 cores).
+			<br>
+			- Velocidad de reloj: hasta 160 MHz.
+			<br>
+			- Bluetooth: Bluetooth 4.2 con BLE.
+			<br>
+			- Interfaces: UART, SPI, I2C and PWM. Hasta 9 pines GPIO
+			<br>
+			- RAM: 520 KB SRAM, externa 4 MB PSRAM
+			<br>
+			- Soporte microSD: hasta 4GB
+			<br>
+			- Múltiples modos de reposo (sleep modes):
+			<br>
+				- Deep-sleep: máximo bajo consumo que puede alcanzar 6mA@5V.
+			<br>
+				- Moderm-sleep: hasta 20mA@5V.
+			<br>
+				- Light-sleep: hasta 6.7mA@5V.
+			<br>
+			- Firmware actualizable a través de OTA (Over-The-Air).
+			<br>
+			- Flash incorporado.
+			<br>
+			- Voltaje de alimentación: 5 V.
+			<br>
+			- Conector de antena externa: en situación de comunicaciones poco estables se puede añadir una antena externa.
+			<br>
+			- Cámara:
+			<br>
+				- Soporte para cámaras OV2640 y OV7670.
+			<br>
+				- JPEG (OV2640 soportada), BMP, GRAYSCALE.
+			<br>
+				- Sensor 2 Megapixel.
+			<br>
+				- Resolución UXGA 1622×1200 px.
+			<br>
+				- Transferencia de imagen entre 15 y 60 FPS.
+			<br><br>
+			Antes de comenzar a programar se debe configurar el entorno Arduino para poder compilar y cargar los programas adecuadamente en el ESP32.
+			<br><br>
+			Iniciar Arduino IDE, abrir el menú <b><i>File--&gt;Preferences...</i></b>.
+			<br><br>
+			<div align="center"><img src="img/IoT/IoT_2.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Escribir la siguiente URL en la caja de texto Gestor de URLs Adicionales de Tarjetas: <b><i><a href="https://dl.espressif.com/dl/package_esp32_index.json" target="_blank">https://dl.espressif.com/dl/package_esp32_index.json</a></i></b>
+			<br><br>
+			<div align="center"><img src="img/IoT/IoT_3b.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Abrir el menú de la izquierda <b><i>BOARDS MANAGER</i></b>
+			<br><br>
+			Buscar en la lista el gestor del módulo ESP32.
+			<br><br>
+			Hacer click en el botón <b><i>INSTALL</i></b>.
+			<br><br>
+			<div align="center"><img src="img/IoT/IoT_4f.png" alt="" width="auto" height="auto"></div>
+			<br>
+			Una vez completa la instalación, cerrar Arduino IDE y  abrir nuevamente. Las librerías y ejemplos instalados estarán disponibles.
+			<br><br>
+			Abrir el menú <b><i>Herramientas--&gt;Placa</i></b> y seleccione la placa <b><i>AI Thinker ESP32-CAM.</i></b>
+			<br><br>
+			<div align="center"><img src="img/IoT/IoT_5i.png" alt="" width="1000" height="auto"></div>
+			<br><br>
+			<a id="CameraWebServer"></a>
+			<b><i>6.1 Ejemplo CameraWebServer</i></b>
+			<br><br>
+			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" marginwidth="0" src="html/9.1.html"></iframe>
+			<br><br>
+		</div>
+		<script type="text/javascript">
+			/*
+			* If you do not understand what the code below does, then please just use the
+			* following call in your own code.
+			*
+			*iFrameResize({log:true});
+			*
+			* Once you have it working, set the log option to false.
+			*/
+			iFrameResize({
+				log: true, // Enable console logging
+				inPageLinks: true,
+				onResized: function(messageData) {
+					// Callback fn when resize is received
+					$('p#callback').html('<b>Frame ID:</b> ' + messageData.iframe.id + ' <b>Height:</b> ' + messageData.height + ' <b>Width:</b> ' + messageData.width + ' <b>Event type:</b> ' + messageData.type)
+				},
+				onMessage: function(messageData) {
+					// Callback fn when message is received
+					$('p#callback').html('<b>Frame ID:</b> ' + messageData.iframe.id + ' <b>Message:</b> ' + messageData.message)
+					alert(messageData.message)
+					document.getElementsByTagName('iframe')[0].iFrameResizer.sendMessage('Hello back from parent page')
+				},
+				onClosed: function(id) {
+					// Callback fn when iFrame is closed
+					$('p#callback').html('<b>IFrame (</b>' + id + '<b>) removed from page.</b>')
+				}
+			})
+		</script>
+	</body>
+</html>

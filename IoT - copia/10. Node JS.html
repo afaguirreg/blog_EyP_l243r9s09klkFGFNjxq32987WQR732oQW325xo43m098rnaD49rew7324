@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Documento sin título</title>
+		<link rel="stylesheet" type="text/css" href="../0 - styles/mystyles.css">
+		<script language="JavaScript" src="../0 - scripts/myscripts.js"></script>
+		<script type="text/javascript" src="../0 - scripts/jquery/jquery.min.js"></script>
+		<script type="text/javascript" src="../0 - scripts/iframe/iframeResizer.min.js"></script>
+	</head>
+
+	<body>
+		<div class="Normal" style="text-align:justify">
+			<a id="Node JS"></a>
+			<b><i>Node JS</i></b>
+			<br><br>
+			Node.js es un entorno en tiempo de ejecución multiplataforma, de código abierto, para la capa del servidor (pero no limitándose a ello) basado en el lenguaje de programación JavaScript, asíncrono, con E/S de datos en una arquitectura orientada a eventos y basado en el motor V8 de Google. Fue creado con el enfoque de ser útil en la creación de programas de red altamente escalables, como por ejemplo, servidores web.
+			<br><br>
+			<b><i>Instalar Node JS</i></b>
+			<br>
+			<br>
+			1. Descargar e instalar: <a href="https://drive.google.com/uc?id=1dsqPD_CQWnsGEFbnJGOmZ-UNhoA9AsQR&amp;export=download&amp;authuser=0" target="_blank">Node JS para Windows</a>
+			<br><br>
+			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" marginwidth="0" src="https://nodejs.org/es/download/"></iframe>
+			<br><br>
+			<div align="center">
+				<video controls controlslist="nodownload" preload="preload" loop>
+					<source src="img/8. Node JS_1.mp4" type="video/webm">
+				</video>
+			</div>
+			<br>
+			7. Instalar Node-Red: npm install -g --unsafe-perm node-red
+			<br><br>
+			<div align="center">
+				<video controls controlslist="nodownload" preload="preload" loop>
+					<source src="img/8. Node JS_2.mp4" type="video/webm">
+				</video>
+			</div>
+			<br>
+			8. Instalar nodo S7: npm install -g node-red-contrib-s7
+		  <br><br>
+			<div align="center">
+				<video controls controlslist="nodownload" preload="preload" loop>
+					<source src="img/8. Node JS_3.mp4" type="video/webm">
+				</video>
+			</div>
+			<br>
+			8. Instalar nodo email: npm install -g node-red-node-email
+			<br><br>
+			<div align="center">
+				<video controls controlslist="nodownload" preload="preload" loop>
+					<source src="img/8. Node JS_4.mp4" type="video/webm">
+				</video>
+			</div>
+			<br>
+			8. Instalar nodo ubidots: npm install -g ubidots-nodered
+			<br><br>
+			<div align="center">
+				<video controls controlslist="nodownload" preload="preload" loop>
+					<source src="img/8. Node JS_5.mp4" type="video/webm">
+				</video>
+			</div>
+			<br>
+			8. Instalar nodo telegrambot: npm install -g node-red-contrib-telegrambot
+			<br><br>
+			<div align="center">
+				<video controls controlslist="nodownload" preload="preload" loop>
+					<source src="img/8. Node JS_6.mp4" type="video/webm">
+				</video>
+			</div>
+		</div>
+		<script type="text/javascript">
+			/*
+			* If you do not understand what the code below does, then please just use the
+			* following call in your own code.
+			*
+			*iFrameResize({log:true});
+			*
+			* Once you have it working, set the log option to false.
+			*/
+			iFrameResize({
+				log: true, // Enable console logging
+				inPageLinks: true,
+				onResized: function(messageData) {
+					// Callback fn when resize is received
+					$('p#callback').html('<b>Frame ID:</b> ' + messageData.iframe.id + ' <b>Height:</b> ' + messageData.height + ' <b>Width:</b> ' + messageData.width + ' <b>Event type:</b> ' + messageData.type)
+				},
+				onMessage: function(messageData) {
+					// Callback fn when message is received
+					$('p#callback').html('<b>Frame ID:</b> ' + messageData.iframe.id + ' <b>Message:</b> ' + messageData.message)
+					alert(messageData.message)
+					document.getElementsByTagName('iframe')[0].iFrameResizer.sendMessage('Hello back from parent page')
+				},
+				onClosed: function(id) {
+					// Callback fn when iFrame is closed
+					$('p#callback').html('<b>IFrame (</b>' + id + '<b>) removed from page.</b>')
+				}
+			})
+		</script>
+	</body>
+</html>

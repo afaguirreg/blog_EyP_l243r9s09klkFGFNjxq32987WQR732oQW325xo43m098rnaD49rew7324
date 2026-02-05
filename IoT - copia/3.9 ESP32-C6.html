@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Documento sin título</title>
+		<link rel="stylesheet" type="text/css" href="../0 - styles/mystyles.css">
+		<script language="JavaScript" src="../0 - scripts/myscripts.js"></script>
+		<script type="text/javascript" src="../0 - scripts/jquery/jquery.min.js"></script>
+		<script language="JavaScript" src="../0 - scripts/zoom/jquery.elevatezoom.js"></script>
+		<script type="text/javascript" src="../0 - scripts/iframe/iframeResizer.min.js"></script>
+	</head>
+
+	<body>
+		<div class="Normal" style="text-align:justify">
+			<a id="ESP32-C6"></a>
+			<b><i>ESP32-C6</i></b>
+			<br><br>
+			<div align="center"><img src="img/IoT/IoT_1g2.png" alt="" width="1000" height="auto"></div>
+			<br>
+			<table width="1000">
+				<tr>
+					<td width="260">
+						<input class="ButtonMain" type="button" value="AIx1-DIx7-DQx7-I2C-OneWire">
+						<br>
+						<input class="ButtonMain" type="button" value="WiFi-BLE-ZigBee-Threads">
+					</td>
+					<td width="240"><br></td>
+					<td width="240"><br></td>
+					<td width="240"><br></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>
+						<div align="center">
+							<b>ESP32-C6</b>
+							<br>
+							<b>LCD</b>
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<b>ESP32-C6</b>
+							<br>
+							<b>SSD1306</b>
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<b>ESP32-C6</b>
+							<br>
+							<b>SH1106</b>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td>
+						<div align="center">
+							<input class="ButtonSub" type="button"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html?verinfo=Inicio';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_Arduino.html'"
+								   value="Arduino">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonSub" type="button"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html?verinfo=Inicio';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_uPython.html'"
+								   value="uPython">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonSub" type="button"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html?verinfo=Inicio';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_Arduino.html'"
+								   value="Arduino">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonSub" type="button"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html?verinfo=Inicio';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_uPython.html'"
+								   value="uPython">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonSub" type="button"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html?verinfo=Inicio';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_Arduino.html'"
+								   value="Arduino">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonSub" type="button"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html?verinfo=Inicio';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_uPython.html'"
+								   value="uPython">
+						</div>
+					</td>
+				</tr>
+				<tr style="background-color:#F4FFFC">
+					<td>
+						Ejemplo Blink
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_Arduino.html?verinfo=Ejemplo Blink'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_uPython.html?verinfo=Ejemplo Blink'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_Arduino.html?verinfo=Ejemplo Blink'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_uPython.html?verinfo=Ejemplo Blink'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_Arduino.html?verinfo=Ejemplo Blink'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_uPython.html?verinfo=Ejemplo Blink'">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Visualización display
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_Arduino.html?verinfo=Visualizacion display'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_uPython.html?verinfo=Visualizacion display'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_Arduino.html?verinfo=Visualizacion display'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_uPython.html?verinfo=Visualizacion display'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_Arduino.html?verinfo=Visualizacion display'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_uPython.html?verinfo=Visualizacion display'">
+						</div>
+					</td>
+				</tr>
+				<tr style="background-color:#F4FFFC">
+					<td>
+						Entradas y salidas digitales
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_Arduino.html?verinfo=Entradas y salidas digitales'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_uPython.html?verinfo=Entradas y salidas digitales'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_Arduino.html?verinfo=Entradas y salidas digitales'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_uPython.html?verinfo=Entradas y salidas digitales'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_Arduino.html?verinfo=Entradas y salidas digitales'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_uPython.html?verinfo=Entradas y salidas digitales'">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Control motor DC
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_Arduino.html?verinfo=Control motor DC'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_uPython.html?verinfo=Control motor DC'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_Arduino.html?verinfo=Control motor DC'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_uPython.html?verinfo=Control motor DC'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_Arduino.html?verinfo=Control motor DC'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_uPython.html?verinfo=Control motor DC'">
+						</div>
+					</td>
+				</tr>
+				<tr style="background-color:#F4FFFC">
+					<td>
+						Control relé electromecánico
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_Arduino.html?verinfo=Control rele electromecanico'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_uPython.html?verinfo=Control rele electromecanico'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_Arduino.html?verinfo=Control rele electromecanico'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_uPython.html?verinfo=Control rele electromecanico'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_Arduino.html?verinfo=Control rele electromecanico'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_uPython.html?verinfo=Control rele electromecanico'">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Control relé de estado sólido
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_Arduino.html?verinfo=Control rele de estado solido'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_uPython.html?verinfo=Control rele de estado solido'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_Arduino.html?verinfo=Control rele de estado solido'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_uPython.html?verinfo=Control rele de estado solido'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_Arduino.html?verinfo=Control rele de estado solido'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_uPython.html?verinfo=Control rele de estado solido'">
+						</div>
+					</td>
+				</tr>
+				<tr style="background-color:#F4FFFC">
+					<td>
+						Control TRIAC
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_Arduino.html?verinfo=Control TRIAC'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_uPython.html?verinfo=Control TRIAC'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_Arduino.html?verinfo=Control TRIAC'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_uPython.html?verinfo=Control TRIAC'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_Arduino.html?verinfo=Control TRIAC'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_uPython.html?verinfo=Control TRIAC'">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Control contactor
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_Arduino.html?verinfo=Control contactor'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_uPython.html?verinfo=Control contactor'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_Arduino.html?verinfo=Control contactor'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_uPython.html?verinfo=Control contactor'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_Arduino.html?verinfo=Control contactor'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_uPython.html?verinfo=Control contactor'">
+						</div>
+					</td>
+				</tr>
+				<tr style="background-color:#F4FFFC">
+					<td>
+						Contador
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_Arduino.html?verinfo=Contador'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_uPython.html?verinfo=Contador'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_Arduino.html?verinfo=Contador'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_uPython.html?verinfo=Contador'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_Arduino.html?verinfo=Contador'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_uPython.html?verinfo=Contador'">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Entrada análoga
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_Arduino.html?verinfo=Entrada analoga'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_uPython.html?verinfo=Entrada analoga'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_Arduino.html?verinfo=Entrada analoga'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_uPython.html?verinfo=Entrada analoga'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_Arduino.html?verinfo=Entrada analoga'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_uPython.html?verinfo=Entrada analoga'">
+						</div>
+					</td>
+				</tr>
+				<tr style="background-color:#F4FFFC">
+					<td>
+						Salida análoga (PWM)
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_Arduino.html?verinfo=Salida analoga (PWM)'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_uPython.html?verinfo=Salida analoga (PWM)'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_Arduino.html?verinfo=Salida analoga (PWM)'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_uPython.html?verinfo=Salida analoga (PWM)'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_Arduino.html?verinfo=Salida analoga (PWM)'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_uPython.html?verinfo=Salida analoga (PWM)'">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<b>Comunicación One Wire:</b>
+					</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr style="background-color:#F4FFFC">
+					<td>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sensor DS18B20
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_Arduino.html?verinfo=Comunicacion One Wire sensor DS18B20'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_uPython.html?verinfo=Comunicacion One Wire sensor DS18B20'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_Arduino.html?verinfo=Comunicacion One Wire sensor DS18B20'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_uPython.html?verinfo=Comunicacion One Wire sensor DS18B20'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_Arduino.html?verinfo=Comunicacion One Wire sensor DS18B20'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_uPython.html?verinfo=Comunicacion One Wire sensor DS18B20'">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sensor DHT11
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_Arduino.html?verinfo=Comunicacion One Wire sensor DHT11'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_uPython.html?verinfo=Comunicacion One Wire sensor DHT11'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_Arduino.html?verinfo=Comunicacion One Wire sensor DHT11'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_uPython.html?verinfo=Comunicacion One Wire sensor DHT11'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_Arduino.html?verinfo=Comunicacion One Wire sensor DHT11'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_uPython.html?verinfo=Comunicacion One Wire sensor DHT11'">
+						</div>
+					</td>
+				</tr>
+				<tr style="background-color:#F4FFFC">
+					<td>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sensor DHT21
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_Arduino.html?verinfo=Comunicacion One Wire sensor DHT21'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_uPython.html?verinfo=Comunicacion One Wire sensor DHT21'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_Arduino.html?verinfo=Comunicacion One Wire sensor DHT21'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_uPython.html?verinfo=Comunicacion One Wire sensor DHT21'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_Arduino.html?verinfo=Comunicacion One Wire sensor DHT21'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_uPython.html?verinfo=Comunicacion One Wire sensor DHT21'">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sensor DHT22
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_Arduino.html?verinfo=Comunicacion One Wire sensor DHT22'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_uPython.html?verinfo=Comunicacion One Wire sensor DHT22'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_Arduino.html?verinfo=Comunicacion One Wire sensor DHT22'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_uPython.html?verinfo=Comunicacion One Wire sensor DHT22'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_Arduino.html?verinfo=Comunicacion One Wire sensor DHT22'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_uPython.html?verinfo=Comunicacion One Wire sensor DHT22'">
+						</div>
+					</td>
+				</tr>
+				<tr style="background-color:#F4FFFC">
+					<td>
+						<b>Comunicación I2C:</b>
+					</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sensor SHT1x
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_Arduino.html?verinfo=Comunicacion I2C sensor SHT1x'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_uPython.html?verinfo=Comunicacion I2C sensor SHT1x'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_Arduino.html?verinfo=Comunicacion I2C sensor SHT1x'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_uPython.html?verinfo=Comunicacion I2C sensor SHT1x'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_Arduino.html?verinfo=Comunicacion I2C sensor SHT1x'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_uPython.html?verinfo=Comunicacion I2C sensor SHT1x'">
+						</div>
+					</td>
+				</tr>
+				<tr style="background-color:#F4FFFC">
+					<td>
+						<b>Comunicación serial (UART):</b>
+					</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Serial_println
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_Arduino.html?verinfo=Comunicacion serial asincrona (UART)'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_uPython.html?verinfo=Comunicacion serial asincrona (UART)'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_Arduino.html?verinfo=Comunicacion serial asincrona (UART)'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_uPython.html?verinfo=Comunicacion serial asincrona (UART)'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_Arduino.html?verinfo=Comunicacion serial asincrona (UART)'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_uPython.html?verinfo=Comunicacion serial asincrona (UART)'">
+						</div>
+					</td>
+				</tr>
+				<tr style="background-color:#F4FFFC">
+					<td>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COM_TEST
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_Arduino.html?verinfo=Comunicacion serial asincrona (UART)'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_uPython.html?verinfo=Comunicacion serial asincrona (UART)'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_Arduino.html?verinfo=Comunicacion serial asincrona (UART)'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_uPython.html?verinfo=Comunicacion serial asincrona (UART)'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_Arduino.html?verinfo=Comunicacion serial asincrona (UART)'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_uPython.html?verinfo=Comunicacion serial asincrona (UART)'">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Comunicación Bluetooth
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_Arduino.html?verinfo=Comunicacion Bluetooth'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_uPython.html?verinfo=Comunicacion Bluetooth'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_Arduino.html?verinfo=Comunicacion Bluetooth'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_uPython.html?verinfo=Comunicacion Bluetooth'">
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_Arduino.html?verinfo=Comunicacion Bluetooth'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input class="ButtonTab" type="image" src="img/yes_uPython.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__uPython.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_uPython.html?verinfo=Comunicacion Bluetooth'">
+						</div>
+					</td>
+				</tr>
+				<tr style="background-color:#F4FFFC">
+					<td>
+						<b>Modos WiFi</b>
+					</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr>
+					<td>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Access Point - AP
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_Arduino.html?verinfo=Modo punto de acceso (Access Point - AP)'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_Arduino.html?verinfo=Modo punto de acceso (Access Point - AP)'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_Arduino.html?verinfo=Modo punto de acceso (Access Point - AP)'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</div>
+					</td>
+				</tr>
+				<tr style="background-color:#F4FFFC">
+					<td>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Station - STA
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_Arduino.html?verinfo=Modo estacion (Station - STA)'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_Arduino.html?verinfo=Modo estacion (Station - STA)'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_Arduino.html?verinfo=Modo estacion (Station - STA)'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<b>Cloud Dashboard</b>
+					</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+				<tr style="background-color:#F4FFFC">
+					<td>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Blynk IoT
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_Arduino.html?verinfo=Blynk IoT'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_Arduino.html?verinfo=Blynk IoT'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_Arduino.html?verinfo=Blynk IoT'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ThinkSpeak IoT
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_Arduino.html?verinfo=ThingSpeak IoT'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_Arduino.html?verinfo=ThingSpeak IoT'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_Arduino.html?verinfo=ThingSpeak IoT'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</div>
+					</td>
+				</tr>
+				<tr style="background-color:#F4FFFC">
+					<td>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ubidots IoT
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.9 ESP32-C6_LCD_Arduino.html?verinfo=Ubidots IoT'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.10 ESP32-C6_SSD1306_Arduino.html?verinfo=Ubidots IoT'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</div>
+					</td>
+					<td>
+						<div align="center">
+							<input class="ButtonTab" type="image" src="img/yes_Arduino.png"
+								   onClick="document.getElementById('ifrm1').src='3.9 ESP32-C6__Arduino.html';
+											document.getElementById('ifrm2').src='3.11 ESP32-C6_SH1106_Arduino.html?verinfo=Ubidots IoT'">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</div>
+					</td>
+				</tr>
+			</table>
+			<br><br>
+			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" marginwidth="0" src="3.9 ESP32-C6__Arduino.html"></iframe>
+			<br><br>
+			<iframe class="pag" id="ifrm2" name="ifrm2" scrolling="no" marginwidth="0" src="3.9 ESP32-C6_LCD_Arduino.html"></iframe>
+		</div>
+		<script type="text/javascript">
+			/*
+			* If you do not understand what the code below does, then please just use the
+			* following call in your own code.
+			*
+			*iFrameResize({log:true});
+			*
+			* Once you have it working, set the log option to false.
+			*/
+			iFrameResize({
+				log: true, // Enable console logging
+				inPageLinks: true,
+				onResized: function(messageData) {
+					// Callback fn when resize is received
+					$('p#callback').html('<b>Frame ID:</b> ' + messageData.iframe.id + ' <b>Height:</b> ' + messageData.height + ' <b>Width:</b> ' + messageData.width + ' <b>Event type:</b> ' + messageData.type)
+				},
+				onMessage: function(messageData) {
+					// Callback fn when message is received
+					$('p#callback').html('<b>Frame ID:</b> ' + messageData.iframe.id + ' <b>Message:</b> ' + messageData.message)
+					alert(messageData.message)
+					document.getElementsByTagName('iframe')[0].iFrameResizer.sendMessage('Hello back from parent page')
+				},
+				onClosed: function(id) {
+					// Callback fn when iFrame is closed
+					$('p#callback').html('<b>IFrame (</b>' + id + '<b>) removed from page.</b>')
+				}
+			})
+		</script>
+	</body>
+</html>
