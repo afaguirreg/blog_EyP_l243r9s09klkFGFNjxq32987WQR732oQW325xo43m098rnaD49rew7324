@@ -5,12 +5,16 @@
 		<title>Documento sin título</title>
 		<link rel="stylesheet" type="text/css" href="../0 - styles/mystyles.css">
 		<script language="JavaScript" src="../0 - scripts/myscripts.js"></script>
+		<script type="text/javascript" src="../0 - scripts/iframe/iframeResizer.contentWindow.min.js" defer></script>
+		<script type="text/javascript" src="../0 - scripts/jquery/jquery.min.js"></script>
+		<script language="JavaScript" src="../0 - scripts/zoom/jquery.elevatezoom.js"></script>
+		<script type="text/javascript" src="../0 - scripts/iframe/iframeResizer.min.js"></script>
 	</head>
 
 	<body>
-		<a id="CONTENIDO"></a>
-		<table width="1000">
-			<tbody>
+		<div class="Normal" style="text-align:justify">
+			<a id="CONTENIDO"></a>
+			<table width="1000">
 				<tr>
 					<td><input class="ButtonSub" type="button" target="_self" onClick="window.location='1. Lampara BT.html'" value="    1. Lámpara Bluetooth"/></td>
 				</tr>
@@ -20,7 +24,8 @@
 				<tr>
 					<td><input class="ButtonSub" type="button" target="_self" onClick="window.location='3. Switch SONOFF TH16.html'" value="    3. Switch SONOFF TH16"/></td>
 				</tr>
-			</tbody>
-		</table>
+			</table>
+			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" marginwidth="0" src="html/0.html"></iframe>
+		</div>
 	</body>
 </html>
