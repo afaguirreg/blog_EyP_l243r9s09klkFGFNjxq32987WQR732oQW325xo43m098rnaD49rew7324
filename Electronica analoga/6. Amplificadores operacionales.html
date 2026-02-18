@@ -5,10 +5,10 @@
 		<title>Documento sin título</title>
 		<link rel="stylesheet" type="text/css" href="../0 - styles/mystyles.css">
 		<script language="JavaScript" src="../0 - scripts/myscripts.js"></script>
+		<script type="text/javascript" src="../0 - scripts/iframe/iframeResizer.contentWindow.min.js" defer></script>
 		<script language="JavaScript" src="https://yui-s.yahooapis.com/3.18.1/build/yui/yui-min.js"></script>
 		<script type="text/javascript" src="../0 - scripts/jquery/jquery.min.js"></script>
-		<script type="text/javascript" src="../0 - scripts/iframe/iframeResizer.contentWindow.min.js" defer></script>
-    <style type="text/css">
+<style type="text/css">
 	    <!--
 p.MsoNormal {
 margin-top:0cm;
@@ -27,53 +27,51 @@ font-family:"Calibri",sans-serif;
 		<div class="Normal" style="text-align:justify">
 			<br><br><br>
 			<table>
-				<tbody>
-					<tr>
-						<td width="520">
-							<div><br></div>
-						</td>
-						<td>
-							<label id="Salida" style="font-weight: bold; font-size: 18pt;"><b>Sensor: 0</b></label>
-						</td>
-					</tr>
-				</tbody>
+				<tr>
+					<td width="520">
+						<div><br></div>
+					</td>
+					<td>
+						<label id="Salida" style="font-weight: bold; font-size: 18pt;"><b>Sensor: 0</b></label>
+					</td>
+				</tr>
 			</table>
 			<br><br><br><br><br>
 			<br><br><br><br><br>
 			<br><br><br><br><br>
 			<br><br><br><br>
 			<br><br><br><br>
-		  <table>
-				<tbody>
-					<tr>
-						<td width="187">
-							<div align="center"><b>Smax</b></div>
-							<div align="center"><input type="number" style="width:96px" class="panel" id="Smax" value="1023" min="-9999" max="9999" onchange="capturar();"></div>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<div><br></div>
-						</td>
-						<td>
-							<div><br></div>
-							<div id="demo"></div>
-						</td>
-						<td width="13">
-						</td>
-						<td>
-							<br><br><br><br><br>
-							<br><br><br><br><br>
-							<div align="center"><input style="color: greenyellow; background-color: #064202; width:45px; text-align: center; font-family: Arial, sans-serif;	font-weight: bold; font-size: 10pt; padding: 1px 1px; margin: 0px 0; box-sizing: border-box; border: none;" id="voltaje" value=" 0.000" disabled></div>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<div align="center"><b>Smin</b></div>
-							<div align="center"><input type="number" style="width:96px" class="panel" id="Smin" value="0" min="-9999" max="9999" onchange="capturar();"></div>
-						</td>
-					</tr>
-				</tbody>
+			<table>
+				<tr>
+					<td width="187">
+						<div align="center"><b>Smax</b></div>
+						<div align="center"><input type="number" style="width:96px" class="panel" id="Smax" value="1023" min="-9999" max="9999" onchange="capturar();"></div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div><br></div>
+					</td>
+					<td>
+						<div><br></div>
+						<div id="demo"></div>
+					</td>
+					<td width="13">
+					</td>
+					<td>
+						<br><br><br><br><br>
+						<br><br><br><br><br>
+						<div align="center">
+						<input style="color: greenyellow; background-color: #064202; width:45px; text-align: center; font-family: Arial, sans-serif;	font-weight: bold; font-size: 10pt; padding: 1px 1px; margin: 0px 0; box-sizing: border-box; border: none;" id="voltaje" value=" 0.000" disabled>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div align="center"><b>Smin</b></div>
+						<div align="center"><input type="number" style="width:96px" class="panel" id="Smin" value="0" min="-9999" max="9999" onchange="capturar();"></div>
+					</td>
+				</tr>
 			</table>
 			<br><br><br>
 			<script>
@@ -344,6 +342,7 @@ font-family:"Calibri",sans-serif;
             <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">&nbsp; </span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">lcd</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">.</span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">print</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">(</span><span style="font-family:Consolas; font-size:10.5pt; color:#005C5F; ">&quot; &nbsp; &quot;</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">)</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">;</span></p>
             <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">&nbsp; </span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">delay</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">(</span><span style="font-family:Consolas; font-size:10.5pt; color:#005C5F; ">500</span><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">)</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; ">;</span></p>
             <p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#434F54; ">}</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "> </span></p>
+		<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" marginwidth="0" src="html/0.html"></iframe>
 <script>
 				function capturar() {
 					var Smax = document.getElementById("Smax").value;
