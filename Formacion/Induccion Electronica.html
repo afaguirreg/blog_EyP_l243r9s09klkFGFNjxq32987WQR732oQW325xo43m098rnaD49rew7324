@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividades de Inducción - Electrónica Industrial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Estilos específicos para el Crucigrama */
+        .cw-cell {
+            width: 32px;
+            height: 32px;
+            border: 1px solid #94a3b8;
+            position: relative;
+            background-color: white;
+        }
+        @media (min-width: 768px) {
+            .cw-cell { width: 40px; height: 40px; }
+        }
+        .cw-empty {
+            background-color: #334155; /* Casillas vacías oscuras */
+            border-color: #334155;
+        }
+        .cw-input {
+            width: 100%;
+            height: 100%;
+            border: none;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #1e293b;
+            background: transparent;
+            outline: none;
+            caret-color: #16a34a;
+        }
+        .cw-input:focus {
+            background-color: #dcfce7; /* Resaltado al enfocar */
+        }
+        .cw-input.correct {
+            background-color: #bbf7d0;
+            color: #166534;
+        }
+        .cw-input.incorrect {
+            background-color: #fecaca;
+            color: #991b1b;
+        }
+        .cw-number {
+            position: absolute;
+            top: 1px;
+            left: 2px;
+            font-size: 10px;
+            font-weight: bold;
+            color: #475569;
+            pointer-events: none;
+        }
+        /* Utilidades generales */
+        .hidden-section { display: none !important; }
+        canvas { touch-action: none; } /* Prevenir scroll al dibujar en móvil */
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen font-sans text-slate-800 selection:bg-green-200">
+
+    <!-- Encabezado Institucional -->
+    <header class="bg-green-700 text-white p-5 shadow-md text-center">
+        <h1 class="text-2xl md:text-3xl font-bold">Inducción: Desarrollo de Sistemas Electrónicos Industriales</h1>
+        <p class="text-sm md:text-base opacity-90 mt-1">SENA - Formación Profesional Integral</p>
+    </header>
+
+    <main class="max-w-6xl mx-auto p-4 md:p-6">
+        <input class="ButtonSub" type="button" target="_blank" onclick="window.open('https://drive.google.com/uc?id=1xVctBNG2BiwRp1ousPdB3SHTJIhfO_MU&amp;export=download&amp;authuser=0')" value="Descargar PDF Progrma de formación">
+        <!-- Pestañas de Navegación -->
+        <div class="flex justify-center space-x-2 md:space-x-4 mb-8">
+            <button onclick="switchTab('sopa')" id="btn-sopa" class="px-6 py-2 rounded-full font-bold bg-green-600 text-white shadow transition-all hover:bg-green-700">Sopa de Letras (Canvas)</button>
+            <button onclick="switchTab('crucigrama')" id="btn-crucigrama" class="px-6 py-2 rounded-full font-bold bg-slate-200 text-slate-700 shadow transition-all hover:bg-slate-300">Crucigrama Técnico</button>
+        </div>
+
+        <!-- SECCIÓN 1: SOPA DE LETRAS (CANVAS) -->
+        <section id="sopa-container" class="space-y-6">
+            <div class="bg-white p-4 md:p-8 rounded-2xl shadow-sm border border-slate-200 flex flex-col lg:flex-row gap-8 items-center lg:items-start">
+                
+                <div class="relative flex-shrink-0">
+                    <h2 class="text-xl font-bold mb-4 text-green-800 text-center">Encuentra los Conceptos Clave</h2>
+                    <div class="border-4 border-slate-800 rounded-lg overflow-hidden bg-white inline-block shadow-inner">
+                        <!-- El Canvas HTML5 donde se dibuja el juego interactivo -->
+                        <canvas id="sopaCanvas" width="480" height="480" class="max-w-full h-auto cursor-crosshair"></canvas>
+                    </div>
+                </div>
+
+                <div class="flex-1 w-full lg:mt-12">
+                    <h3 class="font-bold text-lg text-slate-700 mb-4 border-b-2 border-green-500 pb-2">Términos a localizar:</h3>
+                    <ul id="wordList" class="grid grid-cols-2 gap-y-3 gap-x-4 text-sm md:text-base font-medium">
+                        <!-- Lista inyectada por JS -->
+                    </ul>
+                    
+                    <div class="mt-8 p-4 bg-slate-100 rounded-xl border border-slate-200">
+                        <p class="text-sm text-slate-600">
+                            <strong>Instrucciones:</strong> Haz clic (o toca) en la primera letra y arrastra hasta la última letra para seleccionar la palabra. Las palabras pueden estar en cualquier dirección.
+                        </p>
+                        <button onclick="initSopa()" class="mt-4 w-full md:w-auto bg-slate-700 text-white px-5 py-2 rounded-lg font-bold hover:bg-slate-800 transition">
+                            Reiniciar Sopa
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2: CRUCIGRAMA DOM -->
+        <section id="crucigrama-container" class="hidden-section space-y-6">
+            <div class="bg-white p-4 md:p-8 rounded-2xl shadow-sm border border-slate-200 flex flex-col xl:flex-row gap-8">
+                
+                <div class="flex-shrink-0 overflow-x-auto w-full xl:w-auto">
+                    <h2 class="text-xl font-bold mb-4 text-blue-800 text-center">Evalúa tus Conocimientos</h2>
+                    <div id="crossword-grid" class="mx-auto bg-slate-800 p-2 rounded-lg shadow-inner inline-grid gap-[1px]">
+                        <!-- Cuadrícula inyectada por JS -->
+                    </div>
+                </div>
+
+                <div class="flex-1 space-y-6 min-w-0">
+                    <div class="bg-blue-50 p-5 rounded-xl border border-blue-100">
+                        <h3 class="font-bold text-blue-800 border-b-2 border-blue-300 pb-1 mb-3">HORIZONTALES</h3>
+                        <ul id="clues-hor" class="text-sm md:text-base space-y-3 text-slate-700"></ul>
+                    </div>
+                    
+                    <div class="bg-green-50 p-5 rounded-xl border border-green-100">
+                        <h3 class="font-bold text-green-800 border-b-2 border-green-300 pb-1 mb-3">VERTICALES</h3>
+                        <ul id="clues-ver" class="text-sm md:text-base space-y-3 text-slate-700"></ul>
+                    </div>
+                    
+                    <button onclick="verifyCrossword()" class="w-full bg-blue-600 text-white py-3 rounded-xl font-bold text-lg shadow-md hover:bg-blue-700 transition active:transform active:scale-95">
+                        Verificar Respuestas
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // ==========================================
+        // CONTROL DE NAVEGACIÓN (PESTAÑAS)
+        // ==========================================
+        function switchTab(tab) {
+            const sopa = document.getElementById('sopa-container');
+            const cruci = document.getElementById('crucigrama-container');
+            const btnSopa = document.getElementById('btn-sopa');
+            const btnCruci = document.getElementById('btn-crucigrama');
+
+            if (tab === 'sopa') {
+                sopa.classList.remove('hidden-section');
+                cruci.classList.add('hidden-section');
+                btnSopa.className = 'px-6 py-2 rounded-full font-bold bg-green-600 text-white shadow transition-all hover:bg-green-700';
+                btnCruci.className = 'px-6 py-2 rounded-full font-bold bg-slate-200 text-slate-700 shadow transition-all hover:bg-slate-300';
+            } else {
+                sopa.classList.add('hidden-section');
+                cruci.classList.remove('hidden-section');
+                btnSopa.className = 'px-6 py-2 rounded-full font-bold bg-slate-200 text-slate-700 shadow transition-all hover:bg-slate-300';
+                btnCruci.className = 'px-6 py-2 rounded-full font-bold bg-blue-600 text-white shadow transition-all hover:bg-blue-700';
+            }
+        }
+
+
+        // ==========================================
+        // LÓGICA DE SOPA DE LETRAS (CANVAS)
+        // ==========================================
+        const canvas = document.getElementById('sopaCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Configuración
+        const gridSize = 16;
+        const cellSize = canvas.width / gridSize;
+        const wordsToFind = [
+            "MICROCONTROLADOR", "PLC", "SENSOR", "ACTUADOR", 
+            "MANTENIMIENTO", "AUTOMATIZACION", "CIRCUITO", "ELECTRONICA"
+        ];
+        
+        let letterGrid = [];
+        let foundLines = [];
+        let isDragging = false;
+        let startCell = null;
+        let currentCell = null;
+        let remainingWords = [];
+
+        // Inicializar el juego
+        function initSopa() {
+            letterGrid = Array(gridSize).fill().map(() => Array(gridSize).fill(''));
+            foundLines = [];
+            remainingWords = [...wordsToFind];
+            
+            // Llenar lista HTML
+            const ul = document.getElementById('wordList');
+            ul.innerHTML = '';
+            wordsToFind.forEach(w => {
+                const li = document.createElement('li');
+                li.id = `word-${w}`;
+                li.className = 'flex items-center text-slate-600 transition-colors';
+                li.innerHTML = `<span class="w-3 h-3 rounded-full bg-slate-300 mr-2 inline-block shadow-inner"></span> ${w}`;
+                ul.appendChild(li);
+            });
+
+            placeWords();
+            fillEmpty();
+            drawCanvas();
+        }
+
+        // Algoritmo para colocar palabras aleatoriamente
+        function placeWords() {
+            const dirs = [
+                [0,1], [1,0], [1,1], [-1,1], [0,-1], [-1,0], [-1,-1], [1,-1]
+            ];
+            
+            wordsToFind.forEach(word => {
+                let placed = false;
+                let attempts = 0;
+                while (!placed && attempts < 200) {
+                    attempts++;
+                    const d = dirs[Math.floor(Math.random() * dirs.length)];
+                    const r = Math.floor(Math.random() * gridSize);
+                    const c = Math.floor(Math.random() * gridSize);
+                    
+                    let canPlace = true;
+                    for (let i = 0; i < word.length; i++) {
+                        let nr = r + d[0] * i;
+                        let nc = c + d[1] * i;
+                        if (nr < 0 || nr >= gridSize || nc < 0 || nc >= gridSize) { canPlace = false; break; }
+                        if (letterGrid[nr][nc] !== '' && letterGrid[nr][nc] !== word[i]) { canPlace = false; break; }
+                    }
+                    
+                    if (canPlace) {
+                        for (let i = 0; i < word.length; i++) {
+                            letterGrid[r + d[0] * i][c + d[1] * i] = word[i];
+                        }
+                        placed = true;
+                    }
+                }
+            });
+        }
+
+        // Rellenar espacios vacíos
+        function fillEmpty() {
+            const letters = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+            for(let r=0; r<gridSize; r++){
+                for(let c=0; c<gridSize; c++){
+                    if(letterGrid[r][c] === '') {
+                        letterGrid[r][c] = letters[Math.floor(Math.random() * letters.length)];
+                    }
+                }
+            }
+        }
+
+        // Renderizado del Canvas
+        function drawCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Fondo cuadrícula sutil
+            ctx.strokeStyle = '#f1f5f9';
+            ctx.lineWidth = 1;
+            for(let i=0; i<=gridSize; i++){
+                ctx.beginPath(); ctx.moveTo(i*cellSize, 0); ctx.lineTo(i*cellSize, canvas.height); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(0, i*cellSize); ctx.lineTo(canvas.width, i*cellSize); ctx.stroke();
+            }
+
+            // Dibujar líneas encontradas
+            foundLines.forEach(line => {
+                drawPill(line.sc, line.sr, line.ec, line.er, 'rgba(34, 197, 94, 0.4)'); // Verde
+            });
+
+            // Dibujar línea actual
+            if (isDragging && startCell && currentCell) {
+                drawPill(startCell.c, startCell.r, currentCell.c, currentCell.r, 'rgba(56, 189, 248, 0.4)'); // Azul
+            }
+
+            // Dibujar Letras
+            ctx.fillStyle = '#1e293b';
+            ctx.font = 'bold 18px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            
+            for(let r=0; r<gridSize; r++){
+                for(let c=0; c<gridSize; c++){
+                    ctx.fillText(letterGrid[r][c], c * cellSize + cellSize/2, r * cellSize + cellSize/2 + 2);
+                }
+            }
+        }
+
+        // Dibuja la pastilla redondeada sobre las letras
+        function drawPill(sc, sr, ec, er, color) {
+            ctx.strokeStyle = color;
+            ctx.lineWidth = cellSize * 0.8;
+            ctx.lineCap = 'round';
+            ctx.beginPath();
+            ctx.moveTo(sc * cellSize + cellSize/2, sr * cellSize + cellSize/2);
+            ctx.lineTo(ec * cellSize + cellSize/2, er * cellSize + cellSize/2);
+            ctx.stroke();
+        }
+
+        // Eventos del Mouse y Touch
+        function getCellFromEvent(e) {
+            const rect = canvas.getBoundingClientRect();
+            // Calcular escala por si el canvas está redimensionado por CSS
+            const scaleX = canvas.width / rect.width;
+            const scaleY = canvas.height / rect.height;
+            
+            let clientX = e.clientX;
+            let clientY = e.clientY;
+            
+            if (e.touches && e.touches.length > 0) {
+                clientX = e.touches[0].clientX;
+                clientY = e.touches[0].clientY;
+            }
+
+            const x = (clientX - rect.left) * scaleX;
+            const y = (clientY - rect.top) * scaleY;
+            
+            return {
+                c: Math.floor(x / cellSize),
+                r: Math.floor(y / cellSize)
+            };
+        }
+
+        function handleStart(e) {
+            e.preventDefault();
+            isDragging = true;
+            startCell = getCellFromEvent(e);
+            currentCell = startCell;
+            drawCanvas();
+        }
+
+        function handleMove(e) {
+            if (!isDragging) return;
+            e.preventDefault();
+            const cell = getCellFromEvent(e);
+            
+            // Restringir a líneas rectas (horizontal, vertical, diagonal)
+            const dr = Math.abs(cell.r - startCell.r);
+            const dc = Math.abs(cell.c - startCell.c);
+            
+            if (dr === 0 || dc === 0 || dr === dc) {
+                currentCell = cell;
+                drawCanvas();
+            }
+        }
+
+        function handleEnd(e) {
+            if (!isDragging) return;
+            e.preventDefault();
+            isDragging = false;
+            
+            if (startCell && currentCell) {
+                checkSelection(startCell, currentCell);
+            }
+            startCell = null;
+            currentCell = null;
+            drawCanvas();
+        }
+
+        // Validar si la selección es una palabra válida
+        function checkSelection(start, end) {
+            let word = "";
+            let wordRev = "";
+            
+            const dr = end.r - start.r;
+            const dc = end.c - start.c;
+            
+            const steps = Math.max(Math.abs(dr), Math.abs(dc));
+            const stepR = dr === 0 ? 0 : dr / Math.abs(dr);
+            const stepC = dc === 0 ? 0 : dc / Math.abs(dc);
+            
+            for(let i=0; i<=steps; i++){
+                const r = start.r + i * stepR;
+                const c = start.c + i * stepC;
+                if(r >= 0 && r < gridSize && c >= 0 && c < gridSize){
+                    word += letterGrid[r][c];
+                }
+            }
+            
+            wordRev = word.split('').reverse().join('');
+
+            // Verificar si coincide con las palabras restantes
+            let found = null;
+            if (remainingWords.includes(word)) found = word;
+            else if (remainingWords.includes(wordRev)) found = wordRev;
+
+            if (found) {
+                // Registrar línea encontrada
+                foundLines.push({ sc: start.c, sr: start.r, ec: end.c, er: end.r });
+                // Quitar de pendientes y marcar en UI
+                remainingWords = remainingWords.filter(w => w !== found);
+                
+                const li = document.getElementById(`word-${found}`);
+                li.classList.add('text-green-600', 'font-bold', 'line-through');
+                li.querySelector('span').classList.replace('bg-slate-300', 'bg-green-500');
+
+                if (remainingWords.length === 0) {
+                    setTimeout(() => alert("¡Excelente! Has encontrado todos los conceptos de la inducción."), 300);
+                }
+            }
+        }
+
+        // Suscribir eventos al Canvas
+        canvas.addEventListener('mousedown', handleStart);
+        canvas.addEventListener('mousemove', handleMove);
+        window.addEventListener('mouseup', handleEnd); // En window por si sale del canvas
+        
+        canvas.addEventListener('touchstart', handleStart, {passive: false});
+        canvas.addEventListener('touchmove', handleMove, {passive: false});
+        window.addEventListener('touchend', handleEnd);
+
+
+        // ==========================================
+        // LÓGICA DEL CRUCIGRAMA (DOM Grid)
+        // ==========================================
+
+        /* Estructura matemática exacta sin colisiones:
+        1 (4,1) V: AUTOMATIZACION
+        2 (7,2) H: PLC
+        3 (9,2) V: CIRCUITO
+        4 (1,3) H: MANTENIMIENTO
+        5 (5,3) V: ELECTRONICA
+        6 (6,6) H: ACTUADOR
+        7 (2,14) H: SENSOR
+        */
+        
+        const cwData = [
+            { id: 1, dir: 'V', x: 4, y: 1, word: "AUTOMATIZACION", clue: "Uso de sistemas de control para operar equipos con mínima intervención humana." },
+            { id: 2, dir: 'H', x: 7, y: 2, word: "PLC", clue: "Controlador Lógico Programable (siglas)." },
+            { id: 3, dir: 'V', x: 9, y: 2, word: "CIRCUITO", clue: "Red eléctrica que contiene al menos una trayectoria cerrada." },
+            { id: 4, dir: 'H', x: 1, y: 3, word: "MANTENIMIENTO", clue: "Acción para prevenir o corregir fallas en los sistemas y equipos." },
+            { id: 5, dir: 'V', x: 5, y: 3, word: "ELECTRONICA", clue: "Rama de la física que estudia el control del flujo de electrones." },
+            { id: 6, dir: 'H', x: 6, y: 6, word: "ACTUADOR", clue: "Dispositivo capaz de transformar energía en la activación de un proceso físico." },
+            { id: 7, dir: 'H', x: 2, y: 14, word: "SENSOR", clue: "Dispositivo que detecta magnitudes físicas y las convierte en señales eléctricas." }
+        ];
+
+        function initCrossword() {
+            const gridEl = document.getElementById('crossword-grid');
+            const horEl = document.getElementById('clues-hor');
+            const verEl = document.getElementById('clues-ver');
+            
+            // Determinar límites del tablero
+            let maxX = 0, maxY = 0;
+            cwData.forEach(item => {
+                let endX = item.dir === 'H' ? item.x + item.word.length - 1 : item.x;
+                let endY = item.dir === 'V' ? item.y + item.word.length - 1 : item.y;
+                if (endX > maxX) maxX = endX;
+                if (endY > maxY) maxY = endY;
+            });
+
+            gridEl.style.gridTemplateColumns = `repeat(${maxX}, auto)`;
+            
+            // Crear matriz vacía
+            let layout = Array(maxY).fill().map(() => Array(maxX).fill(null));
+
+            // Poblar matriz con los datos
+            cwData.forEach(item => {
+                for (let i = 0; i < item.word.length; i++) {
+                    let cx = item.dir === 'H' ? item.x - 1 + i : item.x - 1;
+                    let cy = item.dir === 'V' ? item.y - 1 + i : item.y - 1;
+                    
+                    if (!layout[cy][cx]) {
+                        layout[cy][cx] = { letter: item.word[i], numbers: [] };
+                    }
+                    if (i === 0) layout[cy][cx].numbers.push(item.id);
+                }
+            });
+
+            // Renderizar la cuadrícula
+            for (let r = 0; r < maxY; r++) {
+                for (let c = 0; c < maxX; c++) {
+                    const cellData = layout[r][c];
+                    const div = document.createElement('div');
+                    
+                    if (cellData) {
+                        div.className = 'cw-cell';
+                        
+                        // Añadir número si es inicio de palabra
+                        if (cellData.numbers.length > 0) {
+                            const span = document.createElement('span');
+                            span.className = 'cw-number';
+                            span.textContent = cellData.numbers.join('/');
+                            div.appendChild(span);
+                        }
+                        
+                        // Añadir input
+                        const input = document.createElement('input');
+                        input.type = 'text';
+                        input.maxLength = 1;
+                        input.className = 'cw-input';
+                        input.dataset.answer = cellData.letter;
+                        
+                        // Manejo intuitivo al escribir (auto-saltar)
+                        input.addEventListener('input', function() {
+                            this.value = this.value.toUpperCase();
+                            this.classList.remove('correct', 'incorrect');
+                        });
+                        
+                        div.appendChild(input);
+                    } else {
+                        div.className = 'cw-cell cw-empty';
+                    }
+                    gridEl.appendChild(div);
+                }
+            }
+
+            // Renderizar pistas
+            cwData.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = `<strong class="text-lg mr-1 bg-slate-200 px-2 py-0.5 rounded">${item.id}.</strong> ${item.clue}`;
+                
+                if (item.dir === 'H') horEl.appendChild(li);
+                else verEl.appendChild(li);
+            });
+        }
+
+        // Evaluar resultados del crucigrama
+        function verifyCrossword() {
+            const inputs = document.querySelectorAll('.cw-input');
+            let isComplete = true;
+            let hasErrors = false;
+
+            inputs.forEach(input => {
+                input.classList.remove('correct', 'incorrect');
+                const val = input.value.trim().toUpperCase();
+                const ans = input.dataset.answer;
+
+                if (val === '') {
+                    isComplete = false;
+                } else if (val === ans) {
+                    input.classList.add('correct');
+                } else {
+                    input.classList.add('incorrect');
+                    hasErrors = true;
+                }
+            });
+
+            if (isComplete && !hasErrors) {
+                alert("¡Felicidades! Has completado el crucigrama técnico sin errores.");
+            } else if (hasErrors) {
+                alert("Hay respuestas incorrectas. Las casillas en rojo deben corregirse.");
+            } else {
+                alert("Aún faltan letras por llenar en el crucigrama.");
+            }
+        }
+
+        // Iniciar ambos juegos al cargar
+        window.onload = () => {
+            initSopa();
+            initCrossword();
+        };
+    </script>
+</body>
+</html>
