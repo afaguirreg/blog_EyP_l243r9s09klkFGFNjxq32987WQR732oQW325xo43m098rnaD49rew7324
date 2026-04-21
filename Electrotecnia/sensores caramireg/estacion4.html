@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estación 4: Los Oídos del Robot</title>
+    <!-- Carga de Tailwind CSS para los estilos -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carga de la fuente Inter de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+        }
+        /* Estilo para el botón de reacción */
+        #reaction-button.waiting {
+            background-color: #f97316; /* orange-500 */
+            cursor: pointer;
+        }
+        #reaction-button.clicked {
+            background-color: #4ade80; /* green-400 */
+            cursor: default;
+        }
+        #reaction-button.too-soon {
+            background-color: #f87171; /* red-400 */
+            cursor: default;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-white antialiased">
+
+    <!-- Contenedor principal -->
+    <div class="container mx-auto p-6 max-w-2xl">
+        
+        <!-- Encabezado de la estación -->
+        <header class="text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-black text-orange-400">ESTACIÓN 4</h1>
+            <h2 class="text-2xl md:text-3xl font-bold mt-2">Los Oídos del Robot</h2>
+        </header>
+
+        <!-- Tarjeta de contenido principal -->
+        <main class="bg-slate-800 rounded-2xl shadow-lg p-6 md:p-8">
+            
+            <!-- Texto explicativo -->
+            <div class="mb-6">
+                <p class="text-lg leading-relaxed text-slate-300">
+                    ¡Activación finalizada! Has conectado el <strong class="font-bold text-orange-400">sensor de sonido</strong>. Este es el oído del robot, permitiéndole reaccionar a comandos de voz, alarmas o ruidos específicos en su entorno. La velocidad de reacción es clave. ¿Qué tan rápido puedes reaccionar tú?
+                </p>
+            </div>
+
+            <!-- Mini-juego de reacción al sonido -->
+            <div class="bg-slate-900 rounded-lg p-4 border-2 border-slate-700">
+                <h3 class="text-xl font-bold text-orange-300 mb-2">Reto de Reacción Sónica</h3>
+                <p class="text-sm text-slate-400 mb-4 px-1">Presiona "Preparar Sensor". Cuando el área de juego se ilumine, ¡presiona el botón naranja lo más rápido posible!</p>
+                
+                <!-- El área del juego -->
+                <div id="game-area" class="relative w-full h-48 bg-black/50 rounded-md border border-slate-600 flex justify-center items-center transition-colors duration-200">
+                    <span id="game-message" class="text-slate-300 text-center p-4 font-semibold text-2xl">--- ms</span>
+                </div>
+
+                <button id="start-button" class="mt-4 w-full bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 px-4 rounded-lg transition-colors shadow-lg">
+                    Preparar Sensor
+                </button>
+                <button id="reaction-button" class="mt-2 w-full text-white font-bold py-3 px-4 rounded-lg transition-colors shadow-lg opacity-50 cursor-not-allowed waiting">
+                    ¡Presiona al ver la señal!
+                </button>
+            </div>
+
+            <!-- Reflexión Final -->
+            <div class="mt-8 bg-rose-900/50 border-l-4 border-rose-400 p-4 rounded-lg">
+                <h3 class="font-bold text-xl text-rose-300 mb-2">Reflexión: Del Sonido a la Acción</h3>
+                <p class="text-rose-200 leading-relaxed">
+                    Tu tiempo de reacción es el que tardó tu cerebro en procesar la señal visual y enviar la orden a tu mano. Un robot hace algo similar: su micrófono (sensor) capta un sonido, y su procesador decide qué hacer.
+                    <br><br>
+                    Piensa en un asistente de voz como Alexa o Siri. ¿Por qué es crucial que reaccione casi instantáneamente a la palabra de activación ("Oye Siri") pero ignore el resto de la conversación?
+                </p>
+            </div>
+
+        </main>
+        
+        <footer class="text-center mt-8 text-slate-500 text-sm">
+            <p>Misión Sensores 🤖</p>
+        </footer>
+    </div>
+
+    <script>
+        // --- Lógica del Juego de Reacción ---
+        const startButton = document.getElementById('start-button');
+        const reactionButton = document.getElementById('reaction-button');
+        const gameArea = document.getElementById('game-area');
+        const gameMessage = document.getElementById('game-message');
+
+        let startTime;
+        let timeoutId;
+        let waitingForClick = false;
+
+        startButton.addEventListener('click', prepareGame);
+        reactionButton.addEventListener('click', handleReaction);
+
+        function prepareGame() {
+            startButton.disabled = true;
+            startButton.classList.add('opacity-50');
+            gameMessage.textContent = "Espera la señal...";
+            gameArea.classList.remove('bg-green-500/50');
+            reactionButton.classList.remove('too-soon', 'clicked');
+            reactionButton.classList.add('waiting', 'opacity-50', 'cursor-not-allowed');
+            waitingForClick = false;
+
+            // Tiempo de espera aleatorio antes de mostrar la señal
+            const randomDelay = Math.random() * 4000 + 1000; // Entre 1 y 5 segundos
+            timeoutId = setTimeout(showSignal, randomDelay);
+        }
+
+        function showSignal() {
+            gameArea.classList.add('bg-green-500/50');
+            reactionButton.classList.remove('opacity-50', 'cursor-not-allowed');
+            startTime = Date.now();
+            waitingForClick = true;
+        }
+
+        function handleReaction() {
+            if (!startTime) return; // Si el juego no ha empezado
+
+            if (!waitingForClick) {
+                // El jugador hizo clic demasiado pronto
+                clearTimeout(timeoutId);
+                gameMessage.textContent = "¡Demasiado pronto!";
+                reactionButton.classList.add('too-soon');
+                resetGame();
+            } else {
+                // El jugador hizo clic a tiempo
+                const endTime = Date.now();
+                const reactionTime = endTime - startTime;
+                gameMessage.textContent = `${reactionTime} ms`;
+                reactionButton.classList.add('clicked');
+                waitingForClick = false;
+                resetGame();
+            }
+        }
+
+        function resetGame() {
+            startTime = null;
+            setTimeout(() => {
+                startButton.disabled = false;
+                startButton.classList.remove('opacity-50');
+            }, 1500);
+        }
+    </script>
+
+</body>
+</html>

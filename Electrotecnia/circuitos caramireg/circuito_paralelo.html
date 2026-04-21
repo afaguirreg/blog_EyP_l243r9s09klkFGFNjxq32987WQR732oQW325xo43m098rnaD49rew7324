@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STEAM: Circuito en Paralelo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f172a;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        h1 { color: #22d3ee; margin-bottom: 5px; } /* Cian para paralelo */
+        .subtitle { color: #94a3b8; font-size: 0.9rem; margin-bottom: 20px; }
+        
+        .container {
+            background-color: #1e293b;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            text-align: center;
+            position: relative;
+        }
+
+        canvas {
+            background-color: #020617;
+            border-radius: 10px;
+            border: 2px solid #334155;
+            cursor: pointer;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        .status-panel {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+            min-height: 24px;
+        }
+
+        .flowing {
+            background-color: rgba(34, 197, 94, 0.2);
+            color: #4ade80;
+            border-color: #22c55e;
+            box-shadow: 0 0 15px rgba(34, 197, 94, 0.2);
+        }
+
+        .partial {
+            background-color: rgba(250, 204, 21, 0.2);
+            color: #facc15;
+            border-color: #eab308;
+        }
+
+        .off {
+            background-color: rgba(239, 68, 68, 0.2);
+            color: #f87171;
+            border-color: #ef4444;
+        }
+
+        .controls {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #0ea5e9;
+            color: white;
+            font-weight: bold;
+            transition: transform 0.1s, background 0.2s;
+        }
+
+        button:hover { background-color: #0284c7; }
+        button:active { transform: scale(0.95); }
+
+        .btn-reset { background-color: #64748b; }
+        .btn-reset:hover { background-color: #475569; }
+
+        .hint {
+            color: #cbd5e1;
+            font-size: 0.9em;
+            margin-top: 15px;
+            background: rgba(255,255,255,0.05);
+            padding: 8px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🔌 Circuito en Paralelo 🛤️🛤️🛤️</h1>
+    <p class="subtitle">Múltiples caminos. Si uno falla, ¡los otros siguen funcionando!</p>
+    
+    <div class="container">
+        <canvas id="parallelCanvas" width="600" height="350"></canvas>
+        
+        <div id="statusBox" class="status-panel off">
+            Estado: APAGADO (Interruptor Abierto)
+        </div>
+
+        <div class="controls">
+            <button onclick="toggleSwitch()">⚡ Interruptor Principal</button>
+            <button class="btn-reset" onclick="resetBulbs()">🔧 Reparar Todas</button>
+        </div>
+        <p class="hint">👆 Haz clic en las <strong>bombillas</strong> para fundirlas individualmente.</p>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('parallelCanvas');
+        const ctx = canvas.getContext('2d');
+        const statusBox = document.getElementById('statusBox');
+
+        // --- Estado del Sistema ---
+        let isSwitchClosed = false; 
+        
+        // Bombillas en ramas separadas (posiciones X distintas)
+        // Cada bombilla tiene su propio estado independiente
+        let bulbs = [
+            { x: 200, y: 150, broken: false, label: "Rama 1" },
+            { x: 350, y: 150, broken: false, label: "Rama 2" },
+            { x: 500, y: 150, broken: false, label: "Rama 3" }
+        ];
+
+        // Posiciones fijas
+        const batteryPos = { x: 60, y: 175 };
+        const switchPos = { x: 120, y: 280 }; // Interruptor en la línea de retorno principal
+        
+        const topRailY = 50;
+        const bottomRailY = 280;
+
+        function toggleSwitch() {
+            isSwitchClosed = !isSwitchClosed;
+            updateStatusText();
+        }
+
+        function resetBulbs() {
+            bulbs.forEach(b => b.broken = false);
+            updateStatusText();
+        }
+
+        function updateStatusText() {
+            if (!isSwitchClosed) {
+                statusBox.textContent = "Estado: APAGADO (Interruptor Principal Abierto)";
+                statusBox.className = "status-panel off";
+                return;
+            }
+
+            const activeBulbs = bulbs.filter(b => !b.broken).length;
+
+            if (activeBulbs === 3) {
+                statusBox.textContent = "Estado: MÁXIMA CORRIENTE (3 Ramas Activas)";
+                statusBox.className = "status-panel flowing";
+            } else if (activeBulbs > 0) {
+                statusBox.textContent = `Estado: PARCIAL (${activeBulbs} Ramas funcionando)`;
+                statusBox.className = "status-panel partial";
+            } else {
+                statusBox.textContent = "Estado: INTERRUMPIDO (Todas las bombillas fundidas)";
+                statusBox.className = "status-panel off";
+            }
+        }
+
+        // --- Interactividad (Clics) ---
+        canvas.addEventListener('click', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const mouseX = e.clientX - rect.left;
+            const mouseY = e.clientY - rect.top;
+
+            // 1. Detectar clic en bombillas
+            bulbs.forEach(b => {
+                const dist = Math.sqrt((mouseX - b.x)**2 + (mouseY - b.y)**2);
+                if (dist < 30) {
+                    b.broken = !b.broken;
+                    updateStatusText();
+                }
+            });
+
+            // 2. Detectar clic en interruptor
+            const distSwitch = Math.sqrt((mouseX - switchPos.x)**2 + (mouseY - switchPos.y)**2);
+            if (distSwitch < 40) {
+                toggleSwitch();
+            }
+        });
+
+        // --- Funciones de Dibujo ---
+
+        function drawBattery(x, y) {
+            ctx.save();
+            ctx.translate(x, y);
+            ctx.fillStyle = "#333";
+            ctx.fillRect(-20, -30, 40, 60);
+            ctx.fillStyle = "#fbbf24";
+            ctx.fillRect(-10, -35, 20, 5); // +
+            ctx.fillStyle = "#94a3b8";
+            ctx.fillRect(-10, 30, 20, 5); // -
+            ctx.fillStyle = "#fff";
+            ctx.font = "bold 20px Arial";
+            ctx.fillText("+", -35, -15);
+            ctx.fillText("-", -35, 25);
+            ctx.restore();
+        }
+
+        function drawSwitch(x, y, closed) {
+            ctx.save();
+            ctx.translate(x, y);
+            ctx.fillStyle = "#cbd5e1";
+            ctx.beginPath(); ctx.arc(-20, 0, 4, 0, Math.PI*2); ctx.fill();
+            ctx.beginPath(); ctx.arc(20, 0, 4, 0, Math.PI*2); ctx.fill();
+            
+            ctx.strokeStyle = "#ef4444"; // Rojo interruptor
+            ctx.lineWidth = 4;
+            ctx.beginPath();
+            ctx.moveTo(-20, 0);
+            if (closed) {
+                ctx.lineTo(20, 0);
+            } else {
+                ctx.lineTo(15, -25);
+            }
+            ctx.stroke();
+            
+            ctx.fillStyle = "#94a3b8";
+            ctx.font = "12px Arial";
+            ctx.textAlign = "center";
+            ctx.fillText("Main", 0, 25);
+            ctx.restore();
+        }
+
+        function drawBulb(bulb, isMainSwitchOn) {
+            const { x, y, broken } = bulb;
+            // En paralelo, la bombilla se enciende si el interruptor general está ON Y ella no está rota
+            // No le importa si las vecinas están rotas.
+            const isLit = isMainSwitchOn && !broken;
+
+            // Cable vertical que baja del rail superior
+            ctx.beginPath();
+            ctx.strokeStyle = "#3b82f6";
+            ctx.lineWidth = 3;
+            ctx.moveTo(x, topRailY);
+            ctx.lineTo(x, y - 20); // Hasta bombilla
+            ctx.stroke();
+
+            // Cable vertical que baja de la bombilla al rail inferior
+            ctx.beginPath();
+            ctx.moveTo(x, y + 20);
+            ctx.lineTo(x, bottomRailY);
+            ctx.stroke();
+            
+            // Base del socket
+            ctx.fillStyle = "#475569";
+            ctx.fillRect(x - 10, y + 15, 20, 15);
+
+            // Cristal
+            ctx.beginPath();
+            ctx.arc(x, y, 20, 0, Math.PI * 2);
+            
+            if (broken) {
+                ctx.fillStyle = "#1e293b";
+                ctx.strokeStyle = "#ef4444";
+                ctx.lineWidth = 2;
+            } else if (isLit) {
+                ctx.fillStyle = "#fef08a";
+                ctx.shadowBlur = 30;
+                ctx.shadowColor = "#facc15";
+                ctx.strokeStyle = "#facc15";
+            } else {
+                ctx.fillStyle = "#334155";
+                ctx.strokeStyle = "#64748b";
+                ctx.shadowBlur = 0;
+            }
+            ctx.fill();
+            ctx.stroke();
+            ctx.shadowBlur = 0;
+
+            // Filamento
+            ctx.beginPath();
+            if (broken) {
+                ctx.moveTo(x - 8, y + 15); ctx.lineTo(x - 5, y + 5);
+                ctx.moveTo(x + 8, y + 15); ctx.lineTo(x + 5, y + 5);
+                ctx.strokeStyle = "#ef4444";
+                ctx.lineWidth = 3;
+                ctx.moveTo(x - 10, y - 10); ctx.lineTo(x + 10, y + 10);
+                ctx.moveTo(x + 10, y - 10); ctx.lineTo(x - 10, y + 10);
+            } else {
+                ctx.strokeStyle = isLit ? "#fff" : "#94a3b8";
+                ctx.lineWidth = 2;
+                ctx.moveTo(x - 8, y + 15);
+                ctx.lineTo(x - 8, y);
+                ctx.lineTo(x, y - 10);
+                ctx.lineTo(x + 8, y);
+                ctx.lineTo(x + 8, y + 15);
+            }
+            ctx.stroke();
+        }
+
+        function drawWiring() {
+            ctx.beginPath();
+            ctx.strokeStyle = "#3b82f6";
+            ctx.lineWidth = 4;
+
+            // 1. De Batería(+) sube al Rail Superior
+            ctx.moveTo(batteryPos.x, batteryPos.y - 35);
+            ctx.lineTo(batteryPos.x, topRailY);
+            
+            // 2. Rail Superior (Línea horizontal completa hasta la última bombilla)
+            ctx.lineTo(500, topRailY);
+
+            // 3. Rail Inferior (Desde última bombilla hacia atrás)
+            ctx.moveTo(500, bottomRailY);
+            ctx.lineTo(switchPos.x + 20, bottomRailY); // Hasta lado derecho interruptor
+
+            // 4. De interruptor izquierdo a Batería(-)
+            ctx.moveTo(switchPos.x - 20, bottomRailY);
+            ctx.lineTo(batteryPos.x, bottomRailY);
+            ctx.lineTo(batteryPos.x, batteryPos.y + 30);
+
+            ctx.stroke();
+        }
+
+        // Esta función dibuja un conjunto de electrones para UN lazo específico
+        function drawLoopElectrons(bulbX, bulbBroken) {
+            // Si el interruptor general está abierto O la bombilla específica rota, no hay flujo EN ESTA RAMA
+            if (!isSwitchClosed || bulbBroken) return;
+
+            const time = Date.now() / 1000;
+            const speed = 150; 
+            
+            // Definimos el camino de ESTE lazo específico:
+            // Bat -> Rail Sup -> Branch Down -> Bulb -> Branch Down -> Rail Inf -> Switch -> Bat
+            
+            const pathPoints = [
+                {x: 60, y: 140},  // Salida Bat
+                {x: 60, y: 50},   // Esquina Sup Izq
+                {x: bulbX, y: 50}, // Punto de división en rail sup
+                {x: bulbX, y: 280},// Baja por bombilla hasta rail inf
+                {x: 60, y: 280},   // Vuelve a Bat (pasando por switch)
+                {x: 60, y: 210}    // Entrada Bat
+            ];
+
+            // Calculamos longitud para distribuir partículas
+            let totalLen = 0;
+            for(let i=0; i<pathPoints.length-1; i++) {
+                totalLen += Math.hypot(pathPoints[i+1].x - pathPoints[i].x, pathPoints[i+1].y - pathPoints[i].y);
+            }
+
+            const numElectrons = 12; // Cantidad por lazo
+            const spacing = totalLen / numElectrons;
+
+            ctx.fillStyle = "#fff"; // Color electrón
+            
+            for(let i=0; i<numElectrons; i++) {
+                let currentDist = (time * speed + i * spacing) % totalLen;
+                
+                let distAccum = 0;
+                for(let j=0; j<pathPoints.length-1; j++) {
+                    let p1 = pathPoints[j];
+                    let p2 = pathPoints[j+1];
+                    let segLen = Math.hypot(p2.x - p1.x, p2.y - p1.y);
+                    
+                    if (currentDist >= distAccum && currentDist < distAccum + segLen) {
+                        let segProgress = (currentDist - distAccum) / segLen;
+                        let ex = p1.x + (p2.x - p1.x) * segProgress;
+                        let ey = p1.y + (p2.y - p1.y) * segProgress;
+                        
+                        // Pequeña variación aleatoria para que no se superpongan exactamente los electrones
+                        // de diferentes ramas en el cable principal (efecto de "más corriente")
+                        let jitter = (Math.sin(time * 10 + i) * 2); 
+                        
+                        ctx.beginPath();
+                        ctx.arc(ex + jitter, ey + jitter, 3, 0, Math.PI*2);
+                        ctx.fill();
+                        break;
+                    }
+                    distAccum += segLen;
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // 1. Estructura base
+            drawWiring();
+            drawBattery(batteryPos.x, batteryPos.y);
+            drawSwitch(switchPos.x, switchPos.y, isSwitchClosed);
+
+            // 2. Bombillas
+            bulbs.forEach(b => drawBulb(b, isSwitchClosed));
+
+            // 3. Electrones (Dibujamos 3 lazos superpuestos)
+            // Esto crea el efecto visual correcto: 
+            // - En los cables principales se suman los electrones (más densidad = más corriente total)
+            // - En las ramas individuales solo se ven los de ese lazo (menos corriente)
+            bulbs.forEach(b => {
+                drawLoopElectrons(b.x, b.broken);
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 3: La Memoria de Arduino - Curso de Arduino</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .code-block {
+            background-color: #282c34;
+            color: #abb2bf;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            white-space: pre-wrap;
+        }
+        .code-keyword { color: #c678dd; }
+        .code-function { color: #61afef; }
+        .code-comment { color: #5c6370; }
+        .code-number { color: #d19a66; }
+        .code-variable { color: #e5c07b; }
+        
+        .block { cursor: pointer; }
+        .program-area { min-height: 100px; border-style: dashed; }
+        .led {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #4a5568; /* Off */
+            transition: background-color 0.2s, box-shadow 0.2s;
+        }
+        .led.on {
+            background-color: #22c55e; /* Green */
+            box-shadow: 0 0 20px #16a34a;
+        }
+        .push-button {
+            width: 60px;
+            height: 60px;
+            background-color: #3b82f6;
+            border-radius: 50%;
+            border: 4px solid #1d4ed8;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+        .push-button:active {
+            transform: scale(0.9);
+        }
+        .counter-display {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #1e3a8a;
+            background-color: #e0e7ff;
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.5rem;
+            border: 2px solid #a5b4fc;
+        }
+    </style>
+</head>
+<body class="bg-slate-50">
+
+    <!-- Encabezado del Módulo -->
+    <header class="bg-white shadow">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-blue-600">Módulo 3: La Memoria de Arduino</h1>
+            <a href="index.html" class="text-blue-600 hover:text-blue-800 font-semibold flex items-center">
+                <i class="fas fa-arrow-left mr-2"></i>
+                Volver al Inicio
+            </a>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="container mx-auto px-6 py-12">
+    
+        <!-- Banner del Módulo -->
+        <div class="relative rounded-xl overflow-hidden mb-12">
+            <img src="images/modulo_3.png" alt="Número digital flotando sobre un Arduino" class="w-full h-64 object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                <h2 class="text-4xl font-bold text-white text-center">Variables y Contadores</h2>
+            </div>
+        </div>
+
+        <!-- Lección 1: ¿Qué es una Variable? -->
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <h3 class="text-2xl font-bold mb-4">Lección 1: ¿Qué es una Variable?</h3>
+            <p class="text-lg text-slate-700 mb-4">Imagina que tienes una pequeña pizarra. Puedes escribir un número, por ejemplo "0". Luego, puedes borrarlo y escribir "1". Esa pizarra es una **variable**: un espacio en la memoria del Arduino donde podemos guardar un dato que puede cambiar.</p>
+            <p class="text-lg text-slate-700">Las variables son súper útiles. Nos permiten contar cosas, guardar la lectura de un sensor, recordar si algo está encendido o apagado, ¡y mucho más! Hoy, usaremos una variable como un **contador**.</p>
+        </div>
+
+        <!-- Lección 2: Actividad Interactiva de Conteo -->
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <h3 class="text-2xl font-bold mb-4">Lección 2: ¡Vamos a Contar!</h3>
+            <p class="text-lg text-slate-700 mb-6">Tu misión es programar el Arduino para que cuente cuántas veces se presiona el botón (conectado al pin 2). Cuando el contador llegue a 5, el LED (pin 13) deberá encenderse.</p>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Herramientas y Simulación -->
+                <div class="border-2 border-slate-200 rounded-lg p-4">
+                    <h4 class="font-bold text-center mb-4">Caja de Herramientas</h4>
+                    <div id="toolbox" class="space-y-2">
+                        <div class="block bg-indigo-500 text-white p-3 rounded-md text-center" data-action="increment">Incrementar Contador en 1</div>
+                        <div class="block bg-green-500 text-white p-3 rounded-md text-center" data-action="on">Encender LED (Pin 13)</div>
+                    </div>
+                    <hr class="my-6">
+                    <h4 class="font-bold text-center mb-4">Simulación</h4>
+                    <div class="flex flex-col items-center gap-4">
+                        <div id="counter-display" class="counter-display">0</div>
+                        <div id="push-button" class="push-button"></div>
+                        <p class="text-sm font-medium">Presiona el Botón</p>
+                        <div id="led-simulation" class="led"></div>
+                    </div>
+                </div>
+
+                <!-- Área del Programa -->
+                <div class="lg:col-span-2 border-2 border-slate-200 rounded-lg p-4">
+                    <h4 class="font-bold mb-4">Área del Programa</h4>
+                    <div class="block bg-blue-800 text-white p-4 rounded-md">
+                        <p class="font-semibold">Si se presiona el botón (Pin 2)...</p>
+                        <div id="button-press-area" class="program-area bg-blue-100 rounded-md p-4 mt-2"></div>
+                    </div>
+                    <div class="block bg-purple-800 text-white p-4 rounded-md mt-4">
+                        <p class="font-semibold">Si el contador es igual o mayor a 5...</p>
+                        <div id="counter-check-area" class="program-area bg-purple-100 rounded-md p-4 mt-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lección 3: Del Bloque al Código -->
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <h3 class="text-2xl font-bold mb-4">Lección 3: Del Bloque al Código</h3>
+            <p class="text-lg text-slate-700 mb-6">Así es como se ve tu programa de conteo en código. Introducimos un nuevo tipo de dato, `int` (entero), para crear nuestra variable `contador`, y el operador `++` para sumarle 1.</p>
+            
+            <!-- TABLA DE COMPARACIÓN -->
+            <div class="space-y-4 mb-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 items-center gap-4 p-4 border rounded-lg">
+                    <div class="block bg-indigo-500 text-white p-3 rounded-md text-center">Incrementar Contador en 1</div>
+                    <div class="text-2xl text-center text-slate-400 font-light">&rarr;</div>
+                    <div class="code-block text-sm"><span class="code-variable">contador</span>++;</div>
+                </div>
+                 <div class="grid grid-cols-1 md:grid-cols-3 items-center gap-4 p-4 border rounded-lg">
+                    <div class="block bg-purple-800 text-white p-3 rounded-md text-center">Si el contador es igual o mayor a 5...</div>
+                    <div class="text-2xl text-center text-slate-400 font-light">&rarr;</div>
+                    <div class="code-block text-sm"><span class="code-keyword">if</span> (<span class="code-variable">contador</span> >= <span class="code-number">5</span>) { ... }</div>
+                </div>
+            </div>
+            <hr class="my-8">
+            
+            <h4 class="font-semibold mb-2 text-lg">El Código Completo de tu Programa:</h4>
+            <div id="code-output" class="code-block text-sm"></div>
+        </div>
+
+        <!-- SECCIÓN DE ACTIVIDADES FINALES -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <!-- Desafío Práctico -->
+            <div class="bg-white p-8 rounded-xl shadow-xl text-center border-t-4 border-orange-500">
+                <i class="fas fa-bolt fa-3x text-orange-500 mb-4"></i>
+                <h3 class="text-2xl font-bold mb-4">¡Desafío Práctico!</h3>
+                <p class="text-slate-600 mb-6">Usa variables para crear un programa que reinicie el contador. ¡Un nuevo reto te espera!</p>
+                <a href="actividad_contador_avanzado.html" class="inline-block bg-orange-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-orange-600 transition-transform transform hover:scale-105">
+                    Ir al Desafío
+                </a>
+            </div>
+            <!-- Quiz del Módulo -->
+            <div class="bg-white p-8 rounded-xl shadow-xl text-center border-t-4 border-blue-500">
+                <i class="fas fa-question-circle fa-3x text-blue-500 mb-4"></i>
+                <h3 class="text-2xl font-bold mb-4">Prueba tu Conocimiento</h3>
+                <p class="text-slate-600 mb-6">¿Estás listo para validar lo que aprendiste sobre variables y contadores? ¡Demuéstralo en el quiz!</p>
+                <a href="quiz_modulo_3.html" class="inline-block bg-blue-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-600 transition-transform transform hover:scale-105">
+                    Iniciar Quiz
+                </a>
+            </div>
+        </div>
+
+        <!-- Navegación -->
+        <div class="text-center">
+            <a href="modulo_4.html" class="bg-green-600 text-white font-bold py-4 px-8 rounded-lg hover:bg-green-700 transition-colors text-xl">
+                ¡Módulo Completado! Ir al Módulo 4 <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+
+    </main>
+
+    <script>
+        const toolbox = document.getElementById('toolbox');
+        const buttonPressArea = document.getElementById('button-press-area');
+        const counterCheckArea = document.getElementById('counter-check-area');
+        const codeOutput = document.getElementById('code-output');
+        const ledSimulation = document.getElementById('led-simulation');
+        const pushButton = document.getElementById('push-button');
+        const counterDisplay = document.getElementById('counter-display');
+
+        let buttonAction = null;
+        let counterAction = null;
+        let counter = 0;
+
+        toolbox.addEventListener('click', (e) => {
+            if (e.target.classList.contains('block')) {
+                const action = e.target.dataset.action;
+                const blockClone = e.target.cloneNode(true);
+                
+                if (action === 'increment') {
+                    buttonPressArea.innerHTML = '';
+                    buttonPressArea.appendChild(blockClone);
+                    buttonAction = action;
+                } else if (action === 'on') {
+                    counterCheckArea.innerHTML = '';
+                    counterCheckArea.appendChild(blockClone);
+                    counterAction = action;
+                }
+                updateCode();
+            }
+        });
+
+        function updateCode() {
+            let code = `<span class="code-comment">// Creamos nuestra "pizarra" o variable para contar.</span>\n`;
+            code += `<span class="code-keyword">int</span> <span class="code-variable">contador</span> = <span class="code-number">0</span>;\n\n`;
+            
+            code += `<span class="code-keyword">void</span> <span class="code-function">setup</span>() {\n`;
+            code += `  <span class="code-function">pinMode</span>(<span class="code-number">13</span>, <span class="code-string">OUTPUT</span>);\n`;
+            code += `  <span class="code-function">pinMode</span>(<span class="code-number">2</span>, <span class="code-string">INPUT_PULLUP</span>);\n`;
+            code += `}\n\n`;
+            
+            code += `<span class="code-keyword">void</span> <span class="code-function">loop</span>() {\n`;
+            code += `  <span class="code-comment">// Si se presiona el botón...</span>\n`;
+            code += `  <span class="code-keyword">if</span> (<span class="code-function">digitalRead</span>(<span class="code-number">2</span>) == <span class="code-string">LOW</span>) {\n`;
+            if (buttonAction === 'increment') {
+                code += `    <span class="code-variable">contador</span>++; <span class="code-comment">// Sumamos 1 al contador.</span>\n`;
+                code += `    <span class="code-function">delay</span>(<span class="code-number">200</span>); <span class="code-comment">// Pequeña pausa para evitar contar múltiples veces.</span>\n`;
+            }
+            code += `  }\n\n`;
+            
+            code += `  <span class="code-comment">// Si el contador llega a 5...</span>\n`;
+            code += `  <span class="code-keyword">if</span> (<span class="code-variable">contador</span> >= <span class="code-number">5</span>) {\n`;
+            if (counterAction === 'on') {
+                code += `    <span class="code-function">digitalWrite</span>(<span class="code-number">13</span>, <span class="code-string">HIGH</span>); <span class="code-comment">// Encendemos el LED.</span>\n`;
+            }
+            code += `  }\n`;
+            code += `}`;
+            codeOutput.innerHTML = code;
+        }
+        
+        pushButton.addEventListener('click', () => {
+            if (buttonAction === 'increment') {
+                counter++;
+                counterDisplay.textContent = counter;
+            }
+            if (counterAction === 'on' && counter >= 5) {
+                ledSimulation.classList.add('on');
+            }
+        });
+        
+        updateCode();
+    </script>
+</body>
+</html>
+

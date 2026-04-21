@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafío: Sensor en LCD - Curso de Arduino</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .code-editor {
+            background-color: #282c34;
+            color: #abb2bf;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            border: 2px solid #4b5563;
+        }
+        .code-input {
+            background-color: #4b5563;
+            border: 2px dashed #6b7280;
+            color: #e5c07b;
+            font-family: 'Courier New', Courier, monospace;
+            border-radius: 0.25rem;
+            padding: 0.25rem;
+            width: 150px;
+            text-align: center;
+        }
+        .code-input.correct {
+            border-color: #22c55e;
+        }
+        .code-input.incorrect {
+            border-color: #ef4444;
+        }
+        .lcd-screen {
+            background-color: #008080;
+            color: #e0e0e0;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.5rem;
+            line-height: 1.2;
+            padding: 10px;
+            border: 5px solid #333;
+            border-radius: 5px;
+            width: 320px;
+            height: 100px;
+            white-space: pre;
+        }
+        .code-comment {
+            color: #5c6370;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body class="bg-slate-50">
+
+    <header class="bg-white shadow">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-blue-600">Desafío: Sensor en Pantalla LCD</h1>
+            <a href="modulo_7.html" class="text-blue-600 hover:text-blue-800 font-semibold flex items-center"><i class="fas fa-arrow-left mr-2"></i>Volver al Módulo 7</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <h3 class="text-2xl font-bold mb-4">Tu Misión: Construir un Voltímetro Digital</h3>
+            <p class="text-lg text-slate-700 mb-4">Es hora de combinar la lectura de sensores con la visualización de datos. Tu objetivo es completar el código para leer el valor de un potenciómetro y mostrarlo en la pantalla LCD, tanto el valor crudo (0-1023) como el voltaje calculado (0.0-5.0V).</p>
+            <p class="text-lg text-slate-700">Usa los comentarios en el código como pistas para saber qué función o variable escribir en cada espacio en blanco.</p>
+        </div>
+        
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Simulación -->
+                <div class="border-2 border-slate-200 rounded-lg p-6 flex flex-col items-center justify-center">
+                    <h4 class="font-bold text-xl text-center mb-4">Simulación</h4>
+                    <label for="pot-slider" class="font-medium">Gira el Potenciómetro</label>
+                    <input type="range" id="pot-slider" min="0" max="1023" value="0" class="w-full my-4">
+                    <div id="lcd-screen" class="lcd-screen"></div>
+                </div>
+
+                <!-- Área del Programa -->
+                <div class="lg:col-span-2 border-2 border-slate-200 rounded-lg p-6">
+                    <h4 class="font-bold text-xl mb-4">Completa el Código</h4>
+                    <div class="code-editor text-lg">
+                        <p>#include &lt;LiquidCrystal_I2C.h&gt;</p>
+                        <p>LiquidCrystal_I2C lcd(0x27, 16, 2);</p>
+                        <br>
+                        <p>void setup() { ... }</p>
+                        <br>
+                        <p>void loop() {</p>
+                        <p class="ml-4">int valorSensor = <input type="text" class="code-input" data-answer="analogRead">(A0); <span class="code-comment">// Lee el pin analógico A0</span></p>
+                        <p class="ml-4">float voltaje = valorSensor * (5.0 / <input type="text" class="code-input" data-answer="1023.0">); <span class="code-comment">// Convierte el valor (0-1023) a un voltaje (0.0-5.0V)</span></p>
+                        <br>
+                        <p class="ml-4"><input type="text" class="code-input" data-answer="lcd.setCursor">(0, 0); <span class="code-comment">// Mueve el cursor a la Col 0, Fila 0</span></p>
+                        <p class="ml-4">lcd.print("Valor: ");</p>
+                        <p class="ml-4"><input type="text" class="code-input" data-answer="lcd.print">(valorSensor);</p>
+                        <br>
+                        <p class="ml-4">lcd.setCursor(0, 1); <span class="code-comment">// Mueve el cursor a la Col 0, Fila 1</span></p>
+                        <p class="ml-4">lcd.print("Voltaje: ");</p>
+                        <p class="ml-4">lcd.print(<input type="text" class="code-input" data-answer="voltaje">);</p>
+                        <p class="ml-4">lcd.print(" V");</p>
+                        <p>}</p>
+                    </div>
+                     <div class="mt-4 text-right">
+                        <button id="check-button" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg">Comprobar y Ejecutar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const checkButton = document.getElementById('check-button');
+        const codeInputs = document.querySelectorAll('.code-input');
+        const potSlider = document.getElementById('pot-slider');
+        const lcdScreen = document.getElementById('lcd-screen');
+        
+        let isCodeCorrect = false;
+
+        checkButton.addEventListener('click', () => {
+            let allCorrect = true;
+            codeInputs.forEach(input => {
+                const userAnswer = input.value.trim();
+                const correctAnswer = input.dataset.answer;
+                if (userAnswer === correctAnswer) {
+                    input.classList.remove('incorrect');
+                    input.classList.add('correct');
+                } else {
+                    input.classList.remove('correct');
+                    input.classList.add('incorrect');
+                    allCorrect = false;
+                }
+            });
+
+            isCodeCorrect = allCorrect;
+            if (isCodeCorrect) {
+                alert('¡Código Correcto! Ahora puedes mover el potenciómetro para ver los cambios en la pantalla.');
+                updateSimulation();
+            } else {
+                alert('Algunas partes del código son incorrectas. ¡Revisa las cajas rojas e inténtalo de nuevo!');
+            }
+        });
+
+        potSlider.addEventListener('input', updateSimulation);
+
+        function updateSimulation() {
+            if (!isCodeCorrect) return;
+
+            const potValue = parseInt(potSlider.value);
+            const voltage = potValue * (5.0 / 1023.0);
+
+            let line1 = "Valor: " + potValue;
+            let line2 = "Voltaje: " + voltage.toFixed(2) + " V";
+
+            // Pad strings to 16 characters
+            line1 = line1.padEnd(16, ' ');
+            line2 = line2.padEnd(16, ' ');
+
+            lcdScreen.textContent = line1 + '\n' + line2;
+        }
+    </script>
+</body>
+</html>

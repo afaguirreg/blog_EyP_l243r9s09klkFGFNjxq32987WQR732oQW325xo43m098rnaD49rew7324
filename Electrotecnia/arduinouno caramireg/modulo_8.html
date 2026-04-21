@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 8: ¡Juntando Todo! - Curso de Arduino</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .code-block { background-color: #282c34; color: #abb2bf; font-family: 'Courier New', Courier, monospace; padding: 1rem; border-radius: 0.5rem; white-space: pre-wrap; }
+        .code-keyword { color: #c678dd; }
+        .code-function { color: #61afef; }
+        .code-comment { color: #5c6370; }
+        .code-string { color: #98c379; }
+    </style>
+</head>
+<body class="bg-slate-50">
+
+    <header class="bg-white shadow">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-blue-600">Módulo 8: ¡Juntando Todo!</h1>
+            <a href="index.html" class="text-blue-600 hover:text-blue-800 font-semibold flex items-center"><i class="fas fa-arrow-left mr-2"></i>Volver al Inicio</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+    
+        <div class="relative rounded-xl overflow-hidden mb-12">
+            <img src="images/modulo_8.png" alt="Collage de proyectos de Arduino" class="w-full h-64 object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                <h2 class="text-4xl font-bold text-white text-center">Sensores y Actuadores Avanzados</h2>
+            </div>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <h3 class="text-2xl font-bold mb-4">Lección 1: El Superpoder de las Librerías</h3>
+            <p class="text-lg text-slate-700 mb-4">Ya vimos las librerías con la pantalla LCD, pero su importancia es aún mayor con sensores y actuadores complejos. Estos componentes a menudo tienen su propio "idioma" (protocolo de comunicación). Una librería actúa como un **traductor universal**.</p>
+            <p class="text-lg text-slate-700">Sin una librería, tendrías que leer la hoja de datos del fabricante y escribir un código muy complejo solo para obtener un dato. Con la librería, simplemente usas un comando como `sensor.leerTemperatura()` y ¡listo!</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <h3 class="text-2xl font-bold mb-4">Lección 2: Sensor de Temperatura y Humedad (DHT11)</h3>
+            <p class="text-lg text-slate-700 mb-4">Este popular sensor puede medir tanto la temperatura ambiente como la humedad relativa. Es un componente digital que envía la información a través de un solo cable, pero necesita la librería <code class="font-mono bg-slate-200 px-1 rounded">DHT.h</code> para que Arduino pueda entender los datos.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+                <div>
+                    <h4 class="font-semibold text-center mb-2">Sensor DHT11</h4>
+                    <img src="images/dht11_sensor.png" alt="Sensor de Temperatura y Humedad DHT11" class="rounded-lg shadow-lg">
+                </div>
+                <div>
+                    <h4 class="font-semibold text-center mb-2">Circuito de Conexión</h4>
+                    <img src="images/dht11_circuit.png" alt="Circuito de conexión del sensor DHT11" class="rounded-lg shadow-lg">
+                </div>
+            </div>
+            <div class="overflow-x-auto mt-6">
+                <table class="w-full text-sm text-left text-slate-500">
+                    <thead class="text-xs text-slate-700 uppercase bg-slate-100">
+                        <tr>
+                            <th scope="col" class="px-4 py-3">Pin Componente</th><th scope="col" class="px-4 py-3">Pin Arduino UNO</th><th scope="col" class="px-4 py-3">Función</th><th scope="col" class="px-4 py-3">Librería</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-white border-b"><td class="px-4 py-2 font-medium">VCC (+)</td><td class="px-4 py-2">5V</td><td class="px-4 py-2">Alimentación Positiva</td><td class="px-4 py-2" rowspan="3"><code class="font-mono">DHT.h</code></td></tr>
+                        <tr class="bg-slate-50 border-b"><td class="px-4 py-2 font-medium">DATA</td><td class="px-4 py-2">Pin Digital 2</td><td class="px-4 py-2">Envía los datos de temperatura y humedad</td></tr>
+                        <tr class="bg-white"><td class="px-4 py-2 font-medium">GND (-)</td><td class="px-4 py-2">GND</td><td class="px-4 py-2">Tierra (0V)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <h3 class="text-2xl font-bold mb-4">Lección 3: Sensor de Distancia por Ultrasonido (HC-SR04)</h3>
+            <p class="text-lg text-slate-700 mb-4">Este sensor funciona como un murciélago: emite un pulso de sonido ultrasónico y mide el tiempo que tarda en regresar el eco. Con ese tiempo, podemos calcular la distancia. Requiere dos pines: `Trig` (disparo) y `Echo` (eco). Librerías como <code class="font-mono bg-slate-200 px-1 rounded">NewPing.h</code> simplifican enormemente el cálculo.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+                <div>
+                    <h4 class="font-semibold text-center mb-2">Sensor HC-SR04</h4>
+                    <img src="images/ultrasonic_sensor.png" alt="Sensor de Ultrasonido HC-SR04" class="rounded-lg shadow-lg">
+                </div>
+                <div>
+                    <h4 class="font-semibold text-center mb-2">Circuito de Conexión</h4>
+                    <img src="images/ultrasonic_circuit.png" alt="Circuito de conexión del sensor HC-SR04" class="rounded-lg shadow-lg">
+                </div>
+            </div>
+            <div class="overflow-x-auto mt-6">
+                <table class="w-full text-sm text-left text-slate-500">
+                    <thead class="text-xs text-slate-700 uppercase bg-slate-100">
+                        <tr>
+                            <th scope="col" class="px-4 py-3">Pin Componente</th><th scope="col" class="px-4 py-3">Pin Arduino UNO</th><th scope="col" class="px-4 py-3">Función</th><th scope="col" class="px-4 py-3">Librería</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-white border-b"><td class="px-4 py-2 font-medium">VCC</td><td class="px-4 py-2">5V</td><td class="px-4 py-2">Alimentación Positiva</td><td class="px-4 py-2" rowspan="4"><code class="font-mono">NewPing.h</code> (Recomendada)</td></tr>
+                        <tr class="bg-slate-50 border-b"><td class="px-4 py-2 font-medium">Trig</td><td class="px-4 py-2">Pin Digital 9</td><td class="px-4 py-2">Envía el pulso de sonido (Disparo)</td></tr>
+                        <tr class="bg-white border-b"><td class="px-4 py-2 font-medium">Echo</td><td class="px-4 py-2">Pin Digital 10</td><td class="px-4 py-2">Recibe el rebote del sonido (Eco)</td></tr>
+                        <tr class="bg-slate-50"><td class="px-4 py-2 font-medium">GND</td><td class="px-4 py-2">GND</td><td class="px-4 py-2">Tierra (0V)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <h3 class="text-2xl font-bold mb-4">Lección 4: Servomotores</h3>
+            <p class="text-lg text-slate-700 mb-4">Un **servomotor** es un actuador que puede moverse a una posición angular específica (0°, 90°, 180°). Son increíblemente útiles para brazos robóticos o cualquier cosa que requiera un movimiento preciso. La librería <code class="font-mono bg-slate-200 px-1 rounded">Servo.h</code>, que ya viene incluida con el IDE de Arduino, hace que controlarlos sea muy fácil.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+                <div>
+                    <h4 class="font-semibold text-center mb-2">Servomotor SG90</h4>
+                    <img src="images/servo_motor.png" alt="Micro Servomotor SG90" class="rounded-lg shadow-lg">
+                </div>
+                <div>
+                    <h4 class="font-semibold text-center mb-2">Circuito de Conexión</h4>
+                    <img src="images/servo_circuit.png" alt="Circuito de conexión de un servomotor" class="rounded-lg shadow-lg">
+                </div>
+            </div>
+            <div class="overflow-x-auto mt-6">
+                <table class="w-full text-sm text-left text-slate-500">
+                    <thead class="text-xs text-slate-700 uppercase bg-slate-100">
+                        <tr>
+                            <th scope="col" class="px-4 py-3">Cable Servo</th><th scope="col" class="px-4 py-3">Pin Arduino UNO</th><th scope="col" class="px-4 py-3">Función</th><th scope="col" class="px-4 py-3">Librería</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-white border-b"><td class="px-4 py-2 font-medium">Rojo</td><td class="px-4 py-2">5V</td><td class="px-4 py-2">Alimentación Positiva</td><td class="px-4 py-2" rowspan="3"><code class="font-mono">Servo.h</code> (Incluida)</td></tr>
+                        <tr class="bg-slate-50 border-b"><td class="px-4 py-2 font-medium">Naranja/Amarillo</td><td class="px-4 py-2">Pin Digital 9 (PWM)</td><td class="px-4 py-2">Señal de control de posición</td></tr>
+                        <tr class="bg-white"><td class="px-4 py-2 font-medium">Marrón/Negro</td><td class="px-4 py-2">GND</td><td class="px-4 py-2">Tierra (0V)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <h3 class="text-2xl font-bold mb-4">Lección 5: Control de Motores DC (Driver L298N)</h3>
+            <p class="text-lg text-slate-700 mb-4">Cuando quieres controlar la **velocidad y dirección** de un motor DC, un simple transistor no es suficiente. Necesitas un **Driver de Motores** como el L298N. Este "ayudante" avanzado puede manejar dos motores de forma independiente y requiere una fuente de alimentación externa para los motores. Librerías como <code class="font-mono bg-slate-200 px-1 rounded">AFMotor.h</code> facilitan su control.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+                <div>
+                    <h4 class="font-semibold text-center mb-2">Módulo L298N</h4>
+                    <img src="images/l298n_module.png" alt="Módulo Driver de Motores L298N" class="rounded-lg shadow-lg">
+                </div>
+                <div>
+                    <h4 class="font-semibold text-center mb-2">Circuito de Conexión</h4>
+                    <img src="images/l298n_circuit.png" alt="Circuito de conexión de un driver L298N" class="rounded-lg shadow-lg">
+                </div>
+            </div>
+             <div class="overflow-x-auto mt-6">
+                <table class="w-full text-sm text-left text-slate-500">
+                    <thead class="text-xs text-slate-700 uppercase bg-slate-100">
+                        <tr>
+                            <th scope="col" class="px-4 py-3">Pin Driver</th><th scope="col" class="px-4 py-3">Pin Arduino UNO</th><th scope="col" class="px-4 py-3">Función</th><th scope="col" class="px-4 py-3">Librería</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-white border-b"><td class="px-4 py-2 font-medium">ENA</td><td class="px-4 py-2">Pin 5 (PWM)</td><td class="px-4 py-2">Controla Velocidad Motor A</td><td class="px-4 py-2" rowspan="4"><code class="font-mono">AFMotor.h</code> (Recomendada)</td></tr>
+                        <tr class="bg-slate-50 border-b"><td class="px-4 py-2 font-medium">IN1</td><td class="px-4 py-2">Pin 7</td><td class="px-4 py-2">Controla Dirección Motor A</td></tr>
+                        <tr class="bg-white border-b"><td class="px-4 py-2 font-medium">IN2</td><td class="px-4 py-2">Pin 8</td><td class="px-4 py-2">Controla Dirección Motor A</td></tr>
+                        <tr class="bg-slate-50"><td class="px-4 py-2 font-medium">... (y pines para Motor B)</td><td class="px-4 py-2">...</td><td class="px-4 py-2">...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <h3 class="text-2xl font-bold mb-4">Lección 6: Receptores Infrarrojos (IR)</h3>
+            <p class="text-lg text-slate-700 mb-4">¿Quieres controlar tu proyecto con un control remoto de TV? ¡Necesitas un receptor IR! Este pequeño sensor detecta las señales infrarrojas que emiten los controles remotos. Cada botón del control envía un código único. Con la librería <code class="font-mono bg-slate-200 px-1 rounded">IRremote.h</code>, tu Arduino puede decodificar estos códigos y saber qué botón has presionado.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+                <div>
+                    <h4 class="font-semibold text-center mb-2">Sensor Receptor IR</h4>
+                    <img src="images/ir_receiver.png" alt="Sensor Receptor Infrarrojo (IR)" class="rounded-lg shadow-lg">
+                </div>
+                <div>
+                    <h4 class="font-semibold text-center mb-2">Circuito de Conexión</h4>
+                    <img src="images/ir_circuit.png" alt="Circuito de conexión de un receptor IR" class="rounded-lg shadow-lg">
+                </div>
+            </div>
+            <div class="overflow-x-auto mt-6">
+                <table class="w-full text-sm text-left text-slate-500">
+                    <thead class="text-xs text-slate-700 uppercase bg-slate-100">
+                        <tr>
+                            <th scope="col" class="px-4 py-3">Pin Componente</th><th scope="col" class="px-4 py-3">Pin Arduino UNO</th><th scope="col" class="px-4 py-3">Función</th><th scope="col" class="px-4 py-3">Librería</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-white border-b"><td class="px-4 py-2 font-medium">VCC/5V</td><td class="px-4 py-2">5V</td><td class="px-4 py-2">Alimentación Positiva</td><td class="px-4 py-2" rowspan="3"><code class="font-mono">IRremote.h</code></td></tr>
+                        <tr class="bg-slate-50 border-b"><td class="px-4 py-2 font-medium">OUT/Signal</td><td class="px-4 py-2">Pin Digital 11</td><td class="px-4 py-2">Envía el código del botón presionado</td></tr>
+                        <tr class="bg-white"><td class="px-4 py-2 font-medium">GND</td><td class="px-4 py-2">GND</td><td class="px-4 py-2">Tierra (0V)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <h3 class="text-2xl font-bold mb-4">Lección 7: Comunicación Inalámbrica (Bluetooth HC-05/HC-06)</h3>
+            <p class="text-lg text-slate-700 mb-4">Para controlar tu Arduino desde un smartphone o una computadora sin cables, necesitas un módulo Bluetooth. Los modelos HC-05 y HC-06 son muy populares. Funcionan creando un "puente" inalámbrico que simula un cable serie. Puedes enviar y recibir datos (como letras o números) desde una app en tu teléfono para controlar LEDs, motores y mucho más. No siempre requieren una librería externa, ya que se puede usar <code class="font-mono bg-slate-200 px-1 rounded">SoftwareSerial.h</code>, que viene con Arduino.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+                <div>
+                    <h4 class="font-semibold text-center mb-2">Módulo Bluetooth HC-05</h4>
+                    <img src="images/bluetooth_module.png" alt="Módulo Bluetooth HC-05" class="rounded-lg shadow-lg">
+                </div>
+                <div>
+                    <h4 class="font-semibold text-center mb-2">Circuito de Conexión</h4>
+                    <img src="images/bluetooth_circuit.png" alt="Circuito de conexión de un módulo Bluetooth" class="rounded-lg shadow-lg">
+                </div>
+            </div>
+            <div class="overflow-x-auto mt-6">
+                <table class="w-full text-sm text-left text-slate-500">
+                    <thead class="text-xs text-slate-700 uppercase bg-slate-100">
+                        <tr>
+                            <th scope="col" class="px-4 py-3">Pin Componente</th><th scope="col" class="px-4 py-3">Pin Arduino UNO</th><th scope="col" class="px-4 py-3">Función</th><th scope="col" class="px-4 py-3">Librería</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-white border-b"><td class="px-4 py-2 font-medium">VCC</td><td class="px-4 py-2">5V</td><td class="px-4 py-2">Alimentación Positiva</td><td class="px-4 py-2" rowspan="4"><code class="font-mono">SoftwareSerial.h</code> (Incluida)</td></tr>
+                        <tr class="bg-slate-50 border-b"><td class="px-4 py-2 font-medium">GND</td><td class="px-4 py-2">GND</td><td class="px-4 py-2">Tierra (0V)</td></tr>
+                        <tr class="bg-white border-b"><td class="px-4 py-2 font-medium">TXD</td><td class="px-4 py-2">Pin 10 (RX)</td><td class="px-4 py-2">Transmite datos (se cruza con RX)</td></tr>
+                        <tr class="bg-slate-50"><td class="px-4 py-2 font-medium">RXD</td><td class="px-4 py-2">Pin 11 (TX)</td><td class="px-4 py-2">Recibe datos (se cruza con TX)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Actividades Finales -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+            <div class="bg-white p-8 rounded-xl shadow-xl text-center border-t-4 border-orange-500">
+                <i class="fas fa-robot fa-3x text-orange-500 mb-4"></i>
+                <h3 class="text-2xl font-bold mb-4">¡Proyecto Final!</h3>
+                <p class="text-slate-600 mb-6">Es hora de combinar todo. Construye un proyecto final que integre múltiples sensores y actuadores de los que hemos visto.</p>
+                <a href="proyecto_final.html" class="inline-block bg-orange-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-orange-600">Ir al Proyecto Final</a>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow-xl text-center border-t-4 border-blue-500">
+                <i class="fas fa-graduation-cap fa-3x text-blue-500 mb-4"></i>
+                <h3 class="text-2xl font-bold mb-4">Examen Final</h3>
+                <p class="text-slate-600 mb-6">¿Estás listo para demostrar todo lo que has aprendido en el curso? ¡Completa el quiz final!</p>
+                <a href="quiz_final.html" class="inline-block bg-blue-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-600">Iniciar Quiz Final</a>
+            </div>
+        </div>
+
+    </main>
+</body>
+</html>

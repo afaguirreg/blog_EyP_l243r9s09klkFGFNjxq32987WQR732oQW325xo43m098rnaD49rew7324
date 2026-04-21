@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad: Enclavamiento Start/Stop - Curso de Arduino</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .code-block { background-color: #282c34; color: #abb2bf; font-family: 'Courier New', Courier, monospace; padding: 1rem; border-radius: 0.5rem; white-space: pre-wrap; }
+        .code-keyword { color: #c678dd; }
+        .code-function { color: #61afef; }
+        .code-comment { color: #5c6370; }
+        .code-number { color: #d19a66; }
+        .code-string { color: #98c379; }
+        .code-variable { color: #e5c07b; }
+        
+        .block { cursor: pointer; }
+        .program-area { min-height: 80px; border-style: dashed; }
+        .led { width: 40px; height: 40px; border-radius: 50%; background-color: #4a5568; transition: all 0.2s; }
+        .led.on { background-color: #22c55e; box-shadow: 0 0 25px #16a34a; }
+        .push-button { width: 60px; height: 60px; border-radius: 50%; cursor: pointer; transition: transform 0.1s; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; }
+        .push-button:active { transform: scale(0.9); }
+    </style>
+</head>
+<body class="bg-slate-50">
+
+    <header class="bg-white shadow">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-blue-600">Desafío: Enclavamiento Start/Stop</h1>
+            <a href="modulo_2.html" class="text-blue-600 hover:text-blue-800 font-semibold flex items-center"><i class="fas fa-arrow-left mr-2"></i>Volver al Módulo 2</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <h3 class="text-2xl font-bold mb-4">La Lógica del Enclavamiento</h3>
+            <p class="text-lg text-slate-700 mb-4">Un enclavamiento (o "latch" en inglés) es un circuito con "memoria". La idea es simple:</p>
+            <ul class="list-disc list-inside space-y-2 text-lg text-slate-700 mb-6">
+                <li>Presionas un botón de **START** y el LED se enciende.</li>
+                <li>El LED debe **permanecer encendido** incluso después de que sueltas el botón.</li>
+                <li>El LED solo se apagará cuando presiones un segundo botón de **STOP**.</li>
+            </ul>
+            <p class="text-lg text-slate-700">Para lograr esto, necesitaremos una **variable**, que es como una pequeña caja en la memoria del Arduino para recordar si el LED debe estar encendido o apagado.</p>
+        </div>
+        
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <h3 class="text-2xl font-bold mb-4">Circuito y Actividad</h3>
+            <p class="text-lg text-slate-700 mb-6">Conecta el botón de START al pin 2, el de STOP al pin 3 y el LED al pin 13. Luego, arrastra los bloques para completar la lógica del programa.</p>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Herramientas y Simulación -->
+                <div class="border-2 border-slate-200 rounded-lg p-4">
+                    <h4 class="font-bold text-center mb-4">Caja de Herramientas</h4>
+                    <div id="toolbox" class="space-y-2">
+                        <div class="block bg-green-500 text-white p-3 rounded-md text-center" data-action="on">Recordar Encender</div>
+                        <div class="block bg-red-500 text-white p-3 rounded-md text-center" data-action="off">Recordar Apagar</div>
+                    </div>
+                    <hr class="my-6">
+                    <h4 class="font-bold text-center mb-4">Simulación</h4>
+                    <div class="flex flex-col items-center gap-6">
+                        <div class="flex gap-4">
+                            <div id="start-button" class="push-button bg-green-500 border-4 border-green-700">START</div>
+                            <div id="stop-button" class="push-button bg-red-500 border-4 border-red-700">STOP</div>
+                        </div>
+                        <div id="led-simulation" class="led"></div>
+                    </div>
+                </div>
+
+                <!-- Área del Programa -->
+                <div class="lg:col-span-2 border-2 border-slate-200 rounded-lg p-4">
+                    <h4 class="font-bold mb-4">Área del Programa</h4>
+                    <div class="block bg-green-800 text-white p-4 rounded-md">
+                        <p class="font-semibold">Si se presiona START (Pin 2)...</p>
+                        <div id="start-area" class="program-area bg-green-100 rounded-md p-4 mt-2"></div>
+                    </div>
+                    <div class="block bg-red-800 text-white p-4 rounded-md mt-4">
+                        <p class="font-semibold">Si se presiona STOP (Pin 3)...</p>
+                        <div id="stop-area" class="program-area bg-red-100 rounded-md p-4 mt-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-md">
+            <h3 class="text-2xl font-bold mb-4">Del Bloque al Código</h3>
+            <p class="text-lg text-slate-700 mb-6">En este desafío, los bloques no encienden el LED directamente. En su lugar, cambian el valor de nuestra "memoria" (la variable). El código final se encarga de leer esa memoria para decidir si enciende o apaga el LED.</p>
+            
+            <div class="space-y-4 mb-8">
+                <div class="grid grid-cols-3 items-center gap-4 p-4 border rounded-lg">
+                    <div class="block bg-green-500 text-white p-3 rounded-md text-center">Recordar Encender</div>
+                    <div class="text-2xl text-center text-slate-400 font-light">&rarr;</div>
+                    <div class="code-block text-sm"><span class="code-variable">ledEncendido</span> = <span class="code-keyword">true</span>;</div>
+                </div>
+                 <div class="grid grid-cols-3 items-center gap-4 p-4 border rounded-lg">
+                    <div class="block bg-red-500 text-white p-3 rounded-md text-center">Recordar Apagar</div>
+                    <div class="text-2xl text-center text-slate-400 font-light">&rarr;</div>
+                    <div class="code-block text-sm"><span class="code-variable">ledEncendido</span> = <span class="code-keyword">false</span>;</div>
+                </div>
+            </div>
+            <hr class="my-8">
+            <h3 class="text-2xl font-bold mb-4">El Código Completo con "Memoria"</h3>
+            <div id="code-output" class="code-block text-sm"></div>
+        </div>
+    </main>
+
+    <script>
+        const toolbox = document.getElementById('toolbox');
+        const startArea = document.getElementById('start-area');
+        const stopArea = document.getElementById('stop-area');
+        const codeOutput = document.getElementById('code-output');
+        const ledSimulation = document.getElementById('led-simulation');
+        const startButton = document.getElementById('start-button');
+        const stopButton = document.getElementById('stop-button');
+
+        let startAction = null;
+        let stopAction = null;
+        let ledState = false;
+
+        toolbox.addEventListener('click', (e) => {
+            if (e.target.classList.contains('block')) {
+                const action = e.target.dataset.action;
+                const blockClone = e.target.cloneNode(true);
+                
+                if (action === 'on') {
+                    startArea.innerHTML = '';
+                    startArea.appendChild(blockClone);
+                    startAction = action;
+                } else {
+                    stopArea.innerHTML = '';
+                    stopArea.appendChild(blockClone);
+                    stopAction = action;
+                }
+                updateCode();
+            }
+        });
+
+        function updateCode() {
+            let code = `<span class="code-comment">// 1. CREAR LA MEMORIA</span>\n`;
+            code += `<span class="code-comment">// Esta variable booleana (true/false) guardará el estado del LED.</span>\n`;
+            code += `<span class="code-keyword">bool</span> <span class="code-variable">ledEncendido</span> = <span class="code-keyword">false</span>; <span class="code-comment">// Inicia apagado</span>\n\n`;
+            
+            code += `<span class="code-comment">// 2. CONFIGURACIÓN INICIAL (se ejecuta una sola vez)</span>\n`;
+            code += `<span class="code-keyword">void</span> <span class="code-function">setup</span>() {\n`;
+            code += `  <span class="code-function">pinMode</span>(<span class="code-number">13</span>, <span class="code-string">OUTPUT</span>);       <span class="code-comment">// El pin 13 será una SALIDA para controlar el LED.</span>\n`;
+            code += `  <span class="code-function">pinMode</span>(<span class="code-number">2</span>, <span class="code-string">INPUT_PULLUP</span>); <span class="code-comment">// El pin 2 será una ENTRADA para leer el botón START.</span>\n`;
+            code += `  <span class="code-function">pinMode</span>(<span class="code-number">3</span>, <span class="code-string">INPUT_PULLUP</span>); <span class="code-comment">// El pin 3 será una ENTRADA para leer el botón STOP.</span>\n`;
+            code += `}\n\n`;
+            
+            code += `<span class="code-comment">// 3. LÓGICA PRINCIPAL (se repite continuamente)</span>\n`;
+            code += `<span class="code-keyword">void</span> <span class="code-function">loop</span>() {\n`;
+            code += `  <span class="code-comment">// Si se presiona START, cambiamos la memoria a 'true' (encendido).</span>\n`;
+            code += `  <span class="code-keyword">if</span> (<span class="code-function">digitalRead</span>(<span class="code-number">2</span>) == <span class="code-string">LOW</span>) {\n`;
+            if (startAction === 'on') code += `    <span class="code-variable">ledEncendido</span> = <span class="code-keyword">true</span>;\n`;
+            code += `  }\n\n`;
+            
+            code += `  <span class="code-comment">// Si se presiona STOP, cambiamos la memoria a 'false' (apagado).</span>\n`;
+            code += `  <span class="code-keyword">if</span> (<span class="code-function">digitalRead</span>(<span class="code-number">3</span>) == <span class="code-string">LOW</span>) {\n`;
+            if (stopAction === 'off') code += `    <span class="code-variable">ledEncendido</span> = <span class="code-keyword">false</span>;\n`;
+            code += `  }\n\n`;
+
+            code += `  <span class="code-comment">// Finalmente, leemos la memoria y actualizamos el LED.</span>\n`;
+            code += `  <span class="code-keyword">if</span> (<span class="code-variable">ledEncendido</span> == <span class="code-keyword">true</span>) {\n`;
+            code += `    <span class="code-function">digitalWrite</span>(<span class="code-number">13</span>, <span class="code-string">HIGH</span>); <span class="code-comment">// Encender el LED.</span>\n`;
+            code += `  } <span class="code-keyword">else</span> {\n`;
+            code += `    <span class="code-function">digitalWrite</span>(<span class="code-number">13</span>, <span class="code-string">LOW</span>);  <span class="code-comment">// Apagar el LED.</span>\n`;
+            code += `  }\n`;
+            code += `}`;
+            codeOutput.innerHTML = code;
+        }
+        
+        startButton.addEventListener('click', () => {
+            if (startAction === 'on') {
+                ledState = true;
+                ledSimulation.classList.add('on');
+            }
+        });
+
+        stopButton.addEventListener('click', () => {
+            if (stopAction === 'off') {
+                ledState = false;
+                ledSimulation.classList.remove('on');
+            }
+        });
+        
+        updateCode();
+    </script>
+</body>
+</html>

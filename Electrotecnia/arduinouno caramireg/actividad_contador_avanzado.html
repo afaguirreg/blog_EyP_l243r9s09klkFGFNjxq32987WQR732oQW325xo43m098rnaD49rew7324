@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafío: Contador Avanzado - Curso de Arduino</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .code-block { background-color: #282c34; color: #abb2bf; font-family: 'Courier New', Courier, monospace; padding: 1rem; border-radius: 0.5rem; white-space: pre-wrap; }
+        .code-keyword { color: #c678dd; }
+        .code-function { color: #61afef; }
+        .code-comment { color: #5c6370; }
+        .code-number { color: #d19a66; }
+        .code-variable { color: #e5c07b; }
+        
+        .block { cursor: pointer; }
+        .program-area { min-height: 80px; border-style: dashed; }
+        .led { width: 40px; height: 40px; border-radius: 50%; background-color: #4a5568; transition: all 0.2s; }
+        .led.on { background-color: #22c55e; box-shadow: 0 0 25px #16a34a; }
+        .push-button { width: 60px; height: 60px; border-radius: 50%; cursor: pointer; transition: transform 0.1s; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; }
+        .push-button:active { transform: scale(0.9); }
+        .counter-display { font-size: 3rem; font-weight: bold; color: #1e3a8a; background-color: #e0e7ff; padding: 0.5rem 1.5rem; border-radius: 0.5rem; border: 2px solid #a5b4fc; }
+        .param-input { width: 60px; text-align: center; border-radius: 0.25rem; border: 2px solid #93c5fd; margin: 0 0.5rem; color: #1e3a8a; }
+    </style>
+</head>
+<body class="bg-slate-50">
+
+    <header class="bg-white shadow">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-blue-600">Desafío: Contador Avanzado con Reset</h1>
+            <a href="modulo_3.html" class="text-blue-600 hover:text-blue-800 font-semibold flex items-center"><i class="fas fa-arrow-left mr-2"></i>Volver al Módulo 3</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <h3 class="text-2xl font-bold mb-4">Tu Misión</h3>
+            <p class="text-lg text-slate-700 mb-4">Vamos a crear un programa más inteligente. Tu objetivo es:</p>
+            <ul class="list-disc list-inside space-y-2 text-lg text-slate-700 mb-6">
+                <li>Usar un botón para **incrementar** un contador.</li>
+                <li>Hacer que un LED se encienda cuando el contador llegue a un **número que tú elijas**.</li>
+                <li>Usar un segundo botón para **reiniciar** el contador a 0.</li>
+            </ul>
+        </div>
+        
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <h3 class="text-2xl font-bold mb-4">Paso 1: Elige tu "Pizarra" (Tipo de Variable)</h3>
+            <p class="text-lg text-slate-700 mb-4">Para guardar un número que va a cambiar (como nuestro contador), necesitamos una variable. ¿Qué tipo de variable es la más adecuada para almacenar un número entero como 0, 1, 2, 3...?</p>
+            <div id="variable-choice" class="flex gap-4 justify-center">
+                <button class="option-btn p-4 border-2 rounded-lg" data-type="int">
+                    <span class="font-bold text-lg code-keyword">int</span>
+                    <span class="block text-sm text-slate-500">Para números enteros.</span>
+                </button>
+                <button class="option-btn p-4 border-2 rounded-lg" data-type="bool">
+                    <span class="font-bold text-lg code-keyword">bool</span>
+                    <span class="block text-sm text-slate-500">Para verdadero/falso.</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="activity-section" class="bg-white p-8 rounded-xl shadow-md mb-8 hidden">
+            <h3 class="text-2xl font-bold mb-4">Paso 2: Construye el Programa</h3>
+            <p class="text-lg text-slate-700 mb-6">Ahora que has creado tu variable, arrastra y configura los bloques para completar la lógica.</p>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Herramientas y Simulación -->
+                <div class="border-2 border-slate-200 rounded-lg p-4">
+                    <h4 class="font-bold text-center mb-4">Caja de Herramientas</h4>
+                    <div id="toolbox" class="space-y-2">
+                        <div class="block bg-blue-500 text-white p-2 rounded-md text-center" data-action="increment">Incrementar Contador</div>
+                        <div class="block bg-orange-500 text-white p-2 rounded-md text-center" data-action="reset">Reiniciar Contador a 0</div>
+                        <div class="block bg-green-500 text-white p-2 rounded-md text-center" data-action="on">Encender LED</div>
+                    </div>
+                    <hr class="my-6">
+                    <h4 class="font-bold text-center mb-4">Simulación</h4>
+                    <div class="flex flex-col items-center gap-6">
+                        <div id="counter-display" class="counter-display">0</div>
+                        <div class="flex gap-4">
+                            <div id="increment-button" class="push-button bg-blue-500 border-4 border-blue-700 text-sm">INC</div>
+                            <div id="reset-button" class="push-button bg-orange-500 border-4 border-orange-700 text-sm">RESET</div>
+                        </div>
+                        <div id="led-simulation" class="led"></div>
+                    </div>
+                </div>
+
+                <!-- Área del Programa -->
+                <div class="lg:col-span-2 border-2 border-slate-200 rounded-lg p-4">
+                    <h4 class="font-bold mb-4">Área del Programa</h4>
+                    <div class="block bg-blue-800 text-white p-4 rounded-md">
+                        <p class="font-semibold">Si se presiona el botón de Incrementar (Pin 2)...</p>
+                        <div id="increment-area" class="program-area bg-blue-100 rounded-md p-4 mt-2"></div>
+                    </div>
+                    <div class="block bg-orange-800 text-white p-4 rounded-md mt-4">
+                        <p class="font-semibold">Si se presiona el botón de Reset (Pin 3)...</p>
+                        <div id="reset-area" class="program-area bg-orange-100 rounded-md p-4 mt-2"></div>
+                    </div>
+                    <div class="block bg-purple-800 text-white p-4 rounded-md mt-4 flex items-center">
+                        <p class="font-semibold">Si el contador es >= a </p>
+                        <input type="number" id="condition-value" class="param-input" value="5">
+                        <div id="condition-area" class="program-area bg-purple-100 rounded-md p-4 ml-2 flex-grow"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="code-section" class="bg-white p-8 rounded-xl shadow-md hidden">
+            <h3 class="text-2xl font-bold mb-4">Del Bloque al Código</h3>
+            <div class="space-y-4 mb-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 items-center gap-4 p-4 border rounded-lg">
+                    <div class="block bg-purple-800 text-white p-3 rounded-md text-center">Si contador >= <span class="font-bold" id="param-display">5</span></div>
+                    <div class="text-2xl text-center text-slate-400 font-light">&rarr;</div>
+                    <div id="param-code" class="code-block text-sm"></div>
+                </div>
+            </div>
+            <hr class="my-8">
+            <h3 class="text-2xl font-bold mb-4">El Código Completo de tu Programa</h3>
+            <div id="code-output" class="code-block text-sm"></div>
+        </div>
+    </main>
+
+    <script>
+        // --- Elementos del DOM ---
+        const variableChoice = document.getElementById('variable-choice');
+        const activitySection = document.getElementById('activity-section');
+        const codeSection = document.getElementById('code-section');
+        const toolbox = document.getElementById('toolbox');
+        const incrementArea = document.getElementById('increment-area');
+        const resetArea = document.getElementById('reset-area');
+        const conditionArea = document.getElementById('condition-area');
+        const conditionValueInput = document.getElementById('condition-value');
+        const paramDisplay = document.getElementById('param-display');
+        const paramCode = document.getElementById('param-code');
+        const codeOutput = document.getElementById('code-output');
+        const ledSimulation = document.getElementById('led-simulation');
+        const incrementButton = document.getElementById('increment-button');
+        const resetButton = document.getElementById('reset-button');
+        const counterDisplay = document.getElementById('counter-display');
+
+        // --- Estado del Programa ---
+        let varType = '';
+        let incrementAction = null;
+        let resetAction = null;
+        let conditionAction = null;
+        let counter = 0;
+        let conditionValue = 5;
+
+        // --- Lógica de la Actividad ---
+        variableChoice.addEventListener('click', (e) => {
+            const button = e.target.closest('button');
+            if (!button) return;
+            varType = button.dataset.type;
+            
+            if (varType === 'int') {
+                activitySection.classList.remove('hidden');
+                codeSection.classList.remove('hidden');
+                variableChoice.classList.add('hidden');
+                updateCode();
+            } else {
+                alert("Incorrecto. Para contar números, necesitamos una variable de tipo 'int' (entero). ¡Inténtalo de nuevo!");
+            }
+        });
+
+        toolbox.addEventListener('click', (e) => {
+            if (e.target.classList.contains('block')) {
+                const action = e.target.dataset.action;
+                const blockClone = e.target.cloneNode(true);
+                
+                if (action === 'increment') {
+                    incrementArea.innerHTML = '';
+                    incrementArea.appendChild(blockClone);
+                    incrementAction = action;
+                } else if (action === 'reset') {
+                    resetArea.innerHTML = '';
+                    resetArea.appendChild(blockClone);
+                    resetAction = action;
+                } else if (action === 'on') {
+                    conditionArea.innerHTML = '';
+                    conditionArea.appendChild(blockClone);
+                    conditionAction = action;
+                }
+                updateCode();
+            }
+        });
+
+        conditionValueInput.addEventListener('input', (e) => {
+            conditionValue = parseInt(e.target.value) || 0;
+            updateCode();
+        });
+
+        function updateCode() {
+            paramDisplay.textContent = conditionValue;
+            paramCode.innerHTML = `<span class="code-keyword">if</span> (<span class="code-variable">contador</span> >= <span class="code-number">${conditionValue}</span>) { ... }`;
+
+            let code = `<span class="code-comment">// 1. Creamos la variable para guardar el conteo.</span>\n`;
+            code += `<span class="code-keyword">${varType}</span> <span class="code-variable">contador</span> = <span class="code-number">0</span>;\n\n`;
+            
+            code += `<span class="code-comment">// 2. Configuramos los pines.</span>\n`;
+            code += `<span class="code-keyword">void</span> <span class="code-function">setup</span>() {\n`;
+            code += `  <span class="code-function">pinMode</span>(<span class="code-number">13</span>, <span class="code-string">OUTPUT</span>);\n`;
+            code += `  <span class="code-function">pinMode</span>(<span class="code-number">2</span>, <span class="code-string">INPUT_PULLUP</span>); <span class="code-comment">// Incremento</span>\n`;
+            code += `  <span class="code-function">pinMode</span>(<span class="code-number">3</span>, <span class="code-string">INPUT_PULLUP</span>); <span class="code-comment">// Reset</span>\n`;
+            code += `}\n\n`;
+            
+            code += `<span class="code-keyword">void</span> <span class="code-function">loop</span>() {\n`;
+            code += `  <span class="code-comment">// 3. Lógica para el botón de INCREMENTO.</span>\n`;
+            code += `  <span class="code-keyword">if</span> (<span class="code-function">digitalRead</span>(<span class="code-number">2</span>) == <span class="code-string">LOW</span>) {\n`;
+            if (incrementAction) code += `    <span class="code-variable">contador</span>++;\n    <span class="code-function">delay</span>(<span class="code-number">200</span>);\n`;
+            code += `  }\n\n`;
+
+            code += `  <span class="code-comment">// 4. Lógica para el botón de RESET.</span>\n`;
+            code += `  <span class="code-keyword">if</span> (<span class="code-function">digitalRead</span>(<span class="code-number">3</span>) == <span class="code-string">LOW</span>) {\n`;
+            if (resetAction) code += `    <span class="code-variable">contador</span> = <span class="code-number">0</span>;\n`;
+            code += `  }\n\n`;
+            
+            code += `  <span class="code-comment">// 5. Lógica para encender el LED.</span>\n`;
+            code += `  <span class="code-keyword">if</span> (<span class="code-variable">contador</span> >= <span class="code-number">${conditionValue}</span>) {\n`;
+            if (conditionAction) code += `    <span class="code-function">digitalWrite</span>(<span class="code-number">13</span>, <span class="code-string">HIGH</span>);\n`;
+            code += `  } <span class="code-keyword">else</span> {\n`;
+            code += `    <span class="code-function">digitalWrite</span>(<span class="code-number">13</span>, <span class="code-string">LOW</span>);\n`;
+            code += `  }\n`;
+            code += `}`;
+            codeOutput.innerHTML = code;
+        }
+        
+        incrementButton.addEventListener('click', () => {
+            if (incrementAction) {
+                counter++;
+                updateSimulation();
+            }
+        });
+
+        resetButton.addEventListener('click', () => {
+            if (resetAction) {
+                counter = 0;
+                updateSimulation();
+            }
+        });
+
+        function updateSimulation() {
+            counterDisplay.textContent = counter;
+            if (conditionAction && counter >= conditionValue) {
+                ledSimulation.classList.add('on');
+            } else {
+                ledSimulation.classList.remove('on');
+            }
+        }
+        
+        updateCode();
+    </script>
+</body>
+</html>

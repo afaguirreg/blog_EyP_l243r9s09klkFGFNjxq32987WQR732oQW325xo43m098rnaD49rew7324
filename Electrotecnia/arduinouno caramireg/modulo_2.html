@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 2: Entradas Digitales - Curso de Arduino</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .code-block {
+            background-color: #282c34;
+            color: #abb2bf;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            white-space: pre-wrap;
+        }
+        .code-keyword { color: #c678dd; }
+        .code-function { color: #61afef; }
+        .code-comment { color: #5c6370; }
+        .code-number { color: #d19a66; }
+        .code-string { color: #98c379; }
+        
+        .block { cursor: pointer; transition: background-color 0.2s; }
+        .program-area {
+            min-height: 150px;
+            border-style: dashed;
+        }
+        .if-block-area {
+            min-height: 80px;
+            background-color: rgba(37, 99, 235, 0.1);
+        }
+        .led {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #4a5568; /* Off */
+            transition: background-color 0.2s, box-shadow 0.2s;
+        }
+        .led.on {
+            background-color: #f87171; /* Red */
+            box-shadow: 0 0 20px #ef4444;
+        }
+        .push-button {
+            width: 60px;
+            height: 60px;
+            background-color: #ef4444;
+            border-radius: 50%;
+            border: 4px solid #b91c1c;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+        .push-button:active {
+            transform: scale(0.9);
+        }
+    </style>
+</head>
+<body class="bg-slate-50">
+
+    <!-- Encabezado del Módulo -->
+    <header class="bg-white shadow">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-blue-600">Módulo 2: Escuchando al Mundo</h1>
+            <a href="index.html" class="text-blue-600 hover:text-blue-800 font-semibold flex items-center">
+                <i class="fas fa-arrow-left mr-2"></i>
+                Volver al Inicio
+            </a>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="container mx-auto px-6 py-12">
+    
+        <!-- Banner del Módulo -->
+        <div class="relative rounded-xl overflow-hidden mb-12">
+            <img src="images/modulo_2.png" alt="Dedo presionando un botón" class="w-full h-64 object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                <h2 class="text-4xl font-bold text-white text-center">Entradas Digitales y Condicionales</h2>
+            </div>
+        </div>
+
+        <!-- Lección 1: El Poder de 'Si...' -->
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <h3 class="text-2xl font-bold mb-4">Lección 1: El Poder de la Condición 'Si...'</h3>
+            <p class="text-lg text-slate-700 mb-4">Hasta ahora, nuestro Arduino solo sabía dar órdenes. Ahora le enseñaremos a **escuchar**. Para eso, usamos una idea muy poderosa: la **condicional**. Funciona igual que en la vida real:</p>
+            <p class="text-lg text-slate-700 font-semibold text-center bg-slate-100 p-4 rounded-md">"**Si** está lloviendo, **entonces** llevo un paraguas."</p>
+            <p class="text-lg text-slate-700 mt-4">En nuestro caso, será: "**Si** se presiona un botón, **entonces** enciende un LED." Esta es la base para crear proyectos que reaccionan al mundo.</p>
+        </div>
+
+        <!-- Lección 2: El Circuito con Botón -->
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <h3 class="text-2xl font-bold mb-4">Lección 2: El Circuito con Botón</h3>
+            <p class="text-lg text-slate-700 mb-6">Para que Arduino pueda "escuchar" si presionamos un botón, necesitamos conectarlo de una forma específica. Usaremos un pin de entrada (el pin 2) y la tierra (GND). No te preocupes por la resistencia, ¡Arduino tiene una interna que nos ayudará!</p>
+            <div class="flex justify-center">
+                <img src="images/circuito_boton.png" alt="Diagrama de conexión de un botón a Arduino" class="rounded-lg shadow-lg">
+            </div>
+        </div>
+
+        <!-- Lección 3: Actividad Interactiva -->
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <h3 class="text-2xl font-bold mb-4">Lección 3: Actividad Interactiva</h3>
+            <p class="text-lg text-slate-700 mb-6">Tu misión es programar el Arduino para que encienda el LED del pin 13 **solo cuando** el botón del pin 2 esté presionado. Arrastra los bloques a las áreas correspondientes.</p>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Caja de Herramientas y Simulación -->
+                <div class="border-2 border-slate-200 rounded-lg p-4">
+                    <h4 class="font-bold text-center mb-4">Caja de Herramientas</h4>
+                    <div id="toolbox" class="space-y-2">
+                        <div class="block bg-blue-500 text-white p-3 rounded-md text-center" data-action="on">Encender LED (Pin 13)</div>
+                        <div class="block bg-red-500 text-white p-3 rounded-md text-center" data-action="off">Apagar LED (Pin 13)</div>
+                    </div>
+                    <hr class="my-6">
+                    <h4 class="font-bold text-center mb-4">Simulación</h4>
+                    <div class="flex flex-col items-center gap-4">
+                        <div id="push-button" class="push-button"></div>
+                        <p class="text-sm font-medium">Presiona el Botón</p>
+                        <div class="bg-teal-500 p-4 rounded-md w-48 relative">
+                            <p class="text-white font-bold">ARDUINO</p>
+                            <div class="absolute top-1/2 -right-4">
+                                <span class="text-xs font-bold mr-1">13</span><div id="led-simulation" class="led inline-block"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Área del Programa -->
+                <div class="lg:col-span-2 border-2 border-slate-200 rounded-lg p-4">
+                    <h4 class="font-bold mb-4">Área del Programa</h4>
+                    <div class="block bg-blue-800 text-white p-4 rounded-md" data-action="if">
+                        <p class="font-semibold">Si el botón (Pin 2) está presionado, entonces...</p>
+                        <div id="if-area" class="program-area if-block-area bg-blue-100 rounded-md p-4 mt-2 space-y-2">
+                            <!-- Bloques para la condición SI -->
+                        </div>
+                    </div>
+                    <div class="block bg-slate-600 text-white p-4 rounded-md mt-4" data-action="else">
+                        <p class="font-semibold">Si no...</p>
+                        <div id="else-area" class="program-area if-block-area bg-slate-100 rounded-md p-4 mt-2 space-y-2">
+                            <!-- Bloques para la condición NO -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lección 4: Del Bloque al Código -->
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <h3 class="text-2xl font-bold mb-4">Lección 4: Del Bloque al Código</h3>
+            <p class="text-lg text-slate-700 mb-6">Así es como tu lógica condicional se traduce a código de Arduino. Usamos la instrucción `if` para comprobar una condición y `digitalRead()` para leer el estado del botón.</p>
+            <div id="code-output" class="code-block text-sm">
+                <span class="code-comment">// Construye tu programa para ver el código aquí.</span>
+            </div>
+        </div>
+
+        <!-- NUEVA SECCIÓN DE ACTIVIDADES FINALES -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Desafío Práctico -->
+            <div class="bg-white p-8 rounded-xl shadow-xl text-center border-t-4 border-orange-500">
+                <i class="fas fa-bolt fa-3x text-orange-500 mb-4"></i>
+                <h3 class="text-2xl font-bold mb-4">¡Desafío Práctico!</h3>
+                <p class="text-slate-600 mb-6">Aplica lo que aprendiste para crear un circuito con memoria. ¡Programa un botón de Start y otro de Stop!</p>
+                <a href="actividad_enclavamiento.html" class="inline-block bg-orange-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-orange-600 transition-transform transform hover:scale-105">
+                    Ir al Desafío
+                </a>
+            </div>
+            <!-- Quiz del Módulo -->
+            <div class="bg-white p-8 rounded-xl shadow-xl text-center border-t-4 border-blue-500">
+                <i class="fas fa-question-circle fa-3x text-blue-500 mb-4"></i>
+                <h3 class="text-2xl font-bold mb-4">Prueba tu Conocimiento</h3>
+                <p class="text-slate-600 mb-6">¿Estás listo para validar lo que aprendiste sobre entradas y condicionales? ¡Demuéstralo en el quiz!</p>
+                <a href="quiz_modulo_2.html" class="inline-block bg-blue-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-600 transition-transform transform hover:scale-105">
+                    Iniciar Quiz
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        const toolbox = document.getElementById('toolbox');
+        const ifArea = document.getElementById('if-area');
+        const elseArea = document.getElementById('else-area');
+        const codeOutput = document.getElementById('code-output');
+        const ledSimulation = document.getElementById('led-simulation');
+        const pushButton = document.getElementById('push-button');
+
+        let ifSteps = [];
+        let elseSteps = [];
+
+        toolbox.addEventListener('click', (e) => {
+            if (e.target.classList.contains('block')) {
+                const action = e.target.dataset.action;
+                const blockClone = e.target.cloneNode(true);
+                
+                if (action === 'on') {
+                    ifArea.appendChild(blockClone);
+                    ifSteps.push(action);
+                } else {
+                    elseArea.appendChild(blockClone);
+                    elseSteps.push(action);
+                }
+                updateCode();
+            }
+        });
+
+        function updateCode() {
+            let setupCode = `<span class="code-keyword">void</span> <span class="code-function">setup</span>() {\n`;
+            setupCode += `  <span class="code-function">pinMode</span>(<span class="code-number">13</span>, <span class="code-string">OUTPUT</span>); <span class="code-comment">// LED</span>\n`;
+            setupCode += `  <span class="code-function">pinMode</span>(<span class="code-number">2</span>, <span class="code-string">INPUT_PULLUP</span>); <span class="code-comment">// Botón</span>\n`;
+            setupCode += `}`;
+            
+            let loopCode = `<span class="code-keyword">void</span> <span class="code-function">loop</span>() {\n`;
+            loopCode += `  <span class="code-keyword">if</span> (<span class="code-function">digitalRead</span>(<span class="code-number">2</span>) == <span class="code-string">LOW</span>) { <span class="code-comment">// Si el botón se presiona...</span>\n`;
+            ifSteps.forEach(step => {
+                if (step === 'on') loopCode += `    <span class="code-function">digitalWrite</span>(<span class="code-number">13</span>, <span class="code-string">HIGH</span>);\n`;
+            });
+            loopCode += `  } <span class="code-keyword">else</span> {\n`;
+            elseSteps.forEach(step => {
+                if (step === 'off') loopCode += `    <span class="code-function">digitalWrite</span>(<span class="code-number">13</span>, <span class="code-string">LOW</span>);\n`;
+            });
+            loopCode += `  }\n`;
+            loopCode += `}`;
+            codeOutput.innerHTML = `${setupCode}\n\n${loopCode}`;
+        }
+        
+        pushButton.addEventListener('mousedown', () => {
+            if (ifSteps.includes('on')) {
+                ledSimulation.classList.add('on');
+            }
+        });
+
+        pushButton.addEventListener('mouseup', () => {
+             if (elseSteps.includes('off')) {
+                ledSimulation.classList.remove('on');
+            }
+        });
+        
+        pushButton.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            if (ifSteps.includes('on')) ledSimulation.classList.add('on');
+        });
+        
+        pushButton.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            if (elseSteps.includes('off')) ledSimulation.classList.remove('on');
+        });
+
+        // Initial code view
+        updateCode();
+    </script>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafío: Alarma de Temperatura - Curso de Arduino</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .code-block { background-color: #282c34; color: #abb2bf; font-family: 'Courier New', Courier, monospace; padding: 1rem; border-radius: 0.5rem; white-space: pre-wrap; }
+        .code-keyword { color: #c678dd; }
+        .code-function { color: #61afef; }
+        .code-comment { color: #5c6370; }
+        .code-number { color: #d19a66; }
+        .code-variable { color: #e5c07b; }
+        .code-operator { color: #56b6c2; }
+        
+        .block { cursor: grab; user-select: none; font-family: 'Courier New', Courier, monospace; }
+        .block.dragging { opacity: 0.5; }
+        .drop-zone {
+            min-height: 50px;
+            border: 2px dashed #9ca3af;
+            background-color: #f3f4f6;
+            transition: background-color 0.2s;
+            padding: 0.5rem;
+        }
+        .drop-zone.over {
+            background-color: #dbeafe;
+            border-color: #3b82f6;
+        }
+        .led-alarm {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #374151;
+            border: 4px solid #1f2937;
+            transition: all 0.1s;
+        }
+        .led-alarm.triggered {
+            animation: blink 0.2s infinite;
+        }
+        @keyframes blink {
+            50% { background-color: #ef4444; box-shadow: 0 0 25px #dc2626; }
+        }
+        .code-scroll-area {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body class="bg-slate-50">
+
+    <header class="bg-white shadow">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-blue-600">Desafío: Alarma de Temperatura</h1>
+            <a href="modulo_5.html" class="text-blue-600 hover:text-blue-800 font-semibold flex items-center"><i class="fas fa-arrow-left mr-2"></i>Volver al Módulo 5</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <h3 class="text-2xl font-bold mb-4">Tu Misión: Crear un Sistema de Protección Preciso</h3>
+            <p class="text-lg text-slate-700 mb-4">La temperatura rara vez es un número exacto. Para ser precisos, necesitamos usar decimales (ej: 25.5°C). Tu misión es programar una alarma que use el tipo de variable correcto para manejar estos valores.</p>
+        </div>
+        
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Herramientas y Simulación -->
+                <div class="border-2 border-slate-200 rounded-lg p-4">
+                    <h4 class="font-bold text-center mb-4">Caja de Herramientas de Código</h4>
+                    <div id="toolbox" class="space-y-3">
+                        <div class="block bg-purple-600 text-white p-2 rounded-md text-center" draggable="true" data-type="variable"><span class="code-keyword">float</span> <span class="code-variable">temperatura</span>;</div>
+                        <div class="block bg-purple-600 text-white p-2 rounded-md text-center" draggable="true" data-type="variable"><span class="code-keyword">int</span> <span class="code-variable">temperatura</span>;</div>
+                        <div class="block bg-red-500 text-white p-2 rounded-md text-center hidden" draggable="true" data-type="action" data-code="parpadearAlarma();">parpadearAlarma();</div>
+                        <div class="block bg-blue-500 text-white p-2 rounded-md text-center hidden" draggable="true" data-type="action" data-code="apagarAlarma();">apagarAlarma();</div>
+                    </div>
+                    <hr class="my-6">
+                    <h4 class="font-bold text-center mb-4">Simulación</h4>
+                    <div class="flex flex-col items-center gap-4 p-4 bg-slate-100 rounded-lg">
+                        <label for="temp-sensor" class="font-medium">Sensor de Temperatura</label>
+                        <input type="range" id="temp-sensor" min="0" max="100" value="25.0" step="0.5" class="w-full">
+                        <div id="temp-value" class="font-bold text-xl">25.0°C</div>
+                        <button id="arm-button" class="mt-4 w-full bg-gray-600 text-white font-bold py-2 px-4 rounded-lg">PROTECCIÓN INACTIVA</button>
+                        <div id="led-alarm" class="led-alarm mt-4"></div>
+                    </div>
+                </div>
+
+                <!-- Área del Programa -->
+                <div class="lg:col-span-2 border-2 border-slate-200 rounded-lg p-4">
+                    <h4 class="font-bold mb-4">Estructura del Programa</h4>
+                    <div class="code-block text-sm space-y-2 code-scroll-area">
+                        <p><span class="code-comment">// PASO 1: Arrastra aquí el tipo de variable correcto para la temperatura.</span></p>
+                        <div id="variable-zone" class="drop-zone p-2 rounded"></div>
+                        <p><span class="code-keyword">bool</span> <span class="code-variable">proteccionActiva</span> = <span class="code-keyword">false</span>;</p>
+                        <p>...</p>
+                        <div id="logic-section" class="hidden">
+                            <p><span class="code-keyword">void</span> <span class="code-function">loop</span>() {</p>
+                            <p class="ml-4"><span class="code-comment">// Lógica para activar/desactivar...</span></p>
+                            <p>...</p>
+                            <p class="ml-4"><span class="code-comment">// PASO 2: Arrastra las acciones a su lugar.</span></p>
+                            <p class="ml-4"><span class="code-keyword">if</span> (<span class="code-variable">proteccionActiva</span> <span class="code-operator">&&</span> <span class="code-variable">temperatura</span> > <input type="number" id="temp-threshold" class="w-20 text-black text-center rounded" value="60.0" step="0.5">) {</p>
+                            <div id="if-zone" class="drop-zone ml-8 p-2 rounded"></div>
+                            <p class="ml-4">} <span class="code-keyword">else</span> {</p>
+                            <div id="else-zone" class="drop-zone ml-8 p-2 rounded"></div>
+                            <p class="ml-4">}</p>
+                            <p>}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="code-explanation-section" class="bg-white p-8 rounded-xl shadow-md hidden">
+            <h3 class="text-2xl font-bold mb-4">Paralelo Bloque a Código</h3>
+            <div class="space-y-4 mb-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-4 p-4 border rounded-lg">
+                    <div class="text-center">
+                        <p class="font-semibold mb-2">Para números enteros (sin decimales):</p>
+                        <div class="block bg-purple-600 text-white p-2 rounded-md"><span class="code-keyword">int</span> <span class="code-variable">contador</span>;</div>
+                    </div>
+                    <div class="text-center">
+                        <p class="font-semibold mb-2">Para números con decimales:</p>
+                        <div class="block bg-purple-600 text-white p-2 rounded-md"><span class="code-keyword">float</span> <span class="code-variable">temperatura</span>;</div>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-8">
+            <h3 class="text-2xl font-bold mb-4">El Código Completo de tu Programa</h3>
+            <div id="code-output" class="code-block text-sm"></div>
+        </div>
+    </main>
+
+    <script>
+        // --- Drag and Drop Logic ---
+        const blocks = document.querySelectorAll('.block');
+        const dropZones = document.querySelectorAll('.drop-zone');
+        let draggedBlock = null;
+
+        blocks.forEach(block => {
+            block.addEventListener('dragstart', (e) => {
+                draggedBlock = e.target;
+                setTimeout(() => e.target.classList.add('dragging'), 0);
+            });
+            block.addEventListener('dragend', (e) => {
+                e.target.classList.remove('dragging');
+            });
+        });
+
+        dropZones.forEach(zone => {
+            zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('over'); });
+            zone.addEventListener('dragleave', () => { zone.classList.remove('over'); });
+            zone.addEventListener('drop', e => {
+                e.preventDefault();
+                zone.classList.remove('over');
+                if (draggedBlock) {
+                    if (zone.id === 'variable-zone' && draggedBlock.dataset.type === 'variable') {
+                        zone.innerHTML = '';
+                        zone.appendChild(draggedBlock.cloneNode(true));
+                        handleVariableDrop(draggedBlock);
+                    } else if (zone.id !== 'variable-zone' && draggedBlock.dataset.type === 'action') {
+                        zone.innerHTML = '';
+                        zone.appendChild(draggedBlock.cloneNode(true));
+                    }
+                    updateFullCode();
+                }
+            });
+        });
+        
+        function handleVariableDrop(block) {
+            if (block.textContent.includes('float')) {
+                document.getElementById('logic-section').classList.remove('hidden');
+                document.getElementById('code-explanation-section').classList.remove('hidden');
+                document.querySelectorAll('.block[data-type="action"]').forEach(b => b.classList.remove('hidden'));
+            } else {
+                alert("Incorrecto. La temperatura puede tener decimales, por lo que 'float' es el tipo de variable más adecuado. Arrastra el bloque correcto para continuar.");
+                // No borramos el bloque incorrecto para que el usuario vea su error
+            }
+        }
+
+        // --- Simulation Logic ---
+        const tempSensor = document.getElementById('temp-sensor');
+        const tempValueDisplay = document.getElementById('temp-value');
+        const armButton = document.getElementById('arm-button');
+        const ledAlarm = document.getElementById('led-alarm');
+        const tempThresholdInput = document.getElementById('temp-threshold');
+        const codeOutput = document.getElementById('code-output');
+        
+        let isProtectionActive = false;
+        let simulationInterval = null;
+
+        armButton.addEventListener('click', () => {
+            isProtectionActive = !isProtectionActive;
+            armButton.textContent = isProtectionActive ? 'PROTECCIÓN ACTIVA' : 'PROTECCIÓN INACTIVA';
+            armButton.classList.toggle('bg-gray-600', !isProtectionActive);
+            armButton.classList.toggle('bg-green-600', isProtectionActive);
+            
+            if (isProtectionActive) {
+                simulationInterval = setInterval(runSimulation, 200);
+            } else {
+                clearInterval(simulationInterval);
+                simulationInterval = null;
+                ledAlarm.classList.remove('triggered');
+            }
+        });
+
+        tempSensor.addEventListener('input', () => {
+            tempValueDisplay.textContent = `${parseFloat(tempSensor.value).toFixed(1)}°C`;
+        });
+
+        function runSimulation() {
+            if (!isProtectionActive) return;
+
+            const tempValue = parseFloat(tempSensor.value);
+            const threshold = parseFloat(tempThresholdInput.value);
+            const ifAction = document.querySelector('#if-zone .block')?.dataset.code;
+            const elseAction = document.querySelector('#else-zone .block')?.dataset.code;
+
+            if (tempValue > threshold) {
+                if (ifAction === 'parpadearAlarma();') ledAlarm.classList.add('triggered');
+                else ledAlarm.classList.remove('triggered');
+            } else {
+                if (elseAction === 'apagarAlarma();') ledAlarm.classList.remove('triggered');
+            }
+        }
+
+        function updateFullCode() {
+            const varBlock = document.querySelector('#variable-zone .block');
+            if (!varBlock) return;
+
+            const ifActionBlock = document.querySelector('#if-zone .block');
+            const elseActionBlock = document.querySelector('#else-zone .block');
+            const threshold = tempThresholdInput.value;
+
+            let code = `<span class="code-comment">// 1. Declaramos las variables globales</span>\n`;
+            code += `${varBlock.innerHTML};\n`;
+            code += `<span class="code-keyword">bool</span> <span class="code-variable">proteccionActiva</span> = <span class="code-keyword">false</span>;\n\n`;
+            
+            code += `<span class="code-keyword">void</span> <span class="code-function">setup</span>() { ... }\n\n`;
+            
+            code += `<span class="code-keyword">void</span> <span class="code-function">loop</span>() {\n`;
+            code += `  <span class="code-comment">// Lógica para activar/desactivar...</span>\n  ...\n\n`;
+            code += `  <span class="code-variable">temperatura</span> = <span class="code-function">leerSensorTemp</span>();\n\n`;
+            code += `  <span class="code-keyword">if</span> (<span class="code-variable">proteccionActiva</span> <span class="code-operator">&&</span> <span class="code-variable">temperatura</span> > <span class="code-number">${threshold}</span>) {\n`;
+            if (ifActionBlock) code += `    ${ifActionBlock.dataset.code}\n`;
+            code += `  } <span class="code-keyword">else</span> {\n`;
+            if (elseActionBlock) code += `    ${elseActionBlock.dataset.code}\n`;
+            code += `  }\n`;
+            code += `}`;
+            codeOutput.innerHTML = code;
+        }
+    </script>
+</body>
+</html>

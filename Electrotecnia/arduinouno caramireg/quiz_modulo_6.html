@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz del Módulo 6 - Curso de Arduino</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .option-btn { transition: background-color 0.2s, transform 0.2s; }
+        .option-btn:hover { transform: scale(1.03); background-color: #dbeafe; }
+        .correct { background-color: #22c55e !important; color: white; border-color: #16a34a; }
+        .incorrect { background-color: #ef4444 !important; color: white; border-color: #dc2626; }
+        .code-block-quiz { background-color: #282c34; color: #abb2bf; font-family: 'Courier New', Courier, monospace; padding: 1rem; border-radius: 0.5rem; }
+        .code-input {
+            background-color: #4b5563;
+            border: 2px dashed #6b7280;
+            color: #e5c07b;
+            font-family: 'Courier New', Courier, monospace;
+            border-radius: 0.25rem;
+            padding: 0.25rem;
+            width: 160px;
+            text-align: center;
+        }
+        .code-input.correct { border-color: #22c55e; }
+        .code-input.incorrect { border-color: #ef4444; }
+    </style>
+</head>
+<body class="bg-slate-100 flex items-center justify-center min-h-screen p-4">
+
+    <div class="w-full max-w-2xl bg-white p-8 rounded-2xl shadow-2xl">
+        <div id="quiz-container">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-2xl font-bold text-slate-800">Prueba de Conocimiento: Módulo 6</h2>
+                <a href="modulo_6.html" class="text-blue-600 hover:text-blue-800 font-semibold text-sm">Volver al Módulo</a>
+            </div>
+            
+            <div class="h-2 w-full bg-slate-200 rounded-full mb-6">
+                <div id="progress-bar" class="h-2 bg-blue-500 rounded-full transition-all duration-300" style="width: 0%;"></div>
+            </div>
+
+            <h3 id="question-text" class="text-xl font-semibold text-slate-700 mb-6 min-h-[64px]">Cargando pregunta...</h3>
+
+            <div id="interactive-area" class="mb-6">
+                <!-- Área para actividades interactivas -->
+            </div>
+
+            <div id="options-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Opciones -->
+            </div>
+        </div>
+
+        <!-- Pantalla de Resultados -->
+        <div id="results-container" class="hidden text-center">
+            <i class="fas fa-trophy fa-5x text-yellow-400 mb-4"></i>
+            <h2 class="text-3xl font-bold text-slate-800 mb-2">¡Quiz Completado!</h2>
+            <p class="text-lg text-slate-600 mb-6">Este es tu resultado:</p>
+            <p class="text-5xl font-bold text-blue-600 mb-8" id="score-text"></p>
+            <div class="flex justify-center gap-4">
+                <button onclick="restartQuiz()" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg">Intentar de Nuevo</button>
+                <a href="modulo_6.html" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg">Regresar al Módulo 6</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                type: 'mcq',
+                question: "¿Por qué es necesario usar un relé o transistor para controlar un motor grande con Arduino?",
+                options: ["Porque los motores no entienden el código de Arduino.", "Porque los pines de Arduino no suministran suficiente corriente/voltaje.", "Porque los motores necesitan señales analógicas.", "Porque Arduino se sobrecalienta."],
+                answer: 1
+            },
+            {
+                type: 'interactive_code',
+                question: "Para activar un relé conectado al pin 8 y encender una lámpara, ¿qué función debes escribir?",
+                code: `<div class="code-block-quiz"><input type="text" class="code-input" placeholder="Escribe aquí"> (8, HIGH);</div>`,
+                answer: "digitalWrite"
+            },
+            {
+                type: 'mcq',
+                question: "La principal ventaja de un relé sobre un transistor es que...",
+                options: ["Es mucho más rápido.", "Consume menos energía.", "Proporciona aislamiento eléctrico completo entre circuitos.", "Es más pequeño."],
+                answer: 2
+            },
+            {
+                type: 'interactive_code',
+                question: "Para controlar la velocidad de un motor (0-255) conectado a un transistor en el pin 9, ¿qué función debes usar?",
+                code: `<div class="code-block-quiz"><input type="text" class="code-input" placeholder="Escribe aquí"> (9, velocidad);</div>`,
+                answer: "analogWrite"
+            },
+            {
+                type: 'mcq',
+                question: "Si quieres controlar la velocidad de un motor de forma variable (no solo encendido/apagado), ¿qué componente es más adecuado?",
+                options: ["Un LED", "Un relé", "Un transistor", "Un botón"],
+                answer: 2
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        const questionText = document.getElementById('question-text');
+        const optionsContainer = document.getElementById('options-container');
+        const interactiveArea = document.getElementById('interactive-area');
+        const progressBar = document.getElementById('progress-bar');
+        const quizContainer = document.getElementById('quiz-container');
+        const resultsContainer = document.getElementById('results-container');
+        const scoreText = document.getElementById('score-text');
+
+        function loadQuestion() {
+            if (currentQuestionIndex >= questions.length) {
+                showResults();
+                return;
+            }
+
+            const currentQuestion = questions[currentQuestionIndex];
+            questionText.textContent = currentQuestion.question;
+            optionsContainer.innerHTML = '';
+            interactiveArea.innerHTML = '';
+
+            if (currentQuestion.type === 'mcq') {
+                currentQuestion.options.forEach((option, index) => {
+                    const button = document.createElement('button');
+                    button.textContent = option;
+                    button.classList.add('option-btn', 'w-full', 'p-4', 'border-2', 'border-slate-300', 'rounded-lg', 'text-left', 'font-medium', 'text-slate-700');
+                    button.onclick = () => selectAnswerMCQ(index === currentQuestion.answer, button);
+                    optionsContainer.appendChild(button);
+                });
+            } else if (currentQuestion.type === 'interactive_code') {
+                interactiveArea.innerHTML = currentQuestion.code;
+                const checkButton = document.createElement('button');
+                checkButton.textContent = 'Comprobar';
+                checkButton.classList.add('w-full', 'md:col-span-2', 'mt-4', 'bg-green-500', 'hover:bg-green-600', 'text-white', 'font-bold', 'py-2', 'px-4', 'rounded-lg');
+                checkButton.onclick = checkCodeAnswer;
+                optionsContainer.appendChild(checkButton);
+            }
+            
+            updateProgressBar();
+        }
+
+        function selectAnswerMCQ(isCorrect, button) {
+            const allOptions = optionsContainer.querySelectorAll('.option-btn');
+            allOptions.forEach(btn => btn.disabled = true);
+
+            if (isCorrect) {
+                button.classList.add('correct');
+                score++;
+            } else {
+                button.classList.add('incorrect');
+                allOptions[questions[currentQuestionIndex].answer].classList.add('correct');
+            }
+
+            setTimeout(() => {
+                currentQuestionIndex++;
+                loadQuestion();
+            }, 2000);
+        }
+
+        function checkCodeAnswer() {
+            const input = interactiveArea.querySelector('.code-input');
+            const userAnswer = input.value.trim();
+            const correctAnswer = questions[currentQuestionIndex].answer;
+            const isCorrect = userAnswer === correctAnswer;
+
+            input.disabled = true;
+            optionsContainer.querySelector('button').disabled = true;
+
+            if (isCorrect) {
+                input.classList.add('correct');
+                score++;
+            } else {
+                input.classList.add('incorrect');
+                // Show the correct answer after a moment
+                setTimeout(() => {
+                    input.value = correctAnswer;
+                    input.classList.remove('incorrect');
+                    input.classList.add('correct');
+                }, 1000);
+            }
+
+            setTimeout(() => {
+                currentQuestionIndex++;
+                loadQuestion();
+            }, 2500);
+        }
+        
+        function updateProgressBar() {
+            const progress = (currentQuestionIndex / questions.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+        
+        function showResults() {
+            quizContainer.classList.add('hidden');
+            resultsContainer.classList.remove('hidden');
+            scoreText.textContent = `${score} / ${questions.length}`;
+
+            // *** LÍNEA IMPORTANTE AÑADIDA ***
+            // Guarda el resultado en localStorage para que el index.html pueda leerlo.
+            localStorage.setItem('quizScoreModule6', score);
+        }
+
+        function restartQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            resultsContainer.classList.add('hidden');
+            quizContainer.classList.remove('hidden');
+            loadQuestion();
+        }
+
+        loadQuestion();
+    </script>
+</body>
+</html>

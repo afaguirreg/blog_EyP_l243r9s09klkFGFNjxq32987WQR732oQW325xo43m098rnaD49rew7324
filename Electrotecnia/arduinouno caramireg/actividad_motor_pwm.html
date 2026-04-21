@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafío: Control de Velocidad de Motor - Curso de Arduino</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .code-editor {
+            background-color: #282c34;
+            color: #abb2bf;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            border: 2px solid #4b5563;
+        }
+        .code-input {
+            background-color: #4b5563;
+            border: 2px dashed #6b7280;
+            color: #e5c07b;
+            font-family: 'Courier New', Courier, monospace;
+            border-radius: 0.25rem;
+            padding: 0.25rem;
+            width: 150px;
+            text-align: center;
+        }
+        .code-input.correct {
+            border-color: #22c55e;
+        }
+        .code-input.incorrect {
+            border-color: #ef4444;
+        }
+        .fan {
+            transition: transform 0.2s linear;
+        }
+        .code-comment {
+            color: #5c6370;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body class="bg-slate-50">
+
+    <header class="bg-white shadow">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-blue-600">Desafío: Control de Velocidad (PWM)</h1>
+            <a href="modulo_6.html" class="text-blue-600 hover:text-blue-800 font-semibold flex items-center"><i class="fas fa-arrow-left mr-2"></i>Volver al Módulo 6</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <h3 class="text-2xl font-bold mb-4">Tu Misión: Escribir Código Real</h3>
+            <p class="text-lg text-slate-700 mb-4">Has llegado al siguiente nivel. Ya no hay bloques, solo código. Tu misión es completar el programa para controlar la velocidad de un ventilador con un potenciómetro. Deberás escribir los nombres de las funciones y variables correctas en los espacios en blanco.</p>
+            <ul class="list-disc list-inside space-y-2 text-lg text-slate-700">
+                <li>Lee el valor del potenciómetro (Pin A0).</li>
+                <li>Convierte el valor leído (0-1023) a una velocidad para el motor (0-255).</li>
+                <li>Usa esa velocidad para controlar el motor (Pin 9) a través de un transistor.</li>
+            </ul>
+        </div>
+        
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Simulación -->
+                <div class="border-2 border-slate-200 rounded-lg p-6 flex flex-col items-center justify-center">
+                    <h4 class="font-bold text-xl text-center mb-4">Simulación</h4>
+                    <label for="pot-slider" class="font-medium">Potenciómetro</label>
+                    <input type="range" id="pot-slider" min="0" max="1023" value="0" class="w-full my-2">
+                    <div id="fan" class="my-6">
+                        <i class="fas fa-fan fa-6x text-slate-700 fan"></i>
+                    </div>
+                    <div>
+                        <span class="font-semibold">Velocidad (0-255):</span>
+                        <span id="speed-display" class="font-bold text-2xl text-blue-600">0</span>
+                    </div>
+                </div>
+
+                <!-- Área del Programa -->
+                <div class="lg:col-span-2 border-2 border-slate-200 rounded-lg p-6">
+                    <h4 class="font-bold text-xl mb-4">Completa el Código</h4>
+                    <div class="code-editor text-lg">
+                        <p>int potPin = A0;</p>
+                        <p>int motorPin = 9;</p>
+                        <br>
+                        <p>void setup() { ... }</p>
+                        <br>
+                        <p>void loop() {</p>
+                        <p class="ml-4">int valorPot = <input type="text" class="code-input" data-answer="analogRead"> (potPin); <span class="code-comment">// Pista: Lee un pin analógico</span></p>
+                        <p class="ml-4">int velocidad = <input type="text" class="code-input" data-answer="map"> (valorPot, 0, 1023, 0, 255); <span class="code-comment">// Pista: Convierte un rango a otro</span></p>
+                        <p class="ml-4"><input type="text" class="code-input" data-answer="analogWrite"> (motorPin, velocidad); <span class="code-comment">// Pista: Escribe un valor analógico (PWM)</span></p>
+                        <p>}</p>
+                    </div>
+                     <div class="mt-4 text-right">
+                        <button id="check-button" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg">Comprobar y Ejecutar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const checkButton = document.getElementById('check-button');
+        const codeInputs = document.querySelectorAll('.code-input');
+        const potSlider = document.getElementById('pot-slider');
+        const speedDisplay = document.getElementById('speed-display');
+        const fan = document.getElementById('fan');
+        
+        let isCodeCorrect = false;
+
+        checkButton.addEventListener('click', () => {
+            let allCorrect = true;
+            codeInputs.forEach(input => {
+                const userAnswer = input.value.trim();
+                const correctAnswer = input.dataset.answer;
+                if (userAnswer === correctAnswer) {
+                    input.classList.remove('incorrect');
+                    input.classList.add('correct');
+                } else {
+                    input.classList.remove('correct');
+                    input.classList.add('incorrect');
+                    allCorrect = false;
+                }
+            });
+
+            isCodeCorrect = allCorrect;
+            if (isCodeCorrect) {
+                alert('¡Código Correcto! Ahora puedes controlar el ventilador con el potenciómetro.');
+                updateSimulation(); // Update simulation with current slider value
+            } else {
+                alert('Algunas partes del código son incorrectas. ¡Revisa las cajas rojas e inténtalo de nuevo!');
+            }
+        });
+
+        potSlider.addEventListener('input', updateSimulation);
+
+        function updateSimulation() {
+            if (!isCodeCorrect) return;
+
+            const potValue = potSlider.value;
+            const speed = Math.round((potValue / 1023) * 255);
+            
+            speedDisplay.textContent = speed;
+            
+            // La velocidad de rotación se calcula en base a la velocidad (0-255)
+            // Una velocidad de 0 es 0s (no se mueve), una velocidad de 255 es muy rápida (ej. 0.1s)
+            const rotationSpeed = speed > 0 ? (1 / speed) * 10 : 0;
+            if (rotationSpeed > 0) {
+                 fan.style.transition = `transform ${rotationSpeed}s linear`;
+                 fan.style.transform = `rotate(${parseInt(fan.style.transform.replace('rotate(','').replace('deg)','') || 0) + 3600}deg)`;
+            } else {
+                fan.style.transition = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

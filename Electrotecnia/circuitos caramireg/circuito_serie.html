@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STEAM: Circuito en Serie</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f172a;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        h1 { color: #f59e0b; margin-bottom: 5px; }
+        .subtitle { color: #94a3b8; font-size: 0.9rem; margin-bottom: 20px; }
+        
+        .container {
+            background-color: #1e293b;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            text-align: center;
+            position: relative;
+        }
+
+        canvas {
+            background-color: #020617;
+            border-radius: 10px;
+            border: 2px solid #334155;
+            cursor: pointer;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        .status-panel {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .flowing {
+            background-color: rgba(34, 197, 94, 0.2);
+            color: #4ade80;
+            border-color: #22c55e;
+            box-shadow: 0 0 15px rgba(34, 197, 94, 0.2);
+        }
+
+        .broken {
+            background-color: rgba(239, 68, 68, 0.2);
+            color: #f87171;
+            border-color: #ef4444;
+        }
+
+        .controls {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #3b82f6;
+            color: white;
+            font-weight: bold;
+            transition: transform 0.1s, background 0.2s;
+        }
+
+        button:hover { background-color: #2563eb; }
+        button:active { transform: scale(0.95); }
+
+        .btn-reset { background-color: #64748b; }
+        .btn-reset:hover { background-color: #475569; }
+
+        .hint {
+            color: #cbd5e1;
+            font-size: 0.9em;
+            margin-top: 15px;
+            background: rgba(255,255,255,0.05);
+            padding: 8px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🔌 Circuito en Serie 💡💡💡</h1>
+    <p class="subtitle">Un solo camino para los electrones. ¡Si uno falla, todos fallan!</p>
+    
+    <div class="container">
+        <canvas id="serieCanvas" width="600" height="300"></canvas>
+        
+        <div id="statusBox" class="status-panel broken">
+            Estado: APAGADO (Interruptor Abierto)
+        </div>
+
+        <div class="controls">
+            <button onclick="toggleSwitch()">⚡ Interruptor I/O</button>
+            <button class="btn-reset" onclick="resetBulbs()">🔧 Reparar Bombillas</button>
+        </div>
+        <p class="hint">👆 Haz clic en las <strong>bombillas</strong> para romperlas y ver qué pasa.</p>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('serieCanvas');
+        const ctx = canvas.getContext('2d');
+        const statusBox = document.getElementById('statusBox');
+
+        // --- Estado del Sistema ---
+        let isSwitchClosed = false; // El interruptor empieza abierto
+        let bulbs = [
+            { x: 180, y: 100, broken: false },
+            { x: 300, y: 100, broken: false },
+            { x: 420, y: 100, broken: false }
+        ];
+
+        // Posiciones fijas
+        const batteryPos = { x: 60, y: 200 };
+        const switchPos = { x: 300, y: 250 };
+        
+        // --- Lógica del Circuito ---
+        function checkCircuit() {
+            // En SERIE, para que haya flujo:
+            // 1. El interruptor debe estar cerrado.
+            // 2. TODAS las bombillas deben estar buenas (no broken).
+            const allBulbsOk = bulbs.every(b => !b.broken);
+            return isSwitchClosed && allBulbsOk;
+        }
+
+        function toggleSwitch() {
+            isSwitchClosed = !isSwitchClosed;
+            updateStatusText();
+        }
+
+        function resetBulbs() {
+            bulbs.forEach(b => b.broken = false);
+            updateStatusText();
+        }
+
+        function updateStatusText() {
+            const isFlowing = checkCircuit();
+            const anyBroken = bulbs.some(b => b.broken);
+
+            if (isFlowing) {
+                statusBox.textContent = "Estado: FLUJO ACTIVO (Circuito Cerrado)";
+                statusBox.className = "status-panel flowing";
+            } else if (anyBroken) {
+                statusBox.textContent = "Estado: CIRCUITO ROTO (Bombilla fundida cortó el camino)";
+                statusBox.className = "status-panel broken";
+            } else {
+                statusBox.textContent = "Estado: APAGADO (Interruptor Abierto)";
+                statusBox.className = "status-panel broken"; // Usamos estilo rojo para apagado
+            }
+        }
+
+        // --- Interactividad (Clics) ---
+        canvas.addEventListener('click', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const mouseX = e.clientX - rect.left;
+            const mouseY = e.clientY - rect.top;
+
+            // 1. Detectar clic en bombillas
+            bulbs.forEach(b => {
+                // Radio de detección aprox 30px
+                const dist = Math.sqrt((mouseX - b.x)**2 + (mouseY - b.y)**2);
+                if (dist < 30) {
+                    b.broken = !b.broken; // Toggle romper/reparar
+                    updateStatusText();
+                }
+            });
+
+            // 2. Detectar clic en interruptor
+            const distSwitch = Math.sqrt((mouseX - switchPos.x)**2 + (mouseY - switchPos.y)**2);
+            if (distSwitch < 40) {
+                toggleSwitch();
+            }
+        });
+
+        // --- Dibujo ---
+
+        function drawBattery(x, y) {
+            ctx.save();
+            ctx.translate(x, y);
+            // Cuerpo
+            ctx.fillStyle = "#333";
+            ctx.fillRect(-20, -30, 40, 60);
+            // Terminales
+            ctx.fillStyle = "#fbbf24";
+            ctx.fillRect(-10, -35, 20, 5); // +
+            ctx.fillStyle = "#94a3b8";
+            ctx.fillRect(-10, 30, 20, 5); // -
+            // Texto
+            ctx.fillStyle = "#fff";
+            ctx.font = "bold 20px Arial";
+            ctx.fillText("+", -35, -15);
+            ctx.fillText("-", -35, 25);
+            ctx.restore();
+        }
+
+        function drawBulb(bulb, isLit) {
+            const { x, y, broken } = bulb;
+            
+            // Base del socket
+            ctx.fillStyle = "#475569";
+            ctx.fillRect(x - 10, y + 15, 20, 15);
+
+            // Cristal
+            ctx.beginPath();
+            ctx.arc(x, y, 20, 0, Math.PI * 2);
+            
+            if (broken) {
+                ctx.fillStyle = "#1e293b"; // Gris oscuro roto
+                ctx.strokeStyle = "#ef4444"; // Borde rojo
+                ctx.lineWidth = 2;
+            } else if (isLit) {
+                ctx.fillStyle = "#fef08a"; // Amarillo Luz
+                ctx.shadowBlur = 30;
+                ctx.shadowColor = "#facc15";
+                ctx.strokeStyle = "#facc15";
+            } else {
+                ctx.fillStyle = "#334155"; // Apagado
+                ctx.strokeStyle = "#64748b";
+                ctx.shadowBlur = 0;
+            }
+            ctx.fill();
+            ctx.stroke();
+            ctx.shadowBlur = 0; // Reset
+
+            // Filamento
+            ctx.beginPath();
+            if (broken) {
+                // Filamento roto
+                ctx.moveTo(x - 8, y + 15);
+                ctx.lineTo(x - 5, y + 5);
+                ctx.moveTo(x + 8, y + 15);
+                ctx.lineTo(x + 5, y + 5);
+                // X visual
+                ctx.strokeStyle = "#ef4444";
+                ctx.lineWidth = 3;
+                ctx.moveTo(x - 10, y - 10); ctx.lineTo(x + 10, y + 10);
+                ctx.moveTo(x + 10, y - 10); ctx.lineTo(x - 10, y + 10);
+            } else {
+                // Filamento sano
+                ctx.strokeStyle = isLit ? "#fff" : "#94a3b8";
+                ctx.lineWidth = 2;
+                ctx.moveTo(x - 8, y + 15);
+                ctx.lineTo(x - 8, y);
+                ctx.lineTo(x, y - 10);
+                ctx.lineTo(x + 8, y);
+                ctx.lineTo(x + 8, y + 15);
+            }
+            ctx.stroke();
+        }
+
+        function drawSwitch(x, y, closed) {
+            ctx.save();
+            ctx.translate(x, y);
+            
+            // Postes
+            ctx.fillStyle = "#cbd5e1";
+            ctx.beginPath(); ctx.arc(-30, 0, 5, 0, Math.PI*2); ctx.fill();
+            ctx.beginPath(); ctx.arc(30, 0, 5, 0, Math.PI*2); ctx.fill();
+
+            // Brazo móvil
+            ctx.strokeStyle = "#ef4444";
+            ctx.lineWidth = 4;
+            ctx.beginPath();
+            ctx.moveTo(-30, 0);
+            if (closed) {
+                ctx.lineTo(30, 0);
+            } else {
+                ctx.lineTo(20, -30);
+            }
+            ctx.stroke();
+            
+            // Texto
+            ctx.fillStyle = "#94a3b8";
+            ctx.font = "12px Arial";
+            ctx.textAlign = "center";
+            ctx.fillText("Interruptor", 0, 25);
+            
+            ctx.restore();
+        }
+
+        // Dibuja el cableado rectangular
+        function drawWiring() {
+            ctx.beginPath();
+            ctx.strokeStyle = "#3b82f6"; // Azul conductor
+            ctx.lineWidth = 4;
+
+            // Camino principal
+            // 1. Bat(+) sube hasta nivel bombillas
+            ctx.moveTo(batteryPos.x, batteryPos.y - 35);
+            ctx.lineTo(batteryPos.x, 100);
+            
+            // 2. Línea horizontal de bombillas (con huecos para ellas)
+            // De Bat a B1
+            ctx.lineTo(bulbs[0].x - 20, 100);
+            // De B1 a B2
+            ctx.moveTo(bulbs[0].x + 20, 100);
+            ctx.lineTo(bulbs[1].x - 20, 100);
+            // De B2 a B3
+            ctx.moveTo(bulbs[1].x + 20, 100);
+            ctx.lineTo(bulbs[2].x - 20, 100);
+            // De B3 a esquina derecha
+            ctx.moveTo(bulbs[2].x + 20, 100);
+            ctx.lineTo(540, 100);
+            
+            // 3. Baja al interruptor
+            ctx.lineTo(540, switchPos.y);
+            
+            // 4. Izquierda hacia interruptor
+            ctx.lineTo(switchPos.x + 30, switchPos.y);
+            
+            // 5. De interruptor a izquierda
+            ctx.moveTo(switchPos.x - 30, switchPos.y);
+            ctx.lineTo(batteryPos.x, switchPos.y);
+            
+            // 6. Sube a Bat(-)
+            ctx.lineTo(batteryPos.x, batteryPos.y + 30);
+
+            ctx.stroke();
+        }
+
+        function drawElectrons(isFlowing) {
+            if (!isFlowing) return;
+
+            const time = Date.now() / 1000;
+            const speed = 100; // px/segundo
+            
+            // Definimos el path completo como una sola línea larga para calcular posiciones
+            // Simplificado para la animación: Rectángulo perimetral
+            // Puntos clave: (60,200) -> (60,100) -> (540,100) -> (540,250) -> (60,250) -> cierre
+            
+            const pathPoints = [
+                {x: 60, y: 165}, // Salida Bat+
+                {x: 60, y: 100},
+                {x: 540, y: 100},
+                {x: 540, y: 250},
+                {x: 60, y: 250},
+                {x: 60, y: 230}  // Entrada Bat-
+            ];
+
+            // Calcular longitud total
+            let totalLen = 0;
+            for(let i=0; i<pathPoints.length-1; i++) {
+                totalLen += Math.hypot(pathPoints[i+1].x - pathPoints[i].x, pathPoints[i+1].y - pathPoints[i].y);
+            }
+
+            const numElectrons = 20;
+            const spacing = totalLen / numElectrons;
+
+            ctx.fillStyle = "#fff";
+            
+            for(let i=0; i<numElectrons; i++) {
+                // Posición actual a lo largo de la línea
+                let currentDist = (time * speed + i * spacing) % totalLen;
+                
+                // Encontrar coordenadas x,y para esa distancia
+                let distAccum = 0;
+                for(let j=0; j<pathPoints.length-1; j++) {
+                    let p1 = pathPoints[j];
+                    let p2 = pathPoints[j+1];
+                    let segLen = Math.hypot(p2.x - p1.x, p2.y - p1.y);
+                    
+                    if (currentDist >= distAccum && currentDist < distAccum + segLen) {
+                        // Estamos en este segmento
+                        let segProgress = (currentDist - distAccum) / segLen;
+                        let ex = p1.x + (p2.x - p1.x) * segProgress;
+                        let ey = p1.y + (p2.y - p1.y) * segProgress;
+                        
+                        ctx.beginPath();
+                        ctx.arc(ex, ey, 3, 0, Math.PI*2);
+                        ctx.fill();
+                        break;
+                    }
+                    distAccum += segLen;
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            const isFlowing = checkCircuit();
+
+            // Capa 1: Cables
+            drawWiring();
+
+            // Capa 2: Componentes
+            drawBattery(batteryPos.x, batteryPos.y);
+            drawSwitch(switchPos.x, switchPos.y, isSwitchClosed);
+            
+            bulbs.forEach(b => drawBulb(b, isFlowing));
+
+            // Capa 3: Electrones
+            drawElectrons(isFlowing);
+
+            requestAnimationFrame(animate);
+        }
+
+        // Iniciar loop
+        animate();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STEAM: Circuito Mixto</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f172a;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        h1 { color: #a855f7; margin-bottom: 5px; } /* Púrpura para mixto */
+        .subtitle { color: #94a3b8; font-size: 0.9rem; margin-bottom: 20px; }
+        
+        .container {
+            background-color: #1e293b;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            text-align: center;
+            position: relative;
+        }
+
+        canvas {
+            background-color: #020617;
+            border-radius: 10px;
+            border: 2px solid #334155;
+            cursor: pointer;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        .status-panel {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+            min-height: 24px;
+        }
+
+        .flowing {
+            background-color: rgba(168, 85, 247, 0.2);
+            color: #d8b4fe;
+            border-color: #a855f7;
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.2);
+        }
+
+        .alert {
+            background-color: rgba(239, 68, 68, 0.2);
+            color: #f87171;
+            border-color: #ef4444;
+        }
+
+        .controls {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #8b5cf6;
+            color: white;
+            font-weight: bold;
+            transition: transform 0.1s, background 0.2s;
+        }
+
+        button:hover { background-color: #7c3aed; }
+        button:active { transform: scale(0.95); }
+
+        .btn-reset { background-color: #64748b; }
+        .btn-reset:hover { background-color: #475569; }
+
+        .hint {
+            color: #cbd5e1;
+            font-size: 0.9em;
+            margin-top: 15px;
+            background: rgba(255,255,255,0.05);
+            padding: 8px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🔀 Circuito Mixto (Serie + Paralelo)</h1>
+    <p class="subtitle">Bombilla A (Serie) controla a B y C (Paralelo).</p>
+    
+    <div class="container">
+        <canvas id="mixedCanvas" width="600" height="350"></canvas>
+        
+        <div id="statusBox" class="status-panel alert">
+            Estado: APAGADO (Interruptor Abierto)
+        </div>
+
+        <div class="controls">
+            <button onclick="toggleSwitch()">⚡ Interruptor</button>
+            <button class="btn-reset" onclick="resetBulbs()">🔧 Reparar Todo</button>
+        </div>
+        <p class="hint">Rompe la <strong>Bombilla A</strong> (Izquierda) para ver el efecto Serie.</p>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('mixedCanvas');
+        const ctx = canvas.getContext('2d');
+        const statusBox = document.getElementById('statusBox');
+
+        // --- Estado del Sistema ---
+        let isSwitchClosed = false; 
+        
+        // Configuración Mixta:
+        // Bulb A: En SERIE con el grupo B/C.
+        // Bulb B y C: En PARALELO entre sí.
+        let bulbs = [
+            { id: 'A', x: 200, y: 100, broken: false, label: "A (Serie)" },
+            { id: 'B', x: 400, y: 50, broken: false, label: "B (Paralelo)" },
+            { id: 'C', x: 400, y: 150, broken: false, label: "C (Paralelo)" }
+        ];
+
+        const batteryPos = { x: 60, y: 175 };
+        const switchPos = { x: 120, y: 280 };
+        
+        // Coordenadas de los nodos (puntos de unión)
+        const nodeSplit = { x: 300, y: 100 }; // Donde se divide después de A
+        const nodeJoin = { x: 500, y: 100 };  // Donde se une después de B y C
+
+        function toggleSwitch() {
+            isSwitchClosed = !isSwitchClosed;
+            updateStatusText();
+        }
+
+        function resetBulbs() {
+            bulbs.forEach(b => b.broken = false);
+            updateStatusText();
+        }
+
+        // Lógica fundamental del circuito mixto
+        function getCircuitState() {
+            if (!isSwitchClosed) return { flowA: false, flowB: false, flowC: false, msg: "APAGADO (Interruptor Abierto)" };
+
+            const bulbA = bulbs[0];
+            const bulbB = bulbs[1];
+            const bulbC = bulbs[2];
+
+            // 1. Si A (Serie) está rota, TODO se apaga.
+            if (bulbA.broken) {
+                return { flowA: false, flowB: false, flowC: false, msg: "CORTE TOTAL: A (Serie) está rota." };
+            }
+
+            // 2. Si A funciona, miramos el bloque paralelo (B y C).
+            // Si AMBAS B y C están rotas, el circuito se abre (no hay retorno).
+            if (bulbB.broken && bulbC.broken) {
+                return { flowA: false, flowB: false, flowC: false, msg: "CORTE: Bloque Paralelo (B y C) roto." };
+            }
+
+            // 3. Estados normales
+            return {
+                flowA: true, // A siempre tiene flujo si el circuito no está cortado totalmente
+                flowB: !bulbB.broken,
+                flowC: !bulbC.broken,
+                msg: "ENERGÍA FLUYENDO"
+            };
+        }
+
+        function updateStatusText() {
+            const state = getCircuitState();
+            statusBox.textContent = "Estado: " + state.msg;
+            
+            if (state.flowA) {
+                statusBox.className = "status-panel flowing";
+            } else {
+                statusBox.className = "status-panel alert";
+            }
+        }
+
+        // --- Interactividad ---
+        canvas.addEventListener('click', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const mouseX = e.clientX - rect.left;
+            const mouseY = e.clientY - rect.top;
+
+            // Bombillas
+            bulbs.forEach(b => {
+                const dist = Math.sqrt((mouseX - b.x)**2 + (mouseY - b.y)**2);
+                if (dist < 30) {
+                    b.broken = !b.broken;
+                    updateStatusText();
+                }
+            });
+
+            // Interruptor
+            const distSwitch = Math.sqrt((mouseX - switchPos.x)**2 + (mouseY - switchPos.y)**2);
+            if (distSwitch < 40) {
+                toggleSwitch();
+            }
+        });
+
+        // --- Dibujo ---
+
+        function drawBattery(x, y) {
+            ctx.save();
+            ctx.translate(x, y);
+            ctx.fillStyle = "#333";
+            ctx.fillRect(-20, -30, 40, 60);
+            ctx.fillStyle = "#fbbf24";
+            ctx.fillRect(-10, -35, 20, 5); // +
+            ctx.fillStyle = "#94a3b8";
+            ctx.fillRect(-10, 30, 20, 5); // -
+            ctx.fillStyle = "#fff";
+            ctx.font = "bold 20px Arial";
+            ctx.fillText("+", -35, -15);
+            ctx.fillText("-", -35, 25);
+            ctx.restore();
+        }
+
+        function drawSwitch(x, y, closed) {
+            ctx.save();
+            ctx.translate(x, y);
+            ctx.fillStyle = "#cbd5e1";
+            ctx.beginPath(); ctx.arc(-20, 0, 4, 0, Math.PI*2); ctx.fill();
+            ctx.beginPath(); ctx.arc(20, 0, 4, 0, Math.PI*2); ctx.fill();
+            
+            ctx.strokeStyle = "#ef4444";
+            ctx.lineWidth = 4;
+            ctx.beginPath();
+            ctx.moveTo(-20, 0);
+            if (closed) {
+                ctx.lineTo(20, 0);
+            } else {
+                ctx.lineTo(15, -25);
+            }
+            ctx.stroke();
+            
+            ctx.fillStyle = "#94a3b8";
+            ctx.font = "12px Arial";
+            ctx.textAlign = "center";
+            ctx.fillText("Main", 0, 25);
+            ctx.restore();
+        }
+
+        function drawBulb(bulb, isLit) {
+            const { x, y, broken, label } = bulb;
+            
+            // Etiqueta
+            ctx.fillStyle = "#94a3b8";
+            ctx.font = "12px Arial";
+            ctx.textAlign = "center";
+            ctx.fillText(label, x, y - 30);
+
+            // Base
+            ctx.fillStyle = "#475569";
+            ctx.fillRect(x - 10, y + 15, 20, 15);
+
+            // Cristal
+            ctx.beginPath();
+            ctx.arc(x, y, 20, 0, Math.PI * 2);
+            
+            if (broken) {
+                ctx.fillStyle = "#1e293b";
+                ctx.strokeStyle = "#ef4444";
+                ctx.lineWidth = 2;
+            } else if (isLit) {
+                ctx.fillStyle = "#e9d5ff"; // Púrpura claro
+                ctx.shadowBlur = 30;
+                ctx.shadowColor = "#a855f7";
+                ctx.strokeStyle = "#a855f7";
+            } else {
+                ctx.fillStyle = "#334155";
+                ctx.strokeStyle = "#64748b";
+                ctx.shadowBlur = 0;
+            }
+            ctx.fill();
+            ctx.stroke();
+            ctx.shadowBlur = 0;
+
+            // Filamento
+            ctx.beginPath();
+            if (broken) {
+                ctx.moveTo(x - 8, y + 15); ctx.lineTo(x - 5, y + 5);
+                ctx.moveTo(x + 8, y + 15); ctx.lineTo(x + 5, y + 5);
+                ctx.strokeStyle = "#ef4444";
+                ctx.lineWidth = 3;
+                ctx.moveTo(x - 10, y - 10); ctx.lineTo(x + 10, y + 10);
+                ctx.moveTo(x + 10, y - 10); ctx.lineTo(x - 10, y + 10);
+            } else {
+                ctx.strokeStyle = isLit ? "#fff" : "#94a3b8";
+                ctx.lineWidth = 2;
+                ctx.moveTo(x - 8, y + 15);
+                ctx.lineTo(x - 8, y);
+                ctx.lineTo(x, y - 10);
+                ctx.lineTo(x + 8, y);
+                ctx.lineTo(x + 8, y + 15);
+            }
+            ctx.stroke();
+        }
+
+        function drawWiring() {
+            ctx.beginPath();
+            ctx.strokeStyle = "#8b5cf6"; // Cable Violeta
+            ctx.lineWidth = 4;
+
+            // 1. Bat(+) a Bulb A
+            ctx.moveTo(batteryPos.x, batteryPos.y - 35);
+            ctx.lineTo(batteryPos.x, 100);
+            ctx.lineTo(bulbs[0].x - 20, 100); // Entra a A
+
+            // 2. Salida A a Nodo División
+            ctx.moveTo(bulbs[0].x + 20, 100);
+            ctx.lineTo(nodeSplit.x, 100);
+
+            // 3. División (Split)
+            // Rama B (Arriba)
+            ctx.moveTo(nodeSplit.x, 100);
+            ctx.lineTo(nodeSplit.x, 50);
+            ctx.lineTo(bulbs[1].x - 20, 50); // Entra a B
+            // Rama C (Abajo)
+            ctx.moveTo(nodeSplit.x, 100);
+            ctx.lineTo(nodeSplit.x, 150);
+            ctx.lineTo(bulbs[2].x - 20, 150); // Entra a C
+
+            // 4. Unión (Join)
+            // Salida B
+            ctx.moveTo(bulbs[1].x + 20, 50);
+            ctx.lineTo(nodeJoin.x, 50);
+            ctx.lineTo(nodeJoin.x, 100);
+            // Salida C
+            ctx.moveTo(bulbs[2].x + 20, 150);
+            ctx.lineTo(nodeJoin.x, 150);
+            ctx.lineTo(nodeJoin.x, 100);
+
+            // 5. Retorno principal (Desde nodo unión a Switch)
+            ctx.moveTo(nodeJoin.x, 100);
+            ctx.lineTo(540, 100);
+            ctx.lineTo(540, 280);
+            ctx.lineTo(switchPos.x + 20, 280);
+
+            // 6. Switch a Bat(-)
+            ctx.moveTo(switchPos.x - 20, 280);
+            ctx.lineTo(batteryPos.x, 280);
+            ctx.lineTo(batteryPos.x, batteryPos.y + 30);
+
+            ctx.stroke();
+
+            // Puntos de nodo
+            ctx.fillStyle = "#fff";
+            ctx.beginPath(); ctx.arc(nodeSplit.x, nodeSplit.y, 5, 0, Math.PI*2); ctx.fill();
+            ctx.beginPath(); ctx.arc(nodeJoin.x, nodeJoin.y, 5, 0, Math.PI*2); ctx.fill();
+        }
+
+        function drawElectrons(state) {
+            const time = Date.now() / 1000;
+            const speed = 150; 
+
+            ctx.fillStyle = "#fff";
+
+            // Función auxiliar para dibujar un segmento de electrones
+            const animateSegment = (points, density = 1, offset = 0) => {
+                let totalLen = 0;
+                for(let i=0; i<points.length-1; i++) totalLen += Math.hypot(points[i+1].x - points[i].x, points[i+1].y - points[i].y);
+                
+                const numParticles = Math.floor(10 * density);
+                const spacing = totalLen / numParticles;
+
+                for(let i=0; i<numParticles; i++) {
+                    let currentDist = (time * speed + i * spacing + offset) % totalLen;
+                    let distAccum = 0;
+                    
+                    for(let j=0; j<points.length-1; j++) {
+                        let p1 = points[j];
+                        let p2 = points[j+1];
+                        let segLen = Math.hypot(p2.x - p1.x, p2.y - p1.y);
+                        
+                        if (currentDist >= distAccum && currentDist < distAccum + segLen) {
+                            let ratio = (currentDist - distAccum) / segLen;
+                            let ex = p1.x + (p2.x - p1.x) * ratio;
+                            let ey = p1.y + (p2.y - p1.y) * ratio;
+                            ctx.beginPath(); ctx.arc(ex, ey, 3, 0, Math.PI*2); ctx.fill();
+                            break;
+                        }
+                        distAccum += segLen;
+                    }
+                }
+            };
+
+            // 1. Camino Principal (Batería -> A -> Split)
+            if (state.flowA) {
+                animateSegment([
+                    {x:60, y:140}, {x:60, y:100}, {x:300, y:100}
+                ], 1.5); // Densidad alta (corriente total)
+            }
+
+            // 2. Rama B (Split -> B -> Join)
+            if (state.flowB) {
+                animateSegment([
+                    {x:300, y:100}, {x:300, y:50}, {x:500, y:50}, {x:500, y:100}
+                ], 0.7, 50); // Densidad media
+            }
+
+            // 3. Rama C (Split -> C -> Join)
+            if (state.flowC) {
+                animateSegment([
+                    {x:300, y:100}, {x:300, y:150}, {x:500, y:150}, {x:500, y:100}
+                ], 0.7, 100); // Densidad media
+            }
+
+            // 4. Retorno (Join -> Switch -> Bat)
+            // Solo hay retorno si fluye corriente por alguna de las ramas paralelas
+            if (state.flowA && (state.flowB || state.flowC)) {
+                animateSegment([
+                    {x:500, y:100}, {x:540, y:100}, {x:540, y:280}, {x:60, y:280}, {x:60, y:210}
+                ], 1.5); // Densidad alta (corriente total de retorno)
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            const state = getCircuitState();
+
+            drawWiring();
+            drawBattery(batteryPos.x, batteryPos.y);
+            drawSwitch(switchPos.x, switchPos.y, isSwitchClosed);
+            
+            // Dibujar bombillas con sus estados individuales
+            drawBulb(bulbs[0], state.flowA);
+            drawBulb(bulbs[1], state.flowB);
+            drawBulb(bulbs[2], state.flowC);
+
+            drawElectrons(state);
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+    </script>
+</body>
+</html>

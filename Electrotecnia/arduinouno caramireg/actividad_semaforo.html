@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad: Programando un Semáforo - Curso de Arduino</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .code-block {
+            background-color: #282c34;
+            color: #abb2bf;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            white-space: pre-wrap;
+        }
+        .code-keyword { color: #c678dd; }
+        .code-function { color: #61afef; }
+        .code-comment { color: #5c6370; }
+        .code-number { color: #d19a66; }
+        .code-string { color: #98c379; }
+        
+        .block {
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .program-area {
+            min-height: 300px;
+            border-style: dashed;
+        }
+        .traffic-light-led {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #374151; /* Off */
+            border: 3px solid #1f2937;
+            transition: background-color 0.2s, box-shadow 0.2s;
+        }
+        #led-red.on { background-color: #ef4444; box-shadow: 0 0 25px #dc2626; }
+        #led-yellow.on { background-color: #facc15; box-shadow: 0 0 25px #eab308; }
+        #led-green.on { background-color: #22c55e; box-shadow: 0 0 25px #16a34a; }
+    </style>
+</head>
+<body class="bg-slate-50">
+
+    <!-- Encabezado -->
+    <header class="bg-white shadow">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-blue-600">Actividad: Programando un Semáforo</h1>
+            <a href="modulo_1.html" class="text-blue-600 hover:text-blue-800 font-semibold flex items-center">
+                <i class="fas fa-arrow-left mr-2"></i>
+                Volver al Módulo 1
+            </a>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="container mx-auto px-6 py-12">
+    
+        <!-- Explicación de la Secuencia -->
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <h3 class="text-2xl font-bold mb-4">La Lógica de un Semáforo</h3>
+            <p class="text-lg text-slate-700 mb-6">Tu misión es programar la secuencia de un semáforo vehicular simple. La lógica que debe seguir es muy específica para controlar el tráfico de forma segura. ¡El orden y los tiempos son la clave!</p>
+            <div class="bg-slate-50 border border-slate-200 rounded-lg p-6">
+                <h4 class="font-semibold text-lg text-center mb-4">Secuencia Correcta:</h4>
+                <ol class="list-decimal list-inside space-y-2 text-center max-w-lg mx-auto">
+                    <li>Primero, la luz **Roja** se apaga y la **Verde** se enciende (para que pasen los autos).</li>
+                    <li>Luego de unos segundos, la luz **Verde** se apaga y la **Amarilla** se enciende por un corto tiempo (advertencia).</li>
+                    <li>Después, la luz **Amarilla** se apaga y la **Roja** se enciende por varios segundos (detener el tráfico).</li>
+                    <li>El ciclo se repite volviendo al paso 1.</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Actividad Interactiva -->
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <h3 class="text-2xl font-bold mb-4">¡A Programar!</h3>
+            <p class="text-lg text-slate-700 mb-6">Usa los bloques de la caja de herramientas para recrear la secuencia del semáforo. Recuerda los pines: **Verde (12)**, **Amarillo (10)** y **Rojo (8)**.</p>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Caja de Herramientas -->
+                <div class="border-2 border-slate-200 rounded-lg p-4">
+                    <h4 class="font-bold text-center mb-4">Caja de Herramientas</h4>
+                    <div id="toolbox" class="space-y-2">
+                        <div class="block bg-green-500 text-white p-2 rounded-md text-center" data-action="green_on">Encender LED Verde (12)</div>
+                        <div class="block bg-green-800 text-white p-2 rounded-md text-center" data-action="green_off">Apagar LED Verde (12)</div>
+                        <div class="block bg-yellow-500 text-white p-2 rounded-md text-center" data-action="yellow_on">Encender LED Amarillo (10)</div>
+                        <div class="block bg-yellow-800 text-white p-2 rounded-md text-center" data-action="yellow_off">Apagar LED Amarillo (10)</div>
+                        <div class="block bg-red-500 text-white p-2 rounded-md text-center" data-action="red_on">Encender LED Rojo (8)</div>
+                        <div class="block bg-red-800 text-white p-2 rounded-md text-center" data-action="red_off">Apagar LED Rojo (8)</div>
+                        <div class="block bg-slate-500 text-white p-2 rounded-md text-center" data-action="wait_1">Esperar 1 segundo</div>
+                        <div class="block bg-slate-500 text-white p-2 rounded-md text-center" data-action="wait_3">Esperar 3 segundos</div>
+                    </div>
+                </div>
+
+                <!-- Área del Programa y Simulación -->
+                <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="border-2 border-slate-200 rounded-lg p-4">
+                        <div class="flex justify-between items-center mb-4">
+                            <h4 class="font-bold">Área del Programa</h4>
+                            <div>
+                                <button id="run-button" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg"><i class="fas fa-play mr-2"></i>Ejecutar</button>
+                                <button id="clear-button" class="bg-slate-500 hover:bg-slate-600 text-white font-bold py-2 px-4 rounded-lg"><i class="fas fa-trash mr-2"></i>Limpiar</button>
+                            </div>
+                        </div>
+                        <div id="program-area" class="program-area bg-slate-100 rounded-md p-4 space-y-2"></div>
+                    </div>
+                    <div class="text-center border-2 border-slate-200 rounded-lg p-4 flex flex-col justify-center items-center">
+                        <h4 class="font-bold mb-4">Simulación</h4>
+                        <div class="bg-gray-800 p-4 rounded-lg inline-flex flex-col space-y-2">
+                            <div id="led-red" class="traffic-light-led"></div>
+                            <div id="led-yellow" class="traffic-light-led"></div>
+                            <div id="led-green" class="traffic-light-led"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Código Generado -->
+        <div class="bg-white p-8 rounded-xl shadow-md">
+            <h3 class="text-2xl font-bold mb-4">Del Bloque al Código</h3>
+            <p class="text-lg text-slate-700 mb-6">Cada bloque que utilizas tiene un comando equivalente en el código de Arduino. Esta es la traducción directa:</p>
+            
+            <!-- NUEVA TABLA DE COMPARACIÓN -->
+            <div class="space-y-4 mb-8">
+                <div class="grid grid-cols-3 items-center gap-4 p-4 border rounded-lg">
+                    <div class="block bg-green-500 text-white p-2 rounded-md text-center">Encender LED Verde (12)</div>
+                    <div class="text-2xl text-center text-slate-400 font-light">&rarr;</div>
+                    <div class="code-block text-sm"><span class="code-function">digitalWrite</span>(<span class="code-number">12</span>, <span class="code-string">HIGH</span>);</div>
+                </div>
+                 <div class="grid grid-cols-3 items-center gap-4 p-4 border rounded-lg">
+                    <div class="block bg-red-800 text-white p-2 rounded-md text-center">Apagar LED Rojo (8)</div>
+                    <div class="text-2xl text-center text-slate-400 font-light">&rarr;</div>
+                    <div class="code-block text-sm"><span class="code-function">digitalWrite</span>(<span class="code-number">8</span>, <span class="code-string">LOW</span>);</div>
+                </div>
+                 <div class="grid grid-cols-3 items-center gap-4 p-4 border rounded-lg">
+                    <div class="block bg-slate-500 text-white p-2 rounded-md text-center">Esperar 3 segundos</div>
+                    <div class="text-2xl text-center text-slate-400 font-light">&rarr;</div>
+                    <div class="code-block text-sm"><span class="code-function">delay</span>(<span class="code-number">3000</span>);</div>
+                </div>
+            </div>
+
+            <hr class="my-8">
+
+            <h3 class="text-2xl font-bold mb-4">Tu Programa Completo en Código Arduino</h3>
+            <p class="text-lg text-slate-700 mb-6">Así es como se ve tu secuencia de bloques traducida al lenguaje C++ que utiliza el IDE de Arduino.</p>
+            <div id="code-output" class="code-block text-sm">
+                <span class="code-comment">// Construye tu programa para ver el código aquí.</span>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const toolbox = document.getElementById('toolbox');
+        const programArea = document.getElementById('program-area');
+        const runButton = document.getElementById('run-button');
+        const clearButton = document.getElementById('clear-button');
+        const codeOutput = document.getElementById('code-output');
+        const ledRed = document.getElementById('led-red');
+        const ledYellow = document.getElementById('led-yellow');
+        const ledGreen = document.getElementById('led-green');
+
+        let programSteps = [];
+        let isSimulationRunning = false;
+
+        toolbox.addEventListener('click', (e) => {
+            if (e.target.classList.contains('block')) {
+                const action = e.target.dataset.action;
+                const blockClone = e.target.cloneNode(true);
+                programArea.appendChild(blockClone);
+                programSteps.push(action);
+                updateCode();
+            }
+        });
+
+        clearButton.addEventListener('click', () => {
+            isSimulationRunning = false;
+            programArea.innerHTML = '';
+            programSteps = [];
+            updateCode();
+            ledRed.classList.remove('on');
+            ledYellow.classList.remove('on');
+            ledGreen.classList.remove('on');
+            runButton.disabled = false;
+        });
+
+        runButton.addEventListener('click', () => {
+            if (isSimulationRunning || programSteps.length === 0) return;
+            isSimulationRunning = true;
+            runButton.disabled = true;
+            runSimulationLoop();
+        });
+
+        function updateCode() {
+            if (programSteps.length === 0) {
+                codeOutput.innerHTML = `<span class="code-comment">// Construye tu programa para ver el código aquí.</span>`;
+                return;
+            }
+
+            let setupCode = `<span class="code-keyword">void</span> <span class="code-function">setup</span>() {\n`;
+            setupCode += `  <span class="code-function">pinMode</span>(<span class="code-number">12</span>, <span class="code-string">OUTPUT</span>); <span class="code-comment">// Verde</span>\n`;
+            setupCode += `  <span class="code-function">pinMode</span>(<span class="code-number">10</span>, <span class="code-string">OUTPUT</span>); <span class="code-comment">// Amarillo</span>\n`;
+            setupCode += `  <span class="code-function">pinMode</span>(<span class="code-number">8</span>, <span class="code-string">OUTPUT</span>);  <span class="code-comment">// Rojo</span>\n`;
+            setupCode += `}`;
+            
+            let loopCode = `<span class="code-keyword">void</span> <span class="code-function">loop</span>() {\n`;
+            programSteps.forEach(step => {
+                switch (step) {
+                    case 'green_on': loopCode += `  <span class="code-function">digitalWrite</span>(<span class="code-number">12</span>, <span class="code-string">HIGH</span>);\n`; break;
+                    case 'green_off': loopCode += `  <span class="code-function">digitalWrite</span>(<span class="code-number">12</span>, <span class="code-string">LOW</span>);\n`; break;
+                    case 'yellow_on': loopCode += `  <span class="code-function">digitalWrite</span>(<span class="code-number">10</span>, <span class="code-string">HIGH</span>);\n`; break;
+                    case 'yellow_off': loopCode += `  <span class="code-function">digitalWrite</span>(<span class="code-number">10</span>, <span class="code-string">LOW</span>);\n`; break;
+                    case 'red_on': loopCode += `  <span class="code-function">digitalWrite</span>(<span class="code-number">8</span>, <span class="code-string">HIGH</span>);\n`; break;
+                    case 'red_off': loopCode += `  <span class="code-function">digitalWrite</span>(<span class="code-number">8</span>, <span class="code-string">LOW</span>);\n`; break;
+                    case 'wait_1': loopCode += `  <span class="code-function">delay</span>(<span class="code-number">1000</span>);\n`; break;
+                    case 'wait_3': loopCode += `  <span class="code-function">delay</span>(<span class="code-number">3000</span>);\n`; break;
+                }
+            });
+            loopCode += `}`;
+            codeOutput.innerHTML = `${setupCode}\n\n${loopCode}`;
+        }
+
+        async function runSimulationLoop() {
+            while (isSimulationRunning) {
+                for (const step of programSteps) {
+                    if (!isSimulationRunning) break;
+
+                    switch (step) {
+                        case 'green_on': ledGreen.classList.add('on'); break;
+                        case 'green_off': ledGreen.classList.remove('on'); break;
+                        case 'yellow_on': ledYellow.classList.add('on'); break;
+                        case 'yellow_off': ledYellow.classList.remove('on'); break;
+                        case 'red_on': ledRed.classList.add('on'); break;
+                        case 'red_off': ledRed.classList.remove('on'); break;
+                        case 'wait_1': await new Promise(resolve => setTimeout(resolve, 1000)); break;
+                        case 'wait_3': await new Promise(resolve => setTimeout(resolve, 3000)); break;
+                    }
+                }
+                if (!isSimulationRunning) break;
+                await new Promise(resolve => setTimeout(resolve, 1000));
+            }
+            runButton.disabled = false;
+        }
+    </script>
+</body>
+</html>

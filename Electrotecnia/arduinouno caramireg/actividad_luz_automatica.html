@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafío: Lámpara Automática - Curso de Arduino</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .code-block { background-color: #282c34; color: #abb2bf; font-family: 'Courier New', Courier, monospace; padding: 1rem; border-radius: 0.5rem; white-space: pre-wrap; }
+        .code-keyword { color: #c678dd; }
+        .code-function { color: #61afef; }
+        .code-comment { color: #5c6370; }
+        .code-number { color: #d19a66; }
+        .code-variable { color: #e5c07b; }
+        
+        .block { cursor: grab; user-select: none; }
+        .block.dragging { opacity: 0.5; }
+        .drop-zone {
+            min-height: 60px;
+            border: 2px dashed #9ca3af;
+            background-color: #f3f4f6;
+            transition: background-color 0.2s;
+        }
+        .drop-zone.over {
+            background-color: #dbeafe;
+            border-color: #3b82f6;
+        }
+        .lamp {
+            width: 80px;
+            height: 80px;
+            background-color: #4b5563;
+            border-radius: 50%;
+            position: relative;
+            border: 5px solid #1f2937;
+            transition: all 0.3s;
+        }
+        .lamp.on {
+            background-color: #fef08a;
+            box-shadow: 0 0 40px 10px #fde047;
+        }
+    </style>
+</head>
+<body class="bg-slate-50">
+
+    <header class="bg-white shadow">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-blue-600">Desafío: Lámpara Automática</h1>
+            <a href="modulo_4.html" class="text-blue-600 hover:text-blue-800 font-semibold flex items-center"><i class="fas fa-arrow-left mr-2"></i>Volver al Módulo 4</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <h3 class="text-2xl font-bold mb-4">Tu Misión Final del Módulo</h3>
+            <p class="text-lg text-slate-700 mb-4">Es hora de combinar todo lo que has aprendido. Tu objetivo es construir el programa para una lámpara de noche automática. La lógica es:</p>
+            <ul class="list-disc list-inside space-y-2 text-lg text-slate-700">
+                <li>Leer continuamente el valor de un sensor de luz (LDR).</li>
+                <li>**Si** el valor de la luz es **menor que** un umbral (es decir, está oscuro)...</li>
+                <li>**Entonces**, encender la lámpara (un LED).</li>
+                <li>**Si no**, apagar la lámpara.</li>
+            </ul>
+        </div>
+        
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <h3 class="text-2xl font-bold mb-4">Construye el Programa</h3>
+            <p class="text-lg text-slate-700 mb-6">Arrastra cada bloque desde la caja de herramientas a su zona correspondiente en la estructura del programa.</p>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Herramientas y Simulación -->
+                <div class="border-2 border-slate-200 rounded-lg p-4">
+                    <h4 class="font-bold text-center mb-4">Caja de Herramientas</h4>
+                    <div id="toolbox" class="space-y-3">
+                        <div class="block bg-sky-500 text-white p-3 rounded-md text-center" draggable="true" data-code="pinMode(9, OUTPUT);">Configurar Pin 9 como SALIDA</div>
+                        <div class="block bg-teal-500 text-white p-3 rounded-md text-center" draggable="true" data-code="valorLuz = analogRead(A0);">Leer Sensor de Luz (A0)</div>
+                        <div class="block bg-green-500 text-white p-3 rounded-md text-center" draggable="true" data-code="digitalWrite(9, HIGH);">Encender Lámpara (Pin 9)</div>
+                        <div class="block bg-red-500 text-white p-3 rounded-md text-center" draggable="true" data-code="digitalWrite(9, LOW);">Apagar Lámpara (Pin 9)</div>
+                    </div>
+                    <hr class="my-6">
+                    <h4 class="font-bold text-center mb-4">Simulación</h4>
+                    <div class="flex flex-col items-center gap-4 p-4 bg-slate-100 rounded-lg">
+                        <label for="light-sensor" class="font-medium">Nivel de Luz Ambiental</label>
+                        <div class="flex items-center w-full gap-4">
+                            <i class="fas fa-sun text-yellow-500"></i>
+                            <input type="range" id="light-sensor" min="0" max="1023" value="800" class="w-full">
+                            <i class="fas fa-moon text-slate-500"></i>
+                        </div>
+                        <div id="light-value" class="font-bold text-xl">800</div>
+                        <div id="lamp-simulation" class="lamp mt-4"></div>
+                    </div>
+                </div>
+
+                <!-- Área del Programa -->
+                <div class="lg:col-span-2 border-2 border-slate-200 rounded-lg p-4">
+                    <h4 class="font-bold mb-4">Estructura del Programa</h4>
+                    <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-sm space-y-2">
+                        <p><span class="code-keyword">void</span> <span class="code-function">setup</span>() {</p>
+                        <div id="setup-zone" class="drop-zone ml-4 p-2 rounded"></div>
+                        <p>}</p>
+                        <br>
+                        <p><span class="code-keyword">void</span> <span class="code-function">loop</span>() {</p>
+                        <div id="loop-zone-1" class="drop-zone ml-4 p-2 rounded"></div>
+                        <p class="ml-4"><span class="code-keyword">if</span> (valorLuz < <input type="number" id="threshold" class="w-20 text-black text-center rounded" value="300">) {</p>
+                        <div id="if-zone" class="drop-zone ml-8 p-2 rounded"></div>
+                        <p class="ml-4">} <span class="code-keyword">else</span> {</p>
+                        <div id="else-zone" class="drop-zone ml-8 p-2 rounded"></div>
+                        <p class="ml-4">}</p>
+                        <p>}</p>
+                    </div>
+                     <div class="mt-4 text-right">
+                        <button id="run-button" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg"><i class="fas fa-play mr-2"></i>Ejecutar</button>
+                        <button id="stop-button" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg"><i class="fas fa-stop mr-2"></i>Detener</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-md">
+            <h3 class="text-2xl font-bold mb-4">El Código Completo de tu Programa</h3>
+            <div id="code-output" class="code-block text-sm"></div>
+        </div>
+    </main>
+
+    <script>
+        // --- Drag and Drop Logic ---
+        const blocks = document.querySelectorAll('.block');
+        const dropZones = document.querySelectorAll('.drop-zone');
+        let draggedBlock = null;
+
+        blocks.forEach(block => {
+            block.addEventListener('dragstart', (e) => {
+                draggedBlock = e.target;
+                setTimeout(() => e.target.classList.add('dragging'), 0);
+            });
+            block.addEventListener('dragend', (e) => {
+                e.target.classList.remove('dragging');
+            });
+        });
+
+        dropZones.forEach(zone => {
+            zone.addEventListener('dragover', e => {
+                e.preventDefault();
+                zone.classList.add('over');
+            });
+            zone.addEventListener('dragleave', () => {
+                zone.classList.remove('over');
+            });
+            zone.addEventListener('drop', e => {
+                e.preventDefault();
+                zone.classList.remove('over');
+                if (draggedBlock) {
+                    zone.innerHTML = ''; // Only one block per zone
+                    zone.appendChild(draggedBlock);
+                    updateCode();
+                }
+            });
+        });
+
+        // --- Simulation and Code Generation ---
+        const lightSensor = document.getElementById('light-sensor');
+        const lightValueDisplay = document.getElementById('light-value');
+        const lamp = document.getElementById('lamp-simulation');
+        const thresholdInput = document.getElementById('threshold');
+        const codeOutput = document.getElementById('code-output');
+        const runButton = document.getElementById('run-button');
+        const stopButton = document.getElementById('stop-button');
+        
+        let simulationInterval = null;
+
+        function updateCode() {
+            const setupBlock = document.querySelector('#setup-zone .block');
+            const loopBlock1 = document.querySelector('#loop-zone-1 .block');
+            const ifBlock = document.querySelector('#if-zone .block');
+            const elseBlock = document.querySelector('#else-zone .block');
+            const threshold = thresholdInput.value;
+
+            let code = `<span class="code-comment">// Variable para guardar la lectura del sensor de luz</span>\n`;
+            code += `<span class="code-keyword">int</span> <span class="code-variable">valorLuz</span> = <span class="code-number">0</span>;\n\n`;
+
+            code += `<span class="code-keyword">void</span> <span class="code-function">setup</span>() {\n`;
+            if (setupBlock) code += `  <span class="code-comment">// Configurar el pin de la lámpara como salida</span>\n  ${setupBlock.dataset.code}\n`;
+            code += `}\n\n`;
+
+            code += `<span class="code-keyword">void</span> <span class="code-function">loop</span>() {\n`;
+            if (loopBlock1) code += `  <span class="code-comment">// Leer el valor del sensor conectado al pin A0</span>\n  ${loopBlock1.dataset.code}\n\n`;
+            
+            code += `  <span class="code-comment">// Comprobar si está oscuro (valorLuz es menor que el umbral)</span>\n`;
+            code += `  <span class="code-keyword">if</span> (<span class="code-variable">valorLuz</span> < <span class="code-number">${threshold}</span>) {\n`;
+            if (ifBlock) code += `    <span class="code-comment">// Si está oscuro, encender la lámpara</span>\n    ${ifBlock.dataset.code}\n`;
+            code += `  } <span class="code-keyword">else</span> {\n`;
+            if (elseBlock) code += `    <span class="code-comment">// Si no, apagar la lámpara</span>\n    ${elseBlock.dataset.code}\n`;
+            code += `  }\n`;
+            code += `}`;
+            
+            codeOutput.innerHTML = code;
+        }
+
+        function runSimulation() {
+            const ldrValue = parseInt(lightSensor.value);
+            const threshold = parseInt(thresholdInput.value);
+            
+            lightValueDisplay.textContent = ldrValue;
+
+            const ifBlock = document.querySelector('#if-zone .block');
+            const elseBlock = document.querySelector('#else-zone .block');
+
+            if (ldrValue < threshold) {
+                if (ifBlock && ifBlock.dataset.code.includes('HIGH')) {
+                    lamp.classList.add('on');
+                } else {
+                    lamp.classList.remove('on');
+                }
+            } else {
+                if (elseBlock && elseBlock.dataset.code.includes('LOW')) {
+                    lamp.classList.remove('on');
+                } else {
+                    lamp.classList.add('on');
+                }
+            }
+        }
+
+        runButton.addEventListener('click', () => {
+            if (simulationInterval) clearInterval(simulationInterval);
+            simulationInterval = setInterval(runSimulation, 100);
+            runButton.disabled = true;
+            stopButton.disabled = false;
+        });
+
+        stopButton.addEventListener('click', () => {
+            clearInterval(simulationInterval);
+            simulationInterval = null;
+            runButton.disabled = false;
+            stopButton.disabled = true;
+            lamp.classList.remove('on');
+        });
+
+        lightSensor.addEventListener('input', () => {
+            lightValueDisplay.textContent = lightSensor.value;
+        });
+        
+        thresholdInput.addEventListener('input', updateCode);
+        
+        // Initial state
+        updateCode();
+        stopButton.disabled = true;
+
+    </script>
+</body>
+</html>

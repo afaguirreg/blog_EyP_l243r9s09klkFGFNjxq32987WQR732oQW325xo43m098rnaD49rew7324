@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STEAM: Circuito Abierto vs Cerrado</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a2e;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 { color: #4cc9f0; margin-bottom: 10px; }
+        
+        .container {
+            background-color: #16213e;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            text-align: center;
+            position: relative;
+        }
+
+        canvas {
+            background-color: #0f3460;
+            border-radius: 10px;
+            border: 3px solid #4cc9f0;
+            cursor: pointer;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        .status-panel {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: all 0.3s;
+        }
+
+        .closed {
+            background-color: #2e7d32; /* Verde */
+            color: #fff;
+            box-shadow: 0 0 10px #2e7d32;
+        }
+
+        .open {
+            background-color: #c62828; /* Rojo */
+            color: #fff;
+            box-shadow: 0 0 10px #c62828;
+        }
+
+        .controls {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 25px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #e94560;
+            color: white;
+            font-weight: bold;
+            transition: transform 0.1s;
+        }
+
+        button:active { transform: scale(0.95); }
+
+        .hint {
+            color: #aeb8c3;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🔌 Laboratorio de Circuitos</h1>
+    
+    <div class="container">
+        <canvas id="circuitCanvas" width="500" height="350"></canvas>
+        
+        <div id="statusBox" class="status-panel open">
+            Estado: CIRCUITO ABIERTO (Sin Flujo)
+        </div>
+
+        <div class="controls">
+            <button onclick="toggleSwitch()">⚡ Accionar Interruptor ⚡</button>
+        </div>
+        <p class="hint">Haz clic en el botón o sobre el interruptor en el dibujo.</p>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('circuitCanvas');
+        const ctx = canvas.getContext('2d');
+        const statusBox = document.getElementById('statusBox');
+
+        // Estado del circuito
+        let isClosed = false; // Empieza abierto
+        
+        // Configuración de animación
+        let electronOffset = 0;
+        const electronSpeed = 2;
+
+        // Posiciones clave
+        const batteryX = 60;
+        const batteryY = 150;
+        const bulbX = 420;
+        const bulbY = 150;
+        const switchX = 240;
+        const switchY = 280;
+
+        // Definir el camino del cable (Rectángulo)
+        // Arriba, Derecha, Abajo, Izquierda
+        const wirePath = [
+            {x: 60, y: 120},  // Inicio batería positivo
+            {x: 60, y: 50},   // Esquina superior izq
+            {x: 420, y: 50},  // Esquina superior der
+            {x: 420, y: 120}, // Entrada bombilla
+            // --- BOMBILLA AQUÍ ---
+            {x: 420, y: 180}, // Salida bombilla
+            {x: 420, y: 280}, // Esquina inferior der
+            {x: 280, y: 280}, // Lado derecho interruptor
+            // --- INTERRUPTOR AQUÍ ---
+            {x: 200, y: 280}, // Lado izquierdo interruptor
+            {x: 60, y: 280},  // Esquina inferior izq
+            {x: 60, y: 180}   // Vuelta a batería negativo
+        ];
+
+        function toggleSwitch() {
+            isClosed = !isClosed;
+            updateStatus();
+        }
+
+        function updateStatus() {
+            if (isClosed) {
+                statusBox.textContent = "Estado: CIRCUITO CERRADO (Luz Encendida)";
+                statusBox.className = "status-panel closed";
+            } else {
+                statusBox.textContent = "Estado: CIRCUITO ABIERTO (Luz Apagada)";
+                statusBox.className = "status-panel open";
+            }
+        }
+
+        // Click en canvas para interactuar con el interruptor
+        canvas.addEventListener('click', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            // Detectar clic cerca del interruptor
+            if (x > 180 && x < 300 && y > 220 && y < 320) {
+                toggleSwitch();
+            }
+        });
+
+        function drawBattery(x, y) {
+            ctx.fillStyle = "#fff";
+            // Cuerpo batería
+            ctx.fillStyle = "#333";
+            ctx.fillRect(x - 20, y - 30, 40, 60);
+            // Terminal positivo
+            ctx.fillStyle = "#ffd700";
+            ctx.fillRect(x - 10, y - 40, 20, 10);
+            ctx.font = "20px Arial";
+            ctx.fillText("+", x - 35, y - 10);
+            ctx.fillText("-", x - 35, y + 25);
+            // Etiqueta
+            ctx.fillStyle = "#aaa";
+            ctx.font = "12px Arial";
+            ctx.fillText("Batería 9V", x - 25, y + 45);
+        }
+
+        function drawBulb(x, y, on) {
+            // Base
+            ctx.fillStyle = "#555";
+            ctx.fillRect(x - 15, y + 10, 30, 20);
+            
+            // Cristal
+            ctx.beginPath();
+            ctx.arc(x, y - 10, 30, 0, Math.PI * 2);
+            if (on) {
+                ctx.fillStyle = "#ffeb3b"; // Amarillo encendido
+                ctx.shadowBlur = 40;
+                ctx.shadowColor = "#ffeb3b";
+            } else {
+                ctx.fillStyle = "#444"; // Gris apagado
+                ctx.shadowBlur = 0;
+            }
+            ctx.fill();
+            ctx.shadowBlur = 0; // Reset shadow
+
+            // Filamento
+            ctx.beginPath();
+            ctx.moveTo(x - 10, y + 10);
+            ctx.lineTo(x - 10, y - 10);
+            ctx.lineTo(x + 10, y - 10);
+            ctx.lineTo(x + 10, y + 10);
+            ctx.strokeStyle = on ? "#fff" : "#222";
+            ctx.stroke();
+        }
+
+        function drawSwitch(x, y, closed) {
+            // Puntos de conexión
+            ctx.fillStyle = "#fff";
+            ctx.beginPath(); ctx.arc(x - 40, y, 5, 0, Math.PI*2); ctx.fill(); // Izq
+            ctx.beginPath(); ctx.arc(x + 40, y, 5, 0, Math.PI*2); ctx.fill(); // Der
+
+            // Palanca
+            ctx.beginPath();
+            ctx.lineWidth = 4;
+            ctx.strokeStyle = "#e94560"; // Color palanca
+            ctx.moveTo(x - 40, y); 
+            
+            if (closed) {
+                ctx.lineTo(x + 40, y); // Cerrado (plano)
+            } else {
+                ctx.lineTo(x + 30, y - 40); // Abierto (levantado 45 grados)
+            }
+            ctx.stroke();
+
+            // Etiqueta
+            ctx.fillStyle = "#fff";
+            ctx.font = "14px Arial";
+            ctx.fillText(closed ? "Cerrado" : "Abierto", x - 25, y + 30);
+        }
+
+        function drawWires() {
+            ctx.beginPath();
+            ctx.strokeStyle = "#4cc9f0"; // Cable azul
+            ctx.lineWidth = 3;
+
+            // Dibujar segmentos estáticos
+            // 1. Batería (+) a Bombilla
+            ctx.moveTo(60, 120); 
+            ctx.lineTo(60, 50);
+            ctx.lineTo(420, 50);
+            ctx.lineTo(420, 120);
+
+            // 2. Bombilla a Interruptor
+            ctx.moveTo(420, 180);
+            ctx.lineTo(420, 280);
+            ctx.lineTo(280, 280);
+
+            // 3. Interruptor a Batería (-)
+            ctx.moveTo(200, 280);
+            ctx.lineTo(60, 280);
+            ctx.lineTo(60, 180);
+
+            ctx.stroke();
+        }
+
+        function drawElectrons() {
+            if (!isClosed) return; // Si está abierto, no dibujar electrones
+
+            ctx.fillStyle = "#fff";
+            
+            // Definir segmentos lineales para animar
+            const paths = [
+                {x1: 60, y1: 120, x2: 60, y2: 50, len: 70},   // Subida
+                {x1: 60, y1: 50, x2: 420, y2: 50, len: 360},  // Superior
+                {x1: 420, y1: 50, x2: 420, y2: 120, len: 70}, // Bajada bombilla
+                {x1: 420, y1: 180, x2: 420, y2: 280, len: 100}, // Bajada post-bombilla
+                {x1: 420, y1: 280, x2: 280, y2: 280, len: 140}, // Fondo derecha
+                {x1: 200, y1: 280, x2: 60, y2: 280, len: 140},  // Fondo izquierda
+                {x1: 60, y1: 280, x2: 60, y2: 180, len: 100}    // Subida final
+            ];
+
+            // Animar un punto en cada segmento
+            const time = Date.now() / 1000 * 50; // Velocidad base
+            
+            paths.forEach((p, index) => {
+                // Calcular posición basada en tiempo para efecto de flujo continuo
+                const spacing = 30; // Distancia entre electrones
+                const dist = Math.sqrt(Math.pow(p.x2-p.x1, 2) + Math.pow(p.y2-p.y1, 2));
+                const count = Math.floor(dist / spacing);
+
+                for(let i=0; i<count; i++) {
+                    // Mover electrones
+                    let progress = (time + i * (dist/count)) % dist;
+                    let ratio = progress / dist;
+
+                    let ex = p.x1 + (p.x2 - p.x1) * ratio;
+                    let ey = p.y1 + (p.y2 - p.y1) * ratio;
+
+                    ctx.beginPath();
+                    ctx.arc(ex, ey, 3, 0, Math.PI*2);
+                    ctx.fill();
+                }
+            });
+            
+            // Electrones cruzando el interruptor (solo si cerrado)
+            ctx.beginPath();
+            let switchProg = (time) % 80; // Longitud puente
+            let sRatio = switchProg / 80;
+            // De der a izq (el flujo va de + a - en convención técnica, pero de - a + los electrones)
+            // Aquí simulamos flujo convencional para simplificar (+ a -)
+            // + (Bat top) -> Bombilla -> Interruptor -> - (Bat bot)
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Dibujar componentes
+            drawWires();
+            drawBattery(batteryX, batteryY);
+            drawBulb(bulbX, bulbY, isClosed);
+            drawSwitch(switchX, switchY, isClosed);
+            
+            // Dibujar electrones si está cerrado
+            drawElectrons();
+
+            requestAnimationFrame(animate);
+        }
+
+        // Iniciar
+        animate();
+
+    </script>
+</body>
+</html>

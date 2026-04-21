@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estación Final: ¡El Robot Cobra Vida!</title>
+    <!-- Carga de Tailwind CSS para los estilos -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carga de la fuente Inter de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-white antialiased">
+
+    <!-- Contenedor principal -->
+    <div class="container mx-auto p-6 max-w-2xl">
+        
+        <!-- Encabezado de la estación -->
+        <header class="text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-500">MISIÓN CUMPLIDA</h1>
+            <h2 class="text-2xl md:text-3xl font-bold mt-2">¡El Robot Cobra Vida!</h2>
+        </header>
+
+        <!-- Tarjeta de contenido principal -->
+        <main class="bg-slate-800 rounded-2xl shadow-lg p-6 md:p-8">
+            
+            <!-- Texto de felicitación -->
+            <div class="mb-6">
+                <p class="text-lg leading-relaxed text-slate-300">
+                    ¡Excelente trabajo, equipo! Han superado todos los retos y activado los sensores de <strong class="text-cyan-400">proximidad</strong>, <strong class="text-green-400">tacto</strong>, <strong class="text-purple-400">color</strong> y <strong class="text-orange-400">sonido</strong>. Es hora de ver el resultado.
+                </p>
+            </div>
+
+            <!-- Sección de Activación por Realidad Aumentada -->
+            <div class="bg-slate-900 rounded-lg p-6 border-2 border-amber-400/50 text-center">
+                <h3 class="text-2xl font-bold text-amber-300 mb-4">Activación Final por RA</h3>
+                <p class="text-slate-400 mb-6">¡Este es el código de activación final! Abran la cámara de su celular y apunten al código QR para proyectar el robot en su entorno.</p>
+                
+                <!-- CÓDIGO QR APUNTANDO A LA RUTA LOCAL -->
+                <img src="images/qr-final.png" alt="Código QR para ver el robot en Realidad Aumentada" class="mx-auto rounded-lg border-4 border-amber-400 shadow-lg w-64 h-64" onerror="this.onerror=null;this.src='https://placehold.co/256x256/1e293b/fbbf24?text=Error:+Revisa+la+ruta+images/qr-final.png';">
+                
+                <p class="mt-6 text-sm text-slate-500">Al escanear, sigan las instrucciones en pantalla y presionen "Ver en tu espacio".</p>
+            </div>
+
+            <!-- Reflexión Final -->
+            <div class="mt-8 bg-gray-700/50 border-l-4 border-gray-400 p-4 rounded-lg">
+                <h3 class="font-bold text-xl text-gray-200 mb-2">Reflexión Final: La Fusión de los Sentidos</h3>
+                <p class="text-gray-300 leading-relaxed">
+                    El robot que ves en 3D es el resultado de la integración. No podría moverse sin chocar, interactuar con objetos, seguir una ruta o reaccionar a una orden si sus sensores no trabajaran en equipo.
+                    <br><br>
+                    Al igual que los humanos, un robot es verdaderamente útil cuando todos sus "sentidos" se fusionan para comprender y actuar en el mundo.
+                </p>
+            </div>
+
+        </main>
+        
+        <footer class="text-center mt-8 text-slate-500 text-sm">
+            <p>Misión Sensores 🤖 ¡Completada!</p>
+        </footer>
+    </div>
+
+</body>
+</html>

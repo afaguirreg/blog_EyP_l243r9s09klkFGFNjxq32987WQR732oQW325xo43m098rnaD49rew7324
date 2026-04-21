@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 7: Mostrando Información - Curso de Arduino</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .code-block { background-color: #282c34; color: #abb2bf; font-family: 'Courier New', Courier, monospace; padding: 1rem; border-radius: 0.5rem; white-space: pre-wrap; }
+        .code-keyword { color: #c678dd; }
+        .code-function { color: #61afef; }
+        .code-comment { color: #5c6370; }
+        .code-number { color: #d19a66; }
+        .code-string { color: #98c379; }
+        .lcd-screen {
+            background-color: #008080;
+            color: #e0e0e0;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.5rem;
+            line-height: 1.2;
+            padding: 10px;
+            border: 5px solid #333;
+            border-radius: 5px;
+            width: 320px;
+            height: 100px;
+            white-space: pre;
+        }
+    </style>
+</head>
+<body class="bg-slate-50">
+
+    <header class="bg-white shadow">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-blue-600">Módulo 7: Mostrando Información</h1>
+            <a href="index.html" class="text-blue-600 hover:text-blue-800 font-semibold flex items-center"><i class="fas fa-arrow-left mr-2"></i>Volver al Inicio</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+    
+        <div class="relative rounded-xl overflow-hidden mb-12">
+            <img src="images/modulo_7.png" alt="Una pantalla LCD mostrando 'Hola Mundo!'" class="w-full h-64 object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                <h2 class="text-4xl font-bold text-white text-center">Interfaces Gráficas con LCD</h2>
+            </div>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <h3 class="text-2xl font-bold mb-4">Lección 1: El Poder de las Librerías</h3>
+            <p class="text-lg text-slate-700 mb-4">Imagina que quieres que tu Arduino haga una tarea muy compleja, como controlar una pantalla LCD. Podrías escribir cientos de líneas de código desde cero para manejar cada pequeño detalle... o podrías usar una **librería**.</p>
+            <p class="text-lg text-slate-700">Una librería es un conjunto de código preescrito por otros programadores que simplifica tareas complejas. En lugar de reinventar la rueda, simplemente importas la librería y usas comandos sencillos como `lcd.print("Hola")`. ¡La librería se encarga de todo el trabajo pesado por detrás!</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <h3 class="text-2xl font-bold mb-4">Lección 2: Conectando la Pantalla LCD</h3>
+            <p class="text-lg text-slate-700 mb-6">Hay dos formas comunes de conectar una pantalla LCD. La más moderna y eficiente es usando un pequeño módulo I2C.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h4 class="font-semibold text-lg mb-2">Conexión Directa (Paralelo)</h4>
+                    <p class="text-slate-600 mb-4">Requiere conectar muchos pines del Arduino directamente a la pantalla. Es funcional, pero ocupa casi todos los pines de tu placa.</p>
+                    <p class="text-sm text-slate-500 mb-4 bg-slate-100 p-2 rounded-md">Librería necesaria: <code class="font-mono text-blue-600">&lt;LiquidCrystal.h&gt;</code></p>
+                    <!-- TABLA DE CONEXIÓN PARALELO -->
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm text-left text-slate-500">
+                            <thead class="text-xs text-slate-700 uppercase bg-slate-100">
+                                <tr>
+                                    <th scope="col" class="px-4 py-3">Pin LCD</th>
+                                    <th scope="col" class="px-4 py-3">Pin Arduino UNO</th>
+                                    <th scope="col" class="px-4 py-3">Función</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="bg-white border-b"><td class="px-4 py-2 font-medium">VSS</td><td class="px-4 py-2">GND</td><td class="px-4 py-2">Tierra (0V)</td></tr>
+                                <tr class="bg-slate-50 border-b"><td class="px-4 py-2 font-medium">VDD</td><td class="px-4 py-2">5V</td><td class="px-4 py-2">Alimentación (+5V)</td></tr>
+                                <tr class="bg-white border-b"><td class="px-4 py-2 font-medium">RS</td><td class="px-4 py-2">Pin 12</td><td class="px-4 py-2">Indica si se envía un comando o un dato</td></tr>
+                                <tr class="bg-slate-50 border-b"><td class="px-4 py-2 font-medium">E</td><td class="px-4 py-2">Pin 11</td><td class="px-4 py-2">Activa la escritura en la LCD</td></tr>
+                                <tr class="bg-white border-b"><td class="px-4 py-2 font-medium">D4-D7</td><td class="px-4 py-2">Pines 5-2</td><td class="px-4 py-2">Pines para enviar los datos</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <img src="images/lcd_parallel.png" alt="Conexión de LCD en paralelo" class="rounded-lg shadow-lg mt-4">
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-2">Conexión I2C (Recomendada)</h4>
+                    <p class="text-slate-600 mb-4">Un pequeño chip (módulo I2C) reduce la conexión a solo **4 cables**, ¡liberando un montón de pines en tu Arduino!</p>
+                    <p class="text-sm text-slate-500 mb-4 bg-slate-100 p-2 rounded-md">Librería necesaria: <code class="font-mono text-blue-600">&lt;LiquidCrystal_I2C.h&gt;</code></p>
+                    <!-- TABLA DE CONEXIÓN I2C -->
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm text-left text-slate-500">
+                            <thead class="text-xs text-slate-700 uppercase bg-slate-100">
+                                <tr>
+                                    <th scope="col" class="px-4 py-3">Pin Módulo I2C</th>
+                                    <th scope="col" class="px-4 py-3">Pin Arduino UNO</th>
+                                    <th scope="col" class="px-4 py-3">Función</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="bg-white border-b"><td class="px-4 py-2 font-medium">GND</td><td class="px-4 py-2">GND</td><td class="px-4 py-2">Tierra (0V)</td></tr>
+                                <tr class="bg-slate-50 border-b"><td class="px-4 py-2 font-medium">VCC</td><td class="px-4 py-2">5V</td><td class="px-4 py-2">Alimentación (+5V)</td></tr>
+                                <tr class="bg-white border-b"><td class="px-4 py-2 font-medium">SDA</td><td class="px-4 py-2">Pin A4</td><td class="px-4 py-2">Línea de Datos</td></tr>
+                                <tr class="bg-slate-50"><td class="px-4 py-2 font-medium">SCL</td><td class="px-4 py-2">Pin A5</td><td class="px-4 py-2">Línea de Reloj (sincronización)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <img src="images/lcd_i2c.png" alt="Conexión de LCD con módulo I2C" class="rounded-lg shadow-lg mt-4">
+                </div>
+            </div>
+             <p class="text-lg text-slate-700 mt-6 font-semibold">Importante: Cada tipo de conexión requiere una librería y una inicialización de código diferente. ¡Siempre debes saber qué tipo de pantalla estás usando!</p>
+        </div>
+        
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <h3 class="text-2xl font-bold mb-4">Lección 3: Escribiendo en la Pantalla</h3>
+            <p class="text-lg text-slate-700 mb-6">Una pantalla LCD 16x2 tiene 2 filas y 16 columnas. Para escribir en ella, usamos un sistema de coordenadas. La esquina superior izquierda es la columna 0, fila 0. ¡Prueba a escribir en la simulación!</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Controles -->
+                <div class="border-2 border-slate-200 rounded-lg p-6">
+                    <h4 class="font-bold text-lg mb-4">Controles</h4>
+                    <div class="mb-4">
+                        <label for="lcd-text" class="block font-medium mb-1">Texto a mostrar:</label>
+                        <input type="text" id="lcd-text" class="w-full p-2 border border-slate-300 rounded" value="Hola Mundo!">
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div>
+                           <label for="lcd-col" class="block font-medium mb-1">Columna (0-15):</label>
+                           <input type="number" id="lcd-col" class="w-full p-2 border border-slate-300 rounded" value="0" min="0" max="15">
+                        </div>
+                        <div>
+                           <label for="lcd-row" class="block font-medium mb-1">Fila (0-1):</label>
+                           <input type="number" id="lcd-row" class="w-full p-2 border border-slate-300 rounded" value="0" min="0" max="1">
+                        </div>
+                    </div>
+                    <button id="update-btn" class="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600">Actualizar Pantalla</button>
+                    <button id="clear-btn" class="w-full mt-2 bg-slate-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-slate-600">Limpiar Pantalla</button>
+                </div>
+                <!-- Simulación LCD -->
+                <div class="flex flex-col items-center justify-center">
+                    <h4 class="font-bold text-lg mb-4">Simulación LCD 16x2</h4>
+                    <div id="lcd-screen" class="lcd-screen"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <h3 class="text-2xl font-bold mb-4">El Código Detrás de la Pantalla</h3>
+            <p class="text-lg text-slate-700 mb-6">Este es el código que usarías para controlar la pantalla. Observa los comandos principales:</p>
+            <div id="code-output" class="code-block text-sm"></div>
+        </div>
+
+        <!-- Actividades Finales -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+            <div class="bg-white p-8 rounded-xl shadow-xl text-center border-t-4 border-orange-500">
+                <i class="fas fa-ruler-combined fa-3x text-orange-500 mb-4"></i>
+                <h3 class="text-2xl font-bold mb-4">¡Desafío Práctico!</h3>
+                <p class="text-slate-600 mb-6">Crea un contador de personas o un medidor de distancia y muestra los resultados en la pantalla LCD.</p>
+                <a href="actividad_lcd_sensor.html" class="inline-block bg-orange-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-orange-600">Ir al Desafío</a>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow-xl text-center border-t-4 border-blue-500">
+                <i class="fas fa-question-circle fa-3x text-blue-500 mb-4"></i>
+                <h3 class="text-2xl font-bold mb-4">Prueba tu Conocimiento</h3>
+                <p class="text-slate-600 mb-6">¿Entendiste cómo funcionan las librerías y las coordenadas de la pantalla? ¡Demuéstralo en el quiz!</p>
+                <a href="quiz_modulo_7.html" class="inline-block bg-blue-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-600">Iniciar Quiz</a>
+            </div>
+        </div>
+
+    </main>
+</body>
+<script>
+    const lcdText = document.getElementById('lcd-text');
+    const lcdCol = document.getElementById('lcd-col');
+    const lcdRow = document.getElementById('lcd-row');
+    const updateBtn = document.getElementById('update-btn');
+    const clearBtn = document.getElementById('clear-btn');
+    const lcdScreen = document.getElementById('lcd-screen');
+    const codeOutput = document.getElementById('code-output');
+
+    let screenContent = [[' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], 
+                         [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']];
+
+    function renderScreen() {
+        let text = '';
+        text += screenContent[0].join('');
+        text += '\n';
+        text += screenContent[1].join('');
+        lcdScreen.textContent = text;
+    }
+
+    function updateLcd() {
+        const text = lcdText.value;
+        let col = parseInt(lcdCol.value);
+        let row = parseInt(lcdRow.value);
+
+        if (isNaN(col) || col < 0) col = 0;
+        if (isNaN(row) || row < 0) row = 0;
+        if (col > 15) col = 15;
+        if (row > 1) row = 1;
+
+        for (let i = 0; i < text.length; i++) {
+            if ((col + i) < 16) {
+                screenContent[row][col + i] = text[i];
+            }
+        }
+        renderScreen();
+        updateCode(text, col, row);
+    }
+
+    function clearLcd() {
+        screenContent = [[' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '], 
+                         [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']];
+        renderScreen();
+        updateCode('', 0, 0, true);
+    }
+
+    function updateCode(text, col, row, isClear = false) {
+        let code = `<span class="code-comment">// Incluimos la librería para la pantalla I2C</span>\n`;
+        code += `<span class="code-keyword">#include</span> <span class="code-string">&lt;LiquidCrystal_I2C.h&gt;</span>\n\n`;
+        code += `<span class="code-comment">// Inicializamos la pantalla (dirección 0x27, 16 columnas, 2 filas)</span>\n`;
+        code += `<span class="code-function">LiquidCrystal_I2C</span> lcd(<span class="code-number">0x27</span>, <span class="code-number">16</span>, <span class="code-number">2</span>);\n\n`;
+        
+        code += `<span class="code-keyword">void</span> <span class="code-function">setup</span>() {\n`;
+        code += `  <span class="code-function">lcd.init</span>(); <span class="code-comment">// Encendemos la pantalla</span>\n`;
+        code += `  <span class="code-function">lcd.backlight</span>(); <span class="code-comment">// Encendemos la luz de fondo</span>\n`;
+        code += `}\n\n`;
+
+        code += `<span class="code-keyword">void</span> <span class="code-function">loop</span>() {\n`;
+        if (isClear) {
+            code += `  <span class="code-function">lcd.clear</span>(); <span class="code-comment">// Limpiamos la pantalla</span>\n`;
+        } else {
+            code += `  <span class="code-comment">// 1. Posicionamos el cursor (columna, fila)</span>\n`;
+            code += `  <span class="code-function">lcd.setCursor</span>(<span class="code-number">${col}</span>, <span class="code-number">${row}</span>);\n`;
+            code += `  <span class="code-comment">// 2. Escribimos el texto</span>\n`;
+            code += `  <span class="code-function">lcd.print</span>(<span class="code-string">"${text}"</span>);\n`;
+        }
+        code += `  <span class="code-function">delay</span>(<span class="code-number">1000</span>); <span class="code-comment">// Pequeña pausa</span>\n`;
+        code += `}`;
+        
+        codeOutput.innerHTML = code;
+    }
+
+    updateBtn.addEventListener('click', updateLcd);
+    clearBtn.addEventListener('click', clearLcd);
+
+    // Initial load
+    updateLcd();
+</script>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz del Módulo 1 - Curso de Arduino</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .option-btn {
+            transition: background-color 0.2s, transform 0.2s;
+        }
+        .option-btn:hover {
+            transform: scale(1.03);
+            background-color: #dbeafe; /* Light blue on hover */
+        }
+        .correct {
+            background-color: #22c55e !important;
+            color: white;
+            border-color: #16a34a;
+        }
+        .incorrect {
+            background-color: #ef4444 !important;
+            color: white;
+            border-color: #dc2626;
+        }
+        .order-item {
+            cursor: grab;
+            user-select: none;
+        }
+        .order-item.dragging {
+            opacity: 0.5;
+            background-color: #e0e7ff;
+        }
+    </style>
+</head>
+<body class="bg-slate-100 flex items-center justify-center min-h-screen p-4">
+
+    <div class="w-full max-w-2xl bg-white p-8 rounded-2xl shadow-2xl">
+        <div id="quiz-container">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-2xl font-bold text-slate-800">Prueba de Conocimiento: Módulo 1</h2>
+                <a href="modulo_1.html" class="text-blue-600 hover:text-blue-800 font-semibold text-sm">Volver al Módulo</a>
+            </div>
+            
+            <div class="h-2 w-full bg-slate-200 rounded-full mb-6">
+                <div id="progress-bar" class="h-2 bg-blue-500 rounded-full transition-all duration-300" style="width: 0%;"></div>
+            </div>
+
+            <h3 id="question-text" class="text-xl font-semibold text-slate-700 mb-6 h-16">Cargando pregunta...</h3>
+
+            <div id="options-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Opciones de selección múltiple -->
+            </div>
+            
+            <div id="order-container" class="hidden">
+                <p class="text-sm text-slate-500 mb-2 text-center">Arrastra y suelta las instrucciones para ordenarlas correctamente.</p>
+                <div id="order-list" class="space-y-2 border-2 border-dashed border-slate-300 p-4 rounded-lg">
+                    <!-- Opciones para ordenar -->
+                </div>
+                <button id="check-order-btn" class="w-full mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg">Comprobar Orden</button>
+            </div>
+        </div>
+
+        <!-- Pantalla de Resultados -->
+        <div id="results-container" class="hidden text-center">
+            <i class="fas fa-trophy fa-5x text-yellow-400 mb-4"></i>
+            <h2 class="text-3xl font-bold text-slate-800 mb-2">¡Quiz Completado!</h2>
+            <p class="text-lg text-slate-600 mb-6">Este es tu resultado:</p>
+            <p class="text-5xl font-bold text-blue-600 mb-8" id="score-text">4 / 5</p>
+            <div class="flex justify-center gap-4">
+                <button onclick="restartQuiz()" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg">Intentar de Nuevo</button>
+                <a href="modulo_1.html" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg">Regresar al Módulo 1</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                type: 'mcq',
+                question: "El concepto de 'programar' es esencialmente...",
+                options: [
+                    "Escribir texto sin un orden específico.",
+                    "Dar una secuencia de instrucciones claras y ordenadas.",
+                    "Dibujar diagramas de flujo.",
+                    "Conectar cables en una protoboard."
+                ],
+                answer: 1
+            },
+            {
+                type: 'order',
+                question: "Ordena la secuencia correcta de pasos para ponerte los zapatos:",
+                options: [
+                    "Ponerse el zapato.",
+                    "Amarrar los cordones.",
+                    "Ponerse la media.",
+                    "Ajustar la lengüeta."
+                ],
+                answer: [
+                    "Ponerse la media.",
+                    "Ponerse el zapato.",
+                    "Ajustar la lengüeta.",
+                    "Amarrar los cordones."
+                ]
+            },
+            {
+                type: 'mcq',
+                question: "¿Qué instrucción en código de Arduino es equivalente al bloque 'Encender LED'?",
+                options: [
+                    "digitalWrite(13, LOW);",
+                    "analogWrite(13, HIGH);",
+                    "digitalWrite(13, HIGH);",
+                    "pinMode(13, OUTPUT);"
+                ],
+                answer: 2
+            },
+            {
+                type: 'mcq',
+                question: "La instrucción 'delay(1000);' le dice al Arduino que...",
+                options: [
+                    "Se apague durante 1 segundo.",
+                    "Haga una pausa de 1000 segundos.",
+                    "Encienda un LED 1000 veces.",
+                    "Haga una pausa de 1 segundo (1000 milisegundos)."
+                ],
+                answer: 3
+            },
+            {
+                type: 'mcq',
+                question: "En un programa de Arduino, el código dentro de la función 'loop()'...",
+                options: [
+                    "Se ejecuta una sola vez al encender.",
+                    "Se repite continuamente.",
+                    "Define los pines que se usarán.",
+                    "Es opcional y puede borrarse."
+                ],
+                answer: 1
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        const questionText = document.getElementById('question-text');
+        const optionsContainer = document.getElementById('options-container');
+        const orderContainer = document.getElementById('order-container');
+        const orderList = document.getElementById('order-list');
+        const checkOrderBtn = document.getElementById('check-order-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const quizContainer = document.getElementById('quiz-container');
+        const resultsContainer = document.getElementById('results-container');
+        const scoreText = document.getElementById('score-text');
+
+        function loadQuestion() {
+            if (currentQuestionIndex >= questions.length) {
+                showResults();
+                return;
+            }
+
+            const currentQuestion = questions[currentQuestionIndex];
+            questionText.textContent = currentQuestion.question;
+            
+            if (currentQuestion.type === 'mcq') {
+                orderContainer.classList.add('hidden');
+                optionsContainer.classList.remove('hidden');
+                optionsContainer.innerHTML = '';
+                currentQuestion.options.forEach((option, index) => {
+                    const button = document.createElement('button');
+                    button.textContent = option;
+                    button.classList.add('option-btn', 'w-full', 'p-4', 'border-2', 'border-slate-300', 'rounded-lg', 'text-left', 'font-medium', 'text-slate-700');
+                    button.onclick = () => selectAnswerMCQ(index, button);
+                    optionsContainer.appendChild(button);
+                });
+            } else if (currentQuestion.type === 'order') {
+                optionsContainer.classList.add('hidden');
+                orderContainer.classList.remove('hidden');
+                orderList.innerHTML = '';
+                // Shuffle options for ordering
+                const shuffledOptions = [...currentQuestion.options].sort(() => Math.random() - 0.5);
+                shuffledOptions.forEach(option => {
+                    const div = document.createElement('div');
+                    div.textContent = option;
+                    div.draggable = true;
+                    div.classList.add('order-item', 'p-3', 'bg-slate-100', 'border', 'border-slate-300', 'rounded-md');
+                    orderList.appendChild(div);
+                });
+            }
+            
+            updateProgressBar();
+        }
+
+        function selectAnswerMCQ(selectedIndex, button) {
+            const currentQuestion = questions[currentQuestionIndex];
+            const correctIndex = currentQuestion.answer;
+            const allOptions = optionsContainer.querySelectorAll('.option-btn');
+            
+            allOptions.forEach(btn => btn.disabled = true);
+
+            if (selectedIndex === correctIndex) {
+                button.classList.add('correct');
+                score++;
+            } else {
+                button.classList.add('incorrect');
+                allOptions[correctIndex].classList.add('correct');
+            }
+
+            setTimeout(() => {
+                currentQuestionIndex++;
+                loadQuestion();
+            }, 1500);
+        }
+        
+        checkOrderBtn.addEventListener('click', () => {
+            const currentQuestion = questions[currentQuestionIndex];
+            const orderedItems = [...orderList.querySelectorAll('.order-item')];
+            const userOrder = orderedItems.map(item => item.textContent);
+            const isCorrect = JSON.stringify(userOrder) === JSON.stringify(currentQuestion.answer);
+
+            orderedItems.forEach((item, index) => {
+                if (userOrder[index] === currentQuestion.answer[index]) {
+                    item.classList.add('correct');
+                } else {
+                    item.classList.add('incorrect');
+                }
+            });
+
+            if (isCorrect) {
+                score++;
+            }
+            
+            checkOrderBtn.disabled = true;
+            setTimeout(() => {
+                currentQuestionIndex++;
+                checkOrderBtn.disabled = false;
+                loadQuestion();
+            }, 2000);
+        });
+        
+        // Drag and drop for ordering question
+        let draggedItem = null;
+        orderList.addEventListener('dragstart', (e) => {
+            draggedItem = e.target;
+            setTimeout(() => e.target.classList.add('dragging'), 0);
+        });
+        orderList.addEventListener('dragend', (e) => {
+            e.target.classList.remove('dragging');
+        });
+        orderList.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            const afterElement = getDragAfterElement(orderList, e.clientY);
+            const currentDragged = document.querySelector('.dragging');
+            if (afterElement == null) {
+                orderList.appendChild(currentDragged);
+            } else {
+                orderList.insertBefore(currentDragged, afterElement);
+            }
+        });
+
+        function getDragAfterElement(container, y) {
+            const draggableElements = [...container.querySelectorAll('.order-item:not(.dragging)')];
+            return draggableElements.reduce((closest, child) => {
+                const box = child.getBoundingClientRect();
+                const offset = y - box.top - box.height / 2;
+                if (offset < 0 && offset > closest.offset) {
+                    return { offset: offset, element: child };
+                } else {
+                    return closest;
+                }
+            }, { offset: Number.NEGATIVE_INFINITY }).element;
+        }
+        
+        function updateProgressBar() {
+            const progress = (currentQuestionIndex / questions.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+        
+        function showResults() {
+            quizContainer.classList.add('hidden');
+            resultsContainer.classList.remove('hidden');
+            scoreText.textContent = `${score} / ${questions.length}`;
+
+            // *** LÍNEA IMPORTANTE AÑADIDA ***
+            // Guarda el resultado en localStorage para que el index.html pueda leerlo.
+            localStorage.setItem('quizScoreModule1', score);
+        }
+
+        function restartQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            resultsContainer.classList.add('hidden');
+            quizContainer.classList.remove('hidden');
+            loadQuestion();
+        }
+
+        // Initial load
+        loadQuestion();
+    </script>
+</body>
+</html>

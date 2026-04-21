@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estación 2: El Tacto del Robot</title>
+    <!-- Carga de Tailwind CSS para los estilos -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carga de la fuente Inter de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos personalizados para el juego */
+        body { 
+            font-family: 'Inter', sans-serif; 
+        }
+        .target {
+            position: absolute;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.1s ease-out, box-shadow 0.2s;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+        .target:active {
+            transform: scale(0.9);
+        }
+        .green-target {
+            background-color: #4ade80; /* green-400 */
+            box-shadow: 0 0 15px rgba(74, 222, 128, 0.7);
+        }
+        .red-target {
+            background-color: #f87171; /* red-400 */
+            box-shadow: 0 0 15px rgba(248, 113, 113, 0.7);
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-white antialiased">
+
+    <!-- Contenedor principal -->
+    <div class="container mx-auto p-6 max-w-2xl">
+        
+        <!-- Encabezado de la estación -->
+        <header class="text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-black text-green-400">ESTACIÓN 2</h1>
+            <h2 class="text-2xl md:text-3xl font-bold mt-2">El Tacto del Robot</h2>
+        </header>
+
+        <!-- Tarjeta de contenido principal -->
+        <main class="bg-slate-800 rounded-2xl shadow-lg p-6 md:p-8">
+            
+            <!-- Texto explicativo -->
+            <div class="mb-6">
+                <p class="text-lg leading-relaxed text-slate-300">
+                    Tu celular usa un sensor táctil para <strong class="font-bold text-green-400">discriminar</strong> dónde tocas. Un robot hace lo mismo para manipular objetos. ¡Acepta el reto!
+                </p>
+            </div>
+
+            <!-- Mini-juego interactivo -->
+            <div class="bg-slate-900 rounded-lg p-4 border-2 border-slate-700">
+                <div class="flex justify-between items-center mb-2">
+                    <h3 class="text-xl font-bold text-green-300">Reto Táctil Avanzado</h3>
+                    <div class="text-right">
+                        <span class="text-slate-400">Puntos:</span>
+                        <span id="score" class="font-bold text-2xl text-white">0</span>
+                    </div>
+                </div>
+                <p class="text-sm text-slate-400 mb-4 px-1">Toca los verdes (+1), evita los rojos (-1). ¡Consigue 5 puntos antes de que aparezcan 10 círculos verdes!</p>
+                
+                <!-- El área del juego -->
+                <div id="game-area" class="relative w-full h-64 bg-black/50 rounded-md overflow-hidden border border-slate-600 flex justify-center items-center">
+                    <span id="game-message" class="text-slate-300 text-center p-4 font-semibold text-lg">Presiona "Iniciar" para comenzar.</span>
+                </div>
+
+                <button id="start-button" class="mt-4 w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-lg transition-colors shadow-lg">
+                    Iniciar Reto
+                </button>
+            </div>
+
+            <!-- Reflexión Final -->
+            <div class="mt-8 bg-sky-900/50 border-l-4 border-sky-400 p-4 rounded-lg">
+                <h3 class="font-bold text-xl text-sky-300 mb-2">Reflexión: Tu Piel, el Sensor Inteligente</h3>
+                <p class="text-sky-200 leading-relaxed">
+                    En el reto, no bastaba con tocar, tenías que <strong class="font-bold">identificar y decidir</strong>. Un robot cirujano, por ejemplo, usa sensores táctiles para diferenciar entre tejido sano y un tumor.
+                    <br><br>
+                    Piensa en tu piel: puede sentir la diferencia entre una gota de agua y un grano de arena. ¿Qué tarea increíble podría hacer un robot si tuviera un sensor táctil tan avanzado como tu propia piel?
+                </p>
+            </div>
+
+        </main>
+        
+        <footer class="text-center mt-8 text-slate-500 text-sm">
+            <p>Misión Sensores 🤖</p>
+        </footer>
+    </div>
+
+    <script>
+        // --- Lógica del Juego Avanzado ---
+        const gameArea = document.getElementById('game-area');
+        const scoreDisplay = document.getElementById('score');
+        const startButton = document.getElementById('start-button');
+        const gameMessage = document.getElementById('game-message');
+
+        let score = 0;
+        let gameInterval;
+        let greenTargetsSpawned = 0;
+        let isGameOver = false;
+
+        startButton.addEventListener('click', startGame);
+
+        function startGame() {
+            // Reiniciar variables
+            score = 0;
+            greenTargetsSpawned = 0;
+            isGameOver = false;
+            scoreDisplay.textContent = score;
+            
+            // Actualizar UI
+            startButton.disabled = true;
+            startButton.textContent = '¡Toca rápido!';
+            startButton.classList.add('opacity-50', 'cursor-not-allowed');
+            gameMessage.style.display = 'none';
+            gameArea.innerHTML = '';
+
+            // Iniciar el juego
+            gameInterval = setInterval(createTarget, 750); // Aparecen más rápido
+        }
+
+        function createTarget() {
+            if (isGameOver) return;
+
+            const target = document.createElement('div');
+            target.classList.add('target');
+
+            // Decidir aleatoriamente si es verde o rojo (70% verde, 30% rojo)
+            const isGreen = Math.random() < 0.7;
+
+            if (isGreen) {
+                target.classList.add('green-target');
+                greenTargetsSpawned++;
+            } else {
+                target.classList.add('red-target');
+            }
+
+            // Posición aleatoria
+            const gameAreaRect = gameArea.getBoundingClientRect();
+            const maxX = gameAreaRect.width - 55;
+            const maxY = gameAreaRect.height - 55;
+            target.style.left = ${Math.floor(Math.random() * maxX)}px;
+            target.style.top = ${Math.floor(Math.random() * maxY)}px;
+
+            // Evento al tocar
+            target.addEventListener('click', () => {
+                if (isGameOver) return;
+                score += isGreen ? 1 : -1;
+                scoreDisplay.textContent = score;
+                target.remove();
+                checkWinCondition(); // Comprobar si ha ganado
+            });
+
+            gameArea.appendChild(target);
+
+            // Comprobar condición de derrota
+            if (greenTargetsSpawned >= 10 && score < 5) {
+                endGame(false); // 'false' indica que el jugador perdió
+            }
+
+            // El objetivo desaparece si no se toca
+            setTimeout(() => {
+                if (target) target.remove();
+            }, 1800);
+        }
+
+        function checkWinCondition() {
+            if (score >= 5) {
+                endGame(true); // 'true' indica que el jugador ganó
+            }
+        }
+
+        function endGame(didWin) {
+            if (isGameOver) return;
+            isGameOver = true;
+            clearInterval(gameInterval);
+
+            // Actualizar UI
+            startButton.disabled = false;
+            startButton.textContent = 'Jugar de Nuevo';
+            startButton.classList.remove('opacity-50', 'cursor-not-allowed');
+            
+            gameArea.innerHTML = '';
+            gameMessage.style.display = 'block';
+
+            if (didWin) {
+                gameMessage.textContent = ¡Ganaste! Lo lograste con ${score} puntos.;
+                gameMessage.classList.remove('text-red-400');
+                gameMessage.classList.add('text-green-400');
+            } else {
+                gameMessage.textContent = ¡Perdiste! Necesitabas 5 puntos. Tu puntuación: ${score}.;
+                gameMessage.classList.add('text-red-400');
+                gameMessage.classList.remove('text-green-400');
+            }
+        }
+    </script>
+
+</body>
+</html>

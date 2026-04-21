@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Interactivo de Arduino: De Bloques a Código</title>
+    <!-- Tailwind CSS para un diseño rápido y moderno -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter para una tipografía limpia -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Usamos la fuente Inter como predeterminada */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Pequeño efecto de zoom en las tarjetas de los módulos */
+        .module-card:hover {
+            transform: scale(1.03);
+            transition: transform 0.2s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Encabezado y Banner Principal -->
+    <header class="bg-white shadow-md pb-12">
+        <div class="container mx-auto px-6 py-8">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="md:w-1/2">
+                    <h1 class="text-4xl md:text-5xl font-bold text-blue-600">Curso Interactivo de Arduino</h1>
+                    <!-- DESCRIPCIÓN ACTUALIZADA DEL CURSO -->
+                    <p class="mt-4 text-lg text-gray-600">Un viaje interactivo para dominar Arduino. Aprende desde encender tu primer LED con bloques visuales hasta programar sensores, motores y comunicación Bluetooth escribiendo código real. ¡Convierte tus ideas en proyectos funcionales!</p>
+                    <a href="#modulos" class="mt-6 inline-block bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors">Empezar a Aprender</a>
+                </div>
+                <div class="md:w-1/2 mt-8 md:mt-0 flex justify-center">
+                    <img src="images/hero-banner.png" alt="Robot ensamblando un Arduino" class="rounded-lg shadow-xl">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección de Progreso del Curso -->
+    <section id="progreso" class="container mx-auto px-6 py-8 bg-white rounded-xl shadow-lg -mt-16 relative z-10">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                <h2 class="text-2xl font-bold text-slate-800">Progreso Total del Curso</h2>
+                <p class="text-slate-600">Has completado <span id="total-score" class="font-bold text-blue-600">0</span> de <span id="total-questions" class="font-bold">55</span> preguntas correctamente.</p>
+            </div>
+            <div class="w-full md:w-1/2">
+                <div class="h-4 w-full bg-slate-200 rounded-full">
+                    <div id="total-progress-bar" class="h-4 bg-green-500 rounded-full transition-all duration-500" style="width: 0%;"></div>
+                </div>
+            </div>
+            <div>
+                <button id="reset-progress" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg text-sm">
+                    <i class="fas fa-sync-alt mr-2"></i>Reiniciar Progreso
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Módulos -->
+    <main id="modulos" class="container mx-auto px-6 py-16">
+        <h2 class="text-3xl font-bold text-center mb-12">Explora los Módulos</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Módulo 0 -->
+            <div class="module-card bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
+                <img src="images/modulo_0.png" alt="Herramientas de electrónica" class="w-full h-48 object-cover">
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2">Módulo 0: ¡Bienvenido al Mundo Maker!</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">Prepara tu kit de herramientas y conoce los conceptos básicos para empezar a crear sin miedo.</p>
+                    <a href="modulo_0.html" class="mt-auto block w-full text-center bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded-lg hover:bg-gray-300">Ingresar al Módulo</a>
+                </div>
+            </div>
+
+            <!-- Módulo 1 -->
+            <div class="module-card bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
+                <img src="images/modulo_1.png" alt="LED encendido" class="w-full h-48 object-cover">
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2">Módulo 1: Dando Señales de Vida</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">Aprende a enviar señales desde tu Arduino para encender luces y controlar componentes simples.</p>
+                    <a href="modulo_1.html" class="mt-auto block w-full text-center bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded-lg hover:bg-gray-300">Ingresar al Módulo</a>
+                </div>
+            </div>
+
+            <!-- Módulo 2 -->
+            <div class="module-card bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
+                <img src="images/modulo_2.png" alt="Botón pulsador" class="w-full h-48 object-cover">
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2">Módulo 2: Escuchando al Mundo</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">Descubre cómo tu placa puede leer señales del exterior, como la pulsación de un botón.</p>
+                    <a href="modulo_2.html" class="mt-auto block w-full text-center bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded-lg hover:bg-gray-300">Ingresar al Módulo</a>
+                </div>
+            </div>
+
+            <!-- Módulo 3 -->
+            <div class="module-card bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
+                <img src="images/modulo_3.png" alt="Variables y contadores" class="w-full h-48 object-cover">
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2">Módulo 3: La Memoria de Arduino</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">Entiende cómo tu programa puede recordar información, contar eventos y usar datos.</p>
+                    <a href="modulo_3.html" class="mt-auto block w-full text-center bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded-lg hover:bg-gray-300">Ingresar al Módulo</a>
+                </div>
+            </div>
+
+            <!-- Módulo 4 -->
+            <div class="module-card bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
+                <img src="images/modulo_4.png" alt="Entradas y salidas analógicas" class="w-full h-48 object-cover">
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2">Módulo 4: El Mundo de los Grises</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">Ve más allá del 'encendido' y 'apagado'. Controla intensidades y lee sensores con valores intermedios.</p>
+                    <a href="modulo_4.html" class="mt-auto block w-full text-center bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded-lg hover:bg-gray-300">Ingresar al Módulo</a>
+                </div>
+            </div>
+
+            <!-- Módulo 5 -->
+            <div class="module-card bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
+                <img src="images/modulo_5.png" alt="Lógica condicional" class="w-full h-48 object-cover">
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2">Módulo 5: Tomando Decisiones</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">Dota a tus proyectos de inteligencia para que reaccionen de forma diferente según la situación.</p>
+                    <a href="modulo_5.html" class="mt-auto block w-full text-center bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded-lg hover:bg-gray-300">Ingresar al Módulo</a>
+                </div>
+            </div>
+
+             <!-- Módulo 6 -->
+            <div class="module-card bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
+                <img src="images/modulo_6.png" alt="Relés y transistores" class="w-full h-48 object-cover">
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2">Módulo 6: Controlando la Potencia</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">Aprende a manejar componentes de alto consumo como motores y bombillas de forma segura.</p>
+                    <a href="modulo_6.html" class="mt-auto block w-full text-center bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded-lg hover:bg-gray-300">Ingresar al Módulo</a>
+                </div>
+            </div>
+
+             <!-- Módulo 7 -->
+            <div class="module-card bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
+                <img src="images/modulo_7.png" alt="Pantalla LCD" class="w-full h-48 object-cover">
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2">Módulo 7: Mostrando Información</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">Dale una voz a tus proyectos. Muestra datos, mensajes y lecturas de sensores en una pantalla.</p>
+                    <a href="modulo_7.html" class="mt-auto block w-full text-center bg-gray-200 text-gray-800 font-semibold py-2 px-4 rounded-lg hover:bg-gray-300">Ingresar al Módulo</a>
+                </div>
+            </div>
+
+             <!-- Módulo 8 -->
+            <div class="module-card bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
+                <img src="images/modulo_8.png" alt="Proyectos de Arduino" class="w-full h-48 object-cover">
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="text-xl font-bold mb-2">Módulo 8: ¡Juntando Todo!</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">Aplica todo lo que has aprendido para construir proyectos completos y funcionales desde cero.</p>
+                    <a href="modulo_8.html" class="mt-auto block w-full text-center bg-blue-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-700">¡Reto Final!</a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Pie de Página -->
+    <footer class="bg-white mt-16">
+        <div class="container mx-auto px-6 py-4 text-center text-gray-500">
+            <p>&copy; 2025 Curso Interactivo de Arduino. Creado para inspirar a la próxima generación de makers.</p>
+        </div>
+    </footer>
+
+    <!-- Modal de Confirmación de Reinicio -->
+    <div id="reset-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div class="bg-white p-8 rounded-xl shadow-2xl text-center max-w-sm">
+            <i class="fas fa-exclamation-triangle fa-4x text-red-500 mb-4"></i>
+            <h3 class="text-2xl font-bold mb-2">¿Estás seguro?</h3>
+            <p class="text-gray-600">Perderás todo el progreso guardado en los quizzes. Esta acción no se puede deshacer.</p>
+            <div class="flex justify-center gap-4 mt-6">
+                <button id="confirm-reset-btn" class="bg-red-600 text-white font-bold py-2 px-6 rounded-lg">Sí, reiniciar</button>
+                <button id="cancel-reset-btn" class="bg-gray-300 text-gray-800 font-bold py-2 px-6 rounded-lg">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const modules = [
+                { key: 'Module0', questions: 5 }, { key: 'Module1', questions: 5 },
+                { key: 'Module2', questions: 5 }, { key: 'Module3', questions: 5 },
+                { key: 'Module4', questions: 5 }, { key: 'Module5', questions: 5 },
+                { key: 'Module6', questions: 5 }, { key: 'Module7', questions: 5 },
+                { key: 'Final', questions: 15 }
+            ];
+
+            let totalScore = 0;
+            const absoluteTotalQuestions = modules.reduce((sum, module) => sum + module.questions, 0);
+
+            modules.forEach(module => {
+                const score = parseInt(localStorage.getItem(`quizScore${module.key}`) || 0);
+                totalScore += score;
+            });
+            
+            document.getElementById('total-score').textContent = totalScore;
+            document.getElementById('total-questions').textContent = absoluteTotalQuestions;
+
+            const percentage = absoluteTotalQuestions > 0 ? (totalScore / absoluteTotalQuestions) * 100 : 0;
+            document.getElementById('total-progress-bar').style.width = `${percentage}%`;
+
+            // Lógica del Modal de Reinicio
+            const resetProgressBtn = document.getElementById('reset-progress');
+            const resetModal = document.getElementById('reset-modal');
+            const confirmResetBtn = document.getElementById('confirm-reset-btn');
+            const cancelResetBtn = document.getElementById('cancel-reset-btn');
+
+            resetProgressBtn.addEventListener('click', () => {
+                resetModal.classList.remove('hidden');
+            });
+            
+            cancelResetBtn.addEventListener('click', () => {
+                resetModal.classList.add('hidden');
+            });
+
+            confirmResetBtn.addEventListener('click', () => {
+                localStorage.clear();
+                location.reload();
+            });
+        });
+    </script>
+</body>
+</html>

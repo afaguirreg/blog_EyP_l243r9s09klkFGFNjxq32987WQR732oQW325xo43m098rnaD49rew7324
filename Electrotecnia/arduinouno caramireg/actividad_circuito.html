@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad Interactiva: Constructor de Circuitos Realista</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        #workspace {
+            position: relative;
+            background-color: #f0f4f8;
+            border-radius: 1rem;
+            border: 2px solid #cbd5e1;
+            overflow: hidden;
+            padding: 20px;
+        }
+        .component-drag { cursor: grab; user-select: none; }
+        .component-drag.dragging { cursor: grabbing; opacity: 0.7; z-index: 1000; position: absolute; }
+        .wire { stroke-width: 5px; stroke-linecap: round; transition: all 0.2s; }
+        
+        #arduino {
+            position: relative;
+            background-color: #00979D;
+            width: 350px;
+            height: 220px;
+            border-radius: 10px;
+            border: 2px solid #00878B;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .arduino-pin {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background-color: #333;
+            border: 1px solid #555;
+            cursor: crosshair;
+        }
+        .arduino-pin:hover { background-color: #fbbf24; }
+
+        #breadboard {
+            display: grid;
+            grid-template-columns: repeat(30, 15px);
+            grid-template-rows: repeat(12, 15px);
+            gap: 5px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .hole {
+            width: 15px;
+            height: 15px;
+            background-color: #ddd;
+            border-radius: 50%;
+            border: 1px solid #aaa;
+            cursor: crosshair;
+        }
+        .hole:hover { background-color: #fbbf24; }
+    </style>
+</head>
+<body class="bg-slate-100 flex flex-col items-center justify-center min-h-screen p-4">
+
+    <div class="w-full max-w-7xl">
+        <!-- SECCIÓN DE DESCRIPCIÓN Y GUÍA -->
+        <div class="bg-white p-6 rounded-xl shadow-lg mb-4">
+            <div class="flex justify-between items-center mb-4">
+                <h1 class="text-2xl font-bold text-slate-800">Tu Misión: Encender el LED</h1>
+                <a href="modulo_0.html" class="text-blue-600 hover:text-blue-800 font-semibold flex items-center">
+                    <i class="fas fa-arrow-left mr-2"></i>
+                    Volver al Módulo 0
+                </a>
+            </div>
+            <p class="text-slate-600 mb-4">Sigue la guía para construir un circuito funcional. Recuerda que la resistencia no tiene polaridad, pero el LED sí. ¡La corriente debe entrar por el lado positivo (+)!</p>
+            <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                <h4 class="font-semibold text-blue-800 mb-2">Guía de Conexión Sugerida:</h4>
+                <ol class="list-decimal list-inside text-blue-700 space-y-1">
+                    <li>Arrastra una **Resistencia** y un **LED** a la protoboard.</li>
+                    <li>Conecta un cable desde el pin **5V** del Arduino a una de las patas de la resistencia.</li>
+                    <li>Conecta la otra pata de la resistencia al pin **positivo (+)** del LED.</li>
+                    <li>Conecta el pin **negativo (-)** del LED al pin **GND** del Arduino para cerrar el circuito.</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-4">
+            <!-- Paleta de Componentes -->
+            <div class="w-full lg:w-1/5 bg-white p-4 rounded-xl shadow-lg flex flex-col">
+                <h3 class="font-bold text-lg mb-4 text-center">Componentes</h3>
+                <div id="component-palette" class="flex flex-col items-center gap-6">
+                    <div id="resistor-drag" class="component-drag" data-component-type="resistor">
+                         <svg class="w-24 pointer-events-none" viewBox="0 0 100 30"><line x1="0" y1="15" x2="20" y2="15" stroke="#737373" stroke-width="2"/><rect x="20" y="5" width="60" height="20" fill="#bfdbfe" stroke="#737373" stroke-width="2"/><rect x="30" y="5" width="5" height="20" fill="#964B00"/><rect x="45" y="5" width="5" height="20" fill="#964B00"/><rect x="60" y="5" width="5" height="20" fill="#FF0000"/><line x1="80" y1="15" x2="100" y2="15" stroke="#737373" stroke-width="2"/></svg>
+                    </div>
+                    <div id="led-drag" class="component-drag" data-component-type="led">
+                        <svg class="w-12 pointer-events-none" viewBox="0 0 50 70"><path d="M10 25 A 15 15 0 1 1 40 25 Z" fill="#ef4444" stroke="#b91c1c" stroke-width="2"/><rect x="10" y="25" width="30" height="10" fill="#ef4444"/><line x1="15" y1="35" x2="15" y2="65" stroke="#737373" stroke-width="3"/><line x1="35" y1="35" x2="35" y2="70" stroke="#737373" stroke-width="3"/><text x="37" y="68" font-size="10" fill="#000">+</text></svg>
+                    </div>
+                </div>
+                 <div class="mt-auto pt-4 text-center">
+                    <button id="reset-button" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg w-full mt-2">Reiniciar</button>
+                </div>
+            </div>
+
+            <!-- Área de Trabajo -->
+            <div id="workspace" class="w-full lg:w-4/5 flex flex-col items-center justify-around">
+                <div id="arduino">
+                    <!-- POWER Pins -->
+                    <div class="arduino-pin" data-point-id="5V" style="left: 170px; top: 145px;"></div>
+                    <span class="absolute text-white font-bold text-sm" style="left: 145px; top: 145px;">5V</span>
+                    <div class="arduino-pin" data-point-id="GND" style="left: 195px; top: 145px;"></div>
+                    <span class="absolute text-white font-bold text-sm" style="left: 215px; top: 145px;">GND</span>
+                </div>
+                <div id="breadboard"></div>
+                <!-- SVG para cables y componentes colocados -->
+                <svg id="overlay-svg" class="absolute top-0 left-0 w-full h-full pointer-events-none z-10"></svg>
+            </div>
+        </div>
+        
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const workspace = document.getElementById('workspace');
+        const breadboard = document.getElementById('breadboard');
+        const overlaySvg = document.getElementById('overlay-svg');
+        const componentPalette = document.getElementById('component-palette');
+
+        const ROWS = 12;
+        const COLS = 30;
+        const HOLE_PITCH = 20; // Combined size + gap
+
+        let circuit = {
+            components: [],
+            wires: []
+        };
+
+        // --- Initial Setup ---
+        function setupBreadboard() {
+            for (let i = 0; i < ROWS * COLS; i++) {
+                const hole = document.createElement('div');
+                hole.classList.add('hole');
+                const row = Math.floor(i / COLS);
+                const col = i % COLS;
+                hole.dataset.pointId = `${row}-${col}`;
+                if (row === 5) hole.style.marginBottom = `${HOLE_PITCH}px`;
+                breadboard.appendChild(hole);
+            }
+        }
+
+        // --- Drag and Drop Logic ---
+        let draggedItem = null;
+        let ghostComponent = null;
+
+        componentPalette.addEventListener('mousedown', (e) => {
+            const target = e.target.closest('.component-drag');
+            if (target) {
+                draggedItem = {
+                    type: target.dataset.componentType,
+                    element: target.cloneNode(true)
+                };
+                draggedItem.element.classList.add('dragging');
+                document.body.appendChild(draggedItem.element);
+                moveAt(e.pageX, e.pageY);
+                document.addEventListener('mousemove', onMouseMove);
+                document.addEventListener('mouseup', onMouseUp);
+            }
+        });
+
+        function onMouseMove(e) {
+            if (draggedItem) {
+                moveAt(e.pageX, e.pageY);
+                updateGhost(e.clientX, e.clientY);
+            }
+        }
+        function moveAt(pageX, pageY) {
+            draggedItem.element.style.left = pageX - draggedItem.element.offsetWidth / 2 + 'px';
+            draggedItem.element.style.top = pageY - draggedItem.element.offsetHeight / 2 + 'px';
+        }
+
+        function onMouseUp(e) {
+            if (!draggedItem) return;
+
+            const targetHole = getHoleFromCoords(e.clientX, e.clientY);
+            if (targetHole) {
+                placeComponent(targetHole);
+            }
+            
+            if (ghostComponent) ghostComponent.remove();
+            ghostComponent = null;
+            draggedItem.element.remove();
+            draggedItem = null;
+            document.removeEventListener('mousemove', onMouseMove);
+            document.removeEventListener('mouseup', onMouseUp);
+        }
+
+        function placeComponent(targetHole) {
+            const [row, col] = targetHole.dataset.pointId.split('-').map(Number);
+            
+            let component = { type: draggedItem.type, id: draggedItem.type + Date.now() };
+
+            if (draggedItem.type === 'resistor') {
+                component.pins = { pin1: `${row}-${col}`, pin2: `${row}-${col + 5}` };
+            } else if (draggedItem.type === 'led') {
+                // Pin 'anode' is (+), Pin 'cathode' is (-)
+                component.pins = { anode: `${row}-${col}`, cathode: `${row}-${col + 2}` }; 
+            }
+            
+            circuit.components.push(component);
+            drawCircuit();
+        }
+        
+        function updateGhost(x, y) {
+            if (ghostComponent) ghostComponent.remove();
+            const targetHole = getHoleFromCoords(x, y);
+            if (!targetHole) return;
+
+            const [row, col] = targetHole.dataset.pointId.split('-').map(Number);
+            let pins = {};
+            if (draggedItem.type === 'resistor') {
+                pins = { pin1: `${row}-${col}`, pin2: `${row}-${col + 5}` };
+            } else if (draggedItem.type === 'led') {
+                pins = { anode: `${row}-${col}`, cathode: `${row}-${col + 2}` };
+            }
+            
+            ghostComponent = drawComponent({type: 'ghost', pins}, true);
+            if (ghostComponent) overlaySvg.appendChild(ghostComponent);
+        }
+
+        // --- Wiring Logic ---
+        let isWiring = false;
+        let startPoint = null;
+        let tempLine = null;
+
+        workspace.addEventListener('click', (e) => {
+            const target = e.target;
+            if (target.dataset.pointId) {
+                if (!isWiring) {
+                    isWiring = true;
+                    startPoint = target;
+                    tempLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                    tempLine.setAttribute('stroke', '#333');
+                    tempLine.setAttribute('stroke-dasharray', '5,5');
+                    tempLine.classList.add('wire');
+                    overlaySvg.appendChild(tempLine);
+                } else {
+                    const wire = { from: startPoint.dataset.pointId, to: target.dataset.pointId };
+                    circuit.wires.push(wire);
+                    isWiring = false;
+                    if(tempLine) tempLine.remove();
+                    tempLine = null;
+                    startPoint = null;
+                    drawCircuit();
+                }
+            }
+        });
+
+        workspace.addEventListener('mousemove', (e) => {
+            if (isWiring) {
+                const startPos = getPointCenter(startPoint);
+                const endPos = getMousePos(e);
+                tempLine.setAttribute('x1', startPos.x);
+                tempLine.setAttribute('y1', startPos.y);
+                tempLine.setAttribute('x2', endPos.x);
+                tempLine.setAttribute('y2', endPos.y);
+            }
+        });
+
+        // --- Drawing and Calculation Logic ---
+        function drawCircuit() {
+            overlaySvg.innerHTML = ''; // Clear previous drawings
+            circuit.wires.forEach(wire => {
+                const startEl = document.querySelector(`[data-point-id="${wire.from}"]`);
+                const endEl = document.querySelector(`[data-point-id="${wire.to}"]`);
+                if (startEl && endEl) {
+                    const startPos = getPointCenter(startEl);
+                    const endPos = getPointCenter(endEl);
+                    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                    line.setAttribute('x1', startPos.x); line.setAttribute('y1', startPos.y);
+                    line.setAttribute('x2', endPos.x); line.setAttribute('y2', endPos.y);
+                    line.setAttribute('stroke', wire.from === '5V' ? '#ef4444' : '#22c55e');
+                    line.classList.add('wire');
+                    overlaySvg.appendChild(line);
+                }
+            });
+
+            circuit.components.forEach(comp => {
+                const g = drawComponent(comp, false);
+                if (g) overlaySvg.appendChild(g);
+            });
+        }
+        
+        function drawComponent(comp, isGhost = false) {
+            const pinInEl = document.querySelector(`[data-point-id="${comp.pins.pin1 || comp.pins.anode}"]`);
+            const pinOutEl = document.querySelector(`[data-point-id="${comp.pins.pin2 || comp.pins.cathode}"]`);
+            if (!pinInEl || !pinOutEl) return null;
+
+            const posIn = getPointCenter(pinInEl);
+            const posOut = getPointCenter(pinOutEl);
+            const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+            if (isGhost) {
+                g.setAttribute('opacity', '0.6');
+                g.setAttribute('pointer-events', 'none');
+            }
+
+            let componentBody = '';
+            if (comp.type.includes('resistor')) {
+                const bodyWidth = 60;
+                const bodyHeight = 15;
+                const bodyCenterX = (posIn.x + posOut.x) / 2;
+                const bodyCenterY = posIn.y;
+                const rectX = bodyCenterX - bodyWidth / 2;
+                const rectY = bodyCenterY - bodyHeight / 2;
+
+                componentBody = `
+                    <line x1="${posIn.x}" y1="${posIn.y}" x2="${rectX}" y2="${bodyCenterY}" stroke="#737373" stroke-width="2"/>
+                    <rect x="${rectX}" y="${rectY}" width="${bodyWidth}" height="${bodyHeight}" fill="#bfdbfe" stroke="#737373" stroke-width="2"/>
+                    <rect x="${rectX + 10}" y="${rectY}" width="5" height="${bodyHeight}" fill="#964B00"/>
+                    <rect x="${rectX + 25}" y="${rectY}" width="5" height="${bodyHeight}" fill="#964B00"/>
+                    <rect x="${rectX + 40}" y="${rectY}" width="5" height="${bodyHeight}" fill="#FF0000"/>
+                    <line x1="${rectX + bodyWidth}" y1="${bodyCenterY}" x2="${posOut.x}" y2="${posOut.y}" stroke="#737373" stroke-width="2"/>
+                `;
+            } else if (comp.type.includes('led')) {
+                const bodyCenterX = (posIn.x + posOut.x) / 2;
+                const bodyCenterY = posIn.y - 15; // Position body above the pins
+                const lightColor = '#888';
+                componentBody = `
+                    <path id="${comp.id}-light" d="M ${bodyCenterX-10} ${bodyCenterY} A 10 10 0 0 1 ${bodyCenterX+10} ${bodyCenterY} L ${bodyCenterX+10} ${bodyCenterY+5} L ${bodyCenterX-10} ${bodyCenterY+5} Z" fill="${lightColor}" stroke="#444" stroke-width="2"/>
+                    <line x1="${bodyCenterX+8}" y1="${bodyCenterY+5}" x2="${posIn.x}" y2="${posIn.y}" stroke="#737373" stroke-width="3"/>
+                    <line x1="${bodyCenterX-8}" y1="${bodyCenterY+5}" x2="${posOut.x}" y2="${posOut.y}" stroke="#737373" stroke-width="3"/>
+                    <text x="${bodyCenterX+9}" y="${bodyCenterY-2}" font-size="10" fill="#333" font-weight="bold">+</text>
+                `;
+            }
+            
+            let ghostPins = '';
+            if (isGhost) {
+                ghostPins = `<circle cx="${posIn.x}" cy="${posIn.y}" r="7" fill="#fbbf24" stroke="#ca8a04" stroke-width="2" />
+                             <circle cx="${posOut.x}" cy="${posOut.y}" r="7" fill="#fbbf24" stroke="#ca8a04" stroke-width="2" />`;
+            }
+            
+            g.innerHTML = ghostPins + componentBody;
+            return g;
+        }
+
+        function getHoleFromCoords(x, y) {
+            const elements = document.elementsFromPoint(x, y);
+            return elements.find(el => el.classList.contains('hole'));
+        }
+
+        function getPointCenter(el) {
+            const workspaceRect = workspace.getBoundingClientRect();
+            const elRect = el.getBoundingClientRect();
+            return {
+                x: elRect.left + elRect.width / 2 - workspaceRect.left,
+                y: elRect.top + elRect.height / 2 - workspaceRect.top
+            };
+        }
+
+        function getMousePos(e) {
+            const workspaceRect = workspace.getBoundingClientRect();
+            return { x: e.clientX - workspaceRect.left, y: e.clientY - workspaceRect.top };
+        }
+        
+        // --- Reset Logic ---
+        document.getElementById('reset-button').addEventListener('click', () => { window.location.reload(); });
+
+        setupBreadboard();
+    });
+    </script>
+</body>
+</html>

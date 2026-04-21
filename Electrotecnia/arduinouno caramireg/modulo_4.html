@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 4: El Mundo de los Grises - Curso de Arduino</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .code-block {
+            background-color: #282c34;
+            color: #abb2bf;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            white-space: pre-wrap;
+        }
+        .code-keyword { color: #c678dd; }
+        .code-function { color: #61afef; }
+        .code-comment { color: #5c6370; }
+        .code-number { color: #d19a66; }
+        .code-variable { color: #e5c07b; }
+        
+        .led {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #374151; /* Off */
+            border: 3px solid #1f2937;
+            transition: background-color 0.1s, box-shadow 0.1s;
+        }
+        .value-display {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #1e3a8a;
+            background-color: #e0e7ff;
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.5rem;
+            border: 2px solid #a5b4fc;
+            width: 150px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="bg-slate-50">
+
+    <!-- Encabezado del Módulo -->
+    <header class="bg-white shadow">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-blue-600">Módulo 4: El Mundo de los Grises</h1>
+            <a href="index.html" class="text-blue-600 hover:text-blue-800 font-semibold flex items-center">
+                <i class="fas fa-arrow-left mr-2"></i>
+                Volver al Inicio
+            </a>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="container mx-auto px-6 py-12">
+    
+        <!-- Banner del Módulo -->
+        <div class="relative rounded-xl overflow-hidden mb-12">
+            <img src="images/modulo_4.png" alt="Barra de degradado de oscuro a brillante" class="w-full h-64 object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                <h2 class="text-4xl font-bold text-white text-center">Entradas y Salidas Analógicas</h2>
+            </div>
+        </div>
+
+        <!-- Lección 1: Más Allá del Encendido/Apagado -->
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <h3 class="text-2xl font-bold mb-4">Lección 1: ¿Cómo "entiende" Arduino los valores intermedios?</h3>
+            <p class="text-lg text-slate-700 mb-4">Hasta ahora, todo ha sido digital: encendido (HIGH) o apagado (LOW). Pero el mundo real es **analógico**. Un potenciómetro, por ejemplo, no está solo en su mínimo o máximo, puede estar en cualquier punto intermedio.</p>
+            <p class="text-lg text-slate-700 mb-4">Arduino no puede entender directamente un valor analógico. Necesita "traducirlo" a un número digital. Para esto, utiliza un **Conversor Análogo-Digital (ADC)**.</p>
+            
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg mt-6">
+                <h4 class="font-bold text-xl text-blue-800 mb-2">El Proceso de "Traducción"</h4>
+                <p class="text-slate-700">
+                    El ADC de Arduino tiene una **resolución de 10 bits**. Esto significa que puede representar el voltaje que recibe en **1024** niveles diferentes (2<sup>10</sup> = 1024).
+                </p>
+                <ul class="list-disc list-inside space-y-2 mt-4 text-slate-700">
+                    <li>Cuando el pin analógico recibe **0 Voltios**, el ADC lo traduce al número **0**.</li>
+                    <li>Cuando el pin analógico recibe **5 Voltios**, el ADC lo traduce al número **1023**.</li>
+                    <li>Cualquier voltaje intermedio (como 2.5V) se traduce a un número proporcional entre 0 y 1023 (en este caso, alrededor de 512).</li>
+                </ul>
+            </div>
+            <p class="text-lg text-slate-700 mt-6">Por eso, cuando usamos la función `analogRead()`, ¡no obtenemos un voltaje, sino un número entre 0 y 1023!</p>
+        </div>
+
+        <!-- Lección 2: Actividad Interactiva -->
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <h3 class="text-2xl font-bold mb-4">Lección 2: Controlando la Intensidad</h3>
+            <p class="text-lg text-slate-700 mb-6">Tu misión es usar un **potenciómetro** (una perilla giratoria) para controlar el brillo de un LED. Al girar la perilla, leeremos su valor (0-1023) y lo usaremos para ajustar la intensidad del LED.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <!-- Simulación -->
+                <div class="border-2 border-slate-200 rounded-lg p-6 text-center">
+                    <h4 class="font-bold text-lg mb-4">Simulación Interactiva</h4>
+                    <p class="text-slate-600 mb-2">Mueve el control deslizante para simular el potenciómetro.</p>
+                    <input type="range" id="potentiometer" min="0" max="1023" value="0" class="w-full mb-4">
+                    
+                    <div class="flex justify-around items-center">
+                        <div>
+                            <p class="font-semibold">Valor Leído (0-1023)</p>
+                            <div id="read-value" class="value-display">0</div>
+                        </div>
+                        <div class="text-2xl text-slate-400">&rarr;</div>
+                        <div>
+                            <p class="font-semibold">LED (Pin 9)</p>
+                            <div id="led-simulation" class="led mx-auto"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Explicación del Código -->
+                <div class="border-2 border-slate-200 rounded-lg p-6">
+                     <h4 class="font-bold text-lg mb-4">El Código Detrás de la Magia</h4>
+                     <p class="text-slate-600 mb-4">Este es el código que hace funcionar la simulación. Observa las nuevas funciones:</p>
+                     <ul class="list-disc list-inside space-y-2 text-slate-700">
+                        <li><code class="font-mono bg-slate-200 px-1 rounded">analogRead(A0)</code>: Lee el valor del potenciómetro. Devuelve un número entre 0 y 1023.</li>
+                        <li><code class="font-mono bg-slate-200 px-1 rounded">map(...)</code>: Una función muy útil que convierte un número de un rango a otro. ¡La usamos para convertir 0-1023 a 0-255!</li>
+                        <li><code class="font-mono bg-slate-200 px-1 rounded">analogWrite(9, ...)</code>: Envía una señal "analógica" (PWM) al LED para controlar su brillo. Acepta un valor entre 0 (apagado) y 255 (brillo máximo).</li>
+                     </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Código Completo -->
+        <div class="bg-white p-8 rounded-xl shadow-md">
+            <h3 class="text-2xl font-bold mb-4">El Código Completo</h3>
+            <p class="text-lg text-slate-700 mb-6">Este es el programa completo que subirías a tu Arduino para hacer este proyecto en la vida real.</p>
+            <div id="code-output" class="code-block text-sm"></div>
+        </div>
+
+        <!-- Actividades Finales -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+            <div class="bg-white p-8 rounded-xl shadow-xl text-center border-t-4 border-orange-500">
+                <i class="fas fa-lightbulb fa-3x text-orange-500 mb-4"></i>
+                <h3 class="text-2xl font-bold mb-4">¡Desafío Práctico!</h3>
+                <p class="text-slate-600 mb-6">Usa un sensor de luz (LDR) para crear una lámpara que se encienda automáticamente en la oscuridad.</p>
+                <a href="actividad_luz_automatica.html" class="inline-block bg-orange-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-orange-600 transition-transform transform hover:scale-105">
+                    Ir al Desafío
+                </a>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow-xl text-center border-t-4 border-blue-500">
+                <i class="fas fa-question-circle fa-3x text-blue-500 mb-4"></i>
+                <h3 class="text-2xl font-bold mb-4">Prueba tu Conocimiento</h3>
+                <p class="text-slate-600 mb-6">¿Listo para demostrar lo que sabes sobre señales analógicas? ¡Toma el quiz!</p>
+                <a href="quiz_modulo_4.html" class="inline-block bg-blue-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-600 transition-transform transform hover:scale-105">
+                    Iniciar Quiz
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        const potentiometer = document.getElementById('potentiometer');
+        const readValueDisplay = document.getElementById('read-value');
+        const ledSimulation = document.getElementById('led-simulation');
+        const codeOutput = document.getElementById('code-output');
+
+        function updateSimulation() {
+            const potValue = potentiometer.value;
+            readValueDisplay.textContent = potValue;
+
+            // Mapeamos el valor de 0-1023 a 0-255 para el brillo del LED
+            const brightness = Math.round((potValue / 1023) * 255);
+            
+            // Usamos el valor de brillo para cambiar el color y la sombra del LED
+            ledSimulation.style.backgroundColor = `rgb(${brightness}, 0, 0)`;
+            ledSimulation.style.boxShadow = `0 0 25px rgba(${brightness}, 0, 0, 0.8)`;
+            
+            updateCode(potValue, brightness);
+        }
+
+        function updateCode(potValue, brightness) {
+            let code = `<span class="code-comment">// Variable para guardar el valor leído del potenciómetro</span>\n`;
+            code += `<span class="code-keyword">int</span> <span class="code-variable">valorPotenciometro</span> = <span class="code-number">0</span>;\n`;
+            code += `<span class="code-comment">// Variable para guardar el valor de brillo para el LED</span>\n`;
+            code += `<span class="code-keyword">int</span> <span class="code-variable">brilloLed</span> = <span class="code-number">0</span>;\n\n`;
+
+            code += `<span class="code-keyword">void</span> <span class="code-function">setup</span>() {\n`;
+            code += `  <span class="code-function">pinMode</span>(<span class="code-number">9</span>, <span class="code-string">OUTPUT</span>); <span class="code-comment">// Pin del LED como salida</span>\n`;
+            code += `}\n\n`;
+
+            code += `<span class="code-keyword">void</span> <span class="code-function">loop</span>() {\n`;
+            code += `  <span class="code-comment">// 1. Leer el valor del potenciómetro (conectado a A0)</span>\n`;
+            code += `  <span class="code-variable">valorPotenciometro</span> = <span class="code-function">analogRead</span>(A0); <span class="code-comment">// Ahora mismo lee: ${potValue}</span>\n\n`;
+            
+            code += `  <span class="code-comment">// 2. Convertir el rango 0-1023 al rango 0-255</span>\n`;
+            code += `  <span class="code-variable">brilloLed</span> = <span class="code-function">map</span>(<span class="code-variable">valorPotenciometro</span>, <span class="code-number">0</span>, <span class="code-number">1023</span>, <span class="code-number">0</span>, <span class="code-number">255</span>); <span class="code-comment">// Convertido a: ${brightness}</span>\n\n`;
+
+            code += `  <span class="code-comment">// 3. Escribir el valor de brillo al LED (conectado al pin 9)</span>\n`;
+            code += `  <span class="code-function">analogWrite</span>(<span class="code-number">9</span>, <span class="code-variable">brilloLed</span>);\n`;
+            code += `}`;
+            
+            codeOutput.innerHTML = code;
+        }
+
+        potentiometer.addEventListener('input', updateSimulation);
+
+        // Initial load
+        updateSimulation();
+    </script>
+</body>
+</html>

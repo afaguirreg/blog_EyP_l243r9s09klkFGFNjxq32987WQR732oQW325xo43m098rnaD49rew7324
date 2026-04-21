@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulación Visual: Ley de Ohm</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #0f172a;
+            color: white;
+            overflow-x: hidden;
+        }
+        canvas {
+            image-rendering: antialiased;
+        }
+        .slider-v::-webkit-slider-thumb {
+            background: #facc15;
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            appearance: none;
+        }
+        .slider-r::-webkit-slider-thumb {
+            background: #ef4444;
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            appearance: none;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 flex flex-col items-center min-h-screen">
+
+    <div class="max-w-4xl w-full bg-slate-800 p-6 rounded-2xl shadow-2xl border border-slate-700">
+        <h1 class="text-3xl font-bold text-center mb-2 text-blue-400">Ley de Ohm Visual</h1>
+        <p class="text-center text-slate-400 mb-6">Ajusta los controles. Si el Voltaje es 0, la corriente se detiene.</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <!-- Controles -->
+            <div class="space-y-8 bg-slate-900 p-6 rounded-xl">
+                <div>
+                    <div class="flex justify-between items-center mb-2">
+                        <label class="text-yellow-400 font-bold text-xl uppercase">Voltaje (V)</label>
+                        <span id="v-val" class="text-2xl font-mono">0V</span>
+                    </div>
+                    <!-- Cambiado min a 0 -->
+                    <input type="range" id="v-slider" min="0" max="100" value="50" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer slider-v">
+                    <p class="text-xs text-slate-500 mt-1">Voltaje = Fuerza. 0V significa sin empuje.</p>
+                </div>
+
+                <div>
+                    <div class="flex justify-between items-center mb-2">
+                        <label class="text-red-500 font-bold text-xl uppercase">Resistencia (Ω)</label>
+                        <span id="r-val" class="text-2xl font-mono">10Ω</span>
+                    </div>
+                    <input type="range" id="r-slider" min="1" max="100" value="50" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer slider-r">
+                    <p class="text-xs text-slate-500 mt-1">Resistencia = Dificultad para pasar.</p>
+                </div>
+            </div>
+
+            <!-- Resultado Visual -->
+            <div class="flex flex-col justify-center items-center bg-blue-900/20 rounded-xl p-6 border border-blue-500/30">
+                <div class="text-center">
+                    <span class="block text-blue-400 text-sm font-semibold uppercase tracking-widest">Corriente (I)</span>
+                    <span id="i-result" class="text-6xl font-black text-white italic">0.00 A</span>
+                </div>
+                <div id="status-msg" class="mt-4 text-slate-400 text-center font-serif italic h-12 flex items-center">
+                    "Ajusta el voltaje para iniciar el flujo"
+                </div>
+            </div>
+        </div>
+
+        <!-- Área de Simulación -->
+        <div class="relative w-full overflow-hidden rounded-lg bg-black border-2 border-slate-600 shadow-inner">
+            <canvas id="circuitCanvas" class="w-full h-64"></canvas>
+            
+            <div class="absolute top-4 left-4 bg-yellow-400/20 text-yellow-400 px-2 py-1 rounded text-xs font-bold border border-yellow-400/50 uppercase">Fuente de Energía</div>
+            <div class="absolute top-4 right-4 bg-red-500/20 text-red-500 px-2 py-1 rounded text-xs font-bold border border-red-500/50 uppercase">Carga / Resistencia</div>
+        </div>
+        
+        <div class="mt-6 flex justify-center gap-8 text-sm font-bold opacity-80">
+            <div class="flex items-center gap-2"><div class="w-3 h-3 rounded-full bg-yellow-400"></div> Voltaje (Fuerza)</div>
+            <div class="flex items-center gap-2"><div class="w-3 h-3 rounded-full bg-blue-500"></div> Corriente (Movimiento)</div>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('circuitCanvas');
+        const ctx = canvas.getContext('2d');
+        const vSlider = document.getElementById('v-slider');
+        const rSlider = document.getElementById('r-slider');
+        const vText = document.getElementById('v-val');
+        const rText = document.getElementById('r-val');
+        const iText = document.getElementById('i-result');
+        const statusMsg = document.getElementById('status-msg');
+
+        let particles = [];
+        const particleCount = 45;
+
+        function initParticles() {
+            particles = [];
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: canvas.height / 2,
+                    offset: (Math.random() - 0.5) * 25
+                });
+            }
+        }
+
+        function resize() {
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+            initParticles();
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+
+        function draw() {
+            const V = parseFloat(vSlider.value);
+            const R = parseFloat(rSlider.value);
+            const I = V / R; 
+
+            // Actualizar UI
+            vText.innerText = `${V}V`;
+            rText.innerText = `${R}Ω`;
+            iText.innerText = `${I.toFixed(2)} A`;
+
+            if (V === 0) {
+                statusMsg.innerText = "Voltaje en 0: Los electrones no tienen fuerza para moverse.";
+            } else {
+                statusMsg.innerText = "La corriente fluye proporcional al voltaje.";
+            }
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            const centerY = canvas.height / 2;
+            const pipeHeight = 70;
+            const resPos = canvas.width / 2;
+            const resWidth = 120;
+
+            // 1. Dibujar Tubería/Cable
+            ctx.beginPath();
+            ctx.strokeStyle = '#334155';
+            ctx.lineWidth = 4;
+            
+            const constriction = (R / 100) * (pipeHeight / 2.3); 
+            
+            // Lado superior
+            ctx.moveTo(0, centerY - pipeHeight/2);
+            ctx.lineTo(resPos - resWidth/2, centerY - pipeHeight/2);
+            ctx.quadraticCurveTo(resPos, centerY - pipeHeight/2 + constriction, resPos + resWidth/2, centerY - pipeHeight/2);
+            ctx.lineTo(canvas.width, centerY - pipeHeight/2);
+            
+            // Lado inferior
+            ctx.moveTo(0, centerY + pipeHeight/2);
+            ctx.lineTo(resPos - resWidth/2, centerY + pipeHeight/2);
+            ctx.quadraticCurveTo(resPos, centerY + pipeHeight/2 - constriction, resPos + resWidth/2, centerY + pipeHeight/2);
+            ctx.lineTo(canvas.width, centerY + pipeHeight/2);
+            ctx.stroke();
+
+            // 2. Visualización de la Resistencia
+            ctx.fillStyle = `rgba(239, 68, 68, ${0.1 + (R/150)})`;
+            ctx.beginPath();
+            ctx.moveTo(resPos - resWidth/2, centerY - pipeHeight/2);
+            ctx.quadraticCurveTo(resPos, centerY - pipeHeight/2 + constriction, resPos + resWidth/2, centerY - pipeHeight/2);
+            ctx.lineTo(resPos + resWidth/2, centerY + pipeHeight/2);
+            ctx.quadraticCurveTo(resPos, centerY + pipeHeight/2 - constriction, resPos - resWidth/2, centerY + pipeHeight/2);
+            ctx.closePath();
+            ctx.fill();
+
+            // 3. Partículas de Corriente
+            particles.forEach(p => {
+                // Si I es 0, las partículas se quedan quietas
+                ctx.fillStyle = I === 0 ? '#475569' : `rgba(59, 130, 246, ${0.4 + (I/4)})`;
+                
+                if (I > 0) {
+                    ctx.shadowBlur = I * 3;
+                    ctx.shadowColor = '#3b82f6';
+                }
+
+                ctx.beginPath();
+                const size = 3 + (I * 0.4);
+                
+                let currentY = centerY + p.offset;
+                if (p.x > resPos - resWidth/2 && p.x < resPos + resWidth/2) {
+                    const factor = 1 - (R/100) * 0.85;
+                    currentY = centerY + (p.offset * factor);
+                }
+
+                ctx.arc(p.x, currentY, size, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.shadowBlur = 0;
+
+                // MOVIMIENTO: Solo si I > 0
+                p.x += (I * 4); 
+
+                if (p.x > canvas.width) p.x = 0;
+            });
+
+            // 4. Indicador de Empuje (Voltaje)
+            if (V > 0) {
+                const pulse = Math.sin(Date.now() / 150) * (5 + V/10);
+                const vAlpha = V / 100;
+                ctx.beginPath();
+                ctx.strokeStyle = `rgba(250, 204, 21, ${vAlpha})`;
+                ctx.lineWidth = 4 + (V/20);
+                ctx.moveTo(20 + pulse, centerY - 30);
+                ctx.lineTo(45 + pulse, centerY);
+                ctx.lineTo(20 + pulse, centerY + 30);
+                ctx.stroke();
+            }
+
+            requestAnimationFrame(draw);
+        }
+
+        draw();
+    </script>
+</body>
+</html>

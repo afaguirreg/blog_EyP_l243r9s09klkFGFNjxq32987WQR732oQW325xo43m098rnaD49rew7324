@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 5: Decisiones Complejas - Curso de Arduino</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .code-block { background-color: #282c34; color: #abb2bf; font-family: 'Courier New', Courier, monospace; padding: 1rem; border-radius: 0.5rem; white-space: pre-wrap; }
+        .code-keyword { color: #c678dd; }
+        .code-function { color: #61afef; }
+        .code-comment { color: #5c6370; }
+        .code-number { color: #d19a66; }
+        .code-variable { color: #e5c07b; }
+        .code-operator { color: #56b6c2; }
+        
+        .block { cursor: grab; user-select: none; }
+        .block.dragging { opacity: 0.5; }
+        .drop-zone {
+            min-height: 50px;
+            border: 2px dashed #9ca3af;
+            background-color: #f3f4f6;
+            transition: background-color 0.2s;
+        }
+        .drop-zone.over {
+            background-color: #dbeafe;
+            border-color: #3b82f6;
+        }
+        .led {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 3px solid #1f2937;
+            transition: all 0.2s;
+        }
+    </style>
+</head>
+<body class="bg-slate-50">
+
+    <header class="bg-white shadow">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-blue-600">Módulo 5: Tomando Decisiones Complejas</h1>
+            <a href="index.html" class="text-blue-600 hover:text-blue-800 font-semibold flex items-center"><i class="fas fa-arrow-left mr-2"></i>Volver al Inicio</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+    
+        <div class="relative rounded-xl overflow-hidden mb-12">
+            <img src="images/modulo_5.png" alt="Cerebro de circuitos tomando una decisión" class="w-full h-64 object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                <h2 class="text-4xl font-bold text-white text-center">Lógica Avanzada con 'if-else' y Operadores</h2>
+            </div>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <h3 class="text-2xl font-bold mb-4">Lección 1: Múltiples Caminos y Condiciones</h3>
+            <p class="text-lg text-slate-700 mb-4">Ya conoces el `if... else` (si... si no...). Pero, ¿qué pasa si tienes más de dos opciones? Para eso usamos `else if` (si no, si...). Nos permite crear una cadena de decisiones.</p>
+            <p class="text-lg text-slate-700 mb-4">Además, podemos hacer nuestras condiciones más potentes con **operadores lógicos**:</p>
+            <ul class="list-disc list-inside space-y-2 text-lg text-slate-700">
+                <li><code class="font-mono bg-slate-200 px-1 rounded">&&</code> (Y): Ambas condiciones deben ser verdaderas. Ej: `si (hay sol && es fin de semana)`.</li>
+                <li><code class="font-mono bg-slate-200 px-1 rounded">||</code> (O): Al menos una de las condiciones debe ser verdadera. Ej: `si (tengo hambre || es la hora de comer)`.</li>
+            </ul>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <h3 class="text-2xl font-bold mb-4">Desafío: Termostato Inteligente</h3>
+            <p class="text-lg text-slate-700 mb-6">Tu misión es programar un termostato. Deberás leer un sensor de temperatura y encender un LED de color según el rango: **Rojo** para caliente, **Azul** para frío y **Verde** para una temperatura normal. Arrastra los bloques de acción a su lugar correcto dentro del código.</p>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Herramientas y Simulación -->
+                <div class="border-2 border-slate-200 rounded-lg p-4">
+                    <h4 class="font-bold text-center mb-4">Caja de Herramientas</h4>
+                    <div id="toolbox" class="space-y-3">
+                        <div class="block bg-red-500 text-white p-3 rounded-md text-center" draggable="true" data-action="red_on">Encender LED Rojo</div>
+                        <div class="block bg-green-500 text-white p-3 rounded-md text-center" draggable="true" data-action="green_on">Encender LED Verde</div>
+                        <div class="block bg-blue-500 text-white p-3 rounded-md text-center" draggable="true" data-action="blue_on">Encender LED Azul</div>
+                        <div class="block bg-gray-500 text-white p-3 rounded-md text-center" draggable="true" data-action="all_off">Apagar Todos los LEDs</div>
+                    </div>
+                    <hr class="my-6">
+                    <h4 class="font-bold text-center mb-4">Simulación</h4>
+                    <div class="flex flex-col items-center gap-4 p-4 bg-slate-100 rounded-lg">
+                        <label for="temp-sensor" class="font-medium">Temperatura</label>
+                        <input type="range" id="temp-sensor" min="0" max="50" value="25" class="w-full">
+                        <div id="temp-value" class="font-bold text-2xl">25°C</div>
+                        <div class="flex gap-4 mt-4">
+                            <div id="led-red" class="led bg-red-900"></div>
+                            <div id="led-green" class="led bg-green-900"></div>
+                            <div id="led-blue" class="led bg-blue-900"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Área del Programa -->
+                <div class="lg:col-span-2 border-2 border-slate-200 rounded-lg p-4">
+                    <h4 class="font-bold mb-4">Estructura del Programa</h4>
+                    <div class="code-block text-sm space-y-2">
+                        <p><span class="code-keyword">void</span> <span class="code-function">loop</span>() {</p>
+                        <p class="ml-4"><span class="code-comment">// Leemos el sensor y lo guardamos en una variable...</span></p>
+                        <p class="ml-4"><span class="code-keyword">if</span> (temperatura > <input type="number" id="hot-threshold" class="w-16 text-black text-center rounded" value="30">) {</p>
+                        <div id="if-zone" class="drop-zone ml-8 p-2 rounded"></div>
+                        <p class="ml-4">} <span class="code-keyword">else if</span> (temperatura < <input type="number" id="cold-threshold" class="w-16 text-black text-center rounded" value="20">) {</p>
+                        <div id="elseif-zone" class="drop-zone ml-8 p-2 rounded"></div>
+                        <p class="ml-4">} <span class="code-keyword">else</span> {</p>
+                        <div id="else-zone" class="drop-zone ml-8 p-2 rounded"></div>
+                        <p class="ml-4">}</p>
+                        <p>}</p>
+                    </div>
+                     <div class="mt-4 text-right">
+                        <button id="run-button" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg"><i class="fas fa-play mr-2"></i>Ejecutar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+            <h3 class="text-2xl font-bold mb-4">El Código Completo de tu Programa</h3>
+            <div id="code-output" class="code-block text-sm"></div>
+        </div>
+
+        <!-- SECCIÓN DE ACTIVIDADES FINALES -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+            <div class="bg-white p-8 rounded-xl shadow-xl text-center border-t-4 border-orange-500">
+                <i class="fas fa-bolt fa-3x text-orange-500 mb-4"></i>
+                <h3 class="text-2xl font-bold mb-4">¡Desafío Práctico!</h3>
+                <p class="text-slate-600 mb-6">Usa operadores lógicos para crear un sistema de alarma simple con múltiples condiciones.</p>
+                <a href="actividad_alarma.html" class="inline-block bg-orange-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-orange-600 transition-transform transform hover:scale-105">
+                    Ir al Desafío
+                </a>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow-xl text-center border-t-4 border-blue-500">
+                <i class="fas fa-question-circle fa-3x text-blue-500 mb-4"></i>
+                <h3 class="text-2xl font-bold mb-4">Prueba tu Conocimiento</h3>
+                <p class="text-slate-600 mb-6">¿Listo para demostrar lo que sabes sobre lógica avanzada? ¡Toma el quiz!</p>
+                <a href="quiz_modulo_5.html" class="inline-block bg-blue-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-600 transition-transform transform hover:scale-105">
+                    Iniciar Quiz
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // --- Drag and Drop Logic ---
+        const blocks = document.querySelectorAll('.block');
+        const dropZones = document.querySelectorAll('.drop-zone');
+        let draggedBlock = null;
+
+        blocks.forEach(block => {
+            block.addEventListener('dragstart', (e) => {
+                draggedBlock = e.target;
+                setTimeout(() => e.target.classList.add('dragging'), 0);
+            });
+            block.addEventListener('dragend', (e) => {
+                e.target.classList.remove('dragging');
+            });
+        });
+
+        dropZones.forEach(zone => {
+            zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('over'); });
+            zone.addEventListener('dragleave', () => { zone.classList.remove('over'); });
+            zone.addEventListener('drop', e => {
+                e.preventDefault();
+                zone.classList.remove('over');
+                if (draggedBlock) {
+                    zone.innerHTML = '';
+                    zone.appendChild(draggedBlock.cloneNode(true));
+                    updateCode();
+                }
+            });
+        });
+
+        // --- Simulation and Code Generation ---
+        const tempSensor = document.getElementById('temp-sensor');
+        const tempValueDisplay = document.getElementById('temp-value');
+        const ledRed = document.getElementById('led-red');
+        const ledGreen = document.getElementById('led-green');
+        const ledBlue = document.getElementById('led-blue');
+        const hotThresholdInput = document.getElementById('hot-threshold');
+        const coldThresholdInput = document.getElementById('cold-threshold');
+        const codeOutput = document.getElementById('code-output');
+        const runButton = document.getElementById('run-button');
+        
+        function updateCode() {
+            const ifBlock = document.querySelector('#if-zone .block');
+            const elseifBlock = document.querySelector('#elseif-zone .block');
+            const elseBlock = document.querySelector('#else-zone .block');
+            const hotThreshold = hotThresholdInput.value;
+            const coldThreshold = coldThresholdInput.value;
+            
+            let code = `... <span class="code-comment">// Declaraciones y setup()</span>\n\n`;
+            code += `<span class="code-keyword">void</span> <span class="code-function">loop</span>() {\n`;
+            code += `  <span class="code-keyword">int</span> <span class="code-variable">temperatura</span> = <span class="code-function">leerSensor</span>();\n\n`;
+            
+            code += `  <span class="code-comment">// Si la temperatura es alta...</span>\n`;
+            code += `  <span class="code-keyword">if</span> (<span class="code-variable">temperatura</span> ${'>'} <span class="code-number">${hotThreshold}</span>) {\n`;
+            if (ifBlock) code += `    ${getBlockCode(ifBlock.dataset.action)}\n`;
+            code += `  } <span class="code-keyword">else if</span> (<span class="code-variable">temperatura</span> ${'<'} <span class="code-number">${coldThreshold}</span>) {\n`;
+            if (elseifBlock) code += `    ${getBlockCode(elseifBlock.dataset.action)}\n`;
+            code += `  } <span class="code-keyword">else</span> {\n`;
+            if (elseBlock) code += `    ${getBlockCode(elseBlock.dataset.action)}\n`;
+            code += `  }\n`;
+            code += `}`;
+            
+            codeOutput.innerHTML = code;
+        }
+
+        function getBlockCode(action) {
+            switch(action) {
+                case 'red_on': return `<span class="code-function">digitalWrite</span>(<span class="code-number">8</span>, <span class="code-string">HIGH</span>); <span class="code-comment">// Rojo ON</span>`;
+                case 'green_on': return `<span class="code-function">digitalWrite</span>(<span class="code-number">9</span>, <span class="code-string">HIGH</span>); <span class="code-comment">// Verde ON</span>`;
+                case 'blue_on': return `<span class="code-function">digitalWrite</span>(<span class="code-number">10</span>, <span class="code-string">HIGH</span>); <span class="code-comment">// Azul ON</span>`;
+                case 'all_off': return `<span class="code-function">apagarTodos</span>();`;
+            }
+            return '';
+        }
+
+        function runSimulation() {
+            const temp = parseInt(tempSensor.value);
+            const hot = parseInt(hotThresholdInput.value);
+            const cold = parseInt(coldThresholdInput.value);
+            
+            tempValueDisplay.textContent = `${temp}°C`;
+            
+            const ifAction = document.querySelector('#if-zone .block')?.dataset.action;
+            const elseifAction = document.querySelector('#elseif-zone .block')?.dataset.action;
+            const elseAction = document.querySelector('#else-zone .block')?.dataset.action;
+
+            // Reset all LEDs
+            ledRed.style.backgroundColor = '#b91c1c';
+            ledGreen.style.backgroundColor = '#166534';
+            ledBlue.style.backgroundColor = '#1e3a8a';
+
+            if (temp > hot) {
+                if (ifAction === 'red_on') ledRed.style.backgroundColor = '#ef4444';
+            } else if (temp < cold) {
+                if (elseifAction === 'blue_on') ledBlue.style.backgroundColor = '#3b82f6';
+            } else {
+                if (elseAction === 'green_on') ledGreen.style.backgroundColor = '#22c55e';
+            }
+        }
+
+        runButton.addEventListener('click', runSimulation);
+        tempSensor.addEventListener('input', runSimulation);
+        hotThresholdInput.addEventListener('input', () => { updateCode(); runSimulation(); });
+        coldThresholdInput.addEventListener('input', () => { updateCode(); runSimulation(); });
+        
+        // Initial state
+        updateCode();
+    </script>
+</body>
+</html>

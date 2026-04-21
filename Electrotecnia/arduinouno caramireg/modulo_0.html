@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 0: ¡Bienvenido al Mundo Maker! - Curso de Arduino</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Iconos de Font Awesome para los checkmarks -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .content-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Encabezado del Módulo -->
+    <header class="bg-white shadow">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-blue-600">Módulo 0: ¡Bienvenido al Mundo Maker!</h1>
+            <a href="index.html" class="text-blue-600 hover:text-blue-800 font-semibold flex items-center">
+                <i class="fas fa-arrow-left mr-2"></i>
+                Volver al Inicio
+            </a>
+        </div>
+    </header>
+
+    <!-- Contenido Principal del Módulo -->
+    <main class="container mx-auto px-6 py-12">
+
+        <!-- Banner del Módulo -->
+        <div class="relative rounded-xl overflow-hidden mb-12">
+             <!-- Usamos la imagen ya creada para el módulo 0 -->
+            <img src="images/modulo_0.png" alt="Herramientas de electrónica" class="w-full h-64 object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                <h2 class="text-4xl font-bold text-white text-center">Tus Primeros Pasos en la Electrónica</h2>
+            </div>
+        </div>
+
+        <!-- Lección 1: ¿Qué es Arduino? -->
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8 content-card">
+            <h3 class="text-2xl font-bold mb-4">Lección 1: ¿Qué es Arduino?</h3>
+            <div class="md:flex items-center gap-8">
+                <div class="md:w-2/3">
+                    <p class="text-lg text-gray-700 mb-4">
+                        Imagina que Arduino es como el **cerebro** de tus proyectos. Es una pequeña computadora que puedes programar para que controle luces, motores, sensores y casi cualquier cosa que se te ocurra. ¡Es la herramienta perfecta para dar vida a tus ideas!
+                    </p>
+                    <p class="text-gray-600">
+                        Con Arduino, puedes construir desde un robot que sigue una línea hasta una estación meteorológica que te dice la temperatura. El único límite es tu imaginación.
+                    </p>
+                </div>
+                <div class="md:w-1/3 mt-6 md:mt-0">
+                    <img src="images/arduino_uno.png" alt="Placa Arduino UNO con sus partes" class="rounded-lg shadow-lg">
+                </div>
+            </div>
+        </div>
+
+        <!-- Lección 2: Tus Herramientas Esenciales -->
+        <div class="bg-white p-8 rounded-xl shadow-md mb-8 content-card">
+            <h3 class="text-2xl font-bold mb-4">Lección 2: Tus Herramientas Esenciales</h3>
+            <p class="text-lg text-gray-700 mb-6">Para empezar, no necesitas mucho. Estos son tus tres compañeros de aventuras principales:</p>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <!-- Herramienta 1: Protoboard -->
+                <div>
+                    <img src="images/protoboard.png" alt="Protoboard" class="mx-auto rounded-lg shadow-md mb-4">
+                    <h4 class="text-xl font-semibold">Protoboard</h4>
+                    <p class="text-gray-600">Es como un tablero de LEGO para circuitos. Te permite conectar componentes sin necesidad de soldar. ¡Conecta y desconecta cuantas veces quieras!</p>
+                </div>
+                <!-- Herramienta 2: LEDs -->
+                <div>
+                    <img src="images/leds.png" alt="LEDs de colores" class="mx-auto rounded-lg shadow-md mb-4">
+                    <h4 class="text-xl font-semibold">LEDs</h4>
+                    <p class="text-gray-600">Son pequeñas luces que usaremos para saber qué está haciendo nuestro programa. ¡Nuestra primera forma de comunicación con Arduino!</p>
+                </div>
+                <!-- Herramienta 3: Resistencias -->
+                <div>
+                    <img src="images/resistors.png" alt="Resistencias" class="mx-auto rounded-lg shadow-md mb-4">
+                    <h4 class="text-xl font-semibold">Resistencias</h4>
+                    <p class="text-gray-600">Son como los guardianes de la electricidad. Protegen a nuestros componentes (como los LEDs) para que no reciban demasiada energía y se quemen.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Proyecto del Módulo: Actividad Interactiva -->
+        <div class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-8 rounded-xl shadow-xl text-center">
+            <h3 class="text-3xl font-bold mb-4">Proyecto del Módulo: ¡Manos a la Obra!</h3>
+            <p class="text-lg mb-6 max-w-2xl mx-auto">Ahora es tu turno de experimentar. En la siguiente actividad, podrás arrastrar componentes y conectar cables en un simulador realista para construir tu primer circuito. ¡No hay respuestas correctas o incorrectas, solo exploración!</p>
+            <a href="actividad_circuito.html" class="inline-block bg-yellow-400 text-blue-800 font-bold py-4 px-8 rounded-lg hover:bg-yellow-300 transition-transform transform hover:scale-105 text-xl shadow-lg">
+                <i class="fas fa-mouse-pointer mr-2"></i>
+                Iniciar Actividad Interactiva
+            </a>
+        </div>
+
+        <!-- NUEVA SECCIÓN DE QUIZ -->
+        <div class="bg-white p-8 rounded-xl shadow-md my-8 text-center">
+            <h3 class="text-2xl font-bold mb-4 text-slate-800">Prueba tu Conocimiento</h3>
+            <p class="text-lg text-slate-600 mb-6 max-w-2xl mx-auto">¿Crees que has entendido los conceptos básicos de este módulo? ¡Es hora de comprobarlo con un pequeño quiz!</p>
+            <a href="quiz_modulo_0.html" class="inline-block bg-blue-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-600 transition-transform transform hover:scale-105">
+                <i class="fas fa-question-circle mr-2"></i>
+                Iniciar Quiz del Módulo 0
+            </a>
+        </div>
+
+        <!-- Navegación a Siguiente Módulo -->
+        <div class="text-center mt-12">
+            <a href="modulo_1.html" class="bg-green-600 text-white font-bold py-4 px-8 rounded-lg hover:bg-green-700 transition-colors text-xl">
+                ¡Misión Cumplida! Ir al Módulo 1 <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+
+    </main>
+
+    <!-- Pie de Página -->
+    <footer class="bg-white mt-12">
+        <div class="container mx-auto px-6 py-4 text-center text-gray-500">
+            <p>&copy; 2025 Curso Interactivo de Arduino. Creado para inspirar a la próxima generación de makers.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

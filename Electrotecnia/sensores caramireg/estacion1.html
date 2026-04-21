@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estación 1: Los Ojos del Robot</title>
+    <!-- Carga de Tailwind CSS para los estilos -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carga de la fuente Inter de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+        }
+        /* Estilos para la selección en la actividad visual */
+        .option-box {
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .option-box:hover {
+            transform: scale(1.05);
+            border-color: #6366f1; /* indigo-500 */
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-white antialiased">
+
+    <!-- Contenedor principal centrado y con padding -->
+    <div class="container mx-auto p-6 max-w-2xl">
+        
+        <!-- Encabezado de la estación -->
+        <header class="text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-black text-cyan-400">ESTACIÓN 1</h1>
+            <h2 class="text-2xl md:text-3xl font-bold mt-2">Los Ojos del Robot</h2>
+        </header>
+
+        <!-- Tarjeta de contenido principal -->
+        <main class="bg-slate-800 rounded-2xl shadow-lg p-6 md:p-8">
+            
+            <!-- Texto explicativo del sensor -->
+            <div class="mb-8">
+                <p class="text-lg leading-relaxed text-slate-300">
+                    ¡Felicidades! Has activado el <strong class="font-bold text-cyan-400">sensor de proximidad ultrasónico</strong>. Este sensor funciona como los oídos de un murciélago, emitiendo ondas de sonido que rebotan en los objetos. Al medir el tiempo que tarda en volver el eco, el robot puede "ver" y calcular la distancia para no chocar.
+                </p>
+            </div>
+
+            <!-- Caja con el Reto Interactivo -->
+            <div class="bg-teal-900/50 border-l-4 border-teal-400 p-6 rounded-lg mb-8">
+                <h3 class="font-bold text-xl text-teal-300 mb-4">Reto Interactivo: ¡Visión de Cíclope! 🤖</h3>
+                <p class="text-slate-300 mb-6">
+                    Tu cerebro usa tus dos ojos para crear una imagen 3D y juzgar la distancia perfectamente. El sensor ultrasónico es como tener un solo 'ojo' sónico. ¡Vamos a probar la diferencia!
+                </p>
+                <div class="flex flex-col sm:flex-row items-center gap-6 mb-4 bg-slate-800/50 p-4 rounded-lg">
+                    <img src="images/reto-ciclope.png" alt="Ilustración de dos estudiantes haciendo el experimento de visión" class="w-32 h-32 sm:w-40 sm:h-40 rounded-lg object-cover border-2 border-teal-600 shadow-lg" onerror="this.onerror=null;this.src='https://placehold.co/400x400/1e293b/ffffff?text=Error+en+images/reto-ciclope.png';">
+                    <div>
+                        <h4 class="font-bold text-teal-200 text-lg">1. El Experimento</h4>
+                        <p class="text-slate-300">Pídele a un compañero que sostenga un lápiz quieto en el aire. Ahora, **cierra un ojo** e intenta tocar la punta con tu dedo en un solo movimiento rápido.</p>
+                    </div>
+                </div>
+                <p class="text-slate-300 text-center text-sm italic">¿Fue más difícil de lo que pensabas? Esa duda para juzgar la profundidad es la gran limitación de un robot con un solo sensor.</p>
+            </div>
+
+            <!-- Actividad Visual Interactiva -->
+            <div class="bg-indigo-900/50 border-l-4 border-indigo-400 p-6 rounded-lg mb-8">
+                <h3 class="font-bold text-xl text-indigo-300 mb-4">Actividad Visual: ¡Tu Turno de ser el Robot!</h3>
+                <p class="text-slate-300 mb-4">Observa el objeto de abajo. Si fueras un robot que solo "ve" con un ojo, sin percepción de profundidad, ¿cuál de los dos dibujos de abajo harías? **¡Haz clic en tu elección!**</p>
+                <div class="text-center mb-6">
+                    <img src="images/cubo-3d.png" alt="Cubo 3D violeta" class="w-24 h-24 mx-auto mb-2" onerror="this.onerror=null;this.src='https://placehold.co/100x100/1e293b/ffffff?text=Error';">
+                    <p class="font-bold">Objeto Real</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-center">
+                    <!-- Opción A -->
+                    <div id="optionA" class="option-box cursor-pointer p-4 border-2 border-slate-600 rounded-lg">
+                        <img src="images/cuadrado-2d.png" alt="Cuadrado 2D azul" class="w-32 h-32 mx-auto mb-2" onerror="this.onerror=null;this.src='https://placehold.co/128x128/1e293b/ffffff?text=Error';">
+                        <p class="font-bold">Dibujo A</p>
+                    </div>
+                    <!-- Opción B -->
+                    <div id="optionB" class="option-box cursor-pointer p-4 border-2 border-slate-600 rounded-lg">
+                        <img src="images/cubo-perspectiva.png" alt="Cubo en perspectiva azul" class="w-32 h-32 mx-auto mb-2" onerror="this.onerror=null;this.src='https://placehold.co/128x128/1e293b/ffffff?text=Error';">
+                        <p class="font-bold">Dibujo B</p>
+                    </div>
+                </div>
+                 <!-- Respuesta (inicialmente oculta) -->
+                 <div id="explanation" class="hidden mt-6 bg-slate-800/50 p-4 rounded-lg">
+                    <h4 id="feedback-title" class="font-bold text-lg"></h4>
+                    <p class="text-slate-300 mt-2">La respuesta correcta es el **Dibujo A**. Un robot con un solo sensor percibe el mundo de forma plana, como una serie de distancias. Le cuesta mucho construir una imagen tridimensional con profundidad, al igual que a ti te costó tocar el lápiz con un ojo cerrado.</p>
+                </div>
+            </div>
+
+            <!-- Reflexión Final sobre Múltiples Sensores -->
+            <div>
+                <h3 class="font-bold text-xl text-cyan-300 mb-4">Reflexión Final: ¿Por qué más es mejor?</h3>
+                <p class="text-slate-300 mb-4">Basado en los experimentos, ¿por qué los coches autónomos más avanzados usan una combinación de **MÚLTIPLES sensores** (cámaras, radares, etc.) en lugar de confiar en uno solo?</p>
+                <img src="images/coche-sensores.png" alt="Diagrama de los múltiples sensores de un coche autónomo" class="w-full h-auto rounded-lg object-cover border-2 border-cyan-700" onerror="this.onerror=null;this.src='https://placehold.co/600x300/1e293b/ffffff?text=Error en images/coche-sensores.png';">
+            </div>
+        </main>
+        
+        <!-- Pie de página -->
+        <footer class="text-center mt-8 text-slate-500 text-sm">
+            <p>Misión Sensores 🤖</p>
+        </footer>
+    </div>
+
+    <script>
+        // --- Lógica para la actividad visual interactiva ---
+        const optionA = document.getElementById('optionA');
+        const optionB = document.getElementById('optionB');
+        const explanation = document.getElementById('explanation');
+        const feedbackTitle = document.getElementById('feedback-title');
+        let answered = false;
+
+        function handleSelection(isCorrect) {
+            if (answered) return; // Evita que se pueda contestar de nuevo
+            answered = true;
+
+            // Muestra la explicación
+            explanation.classList.remove('hidden');
+
+            if (isCorrect) {
+                feedbackTitle.textContent = '¡Correcto! ✅';
+                feedbackTitle.className = 'font-bold text-lg text-green-400';
+                optionA.classList.add('border-green-500', 'border-4');
+                optionB.classList.add('opacity-50');
+            } else {
+                feedbackTitle.textContent = '¡Casi! La respuesta correcta es la A 🤔';
+                feedbackTitle.className = 'font-bold text-lg text-yellow-400';
+                optionA.classList.add('border-green-500', 'border-4');
+                optionB.classList.add('border-red-500', 'border-4');
+            }
+
+            // Quita la interactividad de las opciones
+            optionA.classList.remove('cursor-pointer', 'option-box');
+            optionB.classList.remove('cursor-pointer', 'option-box');
+            optionA.style.transform = 'none';
+            optionB.style.transform = 'none';
+        }
+
+        optionA.addEventListener('click', () => handleSelection(true));
+        optionB.addEventListener('click', () => handleSelection(false));
+    </script>
+
+</body>
+</html>
+

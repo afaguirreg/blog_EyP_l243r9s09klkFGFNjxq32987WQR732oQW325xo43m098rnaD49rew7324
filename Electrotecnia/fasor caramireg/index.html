@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Fasores AC: Estático vs Giratorio</title>
+    <!-- Tailwind CSS para estilos rápidos y modernos -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f172a; /* Slate 900 - Modo oscuro elegante */
+            color: #f8fafc; /* Slate 50 */
+        }
+        canvas {
+            background-color: #1e293b; /* Slate 800 */
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        /* Estilos personalizados para los sliders (rango) */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background: #3b82f6; /* Blue 500 */
+            cursor: pointer;
+            margin-top: -6px;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: #475569; /* Slate 600 */
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-4">
+
+    <div class="max-w-4xl w-full bg-slate-800/50 p-6 rounded-xl border border-slate-700 shadow-2xl">
+        
+        <header class="text-center mb-6">
+            <h1 class="text-3xl font-bold text-blue-400 mb-2">Simulador de Fasores AC</h1>
+            <p class="text-slate-300">Visualiza el Fasor Estático (&theta;) vs el Fasor Giratorio (&omega;t + &theta;)</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- Panel de Controles -->
+            <div class="md:col-span-1 bg-slate-800 p-5 rounded-lg border border-slate-600 flex flex-col gap-4">
+                <h2 class="text-xl font-semibold text-emerald-400 mb-2 border-b border-slate-600 pb-2">Controles</h2>
+                
+                <!-- Magnitud (Vm) -->
+                <div>
+                    <label class="flex justify-between text-sm font-medium mb-1">
+                        <span>Magnitud (V<sub>m</sub>)</span>
+                        <span id="magValue" class="text-blue-300 font-mono">100</span>
+                    </label>
+                    <input type="range" id="magnitude" min="10" max="150" value="100">
+                </div>
+
+                <!-- Ángulo de Fase (Theta) -->
+                <div>
+                    <label class="flex justify-between text-sm font-medium mb-1">
+                        <span>Ángulo de Fase (&theta;)</span>
+                        <span id="phaseValue" class="text-blue-300 font-mono">30°</span>
+                    </label>
+                    <input type="range" id="phase" min="-180" max="180" value="30">
+                </div>
+
+                <!-- Frecuencia Angular (Omega) -->
+                <div>
+                    <label class="flex justify-between text-sm font-medium mb-1">
+                        <span>Velocidad Angular (&omega;)</span>
+                        <span id="omegaValue" class="text-blue-300 font-mono">1.0</span>
+                    </label>
+                    <input type="range" id="omega" min="0.1" max="5.0" step="0.1" value="1.0">
+                </div>
+
+                <!-- Botones de Acción -->
+                <div class="flex gap-2 mt-4">
+                    <button id="btnPlayPause" class="flex-1 bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded transition-colors duration-200">
+                        Pausar
+                    </button>
+                    <button id="btnReset" class="flex-1 bg-slate-600 hover:bg-slate-500 text-white font-bold py-2 px-4 rounded transition-colors duration-200">
+                        Reiniciar
+                    </button>
+                </div>
+
+                <!-- Leyenda de Colores -->
+                <div class="mt-4 text-sm bg-slate-900 p-3 rounded">
+                    <div class="flex items-center gap-2 mb-1">
+                        <div class="w-3 h-3 rounded-full bg-emerald-400"></div>
+                        <span>Fasor Estático (t = 0)</span>
+                    </div>
+                    <div class="flex items-center gap-2 mb-1">
+                        <div class="w-3 h-3 rounded-full bg-blue-500"></div>
+                        <span>Fasor Giratorio (t &gt; 0)</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <div class="w-3 h-3 rounded-full bg-orange-400"></div>
+                        <span>Señal en el Tiempo v(t)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Área de Lienzo (Canvas) -->
+            <div class="md:col-span-2 flex flex-col gap-4">
+                <!-- Canvas para los Fasores (Plano Complejo) -->
+                <div class="relative w-full aspect-square md:aspect-auto md:h-64">
+                    <canvas id="phasorCanvas" class="w-full h-full"></canvas>
+                    <div class="absolute top-2 left-2 text-xs text-slate-400 font-mono bg-slate-900/80 px-2 py-1 rounded">Plano Complejo (Im vs Re)</div>
+                </div>
+                
+                <!-- Canvas para la Señal en el Tiempo -->
+                <div class="relative w-full h-40">
+                    <canvas id="timeCanvas" class="w-full h-full"></canvas>
+                    <div class="absolute top-2 left-2 text-xs text-slate-400 font-mono bg-slate-900/80 px-2 py-1 rounded">Dominio del Tiempo v(t)</div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <script>
+        // === Elementos del DOM ===
+        const magSlider = document.getElementById('magnitude');
+        const phaseSlider = document.getElementById('phase');
+        const omegaSlider = document.getElementById('omega');
+        
+        const magDisplay = document.getElementById('magValue');
+        const phaseDisplay = document.getElementById('phaseValue');
+        const omegaDisplay = document.getElementById('omegaValue');
+        
+        const btnPlayPause = document.getElementById('btnPlayPause');
+        const btnReset = document.getElementById('btnReset');
+        
+        const phasorCanvas = document.getElementById('phasorCanvas');
+        const ctxPhasor = phasorCanvas.getContext('2d');
+        
+        const timeCanvas = document.getElementById('timeCanvas');
+        const ctxTime = timeCanvas.getContext('2d');
+
+        // === Variables de Estado ===
+        let Vm = parseFloat(magSlider.value);
+        let thetaDeg = parseFloat(phaseSlider.value); // Ángulo en grados
+        let thetaRad = thetaDeg * (Math.PI / 180);    // Ángulo en radianes
+        let omega = parseFloat(omegaSlider.value);
+        
+        let time = 0;
+        let isPlaying = true;
+        let animationId;
+        
+        // Historial para dibujar la onda senoidal
+        const timeHistoryLength = 300; // Número de puntos a guardar
+        let waveHistory = [];
+
+        // Colores temáticos
+        const colors = {
+            grid: '#334155',      // Slate 700
+            axes: '#64748b',      // Slate 500
+            staticP: '#34d399',   // Emerald 400 (Fasor que tomamos en la "foto")
+            rotatingP: '#3b82f6', // Blue 500 (Fasor real girando)
+            wave: '#fb923c',      // Orange 400 (Onda en el tiempo)
+            text: '#cbd5e1'       // Slate 300
+        };
+
+        // === Funciones de Redimensionamiento ===
+        function resizeCanvas() {
+            // Ajustar el canvas de fasores para que sea cuadrado visualmente,
+            // o tomar el tamaño del contenedor
+            phasorCanvas.width = phasorCanvas.clientWidth;
+            phasorCanvas.height = phasorCanvas.clientHeight;
+            
+            timeCanvas.width = timeCanvas.clientWidth;
+            timeCanvas.height = timeCanvas.clientHeight;
+        }
+
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            if (!isPlaying) drawFrame(); // Redibujar si está pausado
+        });
+
+        // === Funciones de Dibujo ===
+
+        function drawGrid(ctx, width, height, centerX, centerY, scale) {
+            ctx.strokeStyle = colors.grid;
+            ctx.lineWidth = 1;
+            
+            // Cuadrícula concéntrica (Círculos)
+            for(let r = 50; r <= 200; r += 50) {
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, r * scale, 0, Math.PI * 2);
+                ctx.stroke();
+            }
+
+            // Ejes principales
+            ctx.strokeStyle = colors.axes;
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(0, centerY);
+            ctx.lineTo(width, centerY); // Eje Real
+            ctx.moveTo(centerX, 0);
+            ctx.lineTo(centerX, height); // Eje Imaginario
+            ctx.stroke();
+
+            // Etiquetas de ejes
+            ctx.fillStyle = colors.text;
+            ctx.font = '12px monospace';
+            ctx.fillText('Re', width - 20, centerY - 10);
+            ctx.fillText('j (Im)', centerX + 10, 20);
+        }
+
+        function drawArrow(ctx, fromX, fromY, toX, toY, color, width = 3) {
+            const headlen = 10; // Longitud de la cabeza de la flecha
+            const angle = Math.atan2(toY - fromY, toX - fromX);
+
+            ctx.strokeStyle = color;
+            ctx.fillStyle = color;
+            ctx.lineWidth = width;
+
+            // Línea principal
+            ctx.beginPath();
+            ctx.moveTo(fromX, fromY);
+            ctx.lineTo(toX, toY);
+            ctx.stroke();
+
+            // Cabeza de la flecha
+            ctx.beginPath();
+            ctx.moveTo(toX, toY);
+            ctx.lineTo(toX - headlen * Math.cos(angle - Math.PI / 6), toY - headlen * Math.sin(angle - Math.PI / 6));
+            ctx.lineTo(toX - headlen * Math.cos(angle + Math.PI / 6), toY - headlen * Math.sin(angle + Math.PI / 6));
+            ctx.lineTo(toX, toY);
+            ctx.fill();
+        }
+
+        function drawPhasors() {
+            ctxPhasor.clearRect(0, 0, phasorCanvas.width, phasorCanvas.height);
+            
+            const centerX = phasorCanvas.width / 2;
+            const centerY = phasorCanvas.height / 2;
+            
+            // Escala para que Vm=150 quepa bien en el canvas
+            const maxRadius = Math.min(centerX, centerY) * 0.8;
+            const scale = maxRadius / 150; 
+
+            drawGrid(ctxPhasor, phasorCanvas.width, phasorCanvas.height, centerX, centerY, scale);
+
+            const r = Vm * scale;
+
+            // 1. FASOR ESTÁTICO (La "foto" en t=0)
+            // Coseno es X (Real), Seno es Y (Imaginario). 
+            // Restamos en Y porque en Canvas Y crece hacia abajo.
+            const staticX = centerX + r * Math.cos(thetaRad);
+            const staticY = centerY - r * Math.sin(thetaRad);
+            
+            // Dibujar arco del ángulo Theta
+            ctxPhasor.strokeStyle = colors.staticP;
+            ctxPhasor.lineWidth = 1;
+            ctxPhasor.setLineDash([5, 5]);
+            ctxPhasor.beginPath();
+            // Invertimos dirección de dibujo por el eje Y del canvas
+            ctxPhasor.arc(centerX, centerY, r*0.3, 0, -thetaRad, thetaRad > 0); 
+            ctxPhasor.stroke();
+            ctxPhasor.setLineDash([]);
+            
+            drawArrow(ctxPhasor, centerX, centerY, staticX, staticY, colors.staticP, 3);
+            
+            // Etiqueta del fasor estático
+            ctxPhasor.fillStyle = colors.staticP;
+            ctxPhasor.fillText(`V\u2220${thetaDeg.toFixed(0)}°`, staticX + 5, staticY - 5);
+
+
+            // 2. FASOR GIRATORIO (Dependiente del tiempo: wt + theta)
+            const currentAngleRad = (omega * time) + thetaRad;
+            const rotX = centerX + r * Math.cos(currentAngleRad);
+            const rotY = centerY - r * Math.sin(currentAngleRad);
+
+            // Círculo de trayectoria
+            ctxPhasor.strokeStyle = colors.rotatingP + '40'; // con opacidad
+            ctxPhasor.lineWidth = 1;
+            ctxPhasor.beginPath();
+            ctxPhasor.arc(centerX, centerY, r, 0, Math.PI * 2);
+            ctxPhasor.stroke();
+
+            drawArrow(ctxPhasor, centerX, centerY, rotX, rotY, colors.rotatingP, 3);
+
+            // Dibujar línea de proyección hacia el eje Real (Coseno = Valor Instantáneo)
+            ctxPhasor.strokeStyle = colors.wave;
+            ctxPhasor.lineWidth = 1;
+            ctxPhasor.setLineDash([4, 4]);
+            ctxPhasor.beginPath();
+            ctxPhasor.moveTo(rotX, rotY);
+            ctxPhasor.lineTo(rotX, centerY); // Proyección al eje horizontal
+            ctxPhasor.stroke();
+            ctxPhasor.setLineDash([]);
+            
+            // Marcar el punto de proyección
+            ctxPhasor.fillStyle = colors.wave;
+            ctxPhasor.beginPath();
+            ctxPhasor.arc(rotX, centerY, 4, 0, Math.PI*2);
+            ctxPhasor.fill();
+
+            // Guardar el valor instantáneo (Coseno) para la gráfica de tiempo
+            // Normalizado sin escalar para guardarlo limpio
+            const instantValue = Vm * Math.cos(currentAngleRad);
+            
+            return instantValue;
+        }
+
+        function drawTimeWave(instantValue) {
+            ctxTime.clearRect(0, 0, timeCanvas.width, timeCanvas.height);
+            
+            const w = timeCanvas.width;
+            const h = timeCanvas.height;
+            const centerY = h / 2;
+            
+            // Escala vertical: max Vm es 150, dejamos margen
+            const scaleY = (h * 0.4) / 150; 
+
+            // Ejes de la gráfica de tiempo
+            ctxTime.strokeStyle = colors.axes;
+            ctxTime.lineWidth = 1;
+            ctxTime.beginPath();
+            ctxTime.moveTo(0, centerY);
+            ctxTime.lineTo(w, centerY); // Eje de tiempo
+            ctxTime.moveTo(w - 20, 0);
+            ctxTime.lineTo(w - 20, h);  // Eje de amplitud (lo ponemos a la derecha como un osciloscopio antiguo)
+            ctxTime.stroke();
+            
+            // Texto del eje
+            ctxTime.fillStyle = colors.text;
+            ctxTime.font = '12px monospace';
+            ctxTime.fillText('t', w - 15, centerY - 5);
+            ctxTime.fillText('v(t)', w - 45, 15);
+
+            // Actualizar el historial
+            if (isPlaying) {
+                waveHistory.unshift(instantValue);
+                if (waveHistory.length > w) {
+                    waveHistory.pop();
+                }
+            }
+
+            // Dibujar la onda
+            ctxTime.strokeStyle = colors.wave;
+            ctxTime.lineWidth = 2;
+            ctxTime.beginPath();
+            
+            for (let i = 0; i < waveHistory.length; i++) {
+                // Dibujamos de derecha (i=0, presente) a izquierda (pasado)
+                const x = (w - 20) - i; 
+                const y = centerY - (waveHistory[i] * scaleY); // Restamos porque Y crece hacia abajo
+                
+                if (i === 0) {
+                    ctxTime.moveTo(x, y);
+                    // Dibujar el punto actual más grande
+                    ctxTime.fillStyle = colors.wave;
+                    ctxTime.arc(x, y, 4, 0, Math.PI*2);
+                    ctxTime.fill();
+                    ctxTime.moveTo(x, y); // Regresar al punto para continuar la línea
+                } else {
+                    ctxTime.lineTo(x, y);
+                }
+            }
+            ctxTime.stroke();
+        }
+
+        // === Bucle Principal de Animación ===
+        function drawFrame() {
+            const instantValue = drawPhasors();
+            drawTimeWave(instantValue);
+        }
+
+        function animate() {
+            if (isPlaying) {
+                // Incremento de tiempo ajustado por la velocidad omega
+                // Un factor de 0.05 da una animación suave a 60fps
+                time += 0.05; 
+                drawFrame();
+            }
+            animationId = requestAnimationFrame(animate);
+        }
+
+        // === Event Listeners ===
+        
+        // Actualizar valores desde los sliders
+        magSlider.addEventListener('input', (e) => {
+            Vm = parseFloat(e.target.value);
+            magDisplay.textContent = Vm;
+            if (!isPlaying) drawFrame();
+        });
+
+        phaseSlider.addEventListener('input', (e) => {
+            thetaDeg = parseFloat(e.target.value);
+            thetaRad = thetaDeg * (Math.PI / 180);
+            phaseDisplay.textContent = thetaDeg + '°';
+            if (!isPlaying) drawFrame();
+        });
+
+        omegaSlider.addEventListener('input', (e) => {
+            omega = parseFloat(e.target.value);
+            omegaDisplay.textContent = omega.toFixed(1);
+        });
+
+        // Controles de reproducción
+        btnPlayPause.addEventListener('click', () => {
+            isPlaying = !isPlaying;
+            btnPlayPause.textContent = isPlaying ? 'Pausar' : 'Reanudar';
+            btnPlayPause.className = isPlaying 
+                ? 'flex-1 bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded transition-colors duration-200'
+                : 'flex-1 bg-orange-500 hover:bg-orange-400 text-white font-bold py-2 px-4 rounded transition-colors duration-200';
+        });
+
+        btnReset.addEventListener('click', () => {
+            time = 0;
+            waveHistory = [];
+            if (!isPlaying) drawFrame();
+        });
+
+        // Inicialización
+        window.onload = function() {
+            resizeCanvas();
+            drawFrame(); // Dibujar el estado inicial inmediatamente
+            animate();   // Iniciar el bucle de animación
+        };
+
+    </script>
+</body>
+</html>
