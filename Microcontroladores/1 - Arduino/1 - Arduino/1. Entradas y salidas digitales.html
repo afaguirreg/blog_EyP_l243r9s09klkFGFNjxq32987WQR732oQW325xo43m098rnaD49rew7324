@@ -6,7 +6,9 @@
 		<link rel="stylesheet" type="text/css" href="../../../0 - styles/mystyles.css">
 		<script language="JavaScript" src="../../../0 - scripts/myscripts.js"></script>
 		<script type="text/javascript" src="../../../0 - scripts/jquery/jquery.min.js"></script>
+		<script language="JavaScript" src="../../../0 - scripts/zoom/jquery.elevatezoom.js"></script>
 		<script type="text/javascript" src="../../../0 - scripts/iframe/iframeResizer.min.js"></script>
+		<script type="text/javascript" src="../../../0 - scripts/iframe/iframeResizer.contentWindow.min.js" defer></script>
 	</head>
 
 	<body>
@@ -17,15 +19,12 @@
 			<a id="Salida digital pin"></a>
 			<b><i>1.1 Salida digital pin</i></b>
 			<br><br>
-			<input type="button" onClick="document.getElementById('img_zoom_1').src = 'img/2.1.1_b.png'; LoadImages();" value="Ver circuito Wokwi">
-			<input type="button" onClick="document.getElementById('img_zoom_1').src = 'img/2.1.1_b.png'; LoadImages();" value="Ver circuito TinkerCAD">
-			<input type="button" onClick="document.getElementById('img_zoom_1').src = 'img/2.1.1_c.png'; LoadImages();" value="Ver circuito Proteus">
+			<input type="button" onClick="document.getElementById('img_zoom_1').src = '../video/1.1_a.png'; LoadImages();" value="Ver circuito Proteus">
+			<input type="button" onClick="document.getElementById('img_zoom_1').src = '../video/1.1_b.png'; LoadImages();" value="Ver circuito Wokwi">
 			<br><br>
-			<video controls controlslist="nodownload" preload="preload" loop>
-				<source src="../video/1.1%20Salida%20digital%20pin.webm" type="video/webm">
-			</video>
+			<div align="center"><img id="img_zoom_1" src="../video/1.1_a.png" alt="" width="1000" height="auto"></div>
 			<br>
-			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" marginwidth="0" src="html/1.1.html"></iframe>
+			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" marginwidth="0" src="html/1.1.html?LED_BUILTIN=LED_BUILTIN"></iframe>
 			<br><br><br>
 			<a id="Salida digital puerto"></a>
 			<b><i>1.2 Salida digital puerto</i></b>

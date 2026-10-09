@@ -11,10 +11,10 @@
 		<script type="text/javascript" src="../../0 - scripts/iframe/iframeResizer.contentWindow.min.js" defer></script>
 	</head>
 
-	<body>
+	<body onLoad="LoadImages();">
 		<div class="Normal" style="text-align:justify">
 			<a id="Ejemplo Blink"></a>
-			<b><i>Arduino UNO R3 + OLED SSD1306</i></b>
+			<b><i>Arduino Nano + OLED SSD1306</i></b>
 			<br><br>
 			<b><i>1 - Ejemplo Blink</i></b>
 			<br><br>
@@ -29,13 +29,13 @@
 			<br>
 			Modificar el código. En este ejemplo el LED incorporado en la tarjeta cambiará de estado cada segundo (1000 ms).
 			<br>
-			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" marginwidth="0" src="html/2.1.1_a.html?LED_BUILTIN=LED_BUILTIN"></iframe>
+			<iframe class="pag" id="ifrm1" name="ifrm1" scrolling="no" marginwidth="0" src="html/1.1.1_a.html?LED_BUILTIN=LED_BUILTIN"></iframe>
 			<br><br>
-			Cargar el programa al dispositivo Arduino UNO R3 (verificar que haya seleccionado el puerto correspondiente).
+			Cargar el programa al dispositivo Arduino Nano (verificar que haya seleccionado el puerto correspondiente).
 			<br><br>
-			Esperar a que el programa indique que el sketch ha sido subido al dispositivo Arduino UNO R3.
+			Esperar a que el programa indique que el sketch ha sido subido al dispositivo Arduino Nano.
 			<br><br>
-			<div align="center"><img src="img/IoT/IoT_7c.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/IoT/IoT_7e.png" alt="" width="auto" height="auto"></div>
 			<br><br>
 			<a id="Visualizacion display"></a>
 			<b><i>2 - Visualización display</i></b>
@@ -63,7 +63,7 @@
 			<br><br>
 			<p class="MsoNormal" style="margin-bottom:.0001pt;line-height:14.25pt;background:white;"><span style="font-family:Consolas; font-size:10.5pt; color:#728E00; ">#define</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "> </span><span style="font-family:Consolas; font-size:10.5pt; color:#D35400; ">SCREEN_HEIGHT</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "> </span><span style="font-family:Consolas; font-size:10.5pt; color:#005C5F; ">64</span><span style="font-family:Consolas; font-size:10.5pt; color:#95A5A6; "> // OLED display height, in pixels</span><span style="font-family:Consolas; font-size:10.5pt; color:#4E5B61; "> </span></p>
 			<br>
-			<iframe class="pag" id="ifrm2" name="ifrm2" scrolling="no" marginwidth="0" src="html/2.2.2_a.html"></iframe>
+			<iframe class="pag" id="ifrm2" name="ifrm2" scrolling="no" marginwidth="0" src="html/1.2.2_a.html"></iframe>
 			<br><br><br>
 			<a id="Entradas y salidas digitales"></a>
 			<b><i>3 - Entradas y salidas digitales</i></b>
@@ -71,7 +71,7 @@
 			<input type="button" onClick="document.getElementById('img_zoom_3').src = 'img/2.2.3_a.png'; LoadImages();" value="Ver circuito Proteus">
 			<input type="button" onClick="document.getElementById('img_zoom_3').src = 'img/2.2.3_b.png'; LoadImages();" value="Ver circuito Wokwi">
 			<br><br>
-			<div align="center"><img id="img_zoom_3" src="img/2.2.3_d.png" alt="" width="1000" height="auto"></div>
+			<div align="center"><img id="img_zoom_3" src="img/2.2.3_a.png" alt="" width="1000" height="auto"></div>
 			<br>
 			<iframe class="pag" id="ifrm3" name="ifrm3" scrolling="no" marginwidth="0" src="html/2.2.3_a.html"></iframe>
 			<br><br><br>
@@ -100,7 +100,7 @@
 			<br><br>
 			<div align="center"><img id="img_zoom_6" src="img/2.2.6_a.png" alt="" width="1000" height="auto"></div>
 			<br>
-			<iframe class="pag" id="ifrm6" name="ifrm6" scrolling="no" marginwidth="0" src="html/2.2.6_a.html?boton_inc=2&boton_dec=3&boton_reset=4"></iframe>
+			<iframe class="pag" id="ifrm6" name="ifrm6" scrolling="no" marginwidth="0" src="html/1.2.6_a.html?boton_inc=6&boton_dec=7&boton_reset=8"></iframe>
 			<br><br><br>
 			<a id="Entrada analoga"></a>
 			<b><i>7 - Entrada análoga</i></b>
@@ -110,25 +110,22 @@
 			<br><br>
 			<div align="center"><img id="img_zoom_7" src="img/2.2.7_a.png" alt="" width="1000" height="auto"></div>
 			<br>
-			<iframe class="pag" id="ifrm7" name="ifrm7" scrolling="no" marginwidth="0" src="html/2.2.7_a.html?pin_A0=A0"></iframe>
+			<iframe class="pag" id="ifrm7" name="ifrm7" scrolling="no" marginwidth="0" src="html/1.2.7_a.html?pin_A0=0"></iframe>
 			<br><br><br>
 			<a id="Salida analoga (PWM)"></a>
 			<b><i>8 - Salida análoga (PWM)</i></b>
 			<br><br>
-			<input type="button" onClick="document.getElementById('img_zoom_8').src = 'img/2.2.8_a.png'; LoadImages();" value="Ver circuito Proteus">
-			<input type="button" onClick="document.getElementById('img_zoom_8').src = 'img/2.2.8_b.png'; LoadImages();" value="Ver circuito Wokwi">
-			<br><br>
 			<div align="center"><img id="img_zoom_8" src="img/2.2.8_a.png" alt="" width="1000" height="auto"></div>
 			<br>
-			<iframe class="pag" id="ifrm8" name="ifrm8" scrolling="no" marginwidth="0" src="html/2.2.8_a.html?pin_0=A0&pin_PWM=11"></iframe>
+			<iframe class="pag" id="ifrm8" name="ifrm8" scrolling="no" marginwidth="0" src="html/1.2.8_a.html?pin_0=A0&pin_PWM=5"></iframe>
 			<br><br><br>
 			<a id="Comunicacion One Wire sensor DS18B20"></a>
 			<b><i>9 - Comunicación One Wire: sensor DS18B20</i></b>
 			<br><br>
-			<input type="button" onClick="document.getElementById('img_zoom_9').src = 'img/2.2.9_a.png'; LoadImages();" value="Ver circuito Proteus">
+			<!--<input type="button" onClick="document.getElementById('img_zoom_9').src = 'img/2.2.9_a.png'; LoadImages();" value="Ver circuito Proteus">
 			<input type="button" onClick="document.getElementById('img_zoom_9').src = 'img/2.2.9_b.png'; LoadImages();" value="Ver circuito Wokwi">
-			<br><br>
-			<div align="center"><img id="img_zoom_9" src="img/2.2.9_a.png" alt="" width="1000" height="auto"></div>
+			<br><br>-->
+			<div align="center"><img id="img_zoom_9" src="img/2.2.9_b.png" alt="" width="1000" height="auto"></div>
 			<br>
 			Acceder a <b><i>LIBRARY MANAGER</i></b>, buscar e instalar la librería <b><i>DallasTemperature</i></b>
 			<br><br>
@@ -138,17 +135,17 @@
 			<br><br>
 			<div align="center"><img src="img/IoT/IoT_10a.png" alt="" width="auto" height="auto"></div>
 			<br>
-			<iframe class="pag" id="ifrm9" name="ifrm9" scrolling="no" marginwidth="0" src="html/2.2.9_a.html?ONE_WIRE_BUS=A3"></iframe>
+			<iframe class="pag" id="ifrm9" name="ifrm9" scrolling="no" marginwidth="0" src="html/1.2.9_a.html?ONE_WIRE_BUS=3"></iframe>
 			<br><br><br>
 			<a id="Comunicacion One Wire sensor DHT22"></a>
 			<b><i>10 - Comunicación One Wire: sensor DHT22</i></b>
 			<br><br>
-			<input type="button" onClick="document.getElementById('img_zoom_10').src = 'img/2.2.10_a.png'; LoadImages();" value="Ver circuito Proteus">
+			<!--<input type="button" onClick="document.getElementById('img_zoom_10').src = 'img/2.2.10_a.png'; LoadImages();" value="Ver circuito Proteus">
 			<input type="button" onClick="document.getElementById('img_zoom_10').src = 'img/2.2.10_b.png'; LoadImages();" value="Ver circuito Wokwi">
-			<br><br>
-			<div align="center"><img id="img_zoom_10" src="img/3.6.10_a.png" alt="" width="1000" height="auto"></div>
+			<br><br>-->
+			<div align="center"><img id="img_zoom_10" src="img/2.2.10_b.png" alt="" width="1000" height="auto"></div>
 			<br>
-			<iframe class="pag" id="ifrm10" name="ifrm10" scrolling="no" marginwidth="0" src="html/2.2.10_a.html?DHTPIN=A3"></iframe>
+			<iframe class="pag" id="ifrm10" name="ifrm10" scrolling="no" marginwidth="0" src="html/1.2.10_a.html?DHTPIN=3"></iframe>
 			<br><br><br>
 			<a id="Comunicacion serial asincrona (UART)"></a>
 			<b><i>11 - Comunicación serial asíncrona (UART)</i></b>
@@ -156,19 +153,19 @@
 			<input type="button" onClick="document.getElementById('img_zoom_11').src = 'img/2.2.11_a.png'; LoadImages();" value="Ver circuito Proteus">
 			<input type="button" onClick="document.getElementById('img_zoom_11').src = 'img/2.2.11_b.png'; LoadImages();" value="Ver circuito Wokwi">
 			<br><br>
-			<div align="center"><img id="img_zoom_11" src="img/3.6.11_a.png" alt="" width="1000" height="auto"></div>
+			<div align="center"><img id="img_zoom_11" src="img/2.2.11_a.png" alt="" width="1000" height="auto"></div>
 			<br>
-			<iframe class="pag" id="ifrm11" name="ifrm11" scrolling="no" marginwidth="0" src="html/2.2.11_a.html?pin_A0=A0"></iframe>
+			<iframe class="pag" id="ifrm11" name="ifrm11" scrolling="no" marginwidth="0" src="html/1.2.11_a.html?pin_A0=A0"></iframe>
 			<br>
 			Cargar el programa en el dispositivo y abrir el menú <b><i>Herramientas--&gt;Monitor Serie</i></b> para visualizar los datos enviados por el dispositivo.
 			<br><br>
-			<div align="center"><img src="img/IoT/IoT_14a.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/IoT/IoT_14e.png" alt="" width="auto" height="auto"></div>
 			<br>
 			<div align="center"><img src="img/IoT/IoT_15.png" alt="" width="auto" height="auto"></div>
 			<br>
 			Abrir el menú <b><i>Herramientas--&gt;Serial Plotter</i></b> para visualizar gráficamente la señal análoga medida por el dispositivo.
 			<br><br>
-			<div align="center"><img src="img/IoT/IoT_16a.png" alt="" width="auto" height="auto"></div>
+			<div align="center"><img src="img/IoT/IoT_16e.png" alt="" width="auto" height="auto"></div>
 			<br>
 			<div align="center"><img src="img/IoT/IoT_17.png" alt="" width="auto" height="auto"></div>
 			<br><br>
@@ -192,7 +189,9 @@
 		</div>
 		<script>
 			function LoadImages(){
-				$('#img_zoom_7').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+				$('#img_zoom_3').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+				$('#img_zoom_4').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
+				$('#img_zoom_5').elevateZoom({ zoomLevel: 0, zoomType : "lens", lensShape : "round", lensSize : 200 });
 			}
 		</script>
 	    <script type="text/javascript">
